@@ -8,11 +8,11 @@
 		<!-- Meta data -->
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
-		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
-		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-fr.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-fr.js"></script>
 		<link href="https://www.canada.ca/content/dam/phac-aspc/documents/services/diseases/coronavirus-disease-covid-19/covid-styles.css" rel="stylesheet">
 		<!-- Write closure template -->
-		<script type="text/javascript">
+		<script>
 			document.write(wet.builder.refTop({
 			}));
 		</script>
@@ -33,7 +33,7 @@
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="def-top"></div>
 		<!-- Write closure template -->
-		<script type="text/javascript">
+		<script>
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.top({
 				lngLinks: [{
@@ -58,7 +58,7 @@
 				showPreContent: true
 			});
 		</script>
-		<main role="main" property="mainContentOfPage" class="container">
+		<main property="mainContentOfPage" class="container">
 			<div class="row">
 				<div class="banner-2">
 					<div class="container">
@@ -87,6 +87,7 @@
 								<li><a href="./current-situation/latest.html">Dernières annonces</a></li>
 							</ul>
 						</div>
+					</div>
 				</section>
 				<section class="well-sm">
 					<div class="container">
@@ -155,13 +156,6 @@
 							<th scope="col" class="col-sm-4">Nombre de cas probables</th>
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<td><strong>Total de cas</strong></td>
-							<td><strong>846</strong></td>
-							<td><strong>27</strong></td>
-						</tr>
-					</tfoot>
 					<tbody>
 						<tr>
 							<td>Colombie-Britannique</td>
@@ -234,6 +228,13 @@
 							<td>0</td>
 						</tr>
 					</tbody>
+					<tfoot>
+						<tr>
+							<td><strong>Total de cas</strong></td>
+							<td><strong>846</strong></td>
+							<td><strong>27</strong></td>
+						</tr>
+					</tfoot>
 				</table>
 				<div class="mwsgeneric-base-html parbase section">
 					<div class="bg-info mrgn-tp-xl mrgn-bttm-lg" id="faq">
@@ -366,7 +367,7 @@
 			</div>
 			<div id="def-preFooter"></div>
 			<!-- Write closure template -->
-			<script type="text/javascript">
+			<script>
 				var defPreFooter = document.getElementById("def-preFooter");
 				defPreFooter.outerHTML = wet.builder.preFooter({
 						dateModified: "2020-03-13",
@@ -378,7 +379,7 @@
 		</main>
 		<div id="def-footer"></div>
 		<!-- Write closure template -->
-		<script type="text/javascript">
+		<script>
 			var defFooter = document.getElementById("def-footer");
 				defFooter.outerHTML = wet.builder.footer({
 					showFooter: true,
@@ -386,10 +387,10 @@
 				});
 		</script>
 		<!-- Write closure template -->
-		<script type="text/javascript">
+		<script>
 				document.write(wet.builder.refFooter({
 				}));
 		</script>
-		<script type="text/javascript" src="js/linkSwap.js"></script>
+		<script></script>
 	</body>
 </html>
