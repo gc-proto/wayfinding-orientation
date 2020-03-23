@@ -46,7 +46,7 @@
 			});
 </script>
 
-<main role="main" property="mainContentOfPage" class="container">
+<main role="main" property="mainContentOfPage" class="container wb-prettify">
 
 <h1>Alertes et perturbations de service Canada.ca</h1>
 <p>Ces recommandations contribueront à uniformiser les communications de chaque ministère sur les interruptions de service en cas de crise.</p>
@@ -54,27 +54,47 @@
 	<section>
 		<h2>Sur cette page</h2>
 		<ul>
-			<li><a href="#1">Comment utiliser les alertes en temps de crise</a></li>
-			<li><a href="#3">Alertes: quoi faire et ne pas faire</a></li>
-			<li><a href="#4">Alertes multiples sur la même question/situation</a></li>
+			<li><a href="#alertes">Comment utiliser les alertes en temps de crise</a></li>
+			<li><a href="#exemples">Exemples et code</a></li>
+			<li><a href="#eviter">Quoi éviter</a></li>
+			<li><a href="#multiple">Alertes multiples: page ministérielle de perturbation de service</a></li>
 		</ul>
 	</section>
 
 <section>
-	   <h2 id="1">Comment utiliser les alertes en temps de crise</h2>
+	   <h2 id="alertes">Comment utiliser les alertes en temps de crise</h2>
 
-		 <p>Utilisez les <a href="https://conception.canada.ca/configurations-conception-communes/alertes-contextuelles.html">alertes contextuelles</a> :</p>
+		 <p>Les alertes sont destinées à attirer l'attention sur les changements au contenu régulier, de 2 façons :</p>
 		 <ul>
-			<li>Mettre en oeuvre aux points de prestation des services concernés, tels que les pages de lancement de service, les pages de contact, etc.</li>
+		 	<li>une modification du contenu de la page sur laquelle le signalement apparaît - dans ce cas, placez le signalement à côté du contenu mis à jour</li>
+		 	<li>un changement qui a été effectué ailleurs, comme la publication de nouveaux renseignements - dans ce cas, un lien vers les nouveaux renseignements placé dans l’alerte elle-même</li>
+		 </ul>
+
+		 <h3>Où placer des alertes</h3>
+		 <ul>
+			<li>Ajouter des aletes aux points de prestation des services concernés, tels que les pages de lancement de service, les pages de contact, etc.</li>
 			<li>Limiter la mise en oeuvre au-delà des points de prestation de service pour éviter la "fatigue d'alerte".</li>
 		</ul>
-
+			<h3>Quoi inclure dans les alertes</h3>
 		<p>Le contenu des alertes devrait :</p>
 		<ul>
 		 <li>expliquer pourquoi le service est interrompu ou pourquoi l'alerte est nécessaire</li>
 		 <li>décrire les conséquences pour l'utilisateur</li>
 		 <li>être adapté à la page sur laquelle il figure</li>
 		 <li>inclure un lien unique vers les sites où les mises à jour sont disponibles</li>
+	 </ul>
+
+	 <h3>Lignes directrices</h3>
+	 <ul>
+	 	<li>Utiliser les alertes à titre temporaire uniquement - tout au plus pendant quelques jours ou quelques semaines.</li>
+	 	<li>Placer l'alerte au point de service ou au niveau de la tâche.</li>
+		<li>Garder les alertes brèves</li>
+	 	<li>Utilisez des alertes uniquement pour les situations importantes qui touchent la plupart des utilisateurs :
+	 			<ul>
+	 				<li>sur la page d'accueil de Canada.ca, n'utilisez que lorsque au moins 50 % de la population est touchée</li>
+	 				<li>sur les pages d'accueil des institutions, à n'utiliser que lorsque > 40 % des utilisateurs sont concernés</li>
+	 			</ul>
+	 </li>
 	 </ul>
 
 <section>
@@ -92,7 +112,7 @@
 		</dl>
 </section>
 
-<h3>Exemple d'une alerte d'avertissement</h3>
+<h2 id="exemples">Exemples et code</h2>
 <div class="well">
 		<section class="alert alert-warning">
 				<h3>Perturbation de service</h3>
@@ -110,20 +130,8 @@
 &#x3C;/section&#x3E;</code></pre>
 		<p>Changer la classe "alert-warning" pour la classe  "alert-info", "alert-danger" ou "alert-success", en fonction du type d'alerte.</p>
 </details>
+<p>Utilisez le <a href="https://conception.canada.ca/configurations-conception-communes/alertes-contextuelles.html">modèle d'alertes contextuelles</a> </p>
 
-<section>
-<h2 id="3">Alertes : quoi faire et ne pas faire</h2>
-<h3>À faire</h3>
-<ul>
-	<li>Utiliser les alertes à titre temporaire uniquement - tout au plus pendant quelques jours ou quelques semaines.</li>
-	<li>Placer l'alerte au point de service ou au niveau de la tâche.</li>
-	<li>Utilisez des alertes uniquement pour les situations importantes qui touchent la plupart des utilisateurs :
-			<ul>
-				<li>sur la page d'accueil de Canada.ca, n'utilisez que lorsque au moins 50 % de la population est touchée</li>
-				<li>sur les pages d'accueil des institutions, à n'utiliser que lorsque > 40 % des utilisateurs sont concernés</li>
-			</ul>
-</li>
-</ul>
 <p>Les alertes sont particulièrement encouragées sur les types de pages suivants :</p>
 <ul>
 	<li><a href="https://design.canada.ca/alerts-alertes/alertes-fr-sit.html">Page de lancement de service</a></li>
@@ -131,28 +139,20 @@
 	<li><a href="https://design.canada.ca/alerts-alertes/alertes-fr-ilp.html">Page d'accueil institutionnelle bêta</a></li>
 	<li><a href="https://design.canada.ca/alerts-alertes/alertes-fr-profil-inst-stable.html">Page de profil institutionnel</a></li>
 </ul>
-
-
-	   <p>Les alertes devraient être sont destinées à attirer l'attention sur les changements au contenu régulier, de deux façons :</p>
-		 <ul>
-			 <li>une modification du contenu de la page sur laquelle le signalement apparaît - dans ce cas, placez le signalement à côté du contenu mis à jour</li>
-			 <li>un changement qui a été effectué ailleurs, comme la publication de nouveaux renseignements - dans ce cas, un lien vers les nouveaux renseignements placé dans l’alerte elle-même</li>
-		 </ul>
-
-</section>
-<h3>À ne pas faire</h3>
+<section>
+<h2 id="eviter">Quoi éviter</h2>
 <ul>
-<li>Ne pas utilisez les alertes comme un contenu régulier </li>
+<li>N'utilisez pas les alertes pour souligner du contenu régulier </li>
 	<li>Ne pas avoir trop d'alertes - limiter le nombre d'alertes sur chaque page et le nombre d'alertes utilisées sur les différentes pages - idéalement 1, maximum 2.</li>
-	<li>Ne pas utiliser les alertes pour mettre en évidence le contenu permanent.</li>
+	<li>N'utilisez pas les alertes pour donner tous les détails dune stuation - gardez les alertes brèves</li>
 
 </ul>
 </section>
 <section>
-<h2 id="4">Alertes multiples : page ministérielle de perturbation de service</h2>
+<h2 id="multiple">Alertes multiples : page ministérielle de perturbation de service</h2>
 
 
-<p>Coordonner plusieurs alertes sur le même problème ou la même situation avec une page ministérielle de perturbation de service du ministère et créer un lien vers celle-ci à partir de toutes les alertes pertinentes.
+<p>Si vous devez avoir plusieurs alertes sur plusieurs pages, toutes liées au  même problème ou la même situation, créez une page ministérielle de perturbation de service. Ajoutez un lien vers celle-ci à partir de toutes les alertes pertinentes.
 </p>
 
 <p>La page centrale devrait :</p>
@@ -162,14 +162,9 @@
 	<li>être mis à jour dès que de nouvelles informations sont disponibles</li>
 </ul>
 
-<p>Gardez à l'esprit que :</p>
-<ul>
-	<li>il devrait y avoir un lien vers la page principale du gouvernement du Canada en réponse à la crise</li>
-	<li>s'il existe une page centrale du gouvernement du Canada énumérant les interruptions de service, pointez le fil d'Ariane à cet endroit au lieu de l'institution</li>
-	<li>ancrage à différentes rubriques pour les messages contextuels sur les interruptions de service spécifiques</li>
-</ul>
+<p>Cette page centrale devrait avoir comme fil d'Ariane la page de la réponse globable du gouvernement du Canada à la crise.</p>
 
-<h3>Comment cela -il aider</h3>
+<h3>Comment cela peut-il aider</h3>
 
 <ul>
 	<li>éviter les pages éparpillées sur les crises et les pertubations de service</li>
