@@ -1,3 +1,5 @@
+// if you want the banner off, just comment out the file 
+
 console.log("banner-start");
 
 	var alphaBanner = document.getElementsByTagName('BODY')[0];
