@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="fr" dir="ltr"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
@@ -10,7 +10,8 @@
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
-		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-fr.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
 
 		<!-- Write closure template -->
 		<script type="text/javascript">
@@ -26,19 +27,25 @@
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.top({
 				lngLinks: [{
-					lang: "en",
-					href: "prevention-and-risks.html",
-					text: "English"
+					lang: "fr",
+					href: "travel-advice-fr.html",
+					text: "Français"
 				}],
 				breadcrumbs: [{
-					title: "Accueil",
-					href: "https://www.canada.ca/fr.html"
+					title: "Home",
+					href: "https://www.canada.ca/en.html"
 				},{
-					title: "Santé",
-					href: "https://www.canada.ca/fr/services/sante.html"
-				}, {
-          title: "Maladies et affections",
-          href: "https://www.canada.ca/fr/sante-publique/services/maladies.html"
+					title: "Health",
+					href: "https://www.canada.ca/en/services/health.html"
+				},{
+					title: "Diseases and conditions",
+					href: "https://www.canada.ca/en/public-health/services/diseases.html"
+				},{
+					title: "Coronavirus (COVID-19)",
+					href: "../landing.html"
+				},{
+					title: "Find out what support you need",
+					href: "./who-needs.html"
 				}],
 				search: true,
 				siteMenu: true,
