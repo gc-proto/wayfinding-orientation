@@ -75,7 +75,7 @@
 
 <section class="well well-sm brdr-0">
 <div class="container">
-		<h2 class="h3">COVID-19</h2>
+		<h2 class="h3">COVID-19 awareness</h2>
 		<div class="wb-eqht mrgn-bttm-lg">
 			<div class="row">
 			<div class="col-md-4">
@@ -106,8 +106,10 @@
 	<div class="row">
 		<div class="mrgn-bttm-lg">
 				<div class="col-md-4">
-					<h2 class="mrgn-tp-md h3">Assistance by telephone <br>(COVID-19)</h2>
-							<div class="alert alert-warning"><h3 class="h4">Call delays</h3> We are currently experiencing a high volume of requests with long wait times.</div>
+					<h2 class="mrgn-tp-md h3">Assistance by telephone</h2>
+							<div class="alert alert-warning"><p> We are currently experiencing a high volume of requests with long wait times.<br>Your question may be already answered in the COVID-19 <a
+															href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html#faq">frequently
+													asked questions</a></p>							</div>
 
 				</div>
 				<div class="col-md-8">
@@ -116,8 +118,9 @@
 					<!-- <li><b>Hours of service</b>: ???</li> -->
 					<li><b>Fraud alert</b>: this number is for inbound calls only - it cannot make calls</li>
 					<li>Calls which appear to come from this phone number are fraudulent. See our <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/fraudulent-phone-calls.html">fraud information page</a></li>
-
 					</ul>
+					<p>You may also email us at&nbsp;<a href="mailto:phac.info.aspc@canada.ca">phac.info.aspc@canada.ca</a></p>
+
 				</div>
 		</div>
 </div>
@@ -128,11 +131,6 @@
 		<h2 class="h3">General inquiries</h2>
 		<div class="wb-eqht row mrgn-bttm-lg">
 
-				<div class="col-md-4">
-					<section>
-						<h3 class="h5"><a href="./offices.html">Regional office addresses</a></h3>
-					</section>
-				</div>
 			<div class="col-md-4">
 				<section>
 					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#GEDS"><strong>Telephone
@@ -175,16 +173,209 @@
 						Advice</a></h3>
 				</section>
 			</div>
+							<div class="col-md-4">
+								<section>
+									<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html">General frequently asked questions
+ </a></h3>
+								</section>
+							</div>
 				</div>
 			</section>
 	</div>
 </section>
 
-<section class="col-md-12">
-	<h2 class="h3">General contact</h2>
 
+<div class="container">
+		<h2 class="mrgn-tp-md h3" id="form">Contact form</h2>
+		<div class="row">
+		<div class="col-md-8">
+		<p>Your primary care physician should always be consulted for advice and appropriate care about any medical condition -
+				either your own or that of a family member.</p>
+		<p>Required fields are marked with an asterisk (<strong class="text-danger">*</strong>).</p>
+		<form method="post" class="well" id="contact_form">
+			<fieldset style="display: none">
+				<input type="hidden" name="type" value="send_contact_form_email" />
+			</fieldset>
+			<div id="container_for_category">
+				<label for="categories"><strong class="text-danger">*</strong>&nbsp;What can we help you with? </label>
+				<select name="catid" id="categories" disabled="disabled" class="form-control">
+					<option value="0">Select Category</option>
+				</select>
+				<!-- <div id="container_for_sub_category" class="mrgn-tp-md">
+					<label for="subcategories"><strong class="text-danger">*</strong>&nbsp;More specifically... </label>
+					<select name="subcatid" id="subcategories" disabled="disabled" class="form-control">
+						<option value="0">Select Sub Category</option>
+					</select>
+				</div> -->
+			</div>
+			<!-- <div id="container_for_other_fields" class="mrgn-tp-md">
+				<label for="comments"><strong class="text-danger">*</strong>&nbsp;Your question or comment:<br /></label>
+				<textarea cols="70" rows="10" id="comments" class="text_box required form-control" name="comments"></textarea>
+	
+				<div class="table-responsive">
+					<table class="table mrgn-tp-md">
+						<caption class="text-left">
+							<span class="glyphicon glyphicon-user"></span> Contact Information
+						</caption>
+						<tr>
+							<th scope="row" class="col-sm-2"><label for="name"><strong
+										class="text-danger">*</strong>&nbsp;Name:<br /></label></th>
+							<td class="col-sm-10"><input type="text" id="name" class="required text_box form-control" name="name"
+									size="40" value="" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="email"><strong class="text-danger">*</strong>&nbsp;Email Address:<br /></label>
+							</th>
+							<td><input type="text" id="email" class="required email text_box form-control" name="email" size="40"
+									value="" /></td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="phone">Telephone Number:</label></th>
+							<td><input type="text" id="phone" class="text_box form-control" name="phone" size="40" value="" /></td>
+						</tr>
+					</table>
+				</div>
+			 The following field is for robots only, invisible to humans: -->
+			<!--	<p class="automation" id="pot">
+					<label for="robotest">If you're human leave this blank:</label>
+					<input name="robotest" type="text" id="robotest" class="robotest" />
+				</p>
+				<input type="submit" name="submit_button" class="btn btn-default" value="Send" />
+			</div> -->
+		</form>
+	<!-- <div id="status">Please await...</div>
+	</div> -->
+	<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!-- <script src="https://code.jquery.com/jquery-1.8.3.js" type="text/javascript"></script>
+	<script src="https://health.canada.ca/dam/public-health/js/jquery.validate.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function () {
+			$.validator.addMethod("username", function (value, element) {
+				return this.optional(element) || /^[a-z0-9\_]+$/i.test(value);
+			}, "Username must contain only letters, numbers, or underscore.");
+		});
+	//]]>
+	</script>
+	<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function () {
+			function load_categories() {
+				var categories = $("#categories");
+				categories.html("");
+				$.getJSON("https://health.canada.ca/dam/public-health/js/ajax-eng.php", { type: 'get_categories' }, function (result) {
+					var response = result.response; $.each(response, function () {
+						categories.append($("<option />").val(this.id).text(this.name));
+					});
+					$('#categories').change();
+				});
+			}
+			function load_subcategories(catid) {
+				var subcategories = $("#subcategories");
+
+				subcategories.html("");
+				$.getJSON("https://health.canada.ca/dam/public-health/js/ajax-eng.php", { type: 'get_subcategories', catid: catid }, function (result) {
+					var response = result.response; $.each(response, function () {
+						subcategories.append($("<option />").val(this.id).text(this.name));
+					});
+					$('#subcategories').change();
+				});
+			}
+			$('#categories').live('change', function (e) {
+				var val = $(this).val();
+				if (val == '0') {
+					$('#container_for_sub_category').fadeOut();
+				}
+				else {
+					$('#container_for_sub_category').fadeIn();
+				}
+				load_subcategories($(this).val());
+			});
+			$('#subcategories').live('change', function (e) {
+				var val = $(this).val();
+				if (val == '0') {
+					$('#container_for_other_fields').fadeOut();
+				}
+				else {
+					$('#container_for_other_fields').fadeIn();
+				}
+			});
+			$('#categories').removeAttr('disabled');
+			$('#subcategories').removeAttr('disabled');
+			load_categories();
+			$("#contact_form").validate({
+				errorPlacement: function (error, element) {
+					if (element.attr('id') == 'comments') {
+						error.appendTo(element.prev("label"));
+					}
+					else {
+						error.appendTo(element.closest('tr').find("label"));
+					}
+				},
+				messages: {
+					name: "<div class='alert alert-danger'>Please enter your name.</div>",
+					comments: "<div class='alert alert-danger'>Please enter your question or comment.</div>",
+					email: {
+						required: "<div class='alert alert-danger'>Please enter your email address.</div>",
+						email: "<div class='alert alert-danger'>A valid email address is required.</div>",
+					}
+				}
+			});
+			$('#contact_form').live('submit', function (e) {
+				e.preventDefault();
+				var form = $(this);
+				if (form.valid()) {
+					$("input[type=submit]").attr("disabled", "disabled");
+					$('#status').show();
+					$.post("./../../../dam/public-health/js/ajax-eng.php", form.serialize() + '&ajax=1', function (data) { //alert(data);
+						if (data.result) {
+							//form.hide('slow').after('<h3>Thank you for your submission!</h3>');
+							location.href = 'https://www.canada.ca/en/health-canada/corporate/contact-us/thankyou-merci-eng.html';
+						}
+						else {
+							alert('Some errors were found:' + data.msg);
+						}
+						$('#status').hide();
+						$("input[type=submit]").removeAttr("disabled");
+					}, "json");
+				}
+			});
+		});
+	 //]]>
+	</script> -->
+	</div>
+	</div>
+	<div class="clearfix"></div>
+
+	<h2 class="h3">Offices</h2>
+	<section class="mrgn-tp-md">
+<div class="row">
+	<div class="col-sm-4">
+		<p><strong>Public Health Agency of Canada</strong> <br />
+			130 Colonnade Road<br />
+			A.L. 6501H<br />
+			Ottawa, Ontario K1A 0K9<br />
+			<b>Toll-free: 1-844-280-5020</b></p>
+	</div>
+	<div class="col-sm-4">
+		<p><strong>Public Health Agency of Canada</strong> <br />
+			1015 Arlington Street<br />
+			Winnipeg, Manitoba R3E 3R2</p>
+	</div>
+	<div class="col-sm-4">
+		<p><strong>Media Relations Line</strong><br />
+			613-957-2983</p>
+	</div>
+</div>
 </section>
+<p>List of <a href="./offices.html">regional offices</a></p>
+</div>
 
+<div class="container">
 <div id="def-preFooter">
 </div>
 <!-- Write closure template -->
@@ -198,6 +389,7 @@
 	});
 </script>
 		</main>
+		</div>
 		<div id="def-footer">
 
 		</div>
