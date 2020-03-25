@@ -57,9 +57,9 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Employees</h1>
 
-<form novalidate="novalidate" id="question">
+<div id="question">
 	<fieldset class="mrgn-bttm-md">
-		<legend class="h5">Do you need support to prevent lay offs or reduced hours of work of employees?</legend>
+		<legend id="legend" class="h5">Do you need support to prevent lay offs or reduced hours of work of employees?</legend>
 		<div class="radio">
 			<label for="yes">
 				<input id="yes" type="radio" name="employees" value="Yes" required="required"> Yes  
@@ -71,8 +71,8 @@
 			</label>
 		</div>
 	</fieldset>
-	<input type="submit" value="Continue" class="btn btn-primary mrgn-bttm-md"> 
-</form>
+	<button id="continue" class="btn btn-primary mrgn-bttm-md">Continue</button>
+</div>
 
 <!--div class="wb-frmvld">
   <div class="wb-fieldflow" data-wb-fieldflow='{
@@ -120,22 +120,46 @@
 		</script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="./validator.js"></script>
 		<script>
 			$(document).ready(function(){		
-				
-				
+				var agr = getUrlParameter('agr');
+				if (agr == "true") {
+					localStorage.setItem("agr", "yes");
+				}
 				
 				//Capture changes
 				$("#question").change(function(field){
-					var employees = field.target.id;
-					localStorage.setItem(employees, employees);
+					localStorage.setItem("employees", field.target.id);
+					console.log(localStorage.getItem("employees"));
+					console.log(localStorage.getItem("agr"));
 				});
+				$('#error1').addClass("hidden");
 			});
-		
-			$("#save-income").click(function(){
-				
-				document.getElementById(top[1]).scrollIntoView();
+
+			$("#continue").click(function(){
+				//VALIDATION
+				var top = [50000,""];
+				if (localStorage.getItem("employees") != null){
+					window.location.href = "./answer-business.html"
+				} else {
+					top = validateElement("legend", "error1", "Please indicate if you need support to prevent lay offs", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
 			});
+			
+			var getUrlParameter = function getUrlParameter(sParam) {
+				var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+					sURLVariables = sPageURL.split('&'),
+					sParameterName,
+					i;
+				for (i = 0; i < sURLVariables.length; i++) {
+					sParameterName = sURLVariables[i].split('=');
+					if (sParameterName[0] === sParam) {
+						return sParameterName[1] === undefined ? true : sParameterName[1];
+					}
+				}
+			};
 		</script>
 	</body>
 </html>

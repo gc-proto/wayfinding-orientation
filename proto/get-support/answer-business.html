@@ -57,7 +57,7 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Support for your business</h1>
 
-<section id="empl" class="hidden">
+<section id="employees" class="hidden">
     <h2>Work sharing benefits</h2>
     <p>We are extending the maximum duration of the Work-Sharing program from 38 weeks to 76 weeks. The Work-Sharing program is offered to workers who agree to reduce their normal working hours because of developments beyond the control of their employers.</p>
     <p><a class="btn btn-default" href="https://www.canada.ca/en/employment-social-development/services/work-sharing/apply.html">Apply for work sharing benefits</a></p>
@@ -69,7 +69,7 @@
     <p><a class="btn btn-default" href="https://www.fcc-fac.ca/en/covid-19.html">Apply through funding programs at Farm Credit Canada</a></p>
 </section>
 
-<section id="bankruptcy" class="hidden">
+<section id="financing" class="hidden">
     <h2>More financing available for your business</h2>
     <p>We established a&nbsp;Business Credit Availability Program (BCAP) to provide more  than $10&nbsp;billion of additional support, largely targeted to small and  medium-sized businesses, through the Business Development Bank of Canada (BDC)  and Export Development Canada (EDC). </p>
     <p>BDC and EDC are cooperating with private sector lenders to coordinate on credit  solutions for individual businesses, including in sectors such as oil and gas,  air transportation and tourism. </p>
@@ -138,6 +138,22 @@
 			}));
 		</script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
-		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+        <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+        <script>
+            $(document).ready(function(){
+                if (localStorage.getItem("employees") == "yes") {
+                    $("#employees").removeClass("hidden");
+                }
+                if (localStorage.getItem("abr") == "yes") {
+                    $("#abr").removeClass("hidden");
+                }
+                if (localStorage.getItem("financing") == "yes") {
+                    $("#financing").removeClass("hidden");
+                }
+                if (localStorage.getItem("agr") == "yes") {
+                    $("#agr").removeClass("hidden");
+                }
+            });
+        </script>
 	</body>
 </html>

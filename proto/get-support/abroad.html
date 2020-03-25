@@ -57,19 +57,22 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Abroad</h1>
 
-<div class="wb-frmvld">
-  <div class="wb-fieldflow" data-wb-fieldflow='{
-      "noForm":false,
-      "renderas":"radio",
-      "base": { "live": true },
-      "noreqlabel": true
-  }' id="question1">
-    <p>Do you have operations outside Canada?</p>
-    <ul>
-      <li><a href="abroad-fin.html">Yes</a></li>
-      <li><a href="abroad.html">No</a></li>
-    </ul>
-  </div>
+
+<div id="question">
+	<fieldset class="mrgn-bttm-md">
+		<legend id="legend" class="h5">Do you have operations or employees outside Canada?</legend>
+		<div class="radio">
+			<label for="yes">
+				<input id="yes" type="radio" name="financing" value="Yes" required="required"> Yes  
+			</label>
+		</div>
+		<div class="radio">
+			<label for="no">
+				<input id="no" type="radio" name="financing" value="No"> No  
+			</label>
+		</div>
+	</fieldset>
+	<button id="continue" class="btn btn-primary mrgn-bttm-md">Continue</button>
 </div>
 
 <div id="def-preFooter">
@@ -103,5 +106,26 @@
 		</script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="./validator.js"></script>
+		<script>
+			$(document).ready(function(){		
+				//Capture changes
+				$("#question").change(function(field){
+					localStorage.setItem("abr", field.target.id);
+				});
+				$('#error1').addClass("hidden");
+			});
+
+			$("#continue").click(function(){
+				//VALIDATION
+				var top = [50000,""];
+				if (localStorage.getItem("abr") != null){
+					window.location.href = "./employees.html"
+				} else {
+					top = validateElement("legend", "error1", "Please indicate if you have employees abroad", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
+			});
+		</script>
 	</body>
 </html>
