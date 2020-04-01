@@ -113,14 +113,13 @@ margin-bottom: 20px;
             "renderas":"radio",
             "base": { "live": true },
             "noreqlabel": true,
-            "default": [{ "action": "addClass", "source":"#cra-btn,#esdc-btn,#how-to-apply", "class": "hidden" },{ "action": "removeClass", "source":"#not-finished", "class": "hidden" }]
+            "default": [{ "action": "addClass", "source":"#cra-btn,#esdc-btn,#how-to-apply", "class": "hidden" }]
           }'>
           <p>Thinking about your main source of employment income in the last year - were you an employee or self-employed?</p>
           <ul>
             <li data-wb-fieldflow='[
               { "action": "removeClass", "source":"#cra-btn", "class": "hidden"},
-              { "action": "removeClass", "source":"#how-to-apply", "class": "hidden"},
-              { "action": "addClass", "source":"#not-finished", "class": "hidden"}
+              { "action": "removeClass", "source":"#how-to-apply", "class": "hidden"}
             ]'>I was self-employed</li>
             <li data-wb-fieldflow='{ "action": "append", "source":"#question2"}'>I was an employee</li>
           </ul>
@@ -129,10 +128,7 @@ margin-bottom: 20px;
         <div id="question2" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"renderas":"radio", "noreqlabel":true,"isoptional":true}'>
           <p>Were you a full-time employee for at least four months last year? (“full-time” means someone who works 30 or more hours per week)</p>
           <ul>
-            <li data-wb-fieldflow='[
-              { "action": "removeClass", "source":"#esdc-btn", "class": "hidden"},
-              { "action": "addClass", "source":"#not-finished", "class": "hidden"}
-            ]'>Yes</li>
+            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#esdc-btn", "class": "hidden"}'>Yes</li>
             <li data-wb-fieldflow='{ "action": "append", "source":"#question3"}'>No</li>
           </ul>
         </div>
@@ -140,22 +136,15 @@ margin-bottom: 20px;
         <div id="question3" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"renderas":"radio", "noreqlabel":true,"isoptional":true}'>
           <p>Were you a part-time employee for at least eight months last year?  (part-time means someone who works less than 30 hours per week)</p>
           <ul>
-            <li data-wb-fieldflow='[
-              { "action": "removeClass", "source":"#esdc-btn", "class": "hidden"},
-              { "action": "addClass", "source":"#not-finished", "class": "hidden"}
-            ]'>Yes</li>
-            <li data-wb-fieldflow='[
-              { "action": "removeClass", "source":"#cra-btn", "class": "hidden"},
-              { "action": "removeClass", "source":"#how-to-apply", "class": "hidden"},
-              { "action": "addClass", "source":"#not-finished", "class": "hidden"}
-            ]'>No</li>
+            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#esdc-btn", "class": "hidden"}'>Yes</li>
+            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#cra-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#how-to-apply", "class": "hidden"}'>No</li>
           </ul>
         </div>
 
       </form>
     </div>
 
-    <a href="#questions" id="not-finished" class="btn btn-primary">Continue</a>
     <a href="how-apply-cra.html" id="cra-btn" class="btn btn-primary hidden">Apply through CRA</a>
     <a href="how-apply-ei.html" id="esdc-btn" class="btn btn-primary hidden">Apply for EI and CERB</a>
 
