@@ -12,9 +12,9 @@
 		<!-- Load closure template scripts -->
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
-    <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+    <link href="../css/alpha-beta-banner.css" rel="stylesheet">
     <link href="../css/sip-section-menu.css" rel="stylesheet">
-    <link href="../css/checkbox-radio.css" rel="stylesheet">
+    <link href="../css/checklist.css" rel="stylesheet">
     <link href="../css/bullets-with-questions.css" rel="stylesheet">
 
 		<!-- Write closure template -->
@@ -54,7 +54,7 @@
 			});
 </script>
 
-<main role="main" property="mainContentOfPage" class="container">
+<main role="main" property="mainContentOfPage" class="container provisional">
   <section class="gc-nav">
     <h1 property="name" id="wb-cont-nav">Canada Emergency Response Benefit (CERB)</h1>
     <ul id="gc-navseq-nav">
@@ -64,8 +64,7 @@
     <nav aria-label="Section menu">
       <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
         <ul class="gc-navseq">
-          <!-- <li><a href="who-apply.html">Who can apply</a></li> -->
-          <li class="active"><a aria-current="page">Who can apply</a></li>
+          <li class="active"><a aria-current="page" href="#">Who can apply</a></li>
           <li><a href="how-much.html">How much you can get</a></li>
           <li><a href="how-apply.html">How to apply</a></li>
           <li><a href="send-payment.html">How we send the payment to you</a></li>
@@ -73,42 +72,61 @@
         </ul>
     </nav>
   </section>
-  <section class="gc-nav-section experimental">
+  <section role="group" aria-labelledby="wb-cont" class="gc-nav-section provisional">
     <h1 property="name" id="wb-cont">Who can apply</h1>
     <p>To qualify, you must meet <strong>all</strong> of the following conditions:</p>
-
-    <ul class="can-ca-form">
-      <li class="checkbox checkbox-small">
-        <input type="checkbox" id="elibility1">
-        <label for="elibility1">You have lost or will lose your employment or self-employment income for at least half of the 4-week period for which you are applying 
-          </br>
-          <p class="mrgn-tp-md"><a aria-controls="mid-screen" class="overlay-lnk" href="#pay-periods" role="button">See 4-week pay periods</a></p>
-        </label>
+    <ul class="ckecklist-group sm-chcklst lst-none lst-spcd">
+      <li>
+        <div role="checkbox"
+              aria-checked="false"
+              tabindex="0"
+              id="elibility1">
+          You have lost or will lose your employment or self-employment income for at least half of the 4-week period for which you are applying
+        </div>
+        <p class="mrgn-lft-lg mrgn-tp-sm mrgn-bttm-lg">
+          <a aria-controls="mid-screen" class="overlay-lnk" href="#pay-periods" role="button">See 4-week pay periods</a>
+        </p>
       </li>
-      <li class="checkbox checkbox-small">
-        <input type="checkbox" id="elibility2">
-        <label for="elibility2">You are a resident of Canada</label>
+      <li>
+        <div role="checkbox"
+              aria-checked="false"
+              tabindex="0"
+              id="elibility2">
+          You are a resident of Canada
+        </div>
       </li>
-      <li class="checkbox checkbox-small">
-        <input type="checkbox" id="elibility3">
-        <label for="elibility3">You are 15 years of age or older when you apply</label>
+      <li>
+        <div role="checkbox"
+              aria-checked="false"
+              tabindex="0"
+              id="elibility3">
+          You are 15 years of age or older when you apply
+        </div>
       </li>
-      <li class="checkbox checkbox-small">
-        <input type="checkbox" id="elibility5">
-        <label for="elibility5">You have ceased working but not voluntarily</label>
+      <li>
+        <div role="checkbox"
+              aria-checked="false"
+              tabindex="0"
+              id="elibility4">
+          You have ceased working but not voluntarily
+        </div>
       </li>
-      <li class="checkbox checkbox-small">
-        <input type="checkbox" id="elibility6">
-        <label for="elibility6">You earned a minimum of $5,000 in gross income and have lived in Canada in the last 12 months, or in 2019, from the following sources:</label>
-        <ul class="mrgn-tp-sm std-blt">
-          <li><label for="elibility6">Employment income</label></li>
-          <li><label for="elibility6">Self-employment income</label></li>
-          <li><label for="elibility6">Provincial benefit payments related to maternity or parental leave</label></li>
-          <li><label for="elibility6">Federal benefit payments related to maternity or parental leave</label></li>
+      <li>
+        <div role="checkbox"
+              aria-checked="false"
+              tabindex="0"
+              id="elibility5">
+          You earned a minimum of $5,000 in gross income and have lived in Canada in the last 12 months, or in 2019, from the following sources:
+        </div>
+        <ul class="mrgn-lft-md">
+          <li>Employment income</li>
+          <li>Self-employment income</li>
+          <li>Provincial benefit payments related to maternity or parental leave</li>
+          <li>Federal benefit payments related to maternity or parental leave</li>
         </ul>
       </li>
     </ul>
-
+    <p class="alert alert-success invisible"  id="action-msg-all">You are eligible and ready to proceed</p>
     <section class="wb-overlay modal-content overlay-def wb-popup-mid" id="pay-periods">
       <header class="modal-header">
         <h2 class="modal-title">4-week pay periods
@@ -118,76 +136,54 @@
         <section>
           <table class="table">
             <caption class="wb-inv">Day to apply for the Canada Emergency Response Benefit</caption>
-              <thead>
-                <tr>
-                  <th scope="col">4-week period cycle</th>
-                  <th scope="col">Period dates</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>March 15, 2020 to April 11, 2020</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>April 12, 2020 to May 9, 2020</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>May 10, 2020 to June 6, 2020</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>June 7, 2020 to July 4, 2020</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>July 5, 2020 to August 1, 2020</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>August 2, 2020 to August 29, 2020</td>
-                </tr>
-                <tr>
-                  <td>7</td>
-                  <td>August 30, 2020 to September 26, 2020</td>
-                </tr>
-              </tbody>
-            </table>
+            <thead>
+              <tr>
+                <th scope="col">4-week period cycle</th>
+                <th scope="col">Period dates</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>March 15, 2020 to April 11, 2020</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>April 12, 2020 to May 9, 2020</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>May 10, 2020 to June 6, 2020</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>June 7, 2020 to July 4, 2020</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>July 5, 2020 to August 1, 2020</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>August 2, 2020 to August 29, 2020</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>August 30, 2020 to September 26, 2020</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </div>
     </section>
-    </div>
-
     <nav role="navigation" class="row">
       <ul class="pager">
-          <li class="next"><a href="./how-much.html" rel="next"><span class="wb-inv">Next:</span> How much you can get</a></li>
+          <li class="next">
+            <a href="./how-much.html" rel="next"><span class="wb-inv">Next:</span> How much you can get</a>
+          </li>
       </ul>
     </nav>
-      <!-- <div class="wb-frmvld">
-        <form>
-          <fieldset class="chkbxrdio-grp">
-            <legend class="h5">Question</legend>
-            <ul class="list-unstyled can-ca-form">
-              <li class="checkbox-small">
-                <input id="radio-item-1" type="radio" name="radio-example" required="required">
-                <label for="radio-item-1">Item 1</label>
-              </li>
-              <li class="checkbox-small">
-                <input id="radio-item-2" type="radio" name="radio-example">
-                <label for="radio-item-2">Item 2</label>
-              </li>
-            </ul>
-          </fieldset>
-          <input type="submit" value="Continue" class="btn btn-call-to-action mrgn-bttm-md">
-        </form>
-      </div> -->
-
   </section>
-
-
-
 <div id="def-preFooter">
 </div>
 <!-- Write closure template -->
@@ -217,6 +213,16 @@
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
-		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+    <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+    <script src="../js/checklist.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        var checkboxes = $("[role='checkbox']");
+        for (var i = 0; i < checkboxes.length; i++) {
+          var cb = new Checkbox(checkboxes[i]);
+          cb.init();
+        }
+      };
+    </script>
 	</body>
 </html>
