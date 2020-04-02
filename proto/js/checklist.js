@@ -35,18 +35,18 @@ Checkbox.prototype.init = function () {
   this.domNode.addEventListener('click',      this.handleClick.bind(this));
   this.domNode.addEventListener('focus',      this.handleFocus.bind(this));
   this.domNode.addEventListener('blur',       this.handleBlur.bind(this));
-
-  // this.updateChecklistReady();
 };
 
 Checkbox.prototype.toggleCheckbox = function () {
 
-  if (this.domNode.getAttribute('aria-checked') === 'true') {
-    this.domNode.setAttribute('aria-checked', 'false');
-  }
-  else {
+  if (this.domNode.getAttribute('aria-checked') === 'false') {
     this.domNode.setAttribute('aria-checked', 'true');
   }
+  else {
+    this.domNode.setAttribute('aria-checked', 'false');
+  }
+  updateChecklistReady();
+  // console.log($('[role="checkbox"][aria-checked="true"]').length);
 };
 
 /* EVENT HANDLERS */
@@ -81,4 +81,3 @@ Checkbox.prototype.handleFocus = function (event) {
 Checkbox.prototype.handleBlur = function (event) {
   this.domNode.classList.remove('focus');
 };
-
