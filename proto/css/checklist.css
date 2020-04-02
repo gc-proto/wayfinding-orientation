@@ -27,7 +27,7 @@
 .provisional ul.checklist-group { /* (0,2,1) */
   font-size: 20px;
   margin-left: 0;
-  padding-left: 1em;
+  padding-top: 6px;
 }
 
 .provisional .lst-none ul li { /* (0,2,2) */
@@ -47,7 +47,8 @@
 }
 
 .provisional [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
-  border: solid #333;
+  border-color: #333;
+  border-style: solid;
   border-width: 0 5px 5px 0;
   content: "";
   display: inline-block;
@@ -67,20 +68,37 @@
   width: 16px;
 }
 
-.provisional ul.ckecklist-group.sm-chcklst { /* (0,3,1) */
+.provisional ul.checklist-group.sm-chcklst { /* (0,3,1) */
   font-size: 17px;
 }
 
+
 .provisional .sm-chcklst [role="checkbox"]::before { /* (0,3,1) */
   height: 24px;
-  top: 17px;
+  left: 10px;
+  top: 11px;
   width: 24px;
+}
+
+.provisional ul.checklist-group.sm-chcklst > li { /* (0,3,2) */
+  line-height: 23px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+
+.provisional ul.checklist-group [role="checkbox"][aria-checked="true"]::before { /* (0,4,2) */
+  background-color: #318000;
+}
+
+.provisional ul.checklist-group [role="checkbox"][aria-checked="true"]::after { /* (0,4,2) */
+  border-color: white;
+  border-width: 0 4px 4px 0;
 }
 
 .provisional .sm-chcklst [role="checkbox"][aria-checked="true"]::after { /* (0,4,1) */
   border-width: 0 4px 4px 0;
   height: 16px;
-  left: -4px;
-  top: 7px;
+  left: 6px;
+  top: 1px;
   width: 9px;
 }

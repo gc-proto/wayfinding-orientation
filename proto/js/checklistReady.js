@@ -10,7 +10,6 @@
 */
 
 function updateChecklistReady() {
-  console.log($("[role='checkbox'][aria-checked='true']").length);
   if ($("[role='checkbox'][aria-checked='true']").length === $("[role='checkbox']").length) {
     $("#action-msg-all").removeClass("invisible");
   }
