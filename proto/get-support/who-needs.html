@@ -12,7 +12,8 @@
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
-
+		<link href="https://design.canada.ca/css/checkbox-radio.css" rel="stylesheet">
+		
 		<!-- Write closure template -->
 		<script type="text/javascript">
 			document.write(wet.builder.refTop({
@@ -56,18 +57,21 @@
 <p>Answer a few questions to see what support or benefits you can apply for.</p>
 
 <div class="wb-frmvld">
-  <div class="wb-fieldflow" data-wb-fieldflow='{
-      "noForm":false,
-      "renderas":"radio",
-      "base": { "live": true },
-      "noreqlabel": true
-  }' id="question1">
-    <p>Are you in need of support during COVID-19 as:</p>
-    <ul>
-      <li><a href="../financial-support.html">An individual</a></li>
-	  <li><a href="business.html">A business, self-employed or organization</a></li>
-    </ul>
-  </div>
+	<div id="select-who-needs">
+		<legend id="who-needs-legend" class="h5"><span class="field-name">Are you in need of support during COVID-19 as:</span></legend>
+		<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="individual" type="radio" name="who-needs" value="individual">
+				<label for="individual">An individual</label>
+			</li>
+			<li class="radio">
+				<input id="business" type="radio" name="who-needs" value="business">
+				<label for="business">A business, self-employed or organization</label>
+			</li>
+		</ul>
+		<button id="continue" class="btn btn-call-to-action mrgn-bttm-md">Continue</button>
+	</div>
 </div>
 
 <div id="def-preFooter">
@@ -101,5 +105,31 @@
 		</script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
+		<script src="./validator.js"></script>
+		<script>
+			$(document).ready(function(){
+				//STORE NEW VALUE
+				$("#select-who-needs").change(function(field){
+					localStorage.setItem("who-needs", field.target.id);
+					$('#error1').addClass("hidden");
+				});
+			});
+			$("#continue").click(function(){
+				//VALIDATION
+				var top = [50000,""];
+				var sCheck = localStorage.getItem("who-needs");
+				if (localStorage.getItem("who-needs") != null){
+					if (sCheck == "individual") {
+						window.location.href = "../financial-support.html#individuals"
+					} else {
+						window.location.href = "./business.html"
+					}
+				} else {
+					top = validateElement("who-needs-legend", "error1", "Please indicate in what capacity you are looking for support", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
+			});
+		</script>
 	</body>
 </html>

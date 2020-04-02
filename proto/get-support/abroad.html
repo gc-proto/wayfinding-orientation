@@ -12,6 +12,8 @@
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/checkbox-radio.css" rel="stylesheet">
+
 
 		<!-- Write closure template -->
 		<script type="text/javascript">
@@ -57,8 +59,25 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Abroad</h1>
 
+<div class="wb-frmvld">
+	<div id="select-financing">
+		<legend id="financing-legend" class="h5"><span class="field-name">Do you have operations or employees outside Canada?</span></legend>
+		<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="yes" type="radio" name="financing" value="yes">
+				<label for="yes">Yes</label>
+			</li>
+			<li class="radio">
+				<input id="no" type="radio" name="financing" value="no">
+				<label for="no">No</label>
+			</li>
+		</ul>
+		<button id="continue" class="btn btn-call-to-action mrgn-bttm-md">Continue</button>
+	</div>
+</div>
 
-<div id="question">
+<!-- <div id="question">
 	<fieldset class="mrgn-bttm-md">
 		<legend id="legend" class="h5">Do you have operations or employees outside Canada?</legend>
 		<div class="radio">
@@ -73,7 +92,7 @@
 		</div>
 	</fieldset>
 	<button id="continue" class="btn btn-primary mrgn-bttm-md">Continue</button>
-</div>
+</div> -->
 
 <div id="def-preFooter">
 </div>
@@ -107,10 +126,12 @@
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 		<script src="./validator.js"></script>
+		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
+		<script src="./validator.js"></script>
 		<script>
 			$(document).ready(function(){		
 				//Capture changes
-				$("#question").change(function(field){
+				$("#select-financing").change(function(field){
 					localStorage.setItem("abr", field.target.id);
 				});
 				$('#error1').addClass("hidden");
@@ -120,7 +141,7 @@
 				//VALIDATION
 				var top = [50000,""];
 				if (localStorage.getItem("abr") != null){
-					window.location.href = "./employees.html"
+					window.location.href = "./answer-business.html"
 				} else {
 					top = validateElement("legend", "error1", "Please indicate if you have employees abroad", top);
 					document.getElementById(top[1]).scrollIntoView();

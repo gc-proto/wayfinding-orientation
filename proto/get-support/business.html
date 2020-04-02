@@ -12,6 +12,8 @@
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/checkbox-radio.css" rel="stylesheet">
+
 
 		<!-- Write closure template -->
 		<script type="text/javascript">
@@ -57,7 +59,38 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Business or organization</h1>
 
-<div class="wb-frmvld">
+<div class="wb-frmvld mrgn-tp-lg">
+	<div id="select-business-type">
+		<legend id="business-type-legend" class="h5"><span class="field-name">Does your business or organization do any of the following activities?</span></legend>
+		<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="farming" type="radio" name="business-type" value="farming">
+				<label for="farming">Farming or agriculture</label>
+			</li>
+			<li class="radio">
+				<input id="health-product" type="radio" name="business-type" value="health-product">
+				<label for="health-product">COVID-19 related health products</label>
+			</li>
+			<li class="radio">
+				<input id="shelter" type="radio" name="business-type" value="shelter">
+				<label for="shelter">Shelters (homeless, fleeing violence)</label>
+			</li>
+			<li class="radio">
+				<input id="indigenous" type="radio" name="business-type" value="indigenous">
+				<label for="indigenous">Support Indigenous communities</label>
+			</li>
+			<li class="radio">
+				<input id="business" type="radio" name="business-type" value="business">
+				<label for="business">None of the above</label>
+			</li>
+		</ul>
+		<button id="continue" class="btn btn-call-to-action mrgn-bttm-md">Continue</button>
+	</div>
+</div>
+
+
+<!-- <div class="wb-frmvld">
   <div class="wb-fieldflow" data-wb-fieldflow='{
       "noForm":false,
       "renderas":"radio",
@@ -67,13 +100,13 @@
     <p>Does your business or organization do any of the following activities?</p>
     <ul>
       <li><a href="employees.html?agr=true">Farming or agricultural</a></li>
-      <!-- <li><a href="answer-industry.html">Research COVID-19 related health products</a></li> -->
+      <li><a href="answer-industry.html">Research COVID-19 related health products</a></li>
 	  <li><a href="answer-support-organization.html">Shelters (homeless, fleeing violence)</a></li>
 	  <li><a href="answer-support-organization.html">Support Indigenous communities</a></li>
       <li><a href="bankruptcy.html">None of the above</a></li>
     </ul>
   </div>
-</div>
+</div> -->
 
 <div id="def-preFooter">
 </div>
@@ -106,12 +139,41 @@
 		</script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
+		<script src="./validator.js"></script>
 		<script>
 			$(document).ready(function(){	
 				localStorage.removeItem("employees");
 				localStorage.removeItem("abr");
 				localStorage.removeItem("financing");
 				localStorage.removeItem("agr");
+
+				//STORE NEW VALUE
+				$("#select-business-type").change(function(field){
+					localStorage.setItem("business-type", field.target.id);
+					$('#error1').addClass("hidden");
+				});
+			});
+			$("#continue").click(function(){
+				//VALIDATION
+				var top = [50000,""];
+				var sCheck = localStorage.getItem("business-type");
+				if (localStorage.getItem("business-type") != null){
+					if (sCheck == "farming") {
+						window.location.href = "./employees.html?agr=true"
+					} else if (sCheck == "health-product") {
+						window.location.href = "./answer-industry.html"
+					} else if (sCheck == "shelter") {
+							window.location.href = "./answer-support-organization.html"
+					} else if (sCheck == "indigenous") {
+						window.location.href = "./answer-support-organization.html"
+					} else if (sCheck == "business") {
+						window.location.href = "./bankruptcy.html"
+					}
+				} else {
+					top = validateElement("business-type-legend", "error1", "Please indicate if you do any of the activities", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
 			});
 		</script>
 	</body>
