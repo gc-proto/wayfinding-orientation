@@ -59,27 +59,35 @@
 
 <h1>Find out what support you can apply for during the COVID-19 outbreak: Support for your business</h1>
 
-<p>Your business should:</p>
+<p>Your business or organization should:</p>
 
 <ul>
+	<li id="health-products"><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/covid19-industry.html">Get expedited access and authorization for sale</a> - for health products related to COVID-19</li>
+	<div id="shelter">
+		<li class="hidden"><a href="https://www.canada.ca/en/employment-social-development/programs/homelessness/directives.html#h2.3-h3.1">Check eligible activities to receive funding for homeless shelters</a></li>
+		<li class="hidden">More coming soon about funding for women's shelters or sexual assault centres to prevent outbreaks of COVID-19</li>
+	</div>
+	<li class="indigenous">More coming soon about the distinctions-based Indigenous Community Support Fund</li>
 	<li id="agr" class="hidden"><a href="http://test.canada.ca/covid-19-guidance/proto/financial-support.html">Apply for funding programs at Farm Credit Canada</a></li>
-	<li id="air" class="hidden"><a href="https://www.canada.ca/en/department-finance/news/2020/03/government-announces-support-for-air-transportation-sector-during-covid-19-pandemic.html">Find out which ground lease rents are being waived</a> - for 21 airport authorities</li>
+	<li id="air" class="hidden"><a href="https://www.canada.ca/en/department-finance/news/2020/03/government-announces-support-for-air-transportation-sector-during-covid-19-pandemic.html">Find out which ground lease rents are being waived</a> - for airport authorities</li>
     <div id="financing" class="hidden">
         <li><a href="https://www.canada.ca/en/department-finance/programs/financial-sector-policy/business-credit-availability-program.html">Apply for for funding through Business Credit Availability Program</a> - for businesses that need financing</li>
-        <li><a href="../emergency-response-benefit/who-apply.html">Apply for Emergency Response Benefits</a> - for self-employed individuals who won't be able to work and don't contribute to EI plans</li>
-    </div>
+        <li id="self-employed"><a href="../emergency-response-benefit/who-apply.html">Apply for Emergency Response Benefits</a> - for self-employed individuals who won't be able to work and don't contribute to EI plans</li>
+	</div>
+	<li id="gst-hst">Defer GST/HST tax payments until June 30, 2020 - for businesses, including self-employed individuals</li>
     <div id="employees" class="hidden">
         <li><a href="https://www.canada.ca/en/revenue-agency/campaigns/covid-19-update/frequently-asked-questions-wage-subsidy-small-businesses.html#h2">Check if you qualify for 75% reduced payroll payments</a></li>
         <li><a href="https://www.canada.ca/en/employment-social-development/services/work-sharing/apply.html">Apply for work sharing benefits</a> - to support employees who agree to reduce their normal working hours</li>
-        <li><a href="http://test.canada.ca/covid-19-guidance/proto/financial-support.html">Tell employees they can apply for benefits</a> - if they have reduced hours or are layed off during COVID-19</li>
+        <li><a href="http://test.canada.ca/covid-19-guidance/proto/financial-support.html#individuals">Employees can apply for EI or emergency response benefits</a> - if they have reduced hours or are layed off during COVID-19</li>
     </div>
     <div id="abr" class="hidden">
         <li><a href="https://travel.gc.ca/assistance/emergency-info/financial-assistance/covid-19-financial-help">Get emergency loans for Canadians abroad to return to Canada</a></li>
         <li><a href="https://www.tradecommissioner.gc.ca/contact-us-contactez-nous.aspx?lang=eng">Get support from trade commissioner services</a> - for business support abroad</li>
-    </div>
-    <li><a href="https://www.canada.ca/en/department-finance/economic-response-plan/covid19-businesses.html#more_time_to_pay_their_income_taxes">Defer your tax payments until August 31, 2020</a></li>
-    <li><a href="https://www.canada.ca/en/department-finance/economic-response-plan/covid19-businesses.html#bank_of_canada_actions">Find out more about the lower interest rate and domestic stability buffer</a></li>
-</ul>
+	</div>
+    <li id="defer-taxes"><a href="https://www.canada.ca/en/department-finance/economic-response-plan/covid19-businesses.html#more_time_to_pay_their_income_taxes">Defer your business income tax payments until August 31, 2020</a></li>
+    <li id="interest-rates"><a href="https://www.canada.ca/en/department-finance/economic-response-plan/covid19-businesses.html#bank_of_canada_actions">Find out more about the lower interest rate and domestic stability buffer</a></li>
+</ul>	
+
 
 <div style="" class="hidden">
 	<h2>Apply for funding programs at Farm Credit Canada</h2>
@@ -135,7 +143,21 @@
                 }
                 if (localStorage.getItem("agr") == "yes") {
                     $("#agr").removeClass("hidden");
-                }
+				}
+				if (localStorage.getItem("indigenous") == "yes") {
+					$("#indigenous").removeClass("hidden");
+					$("#interest-rate").addClass("hidden");
+				}
+				if (localStorage.getItem("shelter") == "yes") {
+					$("#shelter").removeClass("hidden");
+					$("#employees").removeClass("hidden");
+					$("#interest-rate").addClass("hidden");
+				}
+				if (localStorage.getItem("health-products") == "yes") {
+					$("#health-products").removeClass("hidden");
+					$("#financing").removeClass("hidden");
+					$("#self-employed").addClass("hidden");
+				}
             });
         </script>
 	</body>

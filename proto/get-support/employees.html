@@ -146,11 +146,6 @@
 		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
 		<script>
 			$(document).ready(function(){		
-				var agr = getUrlParameter('agr');
-				if (agr == "true") {
-					localStorage.setItem("agr", "yes");
-				}
-				
 				//Capture changes
 				$("#select-employees").change(function(field){
 					localStorage.setItem("employees", field.target.id);
@@ -177,18 +172,6 @@
 				}
 			});
 			
-			var getUrlParameter = function getUrlParameter(sParam) {
-				var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-					sURLVariables = sPageURL.split('&'),
-					sParameterName,
-					i;
-				for (i = 0; i < sURLVariables.length; i++) {
-					sParameterName = sURLVariables[i].split('=');
-					if (sParameterName[0] === sParam) {
-						return sParameterName[1] === undefined ? true : sParameterName[1];
-					}
-				}
-			};
 		</script>
 	</body>
 </html>

@@ -154,6 +154,8 @@
 				localStorage.removeItem("financing");
 				localStorage.removeItem("agr");
 				localStorage.removeItem("air");
+				localStorage.removeItem("shelter");
+				localStorage.removeItem("indigenous");
 
 				//STORE NEW VALUE
 				$("#select-business-type").change(function(field){
@@ -167,15 +169,20 @@
 				var sCheck = localStorage.getItem("business-type");
 				if (localStorage.getItem("business-type") != null){
 					if (sCheck == "farming") {
-						window.location.href = "./employees.html?agr=true"
+						localStorage.setItem("agr", "yes");
+						window.location.href = "./employees.html"
 					} else if (sCheck == "health-product") {
-						window.location.href = "https://www.canada.ca/en/health-canada/services/drugs-health-products/covid19-industry.html"
+						localStorage.setItem("health-products", "yes");
+						window.location.href = "./employees.html"
 					} else if (sCheck == "air-transport") {
-							window.location.href = "./bankruptcy.html?air=true"
+						localStorage.setItem("air", "yes");
+						window.location.href = "./bankruptcy.html"
 					} else if (sCheck == "shelter") {
-							window.location.href = "./answer-support-organization.html"
+						localStorage.setItem("shelter", "yes");
+						window.location.href = "./answer-business.html"
 					} else if (sCheck == "indigenous") {
-						window.location.href = "./answer-support-organization.html"
+						localStorage.setItem("indigenous", "yes");
+						window.location.href = "./answer-business.html"
 					} else if (sCheck == "business") {
 						window.location.href = "./bankruptcy.html"
 					}
