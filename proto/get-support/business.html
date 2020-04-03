@@ -73,6 +73,10 @@
 				<label for="health-product">COVID-19 related health products</label>
 			</li>
 			<li class="radio">
+				<input id="air-transport" type="radio" name="business-type" value="air-transport">
+				<label for="air-transport">Air transportation</label>
+			</li>
+			<li class="radio">
 				<input id="shelter" type="radio" name="business-type" value="shelter">
 				<label for="shelter">Shelters (homeless, fleeing violence)</label>
 			</li>
@@ -147,6 +151,7 @@
 				localStorage.removeItem("abr");
 				localStorage.removeItem("financing");
 				localStorage.removeItem("agr");
+				localStorage.removeItem("air");
 
 				//STORE NEW VALUE
 				$("#select-business-type").change(function(field){
@@ -163,6 +168,8 @@
 						window.location.href = "./employees.html?agr=true"
 					} else if (sCheck == "health-product") {
 						window.location.href = "https://www.canada.ca/en/health-canada/services/drugs-health-products/covid19-industry.html"
+					} else if (sCheck == "air-transport") {
+							window.location.href = "./bankruptcy.html?air=true"
 					} else if (sCheck == "shelter") {
 							window.location.href = "./answer-support-organization.html"
 					} else if (sCheck == "indigenous") {
