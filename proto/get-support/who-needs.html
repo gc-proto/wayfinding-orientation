@@ -63,14 +63,18 @@
 		<ul class="list-unstyled can-ca-form">
 			<li class="radio">
 				<input id="individual" type="radio" name="who-needs" value="individual">
-				<label for="individual">An individual</label>
+				<label for="individual">An individual (including self-employed)</label>
 			</li>
 			<li class="radio">
 				<input id="business" type="radio" name="who-needs" value="business">
-				<label for="business">A business, self-employed or organization</label>
+				<label for="business">A business or organization</label>
 			</li>
 		</ul>
-		<button id="continue" class="btn btn-call-to-action mrgn-bttm-md">Continue</button>
+		<div class="row">
+			<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+				<button id="continue" class="btn btn-call-to-action btn-block mrgn-bttm-md">Next</button>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -121,7 +125,9 @@
 				var sCheck = localStorage.getItem("who-needs");
 				if (localStorage.getItem("who-needs") != null){
 					if (sCheck == "individual") {
-						window.location.href = "../financial-support.html#individuals"
+						window.location.href = "https://cv19benefits-appservice.azurewebsites.net/en/start"
+					// } else if (sCheck == "self-employed") {
+					// 	window.location.href = "./answer-self-employed.html"
 					} else {
 						window.location.href = "./business.html"
 					}
