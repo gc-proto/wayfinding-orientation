@@ -85,8 +85,8 @@
 				<label for="indigenous">Support Indigenous communities</label>
 			</li>
 			<li class="radio">
-				<input id="farming" type="radio" name="business-type" value="farming">
-				<label for="farming">Broadcasting</label>
+				<input id="broadcasting" type="radio" name="business-type" value="broadcasting">
+				<label for="broadcasting">Broadcasting</label>
 			</li>
 			<li class="radio">
 				<input id="business" type="radio" name="business-type" value="business">
@@ -164,6 +164,7 @@
 				localStorage.removeItem("air");
 				localStorage.removeItem("shelter");
 				localStorage.removeItem("indigenous");
+				localStorage.removeItem("broadcasting");
 
 				//STORE NEW VALUE
 				$("#select-business-type").change(function(field){
@@ -191,6 +192,9 @@
 					} else if (sCheck == "indigenous") {
 						localStorage.setItem("indigenous", "yes");
 						window.location.href = "./answer-business.html"
+					} else if (sCheck == "broadcasting") {
+						localStorage.setItem("broadcasting", "yes");
+						window.location.href = "./employees.html"
 					} else if (sCheck == "business") {
 						window.location.href = "./bankruptcy.html"
 					}
