@@ -537,34 +537,34 @@
 							<legend><span class="field-name"> What was wrong with it? </span></legend>
 							<div class="radio">
 								<label for="problem11">
-									<input name="problem" id="problem11" type="radio" value="Yes" data-reveal="#find"
+									<input class="problem" name="problem" id="problem11" type="radio" value="Yes" data-reveal="#find"
 										data-gc-analytics-rap="I can't find what I'm looking for-Je n'arrive pas à trouver ce que je cherche">
 									I can't find what I'm looking for </label>
 								<input name="problem11" type="hidden" value="">
 							</div>
 							<div class="radio">
 								<label for="problem3">
-									<input name="problem" id="problem3" type="radio" value="Yes" data-reveal="#wrong"
+									<input class="problem" name="problem" id="problem3" type="radio" value="Yes" data-reveal="#wrong"
 										data-gc-analytics-rap="Information is missing-Les renseignements sont incomplets">
 									The information isn't clear </label>
 								<input name="problem3" type="hidden" value="">
 							</div>
 							<div class="radio">
 								<label for="problem1">
-									<input name="problem" id="problem1" type="radio" value="Yes" data-reveal="#broken"
+									<input class="problem" name="problem" id="problem1" type="radio" value="Yes" data-reveal="#broken"
 										data-gc-analytics-rap="A link, button or video is not working-Un lien, un bouton ou une vidéo ne fonctionne pas">
 									Something is broken or incorrect </label>
 								<input name="problem1" type="hidden" value="">
 							</div>
 							<div class="radio">
 								<label for="problem12">
-									<input name="problem" id="problem12" type="radio" value="Yes" data-reveal="#find"
+									<input class="problem" name="problem" id="problem12" type="radio" value="Yes" data-reveal="#find"
 										data-gc-analytics-rap="Other issue not in this list-Autre problème qui ne figure pas sur cette liste">
 									Other reason </label>
 								<input name="problem12" type="hidden" value="">
 							</div>
 						</fieldset>
-						<div class="" id="wb-auto-199">
+						<div class="hidden" id="reasonCont">
 							<p>Please explain the problem (don't include any personal information):</p>
 							<textarea id="reason" rows="5" cols="33">
 					(Should show up when you've picked an option above)
@@ -713,6 +713,9 @@
 			});
 			$("#helpful-yes").click(function (e) {
 				$("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");
+			});
+			$(".problem").click(function (e) {
+				$("#reasonCont").removeClass("hidden");
 			});
 			$("#helpful-submit").click(function (e) {
 				$("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");
