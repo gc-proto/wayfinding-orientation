@@ -72,13 +72,14 @@ border-bottom: .18em solid #af3c43;
   	<label id="mytopic" class="h2" for="select_main">What do you need help with today?</label><br />
   		<select id="select_main"> 	
 			<option value="">Select...</option>
-			<option value="0@0">Financial support due to COVID-19</option>
-			<option value="1@1">Applying for CERB</option>
+			<option value="fin">Financial support due to COVID-19</option>
+			<option value="cerb">Applying for CERB</option>
 			<option value="other">Other</option>
 	  	</select>
-  	 
 
-  <section id="comment-form"> 
+  	 <div class="mrgn-tp-md"><input type="button" name="fbsbmt" id="docalc" value="Get answers" class="btn btn-primary" ></div>
+
+  <section id="commentform" style="display:none"> 
    <h2>Questions or comments</h2>
    <div class="row profile"> 
  <div class="col-md-12"> 
@@ -155,29 +156,18 @@ border-bottom: .18em solid #af3c43;
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
+<script>
 
-<!--[if gte IE 9 | !IE ]><!-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>var endTime = new Date();</script>
-<noscript>
-<div><img alt="" id="DCSIMG" width="1" height="1" src="https://www.ic.gc.ca//wt-sdc.ic.gc.ca/dcs6v67hwe0ei7wsv8g9fv50d_3k6i/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.ic.gc.ca"https://www.ic.gc.ca/></div>
-</noscript>
-<!-- /Webtrends -->
-
-<!-- JS deps -->
-<script src="https://www.ic.gc.ca/eic/home.nsf/js/jquery.imagesloaded.js"></script>
-
-<!-- EPI-11262 - Util JS -->
-<script src="https://www.ic.gc.ca/eic/home.nsf/js/_WET_4-0_utils_canada.min.js"></script>
-
-<!-- EPI-12572 -->
-<!-- <script src="https://www.ic.gc.ca/eic/home.nsf/js/canada_sites_ised-contact-us.js"></script> -->
-<!-- EPI-13904 -->
-<script src="https://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/canada_sites_ised-contact-us.js/$file/canada_sites_ised-contact-us.js"></script>
+$(document).ready(
+	function(){
+			$("#docalc").click(function () {
+				$("#commentform").show("slow");
+	 });
+});
 
 
-<!-- /EPIC_DYNAMIC_VAR -->
-
+				
+</script>
  
 </body>
 </html>
