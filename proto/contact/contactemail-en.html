@@ -83,15 +83,16 @@ border-bottom: .18em solid #af3c43;
 		</select>
 		
 		<div class="mrgn-tp-md">
-			<input type="button" name="fbsbmt" id="getResponse" value="Get answers" class="btn btn-primary">
+			<input type="button" name="fbsbmt" id="getResponse" value="Get toggles" class="btn btn-primary">
 		</div>
 	</section>
 	
 <!-- Specifics begin -->
-<section id="specific-topics" class="hidden">
-<h3>What specifically are you looking for? </h3>
+<div id="accounts" class="hidden toggle">
+	<section id="specific-topics">
+	<h3>What specifically are you looking for? </h3>
 
-<div id="accounts" class="hidden">
+
 	<select id="accounts-specifics">	
 		<option value="">Select...</option>
 		<option value="accounts-cramyaccount">My Account with CRA</option>			
@@ -101,7 +102,7 @@ border-bottom: .18em solid #af3c43;
 	</select>
 </div>
 
-<div id="covid" class="hidden">
+<div id="covid" class="hidden toggle">
 	<select id="accounts-specifics">	
 		<option value="">Select...</option>
 		<option value="covid-symptoms">COVID-19 symptoms</option>			
@@ -115,7 +116,15 @@ border-bottom: .18em solid #af3c43;
 <!-- Specifics end -->
 	
 <!-- Answers begin -->
-	<section id="erb" class="hidden">
+	<section id="erb" class="hidden toggle">
+		<h3>
+			Emergency Response Benefit
+		</h3>
+		<p>
+			Details...
+		</p>
+	</section>
+	<section id="cerb" class="hidden toggle">
 		<h3>
 			Canadian Emergency Response Benefit
 		</h3>
@@ -123,15 +132,7 @@ border-bottom: .18em solid #af3c43;
 			Details...
 		</p>
 	</section>
-	<section id="cerb" class="hidden">
-		<h3>
-			Canadian Emergency Response Benefit
-		</h3>
-		<p>
-			Details...
-		</p>
-	</section>
-	<section id="covid-symptoms" class="hidden">
+	<section id="covid-symptoms" class="hidden toggle">
 		<h3>
 			Symptoms of COVID-19
 		</h3>
@@ -139,7 +140,7 @@ border-bottom: .18em solid #af3c43;
 			Details...
 		</p>
 	</section>	
-	
+
 	
 	<section id="commentform" style="display:none">
 		<h2>
@@ -217,20 +218,12 @@ border-bottom: .18em solid #af3c43;
 	}));
 </script>
 <script type="text/javascript">
-	$(document).ready(
-		var queryType;
-		
-		function(){
-				$("input[name=select_main]").on( "change", function() {
-					queryType = $(this).val(); //queryType becomes the ID of their choice
-		 });
-		
-	
-		function(){
-				$("#getResponse").click(function () {
-				 // Display the right div based on the queryType selected
-					$("#commentform").show();
-		 });
+	$(document).on("wb-ready.wb",function() {
+		$("#select_main").on( "change", function() {
+			queryType = $(this).val(); //queryType becomes the ID of their choice
+			$(".toggle").attr("class", "hidden toggle");
+			$("#"+queryType).removeClass("hidden");
+		});
 	});
 	
 	
