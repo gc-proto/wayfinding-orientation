@@ -18,6 +18,7 @@
 			}));
 		</script>
 
+<!-- 
 <style>
 h1 {
 	border-bottom: none;
@@ -30,6 +31,7 @@ padding-bottom: 8px;
 border-bottom: .18em solid #af3c43;
 }
 </style>
+ -->
 
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
@@ -60,7 +62,7 @@ border-bottom: .18em solid #af3c43;
 
 <main role="main" property="mainContentOfPage" class="container">
 
-<h1 id="wb-cont">Questions and comments form</h1>
+<h1 id="wb-cont">Questions and comments</h1>
 
 <div class="mwstext section"><div class="alert alert-info"> 
  <p>Note that information and resources on the coronavirus (COVID-19) are available on Canada.ca.<br> <a href="https://canada.ca/covid-19">canada.ca/covid-19</a></p> 
@@ -78,7 +80,18 @@ border-bottom: .18em solid #af3c43;
 </a>.</p> 
   </details>
   <hr> 
-  <section> 
+  
+  <section>
+  	<label id="mytopic" class="h2" for="select_main">What do you need help with today?</label><br />
+  		<select id="select_main"> 	
+			<option value="">Select...</option>
+			<option value="0@0">Financial support due to COVID-19</option>
+			<option value="1@1">Applying for CERB</option>
+			<option value="other">Other</option>
+	  	</select>
+  	 
+
+  <section > 
    <h2>Questions and comments</h2> 
    <div class="wb-frmvld"> 
     <form action="/gc/services/notify" method="post"> 
