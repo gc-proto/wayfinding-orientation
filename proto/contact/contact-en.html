@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Contact 1-800-O-Canada - Canada.ca</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
+
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			document.write(wet.builder.refTop({
+			}));
+		</script>
+		
+		
+		
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="def-top">
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				lngLinks: [{
+					lang: "fr",
+					href: "contact-fr.html",
+					text: "Français"
+				}],
+				breadcrumbs: [{
+					title: "Canada.ca",
+					href: "https://www.canada.ca/en.html"
+				}],
+				search: true,
+				siteMenu: true,
+				showPreContent: true
+			});
+</script>
+
+
+<link href="http://www.ic.gc.ca/eic/site/icgc.nsf/s/048_custom.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<script src="https://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/moment.js/$file/moment.js"></script>
+ 
+<script src="https://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/moment-timezone-with-data-2010-2020.js/$file/moment-timezone-with-data-2010-2020.js"></script>
+<script>
+
+generateSID = function() {
+ var sid = "PSNS-",
+ i;
+
+ for ( i = 0; i < 6; i += 1 ) {
+ sid += Math.floor( ( Math.random() * 10 ) + 1 );
+ }
+
+ return sid;
+ };  
+
+</script>
+
+<script src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/contactDataNew-e.js/$FILE/contactDataNew-e.js"></script>
+<script src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/phoneService.js/$FILE/phoneService.js"></script>
+<style>
+#formlink a{text-decoration:none;margin-left:10px;
+}
+#formdetail {margin-top:-8px; }
+#formlink {
+margin-bottom:3px;
+
+font-size:1.2em;
+border: 1px solid #ddd;
+border-radius: 4px;
+color:#295376;
+padding: 5px 15px
+}
+#contactInfoHeading{margin-bottom:10px}
+#myweb {font-size: 1.2em;color: #295376;margin-bottom:4px;padding-left: 16px;}
+#mytweet {background-color:transparent;color: #295376;padding-top:6px;padding-bottom:6px;font-size: 1.2em}
+details summary:focus, details summary:hover {text-decoration:none;color: #31708f; }
+details summary {font-size: 1.2em;margin-left: -.9em;margin-right: -.9em;}
+details[open] > summary {background-color:white;}
+details[open] {background-color:#f5f5f5}
+/*#ic-cllcntr-open.ic-in-business-hours , 
+#ic-cllcntr-closed.ic-out-business-hours {
+    display: inline;
+}*/
+/* For the chat icon */
+
+.ic-in-business-hours .ic-cllcntr-open,
+.ic-out-business-hours .ic-cllcntr-closed {
+    display: inline;
+}
+
+.ic-cllcntr-open,
+.ic-cllcntr-closed,
+.ios .hide-ios {
+    display:none;
+}
+
+.centered-block {
+    display: inline-block;
+    text-align: left;
+    padding: 15px;
+}
+/* Hides subbanner */
+
+.eic-subbanner, .eic-cont {display:none;}
+h4#myHeading {margin-top:10px; color: #2572b4}
+main label, main select {display:block}
+/*.wb-inv {
+	display: none
+}*/
+/*.wb-eqht section {
+	display: inline-block;
+	margin-bottom: 15px;
+	padding: 15px;
+	padding-top: 0;
+	padding-left:0;
+	width: 100%;
+	vertical-align: top
+}*/
+
+@media (min-width: 768px) {
+.raiseup {
+	margin-top: -60px
+}
+/*.wb-eqht section.a {
+	width: 58%;
+}
+.wb-eqht section.b {
+	width: 40%;
+}*/
+}
+
+
+</style>
+<script>
+    function OpenChat() {
+ var urlStr = $(document)[0].URL;
+if(document.getElementById("myHeading").innerHTML.toLowerCase().indexOf("corporat") > -1) {
+//if (urlStr.search("from=Corporations") != -1 ||  urlStr.search("id=E770-Hcs00000") != -1)  { 
+window.open('https://iceim02.icescape365.com/ISEDCorp/Login.html?dId=main&lang=en-CA', 'iceIM', 'width=490, height=760, resizable=yes, scrollbars=yes');
+
+}
+else 
+window.open('https://iceim02.icescape365.com/ISED/Login.html?dId=main&lang=en-CA ', 'iceIM', 'width=490, height=760, top=10, resizable=yes, scrollbars=yes');
+    }
+</script>
+</head>
+<body  class="home" vocab="http://schema.org/" typeof="WebPage">
+ 
+<!-- EPIC HEADER BEGIN -->
+<!-- EPI-11737 -->
+
+<main id="wb-cont" role="main" property="mainContentOfPage" class="container">
+<!-- /EPIC_DYNAMIC_VAR -->
+<!-- EPIC_DYNAMIC_VAR NAME="EPIC_BODY" -->
+			
+
+
+<!-- CONTENT TITLE -->
+<h1>General information by telephone</h1>
+
+
+ 
+<!-- CONTENT BODY -->
+
+<label id="mytopic" for ="select_main">What topic do you need help with today?</label>
+<select id="select_main" class="select_main form-control mrgn-bttm-md" onchange="myFunction(this.value); dcsMultiTrack('WT.ContactUsSelect1',this.value,'WT.dl','31')">
+</select>
+<label class="text-primary" id="hddOrg" for ="select_organization" style="display:none">Choose an organization:</label>
+<select id="select_organization" class="select_sub_main form-control mrgn-bttm-md" style="display:none" onchange="myFunction(this.value,'org'); dcsMultiTrack('WT.ContactUsSelectOrg',this.value,'WT.dl','31')">
+</select>
+<label for="select_sub" id="hdd2" class="text-primary" style="display:none">Please be more specific:</label>
+<select id="select_sub" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="mySubFunction(this.value); dcsMultiTrack('WT.ContactUsSelect2',this.value,'WT.dl','31')">
+</select>
+<label for="thirdSelect" id="hdd3" class="text-primary" style="display:none">Select a location:</label>
+<select id="thirdSelect" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="myThirdFunction(this.value); dcsMultiTrack('WT.ContactUsSelect3',this.value,'WT.dl','31')">
+</select>
+<h3 id="contactInfoHeading" class="mrgn-tp-lg mrgn-bttm-lg" style="display:none">Contact information</h3>
+<p id="pleasecontact"></p>
+<div  id="myResults" style="display:none">
+  <h4 id="myHeading" ></h4>
+  <p id="myHeadingPara"></p>
+  <ul class="list-unstyled">
+    <li>
+      <details id="d1" open >
+        <summary id="tel">Telephone <span class="pull-right glyphicon glyphicon-earphone text-primary"></span></summary>
+         <div id="contactInfo"  style="display:none"> </div>
+       
+        <div class="row">
+          <div id="id01" class="col-sm-7">
+            <noscript class="noscript">
+            <p>For general questions, give us a call at:</p>
+            <ul class="list-unstyled">
+              <li>Toll-Free (Canada): 1-800-328-6189</li>
+              <li>Telephone (Ottawa): 613-954-5031</li>
+              <li>TTY (for hearing-impaired): 1-866-694-8389</li>
+              <li>Business hours (Eastern Time): 8:30 a.m. to 5:00 p.m.</li>
+            </ul>
+            <p>If you have a specific question, <a href="07148.html">find contact information by topic</a>.</p>
+            </noscript>
+          </div>
+          <div class="col-sm-5 mrgn-tp-md">
+            <div id="wait-time-message" class="hidden">
+              <div class="ic-cllcntr-open">
+                <h4 class="mrgn-tp-md mrgn-lft-md mrgn-bttm-0">Service standards <span class="glyphicon glyphicon-earphone"></span></h4>
+                <div class="centered-block">
+                  <p><span class="wb-inv">Current estimated wait time: <b><span id="estimatedWaitTime">Estimating&hellip;</span></b><br></span>
+                    Current number of clients in queue: <b><span id="curQueued">Counting&hellip;</span></b> <br>
+                  We aim to answer your call within 2 minutes </p>
+                  <p class="mrgn-bttm-0"> <a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07543.html">Our Standards of Service to the Public</a> </p>
+                </div>
+              </div>
+              <div class="ic-cllcntr-closed">
+                <div class="centered-block">
+                  <p>Our office is currently closed but we'd like to hear from you.  Please leave us a message by calling 1-800-328-6189 or send us an email at <a href="mailto:ISED-ISDE@canada.ca">ISED-ISDE@canada.ca</a>. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </details>
+    </li></ul>
+   <ul class="list-unstyled" id="formdetail">
+	  <li>
+		  <div id="formlink" style="display:none"><img class="pull-left mrgn-tp-sm" src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/triangle.png/$file/triangle.png" alt=""><span class="pull-right glyphicon glyphicon-envelope text-primary"></span><span id="formlink2"></span></div>
+      <details  id="d2">
+        <summary >Online form <span class="pull-right glyphicon glyphicon-envelope text-primary" ></span> </summary>
+        <div  id="myemailform">
+          <noscript>
+          <p>For general questions, use our contact form.</p>
+          <form method="post" action="https://www.ic.gc.ca/imcc/internet.nsf/IC-Eng?CreateDocument" id="_SRT">
+            <p><a href="07139.html">Privacy Notice</a></p>
+            <input type="hidden" name="hid_pageid" id="hid_pageid" value="n/a" />
+            <div class="hidden">
+              <label for="emailx"><b>EID:</b></label>
+              <input name="emailx" id="emailx" />
+            </div>
+            <div class="form-group">
+              <label for="Subject"><b>Subject:</b></label>
+              <input class="form-control" name="Subject" id="Subject" size="60" />
+            </div>
+            <div class="form-group">
+              <label for="Body"><b>Text:</b></label>
+              <textarea class="form-control" name="Body" id="Body" cols="60" rows="8"></textarea>
+            </div>
+            <fieldset>
+              <legend>Do you need a response?</legend>
+              <p>
+                <label for="net_question_0">Yes&nbsp;
+                  <input type="radio" name="net_question_no_script" id="net_question_0" value="Yes" />
+                </label>
+                <label for="net_question_1">No&nbsp;
+                  <input type="radio" name="net_question_no_script" id="net_question_1" value="No" />
+                </label>
+              </p>
+            </fieldset>
+            <fieldset>
+              <legend>Contact Information</legend>
+              <div class="form-group">
+                <label for="net_Email">Email address:</label>
+                <input class="form-control" name="net_Email" id="net_Email" size="30" />
+              </div>
+              <div class="form-group">
+                <label for="net_FirstName">First name:</label>
+                <input class="form-control" name="net_FirstName" id="net_FirstName" size="30" />
+              </div>
+              <div class="form-group">
+                <label for="net_LastName">Last name:</label>
+                <input class="form-control" name="net_LastName" id="net_LastName" size="30" />
+              </div>
+              <div class="form-group form-inline">
+                <label for="net_Phone">Telephone:</label>
+                <input class="form-control" name="net_PhoneArea" id="net_PhoneArea" size="4" maxlength="3" />
+                <input class="form-control" name="net_Phone" id="net_Phone" size="15" />
+                <label for="net_Ext">Ext.:</label>
+                <input class="form-control" name="net_Ext" id="net_Ext" size="5" />
+              </div>
+              <div class="form-group form-inline">
+                <label for="net_BNumber">Businessnumber:</label>
+                <input class="form-control" name="net_BNumber" id="net_BNumber" size="15" />
+              </div>
+              <input type="submit" value="Send" />
+            </fieldset>
+          </form>
+          </noscript>
+        </div>
+        <div id="hiddenfields" class=""> </div>
+      </details>
+    </li>
+    <li>
+      <details  id="d3" >
+        <summary>Chat <span class="pull-right glyphicon glyphicon-comment text-primary"></span> </summary>
+        <div id="mychat">
+			<noscript>You need to have javascript enabled to use the chat</noscript>
+		  <div class="mrgn-lft-md mrgn-rght-md mrgn-tp-lg">
+         <div class="row" style="display: block;">
+		 <p id="ised-chat">Chat is available from 8:30 am to 5:00 pm (Eastern Time) (excluding weekends and general holidays)</p>
+            <!--<div class="col-sm-6">-->
+               <noscript class="noscript">
+               <p>Chat now</p>
+               </noscript>
+               <p class="ic-cllcntr-open"><a onclick="OpenChat(); return false;" class="btn btn-info btn-lg text-left" href="https://iceim.icescape365.com/ChatIndustryCanada/Login.aspx?destinationURI=sip:IndustryCanadaIM01@icescape365.com&amp;lang=en-CA&amp;name=ContactUs&amp;join=1&amp;role=guest&amp;bw=256" title="Chat now"><span class="fa-stack text-muted fa-1x hidden-xs hidden-sm"> <span class="fa fa-circle fa-stack-2x"></span> <span class="glyphicon glyphicon-comment pull-left fa-stack-1x fa-inverse"></span> </span>&nbsp;Chat now</a></p>
+               <div  id="accountinfo" class="mrgn-tp-md" style="display:none">
+			   <p><a href="https://www.ic.gc.ca/app/scr/registration-inscription/home.html?lang=eng">Access your account</a></p>
+                  <section class="alert alert-info">
+                     <p><small>Please note that for security reasons, we are unable to provide your "My ISED Account" information via web chat. For those issues, please give us a call at <span class="nowrap">613-954-5031</span> or toll-free at <span class="nowrap">1-800-328-6189</span>.</small></p>
+                  </section>
+               </div>
+            <div class="clearfix"></div>
+         </div>
+	  </div> 
+		  
+		  
+		  </div>
+		  
+      </details>
+    </li>
+    <li>
+      <details id="d4" >
+        <summary>Mailing address <span class="pull-right glyphicon glyphicon-map-marker  text-primary"></span> </summary>
+        <div id="mailInfo" class="">
+          <div class="visit-in">
+            <noscript class="noscript">
+            <p>For specific questions, <a href="07150.html">find the right mailing address by topic</a>.</p>
+            <p><a href="https://www.tbs-sct.gc.ca/burolis/search-recherche/search-recherche-eng.aspx">Find an office near you that provides service in your official language</a></p>
+            </noscript>
+          </div>
+        </div>
+      </details>
+    </li>
+	  <li>
+      <p id="myweb" class="well well-sm" style="display:none">Web: <span id="mywebtext"></span><img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/web-s.png/$file/web-s.png" class="pull-right" alt=""></p>
+    </li>
+    <li>
+      <p id="mytweet" class="well well-sm" style="font-size: 1.2em"> <a id="tweetlink" style="text-decoration:none;margin-left:6px"  href="https://twitter.com/askISED?lang=en">Tweet us @AskISED</a> <img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/tweet.png/$file/tweet.png" class="pull-right" alt="Twitter" title="Twitter"></p>
+    </li>
+	  
+  </ul>
+</div>
+<div class="clearfix"></div>
+<script>
+
+lang = ($("html").attr("lang") === "en") ? "eng" : "fra";
+// Returns the value of the 'name' URL parameter
+urlParam = function(name) {
+    var results = new RegExp("[\\?&#]" + name + "=([^&#]*)").exec(window.location.href);
+
+    if (results !== null) {
+        return results[1] || false;
+    }
+};
+//sFromVal = urlParam("from");
+
+$('details').click(function(event) {
+   /* if ((this).id == "d3") {
+        x = window.location.hash.replace(/^#/, '')
+        if (arr[x].Category.indexOf("ISED") > -1) $("#accountinfo").show();
+        else 
+$("#accountinfo").hide();
+    }*/
+    $('details').not(this).removeAttr("open");
+});
+var pageid = "n/a";
+
+function restoreDefaults() {
+    $('details').removeAttr("open");
+    $("#d1").attr("open", "open");
+    
+$("#mytweet").hide();
+    
+$("#myResults").hide();
+    if (document.getElementById("emaildetails")) document.getElementById("emaildetails").open = false;
+    $('#d1').show();
+    $('#d2').show();
+    $('#d3').show();
+    $('#d4').show();
+    document.getElementById("id01").innerHTML = ""; //hide all displayed text from first select box
+    document.getElementById("pleasecontact").innerHTML = "";
+    document.getElementById("thirdSelect").innerHTML = ""; //hide province dropdown
+    
+$("#thirdSelect").hide(); //hide province dropdown
+    if (document.getElementById("hiddenfields")) document.getElementById("hiddenfields").innerHTML = "";
+    
+$("#contactInfoHeading").hide();
+    
+$("#contactInfo").hide(); //hide program name
+    
+document.getElementById("myemailform").className = "hide"; //hide email form
+    document.getElementById("mailInfo").innerHTML = "hello"; //hide mail information
+    
+
+$("#hdd2").hide();
+    
+$("#hdd3").hide(); //hide select province heading
+}
+
+function displayResults(i) {
+	$("#myweb").hide();
+
+$("#tweetlink").attr("href", "https://twitter.com/askISED?lang=en");
+	$("#tweetlink").html("Tweet us @AskISED");
+	if(arr[i].Id == "151") {
+$("#tweetlink").attr("href", "https://twitter.com/CIPO_Canada");
+	$("#tweetlink").html("Tweet us @CIPO_Canada");
+}
+	$("#mytweet").show();    
+document.getElementById("pleasecontact").innerHTML = "";
+    $("#myResults").show();
+	document.getElementById("tel").innerHTML = document.getElementById("tel").innerHTML.replace("Telephone and email","Telephone") 
+   	mytype = urlParam("type");
+	//window.location.hash = "from="+arr[i].Category.replace(/ /g,"+");
+	
+	//if(arr[i].Business)window.location.hash +="&situation=" + arr[i].Business.replace(/ /g,"+");
+	window.location.hash=arr[i].Id;
+	if(mytype)window.location.hash +="&type="+mytype;
+	var mycities = ["Calgary\n", "Edmonton\n", "Vancouver\n", "Vancouver (British Columbia)\n", "Winnipeg\n", "Halifax\n", "Regina\n", "Ottawa\n", "Toronto\n", "Hamilton\n", "London\n", "Quebec\n", "Montreal\n", "Gatineau\n", "Saskatoon\n", "Central and Northern Alberta District Office", "Southern Alberta District Office", "Val d'Or\n", "Quebec City\n", "Sherbrook\n", "Okanagan-Kootenay\n", "Lower Mainland\n", "Vancouver Island\n", "Northern British Columbia and Yukon\n", "Vancouver Island\n"];
+    var phoneOut = "";
+    var mailout = "";
+    var myallphone = -1;
+    var myallmail = -1
+    var myPhone = arr[i].Phone;
+    //get information from ALL - loop through to find it - put in variable myallphone
+    j = 0;
+    while (j < arr.length) {
+        if (arr[j].Category == arr[i].Category && arr[j].Business == arr[i].Business && arr[j].Province == "All") myallphone = j
+        if (arr[j].Category == arr[i].Category && arr[j].Business == "All") myallmail = j
+        j++;
+    }
+    myPhone = myPhone.replace(/ \n/g, "\n")
+
+    if (arr[i].Phone) {
+        if (myPhone.indexOf("ISEDContactCentre") > -1 || myPhone.indexOf("613-288-5233") > -1 || myPhone.indexOf("1-833-201-4358") > -1) document.getElementById("wait-time-message").className = "panel panel-default";
+        else document.getElementById("wait-time-message").className = "hidden";
+        phoneOut += '<p class="mrgn-tp-md mrgn-bttm-0">';
+
+        for (var k = 0; k < mycities.length; k++) {
+            if (myPhone.indexOf(mycities[k])) myPhone = myPhone.replace(mycities[k], "<b>" + mycities[k] + "</b>");
+        }
+        if (myPhone.indexOf("ISEDContactCentre") > -1){
+			myPhone = myPhone.replace("ISEDContactCentre","")//for if email at beginning
+			if (myPhone.indexOf("Email") > -1) document.getElementById("tel").innerHTML = document.getElementById("tel").innerHTML.replace("Telephone","Telephone and email") 
+			myPhone += "Telephone (toll-free in Canada): 1-800-328-6189<br>Telephone (Ottawa): 613-954-5031<br>Fax: 343-291-1913<br>TTY (for hearing-impaired): 1-866-694-8389<br>Business hours: 8:30 a.m. to 5:00 p.m. (Eastern Time)";
+			
+		}
+		phoneOut += myPhone + '<br>';
+        if (myallphone > -1) phoneOut += '<br>' + arr[myallphone].Phone + "<br>";
+		
+    } else { //no phone
+        $('#d1').hide();
+        $("#d2").attr("open", "open");
+    }
+    if (arr[i].Address || myallmail > -1) {
+
+        var myAddress = arr[i].Address;
+		if (myAddress.indexOf("ISEDContactCentre") > -1)myAddress ="ISED Citizen Services Centre<br>Innovation, Science and Economic Development Canada<br>C.D. Howe Building<br>235 Queen Street, 4th Floor<br>Ottawa, Ontario K1A 0H5"
+
+        var mailout = '<p class="mrgn-tp-md">';
+        for (var k = 0; k < mycities.length; k++)
+            if (myAddress.indexOf(mycities[k])) myAddress = myAddress.replace(mycities[k], "<b>" + mycities[k] + "</b>");
+        if (myAddress) {
+            mailout += myAddress;
+        }
+
+    } else $('#d4').hide();
+    
+	if (myallmail > -1  && !(arr[i].Web && arr[i].Phone =="ISEDContactCentre")) {
+        if (arr[i].Address) mailout += '<br><br>';
+        mailout += arr[myallmail].Address;
+    }
+	
+	//if (!(arr[i].Web && arr[i].Phone =="ISEDContactCentre"))
+    phoneOut = phoneOut.replace(/\n/g, "<br>");
+    mailout = mailout.replace(/\n/g, "<br>");
+    phoneOut = phoneOut.replace("<b>Phone</b><br><br>", "<b>Phone</b></p><p>");
+	//if(phoneOut.indexOf("1-800-328-6189") > -1 )phoneOut= '<p class="alert alert-warning mrgn-tp-md">We are currently experiencing technical problems with our telephone system. In order to reach us, please send us an email through our online form.</p>' + phoneOut;
+    document.getElementById("id01").innerHTML = phoneOut;
+	// add heading in telephone section if from Telecommunications
+	//if (arr[i].Category.indexOf("Telecommunications")> -1 )document.getElementById("id01").innerHTML = "<h5>" +arr[i].Heading + "</h5>" + document.getElementById("id01").innerHTML
+	//NEW
+	var myHeadingParts = arr[i].Heading.split("<ptag>");
+    
+	document.getElementById("id01").innerHTML = "<h5>" + myHeadingParts[0] + "</h5>" + document.getElementById("id01").innerHTML
+	//if (arr[i].Category.indexOf("Telecommunications")> -1 )
+    document.getElementById("mailInfo").innerHTML = mailout + "</p>";
+//Blue headings if not telecommunications
+	 $("#myHeading").show();
+	if (arr[i].Business == ""){
+		document.getElementById("myHeading").innerHTML = arr[i].Category;
+	}
+	else if (arr[i].Business.indexOf("Other")== -1 ){
+	document.getElementById("myHeading").innerHTML = arr[i].Business;
+	}else if (arr[i].Business.indexOf("Other")> -1){
+		document.getElementById("myHeading").innerHTML = arr[i].Category;
+		
+	}
+	 if (myHeadingParts[1]) document.getElementById("myHeadingPara").innerHTML = myHeadingParts[1];
+	if (arr[i].Province!== "")document.getElementById("myHeading").innerHTML =document.getElementById("myHeading").innerHTML + " &mdash; " + arr[i].Province;
+    	/*if ((arr[i].Category.indexOf("Telecommunications")== -1 && arr[i].Business.indexOf("Other")== -1 )&& (arr[i].Heading.search("a href") == -1 || arr[i].Heading.search("Complaint")) > -1) {
+        $("#myHeading").show()
+		var myHeadingParts = arr[i].Heading.split("<ptag>")
+        document.getElementById("myHeading").innerHTML = myHeadingParts[0];
+        if (myHeadingParts[1]) document.getElementById("myHeadingPara").innerHTML = myHeadingParts[1]
+        else document.getElementById("myHeadingPara").innerHTML = "";
+    } else if (arr[i].Category.indexOf("Telecommunications")> -1 ){
+		$("#myHeading").show();
+		document.getElementById("myHeading").innerHTML = arr[i].Business;
+		}
+		else  if (arr[i].Business.indexOf("Other")> -1 ){
+		$("#myHeading").show();
+		document.getElementById("myHeading").innerHTML = arr[i].Category;
+		}
+		else $("#myHeading").hide();*/
+	
+	
+    $("#contactInfo").show();
+	$("#contactInfoHeading").show();
+	$("#contactInfoHeading").html("Contact information");
+	//New titles for telecommunication section
+//if (arr[i].Category.indexOf("Telecommunications")> -1)$("#contactInfoHeading").html("Contact information: " + arr[i].Business);
+	
+	//if (arr[i].Business == "Other")$("#contactInfoHeading").html("Contact information: " + arr[i].Category);
+	if (arr[i].Web)	{
+		$("#myweb").show();
+		$("#mywebtext").html("<a href=" + arr[i].Web + ">"+arr[i].Business+"</a>");	
+		if (arr[i].Business.indexOf("Computers") > -1)$("#mywebtext").html("<a href=" + arr[i].Web + ">"+arr[i].Business+"</a> or <a href=\"https://www.ic.gc.ca/eic/site/cfs-ope.nsf/eng/h_00056.html\">Local Computers for Schools representative</a>")
+	}
+	if (arr[i].Email) { //Email field exists
+        // Generates a random number which we use as unique session id
+        $("#formlink").hide();//only showinnovative solutions canada
+		if (arr[i].Email.indexOf("<a href") == -1 || arr[i].Phone) {
+            if (arr[i].Email.indexOf("<a href") == -1) { //show form
+                $("#myemailform").load("http://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/emailJSON-eng.inc/$file/emailJSON-eng.inc", function(responseTxt, statusTxt, xhr) {
+                    if (statusTxt == "success") {
+                        sid = generateSID();
+                        document.getElementById("sid").value = sid;
+                        $("#hid_pageid").attr("value", pageid);
+if ( arr[i].Email.indexOf("ic.info-info.ic@canada.ca") > -1) {
+                        $( "#_SRT" ).attr( "action", "https://www.ic.gc.ca/imcc/internet.nsf/IC-Eng?CreateDocument" );
+                    }
+                        if (typeof wb != "undefined") wb.add("main .wb-frmvld");
+                       document.getElementById("myemailform").className = "";
+                        if (arr[i].Category == "My ISED Account") $("#myisedaccount").show();
+                        if (arr[i].Id == 76) { //small business
+                            $("#smallbusiness").show();
+                        }
+
+                        if (arr[i].Business == "Radio licensing and interference") {
+                            $("#myradio").show();
+                        }
+                       // document.getElementById("hiddenfields").innerHTML = "<div style='border:1px solid red;padding:10px'><p><b>Temporary for testing - Hidden Fields:</b><br> " + arr[i].Email + "<br>" + arr[i].Category + "<br>" + arr[i].Business + "</p></div>";
+                        document.getElementById("to").value = arr[i].Email;
+                        document.getElementById("hid_select_email_main").value = arr[i].Category;
+                        document.getElementById("hid_sub_email").value = arr[i].Business;
+                        $("#contact-info-box").hide();
+                    }
+                });
+
+            } else { //Link on email field: OSB > ask a question, CIPO, Innovative Solutions Canada
+                if (arr[i].Id =="252") {$("#d2").hide();$("#formlink").show();//innovative solutions canada
+						$("#formlink2").html(arr[i].Email)			   
+									   } 
+				else {
+				var emailOut = arr[i].Email.replace(/\n/g, "<br>");
+                document.getElementById("hiddenfields").innerHTML = "<p class='mrgn-tp-md mrgn-bttm-0'>" + emailOut + '</p>';
+				$('#d1').removeAttr("open");
+        $("#d2").attr("open", "open");}
+            }
+        } else { //no email and no phone redirecting elsewhere i.e. Health Canada
+            document.getElementById("pleasecontact").innerHTML = '<div class="panel panel-default"><p class="mrgn-lft-md mrgn-tp-md">' + arr[i].Email + '</p></div>';
+            
+$("#myResults").hide();
+        }
+    } else {
+        $('#d2').hide(); //if no Email hide email tab
+    }
+	
+	
+	if(mytype){
+		$('#d1').removeAttr("open");
+		$('#d2').removeAttr("open");
+	switch(mytype) {
+			
+  case "form":
+    $("#d2").attr("open", "open");
+    break;
+case "chat":
+    $("#d3").attr("open", "open");
+    break;
+  case "mail":
+   $("#d4").attr("open", "open");
+    break;
+	default: //phone
+   $("#d1").attr("open", "open");
+    break;
+  
+} 
+}	
+
+	if (arr[i].Category.indexOf("ISED") > -1) $("#accountinfo").show();
+	else $("#accountinfo").hide();
+	//added next line for busy period March, 2019
+ // if (arr[i].Category.indexOf("corporations") == -1){$('#d3').hide();}
+	//commented out next line for busy period Nov 21, 2018
+	if (arr[i].Category == "Insolvency" || arr[i].Category.indexOf("Intellectual") > -1) $('#d3').hide(); //hide chat for certain subjects
+	//added this line Dec 14, 2018
+	//if (arr[i].Category.indexOf("corporations") > -1) $('#d3').addClass("hidden") //hide chat for certain subjects
+} //End of displayResults
+
+function myThirdFunction(i) { //clicks on third dropdown
+    if (i !== ""){
+	$("#hdd3").show(); 
+	//$('#d1').removeClass("hidden")
+	//$('details').removeAttr("open");
+    displayResults(i);
+		}
+	else //clicked on select
+		{
+			
+$("#mytweet").hide();
+    document.getElementById("pleasecontact").innerHTML = "";
+    
+$("#myResults").hide();
+	
+$("#contactInfoHeading").hide();
+		}
+}
+
+function sub2Email(subjectenquiry) {
+    $("#howhear").show();
+	document.getElementById("hid_sub_subject_email").value = subjectenquiry;
+}
+
+/*function subEmail(whatiam) { //Grants and financing > Small business financing > has clicked on Please identify yourself
+    	$("#subjectenquiry").show();
+	 document.getElementById("hid_subject_email").value = whatiam;
+    $("#help").show();
+    
+$("#claim").hide();
+    
+$("#oreg").hide();
+    
+$("#loan").hide();
+    if (whatiam.search("small") > -1) {
+        
+$("#help").hide();
+        $("#loan").show();
+    }
+    if (whatiam.search("lender") > -1) {
+        $("#claim").show();
+        $("#oreg").show();
+    }
+}*/
+	
+function subEmail(whatiam) { //Grants and financing > Small business financing > has clicked on Please identify yourself
+    $("#subjectenquiry").show();
+	 document.getElementById("hid_subject_email").value = whatiam;   
+	if (whatiam.search("small") > -1) {
+        document.getElementById("sub_subject_email").innerHTML ='<option class="" value="">Select...</option><option class="" value="General information">General information</option><option class="" value="Eligibility criteria">Eligibility criteria</option><option id="loan" class="" value="Where can I apply for a loan">Where can I apply for a loan</option><option class="" value="Service standards">Service standards</option><option class="" value="Improprieties against the program">Improprieties against the program</option><option class="" value="Other">Other</option>';
+    }
+    else if (whatiam.search("lender") > -1) {
+        document.getElementById("sub_subject_email").innerHTML ='<option class="" value="">Select...</option><option class="" value="General information">General information</option><option class="" value="Eligibility criteria">Eligibility criteria</option><option id="oreg" class="" value="Online registration (e-commerce)">Online registration (e-commerce)</option><option id="claim" class="" value="Claim related">Claim related</option><option class="" value="Service standards">Service standards</option><option class="" value="Improprieties against the program">Improprieties against the program</option><option id="help" class="" value="How can we help promote this program">How can we help promote this program</option><option class="" value="Other">Other</option>';
+    }
+	 else {
+        document.getElementById("sub_subject_email").innerHTML ='<option class="" value="">Select...</option><option class="" value="General information">General information</option><option class="" value="Eligibility criteria">Eligibility criteria</option><option class="" value="Service standards">Service standards</option><option class="" value="Improprieties against the program">Improprieties against the program</option><option id="help" class="" value="How can we help promote this program">How can we help promote this program</option><option class="" value="Other">Other</option>';
+    }
+}	
+
+function mySubEmailFunction(m) //clicks on dropdown in email
+{
+    if (arrEmail[m].SubSubCategory) {
+        document.getElementById("subSubCategory").className = "form-control";
+        //SECOND DROPDOWN
+        var mySubCategory = arrEmail[m].SubCategory;
+        var subSubSelect = "<option value=''>Select...</option>";
+        for (k = m; k < arrEmail.length; k++) {
+            if (mySubCategory == arrEmail[k].SubCategory) {;
+                subSubSelect += '<option value="' + k + '">' + arrEmail[k].SubSubCategory + '</option>';
+
+            }
+        }
+        $("#labelSubSubCategory").show();
+        document.getElementById("subSubCategory").innerHTML = subSubSelect;
+        //END SECOND DROPDOWN
+    }
+
+}
+
+function mySubFunction(iextra) { //clicks on second dropdown
+	if (isNaN(iextra))i =iextra.split("@")[0];
+else i= iextra;	
+	
+    restoreDefaults();
+	$("#hdd2").show();
+    if (i !==""){
+	if (arr[i].Organization) $("#hddOrg").show();
+    var phoneOut = "";
+    phoneOut += "";
+    var mailout = "";
+    myBusiness = "";
+    var myThirdSelect = '<option value="" selected>Select...</option>';
+    phoneOut += "<h4>" + arr[i].Heading + '</h4>';
+
+    if (arr[i].Province) {
+        if (arr[i].Category == "Science and Technology") document.getElementById("hdd3").innerHTML = "...and even more specific:"
+        else if (arr[i].Business.indexOf("Emergency") > -1) document.getElementById("hdd3").innerHTML = "Select general enquiries or a region:";
+		else if (arr[i].Business.indexOf("Wireless")> -1  || arr[i].Business.indexOf("Connecting Canadians")> -1) document.getElementById("hdd3").innerHTML = "Select general enquiries or a region (for a mailing address):";
+		
+		//else if (arr[i].Province.indexOf("Alberta") == -1 && arr[i].Province !== "All" && arr[i].Province !== "General enquiries") document.getElementById("hdd3").innerHTML = "Select a program:"
+        else document.getElementById("hdd3").innerHTML = "Select a region:"
+        $("#hdd3").show(); 
+        j = 0;
+        while (j < arr.length) { //fill third dropdown
+
+            if (arr[j].Category == arr[i].Category && arr[j].Business == arr[i].Business && arr[j].Province !== "All") {
+                myThirdSelect += '<option value="' + j + '">' + arr[j].Province + '</option>'
+            }
+            j++
+            document.getElementById("thirdSelect").innerHTML = myThirdSelect;
+            $("#thirdSelect").show();
+        }
+    } else {
+
+        phoneOut += '<p><img src="images/phone.png"><b>Phone</b></p><p>';
+        if (arr[i].Phone) phoneOut += arr[i].Phone + '<br>';
+        phoneOut += "</p>"
+        if (arr[i].Address) {
+            mailout += '<br>';
+            mailout += arr[i].Address + '<br>';
+        }
+        displayResults(i);
+    }
+}
+}
+function myFunction(tmpextra, mysource) { //clicked on first dropdown
+ restoreDefaults();
+
+if (isNaN(tmpextra))tmp =tmpextra.split("@")[0];
+else tmp= tmpextra;	
+	
+$("#select_sub").hide();
+	if (tmp !==""){
+    
+    if (mysource !== "org") {
+        
+$("#select_organization").hide();
+        
+$("#hddOrg").hide();
+    }
+    if (arr[tmp].Business.indexOf("goto:") > -1 && mysource == "org") {
+
+        i = 0;
+        var myfound = -1;
+        while (i < arr.length && myfound == -1) { //fill second dropdown
+            if (arr[tmp].Business.substring(5) == arr[i].Category) {//(5) means starts after goto: 
+				  myfound = i;
+            }
+            i++
+        }
+        tmp = myfound;
+    }
+
+    "use strict";
+   
+    var myOrganization = "";
+    var mySubSelect = '<option value="" >Select...</option>';
+
+    var i = tmp;;
+
+
+    if (arr[tmp].Organization && mysource !== "org") { //hits firsttime for organization; second time through mysource equals org
+        $("#hddOrg").show();
+        $("#select_organization").show();
+        for (i = 0; i < arr.length; i++) {
+            if (arr[i].Organization !== myOrganization && arr[i].Organization) { //fill organization dropdown
+                myOrganization = arr[i].Organization;
+                mySubSelect += '<option value="' + i + '@' + arr[i].Id + '">' + arr[i].Organization + '</option>'
+            }
+        }
+        document.getElementById("select_organization").innerHTML = mySubSelect;
+    } else if (arr[tmp].Business) { //has second dropdown
+        if (mysource == "") { //not an organization
+            
+$("#hddOrg").hide();
+            
+$("#select_organization").hide()
+        }
+        var myBusiness = "";
+        i = 0;
+        mySubSelect = '<option value="" >Select...</option>';
+        $("#hdd2").show();
+        $("#select_sub").show();
+
+        while (i < arr.length) { //fill second dropdown
+            if (arr[i].Category == arr[tmp].Category && arr[i].Business !== "All") {
+                if (arr[i].Organization == arr[tmp].Organization) {
+                    if (arr[i].Business !== myBusiness) {
+                        myBusiness = arr[i].Business;
+                        mySubSelect += '<option value="' + i + '@' + arr[i].Id + '">' + arr[i].Business + '</option>'
+                    }
+                }
+            }
+            i++
+        }
+        document.getElementById("select_sub").innerHTML = mySubSelect;
+
+    } else {
+        if (arr[tmp].Organization) {
+            $("#hddOrg").show();
+            $("#select_organization").show();
+        }
+        displayResults(tmp);
+    }
+}
+}
+function myBegin() {
+    var phoneOut = "";
+    var mySelect = '<option value="" >Select...</option>';
+    var myCategory = "";
+    var i;
+    document.getElementById("select_main").innerHTML = mySelect + "</select>";
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i].Category !== myCategory) {
+            myCategory = arr[i].Category;
+            if (myCategory == "Media enquiries") mySelect += '<option disabled value="">-----------------------------------</option>'
+
+            mySelect += '<option value="' + i + '@' + arr[i].Id + '">' + arr[i].Category + '</option>'
+        }
+    }
+	
+	    document.getElementById("id01").innerHTML = phoneOut;
+	
+    document.getElementById("select_main").innerHTML = mySelect;
+
+    urlParam = function(name) {
+        var results = new RegExp("[\\?&#]" + name + "=([^&#]*)").exec(window.location.href);
+
+        if (results !== null) {
+            return results[1] || false;
+        }
+    };
+	
+    var xhash = window.location.hash.replace(/^#/, '');
+    var n = xhash.indexOf("&");
+	if(n > 0) var xhash =xhash.substr(0, n);
+	var myfrom = "";
+    var mysituation = "";
+var x;
+    if (xhash) {
+        if (isNaN(xhash)) { //if coming from other site with word in url
+            myfrom = urlParam("from");
+			myfrom = myfrom.replace(/\+/g," ");
+			if (myfrom == "measures") myfrom = "measure";
+            mysituation = urlParam("situation");
+            if(mysituation) mysituation = mysituation.replace(/\+/g," ");
+			pageid = urlParam("pageid");
+			
+            for (i = 0; i < document.getElementById("select_main").length; i++) {//searches for from parameter in first dropdown
+                if (document.getElementById('select_main').options[i].text.toLowerCase().indexOf(myfrom.toLowerCase()) > -1) {//finds the from parameter in first dropdown
+                    document.getElementById("select_main").value = document.getElementById("select_main").options[i].value;
+                    x = document.getElementById("select_main").value;
+					x =x.split("@")[0];
+                }
+            }
+
+        } else {//number in url
+            //loop through array to get array index NEW
+			
+			for (i = 0; i < arr.length; i++) {
+			if (xhash == arr[i].Id){x=i;}
+			
+			}
+			if(x >-1){
+			for (i = 0; i < document.getElementById("select_main").length; i++) {
+                if (arr[x].Category == document.getElementById("select_main").options[i].innerHTML.replace("&amp;", "&")) //fixes R&D 
+                {
+                    document.getElementById("select_main").value = document.getElementById("select_main").options[i].value;
+                }
+            }
+}
+        }
+       if(x> -1) {//have got array element
+		   
+		   myFunction(x)
+		
+        if (mysituation) {//searches for situation parameter in second dropdown
+			if (myfrom == "Organizations") {
+                for (i = 0; i < document.getElementById("select_organization").length; i++) {
+                    if (document.getElementById('select_organization').options[i].text.toLowerCase().indexOf(mysituation.toLowerCase()) > -1) { //finds the situation parameter in second dropdow
+                        document.getElementById("select_organization").value = document.getElementById("select_organization").options[i].value;
+                     x = document.getElementById("select_organization").value;
+						x =x.split("@")[0];
+					}
+                }
+                myFunction(x, 'org')
+            } else
+            for (i = 0; i < document.getElementById("select_sub").length; i++) {
+                if (document.getElementById('select_sub').options[i].text.toLowerCase().indexOf(mysituation.toLowerCase()) > -1) { //finds the situation parameter in second dropdown
+
+                    document.getElementById("select_sub").value = document.getElementById("select_sub").options[i].value;
+
+                    x = document.getElementById("select_sub").value;
+					x =x.split("@")[0];
+                }
+            }
+        }
+
+        if (myfrom == "") { //has not come from page with word as hash tag
+            if (arr[x].Category == "Organizations") {
+                for (i = 0; i < document.getElementById("select_organization").length; i++) {
+                    if (arr[x].Organization == document.getElementById("select_organization").options[i].innerHTML) {
+                        document.getElementById("select_organization").value = document.getElementById("select_organization").options[i].value;
+                    }
+                }
+                myFunction(x, 'org')
+            }
+            for (i = 0; i < document.getElementById("select_sub").length; i++) {
+                if (arr[x].Business == document.getElementById("select_sub").options[i].innerHTML) {
+                    document.getElementById("select_sub").value = document.getElementById("select_sub").options[i].value;
+                }
+            }
+        }
+
+
+        if ((arr[x].Business && myfrom == "") || (arr[x].Business && mysituation  && document.getElementById("select_sub").value)) {
+            mySubFunction(x); 
+        }
+
+        if (arr[x].Province && myfrom == ""){ 
+			myThirdFunction(x)
+        	document.getElementById("thirdSelect").value = x;
+		 }
+    }
+}
+}
+// end myBegin()
+
+// EPI-11752: International phone numbers
+$(document).on("change", "#net_international", function() {
+    var $this = $(this);
+
+    if ($this.prop("checked")) {
+        /* Show the "international phone" section */
+        $(".international_Phone, .international_Fax").show();
+
+        /* Hide the "national phone" section */
+
+        $(".national_Phone, .national_Business, .national_Fax").hide();
+
+        /* Set the "national phone" fields to all zeroes */
+        $("#net_PhoneArea, #net_FaxArea").val("000");
+        $("#net_Phone, #net_BNumber, #net_Fax").val("000-0000");
+    } else {
+        /* Hide the "international phone" section */
+        $(".international_Phone, .international_Fax").hide();
+
+        /* Clear the "national phone" fields */
+        $("#net_PhoneArea, #net_FaxArea").val("");
+        $("#net_Phone, #net_BNumber, #net_Fax").val("");
+
+        /* Show the "national phone" section */
+        $(".national_Phone, .national_Business, .national_Fax").show();
+    }
+
+});
+
+// On selecting if you want a response or not to your feedback
+window["wb-frmvld"] = {
+    "hdLvl": "h4"
+};
+$("body").on("change", "#net_question_0", function() {
+    $("#contact-info-box").show();
+});
+$("body").on("change", "#net_question_1", function() {
+    $("#contact-info-box").hide();
+});
+$(document).on("wb-ready.wb-frmvld", ".wb-frmvld", function(event) {});
+$("body").on("click", "#attachment", function() {
+    window.open("https://www.ic.gc.ca/eic/registration.nsf/FULoadWind?openagent&amp;sid=" + sid + "&amp;fid=YDES-8VAL9G&amp;lang=" + lang.slice(0, 1) + "&amp;aid=n039", "newWin", "menubar=no,scrollbars=yes,status=yes,resizable=yes,width=350,height=350");
+});
+
+myBegin();
+
+</script> 
+
+
+
+ 
+
+<div id="def-preFooter">
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+	var defPreFooter = document.getElementById("def-preFooter");
+	defPreFooter.outerHTML = wet.builder.preFooter({
+		dateModified: "April 1, 2019",
+		showPostContent: true,
+		showFeedback: true,
+		showShare: true
+	});
+</script>
+		</main>
+		<div id="def-footer">
+
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				showFooter: true,
+				showFeatures: true
+			});
+		</script>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			document.write(wet.builder.refFooter({
+			}));
+		</script>
+
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://www.ic.gc.ca/utils/scripts/_WET_4-0/sites/themes-dist/gcweb/js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script src="https://www.ic.gc.ca/utils/scripts/_WET_4-0/sites/themes-dist/gcweb/js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
+<script src="https://www.ic.gc.ca/utils/scripts/_WET_4-0/sites/themes-dist/gcweb/js/theme.min.js"></script>
+
+<!-- EPI-10519 -->
+<!-- EPIC_DYNAMIC_TAG KEY="EPIC_JQUERY_CORE" --><!-- /EPIC_DYNAMIC_TAG -->
+<!-- EPIC_DYNAMIC_TAG KEY="EPIC_APPJS" --> <!-- /EPIC_DYNAMIC_TAG -->
+
+<!-- EPI-11190 - Webtrends -->
+<script src="https://www.ic.gc.ca/eic/home.nsf/js/webtrends.js"></script>
+<script>var endTime = new Date();</script>
+<noscript>
+<div><img alt="" id="DCSIMG" width="1" height="1" src="https://www.ic.gc.ca//wt-sdc.ic.gc.ca/dcs6v67hwe0ei7wsv8g9fv50d_3k6i/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.ic.gc.ca"https://www.ic.gc.ca/></div>
+</noscript>
+<!-- /Webtrends -->
+
+<!-- JS deps -->
+<script src="https://www.ic.gc.ca/eic/home.nsf/js/jquery.imagesloaded.js"></script>
+
+<!-- EPI-11262 - Util JS -->
+<script src="https://www.ic.gc.ca/eic/home.nsf/js/_WET_4-0_utils_canada.min.js"></script>
+
+<!-- EPI-12572 -->
+<!-- <script src="https://www.ic.gc.ca/eic/home.nsf/js/canada_sites_ised-contact-us.js"></script> -->
+<!-- EPI-13904 -->
+<script src="https://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/canada_sites_ised-contact-us.js/$file/canada_sites_ised-contact-us.js"></script>
+
+
+<!-- /EPIC_DYNAMIC_VAR -->
+
+<!-- Siteimprove Analytics -->
+<script type="text/javascript">
+/*<![CDATA[*/
+(function() {
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+sz.src = '//siteimproveanalytics.com/js/siteanalyze_8489.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]>*/
+</script>
+
+<!-- Canada_sites | WET 4.0.26 | BOEW 4.0.26 -->
+
+ 
+</body>
+</html>
