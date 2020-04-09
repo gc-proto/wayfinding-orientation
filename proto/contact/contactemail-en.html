@@ -70,6 +70,28 @@ border-bottom: .18em solid #af3c43;
 			<a href="https://canada.ca/covid-19">canada.ca/covid-19</a>
 		</p>
 	</div>
+	
+	
+<!-- 
+	
+	
+<div class="wb-frmvld">
+  <div class="wb-fieldflow" data-wb-fieldflow='{
+      "noForm":false,
+      "base": { "live": true },
+      "noreqlabel": true
+  }' id="question1">
+    <h2>What do you need help with today?</h2>
+    <ul>
+      <li><a href="answer-ill.html">Yes - I am ill</a></li>
+      <li><a href="situation.html">No</a></li>
+    </ul>
+  </div>
+</div>	
+ -->
+	
+	
+	
 	<section>
 		<label id="maintopic" class="h2" for="select_main">What do you need help with today?</label><br />
 		<select id="select_main">
@@ -81,38 +103,11 @@ border-bottom: .18em solid #af3c43;
 			<option value="other">Other</option>
 		</select>
 		
-		<div class="mrgn-tp-md">
-			<input type="button" name="fbsbmt" id="getResponse" value="Get toggles" class="btn btn-primary">
+		<div>
+			<input type="button" name="fbsbmt" id="getResponse" value="Get answers" class="btn btn-primary">
 		</div>
 	</section>
 	
-<!-- Specifics begin -->
-<div id="accounts" class="hidden toggle">
-	<section id="specific-topics">
-	<h3>What specifically are you looking for? </h3>
-
-
-	<select id="accounts-specifics">	
-		<option value="">Select...</option>
-		<option value="accounts-cramyaccount">My Account with CRA</option>			
-		<option value="accounts-ircc">Visas, work permits, study permits, Express Entry</option>
-		<option value="accounts-weeklyei">Weekly EI reporting</option>		
-		<option value="accounts-other">Other</option>		
-	</select>
-</div>
-
-<div id="covid" class="hidden toggle">
-	<select id="accounts-specifics">	
-		<option value="">Select...</option>
-		<option value="covid-symptoms">COVID-19 symptoms</option>			
-		<option value="covid-whattodo">What to do if you have symptoms</option>
-		<option value="covid-preventing">Preventing the spread of COVID-19</option>		
-		<option value="covid-other">Other</option>		
-	</select>
-</div>
-
-</section>
-<!-- Specifics end -->
 	
 <!-- Answers begin -->
 	<section id="erb" class="hidden toggle">
@@ -141,7 +136,7 @@ border-bottom: .18em solid #af3c43;
 	</section>	
 
 	
-	<section id="commentform" style="display:none">
+	<section id="commentform" class="hidden">
 		<h2>
 			Questions or comments
 		</h2>
@@ -222,6 +217,8 @@ border-bottom: .18em solid #af3c43;
 			queryType = $(this).val(); //queryType becomes the ID of their choice
 			$(".toggle").attr("class", "hidden toggle");
 			$("#"+queryType).removeClass("hidden");
+			$("#commentform").removeClass("hidden");	
+			$("#getResponse").addClass("hidden");			
 		});
 	});
 	
