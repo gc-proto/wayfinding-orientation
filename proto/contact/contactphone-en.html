@@ -21,7 +21,20 @@
 		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 		<script src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/contactDataNew-e.js/$FILE/contactDataNew-e.js"></script>
 		<script src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwapj/phoneService.js/$FILE/phoneService.js"></script>
-		
+
+<style>
+h1 {
+	border-bottom: none;
+}
+h1#wb-cont::after {
+content: "";
+display: block;
+width: 70px;
+padding-bottom: 8px;
+border-bottom: .18em solid #af3c43;
+}
+</style>
+
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="def-top">
@@ -51,29 +64,239 @@
 
 <main role="main" property="mainContentOfPage" class="container">
 
-<h1>General information by telephone</h1>
-
+<h1 id="wb-cont">Government of Canada - General information by telephone</h1>
+<p>For general information on all Government of Canada programs, services and initiatives, as well as guidance on how to  access them.</p>
 <section class="alert alert-warning">
-    <h2>Contacting us during the COVID-19 pandemic</h2>
-  <p>We are experiencing much higher than normal call volume. Please only contact us if you can't find the answers or services you need on the site, so we can focus our efforts on the most vulnerable populations. </p>
+    <h2 class="h4">Contacting us during the COVID-19 pandemic</h2>
+  <p>Wait times are much longer than normal due to high call volumes. <!-- Please try to find answers or services you need on the site, so we can focus our efforts on the most vulnerable populations. --> </p>
 </section>   
 
 <section>
-  <h2>COVID-19 measures, updates and guidance</h2>
+  <h2>Most requested</h2>
 <ul>
-    <li><a href="https://www.canada.ca/content/candasite/en/services/benefits/ei/cerb-application.html">Apply for the Canada Emergency Response Benefit (CERB)</a></li>
-    <li><a href="https://www.canada.ca/en/department-finance/economic-response-plan.html">Other financial support related to the pandemic</a></li>
+    <li><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application.html">Apply for the Canada Emergency Response Benefit (CERB)</a></li>
+    <li><a href="https://www.canada.ca/en/department-finance/economic-response-plan.html">Other financial support related to the COVID-19 pandemic</a></li>
   <li><a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html">Coronavirus disease (COVID-19)</a></li>
   <li><a href="https://www.canada.ca/en/employment-social-development/corporate/notices/coronavirus.html">Changes to ESDC&rsquo;s        programs and services due to the pandemic</a></li>
   <li><a href="https://www.canada.ca/en/employment-social-development/corporate/portfolio/service-canada/fraud.html">Fake text messages and calls claiming to be from Service Canada or 1 800 O-Canada</a></li>
 </ul>
 </section>
+
+<!-- Form -->
 <section>
+<label id="mytopic" for="select_main" class="h2">What do you need help with today?</label> 
+<select id="select_main" class="select_main form-control mrgn-bttm-md" onchange="myFunction(this.value); dcsMultiTrack('WT.ContactUsSelect1',this.value,'WT.dl','31')">
+</select>
+<label class="text-primary" id="hddOrg" for="select_organization" style="display:none">Choose an organization:</label> 
+<select id="select_organization" class="select_sub_main form-control mrgn-bttm-md" style="display:none" onchange="myFunction(this.value,'org'); dcsMultiTrack('WT.ContactUsSelectOrg',this.value,'WT.dl','31')">
+</select>
+<label for="select_sub" id="hdd2" class="text-primary" style="display:none">Please be more specific:</label> 
+<select id="select_sub" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="mySubFunction(this.value); dcsMultiTrack('WT.ContactUsSelect2',this.value,'WT.dl','31')">
+</select>
+<label for="thirdSelect" id="hdd3" class="text-primary" style="display:none">Select a location:</label> 
+<select id="thirdSelect" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="myThirdFunction(this.value); dcsMultiTrack('WT.ContactUsSelect3',this.value,'WT.dl','31')">
+</select>
+
+<h3 id="contactInfoHeading" class="mrgn-tp-lg mrgn-bttm-lg" style="display:none">
+	Contact information
+</h3>
+<p id="pleasecontact">
+</p>
+<div id="myResults" style="display:none">
+	<h4 id="myHeading">
+	</h4>
+	<p id="myHeadingPara">
+	</p>
+	<ul class="list-unstyled">
+		<li> <details id="d1" open> <summary id="tel">Telephone <span class="pull-right glyphicon glyphicon-earphone text-primary"></span></summary> 
+		<div id="contactInfo" style="display:none">
+		</div>
+		<div class="row">
+			<div id="id01" class="col-sm-7">
+				<noscript class="noscript">
+					<p>
+						For general questions, give us a call at:
+					</p>
+					<ul class="list-unstyled">
+						<li>Toll-Free (Canada): 1-800-328-6189</li>
+						<li>Telephone (Ottawa): 613-954-5031</li>
+						<li>TTY (for hearing-impaired): 1-866-694-8389</li>
+						<li>Business hours (Eastern Time): 8:30 a.m. to 5:00 p.m.</li>
+					</ul>
+					<p>
+						If you have a specific question, <a href="07148.html">find contact information by topic</a>.
+					</p>
+				</noscript>
+			</div>
+			<div class="col-sm-5 mrgn-tp-md">
+				<div id="wait-time-message" class="hidden">
+					<div class="ic-cllcntr-open">
+						<h4 class="mrgn-tp-md mrgn-lft-md mrgn-bttm-0">
+							Service standards <span class="glyphicon glyphicon-earphone"></span>
+						</h4>
+						<div class="centered-block">
+							<p>
+								<span class="wb-inv">Current estimated wait time: <b><span id="estimatedWaitTime">Estimating&hellip;</span></b><br>
+								</span> Current number of clients in queue: <b><span id="curQueued">Counting&hellip;</span></b> <br>
+								We aim to answer your call within 2 minutes 
+							</p>
+							<p class="mrgn-bttm-0">
+								<a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07543.html">Our Standards of Service to the Public</a> 
+							</p>
+						</div>
+					</div>
+					<div class="ic-cllcntr-closed">
+						<div class="centered-block">
+							<p>
+								Our office is currently closed but we'd like to hear from you. Please leave us a message by calling 1-800-328-6189 or send us an email at <a href="mailto:ISED-ISDE@canada.ca">ISED-ISDE@canada.ca</a>. 
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix">
+		</div>
+		</details> </li>
+	</ul>
+	<ul class="list-unstyled" id="formdetail">
+		<li> 
+		<div id="formlink" style="display:none">
+			<img class="pull-left mrgn-tp-sm" src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/triangle.png/$file/triangle.png" alt=""><span class="pull-right glyphicon glyphicon-envelope text-primary"></span><span id="formlink2"></span>
+		</div>
+		<details id="d2"> <summary>Online form <span class="pull-right glyphicon glyphicon-envelope text-primary"></span> </summary> 
+		<div id="myemailform">
+			<noscript>
+				<p>
+					For general questions, use our contact form.
+				</p>
+				<form method="post" action="https://www.ic.gc.ca/imcc/internet.nsf/IC-Eng?CreateDocument" id="_SRT">
+					<p>
+						<a href="07139.html">Privacy Notice</a>
+					</p>
+					<input type="hidden" name="hid_pageid" id="hid_pageid" value="n/a" />
+					<div class="hidden">
+						<label for="emailx"><b>EID:</b></label> 
+						<input name="emailx" id="emailx" />
+					</div>
+					<div class="form-group">
+						<label for="Subject"><b>Subject:</b></label> 
+						<input class="form-control" name="Subject" id="Subject" size="60" />
+					</div>
+					<div class="form-group">
+						<label for="Body"><b>Text:</b></label> <textarea class="form-control" name="Body" id="Body" cols="60" rows="8"></textarea>
+					</div>
+					<fieldset>
+						<legend>Do you need a response?</legend> 
+						<p>
+							<label for="net_question_0">Yes&nbsp; 
+							<input type="radio" name="net_question_no_script" id="net_question_0" value="Yes" />
+							</label> <label for="net_question_1">No&nbsp; 
+							<input type="radio" name="net_question_no_script" id="net_question_1" value="No" />
+							</label> 
+						</p>
+					</fieldset>
+					<fieldset>
+						<legend>Contact Information</legend> 
+						<div class="form-group">
+							<label for="net_Email">Email address:</label> 
+							<input class="form-control" name="net_Email" id="net_Email" size="30" />
+						</div>
+						<div class="form-group">
+							<label for="net_FirstName">First name:</label> 
+							<input class="form-control" name="net_FirstName" id="net_FirstName" size="30" />
+						</div>
+						<div class="form-group">
+							<label for="net_LastName">Last name:</label> 
+							<input class="form-control" name="net_LastName" id="net_LastName" size="30" />
+						</div>
+						<div class="form-group form-inline">
+							<label for="net_Phone">Telephone:</label> 
+							<input class="form-control" name="net_PhoneArea" id="net_PhoneArea" size="4" maxlength="3" />
+							<input class="form-control" name="net_Phone" id="net_Phone" size="15" />
+							<label for="net_Ext">Ext.:</label> 
+							<input class="form-control" name="net_Ext" id="net_Ext" size="5" />
+						</div>
+						<div class="form-group form-inline">
+							<label for="net_BNumber">Businessnumber:</label> 
+							<input class="form-control" name="net_BNumber" id="net_BNumber" size="15" />
+						</div>
+						<input type="submit" value="Send" />
+					</fieldset>
+				</form>
+			</noscript>
+		</div>
+		<div id="hiddenfields" class="">
+		</div>
+		</details> </li>
+		<li> <details id="d3"> <summary>Chat <span class="pull-right glyphicon glyphicon-comment text-primary"></span> </summary> 
+		<div id="mychat">
+			<noscript>
+				You need to have javascript enabled to use the chat
+			</noscript>
+			<div class="mrgn-lft-md mrgn-rght-md mrgn-tp-lg">
+				<div class="row" style="display: block;">
+					<p id="ised-chat">
+						Chat is available from 8:30 am to 5:00 pm (Eastern Time) (excluding weekends and general holidays)
+					</p>
+<!--<div class="col-sm-6">-->
+					<noscript class="noscript">
+						<p>
+							Chat now
+						</p>
+					</noscript>
+					<p class="ic-cllcntr-open">
+						<a onclick="OpenChat(); return false;" class="btn btn-info btn-lg text-left" href="https://iceim.icescape365.com/ChatIndustryCanada/Login.aspx?destinationURI=sip:IndustryCanadaIM01@icescape365.com&amp;lang=en-CA&amp;name=ContactUs&amp;join=1&amp;role=guest&amp;bw=256" title="Chat now"><span class="fa-stack text-muted fa-1x hidden-xs hidden-sm"> <span class="fa fa-circle fa-stack-2x"></span> <span class="glyphicon glyphicon-comment pull-left fa-stack-1x fa-inverse"></span> </span>&nbsp;Chat now</a>
+					</p>
+					<div id="accountinfo" class="mrgn-tp-md" style="display:none">
+						<p>
+							<a href="https://www.ic.gc.ca/app/scr/registration-inscription/home.html?lang=eng">Access your account</a>
+						</p>
+						<section class="alert alert-info">
+							<p>
+								<small>Please note that for security reasons, we are unable to provide your "My ISED Account" information via web chat. For those issues, please give us a call at <span class="nowrap">613-954-5031</span> or toll-free at <span class="nowrap">1-800-328-6189</span>.</small>
+							</p>
+						</section>
+					</div>
+					<div class="clearfix">
+					</div>
+				</div>
+			</div>
+		</div>
+		</details> </li>
+		<li> <details id="d4"> <summary>Mailing address <span class="pull-right glyphicon glyphicon-map-marker  text-primary"></span> </summary> 
+		<div id="mailInfo" class="">
+			<div class="visit-in">
+				<noscript class="noscript">
+					<p>
+						For specific questions, <a href="07150.html">find the right mailing address by topic</a>.
+					</p>
+					<p>
+						<a href="https://www.tbs-sct.gc.ca/burolis/search-recherche/search-recherche-eng.aspx">Find an office near you that provides service in your official language</a>
+					</p>
+				</noscript>
+			</div>
+		</div>
+		</details> </li>
+		<li> 
+		<p id="myweb" class="well well-sm" style="display:none">
+			Web: <span id="mywebtext"></span><img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/web-s.png/$file/web-s.png" class="pull-right" alt="">
+		</p>
+		</li>
+		<li> 
+		<p id="mytweet" class="well well-sm" style="font-size: 1.2em">
+			<a id="tweetlink" style="text-decoration:none;margin-left:6px" href="https://twitter.com/askISED?lang=en">Tweet us @AskISED</a> <img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/tweet.png/$file/tweet.png" class="pull-right" alt="Twitter" title="Twitter">
+		</p>
+		</li>
+	</ul>
+</div>
+<section>
+
   <h2>Telephone service hours</h2>
-  <p>Monday to Friday, 8 am to 5 pm (yourlocal time)</h2>
-  <p>For general information on all Government of Canada programs, services and initiatives, as well as guidance on how to  access them.</p>
+  <p>Monday to Friday, 8 am to 5 pm (your local time)</h2>
+  
   <h3>For contacts outside of these hours</h3>
-  <p><a href="email">Contact us by email</a></p>
+  <p><a href="contactemail-en.html">Send a message</a></p>
   
   
 <!--   Questions about your particular file or application should be directly to the responsible department <a href="https:www.canada.ca/en/contact.html">Government of Canada contact</a>.(NEED to link to the generic contact if that's appropriate, without leaving them with no support and going in circles.)</p> -->
@@ -86,9 +309,9 @@
 			<h3>Current wait time</h3>
 			<div class="row">
 				<div class="col-xs-4 col-sm-3">
-					<img src="https://www.canadaca/content/dam/canada/test/time.png" alt="" class="visible-xs center-block" width="90"/>
-					<img src="https://www.canadaca/content/dam/canada/test/time.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
-					<img src="https://www.canadaca/content/dam/canada/test/time.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/time.png" alt="" class="visible-xs center-block" width="90"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/time.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/time.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
 				</div>
 				<div class="col-xs-8 col-sm-9">
 					<p class="well well-sm text-center mrgn-tp-sm">54&#160;min 57&#160;s</p>
@@ -99,9 +322,9 @@
 			<h3>Average call length</h3>
 			<div class="row">
 				<div class="col-xs-4 col-sm-3">
-					<img src="https://www.canadaca/content/dam/canada/test/service-new.png" alt="" class="visible-xs center-block" width="90"/>
-					<img src="https://www.canadaca/content/dam/canada/test/service-new.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
-					<img src="https://www.canadaca/content/dam/canada/test/service-new.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/service-new.png" alt="" class="visible-xs center-block" width="90"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/service-new.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/service-new.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
 				</div>
 				<div class="col-xs-8 col-sm-9">
 					<p class="well well-sm text-center mrgn-tp-sm">7&#160;min 5&#160;s</p>
@@ -112,9 +335,9 @@
 			<h3>Callers waiting</h3>
 			<div class="row">
 				<div class="col-xs-4 col-sm-3">
-					<img src="https://www.canadaca/content/dam/canada/test/length-new.png" alt="" class="visible-xs center-block" width="90"/>
-					<img src="https://www.canadaca/content/dam/canada/test/length-new.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
-					<img src="https://www.canadaca/content/dam/canada/test/length-new.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/length-new.png" alt="" class="visible-xs center-block" width="90"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/length-new.png" alt="" class="visible-md img-responsive mrgn-tp-md"/>
+					<img src="https://www.canada.ca/content/dam/canada/test/length-new.png" alt="" class="hidden-xs hidden-md img-responsive mrgn-tp-sm"/>
 				</div>
 				<div class="col-xs-8 col-sm-9">
 					<p class="well well-sm text-center mrgn-tp-sm">1890</p>
@@ -126,183 +349,7 @@
 
 
  
-<!-- CONTENT BODY -->
 
-<label id="mytopic" for ="select_main">What topic do you need help with today?</label>
-<select id="select_main" class="select_main form-control mrgn-bttm-md" onchange="myFunction(this.value); dcsMultiTrack('WT.ContactUsSelect1',this.value,'WT.dl','31')">
-</select>
-<label class="text-primary" id="hddOrg" for ="select_organization" style="display:none">Choose an organization:</label>
-<select id="select_organization" class="select_sub_main form-control mrgn-bttm-md" style="display:none" onchange="myFunction(this.value,'org'); dcsMultiTrack('WT.ContactUsSelectOrg',this.value,'WT.dl','31')">
-</select>
-<label for="select_sub" id="hdd2" class="text-primary" style="display:none">Please be more specific:</label>
-<select id="select_sub" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="mySubFunction(this.value); dcsMultiTrack('WT.ContactUsSelect2',this.value,'WT.dl','31')">
-</select>
-<label for="thirdSelect" id="hdd3" class="text-primary" style="display:none">Select a location:</label>
-<select id="thirdSelect" style="display:none" class="select_sub_main form-control mrgn-bttm-md" onchange="myThirdFunction(this.value); dcsMultiTrack('WT.ContactUsSelect3',this.value,'WT.dl','31')">
-</select>
-<h3 id="contactInfoHeading" class="mrgn-tp-lg mrgn-bttm-lg" style="display:none">Contact information</h3>
-<p id="pleasecontact"></p>
-<div  id="myResults" style="display:none">
-  <h4 id="myHeading" ></h4>
-  <p id="myHeadingPara"></p>
-  <ul class="list-unstyled">
-    <li>
-      <details id="d1" open >
-        <summary id="tel">Telephone <span class="pull-right glyphicon glyphicon-earphone text-primary"></span></summary>
-         <div id="contactInfo"  style="display:none"> </div>
-       
-        <div class="row">
-          <div id="id01" class="col-sm-7">
-            <noscript class="noscript">
-            <p>For general questions, give us a call at:</p>
-            <ul class="list-unstyled">
-              <li>Toll-Free (Canada): 1-800-328-6189</li>
-              <li>Telephone (Ottawa): 613-954-5031</li>
-              <li>TTY (for hearing-impaired): 1-866-694-8389</li>
-              <li>Business hours (Eastern Time): 8:30 a.m. to 5:00 p.m.</li>
-            </ul>
-            <p>If you have a specific question, <a href="07148.html">find contact information by topic</a>.</p>
-            </noscript>
-          </div>
-          <div class="col-sm-5 mrgn-tp-md">
-            <div id="wait-time-message" class="hidden">
-              <div class="ic-cllcntr-open">
-                <h4 class="mrgn-tp-md mrgn-lft-md mrgn-bttm-0">Service standards <span class="glyphicon glyphicon-earphone"></span></h4>
-                <div class="centered-block">
-                  <p><span class="wb-inv">Current estimated wait time: <b><span id="estimatedWaitTime">Estimating&hellip;</span></b><br></span>
-                    Current number of clients in queue: <b><span id="curQueued">Counting&hellip;</span></b> <br>
-                  We aim to answer your call within 2 minutes </p>
-                  <p class="mrgn-bttm-0"> <a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07543.html">Our Standards of Service to the Public</a> </p>
-                </div>
-              </div>
-              <div class="ic-cllcntr-closed">
-                <div class="centered-block">
-                  <p>Our office is currently closed but we'd like to hear from you.  Please leave us a message by calling 1-800-328-6189 or send us an email at <a href="mailto:ISED-ISDE@canada.ca">ISED-ISDE@canada.ca</a>. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </details>
-    </li></ul>
-   <ul class="list-unstyled" id="formdetail">
-	  <li>
-		  <div id="formlink" style="display:none"><img class="pull-left mrgn-tp-sm" src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/triangle.png/$file/triangle.png" alt=""><span class="pull-right glyphicon glyphicon-envelope text-primary"></span><span id="formlink2"></span></div>
-      <details  id="d2">
-        <summary >Online form <span class="pull-right glyphicon glyphicon-envelope text-primary" ></span> </summary>
-        <div  id="myemailform">
-          <noscript>
-          <p>For general questions, use our contact form.</p>
-          <form method="post" action="https://www.ic.gc.ca/imcc/internet.nsf/IC-Eng?CreateDocument" id="_SRT">
-            <p><a href="07139.html">Privacy Notice</a></p>
-            <input type="hidden" name="hid_pageid" id="hid_pageid" value="n/a" />
-            <div class="hidden">
-              <label for="emailx"><b>EID:</b></label>
-              <input name="emailx" id="emailx" />
-            </div>
-            <div class="form-group">
-              <label for="Subject"><b>Subject:</b></label>
-              <input class="form-control" name="Subject" id="Subject" size="60" />
-            </div>
-            <div class="form-group">
-              <label for="Body"><b>Text:</b></label>
-              <textarea class="form-control" name="Body" id="Body" cols="60" rows="8"></textarea>
-            </div>
-            <fieldset>
-              <legend>Do you need a response?</legend>
-              <p>
-                <label for="net_question_0">Yes&nbsp;
-                  <input type="radio" name="net_question_no_script" id="net_question_0" value="Yes" />
-                </label>
-                <label for="net_question_1">No&nbsp;
-                  <input type="radio" name="net_question_no_script" id="net_question_1" value="No" />
-                </label>
-              </p>
-            </fieldset>
-            <fieldset>
-              <legend>Contact Information</legend>
-              <div class="form-group">
-                <label for="net_Email">Email address:</label>
-                <input class="form-control" name="net_Email" id="net_Email" size="30" />
-              </div>
-              <div class="form-group">
-                <label for="net_FirstName">First name:</label>
-                <input class="form-control" name="net_FirstName" id="net_FirstName" size="30" />
-              </div>
-              <div class="form-group">
-                <label for="net_LastName">Last name:</label>
-                <input class="form-control" name="net_LastName" id="net_LastName" size="30" />
-              </div>
-              <div class="form-group form-inline">
-                <label for="net_Phone">Telephone:</label>
-                <input class="form-control" name="net_PhoneArea" id="net_PhoneArea" size="4" maxlength="3" />
-                <input class="form-control" name="net_Phone" id="net_Phone" size="15" />
-                <label for="net_Ext">Ext.:</label>
-                <input class="form-control" name="net_Ext" id="net_Ext" size="5" />
-              </div>
-              <div class="form-group form-inline">
-                <label for="net_BNumber">Businessnumber:</label>
-                <input class="form-control" name="net_BNumber" id="net_BNumber" size="15" />
-              </div>
-              <input type="submit" value="Send" />
-            </fieldset>
-          </form>
-          </noscript>
-        </div>
-        <div id="hiddenfields" class=""> </div>
-      </details>
-    </li>
-    <li>
-      <details  id="d3" >
-        <summary>Chat <span class="pull-right glyphicon glyphicon-comment text-primary"></span> </summary>
-        <div id="mychat">
-			<noscript>You need to have javascript enabled to use the chat</noscript>
-		  <div class="mrgn-lft-md mrgn-rght-md mrgn-tp-lg">
-         <div class="row" style="display: block;">
-		 <p id="ised-chat">Chat is available from 8:30 am to 5:00 pm (Eastern Time) (excluding weekends and general holidays)</p>
-            <!--<div class="col-sm-6">-->
-               <noscript class="noscript">
-               <p>Chat now</p>
-               </noscript>
-               <p class="ic-cllcntr-open"><a onclick="OpenChat(); return false;" class="btn btn-info btn-lg text-left" href="https://iceim.icescape365.com/ChatIndustryCanada/Login.aspx?destinationURI=sip:IndustryCanadaIM01@icescape365.com&amp;lang=en-CA&amp;name=ContactUs&amp;join=1&amp;role=guest&amp;bw=256" title="Chat now"><span class="fa-stack text-muted fa-1x hidden-xs hidden-sm"> <span class="fa fa-circle fa-stack-2x"></span> <span class="glyphicon glyphicon-comment pull-left fa-stack-1x fa-inverse"></span> </span>&nbsp;Chat now</a></p>
-               <div  id="accountinfo" class="mrgn-tp-md" style="display:none">
-			   <p><a href="https://www.ic.gc.ca/app/scr/registration-inscription/home.html?lang=eng">Access your account</a></p>
-                  <section class="alert alert-info">
-                     <p><small>Please note that for security reasons, we are unable to provide your "My ISED Account" information via web chat. For those issues, please give us a call at <span class="nowrap">613-954-5031</span> or toll-free at <span class="nowrap">1-800-328-6189</span>.</small></p>
-                  </section>
-               </div>
-            <div class="clearfix"></div>
-         </div>
-	  </div> 
-		  
-		  
-		  </div>
-		  
-      </details>
-    </li>
-    <li>
-      <details id="d4" >
-        <summary>Mailing address <span class="pull-right glyphicon glyphicon-map-marker  text-primary"></span> </summary>
-        <div id="mailInfo" class="">
-          <div class="visit-in">
-            <noscript class="noscript">
-            <p>For specific questions, <a href="07150.html">find the right mailing address by topic</a>.</p>
-            <p><a href="https://www.tbs-sct.gc.ca/burolis/search-recherche/search-recherche-eng.aspx">Find an office near you that provides service in your official language</a></p>
-            </noscript>
-          </div>
-        </div>
-      </details>
-    </li>
-	  <li>
-      <p id="myweb" class="well well-sm" style="display:none">Web: <span id="mywebtext"></span><img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/web-s.png/$file/web-s.png" class="pull-right" alt=""></p>
-    </li>
-    <li>
-      <p id="mytweet" class="well well-sm" style="font-size: 1.2em"> <a id="tweetlink" style="text-decoration:none;margin-left:6px"  href="https://twitter.com/askISED?lang=en">Tweet us @AskISED</a> <img src="http://www.ic.gc.ca/eic/site/icgc.nsf/vwimages/tweet.png/$file/tweet.png" class="pull-right" alt="Twitter" title="Twitter"></p>
-    </li>
-	  
-  </ul>
-</div>
 <div class="clearfix"></div>
 <script>
 
