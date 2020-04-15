@@ -70,127 +70,34 @@ border-bottom: .18em solid #af3c43;
 
 </div> 
 	
-	
-	<section>
-		<label id="maintopic" class="h3" for="select_main">What do you need help with today?</label><br />
-		<select id="select_main">
-			<option value="">Select...</option>
-			<option value="covid">Coronavirus (COVID-19)</option>			
-			<option value="cerb">Canadian Emergency Response Benefit (CERB)</option>
-			<option value="esdc">Follow up with ESDC on my case</option>			
-			<option value="cra">Follow up with CRA on my case</option>
-			<option value="contacts">Find other Government of Canada contacts</option>
-			<option value="other">Other</option>
-		</select>
-		
-		<div class="mrgn-tp-md">
-			<a class="btn btn-primary" href="#" name="fbsbmt" id="getResponse">Get answers</a>
-<!-- 			<input type="button" name="fbsbmt" id="getResponse" value="Get answers" class="btn btn-primary" /> -->
-		</div>
-	</section>
-	
-	
-<!-- Answers begin -->
-	<section id="covid" class="hidden toggle">
-	 <h3>Coronavirus (COVID-19)</h3> 
-	 <p>Symptoms, precautions to take, outbreak updates, testing, travel</p>
-	  <ul> 
-	   <li><a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html">canada.ca/coronavirus</a> </li>
-	  </ul> 
-	</section>	
-	
-	<section id="cerb" class="hidden toggle">
-		<h3>Canadian Emergency Response Benefit (CERB)		</h3>
-		<h4>If you already applied for Employment Insurance (EI)</h4>
-		<p>If you’ve already applied for EI, you will get CERB automatically. You don’t need to apply again.</p>
-		<h4>If you received two payments of $2000</h4>
-		<p>If you applied for EI and then applied for CERB, you might have gotten two $2000 payments. Don’t worry, we will contact
-		you shortly to discuss.</p>
-		<h4>Do I have to apply for the next Canada Emergency Response Benefit period or is it automatic? When can I reapply for the
-		next period?</h4>
-		<p>Eligibility periods are fixed in 4-week periods. If your situation continues, you can re-apply for CERB for an
-		additional 4-week period, to a maximum of 16 weeks (4 periods). See the <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html#who">specific dates</a>.</p>
-		<h4>What if I applied through EI?</h4>
-		<p>You do not have to reapply but you must do your Internet report every 2 week to continue recieving payments</p>
-		<h4>I just finished applying for the Canada Emergency Response Benefit. When should I expect to get the money?</h4>
-		<p>Benefits will start within 10 days after you submit a CERB application, there’s no waiting period. Payments will be
-		made through direct deposit or by cheque. You’ll be paid more quickly if you choose direct deposit.</p>
-	</section>
-	<section id="esdc" class="hidden toggle">
-		<h3>
-			Follow up with ESDC on my case
-		</h3>
-		  <ul> 
-		   <li><a href="https://www.canada.ca/en/employment-social-development/services/my-account.html">My Service Canada Account</a></li> 
-		   <li><a href="https://www.canada.ca/en/employment-social-development/programs/ei.html">Employment Insurance (EI) – Information</a></li> 
-		   <li><a href="https://www.canada.ca/en/employment-social-development/corporate/notices/coronavirus.html#web-notice">Information on other popular ESDC programs</a></li> 
-		  </ul> 
-	</section>
-	<section id="cra" class="hidden toggle">
-		<h3>
-			Follow up with CRA on my case
-		</h3>
-		  <ul> 
-		   <li><a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">My Account for Individuals</a></li> 
-		   <li><a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/business-account.html">My Business Account</a></li> 
-		   <li><a href="https://www.canada.ca/en/revenue-agency/corporate/contact-information.html">Contact information for the Canada Revenue Agency</a></li> 
-		  </ul> 
-	</section>	
-	<section id="contacts" class="hidden toggle">
-		<h3>
-			Find other Government of Canada contacts
-		</h3>
- <ul> 
-   <li><a href="https://www.canada.ca/en/contact.html">Government of Canada contacts</a></li> 
-  </ul> 
-	</section>	
-
-
-	
-	<section id="commentform" class="hidden">
-		<h2 class="h3">
-			Questions or comments
-		</h2>
-		<div class="row profile">
-			<div class="col-md-12">
-				<p>
-					Please <strong>do not include sensitive personal information</strong> in the questions/comments box, such as your social insurance number, personal finance data and medical or work history.
-				</p>
-				<details> <summary> Privacy details </summary> 
-				<p>
-					In order to respond to your enquiry, the Government of Canada will need to collect a limited amount of information (such as your email address).
-				</p>
-				<p>
-					The information you provide is collected and stored in the Personal Information Bank entitled Public Communications (<abbr>PSU</abbr> 914). It may also be used for policy analysis, research and/or evaluation purposes. Your personal information is collected and administered under the authority of the <a href="http://laws-lois.justice.gc.ca/eng/acts/P-21/index.html" rel="external"><em>Privacy Act</em></a> and other applicable laws. You have the right to access your personal information. For more information on this, see <a href="https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html" rel="external">Information about programs and information holdings </a>.
-				</p>
-				</details> 
-				<div class="wb-frmvld">
-					<form action="/gc/services/notify" method="post">
-						<input name="emailTemplateservcanE" type="hidden" value="bm9yZXBseS1uZXBhc3JlcG9uZHJlQGNhbmFkYQ==">
-						<input name="emailTemplate" type="hidden" value="635358d7-021e-45b4-8e86-7415ff0577b1">
-						<input name="emailTemplate2" type="hidden" value="ea12b80a-1f7a-4461-b9b4-57fe74919c69">
-						<input name="successUrl" type="hidden" value="https://www.canada.ca/content/canadasite/en/contact/questionsthanks.html">
-						<input name="failureUrl" type="hidden" value="https://www.canada.ca/content/canadasite/en/contact/questionsfailure.html">
-						<div>
-							<input type="hidden" name="language" value="eng">
-							&nbsp; 
-						</div>
-						<div class="form-group">
-							<label for="qbox1" class="required"><span class="field-name">Your question or comment</span> <strong class="required">(required)</strong></label> <textarea class="form-control" id="qbox1" name="qbox1" rows="5" cols="40" required></textarea>
-						</div>
-						<div class="form-group">
-							<label for="eaddress" class="required"><span class="field-name">Email address</span> <strong class="required">(required)</strong></label> 
-							<input type="email" class="form-control" name="eaddress" id="eaddress" required>
-						</div>
-						<div class="clearfix">
-						</div>
-						<div>
-							<button type="submit" class="btn btn-primary">Submit</button> 
-						</div>
-					</form>
-				</div>
-<!-- Answers end -->
-	</section>
+		<h2>What do you need help with today?</h2>
+	<details>
+		<summary>Coronavirus (COVID-19)</summary>
+	</details>
+	<details>
+		<summary>Canadian Emergency Response Benefit (CERB)</summary>
+	</details>
+	<details>
+		<summary>Other financial help due to COVID-19</summary>
+	</details>
+	<details>
+		<summary>Help with Employment Insurance (EI)</summary>
+	</details>
+	<details>
+		<summary>Help with taxes and accounts</summary>
+	</details>
+	<details>
+		<summary>Pension, OAS, SIN</summary>
+	</details>
+	<details>
+		<summary>Find other Government of Canada contacts</summary>
+	</details>
+	<details>
+		<summary>Programs and services delivered by the provincial and territorial governments</summary>
+	</details>
+	<details>
+		<summary>Other</summary>
+	</details>
 </div>
 </div>
 </div>
