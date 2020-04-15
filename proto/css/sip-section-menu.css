@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* CSS Document */
-section.gc-nav h1 {
+section.gc-nav.provisional h1 {
 	font-size: 1.3em;
 	color: #666;
 	border-bottom: none;
@@ -9,61 +9,61 @@ section.gc-nav h1 {
 
 /*page structure desktop (new) */
 @media all and (min-width:992px) {
-section.gc-nav nav {
-	position: relative;
-	width: 33.33%;
-	left: 66.66%;
-	float: left;
-	padding-left: 15px;
-	margin-bottom: 30px;
+	section.gc-nav.provisional nav {
+		position: relative;
+		width: 33.33%;
+		left: 66.66%;
+		float: left;
+		padding-left: 15px;
+		margin-bottom: 30px;
+	}
+	section.gc-nav.provisional h1 {
+		width: 66.66%;
+		padding-right: 15px;
+		margin-top: 20px;
+		margin-bottom: -5px;
+		font-weight: 500;
+	}
+	section.gc-nav-section.provisional {
+		position: relative;
+		width: 66.66%;
+		float: left;
+		padding-right: 15px;
+	}
+	section.gc-nav.provisional ~ section.gc-nav-section.provisional {
+		right: 33.33%;
+	}
+	section.gc-nav.provisional ~ section.gc-nav-section.provisional h1 {
+		margin-top: 0px
+	}
+	section.gc-nav-section.provisional + .pagedetails {
+		clear: both;
+	}
 }
-section.gc-nav h1 {
-	width: 66.66%;
-	padding-right: 15px;
-	margin-top: 20px;
-	margin-bottom: -5px;
-	font-weight: 500;
-}
-section.gc-nav-section {
-	position: relative;
-	width: 66.66%;
-	float: left;
-	padding-right: 15px;
-}
-section.gc-nav ~ section.gc-nav-section {
-	right: 33.33%;
-}
-section.gc-nav ~ section.gc-nav-section h1 {
-	margin-top: 0px
-}
-section.gc-nav-section + .pagedetails {
-	clear: both;
-}
-}
-#gc-navseq-header {
+.provisional #gc-navseq-header {
 	font-size: 1.2em;
 	margin-top: 0px;
 }
-.gc-navseq {
+.provisional .gc-navseq {
 	padding-left: 0.9em;
 }
-.gc-navseq .small,
-.gc-navseq small {
+.provisional .gc-navseq .small,
+.provisional .gc-navseq small {
 	line-height: 0em;
 }
-.gc-navseq * {
+.provisional .gc-navseq * {
 	font-weight: inherit!important;
 	line-height: inherit!important;
 	font-size: inherit!important;
 }
 
-ol.gc-navseq {
+.provisional ol.gc-navseq {
 	counter-reset: step-counter;
 }
-ol.gc-navseq > li {
+.provisional ol.gc-navseq > li {
 	counter-increment: step-counter;
 }
-.gc-navseq > li {
+.provisional .gc-navseq > li {
 	padding-bottom: 20px;
 	list-style: none;
 	padding-left: 1.2em;
@@ -71,7 +71,7 @@ ol.gc-navseq > li {
 	position: relative;
 }
 
-.gc-navseq > li > :first-child::before {
+.provisional .gc-navseq > li > :first-child::before {
 	border-radius: 50%;
 	border: 3px solid #26374a;
 	background-color: #fff;
@@ -88,108 +88,109 @@ ol.gc-navseq > li {
 	margin-left: -2.3em;
 }
 
-ol.gc-navseq > li > :first-child::before {
+.provisional ol.gc-navseq > li > :first-child::before {
 	content: counter(step-counter);
 }
 
-ul.gc-navseq > li > :first-child::before {
+.provisional ul.gc-navseq > li > :first-child::before {
 	height: 0.8em;
 	width: 0.8em;
 	margin-left: -2.05em;
 	content: "";
 }
 
-.gc-navseq li a::before {
+.provisional .gc-navseq li a::before {
 	text-decoration: underline;
 }
 
-ul.gc-navseq.noline > li {
+.provisional ul.gc-navseq.noline > li {
 	border-left: 5px solid transparent
 }
 
-.gc-navseq > li:last-child,
-.gc-navseq > li.completed:last-child {
+.provisional .gc-navseq > li:last-child,
+.provisional .gc-navseq > li.completed:last-child {
 	border-left: 5px solid transparent;
 	padding-bottom: 0;
 }
 
-ul.gc-navseq.noline > li > :first-child::before {
+.provisional ul.gc-navseq.noline > li > :first-child::before {
 	margin-top: 0.2em
 }
 
 /*active*/	
-.gc-navseq li.active > :first-child::before {
+.provisional .gc-navseq li.active > :first-child::before {
 	background-color: #26374a;
 	color: #fff;
 }
 
-.gc-navseq li.active a {
+.provisional .gc-navseq li.active a {
 	color: #333;
 	cursor: default;
 	text-decoration: none;
 }
 
 /*completed*/
-.gc-navseq li.completed {
+.provisional .gc-navseq li.completed {
 	border-color: #555;
 }
-.gc-navseq li.completed > :first-child::before {
+
+.provisional .gc-navseq li.completed > :first-child::before {
 	border-color: #555;
 }
 
 /*sub-steps*/
-.gc-navseq li ul,
-.gc-navseq li ol {
+.provisional .gc-navseq li ul,
+.provisional .gc-navseq li ol {
 	margin-top: 16px!important;
 }
 
-ol.gc-navseq ol.gc-navseq {
+.provisional ol.gc-navseq ol.gc-navseq {
 	counter-reset: step-counter;
 }
 
-ol.gc-navseq ol.gc-navseq > li {
+.provisional ol.gc-navseq ol.gc-navseq > li {
 	counter-increment: step-counter;
 }
 
-ol.gc-navseq ol.gc-navseq > li > :first-child::before {
+.provisional ol.gc-navseq ol.gc-navseq > li > :first-child::before {
 	content: counter(step-counter, upper-alpha);
 }
 
 /*sub-sub-steps */	
-ol.gc-navseq ol.gc-navseq ol.gc-navseq {
+.provisional ol.gc-navseq ol.gc-navseq ol.gc-navseq {
 	counter-reset: step-counter;
 }
 
-ol.gc-navseq ol.gc-navseq ol.gc-navseq > li {
+.provisional ol.gc-navseq ol.gc-navseq ol.gc-navseq > li {
 	counter-increment: step-counter;
 }
 
-ol.gc-navseq ol.gc-navseq ol.gc-navseq > li > :first-child::before {
+.provisional ol.gc-navseq ol.gc-navseq ol.gc-navseq > li > :first-child::before {
 	content: counter(step-counter, lower-roman);
 }
 
 /*custom list-type */
-ol.gc-navseq.lst-lwr-rmn > li > :first-child::before {
+.provisional ol.gc-navseq.lst-lwr-rmn > li > :first-child::before {
 	content: counter(step-counter, lower-roman)!important;
 }
 
-ol.gc-navseq.lst-upr-rmn > li > :first-child::before {
+.provisional ol.gc-navseq.lst-upr-rmn > li > :first-child::before {
 	content: counter(step-counter, upper-roman)!important;
 }
 
-ol.gc-navseq.lst-upr-alph > li > :first-child::before {
+.provisional ol.gc-navseq.lst-upr-alph > li > :first-child::before {
 	content: counter(step-counter, upper-alpha)!important;
 }
 
-ol.gc-navseq.lst-lwr-alph > li > :first-child::before {
+.provisional ol.gc-navseq.lst-lwr-alph > li > :first-child::before {
 	content: counter(step-counter, lower-alpha)!important;
 }
 
-ol.gc-navseq.lst-num > li > :first-child::before {
+.provisional ol.gc-navseq.lst-num > li > :first-child::before {
 	content: counter(step-counter)!important;
 }
 
-ul.gc-navseq > li:not(.active) > a:hover::before {
+.provisional ul.gc-navseq > li:not(.active) > a:hover::before {
 	width: 0.83em;
 	height: 0.83em;
 	margin-top: -0.1em;
@@ -197,12 +198,10 @@ ul.gc-navseq > li:not(.active) > a:hover::before {
 	margin-left: -1.775em;
 	line-height: 1.55;
 }
-
-ul.gc-navseq.noline > li:not(.active) > a:hover::before {
+.provisional ul.gc-navseq.noline > li:not(.active) > a:hover::before {
 	margin-top: 0.15em;
 }
-
-ol.gc-navseq > li:not(.active) > a:hover::before {
+.provisional ol.gc-navseq > li:not(.active) > a:hover::before {
 	width: 1.33em;
 	height: 1.33em;
 	margin-top: -0.1em;
@@ -213,26 +212,26 @@ ol.gc-navseq > li:not(.active) > a:hover::before {
 
 /*Vertical steps in mobile  */
 @media screen and (max-width:991px) {
-	section.gc-nav {
+	section.gc-nav.provisional {
 		margin-top: 30px;
 		border-right: 5px solid #26374a;
 		border-top: 5px solid #26374a;
 		border-radius: 0 6px 6px 0;
 	}
 
-	section.gc-nav nav > .gc-navseq {
+	section.gc-nav.provisional nav > .gc-navseq {
 		padding-top: 15px;
 		margin-top: -18px;
 	}
 
-	section.gc-nav nav > .gc-navseq > li:last-child {
+	section.gc-nav.provisional nav > .gc-navseq > li:last-child {
 		border-bottom: 5px solid #26374a;
 		border-left: 5px solid #26374a;
 		border-bottom-left-radius: 6px;
 		padding-bottom: 24px;
 	}
 
-	section.gc-nav h1 {
+	section.gc-nav.provisional h1 {
 		background-color: white;
 		float: left;
 		margin-bottom: -18px;
@@ -244,24 +243,24 @@ ol.gc-navseq > li:not(.active) > a:hover::before {
 }
 
 /*nav buttons */
-.gc-navseq-nav-btn:hover,
-.gc-navseq-nav-btn:focus,
-.gc-navseq-nav-btn:visited {
+.provisional .gc-navseq-nav-btn:hover,
+.provisional .gc-navseq-nav-btn:focus,
+.provisional .gc-navseq-nav-btn:visited {
 	display: inline-block;
 	color: #fff;
 	text-decoration: none;
 	padding: 5px;
 }
 
-.gc-navseq-nav-btn {
+.provisional .gc-navseq-nav-btn {
 	background-color: #26374a;
 }
 
-.gc-navseq-nav-btn:hover {
+.provisional .gc-navseq-nav-btn:hover {
 	background-color: #444;
 }
 
-.gc-navseq-nav-btn:not(:focus) {
+.provisional .gc-navseq-nav-btn:not(:focus) {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;
 	margin: 0;
@@ -271,37 +270,37 @@ ol.gc-navseq > li:not(.active) > a:hover::before {
 }
 
 @media all and (min-width:992px) {
-	#gc-navseq-nav {
+	.provisional #gc-navseq-nav {
 		display: flex;
 	}
 }
 
 @media all and (max-width:991px) {
-	#gc-navseq-nav {
+	.provisional #gc-navseq-nav {
 		padding-top: 15px;
 		padding-bottom: 10px;
 	}
 }
 
-#gc-navseq-nav {
+.provisional #gc-navseq-nav {
 	margin-bottom: 0;
 	list-style: none;
 	padding-left: 0;
 }
 
-.gc-navseq-nav-btn:focus {
+.provisional .gc-navseq-nav-btn:focus {
 	position: relative;
 }
 
-.gc-navseq > li > :first-child::before {
+.provisional .gc-navseq > li > :first-child::before {
 	position: absolute;
 }
 
-ol.gc-navseq > li > :first-child::before {
+.provisional ol.gc-navseq > li > :first-child::before {
   content: counter(step-counter);
 }
 
-.gc-navseq > li {
+.provisional .gc-navseq > li {
 	border-left: 5px solid #26374a;
 	list-style: none;
 	padding-bottom: 20px;
