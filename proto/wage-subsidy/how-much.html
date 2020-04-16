@@ -30,6 +30,7 @@
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.top({
 				lngLinks: [{
+
 					lang: "fr",
 					href: "#",
 					text: "Français"
@@ -51,14 +52,22 @@
 </script>
 
 <main role="main" property="mainContentOfPage" class="container">
-  <section class="gc-nav">
+   <section class="gc-nav">
+
     <h1 property="name" id="wb-cont-nav">Canada Emergency Wage Subsidy (CEWS)</h1>
+
     <ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
+
       <li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
+
       <li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
+
     </ul>
+
     <nav aria-label="Section menu">
+
       <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
+
       <ul class="gc-navseq">
         <li><a href="who-apply.html">Who is eligible</a></li>
         <li class="active"><a aria-current="page">Determine your subsidy amount</a></li>
@@ -66,24 +75,28 @@
         <li><a href="send-payment.html">After you apply</a></li>
         <li><a href="contact.html">Contact the CRA</a></li>
       </ul>
+
     </nav>
+
   </section>
+
   <section class="gc-nav-section experimental">
+
     <h1 property="name" id="wb-cont">Determine your subsidy amount</h1>
     <p>When you apply for the CEWS, you will be asked to enter amounts such as the number of eligible employees and gross payroll. To get ready, you can determine these amounts and preview your subsidy now, based on information you enter.</p>
     <p>Before you calculate your subsidy, make sure you are <a href="who-apply.html">eligible to apply</a>.</p>
-	<p>After you apply for the CEWS, your claim will be subject to verification.</p>
+    <p>After you apply for the CEWS, your claim will be subject to verification.</p>
     <h2 class="h3">On this page</h2>
     <ul>
       <li><a href="#h-1">How the subsidy is calculated</a></li>
       <li><a href="#h-2">Calculate your subsidy</a></li>
     </ul>
     <h2 id="h-1">How the subsidy is calculated</h2>
-	  <p>The CEWS amount is based on:</p>
-	  <ul>
-		  <li>the number and type of <a href="#employee">eligible employees</a> you have, and</li>
-		  <li>the amount and <a href="#remuneration">type of pay they received</a> before and during the crisis</li>
-	  </ul>
+    <p>The CEWS amount is based on:</p>
+    <ul>
+      <li>the number and type of <a href="#employee">eligible employees</a> you have, and</li>
+      <li>the amount and <a href="#remuneration">type of pay they received</a> before and during the crisis</li>
+    </ul>
     <details>
       <summary>See the math behind the subsidy calculation</summary>
       <p>For each qualifying period, A-B-C+D, where:</p>
@@ -98,7 +111,7 @@
               <ul>
                 <li>75% of <a href="#remuneration">eligible remuneration</a> for week (i.e. actual pay)</li>
                 <li>$847, or</li>
-		      <li>$0 – if <a href="#nonarmslength">non-arm's length employee</a></li>
+                <li>$0 – if <a href="#armslength" aria-controls="centred-popup" class="wb-lbx" role="button">non-arm's length employee</a></li>
               </ul>
             </dd>
             <dt>Y = </dt>
@@ -146,315 +159,285 @@
     <p>There is no limit on the total subsidy amount that an eligible employer may claim.</p>
     <h2 id="h-2">Calculate your subsidy</h2>
     <p>You can use the calculator below to determine the subsidy you can expect for your organization. This calculator will help you to determine some specific line amounts (lines A – G) that you will need to enter into the application form once it becomes available on April 27.</p>
-    <p>You can use the calculator now to determine your subsidy entitlement based on the information you enter.</p>
-	   <p> <strong>Note:</strong> You may be required to provide a full list of your employees and their Social Insurance Numbers (SIN) for verification after you apply. </p>
-    <div class="alert alert-info">
-		<h2 class="h3 mrgn-tp-0">Download a calculation worksheet</h2>
-		<p>You should use this worksheet if you have certain employee situations, including:
-	    <ul>
-		    <li><a href="#nonarmslength">non-arm's-length employees</a>, or</li>
-		    <li>employees whose <a href="#baselinepay">baseline pay</a> was greater than the actual pay they received during the crisis</li>
-	    </ul></p>
-	    <p>If you have employees in these situations or prefer to calculate your subsidy offline, you can <a href="calculator.xlsx">download the CEWS calculator (Excel)</a>. </p>
-    </div>
+    <p> <strong>Note:</strong> You may be required to provide a full list of your employees and their Social Insurance Numbers (SIN) for verification after you apply. </p>
+    
     <!--INSERTED FORM BEGINS HERE-->
     <form  method="get" role="form" class="mrgn-bttm-lg">
-    <ol class="lst-stps">
-      <li>
-        <fieldset>
-          <legend>Step 1 - Claim period</legend>
-          <div class="form-group">
-            <label for="claim-period" class="control-label">Select the period you are claiming for</label>
-            <select id="claim-period" class="form-control input-lg">
-              <option></option>
-              <option value="March 15 to April 11">March 15 to April 11</option>
-              <option value="April 12 to May 9">April 12 to May 9</option>
-              <option value="May 10 to June 6">May 10 to June 6</option>
-            </select>
+      <ol class="lst-stps">
+        <li>
+          <fieldset>
+            <legend>Claim period</legend>
+            <div class="form-group">
+              <label for="claim-period" class="control-label">Select the period you are claiming for</label>
+              <select id="claim-period" class="form-control input-lg">
+                <option></option>
+                <option value="March 15 to April 11">March 15 to April 11</option>
+                <option value="April 12 to May 9">April 12 to May 9</option>
+                <option value="May 10 to June 6">May 10 to June 6</option>
+              </select>
+            </div>
+          </fieldset>
+          <hr class="brdr-bttm">
+          <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+            <h3 class="mrgn-tp-0"><span class="far fa-calendar-alt"></span> Summary of Step 1</h3>
+            <ul class="list-unstyled lst-spcd">
+              <li>Claim period is: <span class="h3 claim-period"></span></li>
+            </ul>
           </div>
-        </fieldset>
-        <hr class="brdr-bttm">
-        <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-          <h3 class="mrgn-tp-0"><span class="far fa-calendar-alt"></span> Summary of Step 1</h3>
-          <ul class="list-unstyled lst-spcd">
-            <li>Claim period is: <span class="h3 claim-period"></span></li>
-          </ul>
-        </div>
-      </li>
-      <li>
+        </li>
+        <li>
         <fieldset class="brdr-tp">
-          <legend>Step 2 - Gross payroll</legend>
+          <legend>Gross payroll for eligible employees</legend>
+		<div class="clearfix"></div>
           <ul class="lst-lwr-alph">
-            <li>Employees who qualify for the maximum subsidy (earning $1,130 a week <strong>or more</strong>)
-              <div class="row mrgn-tp-md">
-                <div class="mrgn-lft-lg mrgn-rght-md">
-                  <div class="form-group">
-                    <label class="control-label" for="p2a-ee">Number of employees with a gross weekly earning of $1,130 or more <br>
-                      <span class="small text-muted">(this must apply for each week in the claim period)</span></label>
-                    <input type="number" class="form-control input-lg" id="p2a-ee" size="4">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="p2a-pyrl">Total gross payroll amount for all of these employees during this claim period<span class="wb-inv"> (do not include dollar sign)</span></label>
-                    <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                      <input type="number" class="form-control input-lg text-right" id="p2a-pyrl">
-                      <span class="input-group-addon">.00</span> </div>
-                  </div>
-                  <p class="text-right h5 text-muted">Total subsidy for Step 2a: <span class="h3 p2a-ee">0</span> employees <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">$847</span> <br class="visible-xs">
-                    <abbr title="equals" class="brdr-0">=</abbr> <span class="h3 p2a-total">$0</span></p>
+          <li>For <strong>step 2a</strong> enter the amounts for eligible employees who:
+            <ul class="fa-ul mrgn-bttm-lg">
+              <li><span class="fa-li fas fa-check text-success"></span>have not experienced a reduction in pay since before the crisis, and </li>
+              <li><span class="fa-li fas fa-check text-success"></span>earn $1,130 a week or more (qualify for the maximum subsidy), and </li>
+              <li><span class="fa-li fas fa-check text-success"></span>are either:
+                <ul>
+                  <li><a href="#armslength" aria-controls="centred-popup" class="wb-lbx" role="button">at arm’s length</a> from the business, or</li>
+                  <li><a href="#armslength" aria-controls="centred-popup" class="wb-lbx" role="button">not at arm’s length</a> but have both pre-crisis (baseline) and current period pay averages of more than of $1130/week</li>
+                </ul>
+              </li>
+            </ul>
+            <div class="row mrgn-tp-md">
+              <div class="mrgn-lft-lg mrgn-rght-md">
+                <div class="form-group">
+                  <label class="control-label" for="p2a-ee">Number of eligible employees that meet 2a criteria</label>
+                  <input type="number" class="form-control input-lg" id="p2a-ee" size="4">
                 </div>
-              </div>
-            </li>
-            <li class="mrgn-tp-lg">Employees who qualify for less than the maximum subsidy (earning of <strong>less than</strong> $1,130 a week)
-              <div class="row mrgn-tp-md">
-                <div class="mrgn-lft-lg mrgn-rght-md">
-                  <div class="form-group">
-                    <label class="control-label" for="p2b-ee">Number of employees who have a gross weekly earning of less than $1,130</label>
-                    <input type="number" class="form-control input-lg" id="p2b-ee" size="4">
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label" for="p2b-pyrl">Total gross payroll amount for these employees during this claim period (see field XXX of the CEWS spreadsheet)<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
-                    <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                      <input type="number" class="form-control input-lg text-right" id="p2b-pyrl">
-                      <span class="input-group-addon">.00</span> </div>
-                  </div>
-                  <p class="text-right h5 text-muted">Total subsidy for Step 2b: <span class="h3 p2b-pyrl">$0</span> <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">75%</span><br class="visible-xs">
-                    <abbr title="equals" class="brdr-0">=</abbr> <span  class="h3 p2b-total">$0</span></p>
+                <div class="form-group">
+                  <label class="control-label" for="p2a-pyrl">Total gross payroll amount for all employees that meet 2a criteria during this claim period<span class="wb-inv"> (do not include dollar sign)</span></label>
+                  <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                    <input type="number" class="form-control input-lg text-right" id="p2a-pyrl">
+                    <span class="input-group-addon">.00</span> </div>
                 </div>
+                <p class="text-right h5 text-muted">Total subsidy for Step 2a: <span class="h3 p2a-ee">0</span> employees <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">$847</span> <br class="visible-xs">
+                  <abbr title="equals" class="brdr-0">=</abbr> <span class="h3 p2a-total">$0</span></p>
               </div>
-            </li>
+            </div>
+          </li>
+          <li class="mrgn-tp-lg">For <strong>step 2b</strong> enter the amounts for eligible employees who:
+            <ul class="fa-ul mrgn-bttm-lg">
+              <li><span class="fa-li fas fa-check text-success"></span>have not experienced a reduction in pay since before the crisis, and </li>
+              <li><span class="fa-li fas fa-check text-success"></span>earn <strong>less than</strong> $1,130 a week (do not qualify for the maximum subsidy), and </li>
+              <li><span class="fa-li fas fa-check text-success"></span>are <a href="#armslength" aria-controls="centred-popup" class="wb-lbx" role="button">at arm’s length</a> from the business</li>
+            </ul>
+            <div class="row mrgn-tp-md">
+              <div class="mrgn-lft-lg mrgn-rght-md">
+                <div class="form-group">
+                  <label class="control-label" for="p2b-ee">Number of eligible employees that meet 2b criteria</label>
+                  <input type="number" class="form-control input-lg" id="p2b-ee" size="4">
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="p2b-pyrl">Total gross payroll amount for all employees that meet 2b criteria during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                  <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                    <input type="number" class="form-control input-lg text-right" id="p2b-pyrl">
+                    <span class="input-group-addon">.00</span> </div>
+                </div>
+                <p class="text-right h5 text-muted">Total subsidy for Step 2b: <span class="h3 p2b-pyrl">$0</span> <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">75%</span><br class="visible-xs">
+                  <abbr title="equals" class="brdr-0">=</abbr> <span  class="h3 p2b-total">$0</span></p>
+              </div>
+            </div>
+          </li>
+          <li class="mrgn-tp-lg">For <strong>step 2c</strong>, do you have any employees who:
+          <ul class="fa-ul mrgn-bttm-lg">
+            <li><span class="fa-li fas fa-check text-success"></span>earned less during this period than what they were earning before the crisis, or</li>
+            <li><span class="fa-li fas fa-check text-success"></span>are at <a href="#armslength" aria-controls="centred-popup" class="wb-lbx" role="button">non-arm’s length from your business</a></li>
           </ul>
+          <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true}'>
+            <p>Do any of your employees meet 2c criteria?</p>
+            <ul>
+              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#part2cyes, .part2csums", "live": true}'>Yes</li>
+              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#part2cno", "live": true}'>No</li>
+            </ul>
+          </div>
+          <div class="hidden" id="part2cyes">
+          <p>You need this worksheet to calculate your base wage subsidy for eligible employees who:</p>
+            <ul class="mrgn-bttm-lg">
+              <li>earned less during this period than what they were earning before the crisis, or</li>
+              <li>are not at arm’s length from your business and do not have both pre-crisis (baseline) and current period pay averages of more than of $1130/week</li>
+            </ul>
+            <p><a href="calculator.xlsx" class="btn btn-primary">Download the calculation worksheet</a></p>
+            <p class="small">(If you don't have Excel, you can open it in free spreadsheet solutions like Google Sheets or OpenOffice.)</p>
+            <div class="row mrgn-tp-md">
+              <div class="mrgn-lft-lg mrgn-rght-md">
+                <div class="form-group">
+                  <label class="control-label" for="p2c-ee">Number of employees that are non-arm's length or have reduced pay</label>
+                  <input type="number" class="form-control input-lg" id="p2c-ee" size="4">
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="p2c-pyrl">Total gross payroll amount for these employees during this claim period (see field XXX of the CEWS spreadsheet)<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                  <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                    <input type="number" class="form-control input-lg text-right" id="p2b-pyrl">
+                    <span class="input-group-addon">.00</span> </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="p2c-total">Total base CEWS for these employees during this claim period (see field XXX of the CEWS spreadsheet)<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                  <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                    <input type="number" class="form-control input-lg text-right" id="p2c-total">
+                    <span class="input-group-addon">.00</span> </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="hidden alert alert-success" id="part2cno">
+            <p>Go to <strong>Step 3</strong>.</p>
+          </div>
+			  </li></ul>
           <hr class="brdr-bttm">
           <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
             <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 2</h3>
             <ul class="list-unstyled lst-spcd">
-              <li><span class="h3">Line A</span> Total number of eligible employees <strong>(<span  class="p2a-ee">0</span>)</strong> + <strong>(<span class="p2b-ee">0</span>)</strong> <abbr title="equals" class="brdr-0">=</abbr> <span class="h3 p2-ee-total">0</span></li>
-              <li><span class="h3">Line B</span> Total gross payroll <strong>(<span class="p2a-pyrl">$0</span>)</strong> + <strong>(<span class="p2b-pyrl">$0</span>)</strong> <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p2-pyrl-total">0</span></li>
-              <li><span class="h3">Line C</span> Base CEWS <strong>(<span class="p2a-total">$0</span>)</strong> + <strong>(<span class="p2b-total">$0</span>)</strong> <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p2-cews-total">0</span></li>
+              <li><span class="h3">Line A</span> Total number of eligible employees <strong>(<span  class="p2a-ee">0</span>)</strong> + <strong>(<span class="p2b-ee">0</span>)</strong><span class="part2csums hidden"> + <strong>(<span class="p2c-ee">0</span>)</strong></span> <abbr title="equals" class="brdr-0">=</abbr> <span class="h3 p2-ee-total">0</span></li>
+              <li><span class="h3">Line B</span> Total gross payroll <strong>(<span class="p2a-pyrl">$0</span>)</strong> + <strong>(<span class="p2b-pyrl">$0</span>)</strong><span class="part2csums hidden"> + <strong>(<span class="p2c-pyrl1">$0</span>)</strong></span> <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p2-pyrl-total">0</span></li>
+              <li><span class="h3">Line C</span> Base CEWS <strong>(<span class="p2a-total">$0</span>)</strong> + <strong>(<span class="p2b-total">$0</span>)</strong><span class="part2csums hidden"> + <strong>(<span class="p2c-total">$0</span>)</strong></span> <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p2-cews-total">0</span></li>
             </ul>
           </div>
         </fieldset>
-      </li>
-      <li>
-        <fieldset class="brdr-tp">
-          <legend>Step 3 − Premiums and contributions</legend>
-          <p class="mrgn-tp-0">As part of the CEWS, employers can claim a 100% refund for certain employer-paid contributions you made on behalf of eligible employees who are on <a href="#leavewithpay">leave with pay</a> for at least a full week.</p> 
-		<p>These employer-paid contributions include:</p>
-		<ul>
-			<li>Employment Insurance (EI)</li>
-			<li>the Canada Pension Plan (CPP)</li>
-			<li>the Quebec Pension Plan (QPP), and</li>
-			<li>the Quebec Parental Insurance Plan (QPIP)</li>
-		</ul>
-          <!--<p>In general, an employee is considered to be on leave with pay if that employee is paid by the employer for a full week but does not perform any work during that time. This refund is not available for eligible employees that are on leave with pay for only a portion of a week.</p>-->
-          <p>Indicate the total amount of premiums or contributions during the selected period. Enter $0 if not applicable. </p>
-          <div class="mrgn-lft-md">
-            <div class="form-group">
-              <label class="control-label" for="p3-ei">Total EI and QPIP premiums that you paid on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
-              <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                <input type="number" class="form-control input-lg text-right" id="p3-ei">
-                <span class="input-group-addon">.00</span> </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="p3-cpp">Total CPP and QPP contributions that you made on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
-              <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                <input type="number" class="form-control input-lg text-right" id="p3-cpp">
-                <span class="input-group-addon">.00</span> </div>
-            </div>
-          </div>
-          <hr class="brdr-bttm">
-          <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-            <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 3</h3>
-            <ul class="list-unstyled lst-spcd">
-              <li><span class="h3">Line D</span> Total premiums <abbr title="equals" class="brdr-0">=</abbr> $<span  class="h3 p3-ei">0</span></li>
-              <li><span class="h3">Line E</span> Total contributions <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p3-cpp">0</span></li>
+        </li>
+        <li>
+          <fieldset class="brdr-tp">
+            <legend>Premiums and contributions</legend>
+            <p class="mrgn-tp-0">As part of the CEWS, employers can claim a 100% refund for certain employer-paid contributions you made on behalf of eligible employees who are on <a href="#leavewithpay">leave with pay</a> for at least a full week.</p>
+            <p>These employer-paid contributions include:</p>
+            <ul>
+              <li>Employment Insurance (EI)</li>
+              <li>the Canada Pension Plan (CPP)</li>
+              <li>the Quebec Pension Plan (QPP), and</li>
+              <li>the Quebec Parental Insurance Plan (QPIP)</li>
             </ul>
-          </div>
-        </fieldset>
-      </li>
-      <li>
-        <fieldset class="mrgn-bttm-lg">
-          <legend>Step 4 − Deductions </legend>
-          <div class="mrgn-lft-md">
-            <div class="form-group">
-              <label class="control-label" for="tws-amount">Amount that you are eligible to claim under the 10% Temporary Wage Subsidy for Employers <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
-              <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                <input type="number" class="form-control input-lg text-right" id="p4-tws">
-                <span class="input-group-addon">.00</span> </div>
+            <!--<p>In general, an employee is considered to be on leave with pay if that employee is paid by the employer for a full week but does not perform any work during that time. This refund is not available for eligible employees that are on leave with pay for only a portion of a week.</p>-->
+            <p>Indicate the total amount of premiums or contributions during the selected period. Enter $0 if not applicable. </p>
+            <div class="mrgn-lft-md">
+              <div class="form-group">
+                <label class="control-label" for="p3-ei">Total EI and QPIP premiums that you paid on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                  <input type="number" class="form-control input-lg text-right" id="p3-ei">
+                  <span class="input-group-addon">.00</span> </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="p3-cpp">Total CPP and QPP contributions that you made on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                  <input type="number" class="form-control input-lg text-right" id="p3-cpp">
+                  <span class="input-group-addon">.00</span> </div>
+              </div>
             </div>
-            <div class="form-group">
-              <label class="control-label" for="wsb-amount">Total amount that your eligible employees have received under ESDC’s Work Sharing Benefit program (enter $0 if not applicable) <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
-              <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                <input type="number" class="form-control input-lg text-right" id="p4-wsb">
-                <span class="input-group-addon">.00</span> </div>
+            <hr class="brdr-bttm">
+            <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+              <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 3</h3>
+              <ul class="list-unstyled lst-spcd">
+                <li><span class="h3">Line D</span> Total premiums <abbr title="equals" class="brdr-0">=</abbr> $<span  class="h3 p3-ei">0</span></li>
+                <li><span class="h3">Line E</span> Total contributions <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p3-cpp">0</span></li>
+              </ul>
             </div>
-          </div>
-          <hr class="brdr-bttm">
-          <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-            <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 4</h3>
-            <ul class="list-unstyled lst-spcd">
-              <li><span class="h3">Line F</span> 10% Temporary Wage Subsidy amount <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p4-tws">0</span></li>
-              <li><span class="h3">Line G</span> Total Work Sharing amount <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p4-wsb">0</span></li>
-            </ul>
-          </div>
-        </fieldset>
-      </li>
-    
-    <li><p><span class="lead">Step 5 - Get results</span></p>
-		<p>After completing the four steps above, you can now view the results.</p>
-      <p><button id="calculate"  class="btn btn-primary btn-lg " data-wb-doaction='[{ "action": "removeClass", "source": "#results", "class": "hidden" }]'>Calculate your total wage subsidy</button></p>
-    </li>
-		</ol>
-  </form>
-  <div class="panel panel-primary hidden" id="results">
-    <header class="panel-heading">
-      <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
-    </header>
-    <div class="panel-body">
-      <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:</p>
-      <ul class="lst-spcd">
-        <li>Line A: Total number of eligible employees: <strong class="p2-ee-total">0</strong></li>
-        <li>Line B: Total gross payroll: <strong>$<span class="p2-pyrl-total">0</span></strong></li>
-        <li>Line C: Base CEWS: <strong>$<span class="p2-cews-total">0</span></strong></li>
-        <li>Line D: Total premiums: <strong>$<span class="p3-ei">0</span></strong></li>
-        <li>Line E: Total contributions: <strong>$<span class="p3-cpp">0</span></strong></li>
-        <li>Line F: 10% Temporary Wage Subsidy amount: <strong>$<span class="p4-tws">0</span></strong></li>
-        <li>Line G: Total Work Sharing amount: <strong>$<span class="p4-wsb">0</span></strong></li>
-      </ul>
-     <div class="alert alert-success"><h3>Result</h3><p>Line H: The <strong>total amount</strong> you will receive for the 75% CEWS for this period is: <strong>$<span class="cews-final-total">0</span></strong></p></div>
-      <table class="table">
-        <caption>
-        Summary of CEWS claim
-        </caption>
-        <tbody>
-          <tr>
-            <th scope="row">Base CEWS <small class="nowrap">(Line C)</small></th>
-            <td class="text-right nowrap">$<span class="p2-cews-total">0</span></td>
-          </tr>
-          <tr>
-            <th scope="row">(plus) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-            <td class="text-right nowrap">+ $<span class="p3-ei">0</span></td>
-          </tr>
-          <tr>
-            <th scope="row">(plus) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-            <td class="text-right nowrap">+ $<span class="p3-cpp">0</span></td>
-          </tr>
-          <tr>
-            <th scope="row">(minus) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
-            <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-tws">0</span></td>
-          </tr>
-          <tr>
-            <th scope="row">(minus) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
-            <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-wsb">0</span></td>
-          </tr>
-          <tr class="success">
-            <th scope="row">Your CEWS claim is <small class="nowrap">(Line H)</small></th>
-            <td class="text-right nowrap">$<span class="cews-final-total">0</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="text-right hidden"><a href="#"><span class="glyphicon glyphicon-print mrgn-rght-sm"></span>Print this statement</a></p>
-    </div>
-  </div>
-    
-    <!-- old one 
-  <form action="" method="get" role="form" class="mrgn-bttm-lg well">
-    <div class="form-horizontal">
-      <div class="form-group">
-        <label for="" class="col-sm-4 control-label">Select claiming period</label>
-        <div class="col-sm-3">
-          <select id="" class="form-control full-width">
-            <option></option>
-            <option value="">March 15 to April 11</option>
-            <option value="">April 12 to May 9</option>
-            <option value="">May 10 to June 6</option>
-          </select>
-        </div>
-      </div>
-     
-    </div>
-	
-    <fieldset>
-      <legend>Employees gross weekly earnings</legend>
-<p><strong>Note: </strong>Use the <strong>average weekly earnings</strong> of the selected claiming period.</p>
-      <div class="amounts">
-		  <div class="amounts-calculate row brdr-bttm mrgn-bttm-md">
-			 
-			  <div class="col-md-4">
-        <div class="form-group">
-          <label for="egp1">Weekly  payroll range</label>
-           <select id="" class="form-control">
-            <option></option>
-            <option value="">$0 to $99</option>
-			  <option value="">$100 to $199</option>
-            <option value="">$200 to $299</option>
-            <option value="">$300 to $399</option>
-			  <option value="">$400 to $499</option>
-			   <option value="">$500 to $599</option>
-			  <option value="">$600 to $699</option>
-			  <option value="">$700 to $799</option>
-			  <option value="">$800 to $899</option>
-			  <option value="">$900 to $999</option>
-			  <option value="">$1000 to $1129</option>
-			  <option value="">More than $1130</option>
-          </select>
-        </div>
-				  </div>
-			  <div class="col-md-4">
-        <div class="form-group">
-          <label for="nea1"><abb title="number">#</abb> of employees<span class="wb-inv"> at this amount</span></label>
-        
-            <input id="nea1" type="number" class="form-control input-lg" size="4"  />
-        </div>
-			  </div>
-			  <div class="col-md-4">
-        <div class="form-group">
-          <label for="tgp1">Approximate payroll<span class="wb-inv"> amount for these employees</span></label>
-          <div class="input-group"> <span class="input-group-addon">$</span>
-            <input type="number" class="form-control input-lg" id="tgp1" readonly="readonly">
-          </div>
-        </div>
-				 </div>
-      </div>
-		  </div>
-	  </fieldset>
-		<button class="btn btn-default mrgn-bttm-md" id="amts-btn" type="button">Add another payroll amount</button>
-      <div class="form-horizontal brdr-tp">
-        <div class="form-group mrgn-tp-md">
-          <label for="" class="col-md-8 control-label">Approximate weekly gross payroll for all XXX employees </label>
-          <div class="col-md-4">
-            <div class="input-group"> <span class="input-group-addon">$</span>
-              <input type="number" class="form-control input-lg" id="" readonly="readonly">
+          </fieldset>
+        </li>
+        <li>
+          <fieldset class="mrgn-bttm-lg">
+            <legend>Deductions </legend>
+            <div class="mrgn-lft-md">
+              <div class="form-group">
+                <label class="control-label" for="tws-amount">Amount that you are eligible to claim under the 10% Temporary Wage Subsidy for Employers <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                  <input type="number" class="form-control input-lg text-right" id="p4-tws">
+                  <span class="input-group-addon">.00</span> </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="wsb-amount">Total amount that your eligible employees have received under ESDC’s Work Sharing Benefit program (enter $0 if not applicable) <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
+                  <input type="number" class="form-control input-lg text-right" id="p4-wsb">
+                  <span class="input-group-addon">.00</span> </div>
+              </div>
             </div>
-          </div>
+            <hr class="brdr-bttm">
+            <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+              <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 4</h3>
+              <ul class="list-unstyled lst-spcd">
+                <li><span class="h3">Line F</span> 10% Temporary Wage Subsidy amount <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p4-tws">0</span></li>
+                <li><span class="h3">Line G</span> Total Work Sharing amount <abbr title="equals" class="brdr-0">=</abbr> $<span class="h3 p4-wsb">0</span></li>
+              </ul>
+            </div>
+          </fieldset>
+        </li>
+        <li>
+          <p><span class="lead">Get results</span></p>
+          <p>After completing the four steps above, you can now view the results.</p>
+          <p>
+            <button id="calculate"  class="btn btn-primary btn-lg " data-wb-doaction='[{ "action": "removeClass", "source": "#results", "class": "hidden" }]'>Calculate your total wage subsidy</button>
+          </p>
+        </li>
+      </ol>
+    </form>
+    <div class="panel panel-primary hidden" id="results">
+      <header class="panel-heading">
+        <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
+      </header>
+      <div class="panel-body">
+        <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:</p>
+        <ul class="lst-spcd">
+          <li>Line A: Total number of eligible employees: <strong class="p2-ee-total">0</strong></li>
+          <li>Line B: Total gross payroll: <strong>$<span class="p2-pyrl-total">0</span></strong></li>
+          <li>Line C: Base CEWS: <strong>$<span class="p2-cews-total">0</span></strong></li>
+          <li>Line D: Total premiums: <strong>$<span class="p3-ei">0</span></strong></li>
+          <li>Line E: Total contributions: <strong>$<span class="p3-cpp">0</span></strong></li>
+          <li>Line F: 10% Temporary Wage Subsidy amount: <strong>$<span class="p4-tws">0</span></strong></li>
+          <li>Line G: Total Work Sharing amount: <strong>$<span class="p4-wsb">0</span></strong></li>
+        </ul>
+        <div class="alert alert-success">
+          <h3>Result</h3>
+          <p>Line H: The <strong>total amount</strong> you will receive for the 75% CEWS for this period is: <strong>$<span class="cews-final-total">0</span></strong></p>
         </div>
+        <table class="table">
+          <caption>
+          Summary of CEWS claim
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">Base CEWS <small class="nowrap">(Line C)</small></th>
+              <td class="text-right nowrap">$<span class="p2-cews-total">0</span></td>
+            </tr>
+            <tr>
+              <th scope="row">(plus) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+              <td class="text-right nowrap">+ $<span class="p3-ei">0</span></td>
+            </tr>
+            <tr>
+              <th scope="row">(plus) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+              <td class="text-right nowrap">+ $<span class="p3-cpp">0</span></td>
+            </tr>
+            <tr>
+              <th scope="row">(minus) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
+              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-tws">0</span></td>
+            </tr>
+            <tr>
+              <th scope="row">(minus) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
+              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-wsb">0</span></td>
+            </tr>
+            <tr class="success">
+              <th scope="row">Your CEWS claim is <small class="nowrap">(Line H)</small></th>
+              <td class="text-right nowrap">$<span class="cews-final-total">0</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="text-right hidden"><a href="#"><span class="glyphicon glyphicon-print mrgn-rght-sm"></span>Print this statement</a></p>
       </div>
-  
-<div class="row">
-	<div class="col-md-4 col-md-offset-8">
-    <button type="button" class="btn btn-primary btn-lg " data-wb-doaction='[{ "action": "removeClass", "source": "#results", "class": "hidden" }]'>Estimate subsidy</button>
-	</div>
-	</div>
-	 <div class="panel panel-primary mrgn-tp-md hidden" id="results">
-    <header class="panel-heading">
-      <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) approximate amount to claim</h2>
-    </header>
-    <div class="panel-body">
-		<div class="alert alert-warning">
-			<p>These amounts are for estimate purposes only. To calculate an accurate statement, <a href="calculator.xlsx">download the CEWS calculator (Excel)</a>.</p>
-		  </div>
-      <p>For the claim period of <strong>MONTH XX</strong> to <strong>MONTH XX</strong>, and based on the following criteria:</p>
-      <ul>
-        <li>Number of employees: <strong>XXX</strong></li>
-        <li>Total gross weekly payroll : <strong>$XXX,XXX</strong></li>
-      </ul>
-      <p>Based on the weekly estimates, the <strong>estimated amount</strong> you will receive for the CEWS for this period is a range from: <strong>$XX,XXX</strong> to <strong>$XX,XXX</strong>.</p>
-      
-      <p class="text-right"><a href="#"><span class="glyphicon glyphicon-print mrgn-rght-sm"></span>Print this statement</a></p>
     </div>
-  </div> 
-  </form>
---> 
-    <!--INSERTED FORM ENDS HERE--> 
+    <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Arm's length and non-arm's length</h2>
+      </header>
+      <div class="modal-body">        
+        <dl class="dl-horizontal">
+          <dt>Arm’s length</dt>
+          <dd>Generally, an arm’s-length employee includes any employee who does not own the business (or in the case of a corporation, control the corporation) and is not a member of that person’s immediate family.</dd>
+          <dt>Non-arm's length (not at arm's length)</dt>
+          <dd>A non-arm’s-length employee is someone who owns the business (or in the case of a corporation, controls the corporation) or is part of that person’s immediate family.</dd>
+        </dl>
+	 <p>Read more about <a href="https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-1-individuals/series-1-individuals/income-tax-folio-s1-f5-c1-related-persons-dealing-arms-length.html" target=_blank >non-arm’s-length relationships</a></p>
+      </div>
+    </section> 
     
 
     
@@ -499,62 +482,64 @@
     </script>
     <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
     <script>
-      $(document).ready(function(){
-        $.fn.digits = function(){ 
-          return this.each(function(){ 
-              $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
-          })
-        }	
-        
-        $("#claim-period").change(function() {
-            $('.claim-period').html($(this).find('option:selected').text());
-        });
-        
-        $('#p2a-ee').change(function() {
-        $('.p2a-ee').html($(this).val());
-          window.p2acalee = parseInt($(this).val()); 
-          $('.p2a-total').html('$' + p2acalee*847).digits();
-        });
-        $('#p2a-pyrl').change(function() {window.p2acalpy = parseFloat($(this).val());
-        $('.p2a-pyrl').html($(this).val()).digits();});	
-            
-        $('#p2b-ee').change(function() {
-        $('.p2b-ee').html($(this).val());
-          window.p2bcalee = parseInt($(this).val()); 
-          
-        });
-            
-        $('#p2b-pyrl').change(function() {
-              
-        $('.p2b-pyrl').html('$' + $(this).val()).digits();
-          window.p2bcalpy = parseFloat($(this).val()); 
-        $('.p2b-total').html('$' + p2bcalpy*0.75).digits();
-        
-        });
-        $("#p2a-ee, #p2b-ee").change(function() {$('.p2-ee-total').html(window.p2acalee + window.p2bcalee).digits();})		
-        $("#p2a-pyrl, #p2b-pyrl").change(function() {$('.p2-pyrl-total').html(window.p2acalpy + window.p2bcalpy).digits();})
-        $("#p2a-ee, #p2b-pyrl").change(function()		
-            {$('.p2-cews-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)).digits();})
-        $('#p3-ei').change(function() {
-          window.p3calei = parseInt($(this).val()); 
-          $('.p3-ei').html($(this).val()).digits();
-        });
-        $('#p3-cpp').change(function() {
-          window.p3calcpp = parseInt($(this).val()); 
-          $('.p3-cpp').html($(this).val()).digits();
-        });		
-        $('#p4-tws').change(function() {
-          window.p4caltws = parseInt($(this).val()); 
-          $('.p4-tws').html($(this).val()).digits();
-        });
-        $('#p4-wsb').change(function() {
-          window.p4calwsb = parseInt($(this).val()); 
-          $('.p4-wsb').html($(this).val()).digits();
-        });	
-        $("#calculate").click(function()
-        {$('.cews-final-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)+ window.p3calei + window.p3calcpp - window.p4caltws - window.p4calwsb).digits();})		
-        
-      });
-    </script>
+	$(document).ready(function(){
+		$.fn.digits = function(){ 
+    return this.each(function(){ 
+        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
+    })
+}	
+		
+$("#claim-period").change(function() {
+    $('.claim-period').html($(this).find('option:selected').text());
+});
+
+$('#p2a-ee').change(function() {
+ $('.p2a-ee').html($(this).val());
+	window.p2acalee = parseInt($(this).val()); 
+	$('.p2a-total').html('$' + p2acalee*847).digits();
+});
+$('#p2a-pyrl').change(function() {window.p2acalpy = parseFloat($(this).val());
+$('.p2a-pyrl').html($(this).val()).digits();});	
+		
+$('#p2b-ee').change(function() {
+ $('.p2b-ee').html($(this).val());
+	window.p2bcalee = parseInt($(this).val()); 
+	
+});
+		
+$('#p2b-pyrl').change(function() {
+			
+$('.p2b-pyrl').html('$' + $(this).val()).digits();
+	window.p2bcalpy = parseFloat($(this).val()); 
+ $('.p2b-total').html('$' + p2bcalpy*0.75).digits();
+
+});
+$("#p2a-ee, #p2b-ee").change(function() {$('.p2-ee-total').html(window.p2acalee + window.p2bcalee).digits();})		
+$("#p2a-pyrl, #p2b-pyrl").change(function() {$('.p2-pyrl-total').html(window.p2acalpy + window.p2bcalpy).digits();})
+$("#p2a-ee, #p2b-pyrl").change(function()		
+		{$('.p2-cews-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)).digits();})
+$('#p3-ei').change(function() {
+	window.p3calei = parseInt($(this).val()); 
+	$('.p3-ei').html($(this).val()).digits();
+});
+$('#p3-cpp').change(function() {
+	window.p3calcpp = parseInt($(this).val()); 
+	$('.p3-cpp').html($(this).val()).digits();
+});		
+$('#p4-tws').change(function() {
+	window.p4caltws = parseInt($(this).val()); 
+	$('.p4-tws').html($(this).val()).digits();
+});
+$('#p4-wsb').change(function() {
+	window.p4calwsb = parseInt($(this).val()); 
+	$('.p4-wsb').html($(this).val()).digits();
+});	
+$("#calculate").click(function()
+{$('.cews-final-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)+ window.p3calei + window.p3calcpp - window.p4caltws - window.p4calwsb).digits();})		
+		
+	});
+	
+
+</script>
   </body>
 </html>

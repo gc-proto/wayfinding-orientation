@@ -513,11 +513,11 @@
 
 		<div class="pagedetails ">
 			<div class="row">
-	<div class="col-sm-6 col-md-5 col-lg-4 well">
-			<div id="helpcont">
+	<div class="col-sm-6 col-md-6 col-lg-6 well">
+			<div id="helpcont" class="row">
 				<div class="pull-left">
-					<h2 class="h4" style="margin-top:1em; margin-right:1em">Did you find what you were looking for?
-				<div>
+					<h2 class="h4">Did you find what you were looking for?
+				<div class="pull-right">
 					<a href="#yes" id="helpful-yes" class="btn btn-primary"
 						style="margin-right:1em; padding-left:1em;padding-right:1em"> Yes </a>
 					<a href="#no" id="helpful-no" class="btn btn-primary" style="padding-left:1em;padding-right:1em"> No
@@ -538,28 +538,30 @@
 						<input type="hidden" name="pageOwner" value="gc:institutions/public-health-agency-of-canada">
 						<input name="subject" type="hidden" value="Report a problem or mistake on this page">
 						<fieldset>
-							<legend><span class="field-name"> What was wrong with it? </span></legend>
-							<div class="radio">
-								<label for="problem11">
-									<input class="problem" name="problem" id="problem11" type="radio" value="Yes" data-reveal="#find"
-										data-gc-analytics-rap="I can't find what I'm looking for-Je n'arrive pas à trouver ce que je cherche">
-									I can't find what I'm looking for </label>
-								<input name="problem11" type="hidden" value="">
-							</div>
+							<legend><span class="field-name"> What was wrong? </span></legend>
 							<div class="radio">
 								<label for="problem3">
 									<input class="problem" name="problem" id="problem3" type="radio" value="Yes" data-reveal="#wrong"
 										data-gc-analytics-rap="Information is missing-Les renseignements sont incomplets">
 									The information isn't clear </label>
 								<input name="problem3" type="hidden" value="">
-							</div>
+							</div>							
 							<div class="radio">
 								<label for="problem1">
 									<input class="problem" name="problem" id="problem1" type="radio" value="Yes" data-reveal="#broken"
 										data-gc-analytics-rap="A link, button or video is not working-Un lien, un bouton ou une vidéo ne fonctionne pas">
 									Something is broken or incorrect </label>
 								<input name="problem1" type="hidden" value="">
+							</div>							
+							<div class="radio">
+								<label for="problem11">
+									<input class="problem" name="problem" id="problem11" type="radio" value="Yes" data-reveal="#find"
+										data-gc-analytics-rap="I can't find what I'm looking for-Je n'arrive pas à trouver ce que je cherche">
+									I'm not in the right place</label>
+								<input name="problem11" type="hidden" value="">
 							</div>
+
+
 							<div class="radio">
 								<label for="problem12">
 									<input class="problem" name="problem" id="problem12" type="radio" value="Yes" data-reveal="#find"
@@ -569,7 +571,7 @@
 							</div>
 						</fieldset>
 						<div class="hidden" id="reasonCont">
-							<p>Please explain the problem (don't include any personal information):</p>
+							<p>What did you need? (don't include any personal information):</p>
 							<textarea id="reason" rows="5" cols="33"></textarea>
 						</div>
 						<button type="submit" id="helpful-submit" class="btn btn-primary">Submit</button>
@@ -579,7 +581,7 @@
 				</div>
 			</div>
 		</div>
-
+</div>
 
 				<div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5">
 					<div class="wb-share wb-init wb-share-inited"
