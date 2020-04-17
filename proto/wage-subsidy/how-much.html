@@ -212,7 +212,7 @@
                     <input type="number" class="form-control input-lg text-right" id="p2a-pyrl">
                     <span class="input-group-addon">.00</span> </div>
                 </div>
-                <p class="text-right h5 text-muted">Total subsidy for Step 2a: <span class="h3 p2a-ee">0</span> employees <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">$847</span> <br class="visible-xs">
+                <p class="text-right h5 text-muted">Total subsidy for Step 2a: <span class="h3 p2a-ee">0</span> employees <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">$847</span> <abbr title="multiplied by" class="brdr-0">X</abbr> <span class="h3">4 (weeks)</span> <br class="visible-xs">
                   <abbr title="equals" class="brdr-0">=</abbr> <span class="h3 p2a-total">$0</span></p>
               </div>
             </div>
@@ -514,7 +514,7 @@
         $('#p2a-ee').change(function() {
           $('.p2a-ee').html($(this).val());
           window.p2acalee = parseInt($(this).val()); 
-          $('.p2a-total').html('$' + p2acalee*847).digits();
+          $('.p2a-total').html('$' + p2acalee*847*4).digits();
         });
 
         $('#p2a-pyrl').change(function() {window.p2acalpy = parseFloat($(this).val());
