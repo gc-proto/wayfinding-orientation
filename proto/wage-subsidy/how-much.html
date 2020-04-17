@@ -170,9 +170,9 @@
               <label for="claim-period" class="control-label">Select the period you are claiming for</label>
               <select id="claim-period" class="form-control input-lg">
                 <option value=""> Select a claim periiod</option>
-                <option value="March 15 to April 11">March 15 to April 11</option>
-                <option value="April 12 to May 9">April 12 to May 9</option>
-                <option value="May 10 to June 6">May 10 to June 6</option>
+                <option value="2020-03-15--2020-04-11">March 15, 2020 to April 11, 2020</option>
+                <option value="2020-04-12--2020-05-09">April 12, 2020 to May 9, 2020</option>
+                <option value="2020-05-10--2020-06-06">May 10, 2020 to June 6, 2020</option>
               </select>
             </div>
           </fieldset>
@@ -481,64 +481,81 @@
     </script>
     <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
     <script>
-	$(document).ready(function(){
-		$.fn.digits = function(){ 
-    return this.each(function(){ 
-        $(this).text( $(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") ); 
-    })
-}	
-		
-$("#claim-period").change(function() {
-    $('.claim-period').html($(this).find('option:selected').text());
-});
+      $(document).ready(function() {
+        $.fn.digits = function() { 
+          return this.each(function() { 
+              $(this).text($(this).text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); 
+          });
+        };
 
-$('#p2a-ee').change(function() {
- $('.p2a-ee').html($(this).val());
-	window.p2acalee = parseInt($(this).val()); 
-	$('.p2a-total').html('$' + p2acalee*847).digits();
-});
-$('#p2a-pyrl').change(function() {window.p2acalpy = parseFloat($(this).val());
-$('.p2a-pyrl').html($(this).val()).digits();});	
-		
-$('#p2b-ee').change(function() {
- $('.p2b-ee').html($(this).val());
-	window.p2bcalee = parseInt($(this).val()); 
-	
-});
-		
-$('#p2b-pyrl').change(function() {
-			
-$('.p2b-pyrl').html('$' + $(this).val()).digits();
-	window.p2bcalpy = parseFloat($(this).val()); 
- $('.p2b-total').html('$' + p2bcalpy*0.75).digits();
+        var lang = $("html").attr("lang"),
+            sep = {
+              iso: {
+                en: "--",
+                fr: "--"
+              },
+              claim: {
+                en: " to ",
+                fr: " à "
+              }
+            }
 
-});
-$("#p2a-ee, #p2b-ee").change(function() {$('.p2-ee-total').html(window.p2acalee + window.p2bcalee).digits();})		
-$("#p2a-pyrl, #p2b-pyrl").change(function() {$('.p2-pyrl-total').html(window.p2acalpy + window.p2bcalpy).digits();})
-$("#p2a-ee, #p2b-pyrl").change(function()		
-		{$('.p2-cews-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)).digits();})
-$('#p3-ei').change(function() {
-	window.p3calei = parseInt($(this).val()); 
-	$('.p3-ei').html($(this).val()).digits();
-});
-$('#p3-cpp').change(function() {
-	window.p3calcpp = parseInt($(this).val()); 
-	$('.p3-cpp').html($(this).val()).digits();
-});		
-$('#p4-tws').change(function() {
-	window.p4caltws = parseInt($(this).val()); 
-	$('.p4-tws').html($(this).val()).digits();
-});
-$('#p4-wsb').change(function() {
-	window.p4calwsb = parseInt($(this).val()); 
-	$('.p4-wsb').html($(this).val()).digits();
-});	
-$("#calculate").click(function()
-{$('.cews-final-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)+ window.p3calei + window.p3calcpp - window.p4caltws - window.p4calwsb).digits();})		
-		
-	});
-	
+        $("#claim-period").change(function() {
+            var rangeISO = $(this).find('option:selected').val(),
+                startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[lang])),
+                endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[lang]) + sep.iso[lang].length, rangeISO.length),
+                rangeClaim = $(this).find("option:selected").text(),
+                startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[lang])),
+                endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[lang]) + sep.claim[lang].length, rangeClaim.length);
 
+            $('.claim-period').html("<date datetime=\"" + startDateISO + "\">" + startDateClaim + "</date>" + sep.claim[lang] + "<date datetime=\"" + endDateISO + "\">" + endDateClaim + "</date>");
+        });
+
+        $('#p2a-ee').change(function() {
+          $('.p2a-ee').html($(this).val());
+          window.p2acalee = parseInt($(this).val()); 
+          $('.p2a-total').html('$' + p2acalee*847).digits();
+        });
+
+        $('#p2a-pyrl').change(function() {window.p2acalpy = parseFloat($(this).val());
+        $('.p2a-pyrl').html($(this).val()).digits();});	
+              
+        $('#p2b-ee').change(function() {
+          $('.p2b-ee').html($(this).val());
+          window.p2bcalee = parseInt($(this).val()); 
+        });
+            
+        $('#p2b-pyrl').change(function() {
+          $('.p2b-pyrl').html('$' + $(this).val()).digits();
+          window.p2bcalpy = parseFloat($(this).val()); 
+          $('.p2b-total').html('$' + p2bcalpy*0.75).digits();
+        });
+
+        $("#p2a-ee, #p2b-ee").change(function() {$('.p2-ee-total').html(window.p2acalee + window.p2bcalee).digits();})
+        $("#p2a-pyrl, #p2b-pyrl").change(function() {$('.p2-pyrl-total').html(window.p2acalpy + window.p2bcalpy).digits();})
+        $("#p2a-ee, #p2b-pyrl").change(function()	{
+          $('.p2-cews-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)).digits();
+        })
+        $('#p3-ei').change(function() {
+          window.p3calei = parseInt($(this).val()); 
+          $('.p3-ei').html($(this).val()).digits();
+        });
+        $('#p3-cpp').change(function() {
+          window.p3calcpp = parseInt($(this).val()); 
+          $('.p3-cpp').html($(this).val()).digits();
+        });		
+        $('#p4-tws').change(function() {
+          window.p4caltws = parseInt($(this).val()); 
+          $('.p4-tws').html($(this).val()).digits();
+        });
+        $('#p4-wsb').change(function() {
+          window.p4calwsb = parseInt($(this).val()); 
+          $('.p4-wsb').html($(this).val()).digits();
+        });	
+        $("#calculate").click(function() {
+          $('.cews-final-total').html((window.p2acalee*847) + (window.p2bcalpy*0.75)+ window.p3calei + window.p3calcpp - window.p4caltws - window.p4calwsb).digits();
+        })
+    	});
 </script>
   </body>
 </html>
