@@ -188,10 +188,10 @@
         <fieldset class="brdr-tp">
           <legend>Gross payroll for eligible employees</legend>
 		  <ol class="lst-lwr-alph"><li class="mrgn-bttm-lg">
-		<p class="lead">Understand how different employment situations affect the subsidy</p>
+		<p class="lead">Understand how situations are calculated </p>
 		<details><summary>Employees who earn  <strong>$1,130 a week or more</strong></summary>
 		<p>That maximum subsidy is $874/week. Employees earning $1,130 (or more) for each week in the claim period, all get the maximum weekly subsidy ($1,130 x 75% = $874).</p>
-		<p>The exception is for employees who are non-arm's length.  These employees only get 75% of their average pre-crisis pay (January 1 to March 15, 2020), not 75% of their claim period pay.</p>
+		<p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>.  These employees only get 75% of their average pre-crisis pay (January 1 to March 15, 2020), not 75% of their claim period pay.</p>
 		<table class="table small table-condensed">
       <caption>
       Employee is at arm's length
@@ -264,8 +264,8 @@
 		
 		
 		<details><summary>Employees who earn <strong>$1,129.99 or less</strong>, and <strong>have <span class="text-danger">not</span> experienced</strong> a reduction in pay since before the crisis </summary>
-		<p>Employees who have <strong>not</strong> experienced a reduction in pay get 75% of their average weekly gross pay during the claim period, up to a maximum subsidy of $874 ($1,130 x 75% = $874).</p>
-		<p>The exception is for employees who are non-arm's length.  These employees only get 75% of their average pre-crisis pay (January 1 to March 15, 2020), not 75% of their claim period pay.</p>
+		<p>Employees who have <strong>not</strong> experienced a reduction in pay get 75% of their average weekly gross pay during the claim period.</p>
+		<p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>.  These employees only get 75% of their average pre-crisis pay (January 1 to March 15, 2020), not 75% of their claim period pay.</p>
 		<table class="table small table-condensed">
       <caption>
       Employee is at arm's length
@@ -337,10 +337,11 @@
     </table>
 		</details>
 		<details><summary>Employees who earn <strong>$1,129.99 or less</strong>, and <strong>have experienced</strong> a reduction in pay since before the crisis </summary>
-		<p>Employees who have experienced a reduction in pay get the greater of:</p>
+		<p>Employees who have experienced a reduction in pay get the less of:</p>
 <ul><li>100% of their average weekly gross pay during the claim period, up to a maximum subsidy of $874 ($1,130 x 75% = $874), or</li>
 <li>75% of their average pre-crisis pay (January 1 to March 15, 2020), up to a maximum subsidy of $874 ($1,130 x 75% = $874)</li>
 </ul>
+<p>Ken or David please fix this section with and let me know what to put in</p>  
 		
 		<table class="table small table-condensed">
       <caption>
@@ -415,23 +416,25 @@
 		</li>
 		
 		<li class="mrgn-bttm-lg"><p class="lead">Calculate the values using the spreadsheet</p>
-            <p><a href="calculator.xlsx" class="btn btn-primary">Download the calculation worksheet</a></p>
+		
+            <p><a href="calculator.xlsx" class="btn btn-primary">Download the calculation spreadsheet</a></p>
             <p class="small">(If you don't have Excel, you can open it in free spreadsheet solutions like Google Sheets, Numbers or OpenOffice.)</p>
 			</li><li><p class="lead">Input the values from the spreadsheet</p>
+			<p>Once the spreadsheet is complete, refer to the Instructions sheet for the final values.</p>
             <div class="row mrgn-tp-md">
               <div class="mrgn-lft-lg mrgn-rght-md">
                 <div class="form-group">
-                  <label class="control-label" for="p2c-ee">Total number of eligible employees <small>(see field XXX of the CEWS spreadsheet)</small> </label>
+                  <label class="control-label" for="p2c-ee">Total number of eligible employees</label>
                   <input type="number" class="form-control input-lg" id="p2c-ee" size="4">
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="p2c-pyrl">Total gross payroll amount for these employees during this claim period <small>(see field XXX of the CEWS spreadsheet)</small><span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                  <label class="control-label" for="p2c-pyrl">Total gross payroll amount for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
                   <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                     <input type="number" class="form-control input-lg text-right" id="p2c-pyrl">
                     <span class="input-group-addon">.00</span> </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="p2c-total">Total base CEWS for these employees during this claim period <small>(see field XXX of the CEWS spreadsheet)</small><span class="wb-inv"> (do not include commas or dollar sign)</span></label>
+                  <label class="control-label" for="p2c-total">Total base CEWS for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></label>
                   <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                     <input type="number" class="form-control input-lg text-right" id="p2c-total">
                     <span class="input-group-addon">.00</span> </div>
