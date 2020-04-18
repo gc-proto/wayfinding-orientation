@@ -12,6 +12,8 @@
    * not once per instance of plugin on the page. So, this is a good place to define
    * variables that are common to all instances of the plugin on a page.
    */
+
+  // function that should be moved as a helper class or something
   const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
     style: "currency",
     currency: "CAD",
@@ -66,14 +68,19 @@
         $elm = $( elm ),
         $elmId = $elm.attr("id"),
         data = wb.getData( $("output[for='" + $elmId + "']"), componentName),
-        value = $elm.val();
+        value = $elm.val(); // Needs to be replaced by data.expr evaluation
 
-    if (data && data.format === "currency") {
-      $("output[for='" + $elmId + "']").html( toMoney.format(value * 1 ) );
-    } else {
-      $("output[for='" + $elmId + "']").html( value * 1 );
-    };
-  } );
+    if(data.expr) {
+
+      if (data.format === "currency") {
+        $("output[for='" + $elmId + "']").html( toMoney.format(value * 1 ) );
+      } else {
+        $("output[for='" + $elmId + "']").html( value * 1 );
+      };
+    }
+    
+    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format($("#p2c-cews").val() - $("#p3-ei").val() - $("#p3-cpp").val() - $("#p4-tws").val() - $("#p4-wsb").val()) );
+  });
 
   $document.on("change", selector, function( event, data ) {
     var elm = event.currentTarget,
@@ -84,8 +91,9 @@
     if (data && data.format === "currency") {
       $elm.html( toMoney.format(value * 1) );
     } else {
-      $elm.html( value * 1 );
+      $elm.html( value * 1 );  
     };
+    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
   } );
   // Bind the init event of the plugin
   $document.on( "timerpoke.wb " + initEvent, selector, init );
