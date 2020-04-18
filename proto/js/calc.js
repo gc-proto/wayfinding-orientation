@@ -66,7 +66,7 @@
         $elm = $( elm ),
         value = $elm.val();
 
-    $("output[for='" + $elm.id + "']").html( value );
+    $("output[for='" + $elm.attr("id") + "']").html( value );
   } );
 
   $document.on("change", selector, function( event, data ) {
@@ -74,8 +74,7 @@
         $elm = $( elm ),
         value = $("#" + $(selector).attr("for")).val();
 
-    $elm.html( value )
-
+    $elm.html( value * 1 );
   } );
   // Bind the init event of the plugin
   $document.on( "timerpoke.wb " + initEvent, selector, init );
