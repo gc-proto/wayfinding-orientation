@@ -21,8 +21,10 @@
       }));
     </script>
   </head>
+
   <body vocab="http://schema.org/" typeof="WebPage">
-    <div id="def-top"></div>
+    <div id="def-top">
+    </div>
     <!-- Write closure template -->
     <script type="text/javascript">
       var defTop = document.getElementById("def-top");
@@ -70,9 +72,9 @@
 
       <section class="gc-nav-section experimental">
         <h1 property="name" id="wb-cont">Calculate your subsidy amount</h1>
-        <p>When you apply for the CEWS, you will be asked to enter amounts such as the number of eligible employees and gross payroll. To get ready, you can determine these amounts and preview your subsidy now, based on information you enter.</p>
+        <p>When you apply for the Canada Employment Wage Subsidy (CEWS), you will be asked to enter amounts such as the number of eligible employees and gross payroll. To get ready, you can determine these amounts and preview your subsidy now, based on information you enter.</p>
         <p>Before you calculate your subsidy, make sure you are <a href="who-apply.html">eligible to apply</a>.</p>
-        <p>After you apply for the CEWS, your claim will be subject to verification.</p>
+        <p>After you apply for the wage subsidy, your claim will be subject to verification.</p>
         <h2 class="h3">On this page</h2>
         <ul>
           <li><a href="#h-1">How the subsidy is calculated</a></li>
@@ -115,7 +117,7 @@
             </dd>
             <dt>B = </dt>
             <dd><a href="https://www.canada.ca/en/revenue-agency/campaigns/covid-19-update/frequently-asked-questions-wage-subsidy-small-businesses.htm
-    ">10% temporary wage subsidy amount</a> (must be the eligible amount for the period, even if the employer did not reduce their related payroll remittances by that amount)</dd>
+  ">10% temporary wage subsidy amount</a> (must be the eligible amount for the period, even if the employer did not reduce their related payroll remittances by that amount)</dd>
             <dt>C = </dt>
             <dd>total of amounts received by employees as work sharing benefit under the EI Act for any weeks in the qualifying period</dd>
             <dt>D = </dt>
@@ -146,7 +148,17 @@
         </details>
         <p>There is no limit on the total subsidy amount that an eligible employer may claim.</p>
         <h2 id="h-2">Input your information</h2>
-        <p>You can use the calculator below to determine the subsidy you can expect for your organization. This calculator will help you to determine some specific line amounts (lines A – G) that you will need to enter into the application form once it becomes available on April 27.</p>
+        <p>You can use the calculator below to determine the subsidy you can expect for your organization. This calculator will help you to determine some specific line amounts (lines A – G) that you will need to enter into the CEWS application form once it becomes available on April 27.</p>
+	      <h3>How to use the calculator</h3>
+		<ol>
+			<li>calculate the basic CEWS using the provided spreadsheet</li>
+			<li>input the amounts from the spreasheet on this page as indicated</li>
+			<li>enter the refund of employer contributions for any employees on leave with pay</li>
+			<li>enter any amounts for employees receiving a work-sharing benefit under the Employment Insurance Act</li>
+			<li>enter any amount you received for the 10% temporary wage subsidy</li>
+			<li>print and save the information to enter in your future CEWS application</li>
+
+</ol>
         <p> <strong>Note:</strong> You may be required to provide a full list of your employees and their Social Insurance Numbers (SIN) for verification after you apply. </p>
 
         <!--INSERTED FORM BEGINS HERE-->
@@ -181,210 +193,214 @@
                   <li class="mrgn-bttm-lg">
                     <p class="lead">Understand how situations are calculated </p>
                     <details>
-                      <summary>Employees who earn <strong>$1,129.33 a week or more</strong></summary>
-                      <p>That maximum subsidy is $847/week. Employees earning $1,129.33 (or more) for each week in the claim period, all get the maximum weekly subsidy ($1,129.33 x 75% = $847).</p>
-                      <p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>. These employees only get 75% of their average weekly pay from the period January 1 to March 15, 2020, not 75% of their claim period pay.</p>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount per week</th>
-                            <th scope="col">CEWS basic amount per period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,500</td>
-                            <td>$1,500</td>
-                            <td>$847</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                          <tr>
-                            <td>$500</td>
-                            <td>$1,500</td>
-                            <td>$847</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                          <tr>
-                            <td>$0</td>
-                            <td>$1,500</td>
-                            <td>$847</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is non-arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount per week</th>
-                            <th scope="col">CEWS basic amount per period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,500</td>
-                            <td>$1,500</td>
-                            <td>$847</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                          <tr>
-                            <td>$500</td>
-                            <td>$1,500</td>
-                            <td>$375</td>
-                            <td class="warning">$1,500</td>
-                          </tr>
-                          <tr>
-                            <td>$0</td>
-                            <td>$1,500</td>
-                            <td>$0</td>
-                            <td class="warning">$0</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </details>
-                    <details>
-                      <summary>Employees who earn <strong>$1,129.32 or less</strong>, and <strong>have <span class="text-danger">not</span> experienced</strong> a reduction in pay since before the crisis </summary>
-                      <p>Employees who have <strong>not</strong> experienced a reduction in pay get 75% of their average weekly gross pay during the claim period.</p>
-                      <p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>. These employees only get 75% of their average weekly pay from the period January 1 to March 15, 2020, not 75% of their claim period pay.</p>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount/week</th>
-                            <th scope="col">CEWS basic amount/period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,000</td>
-                            <td>$1,000</td>
-                            <td>$750</td>
-                            <td class="success">$3,000</td>
-                          </tr>
-                          <tr>
-                            <td>$500</td>
-                            <td>$1,000</td>
-                            <td>$750</td>
-                            <td class="success">$3,000</td>
-                          </tr>
-                          <tr>
-                            <td>$0</td>
-                            <td>$1,000</td>
-                            <td>$750</td>
-                            <td class="success">$3,000</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is non-arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount/week</th>
-                            <th scope="col">CEWS basic amount/period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,000</td>
-                            <td>$1,000</td>
-                            <td>$750</td>
-                            <td class="success">$3,000</td>
-                          </tr>
-                          <tr>
-                            <td>$500</td>
-                            <td>$1,000</td>
-                            <td>$375</td>
-                            <td class="warning">$1,500</td>
-                          </tr>
-                          <tr>
-                            <td>$0</td>
-                            <td>$1,000</td>
-                            <td>$0</td>
-                            <td class="warning">$0</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </details>
-                    <details>
-                      <summary>Employees who earn <strong>$1,129.32 or less</strong>, and <strong>have experienced</strong> a reduction in pay since before the crisis </summary>
-                      <p>Employees who have experienced a reduction in pay and earn $1,129.32 or less, get the greater of:
-                      </p>
-                      <ul>
-                        <li>100% of their average weekly gross pay during the claim period, and</li>
-                        <li>75% of their average weekly pay from the period January 1 to March 15, 2020, up to a maximum subsidy of $847 ($1,129.33 x 75% = $847)</li>
-                      </ul>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount/week</th>
-                            <th scope="col">CEWS basic amount/period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,500</td>
-                            <td>$1,000</td>
-                            <td>$847</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                          <tr>
-                            <td>$1,000</td>
-                            <td>$500</td>
-                            <td>$500</td>
-                            <td class="success">$2,000</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table small table-condensed">
-                        <caption>
-                          Employee is non-arm's length
-                        </caption>
-                        <thead>
-                          <tr>
-                            <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
-                            <th scope="col">Average weekly gross pay during claim period</th>
-                            <th scope="col">CEWS basic amount/week</th>
-                            <th scope="col">CEWS basic amount/period (week x 4)</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$1,500</td>
-                            <td>$1,000</td>
-                            <td>$750</td>
-                            <td class="success">$3,388</td>
-                          </tr>
-                          <tr>
-                            <td>$1,000</td>
-                            <td>$500</td>
-                            <td>$500</td>
-                            <td class="success">$2,000</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </details>
+    <summary>Employees who earn <strong>$1,129.33 a week or more</strong></summary>
+    <p>That maximum subsidy is $847/week. Employees earning $1,129.33 (or more) for each week in the claim period, all get the maximum weekly subsidy ($1,129.33 x 75% = $847).</p>
+    <p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>. These employees only get 75% of their average weekly pay from the period January 1 to March 15, 2020, not 75% of their claim period pay.</p>
+    <table class="table small table-condensed">
+        <caption>
+            Employee is arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount per week</th>
+                <th scope="col">CEWS basic amount per period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$1,500</td>
+                <td>$1,500</td>
+                <td>$847</td>
+                <td class="success">$3,388</td>
+            </tr>
+            <tr>
+                <td>$500</td>
+                <td>$1,500</td>
+                <td>$847</td>
+                <td class="success">$3,388</td>
+            </tr>
+            <tr>
+                <td>$0</td>
+                <td>$1,500</td>
+                <td>$847</td>
+                <td class="success">$3,388</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table small table-condensed">
+        <caption>
+            Employee is non-arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount per week</th>
+                <th scope="col">CEWS basic amount per period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$1,500</td>
+                <td>$1,500</td>
+                <td>$847</td>
+                <td class="success">$3,388</td>
+            </tr>
+            <tr>
+                <td>$500</td>
+                <td>$1,500</td>
+                <td>$375</td>
+                <td class="warning">$1,500</td>
+            </tr>
+            <tr>
+                <td>$0</td>
+                <td>$1,500</td>
+                <td>$0</td>
+                <td class="warning">$0</td>
+            </tr>
+        </tbody>
+    </table>
+</details>
+
+<details>
+    <summary>Employees who earn <strong>$1,129.32 or less</strong>, and <strong>have <span class="text-danger">not</span> experienced</strong> a reduction in pay since before the crisis </summary>
+    <p>Employees who have <strong>not</strong> experienced a reduction in pay get 75% of their average weekly gross pay during the claim period.</p>
+    <p>The exception is for employees who are <a href="#armslength" aria-controls="armslength" class="wb-lbx" role="button">non-arm's length</a>. These employees only get 75% of their average weekly pay from the period January 1 to March 15, 2020, not 75% of their claim period pay.</p>
+    <table class="table small table-condensed">
+        <caption>
+            Employee is arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount/week</th>
+                <th scope="col">CEWS basic amount/period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$750</td>
+                <td class="success">$3,000</td>
+            </tr>
+            <tr>
+                <td>$500</td>
+                <td>$1,000</td>
+                <td>$750</td>
+                <td class="success">$3,000</td>
+            </tr>
+            <tr>
+                <td>$0</td>
+                <td>$1,000</td>
+                <td>$750</td>
+                <td class="success">$3,000</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table small table-condensed">
+        <caption>
+            Employee is non-arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount/week</th>
+                <th scope="col">CEWS basic amount/period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$750</td>
+                <td class="success">$3,000</td>
+            </tr>
+            <tr>
+                <td>$500</td>
+                <td>$1,000</td>
+                <td>$375</td>
+                <td class="warning">$1,500</td>
+            </tr>
+            <tr>
+                <td>$0</td>
+                <td>$1,000</td>
+                <td>$0</td>
+                <td class="warning">$0</td>
+            </tr>
+        </tbody>
+    </table>
+</details>
+<details>
+    <summary>Employees who earn <strong>$1,129.32 or less</strong>, and <strong>have experienced</strong> a reduction in pay since before the crisis </summary>
+    <p>Employees who have experienced a reduction in pay and earn $1,129.32 or less, get the greater of:
+    </p>
+    <ul>
+        <li>100% of their average weekly gross pay during the claim period, and</li>
+        <li>75% of their average weekly pay from the period January 1 to March 15, 2020, up to a maximum subsidy of $847 ($1,129.33 x 75% = $847)</li>
+    </ul>
+    <table class="table small table-condensed">
+        <caption>
+            Employee is arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount/week</th>
+                <th scope="col">CEWS basic amount/period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$1,500</td>
+                <td>$1,000</td>
+                <td>$847</td>
+                <td class="success">$3,388</td>
+            </tr>
+            <tr>
+                <td>$1,000</td>
+                <td>$500</td>
+                <td>$500</td>
+                <td class="success">$2,000</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class="table small table-condensed">
+        <caption>
+            Employee is non-arm's length
+        </caption>
+        <thead>
+            <tr>
+                <th scope="col">Average weekly gross pay: January 1 to March 15, 2020</th>
+                <th scope="col">Average weekly gross pay during claim period</th>
+                <th scope="col">CEWS basic amount/week</th>
+                <th scope="col">CEWS basic amount/period (week x 4)</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>$1,500</td>
+                <td>$1,000</td>
+                <td>$750</td>
+                <td class="success">$3,388</td>
+            </tr>
+            <tr>
+                <td>$1,000</td>
+                <td>$500</td>
+                <td>$500</td>
+                <td class="success">$2,000</td>
+            </tr>
+        </tbody>
+    </table>
+</details>
                   </li>
                   <li class="mrgn-bttm-lg">
                     <p class="lead">Calculate the values using the spreadsheet</p>
@@ -393,7 +409,7 @@
                   </li>
                   <li>
                     <p class="lead">Input the values from the spreadsheet</p>
-                    <p>Once the spreadsheet is complete, refer to the Instructions sheet for the final values.</p>
+			  <p>Once the spreadsheet is complete, refer to the <strong>instructions</strong> sheet for the final values.</p>
                     <div class="row mrgn-tp-md">
                       <div class="mrgn-lft-lg mrgn-rght-md">
                         <div class="form-group">
@@ -404,35 +420,35 @@
                           <label class="control-label required" for="p2c-pyrl"><span class="field-name">Total gross payroll amount for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                           <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                             <input required type="number" class="form-control input-lg text-right" id="p2c-pyrl">
-                            <span class="input-group-addon">.00</span>
-                          </div>
+                            <span class="input-group-addon">.00</span> </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label required" for="p2c-cews"><span class="field-name">Total base CEWS for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
+                          <label class="control-label required" for="p2c-total"><span class="field-name">Total base CEWS for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                           <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                            <input required type="number" class="form-control input-lg text-right" id="p2c-cews">
-                            <span class="input-group-addon">.00</span>
-                          </div>
+                            <input required type="number" class="form-control input-lg text-right" id="p2c-total">
+                            <span class="input-group-addon">.00</span> </div>
                         </div>
                       </div>
                     </div>
+
                   </li>
                 </ol>
+
                 <hr class="brdr-bttm">
                 <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                   <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 2</h3>
                   <ul class="list-unstyled lst-spcd">
                     <li>
-                      <span class="h3">Line A</span> Total number of eligible employees <abbr title="equals" class="brdr-0">=</abbr> 
-                      <output class="h3 wb-calc" for="p2c-ee"></output>
+                      <span class="h3">Line A</span> Number of eligible employees <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p2-ee-total wb-calc" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
                     </li>
                     <li>
-                      <span class="h3">Line B</span> Total gross payroll <abbr title="equals" class="brdr-0">=</abbr> 
-                      <output class="h3 wb-calc" for="p2c-pyrl" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line B</span> Total eligible remuneration paid <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p2-pyrl-total wb-calc" for="p2-pyrl" data-wb-calc='{"expr": "#p2b-pyrl * 1"}'></output>
                     </li>
                     <li>
-                      <span class="h3">Line C</span> Base CEWS <abbr title="equals" class="brdr-0">=</abbr> 
-                      <output class="h3 wb-calc" for="p2c-cews" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line C</span> Basic CEWS <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p2-cews-total wb-calc" for="p2c-total" data-wb-calc='{"expr": "#p2c-total * 1"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -456,15 +472,13 @@
                     <label class="control-label required" for="p3-ei"><span class="field-name">Total EI and QPIP premiums that you paid on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right" id="p3-ei">
-                      <span class="input-group-addon">.00</span>
-                    </div>
+                      <span class="input-group-addon">.00</span> </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label required" for="p3-cpp"><span class="field-name">Total CPP and QPP contributions that you made on salary to eligible employees<span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right" id="p3-cpp">
-                      <span class="input-group-addon">.00</span>
-                    </div>
+                      <span class="input-group-addon">.00</span> </div>
                   </div>
                 </div>
                 <hr class="brdr-bttm">
@@ -472,12 +486,12 @@
                   <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 3</h3>
                   <ul class="list-unstyled lst-spcd">
                     <li>
-                      <span class="h3">Line D</span> Total premiums <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line D</span> Employer’s EI and QPIP premiums payable on salary paid to furloughed employees <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p3-ei wb-calc" for="p3-ei" data-wb-calc='{"expr": "#p3-ei * 1"}'></output>
                     </li>
                     <li>
-                      <span class="h3">Line E</span> Total contributions <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line E</span> Employer’s CPP and QPP contributions payable on salary paid to furloughed employees <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p3-cpp wb-calc" for="p3-cpp" data-wb-calc='{"expr": "#p3-cpp * 1"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -485,21 +499,19 @@
             </li>
             <li>
               <fieldset class="mrgn-bttm-lg">
-                <legend>Deductions</legend>
+                <legend>Deductions </legend>
                 <div class="mrgn-lft-md">
                   <div class="form-group">
                     <label class="control-label required" for="p4-tws"><span class="field-name">Amount that you are eligible to claim under the 10% Temporary Wage Subsidy for Employers <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right" id="p4-tws">
-                      <span class="input-group-addon">.00</span>
-                    </div>
+                      <span class="input-group-addon">.00</span> </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label required" for="p4-wsb"><span class="field-name">Total amount that your eligible employees have received under ESDC’s Work Sharing Benefit program (enter $0 if not applicable) <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right" id="p4-wsb">
-                      <span class="input-group-addon">.00</span>
-                    </div>
+                      <span class="input-group-addon">.00</span> </div>
                   </div>
                 </div>
                 <hr class="brdr-bttm">
@@ -507,12 +519,12 @@
                   <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 4</h3>
                   <ul class="list-unstyled lst-spcd">
                     <li>
-                      <span class="h3">Line F</span> 10% Temporary Wage Subsidy amount <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line F</span> Amount eligible to be claimed under the 10% Temporary Wage Subsidy for Employers <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p4-tws wb-calc" for="p4-tws" data-wb-calc='{"expr": "#p4-tws * 1"}'></output>
                     </li>
                     <li>
-                      <span class="h3">Line G</span> Total Work Sharing amount <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output>
+                      <span class="h3">Line G</span> Amounts received by eligible employees under ESDC's Work Sharing Benefit program  <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 p4-wsb wb-calc" for="p4-wsb" data-wb-calc='{"expr": "#p4-wsb * 1"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -520,7 +532,7 @@
             </li>
             <li>
               <p><span class="lead">Get results</span></p>
-              <p>After completing the four steps above, you can now view the results.</p>
+              <p>After completing the four steps above, you can now calculate the results.</p>
               <p>
                 <button id="calculate" class="btn btn-primary btn-lg" data-wb-doaction='[{ "action": "removeClass", "source": "#results", "class": "hidden" }]'>Calculate your total wage subsidy</button>
               </p>
@@ -532,78 +544,79 @@
             <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
           </header>
           <button onclick="window.print()" class="btn btn-default btn-lg pull-right"><span class="glyphicon glyphicon-print"></span> Print this page</button>
-          <p class="lead"><strong>You will need the lines below.</strong> Print and keep this record. The below information will be needed when you apply for the subsidy in CRA's My Business Account.</p>
-          <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:</p>
-          <ul class="lst-spcd">
-            <li>
-              Line A: Total number of eligible employees:
-              <strong><output class="h3 wb-calc" for="p2c-ee"></output></strong>
-            </li>
-            <li>
-              Line B: Total gross payroll:
-              <strong><output class="h3 wb-calc" for="p2-pyrl" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-            <li>
-              Line C: Base CEWS:
-              <strong><output class="h3 wb-calc" for="p2-cews" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-            <li>
-              Line D: Total premiums:
-              <strong><output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-            <li>
-              Line E: Total contributions:
-              <strong><output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-            <li>
-              Line F: 10% Temporary Wage Subsidy amount:
-              <strong><output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-            <li>
-              Line G: Total Work Sharing amount:
-              <strong><output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></strong>
-            </li>
-          </ul>
-          <div class="alert alert-success">
-            <h3>Result</h3>
-            <p>
-              Line H: The <strong>total amount</strong> you will receive for the 75% CEWS for this period is:
-              <strong><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></strong>
-            </p>
+	  <p class="lead"><strong>You will need the amounts below when you apply for CEWS beginning April 27.</strong>  Print and keep this record. You will need these line amounts when you complete your online application for CEWS.</p>
+        <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:</p>
+           
+            <ul class="lst-spcd">
+              <li>
+                Line A: Number of eligible employees: 
+                <strong class="p2-ee-total"><output class="h3 p2-ee-total wb-calc" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output></strong>
+              </li>
+              <li>
+                Line B: Total eligible remuneration paid: 
+                <strong><output class="h3 p2-pyrl-total wb-calc" for="p2-pyrl" data-wb-calc='{"expr": "#p2b-pyrl * 1"}'></output></strong>
+              </li>
+              <li>
+                Line C: Basic CEWS: 
+                <strong><output class="h3 p2-cews-total wb-calc" for="p2-cews-total" data-wb-calc='{"expr": "#p2-cews-total * 1"}'></output></strong>
+              </li>
+              <li>
+                Line D: Employer’s EI and QPIP premiums payable on salary paid to furloughed employees: 
+                <strong><output class="h3 p3-ei wb-calc" for="p3-ei" data-wb-calc='{"expr": "#p3-ei * 1"}'></output></strong>
+              </li>
+              <li>
+                Line E: Employer’s CPP and QPP contributions payable on salary paid to furloughed employees: 
+                <strong><output class="h3 p3-cpp wb-calc" for="p3-cpp" data-wb-calc='{"expr": "#p3-cpp * 1"}'></output></strong>
+              </li>
+              <li>
+                Line F: Amount claimed under the 10% Temporary Wage Subsidy for Employers: 
+                <strong><output class="h3 p4-tws wb-calc" for="p4-tws" data-wb-calc='{"expr": "#p4-tws * 1"}'></output></strong>
+              </li>
+              <li>
+                Line G: Amount received by eligible employees under ESDC’s Work Sharing Benefit program = $0: 
+                <strong><output class="h3 p4-wsb wb-calc" for="p4-wsb" data-wb-calc='{"expr": "#p4-wsb * 1"}'></output></strong>
+              </li>
+            </ul>
+            <div class="alert alert-success">
+              <h3>Result</h3>
+              <p>
+                Line H: The <strong>total amount</strong> you will claim for the CEWS for this period is: 
+                <strong><output class="h3 cews-final-total wb-calc" for="p2c-ee p2-pyrl p2-cews-total p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb"}'></output></strong>
+              This amount is subject to verification.</p>
+            </div>
+            <table class="table">
+              <caption>
+                Summary of CEWS claim
+              </caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
+                  <td class="text-right nowrap">$<span class="p2-cews-total">0</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+                  <td class="text-right nowrap">+ $<span class="p3-ei">0</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+                  <td class="text-right nowrap">+ $<span class="p3-cpp">0</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
+                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-tws">0</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">(less) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
+                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-wsb">0</span></td>
+                </tr>
+                <tr class="success">
+                  <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
+                  <td class="text-right nowrap">$<span class="cews-final-total">0</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="text-right hidden"><a href="#"><span class="glyphicon glyphicon-print mrgn-rght-sm"></span>Print this statement</a></p>
           </div>
-          <table class="table">
-            <caption>
-              Summary of CEWS claim
-            </caption>
-            <tbody>
-              <tr>
-                <th scope="row">Base CEWS <small class="nowrap">(Line C)</small></th>
-                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2-cews" data-wb-calc='{"format": "currency"}'></output></td>
-              </tr>
-              <tr>
-                <th scope="row">(plus) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-                <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></td>
-              </tr>
-              <tr>
-                <th scope="row">(plus) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-                <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></td>
-              </tr>
-              <tr>
-                <th scope="row">(minus) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></td>
-              </tr>
-              <tr>
-                <th scope="row">(minus) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></td>
-              </tr>
-              <tr class="success">
-                <th scope="row">Your CEWS claim is <small class="nowrap">(Line H)</small></th>
-                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="text-right hidden"><a href="#"><span class="glyphicon glyphicon-print mrgn-rght-sm"></span>Print this statement</a></p>
-        </div>
         </div>
         <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
           <header class="modal-header">
@@ -619,6 +632,9 @@
             <p>Read more about <a href="https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-1-individuals/series-1-individuals/income-tax-folio-s1-f5-c1-related-persons-dealing-arms-length.html" target=_blank>non-arm’s-length relationships</a></p>
           </div>
         </section>
+
+
+
         <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
         <nav class="mrgn-bttm-lg mrgn-tp-lg">
           <h3 class="wb-inv">Document navigation</h3>
@@ -627,19 +643,24 @@
           </ul>
         </nav>
       </section>
-      <div id="def-preFooter"></div>
+
+
+      <div id="def-preFooter">
+      </div>
       <!-- Write closure template -->
       <script type="text/javascript">
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
-          dateModified: "2020-03-13",
+          dateModified: "2020-04-18",
           showPostContent: true,
           showFeedback: true,
           showShare: true
         });
       </script>
     </main>
-    <div id="def-footer"></div>
+    <div id="def-footer">
+
+    </div>
     <!-- Write closure template -->
     <script type="text/javascript">
       var defFooter = document.getElementById("def-footer");
@@ -657,15 +678,15 @@
     <script>
       $(document).ready(function () {
         var sep = {
-          iso: {
-            en: "--",
-            fr: "--"
-          },
-          claim: {
-            en: " to ",
-            fr: " à "
-          }
-        };
+              iso: {
+                en: "--",
+                fr: "--"
+              },
+              claim: {
+                en: " to ",
+                fr: " à "
+              }
+            };
 
         $("#claim-period").change(function () {
           var rangeISO = $(this).find('option:selected').val(),
