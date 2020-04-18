@@ -68,7 +68,7 @@
         $elm = $( elm ),
         $elmId = $elm.attr("id"),
         data = wb.getData( $("output[for='" + $elmId + "']"), componentName),
-        value = $elm.val(); // Needs to be replaced by data.expr evaluation
+        value = $elm.val().replace(/\,\s/g,''); // Needs to be replaced by data.expr evaluation
 
     if(data.expr) {
 
