@@ -408,9 +408,9 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="control-label required" for="p2c-total"><span class="field-name">Total base CEWS for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
+                          <label class="control-label required" for="p2c-cews"><span class="field-name">Total base CEWS for these employees during this claim period <span class="wb-inv"> (do not include commas or dollar sign)</span></span> <strong class="required">(required)</strong></label>
                           <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                            <input required type="number" class="form-control input-lg text-right" id="p2c-total">
+                            <input required type="number" class="form-control input-lg text-right" id="p2c-cews">
                             <span class="input-group-addon">.00</span>
                           </div>
                         </div>
@@ -423,13 +423,16 @@
                   <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 2</h3>
                   <ul class="list-unstyled lst-spcd">
                     <li>
-                      <span class="h3">Line A</span> Total number of eligible employees <abbr title="equals" class="brdr-0">=</abbr> <output class="h3 p2-ee-total wb-calc" for="p2c-ee"></output>
+                      <span class="h3">Line A</span> Total number of eligible employees <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 wb-calc" for="p2c-ee"></output>
                     </li>
                     <li>
-                      <span class="h3">Line B</span> Total gross payroll <abbr title="equals" class="brdr-0">=</abbr> <output class="h3 p2-pyrl-total wb-calc" for="p2-pyrl"></output>
+                      <span class="h3">Line B</span> Total gross payroll <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 wb-calc" for="p2c-pyrl" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                     <li>
-                      <span class="h3">Line C</span> Base CEWS <abbr title="equals" class="brdr-0">=</abbr> <output class="h3 p2-cews-total wb-calc" for="p2c-total"></output>
+                      <span class="h3">Line C</span> Base CEWS <abbr title="equals" class="brdr-0">=</abbr> 
+                      <output class="h3 wb-calc" for="p2c-cews" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -470,11 +473,11 @@
                   <ul class="list-unstyled lst-spcd">
                     <li>
                       <span class="h3">Line D</span> Total premiums <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 p3-ei wb-calc" for="p3-ei" data-wb-calc='{"expr": "#p3-ei * 1"}'></output>
+                      <output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                     <li>
                       <span class="h3">Line E</span> Total contributions <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 p3-cpp wb-calc" for="p3-cpp" data-wb-calc='{"expr": "#p3-cpp * 1"}'></output>
+                      <output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -505,11 +508,11 @@
                   <ul class="list-unstyled lst-spcd">
                     <li>
                       <span class="h3">Line F</span> 10% Temporary Wage Subsidy amount <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 p4-tws wb-calc" for="p4-tws" data-wb-calc='{"expr": "#p4-tws * 1"}'></output>
+                      <output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                     <li>
                       <span class="h3">Line G</span> Total Work Sharing amount <abbr title="equals" class="brdr-0">=</abbr>
-                      <output class="h3 p4-wsb wb-calc" for="p4-wsb" data-wb-calc='{"expr": "#p4-wsb * 1"}'></output>
+                      <output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output>
                     </li>
                   </ul>
                 </div>
@@ -534,38 +537,38 @@
           <ul class="lst-spcd">
             <li>
               Line A: Total number of eligible employees:
-              <strong class="p2-ee-total"><output class="h3 p2-ee-total wb-calc" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p2c-ee"></output></strong>
             </li>
             <li>
               Line B: Total gross payroll:
-              <strong><output class="h3 p2-pyrl-total wb-calc" for="p2-pyrl" data-wb-calc='{"expr": "#p2b-pyrl * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p2-pyrl" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
             <li>
               Line C: Base CEWS:
-              <strong><output class="h3 p2-cews-total wb-calc" for="p2-cews-total" data-wb-calc='{"expr": "#p2-cews-total * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p2-cews" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
             <li>
               Line D: Total premiums:
-              <strong><output class="h3 p3-ei wb-calc" for="p3-ei" data-wb-calc='{"expr": "#p3-ei * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
             <li>
               Line E: Total contributions:
-              <strong><output class="h3 p3-cpp wb-calc" for="p3-cpp" data-wb-calc='{"expr": "#p3-cpp * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
             <li>
               Line F: 10% Temporary Wage Subsidy amount:
-              <strong><output class="h3 p4-tws wb-calc" for="p4-tws" data-wb-calc='{"expr": "#p4-tws * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
             <li>
               Line G: Total Work Sharing amount:
-              <strong><output class="h3 p4-wsb wb-calc" for="p4-wsb" data-wb-calc='{"expr": "#p4-wsb * 1"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></strong>
             </li>
           </ul>
           <div class="alert alert-success">
             <h3>Result</h3>
             <p>
               Line H: The <strong>total amount</strong> you will receive for the 75% CEWS for this period is:
-              <strong><output class="h3 cews-final-total wb-calc" for="p2c-ee p2-pyrl p2-cews-total p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb"}'></output></strong>
+              <strong><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></strong>
             </p>
           </div>
           <table class="table">
@@ -575,27 +578,27 @@
             <tbody>
               <tr>
                 <th scope="row">Base CEWS <small class="nowrap">(Line C)</small></th>
-                <td class="text-right nowrap">$<span class="p2-cews-total">0</span></td>
+                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2-cews" data-wb-calc='{"format": "currency"}'></output></td>
               </tr>
               <tr>
                 <th scope="row">(plus) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-                <td class="text-right nowrap">+ $<span class="p3-ei">0</span></td>
+                <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></td>
               </tr>
               <tr>
                 <th scope="row">(plus) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-                <td class="text-right nowrap">+ $<span class="p3-cpp">0</span></td>
+                <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></td>
               </tr>
               <tr>
                 <th scope="row">(minus) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-tws">0</span></td>
+                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></td>
               </tr>
               <tr>
                 <th scope="row">(minus) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-wsb">0</span></td>
+                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></td>
               </tr>
               <tr class="success">
                 <th scope="row">Your CEWS claim is <small class="nowrap">(Line H)</small></th>
-                <td class="text-right nowrap">$<span class="cews-final-total">0</span></td>
+                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
               </tr>
             </tbody>
           </table>

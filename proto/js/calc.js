@@ -74,7 +74,11 @@
         $elm = $( elm ),
         value = $("#" + $(selector).attr("for")).val();
 
-    $elm.html( value * 1 );
+    if (data && data.format === "currency") {
+      $elm.html( toMoney.format(value * 1) );
+    } else {
+      $elm.html( value * 1 );
+    };
   } );
   // Bind the init event of the plugin
   $document.on( "timerpoke.wb " + initEvent, selector, init );
