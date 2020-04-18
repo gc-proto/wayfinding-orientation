@@ -549,39 +549,40 @@
             <ul class="lst-spcd">
               <li>
                 Line A: Number of eligible employees: 
-                <strong class="p2-ee-total"><output class="h3 p2-ee-total wb-calc" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p2c-ee"></output></strong>
               </li>
               <li>
                 Line B: Total eligible remuneration paid: 
-                <strong><output class="h3 p2-pyrl-total wb-calc" for="p2-pyrl" data-wb-calc='{"expr": "#p2b-pyrl * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p2c-pyrl" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
               <li>
                 Line C: Basic CEWS: 
-                <strong><output class="h3 p2-cews-total wb-calc" for="p2-cews-total" data-wb-calc='{"expr": "#p2-cews-total * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p2c-cews" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
               <li>
                 Line D: Employer’s EI and QPIP premiums payable on salary paid to furloughed employees: 
-                <strong><output class="h3 p3-ei wb-calc" for="p3-ei" data-wb-calc='{"expr": "#p3-ei * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
               <li>
                 Line E: Employer’s CPP and QPP contributions payable on salary paid to furloughed employees: 
-                <strong><output class="h3 p3-cpp wb-calc" for="p3-cpp" data-wb-calc='{"expr": "#p3-cpp * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
               <li>
                 Line F: Amount claimed under the 10% Temporary Wage Subsidy for Employers: 
-                <strong><output class="h3 p4-tws wb-calc" for="p4-tws" data-wb-calc='{"expr": "#p4-tws * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
               <li>
                 Line G: Amount received by eligible employees under ESDC’s Work Sharing Benefit program = $0: 
-                <strong><output class="h3 p4-wsb wb-calc" for="p4-wsb" data-wb-calc='{"expr": "#p4-wsb * 1"}'></output></strong>
+                <strong><output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></strong>
               </li>
             </ul>
             <div class="alert alert-success">
               <h3>Result</h3>
               <p>
                 Line H: The <strong>total amount</strong> you will claim for the CEWS for this period is: 
-                <strong><output class="h3 cews-final-total wb-calc" for="p2c-ee p2-pyrl p2-cews-total p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb"}'></output></strong>
-              This amount is subject to verification.</p>
+                <strong><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></strong>
+                This amount is subject to verification.
+              </p>
             </div>
             <table class="table">
               <caption>
@@ -590,27 +591,27 @@
               <tbody>
                 <tr>
                   <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
-                  <td class="text-right nowrap">$<span class="p2-cews-total">0</span></td>
+                  <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-cews" data-wb-calc='{"format": "currency"}'></output></td>
                 </tr>
                 <tr>
                   <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-                  <td class="text-right nowrap">+ $<span class="p3-ei">0</span></td>
+                  <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-ei" data-wb-calc='{"format": "currency"}'></output></td>
                 </tr>
                 <tr>
                   <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-                  <td class="text-right nowrap">+ $<span class="p3-cpp">0</span></td>
+                  <td class="text-right nowrap">+ <output class="h3 wb-calc" for="p3-cpp" data-wb-calc='{"format": "currency"}'></output></td>
                 </tr>
                 <tr>
                   <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line F)</small></th>
-                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-tws">0</span></td>
+                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-tws" data-wb-calc='{"format": "currency"}'></output></td>
                 </tr>
                 <tr>
                   <th scope="row">(less) Work Sharing Benefit program received <small class="nowrap">(Line G)</small></th>
-                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> $<span class="p4-wsb">0</span></td>
+                  <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr> <output class="h3 wb-calc" for="p4-wsb" data-wb-calc='{"format": "currency"}'></output></td>
                 </tr>
                 <tr class="success">
                   <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-                  <td class="text-right nowrap">$<span class="cews-final-total">0</span></td>
+                  <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
                 </tr>
               </tbody>
             </table>

@@ -61,18 +61,25 @@
     };
 
   // Add your plugin event handler
-  $document.on( "change", "#" + $(selector).attr("for"), function( event ) {
+  $document.on( "change", "input", function( event ) {
     var elm = event.currentTarget,
         $elm = $( elm ),
+        $elmId = $elm.attr("id"),
+        data = wb.getData( $("output[for='" + $elmId + "']"), componentName),
         value = $elm.val();
 
-    $("output[for='" + $elm.attr("id") + "']").html( value );
+    if (data && data.format === "currency") {
+      $("output[for='" + $elmId + "']").html( toMoney.format(value * 1 ) );
+    } else {
+      $("output[for='" + $elmId + "']").html( value * 1 );
+    };
   } );
 
   $document.on("change", selector, function( event, data ) {
     var elm = event.currentTarget,
         $elm = $( elm ),
-        value = $("#" + $(selector).attr("for")).val();
+        $input = $("#" + $elm.attr("for")),
+        value = $input.val();
 
     if (data && data.format === "currency") {
       $elm.html( toMoney.format(value * 1) );
