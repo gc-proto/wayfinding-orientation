@@ -73,7 +73,7 @@
       </section>
       <section class="gc-nav-section experimental">
         <h1 property="name" id="wb-cont">Calculate your subsidy amount</h1>
-        <p>When you apply for the Canada Employment Wage Subsidy (CEWS), you will be asked to enter amounts such as the number of eligible employees and gross payroll. To get ready, you can determine these amounts and preview your subsidy now, based on information you enter.</p>
+        <p>When you apply for the Canada Employment Wage Subsidy (CEWS), you will be asked to enter amounts such as the number of eligible employees and gross payroll. To get ready, you can determine these amounts and preview your subsidy claim now, based on information you enter.</p>
         <p>Before you calculate your subsidy, make sure you are <a href="who-apply.html">eligible to apply</a>.</p>
         <p>After you apply for the wage subsidy, your claim will be subject to verification.</p>
         <h2 class="h3">On this page</h2>
@@ -471,7 +471,7 @@
             <li>
               <fieldset class="brdr-tp">
                 <legend>Premiums and contributions</legend>
-                <p class="mrgn-tp-0">As part of the CEWS, employers can claim a 100% refund for the employer-paid part of contributions made on behalf of eligible employees who are on <a href="#leavewithpay">leave with pay</a> for any full week in the claim period.</p>
+                <p class="mrgn-tp-0">As part of the CEWS, employers can claim a 100% refund for the employer-paid part of contributions made on behalf of eligible employees who are on <a href="#leavewithpay" aria-controls="leavewithpay" class="wb-lbx" role="button">leave with pay</a> for any full week in the claim period.</p>
                 <p>These employer-paid contributions include:</p>
                 <ul>
                   <li>Employment Insurance (EI)</li>
@@ -479,7 +479,6 @@
                   <li>the Quebec Pension Plan (QPP), and</li>
                   <li>the Quebec Parental Insurance Plan (QPIP)</li>
                 </ul>
-                <!--<p>In general, an employee is considered to be on leave with pay if that employee is paid by the employer for a full week but does not perform any work during that time. This refund is not available for eligible employees that are on leave with pay for only a portion of a week.</p>-->
                 <p>Indicate the total amount of premiums or contributions during the selected period. Enter $0 if not applicable. </p>
                 <div class="mrgn-lft-md">
                   <div class="form-group">
@@ -647,6 +646,14 @@
             <p>Read more about <a href="https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-1-individuals/series-1-individuals/income-tax-folio-s1-f5-c1-related-persons-dealing-arms-length.html" target=_blank>non-arm’s-length relationships</a></p>
           </div>
         </section>
+                <section id="leavewithpay" class="mfp-hide modal-dialog modal-content overlay-def">
+          <header class="modal-header">
+            <h2 class="modal-title">Leave with pay</h2>
+          </header>
+          <div class="modal-body">
+            <p>In general, an employee is considered to be on <strong>leave with pay</strong> if that employee is paid by the employer for a full week but does not perform any work during that time. This refund is not available for eligible employees that are on leave with pay for only a portion of a week.</p>
+          </div>
+        </section>
         <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
         <nav class="mrgn-bttm-lg mrgn-tp-lg">
           <h3 class="wb-inv">Document navigation</h3>
@@ -660,7 +667,7 @@
       <script type="text/javascript">
         var defPreFooter = document.getElementById("def-preFooter");
         defPreFooter.outerHTML = wet.builder.preFooter({
-          dateModified: "2020-04-18",
+          dateModified: "2020-04-19",
           showPostContent: true,
           showFeedback: true,
           showShare: true
