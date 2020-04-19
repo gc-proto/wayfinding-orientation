@@ -100,3 +100,7 @@
   // Add the timer poke to initialize the plugin
   wb.add( selector );
   } )( jQuery, window, wb );
+
+  // TODO: Intercept the submit button to make sure all field are filled
+  // TODO: Add formvalid to the form
+  // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
