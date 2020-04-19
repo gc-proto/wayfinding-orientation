@@ -79,7 +79,7 @@
       };
     }
     
-    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format(($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1 ) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1) ));
+    $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format( ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1) ) );
   });
 
   $document.on("change", selector, function( event, data ) {
@@ -101,6 +101,6 @@
   wb.add( selector );
   } )( jQuery, window, wb );
 
-  // TODO: Intercept the submit button to make sure all field are filled
+  // TODO: Intercept the submit button to make sure all field are filled :done:
   // TODO: Add formvalid to the form :done:
   // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)

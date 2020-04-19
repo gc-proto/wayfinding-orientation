@@ -544,7 +544,7 @@
                 <p><span class="lead">Get results</span></p>
                 <p>After completing the four steps above, you can now calculate the results.</p>
                 <p>
-                  <button id="calculate" class="btn btn-primary btn-lg" data-wb-doaction='[{ "action": "removeClass", "source": "#results", "class": "hidden" }]'>Calculate your total wage subsidy</button>
+                  <button id="calculate" class="btn btn-primary btn-lg" type="button">Calculate your total wage subsidy</button>
                 </p>
               </li>
             </ol>
@@ -624,7 +624,7 @@
               </tr>
               <tr class="success">
                 <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
+                <td class="text-right nowrap"><output class="h3 wb-calc" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc='{"expr": "#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
               </tr>
             </tbody>
           </table>
@@ -709,6 +709,27 @@
             endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
 
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
+        });
+
+        $("#calculate").on("click", function(e){
+          e.preventDefault();
+
+          if($("#errors-default")[0]) {
+            $('html, body').animate( {scrollTop: $("#errors-default").offset().top}, 'slow');
+          } else if ($("input[type='number']").val() === "") {
+            var $elmId;
+
+            for (let i = 0; i < $("input[type='number']").length; i++) {
+              const $elm = $("input[type='number']").eq(i);
+              if($elm.val() == "") {
+                $elmId = $elm.attr("id");
+                break;
+              }
+            }
+            $('html, body').animate( {scrollTop: $("#" + $elmId + "").offset().top}, 'slow');
+          } else {
+            $("#results").toggleClass('hidden');
+          }
         });
       });
     </script>
