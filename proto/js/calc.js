@@ -79,7 +79,7 @@
       };
     }
     
-    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format($("#p2c-cews").val() - $("#p3-ei").val() - $("#p3-cpp").val() - $("#p4-tws").val() - $("#p4-wsb").val()) );
+    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format($("#p2c-cews").val() + $("#p3-ei").val() + $("#p3-cpp").val() - $("#p4-tws").val() - $("#p4-wsb").val()) );
   });
 
   $document.on("change", selector, function( event, data ) {
