@@ -102,5 +102,5 @@
   } )( jQuery, window, wb );
 
   // TODO: Intercept the submit button to make sure all field are filled
-  // TODO: Add formvalid to the form
+  // TODO: Add formvalid to the form :done:
   // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
