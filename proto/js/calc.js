@@ -35,8 +35,138 @@
       // returns DOM object = proceed with init
       // returns undefined = do not proceed with init (e.g., already initialized)
       var elm = wb.init( event, componentName, selector ),
-        $elm,
-        settings;
+          $elm,
+          settings,
+          tokens = [],
+          position = 0,
+          tokenize = function( sCalc ) {
+            var results = [],
+            tokenRegEx = /\s*([#.A-Za-z]+|[+-]?([0-9]*[.])?[0-9]+|\S)\s*/g,
+            token;
+
+            while ( (token = tokenRegEx.exec( sCalc ) ) !== null ) {
+              results.push( token[ 1 ] );
+            }
+          
+            return results;
+          },
+          isNumber = function( token ) {
+            return token !== undefined && token.match( /^[+-]?([0-9]*[.])?[0-9]+$/ ) !== null;
+          },
+          isSelector = function( token ) {
+            return token !== undefined && token.match( /^[#.A-Za-z]+$/ ) !== null;
+          },
+          isElement = function( token ) {
+            return token !== undefined && token.match( /^[A-Za-z]+$/ ) !== null;
+          },
+          peek = function() {
+            return tokens[ position ];
+          },
+          consume = function() {
+            position++;
+          },
+          parsePrimaryExpr = function() {
+            var token = peek();
+          
+            if ( isNumber( token ) ) {
+              consume( token );
+              return { 
+                type: "number",
+                value: token 
+              };
+            } else if ( isElement( token ) ) {
+              consume( token );
+              return { 
+                type: "name",
+                id: token
+              };
+            } else if ( isSelector( token ) ) {
+              if ( token.startsWith( "#" ) || token.startsWith( "." ) ) {
+                var $elm = $( token );
+          
+                token = ( !$elm.is( "select" ) ) ? $( token ).val() : $( token + " option:selected" ).attr( "data-wb-calc-value" );
+              }
+              consume( token );
+              return { 
+                type: "number",
+                value: token
+              };
+            } else if ( token === "(" ) {
+              consume( token );
+              var expr = parseExpr();
+              if ( peek() !== ")" ) {
+                throw new SyntaxError( "expected )" );
+              }
+              consume( ")" );
+              return expr;
+            } else {
+              throw new SyntaxError( "expected a number, a variable, or parentheses" );        
+            }
+          },
+          parseMulExpr = function() {
+            var expr = parsePrimaryExpr(),
+                t = peek();
+
+            while ( t === "*" || t === "/" ) {
+              consume( t );
+              var rhs = parsePrimaryExpr();
+              expr = { type: t, left: expr, right: rhs };
+              t = peek();
+            }
+            return expr;
+          },
+          parseExpr = function() {
+            var expr = parseMulExpr(),
+                t = peek();
+
+            while ( t === "+" || t === "-" ) {
+              consume( t );
+              var rhs = parseMulExpr();
+              expr = { type: t, left: expr, right: rhs };
+              t = peek();
+            }
+            return expr;
+          },
+          parse = function( equation ) {
+            tokens = tokenize( equation );
+            position = 0;
+
+            var result = parseExpr();
+
+            return result;
+          },
+          compute = function( evalObj ) {
+            var retVal;
+            switch ( evalObj.type ) {
+            case "number": return parseFloat( evalObj.value );
+            case "name": return evalObj.id;
+            case "+":
+              retVal = compute( evalObj.left ) + compute( evalObj.right );
+              return retVal;
+            case "-":
+              retVal = compute( evalObj.left ) - compute( evalObj.right );
+              return retVal;
+            case "*":
+              retVal = compute( evalObj.left ) * compute( evalObj.right );
+              return retVal;
+            case "/":
+              retVal = compute( evalObj.left ) / compute( evalObj.right );
+              return retVal;
+            }
+          },
+          getEquation = function( jsonData ) {
+            var equation = jsonData.equation,
+                eqNum = jsonData.eqnum;
+
+            if ( typeof eqNum !== "undefined" ) {
+              var idxVal = $( "input:radio[name=" + eqNum + "]:checked" ).val();
+
+              equation = jsonData.equation[ idxVal - 1 ];
+            }
+          
+            return equation;
+          };
+      
       if ( elm ) {
         $elm = $( elm );
         // ... Do the plugin initialisation
@@ -52,7 +182,7 @@
         Modernizr.load ({
           load: ["https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.4/math.js"],
           testReady: function() {
-            return ( $.fn.format );
+            return ( window.Math );
           }
         })
         // Call my custom event
@@ -63,6 +193,8 @@
     };
 
   // Add your plugin event handler
+
+  // To be retired
   $document.on( "change", "input", function( event ) {
     var elm = event.currentTarget,
         $elm = $( elm ),
@@ -82,7 +214,30 @@
     $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format( ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1) ) );
   });
 
-  $document.on("change", selector, function( event, data ) {
+  $document.on( evnt, selector, function ( event ) {
+    event.preventDefault();
+
+    var $elm = $( this ),
+        bind = $elm.attr( "data-wb-calc-bind" ),
+        $calculations = $( bind );
+
+    $calculations.each( function() {
+      var $calcelm = $( this ),
+          jsonData = JSON.parse( $calcelm.attr( "data-wb-calc" ) ),
+          equation = getEquation( jsonData ),
+          roundDigits = jsonData.rounded,
+          value = compute( parse( equation ) );
+
+      if ( typeof roundDigits !== "undefined" ) {
+        value = value.toFixed( parseInt( roundDigits ) );
+      }
+      $calcelm.text( value );
+    } );
+
+    return false;
+  });
+
+  $document.on("load", selector, function( event, data ) {
     var elm = event.currentTarget,
         $elm = $( elm ),
         $input = $("#" + $elm.attr("for")),
@@ -93,7 +248,7 @@
     } else {
       $elm.html( value * 1 );  
     };
-    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
+    $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0)); // To retire
   } );
   // Bind the init event of the plugin
   $document.on( "timerpoke.wb " + initEvent, selector, init );
