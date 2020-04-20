@@ -214,7 +214,7 @@
     $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format( ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1) ) );
   });
 
-  $document.on( evnt, selector, function ( event ) {
+  $document.on( "submit", selector, function ( event ) {
     event.preventDefault();
 
     var $elm = $( this ),
@@ -237,7 +237,7 @@
     return false;
   });
 
-  $document.on("load", selector, function( event, data ) {
+  $document.on("change", selector, function( event, data ) {
     var elm = event.currentTarget,
         $elm = $( elm ),
         $input = $("#" + $elm.attr("for")),

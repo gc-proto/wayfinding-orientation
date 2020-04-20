@@ -799,20 +799,22 @@
 
         $("#calculate").on("click", function(e){
           e.preventDefault();
+          var count = 0,
+              $elms = $(".wb-frmvld select, .wb-frmvld input"),
+              $emptyElms = [];
+
+          for (let i = 0; i < $($elms).length; i++) {
+            $elm = $($elms).eq(i);
+            if($elm.val() == "") {
+              $emptyElms.push($elm);
+              count++;
+            }
+          }
 
           if($("#errors-default")[0]) {
             $('html, body').animate( {scrollTop: $("#errors-default").offset().top}, 'slow');
-          } else if ($("input[type='number']").val() === "") {
-            var $elmId;
-
-            for (let i = 0; i < $("input[type='number']").length; i++) {
-              const $elm = $("input[type='number']").eq(i);
-              if($elm.val() == "") {
-                $elmId = $elm.attr("id");
-                break;
-              }
-            }
-            $('html, body').animate( {scrollTop: $("#" + $elmId + "").offset().top}, 'slow');
+          } else if( $emptyElms[0] ) {
+            $('html, body').animate( {scrollTop: $($emptyElms[0]).offset().top}, 'slow');
           } else {
             $("#results").toggleClass('hidden');
           }
