@@ -770,19 +770,108 @@
     </script>
     <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
     <script>
-      $(document).ready(function () {
-        var sep = {
-          iso: {
-            en: "--",
-            fr: "--"
-          },
-          claim: {
-            en: " to ",
-            fr: " au "
-          }
-        };
+      ( function( $, window, wb ) {
+        "use strict";
+        /*
+        * Variable and function definitions.
+        * These are global to the plugin - meaning that they will be initialized once per page,
+        * not once per instance of plugin on the page. So, this is a good place to define
+        * variables that are common to all instances of the plugin on a page.
+        */
+        // function that should be moved as a helper class or something
+        const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+          style: "currency",
+          currency: "CAD",
+          minimumFractionDigits: 2
+        });
 
-        $("#claim-period").change(function () {
+        var componentName = "wb-calc",
+            selector = "." + componentName,
+            initEvent = "wb-init" + selector,
+            $document = wb.doc,
+            defaults = {},
+            sep = {
+              iso: {
+                en: "--",
+                fr: "--"
+              },
+              claim: {
+                en: " to ",
+                fr: " au "
+              }
+            },
+          /**
+           * @method init
+           * @param {jQuery Event} event Event that triggered the function call
+           */
+          init = function( event ) {
+            // Start initialization
+            // returns DOM object = proceed with init
+            // returns undefined = do not proceed with init (e.g., already initialized)
+            
+            var elm = wb.init( event, componentName, selector ),
+                $elm,
+                settings;
+
+            if ( elm ) {
+              $elm = $( elm );
+              // ... Do the plugin initialisation
+              // Get the plugin JSON configuration set on attribute data-wb-helloworld
+              settings = $.extend(
+                true,
+                {},
+                defaults,
+                window[ componentName ],
+                wb.getData( $elm, componentName )
+              );
+
+              // Call my custom event
+              $elm.trigger( "change", settings );
+              // Identify that initialization has completed
+              wb.ready( $elm, componentName );
+            }
+          };
+
+        // Plugin event handlers
+        $document.on( "change", "input", function( event ) {
+          var elm = event.currentTarget,
+              $elm = $( elm ),
+              $elmId = $elm.attr("id"),
+              data = wb.getData( $("output[for='" + $elmId + "']"), componentName),
+              value = $elm.val().replace(/\,\s/g,''), // Needs to be replaced by data.expr evaluation
+              total = 0; 
+
+          if(data.expr) {
+            if (data.format === "currency") {
+              $("output[for='" + $elmId + "']").html( toMoney.format(value * 1 ) );
+            } else {
+              $("output[for='" + $elmId + "']").html( value * 1 );
+            };
+          }
+          
+          total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+          if(total < 0) {
+            $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format(0) );
+          } else {
+            $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html( toMoney.format(total) );
+          };
+        });
+
+        $document.on("change", selector, function( event, data ) {
+          var elm = event.currentTarget,
+              $elm = $( elm ),
+              $input = $("#" + $elm.attr("for")),
+              value = $input.val();
+
+          if (data && data.format === "currency") {
+            $elm.html( toMoney.format(value * 1) );
+          } else {
+            $elm.html( value * 1 );  
+          };
+          $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
+        } );
+ 
+        $document.on("change", "#claim-period", function( event ) {
           var rangeISO = $(this).find('option:selected').val(),
             startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
             endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
@@ -790,17 +879,21 @@
             startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
             endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
 
-          $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
+          if(!$("#claim-period option:selected:eq(0)")) {
+            $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
+          } else {
+            $('.claim-period').html($("#claim-period option:selected").text());
+          }
         });
 
-        $("#calculate").on("click", function(e){
-          e.preventDefault();
+        $document.on("click", "#calculate", function( event ) {
+          event.preventDefault();
           var count = 0,
               $elms = $(".wb-frmvld select, .wb-frmvld input"),
               $emptyElms = [];
 
           for (let i = 0; i < $($elms).length; i++) {
-            $elm = $($elms).eq(i);
+            var $elm = $($elms).eq(i);
             if($elm.val() == "") {
               $emptyElms.push($elm);
               count++;
@@ -815,9 +908,13 @@
             $("#results").toggleClass('hidden');
           }
         });
-      });
-    </script>
-    <script src="../js/calc.js"></script>
-  </body>
+        // Bind the init event of the plugin
+        $document.on( "timerpoke.wb " + initEvent, selector, init );
+        // Add the timer poke to initialize the plugin
+        wb.add( selector );
+        } )( jQuery, window, wb );
 
+        // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
+    </script>
+  </body>
 </html>
