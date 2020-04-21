@@ -171,9 +171,9 @@
               <label for="claim-period" class="control-label">Select the period you are claiming for</label>
               <select id="claim-period" class="form-control input-lg">
                 <option value=""> Select a claim period</option>
-                <option value="2020-03-15--2020-04-11">March 15, 2020 to April 11, 2020</option>
-                <option value="2020-04-12--2020-05-09">April 12, 2020 to May 9, 2020</option>
-                <option value="2020-05-10--2020-06-06">May 10, 2020 to June 6, 2020</option>
+                <option value="2020-03-15--2020-04-11">du 15 mars, 2020 au 11 avril, 2020</option>
+                <option value="2020-04-12--2020-05-09">du 12 avril, 2020 au 8 mai, 2020</option>
+                <option value="2020-05-10--2020-06-06">du 10 mai, 2020 au 6 juin, 2020</option>
               </select>
             </div>
           </fieldset>
@@ -497,19 +497,23 @@
               },
               claim: {
                 en: " to ",
-                fr: " à "
+                fr: " au "
               }
             }
 
         $("#claim-period").change(function() {
-            var rangeISO = $(this).find('option:selected').val(),
-                startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[lang])),
-                endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[lang]) + sep.iso[lang].length, rangeISO.length),
-                rangeClaim = $(this).find("option:selected").text(),
-                startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[lang])),
-                endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[lang]) + sep.claim[lang].length, rangeClaim.length);
+          var rangeISO = $(this).find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[lang])),
+              endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[lang]) + sep.iso[lang].length, rangeISO.length),
+              rangeClaim = $(this).find("option:selected").text(),
+              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[lang])),
+              endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[lang]) + sep.claim[lang].length, rangeClaim.length);
 
+          if(lang === "en") {
             $('.claim-period').html("<date datetime=\"" + startDateISO + "\">" + startDateClaim + "</date>" + sep.claim[lang] + "<date datetime=\"" + endDateISO + "\">" + endDateClaim + "</date>");
+          } else {
+            $('.claim-period').html("du <date datetime=\"" + startDateISO + "\">" + startDateClaim.substring(2, startDateClaim.length) + "</date>" + sep.claim[lang] + "<date datetime=\"" + endDateISO + "\">" + endDateClaim + "</date>");
+          }
         });
 
         $('#p2a-ee').change(function() {
