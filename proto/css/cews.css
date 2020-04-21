@@ -399,6 +399,7 @@ h1#wb-cont::after {
 	padding-bottom: 8px; /* This creates some space between the element and the border. */
 	border-bottom: .18em solid #af3c43; /* This creates the border. Replace black with whatever color you want. */
 }
+/* Styled ordered list design */
 ol.lst-stps:after, ol.lst-stps:before {
 	content: " ";
 	display: table
@@ -418,12 +419,10 @@ ol.lst-stps>li {
 	list-style: none inside;
 	margin: 30px 0px;
 	position: relative;
-	padding-left: 55px;
 	min-height: 30px;
 }
 ol.lst-stps>li:before {
 	content: counter(item);
-	padding: 6px 6px;
 	display: block;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -431,15 +430,45 @@ ol.lst-stps>li:before {
 	background: #fff;
 	color: #555;
 	text-align: center;
-	font-size: 1.2em;
 	font-weight: 100;
 	float: left;
-	min-width: 50px;
-	min-height: 45px;
 	border: 3px solid #555;
 	position: absolute;
 	left: -5px;
+}
+
+@media all and (max-width:767px) {
+ol.lst-stps>li {
+	padding-left: 30px;
+}
+ol.lst-stps>li:before {
+	padding: 0px;
+	min-width: 30px;
+	min-height: 30px;
+	margin-top: 15px;
+	font-size: 1em;
+	line-height: 1.1;
+}
+ol.lst-stps li ol {
+	margin-left: -30px;
+}
+}
+
+@media all and (min-width:768px) {
+ol.lst-stps>li {
+	padding-left: 55px;
+}
+ol.lst-stps>li:before {
+	padding: 6px;
+	min-width: 50px;
+	min-height: 50px;
 	margin-top: 5px;
+	font-size: 1.2em;
+	line-height: 1.2;
+}
+ol.lst-stps li ol {
+	margin-left: 0px;
+}
 }
 :not(#wb-srch) main form, main .checkbox, main .checkbox-inline, main .radio, main .radio-inline, main form :not(.btn-call-to-action).btn, main form :not(.btn-primary).btn {
 	font-size: 20px !important;
