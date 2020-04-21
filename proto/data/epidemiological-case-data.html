@@ -50,6 +50,7 @@
 			});
 </script>
 
+
 <main role="main" property="mainContentOfPage" class="container">
 		<h1 property="name" id="wb-cont" dir="ltr">COVID-19 epidemiological, research and economic data</h1>
 		
@@ -69,7 +70,7 @@
 
 <h2>Where to find COVID-19 data</h2>
 
-<table class="wb-tables table table-striped table-bordered table-condensed" data-wb-tables="{&quot;aLengthMenu&quot;: [[10, 25, 50, 100, -1], [10, 25, 50, 100, &quot;All&quot;]],       &quot;iDisplayLength&quot;: 50          }"> 
+<table id="example" class="wb-tables table table-striped table-bordered table-condensed" data-wb-tables="{&quot;aLengthMenu&quot;: [[10, 25, 50, 100, -1], [10, 25, 50, 100, &quot;All&quot;]],       &quot;iDisplayLength&quot;: 50          }"> 
    <thead> 
     <tr> 
    		<th>Data type</th>
@@ -209,14 +210,6 @@
 		<td><span class="wb-inv">No</span></td>
 		<td><span class="wb-inv">No</span></td>
 	</tr>
-	<!-- <tr>
-		<td>List of exposure locations</td>
-		<td><span class="wb-inv">No</span></td>
-		<td><span class="wb-inv">No</span></td>
-		<td><span class="wb-inv">No</span></td>
-		<td><span class="wb-inv">No</span></td>
-		<td><span class="wb-inv">No</span></td>
-	</tr> -->
 	<tr>
 		<td>National microbiology laboratory's summary of people tested. **</td>
 		<td>Yes</td>
@@ -347,7 +340,11 @@
 	</tr>
    </tbody> 
 	</table> 
-	
+<script>
+	$('#example').dataTable({
+		"paging": false
+	});
+</script>
 
 <div id="def-preFooter">
 </div>
@@ -378,6 +375,7 @@
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
+
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 		<!-- <script>
 			$(document).ready(function () {

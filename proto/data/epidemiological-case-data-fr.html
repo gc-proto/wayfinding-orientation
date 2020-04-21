@@ -68,7 +68,7 @@
 
 <h2>Où trouver les données de la COVID-19</h2>
 
-<table class="wb-tables table table-striped table-bordered table-condensed" data-wb-tables="{&quot;aLengthMenu&quot;: [[10, 25, 50, 100, -1], [10, 25, 50, 100, &quot;All&quot;]],       &quot;iDisplayLength&quot;: 50         }"> 
+<table id="example" class="wb-tables table table-striped table-bordered table-condensed" data-wb-tables="{&quot;aLengthMenu&quot;: [[10, 25, 50, 100, -1], [10, 25, 50, 100, &quot;All&quot;]],       &quot;iDisplayLength&quot;: 50         }"> 
    <thead> 
     <tr> 
    		<th>Type de données</th>
@@ -208,14 +208,6 @@
 		<td><span class="wb-inv">Non</span></td>
 		<td><span class="wb-inv">Non</span></td>
 	</tr>
-	<!-- <tr>
-		<td>List of exposure locations</td>
-		<td><span class="wb-inv">Non</span></td>
-		<td><span class="wb-inv">Non</span></td>
-		<td><span class="wb-inv">Non</span></td>
-		<td><span class="wb-inv">Non</span></td>
-		<td><span class="wb-inv">Non</span></td>
-	</tr> -->
 	<tr>
 		<td>Résumé des personnes testées par le Laboratoire national de microbiologie. **</td>
 		<td>Oui</td>
@@ -346,7 +338,11 @@
 	</tr>
    </tbody> 
 	</table> 
-	
+<script>
+	$('#example').dataTable({
+		"paging": false
+	});
+</script>	
 
 <div id="def-preFooter">
 </div>
