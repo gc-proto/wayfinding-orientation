@@ -778,25 +778,20 @@
           },
           claim: {
             en: " to ",
-            fr: " à "
+            fr: " au "
           }
         };
 
-        $("#claim-period").change(function() {
+        $("#claim-period").change(function () {
           var rangeISO = $(this).find('option:selected').val(),
-              startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[lang])),
-              endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[lang]) + sep.iso[lang].length, rangeISO.length),
-              rangeClaim = $(this).find("option:selected").text(),
-              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[lang])),
-              endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[lang]) + sep.claim[lang].length, rangeClaim.length);
+            startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
+            endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
+            rangeClaim = $(this).find("option:selected").text(),
+            startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
+            endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
 
-          if(lang === "en") {
-            $('.claim-period').html("<date datetime=\"" + startDateISO + "\">" + startDateClaim + "</date>" + sep.claim[lang] + "<date datetime=\"" + endDateISO + "\">" + endDateClaim + "</date>");
-          } else {
-            $('.claim-period').html("du <date datetime=\"" + startDateISO + "\">" + startDateClaim.substring(2, startDateClaim.length) + "</date>" + sep.claim[lang] + "<date datetime=\"" + endDateISO + "\">" + endDateClaim + "</date>");
-          }
+          $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
         });
-
 
         $("#calculate").on("click", function(e){
           e.preventDefault();
