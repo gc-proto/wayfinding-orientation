@@ -33,6 +33,19 @@
             }
             .checkbox-lg label {font-size: 1em;}
             .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
+			.checkbox-lg > li:nth-child(2n) {
+
+    background-color: #f5f5f5;
+
+    margin-left: -40px;
+
+    padding-left: 40px;
+
+    padding-top: 5px;
+
+    padding-bottom: 5px;
+
+}
          </style>
          <!-- Write closure template -->
          <script type="text/javascript">
@@ -102,54 +115,94 @@
                </div>
                <p class="lead">To be eligible, you must meet of the following conditions:</p>
                <section>
-                  <ul class="checkbox-lg">
-                    
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg2" class="action-checkbox">
-                        <label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same eligibility period</label>
-                     </li>
-					  <li class="checkbox">
-                        <input type="checkbox" id="eg3" class="action-checkbox">
-                        <label for="eg3"> You did not quit your job voluntarily</label>
-                     </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg4" class="action-checkbox">
-                        <label for="eg4">
-                        You reside in Canada and are at least 15 years old </label>
-                     </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg5" class="action-checkbox">
-                        <label for="eg5">You earned a minimum of $5,000 (before taxes) income in the last 12 months or in 2019 from one or more of the following sources:</label>
-                        <ul class="std-blt">
-                           <li>
-                              <label for="eg5">employment income</label>
-                           </li>
-                           <li>
-                              <label for="eg5">self-employment income</label>
-                           </li>
-                           <li>
-                              <label for="eg5">provincial benefit payments related to maternity or parental leave</label>
-                           </li>
-                        </ul>
-                     </li>
-					  <li class="checkbox">
-                        <input type="checkbox" id="eg1" class="action-checkbox">
-                        <label for="eg1"><div class="panel panel-default"><div class="panel-body">
-                           <p>You lost your income because of COVID-19</p>
-                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
-                           <p>Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)</p>
-                        </div></div></label>
-                     </li>
-                    <li class="checkbox">
-                        <input type="checkbox" id="eg6" class="action-checkbox">
-                        <label for="eg6"><div class="panel panel-default"><div class="panel-body">
-                           <p>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period <span class="label label-info">New</span></p>
-                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
-                           <p>If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period <span class="label label-info">New</span></p>
-                           <p class="text-left"><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/questions.html">What  counts towards the $1,000 in income I can earn?</a></p>
-                        </div></div></label>
-                     </li>
-                  </ul>
+                  
+<ul class="checkbox-lg">
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg2" class="action-checkbox">
+
+<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same eligibility period</label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg3" class="action-checkbox">
+
+<label for="eg3"> You did not quit your job voluntarily</label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg4" class="action-checkbox">
+
+<label for="eg4">
+
+You reside in Canada and are at least 15 years old </label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg5" class="action-checkbox">
+
+<label for="eg5">You earned a minimum of $5,000 (before taxes) income in the last 12 months or in 2019 from one or more of the following sources:</label>
+
+<ul class="std-blt">
+
+<li>
+
+<label for="eg5">employment income</label>
+
+</li>
+
+<li>
+
+<label for="eg5">self-employment income</label>
+
+</li>
+
+<li>
+
+<label for="eg5">provincial benefit payments related to maternity or parental leave</label>
+
+</li>
+
+</ul>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg1" class="action-checkbox">
+
+<label for="eg1"><strong>One of the following: </strong><br>You lost your income because of COVID-19<br>
+
+<span class="h4">OR</span></label>
+
+<label for="eg1">Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)
+
+</label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg6" class="action-checkbox">
+
+<label for="eg6"><strong>One of the following: </strong><br>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period&nbsp;<span class="label label-info">New</span><br>
+
+<span class="h4">OR</span></label>
+
+<label for="eg6">If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period&nbsp;<span class="label label-info">New</span></label>
+
+<p class="text-left"><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/questions.html">What counts towards the $1,000 in income I can earn?</a></p>
+
+</li>
+
+</ul>
                   <div class="alert alert-success hidden-action"  id="action-msg-all">
                      <p>You are eligible and ready to proceed</p>
                   </div>
