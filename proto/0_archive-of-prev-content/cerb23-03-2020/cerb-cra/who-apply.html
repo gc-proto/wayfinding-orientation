@@ -25,11 +25,11 @@
             div.hidden-action {
             transform: scaleX(0);
             overflow: hidden;
-            float: left;
+			display:none;
             }
             div.visible-action {
             transform: scaleX(1);
-            float: left;
+            display:visible;
             }
             .checkbox-lg label {font-size: 1em;}
             .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
@@ -99,7 +99,7 @@
                      <p>If you are applying for the CERB for the first time, and not sure where to apply, answer the questions under <a href="https://www.canada.ca/en/services/benefits/ei/cerb-application.html#get_started">Get started</a>, on the Canada Emergency Response Benefit page. We will direct you to the service option that best fits your situation.</p>
                   </section>
                </div>
-               <p>To be eligible, you must meet of the following conditions:</p>
+               <p class="lead">To be eligible, you must meet of the following conditions:</p>
                <section>
                   <ul class="checkbox-lg">
                     
@@ -135,25 +135,27 @@
                         <input type="checkbox" id="eg1" class="action-checkbox">
                         <label for="eg1"><div class="panel panel-default"><div class="panel-body">
                            <p>You lost your income because of COVID-19</p>
-                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="fas fa-circle fa-stack-2x text-muted"></span><strong class="fa-stack-1x fa-inverse">or</strong></span></p>
+                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
                            <p>Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)</p>
                         </div></div></label>
                      </li>
                     <li class="checkbox">
                         <input type="checkbox" id="eg6" class="action-checkbox">
                         <label for="eg6"><div class="panel panel-default"><div class="panel-body">
-                           <p>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period</p>
-                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="fas fa-circle fa-stack-2x text-muted"></span><strong class="fa-stack-1x fa-inverse">or</strong></span></p>
-                           <p>If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period</p>
+                           <p>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period <span class="label label-info">New</span></p>
+                           <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
+                           <p>If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period <span class="label label-info">New</span></p>
                            <p class="text-left"><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/questions.html">What  counts towards the $1,000 in income I can earn?</a></p>
                         </div></div></label>
                      </li>
                   </ul>
-                  <div class="alert alert-success hidden-action "  id="action-msg-all">
+                  <div class="alert alert-success hidden-action"  id="action-msg-all">
                      <p>You are eligible and ready to proceed</p>
                   </div>
                </section>
-               <div class="clearfix"></div>
+			  <div class="clearfix"></div>
+			   <p>The current <a href="how-apply.html#ep">eligibility period</a> is <span class="nowrap"><span class="far fa-calendar-alt"></span> April 12, 2020</span> to <span class="nowrap"> May 9, 2020</span>.  The next eligibility period is <span class="nowrap"><span class="far fa-calendar-alt"></span> May 10, 2020</span> to <span class="nowrap">June 6, 2020</span>.</p>
+               
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                   <h3 class="wb-inv">Document navigation</h3>
                   <ul class="pager">
