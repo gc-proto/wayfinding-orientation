@@ -13,6 +13,8 @@
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/new-alerts.css" rel="stylesheet">
+
 
 		<!-- Write closure template -->
 		<script type="text/javascript">
@@ -78,6 +80,7 @@
 	<li><a href="#eligible">Who can apply</a></li>
 	<li><a href="#apply">Applying for the first time</a></li>
 	<li> <a href="#next">Continuing an existing claim</a></li>
+	<li> <a href="#error">If you think you received the CERB in error</a></li>
 	<li> <a href="#periods">Eligibility periods</a></li>
 		<li> <a href="#more">More information</a></li>
 </ul>
@@ -93,7 +96,7 @@
 
 												 <li class="checkbox">
 														<input type="checkbox" id="eg2" class="action-checkbox">
-														<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same eligibility period</label>
+														<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same <a href="#periods">eligibility period</a></label>
 												 </li>
 								<li class="checkbox">
 														<input type="checkbox" id="eg3" class="action-checkbox">
@@ -132,7 +135,7 @@
 
 														<input type="checkbox" id="eg6" class="action-checkbox">
 														<label for="eg6"><div class="panel panel-default"><div class="panel-body">
-															<div class="experimental">
+															<div class="provisional">
 																								 <section class="alert alert-info">
 																										<h2 class="h3">Eligibility criteria for CERB have changed</h2>
 																										<p>The CERB is now available if you earned $1,000 or less during an eligibility period. If this applies to your situation, you may be eligible to apply for a previous period.</p>
@@ -155,39 +158,39 @@
 			<h2 id="apply">Applying for the first time</h2>
 
 			<p>CERB is jointly delivered by Service Canada and the Canada Revenue Agency.  </p>
-
+<div class="provisional">
 			<section class="alert alert-danger mrgn-tp-lg">
 			  <p class="h3">Only apply for the CERB through Service Canada or the Canada Revenue Agency (CRA) – <span class="text-danger">not both</span>.</p>
 			</section>
+</div>
 
-<!-- 			<details open="open"> -->
-<!-- 			<summary>Apply through the CRA</summary> -->
-<h3>Apply through the CRA</h3>
+
+			<details>
+
+			<summary>Apply through the CRA</summary>
 			<p>Many people who aren’t eligible for EI can still receive CERB.</p>
 
 			<ul>
 				<li>Apply on the phone or from within your CRA My Account</li>
 				<li>You will receive money within days (if you’re set up for direct deposit)</li>
 				<li>You must re-apply for each benefit period (every 4 weeks)</li>
-				<li>If you are eligible for EI, you must apply for it separately once CERB ends</li>
+				<li>If you are eligible for EI, you must apply for it separately once your CERB benefits end</li>
 			</ul>
 
 			<a href="../0_archive-of-prev-content/cerb23-03-2020/cerb-cra/index.html" class="btn btn-call-to-action">Apply through the CRA</a>
 
-<!--
 			</details>
-			<details open="open">
- -->
-<!-- 			<summary>Apply through Service Canada</summary> -->
-			<h3>Apply through Service Canada</h3>
-			<p>You can follow the standard EI application process. If your application is accepted, you will receive CERB benefits as long as CERB lasts, after which you’ll begin receiving EI benefits.</p>
+			<details>
+
+			<summary>Apply through Service Canada</summary>
+			<p>Follow the standard EI application process. If your application is accepted, you will receive CERB benefits as long as CERB lasts, after which you’ll begin receiving EI benefits.</p>
 
 			<ul>
-
-			<li>It will take longer to process your application, and so longer to receive money</li>
-			You won’t have to reapply for each CERB period (every 4 weeks)</li>
+			<li>You must be eligible for EI regular benefits to apply through Service Canada</li>
+			<li>It may take longer to process your application, and so longer to receive money</li>
+			<li>You won’t have to reapply for each CERB period (every 4 weeks)</li>
 			<li>You will have to report your employment status every 2 weeks to continue receiving benefits</li>
-			<li>You automatically receive EI once CERB ends</li>
+			<li>Your EI claim will continue once your CERB benefits end</li>
 			</ul>
 
 			<a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/cerb-privacy-notice.html" class="btn btn-call-to-action" >Start application through Service Canada</a>
@@ -211,14 +214,11 @@
 
 
 
-			<div class="well mrgn-tp-lg">
+			<div class="mrgn-tp-lg">
 			<h3 id="get_started" class="mrgn-tp-sm">Not sure whether to apply with Service Canada or the CRA?
 			</h3>
 
 			<p>Answer a few simple questions.</p>
-
-
-
 
 
 
@@ -326,18 +326,70 @@
 
 <h2 id="next">Continuing an existing claim</h2>
 
-<h3>If you applied through Service Canada (EI)</h3>
-<p>You will need to submit reports using <a href="https://www.canada.ca/en/employment-social-development/services/my-account.html">My Service Canada Account</a>. </p>
+
+<details>
+<summary>If you applied through Service Canada (EI)</summary>
+<p>Sign in to submit your report every 2 weeks: <br /><a class="btn btn-call-to-action" href="https://www.canada.ca/en/employment-social-development/services/my-account.html">My Service Canada Account</a> </p>
+</details>
 
 
-<h3>If you applied through the Canada Revenue Agency </h3>
+<details>
+<summary>If you applied through the Canada Revenue Agency </summary>
 <p>You need to re-apply at the beginning of each 4-week benefit period.  <a href="../0_archive-of-prev-content/cerb23-03-2020/cerb-cra/how-apply.html#when">Find the day you should apply on.</a>
 
 <ul>
 	<li>	The current period is April 11, 2020 - May 9, 2020.</li>
 	<li>The next period is May 10, 2020 - June 6, 2020</li>
 </ul>
-		<a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" class="btn btn-primary">Re-apply now in CRA My Account</a>
+
+  <section>
+      <h2 id="reapply" class="h4">Reapply online or by phone</h2>
+      <dl class="dl-horizontal brdr-0">
+      <dt id="apply-online">Online:</dt>
+      <dd>
+      <p><a data-gc-analytics-customclick="CRA|ARC:CERB button click:Sign-In to your CRA My Account button" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" class="btn btn-call-to-action">Sign in to your CRA My Account</a><br>
+
+      </dd>
+
+      <dt id="apply-phone">By phone:</dt>
+      <dd>
+
+      <p>Call the automated toll-free line</p>
+      <dl class="dl-horizontal brdr-0">
+      <dt>Before you call</dt>
+      <dd>
+      <p>To verify your identity, you'll need</p>
+      <ul>
+      <li>your social insurance number (SIN)</li>
+      <li>postal code</li>
+      </ul>
+      </dd>
+      <dt>Telephone number</dt>
+      <dd>
+      <p><span class="wb-inv">Follow the instructions below before you call </span><strong>1-800-959-2019</strong> or <strong>1-800-959-2041</strong></p>
+
+      <h3 class="h4">Instructions</h3>
+      <ol>
+      <li>Select your language preference: English or French</li>
+      <li>Follow the prompts to enter your information, including:
+      <ul>
+      <li>your SIN</li>
+      <li>confirmation of your postal code</li>
+      <li>the period you are applying for</li>
+      </ul>
+      </li>
+      <li>Declare that you qualify for the benefit</li>
+      </ol>
+
+      <p>The CRA will issue payments by direct deposit or cheque, based on the payment method we have on file for you.</p>
+      </dd>
+      </dl>
+
+      </dd>
+      </dl>
+      <p>Both of these services are available 21 hours a day, 7 days a week. Both services are closed from 3:00 a.m. to 6:00 a.m. (Eastern time) for maintenance.</p>
+      </section>
+</details>
 
 <h2 id="error">If you think you received the CERB in error, or your circumstances have changed</h2>
 
@@ -346,8 +398,7 @@
 
 
 			<h2 id="periods">Eligibility periods</h2>
-			<details>
-      <summary>Display eligibility periods</summary>
+
       <table class="table table-bordered" id="eligibility">
       <caption class="wb-inv">
       Understanding payment periods
@@ -389,7 +440,7 @@
       </tr>
       </tbody>
       </table>
-      </details>
+
 
 
 				<h2 id="more">More information</h2>
