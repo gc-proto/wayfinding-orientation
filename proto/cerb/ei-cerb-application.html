@@ -15,7 +15,34 @@
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
 		<link href="https://design.canada.ca/css/new-alerts.css" rel="stylesheet">
 
+       <style type="text/css">
+            div.hidden-action {
+            transform: scaleX(0);
+            overflow: hidden;
+			display:none;
+            }
+            div.visible-action {
+            transform: scaleX(1);
+            display:visible;
+            }
+            .checkbox-lg label {font-size: 1em;}
+            .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
+			.checkbox-lg > li:nth-child(2n) {
 
+    background-color: #f5f5f5;
+
+    margin-left: -40px;
+
+    padding-left: 40px;
+
+    padding-top: 5px;
+
+    padding-bottom: 5px;
+
+}
+
+
+         </style>
 		<!-- Write closure template -->
 		<script type="text/javascript">
 			document.write(wet.builder.refTop({
@@ -90,68 +117,102 @@
 
 
 
-			<p class="lead">To be eligible, you must meet of the following conditions:</p>
-									 <section>
-											<ul class="checkbox-lg">
+       <p class="lead">To be eligible, check that you meet these conditions:</p>
+               <section>
+                  
+<ul class="checkbox-lg">
 
-												 <li class="checkbox">
-														<input type="checkbox" id="eg2" class="action-checkbox">
-														<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same <a href="#periods">eligibility period</a></label>
-												 </li>
-								<li class="checkbox">
-														<input type="checkbox" id="eg3" class="action-checkbox">
-														<label for="eg3"> You did not quit your job voluntarily</label>
-												 </li>
-												 <li class="checkbox">
-														<input type="checkbox" id="eg4" class="action-checkbox">
-														<label for="eg4">
-														You reside in Canada and are at least 15 years old </label>
-												 </li>
-												 <li class="checkbox">
-														<input type="checkbox" id="eg5" class="action-checkbox">
-														<label for="eg5">You earned a minimum of $5,000 (before taxes) income in the last 12 months or in 2019 from one or more of the following sources:</label>
-														<ul class="std-blt">
-															 <li>
-																	<label for="eg5">employment income</label>
-															 </li>
-															 <li>
-																	<label for="eg5">self-employment income</label>
-															 </li>
-															 <li>
-																	<label for="eg5">provincial benefit payments related to maternity or parental leave</label>
-															 </li>
-														</ul>
-												 </li>
-								<li class="checkbox">
-														<input type="checkbox" id="eg1" class="action-checkbox">
-														<label for="eg1"><div class="panel panel-default"><div class="panel-body">
-															 <p>You lost your income because of COVID-19</p>
-															 <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
-															 <p>Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)</p>
-														</div></div></label>
-												 </li>
-												<li class="checkbox">
+<li class="checkbox">
 
+<input type="checkbox" id="eg2" class="action-checkbox">
 
-														<input type="checkbox" id="eg6" class="action-checkbox">
-														<label for="eg6"><div class="panel panel-default"><div class="panel-body">
-															<div class="provisional">
-																								 <section class="alert alert-info">
-																										<h2 class="h3">Income criteria for CERB has changed</h2>
-																										<p>The CERB is now available if you earned $1,000 or less during an eligibility period. If this applies to your situation, you may be eligible to apply for a previous period.</p>
+<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same eligibility period</label>
 
-																								 </section>
-																							</div>
+</li>
 
-															 <p><strong>If you are applying for the first time:</strong> you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period </p>
-															 <p class="mrgn-bttm-0 mrgn-bttm-md"><span class="fa-stack"><span class="far fa-circle fa-stack-2x text-muted"></span><small class="fa-stack-1x text-muted">or</small></span></p>
-															 <p><strong>If you are re-applying for another period:</strong> you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period </p>
-															 <p class="text-left"><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/questions.html">What  counts towards the $1,000 in income I can earn?</a></p>
-														</div></div></label>
-												 </li>
-											</ul>
+<li class="checkbox">
 
-									 </section>
+<input type="checkbox" id="eg3" class="action-checkbox">
+
+<label for="eg3"> You did not quit your job voluntarily</label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg4" class="action-checkbox">
+
+<label for="eg4">
+
+You reside in Canada and are at least 15 years old </label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg5" class="action-checkbox">
+
+<label for="eg5">You earned a minimum of $5,000 (before taxes) income in the last 12 months or in 2019 from one or more of the following sources:</label>
+
+<ul class="std-blt">
+
+<li>
+
+<label for="eg5">employment income</label>
+
+</li>
+
+<li>
+
+<label for="eg5">self-employment income</label>
+
+</li>
+
+<li>
+
+<label for="eg5">provincial benefit payments related to maternity or parental leave</label>
+
+</li>
+
+</ul>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg1" class="action-checkbox">
+
+<label for="eg1"><strong>One of the following: </strong><br>You lost your income because of COVID-19<br>
+
+<span class="h4">OR</span></label>
+
+<label for="eg1">Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)
+
+</label>
+
+</li>
+
+<li class="checkbox">
+
+<input type="checkbox" id="eg6" class="action-checkbox">
+
+<label for="eg6"><strong>One of the following: </strong><br>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period&nbsp;<span class="label label-info">New</span><br>
+
+<span class="h4">OR</span></label>
+
+<label for="eg6">If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period&nbsp;<span class="label label-info">New</span></label>
+
+<p class="text-left"><a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/questions.html">What counts towards the $1,000 in income I can earn?</a></p>
+
+</li>
+
+</ul>
+                  <div class="alert alert-success hidden-action"  id="action-msg-all">
+                     <p>You are eligible and ready to proceed</p>
+                  </div>
+               </section>
+			  <div class="clearfix"></div>
+			   <p>The current <a href="how-apply.html#ep">eligibility period</a> is <span class="nowrap"><span class="far fa-calendar-alt"></span> April 12, 2020</span> to <span class="nowrap"> May 9, 2020</span>.  The next eligibility period is <span class="nowrap"><span class="far fa-calendar-alt"></span> May 10, 2020</span> to <span class="nowrap">June 6, 2020</span>.</p>
 
 
 
@@ -407,6 +468,7 @@
 			<h2 id="periods">Eligibility periods</h2>
 
       <table class="table table-bordered" id="eligibility">
+<p>An eligibility period is a fixed 4-week payment period. Each period has a pre-set start and end date. This means when you apply for the CERB, you will receive a payment for a specific 4-week period.</p>
       <caption class="wb-inv">
       Understanding payment periods
       </caption>
@@ -450,8 +512,8 @@
 
 
 
-				<h2 id="more">More information</h2>
-			<p>Please read these <a href="ei-cerb-questions.html">questions and answers</a> for more details.</p>
+				<h2 id="more">Related information</h2>
+			<p>See <a href="ei-cerb-questions.html">questions and answers</a> for more details.</p>
 
 			</div>
 
