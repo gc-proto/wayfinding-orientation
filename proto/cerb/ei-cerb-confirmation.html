@@ -13,6 +13,37 @@
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="http://test.canada.ca/covid-19-guidance/proto//css/cews.css" rel="stylesheet">
+		<link href="http://test.canada.ca/covid-19-guidance/proto/0_archive-of-prev-content/cerb23-03-2020/cerb-cra/css/checkbox-radio-CRA.css" rel="stylesheet">
+		<link href="http://test.canada.ca/covid-19-guidance/proto/0_archive-of-prev-content/cerb23-03-2020/cerb-cra/css/bullets-with-questions.css" rel="stylesheet">
+<link href="https://design.canada.ca/css/new-alerts.css" rel="stylesheet">
+
+<style type="text/css">
+		 div.hidden-action {
+		 transform: scaleX(0);
+		 overflow: hidden;
+display:none;
+		 }
+		 div.visible-action {
+		 transform: scaleX(1);
+		 display:visible;
+		 }
+		 .checkbox-lg label {font-size: 1em;}
+		 .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
+.checkbox-lg > li:nth-child(2n) {
+
+background-color: #f5f5f5;
+
+margin-left: -40px;
+
+padding-left: 40px;
+
+padding-top: 5px;
+
+padding-bottom: 5px;
+
+}
+   </style>
 
 		<!-- Write closure template -->
 		<script type="text/javascript">
@@ -32,29 +63,23 @@
 					href: "landing-fr.html",
 					text: "Français"
                 }],
-			breadcrumbs: [{
-					title: "Home",
-					href: "https://www.canada.ca/en.html"
-				},{
-					title: "Health",
-					href: "https://www.canada.ca/en/services/health.html"
-				}, {
-				title: "Diseases and conditions",
-				href: "https://www.canada.ca/en/public-health/services/diseases.html"
-				},{
-					title: "Coronavirus (COVID-19)",
-					href: "../landing.html"
-				},{
-					title: "Canada's response",
-					href: "../landing.html"				
-				}],
+								breadcrumbs: [{
+										title: "Home",
+										href: "https://www.canada.ca/en.html"
+									},{
+										title: "Benefits",
+										href: "https://www.canada.ca/en/services/benefits.html"
+									}, {
+										title: "Canada Emergency Response Benefit",
+										href: "ei-cerb-application.html"
+									}],
 				search: true,
 				siteMenu: true,
 				showPreContent: true
 			});
 </script>
 
- 
+
 
 
 
@@ -72,33 +97,101 @@ What are the eligibility criteria for the Canada Emergency Response Benefit?</h1
 <div class="mwsgeneric-base-html parbase section">
 
 
-    
-    <p>To be eligible to receive the Canada Emergency Response Benefit (CERB) from Service Canada you must meet the following criteria:</p>
-<ul>
-  <li>You are resident in Canada</li>
-  <li>You are 15 years of age or older at the time of application</li>
-  <li>You have not quit your job voluntarily </li>
-  <li>You are not receiving nor have you applied for the CERB from the Canada Revenue Agency</li>
-  <li>You are not receiving Employment Insurance benefits for the same benefit period</li>
-  <li>You have earned a minimum of $5,000 in income in the 12 months prior to your application or in the 2019 calendar year from: 
-  <ul>
-    <li>Employment income and/or</li>
-    <li>Self-employment income</li>
-  </ul></li>
-  <li>You have been paid Employment Insurance regular benefits for at least a week since December 29, 2019 and have used up your entitlement to those benefits; or</li>
-  <li>You have stopped or will stop working for reasons related to COVID-19, or because you are unable to work due to illness, or because you lost your employment for other reasons beyond your control; and either
-  
-  
-  <ul>
-    <li>You have stopped or will stop working for at least 14 consecutive days within the 4-week benefit period and have or expect to receive no more than $1,000 in combined        employment or self-employment income for these consecutive days; or</li>
-    <li>If you are applying  for a 4-week benefit period that immediately follows your previous application, you did not receive more than $1,000 in combined employment or self employment income since receiving the benefit and do not expect to receive more than $1,000 in combined employment or self employment income for this 4-week benefit period.
 
-	
+	       <p class="lead">To be eligible, check that you meet these conditions:</p>
+	               <section>
+
+	<ul class="checkbox-lg">
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg2" class="action-checkbox">
+
+	<label for="eg2">You did not apply for, nor receive, CERB or EI benefits from Service Canada for the same eligibility period</label>
+
 	</li>
-  </ul></li>
-  
-  
-</ul>
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg3" class="action-checkbox">
+
+	<label for="eg3"> You did not quit your job voluntarily</label>
+
+	</li>
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg4" class="action-checkbox">
+
+	<label for="eg4">
+
+	You reside in Canada and are at least 15 years old </label>
+
+	</li>
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg5" class="action-checkbox">
+
+	<label for="eg5">You earned a minimum of $5,000 (before taxes) income in the last 12 months or in 2019 from one or more of the following sources:</label>
+
+	<ul class="std-blt">
+
+	<li>
+
+	<label for="eg5">employment income</label>
+
+	</li>
+
+	<li>
+
+	<label for="eg5">self-employment income</label>
+
+	</li>
+
+	<li>
+
+	<label for="eg5">provincial benefit payments related to maternity or parental leave</label>
+
+	</li>
+
+	</ul>
+
+	</li>
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg1" class="action-checkbox">
+
+	<label for="eg1"><strong>One of the following: </strong><br>You lost your income because of COVID-19<br>
+
+	<span class="h4">OR</span></label>
+
+	<label for="eg1">Your regular EI benefits have run out (any time between December 29, 2019 and October 3, 2020)
+
+	</label>
+
+	</li>
+
+	<li class="checkbox">
+
+	<input type="checkbox" id="eg6" class="action-checkbox">
+
+	<label for="eg6"><strong>One of the following: </strong><br>If you are applying for the first time: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income for at least 14 days in a row during the 4-week period&nbsp;<br>
+
+	<span class="h4">OR</span></label>
+
+	<label for="eg6">If you are re-applying for another period: you do not expect to earn more than $1,000 (before taxes) from employment and self-employment income and you don’t expect this to change during the 4-week period&nbsp;</label>
+
+	<p class="text-left"><a href="ei-cerb-questions.html#eligibility">What counts towards the $1,000 in income I can earn?</a></p>
+
+	</li>
+
+	</ul>
+	                  <div class="alert alert-success hidden-action"  id="action-msg-all">
+	                     <p>You are eligible and ready to proceed</p>
+	                  </div>
+	               </section>
 
 <div class="row mrgn-tp-lg">
   <div class="col-md-6 center-block">
@@ -142,20 +235,19 @@ What are the eligibility criteria for the Canada Emergency Response Benefit?</h1
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
-		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
-		<script>
-			$(document).ready(function () {
-				console.log("ready!");
+			<script>
+				$(document).ready(function () {
+					console.log("ready!");
 
-				var linkSwap = document.querySelector('a[href="https://www.canada.ca/en/contact.html]');
-				if (linkSwap) {
-					linkSwap.setAttribute('href', 'contact-us.html')
-				}
-				console.log("run");
+					var linkSwap = document.querySelector('a[href="https://www.canada.ca/en/contact.html"]');
+					if (linkSwap) {
+						linkSwap.setAttribute('href', 'http://test.canada.ca/covid-19-guidance/proto/cerb/cerb-all-contact.html')
+					}
+					console.log("run");
 
-			});
-		</script>
+				});
+			</script>
 
 	</body>
 
