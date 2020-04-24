@@ -10,6 +10,8 @@
 		<!-- Meta data -->
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
+
+				<link href="http://test.canada.ca/covid-19-guidance/proto//css/cews.css" rel="stylesheet">
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
 		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
@@ -19,17 +21,7 @@
 			document.write(wet.builder.refTop({
 			}));
 		</script>
-<style>
-h1 { border-bottom: none; }
 
-h1#wb-cont::after {
-content: "";
-display: block;
-width: 70px;
-padding-bottom: 8px;
-border-bottom: .18em solid #af3c43;
-}
-</style>
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="def-top">
@@ -362,19 +354,18 @@ You must contact the department you applied with.</p>
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
-		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 		<script>
 			$(document).ready(function () {
-				console.log("ready!");
+					console.log("ready!");
 
-				var linkSwap = document.querySelector('a[href="https://www.canada.ca/en/contact.html]');
-				if (linkSwap) {
-					linkSwap.setAttribute('href', 'contact-us.html')
-				}
-				console.log("run");
+					var linkSwap = document.querySelector('a[href="https://www.canada.ca/en/contact.html"]');
+					if (linkSwap) {
+						linkSwap.setAttribute('href', 'http://test.canada.ca/covid-19-guidance/proto/cerb/cerb-all-contact.html')
+					}
+					console.log("run");
 
-			});
+				});
 		</script>
 
 	</body>
