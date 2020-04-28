@@ -101,7 +101,7 @@
                <div class="experimental">
                   <section class="alert alert-info mrgn-tp-lg">
                      <h2 class="h3">(Details here)</h2>
-                     <p>I(Details here)</p>
+                     <p>(Details here)</p>
                     (Details here)
                   </section>
                </div>
@@ -109,49 +109,56 @@
                <section>
                   <ul class="checkbox-lg">
                      <li class="checkbox">
-                        <input type="checkbox" id="eg1" class="action-checkbox">
+                        <input type="checkbox" id="eg1" class="action-checkbox action-checkbox2">
                         <label for="eg1">(Details here)</label>
                      </li>
                      <li class="checkbox">
-                        <input type="checkbox" id="eg2" class="action-checkbox">
+                        <input type="checkbox" id="eg2" class="action-checkbox action-checkbox2">
                         <label for="eg2"> (Details here)</label>
                      </li>
                      <li class="checkbox">
-                        <input type="checkbox" id="eg3" class="action-checkbox">
+                        <input type="checkbox" id="eg3" class="action-checkbox action-checkbox2">
                         <label for="eg3">
                         (Details here)</label>
                      </li>
                      <li class="checkbox">
-                        <input type="checkbox" id="eg4" class="action-checkbox">
+                        <input type="checkbox" id="eg4" class="action-checkbox action-checkbox2">
                         <label for="eg4">(Details here):</label>
                         <ul class="std-blt">
                            <li>
-                              <label for="eg5">(Details here)</label>
+                              <label for="eg4">(Details here)</label>
                            </li>
                            <li>
-                              <label for="eg5">(Details here)</label>
+                              <label for="eg4">(Details here)</label>
                            </li>
                            <li>
-                              <label for="eg5">(Details here)</label>
+                              <label for="eg4">(Details here)</label>
                            </li>
                         </ul>
                      </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg5" class="action-checkbox">
-                        <label for="eg5"><strong>One of the following: </strong><br>(Details here)<br>
-                        <span class="h4">OR</span></label>
-                        <label for="eg5">(Details here)</label>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg5" class="action-checkbox action-checkbox2">
+                        <label for="eg5">
+                        (Details here)</label>
+						<p class="mrgn-lft-lg"><a href="#">What counts towards the $X in income I can earn?</a></p>
                      </li>
                      <li class="checkbox">
-                        <input type="checkbox" id="eg6" class="action-checkbox">
-                        <label for="eg6"><strong>One of the following: </strong><br>If you are applying for the first time: (Details here)<br>
-                        <span class="h4">OR</span></label>
-                        <label for="eg6">If you are re-applying for another period: (Details here)</label>
-                       
+                        <input type="checkbox" id="eg6" class="action-checkbox2">
+                        <label for="eg6" class="clearfix"><strong>[This criteria is optional] <br>The benefit payment increases by $500 for those that also: </strong><br>(Details here)<br>
+                        <span class="h4">and/or</span></label>
+                        <label for="eg6" class="clearfix">(Details here)<br>
+                        <span class="h4">and/or</span></label>
+					 <div  class="clearfix"></div>
+						  <label for="eg6" class="clearfix">(Details here)</label>
+						  
                      </li>
+                     
                   </ul>
                   <div class="alert alert-success hidden-action"  id="action-msg-all">
-                     <p>You are eligible and ready to proceed</p>
+                     <p>You are eligible for  <strong class="lead">$1,250</strong> per 4-week(s) and ready to proceed</p>
+                  </div>
+				  <div class="alert alert-success hidden-action"  id="action-msg-all2">
+                     <p>You are eligible for <strong class="lead">$1,750</strong>  per 4-week(s) and ready to proceed</p>
                   </div>
                </section>
                <div class="clearfix"></div>
@@ -192,7 +199,23 @@
             }));
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
-         <script>
+         
+		 <script>
+            $(".action-checkbox2").change(function(){
+            if ($('.action-checkbox2:checked').length == $('.action-checkbox2').length) {
+            $("#action-msg-all2").removeClass("hidden-action").addClass("visible-action");
+            $("#action-msg-notall").addClass("hidden-action").removeClass("visible-action");
+			$("#action-msg-all").addClass("hidden-action").removeClass("visible-action");
+            }
+            if ($('.action-checkbox2:checked').length !== $('.action-checkbox2').length) {
+            $("#action-msg-all2").addClass("hidden-action").removeClass("visible-action");
+            $("#action-msg-notall").removeClass("hidden-action").addClass("visible-action");
+			$("#action-msg-all").removeClass("hidden-action").addClass("visible-action");
+            $("#action-msg-notall").addClass("hidden-action").removeClass("visible-action");
+            }
+            })
+         </script>
+		 <script>
             $(".action-checkbox").change(function(){
             if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
             $("#action-msg-all").removeClass("hidden-action").addClass("visible-action");
