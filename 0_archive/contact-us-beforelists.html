@@ -9,12 +9,12 @@
 		<!-- Meta data -->
 		<!-- Meta data-->
 		<!-- Load closure template scripts -->
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
-		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/soyutils.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_31/cdts/compiled/wet-en.js"></script>
 		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
 
 		<!-- Write closure template -->
-		<script>
+		<script type="text/javascript">
 			document.write(wet.builder.refTop({
 			}));
 		</script>
@@ -23,7 +23,7 @@
 		<div id="def-top">
 		</div>
 		<!-- Write closure template -->
-		<script>
+		<script type="text/javascript">
 			var defTop = document.getElementById("def-top");
 			defTop.outerHTML = wet.builder.top({
 				lngLinks: [{
@@ -55,40 +55,46 @@
 <section class="well well-sm brdr-0">
 	<div class="container mrgn-bttm-md">
 			<h2 class="h3 mrgn-tp-md">Most requested about COVID-19</h2>
-				<ul class="list-unstyled wb-eqht mrgn-tp-lg colcount-md-3">
-					<li><a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html">Canada Emergency
-						Response Benefit
-					</a></li>
-					<li><a
-						href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#self">Quarantine
-						(self-isolate) and isolate</a></li>
-					<li><a
-						href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html">Preventing
-						COVID-19</a></li>
-				</ul>
+			<div class="wb-eqht row">
+				<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html">Canada Emergency Response Benefit
+						</a> </h3>
+				</div>
+				<div class="col-md-4">
+						<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html#self">Quarantine (self-isolate) and isolate</a>  </h3>
+				</div >
+				<div class="col-md-4">
+						<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks.html">Preventing COVID-19</a> </h3>
+				</div>
+			</div>
+			<!-- wb-eq row -->
 		</div>
 </section>
 
 <section class="well-sm">
 	<div class="container">
 			<h2 class="h3 mrgn-tp-0">COVID-19 situation</h2>
-			<ul class="list-unstyled lst-spcd-2 wb-eqht mrgn-tp-lg colcount-md-3">
-				<li><a
-				href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#f">Travel
-				and quarantine</a></li>
-				<li><a
-					href="https://www.canada.ca/en/health-canada/services/drugs-health-products/medical-devices/activities/announcements/covid19-notice-home-made-masks.html">Use
-					of homemade masks</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html">COVID-19
-					Outbreak update</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#d">Diagnosing
-					coronavirus</a></li>
-				<li><a
-					href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html">Provincial
-					and territorial contacts</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html">All COVID-19
-					information</a></li>
-			</ul>
+			<div class="wb-eqht mrgn-bttm-lg">
+				<div class="row">
+				<div class="col-md-4">
+						<h3 class="h5">  <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/latest-travel-health-advice.html#f">Travel and quarantine</a> </h3>
+				</div>
+				<div class="col-md-4">
+						<h3 class="h5"> <a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/medical-devices/activities/announcements/covid19-notice-home-made-masks.html">Use of homemade masks</a> </h3>
+				</div>
+				<div class="col-md-4">
+						<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html">COVID-19 Outbreak update</a> </h3>
+				</div>
+				<div class="col-md-4">
+						<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms.html#d">Diagnosing coronavirus</a> </h3>
+				</div>
+				<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/symptoms/provincial-territorial-resources-covid-19.html">Provincial and territorial contacts</a> </h3>
+				</div>
+				<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html">All COVID-19 information</a> </h3>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -114,7 +120,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</section>
 
 <section class="well-sm">
@@ -123,6 +128,7 @@
 			<div class="mrgn-bttm-lg">
 				<div class="col-md-4">
 					<h2 class="mrgn-tp-0 h3">COVID-19 telephone and email</h2>
+
 				</div>
 				<div class="col-md-8">
 				<details class="mrgn-bttm-md">
@@ -142,7 +148,7 @@
 						come from
 						this phone number are fraudulent. See our <a
 							href="https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/fraudulent-phone-calls.html">fraud
-							information page</a>
+							information page</a></li>
 					</p>			
 				</details>
 				</div>
@@ -168,27 +174,39 @@
 </section>
 
 <section class="well-sm">
-	<div class="container mrgn-bttm-md">
+	<div class="container">
 		<h2 class="h3 mrgn-tp-0">General inquiries</h2>
-			<ul class="list-unstyled lst-spcd-2 wb-eqht mrgn-tp-lg colcount-md-3">
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#GEDS">Find a federal
-					government employee</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#publications">Ordering
-					a publication</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#healthcards">Health
-					cards</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#ir">Immunization
-					records</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#travel">Healthy
-					travel</a></li>
-				<li><a
-					href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#employment">Employment</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#advice">Medical
-					advice</a></li>
-				<li><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html">General frequently
-					asked questions</a></li>
-			</ul>
-		</div>
+		<div class="wb-eqht row mrgn-bttm-lg">
+			<div class="col-md-4">
+					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#GEDS"><strong>Find a federal government employee</strong></a></h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#publications">Ordering
+						a publication</a> </h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#healthcards">Health
+						cards</a> </h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#ir">Immunization
+						records</a> </h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"> <a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#travel">Healthy
+						travel</a> </h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#employment">Employment</a> </h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html#advice">Medical
+						advice</a></h3>
+			</div>
+			<div class="col-md-4">
+					<h3 class="h5"><a href="https://www.canada.ca/en/public-health/services/contact-us/frequently-asked-questions.html">General frequently asked questions</a></h3>
+			</div>
+			</div>
 	</section>
 
 
@@ -363,7 +381,7 @@
 <section class="well-sm">
 
 	<div class="container">
-	<h2 class="h3 mrgn-tp-0" id="headquarters">Offices</h2>
+	<h2 class="h3 mrgn-tp-0"id="headquarters">Offices</h2>
 	<div class="mrgn-tp-md">
 <div class="row">
 	<div class="col-sm-4">
@@ -427,11 +445,10 @@
 </div>
 </section>
 <div class="container">
-	<div id="def-preFooter">
-	</div>
+<div id="def-preFooter">
 </div>
 <!-- Write closure template -->
-<script>
+<script type="text/javascript">
 	var defPreFooter = document.getElementById("def-preFooter");
 	defPreFooter.outerHTML = wet.builder.preFooter({
 		dateModified: "2020-03-13",
@@ -441,11 +458,12 @@
 	});
 </script>
 		</main>
+		</div>
 		<div id="def-footer">
 
 		</div>
 		<!-- Write closure template -->
-		<script>
+		<script type="text/javascript">
 			var defFooter = document.getElementById("def-footer");
 			defFooter.outerHTML = wet.builder.footer({
 				showFooter: true,
@@ -453,7 +471,7 @@
 			});
 		</script>
 		<!-- Write closure template -->
-				<script>
+				<script type="text/javascript">
 			document.write(wet.builder.refFooter({
 			}));
 		</script>
