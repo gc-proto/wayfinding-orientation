@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 9]>
 <html class="no-js lt-ie9" lang="en" dir="ltr">
    <![endif]-->
@@ -419,7 +419,7 @@ main form :not(.btn-call-to-action).btn {
                     <ul>
                       <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-1", "class": "hidden", "live": true}'>Yes</li>
                       <li>No
-                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"default": {"action":"removeClass", "source": "#bank-redir", "class": "hidden", "live": true}}'>
+                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"default": {"action":"removeClass", "source": "#bank-redir", "class": "hidden", "live": true}, "isoptional": true}'>
                           <div class="wb-fieldflow-header">
 						   <div class="brdr-tp mrgn-bttm-md"></div>
                             <p>To set-up or modify your direct depost information with CRA, you can:
@@ -518,12 +518,12 @@ main form :not(.btn-call-to-action).btn {
               <div class="answers2">
                 <div id="answer2-1" class="alert alert-success hidden alert2">
                   <p>Great. This will ensure your benefit payment will be delivered to you.</p>
-                  <p>Go to:  <a href="#determine"><span class="nowrap"><span class="far fa-calendar-check fa-lg mrgn-rght-sm"></span></span>Determine when to apply</a>.</p>
+                  <p>Go to:  <a href="#determine"><span class="nowrap"><span class="far fa-calendar-check fa-lg mrgn-rght-sm"></span>Determine</span> when to apply</a>.</p>
                 </div>
                 <div id="answer2-2" class="alert alert-warning hidden alert2">
                   <p><strong class="text-warning">Note:</strong> A cheque will take about 10 business days to arrive. If you sign up with direct deposit, you will get your payment in about 3 business days.</p>
                   <p>When you are in your CRA My Account, <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us/mailing-country-c3/confirm-mailing-address-f2.html">confirm that your mailing address</a> is up to date.</p>
-                  <p>When your mailing information has been confirmed, go to:  <a href="#determine"><span class="nowrap"><span class="far fa-calendar-check fa-lg mrgn-rght-sm"></span></span>Determine when to apply</a>.</p>
+                  <p>When your mailing information has been confirmed, go to:  <a href="#determine"><span class="nowrap"><span class="far fa-calendar-check fa-lg mrgn-rght-sm"></span>Determine</span> when to apply</a>.</p>
                 </div>
               </div>
             </div>
@@ -541,7 +541,7 @@ main form :not(.btn-call-to-action).btn {
             <div class="mrgn-lft-lg">
               <p class="text-muted small">Find the best days of the week to apply</p>
               <form>
-                <div class="wb-fieldflow" data-wb-fieldflow='{"reset": {"action": "addClass", "source": ".alert3, #submit-btn", "class": "hidden", "live": true}, "noForm": true}'>
+                <div class="wb-fieldflow" data-wb-fieldflow='{"reset": {"action": "addClass", "source": ".alert3, #submit-btn", "class": "hidden", "live": true}, "noForm": true, "isoptional": true}'>
                   <p><span class="h3">Select your birth month</span></p>
                   <ul>
                     <li data-wb-fieldflow='[{"action": "toggle", "target": "mnth1", "toggle": "#mnth1-mon"}, {"action": "toggle", "target": "mnth2", "toggle": "#mnth2-mon"}, {"action": "toggle", "target": "mnth3", "toggle": "#mnth3-mon"}, {"action": "toggle", "target": "mnth4", "toggle": "#mnth4-mon"}, {"action": "toggle", "target": "mnth5", "toggle": "#mnth5-mon"}, {"action": "toggle", "target": "mnth6", "toggle": "#mnth6-mon"}, {"action": "toggle", "target": "mnth7", "toggle": "#mnth7-mon"}, {"action": "append", "source": "#eligible-date"}]'>January</li>
@@ -560,7 +560,7 @@ main form :not(.btn-call-to-action).btn {
                 </div>
                 <input class="btn btn-primary btn-lg mrgn-bttm-md hidden" type="submit" value="Show when to apply" id="submit-btn"/>
               </form>
-              <div id="eligible-date" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"default": {"action": "removeClass", "source":"#submit-btn", "class": "hidden", "live": true}}' >
+              <div id="eligible-date" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"default": {"action": "removeClass", "source":"#submit-btn", "class": "hidden", "live": true}, "isoptional": true}' >
                 <p><span class="h3">Select your eligibility period</span></p>
                 <ul>
                   <li id="mnth3">May 10, 2020 to June 6, 2020</li>
