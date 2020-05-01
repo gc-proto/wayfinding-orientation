@@ -115,135 +115,132 @@
 		<li>you receive a CERB payment from both Service Canada and the CRA for the same period<br></li>
                   </ul>
 		  <h3>Determine if you need to make a CERB repayment</h3>  
-		 <form>
-	  <div class="wb-fieldflow"  data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio"}'>
-      <p>Have you  applied for financial support through CERB or EI because you were affected by COVID-19?</p>
-      <ul>
-        <li>Yes
-          <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-            <p>Which government department did you use to apply?</p>
-            <ul>
-              <li>CRA My Account
-                <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                  <p>Choose the situation that applies to you</p>
-                  <ul>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1", "class": "hidden", "live": true}'>You applied in error or realized you are not entitled to a payment after submitting your application</li>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>You returned to work earlier than expected or received retroactive pay from your employer</li>
-                    <li>You may of received more payments than you are entitled to
-                      <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true}' id="diverge1">
-                        <p>Did you recieve two payments of $2,000 for the same benefit period?</p>
-                        <ul>
-                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-                          <li>No 
-							 <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-							   <p>Did you receive any other payments ($500, $1000, $1500) plus the $2000 CERB benefit for the one benefit period?</p>
-								 <ul>
-								   <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-								 <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
-								 <li data-wb-fieldflow='{"action": "append", "source": "#diverge2"}'>I'm not sure</li></ul>
-								 
-								 
-							</div>
-						  </li>
-                          <li>I'm not sure
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}' id="diverge2">
-                              <div class="wb-fieldflow-header">
-                                <p>One way to know whether you have a double payment is to look at the payor on your online bank account. If you have payors listed as both "Federal Government" and "EI" you were probably paid twice.</p>
-                                <p class="wb-fieldflow-label"> Do you have multiple payors on your bank statements for your CERB benefits?</p>
+		  <form>
+      <div class="wb-fieldflow"  data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+        <p>Have you  applied for financial support through CERB or EI because you were affected by COVID-19?</p>
+        <ul>
+          <li>Yes
+            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+              <p>Which government department did you use to apply?</p>
+              <ul>
+                <li>CRA My Account
+                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                    <p>Choose the situation that applies to you</p>
+                    <ul>
+                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1", "class": "hidden", "live": true}'>You applied in error or realized you are not entitled to a payment after submitting your application</li>
+                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>You returned to work earlier than expected or received retroactive pay from your employer</li>
+                      <li>You may of received more payments than you are entitled to
+                        <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge1">
+                          <p>Did you recieve two payments of $2,000 for the same benefit period?</p>
+                          <ul>
+                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                            <li>No
+                              <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                <p>Did you receive any other payments ($500, $1000, $1500) plus the $2000 CERB benefit for the one benefit period?</p>
+                                <ul>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
+                                  <li data-wb-fieldflow='{"action": "append", "source": "#diverge2"}'>I'm not sure</li>
+                                </ul>
                               </div>
-                              <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>I'm not sure</li>
-                              </ul>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>None of the above</li>
-                  </ul>
-                </div>
-              </li>
-              <li>EI (Service Canada)
-                <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                  <p>Did you apply for EI before March 15, 2020?</p>
-                  <ul>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>Yes</li>
-                    <li>No
-                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                        <p>Do you think you received more payments than you should have?</p>
-                        <ul>
-                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
-                          <li data-wb-fieldflow='{"action": "append", "source": "#diverge1"}'>I'm not sure</li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>EI (Service Canada) and CRA My Account
-                <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                  <p>Did you apply for EI before March 15, 2020?</p>
-                  <ul>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>Yes</li>
-                    <li>No
-                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                        <p>Did you receive more than one payment between March 15 and April 12?</p>
-                        <ul>
-                          <li>Yes
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-                              <p>Did Service Canada send more than one payment?</p>
-                              <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
-                                <li>No
-							      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-								    <p>did you receive a payment from both EI and CERB?</p>
-								      <ul>
-								        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-								        <li data-wb-fieldflow='{}'>No (path not complete)</li>
-								        <li data-wb-fieldflow='{"action": "append", "source": "#diverge1"}'>I'm not sure</li></ul>
-									   
-								      </div>
-								  
-								  </li>
-                                <li>I'm not sure
-								<div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-								<p>Did you apply for CERB with CRA?</p>
-									<ul>
-									  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-									  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>No</li>
-									  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>I'm not sure</li></ul>
-									
-									</div>
-								  
-								  </li>
-                              </ul>
-                            </div>
-                          </li>
-                          <li>No (path not complete)</li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li>I'm not sure (path not complete)</li>
-            </ul>
-          </div>
-        </li>
-        <li>No
-          <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true}'>
-            <p>Did you receive a payment for CERB without applying?</p>
-            <ul>
-              <li data-wb-fieldflow='{}'>Yes (we need to determine if we allow payments to be kept if the person does qualify and they want the money or if they have to return the money first and then apply) </li>
-              <li data-wb-fieldflow='{}'>No (end - statement can redirect somewhere)</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
+                            </li>
+                            <li>I'm not sure
+                              <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge2">
+                                <div class="wb-fieldflow-header">
+                                  <p>One way to know whether you have a double payment is to look at the payor on your online bank account. If you have payors listed as both "Federal Government" and "EI" you were probably paid twice.</p>
+                                  <p class="wb-fieldflow-label"> Do you have multiple payors on your bank statements for your CERB benefits?</p>
+                                </div>
+                                <ul>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>I'm not sure</li>
+                                </ul>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>None of the above</li>
+                    </ul>
+                  </div>
+                </li>
+                <li>EI (Service Canada)
+                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                    <p>Did you apply for EI before March 15, 2020?</p>
+                    <ul>
+                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>Yes</li>
+                      <li>No
+                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                          <p>Do you think you received more payments than you should have?</p>
+                          <ul>
+                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>No</li>
+                            <li data-wb-fieldflow='{"action": "append", "source": "#diverge1"}'>I'm not sure</li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>EI (Service Canada) and CRA My Account
+                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                    <p>Did you apply for EI before March 15, 2020?</p>
+                    <ul>
+                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>Yes</li>
+                      <li>No
+                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                          <p>Did you receive more than one payment between March 15 and April 12?</p>
+                          <ul>
+                            <li>Yes
+                              <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                <p>Did Service Canada send more than one payment?</p>
+                                <ul>
+                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
+                                  <li>No
+                                    <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                      <p>did you receive a payment from both EI and CERB?</p>
+                                      <ul>
+                                        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                                        <li data-wb-fieldflow='{}'>No (path not complete)</li>
+                                        <li data-wb-fieldflow='{"action": "append", "source": "#diverge1"}'>I'm not sure</li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                  <li>I'm not sure
+                                    <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                      <p>Did you apply for CERB with CRA?</p>
+                                      <ul>
+                                        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
+                                        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>No</li>
+                                        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>I'm not sure</li>
+                                      </ul>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                            </li>
+                            <li>No (path not complete)</li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>I'm not sure (path not complete)</li>
+              </ul>
+            </div>
+          </li>
+          <li>No
+            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+              <p>Did you receive a payment for CERB without applying?</p>
+              <ul>
+                <li data-wb-fieldflow='{}'>Yes (we need to determine if we allow payments to be kept if the person does qualify and they want the money or if they have to return the money first and then apply) </li>
+                <li data-wb-fieldflow='{}'>No (end - statement can redirect somewhere)</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
     </form>
   <!--Answers -->
     <div class="hidden alert alert-warning" id="answer1">
