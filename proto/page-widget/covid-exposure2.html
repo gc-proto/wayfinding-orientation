@@ -717,10 +717,11 @@
 			$(".problem").click(function (e) {
 				$("#reasonCont").removeClass("hidden");
 			});
+            $("#gc-helpful-form").submit(function () {
+                $("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");                    
+            });
 			$("#helpful-submit").click(function (e) {
-                $("#gc-helpful-form").submit(function () {
-                    $("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");                    
-                });
+                $("#gc-helpful-form").submit();
 			});
 		});
 	</script>
