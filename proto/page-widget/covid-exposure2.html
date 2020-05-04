@@ -570,9 +570,7 @@
 					(Should show up when you've picked an option above)
 					</textarea>
 						</div> 
-						<input type="submit" id="helpful-submit" class="btn btn-primary" value="Submit"/>
-
-
+						<button id="helpful-submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -717,11 +715,20 @@
 			$(".problem").click(function (e) {
 				$("#reasonCont").removeClass("hidden");
 			});
-            $("#gc-helpful-form").submit(function () {
-                $("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");                    
-            });
 			$("#helpful-submit").click(function (e) {
-                $("#gc-helpful-form").submit();
+                e.preventDefault();
+                var formData = $("#gc-helpful-form").serialize(); 
+                $.ajax({
+                    type: "POST",
+                    url: "https://testbed.tbs.alpha.canada.ca/testbed/addProblem?lang=en",
+                    data: formData, 
+                    success: function(data) {
+                        $("#helpcont").html("<div style='float:left; margin-right:1em'><h2 class='h5' style='margin-top:.5em'>Thank you for your feedback</div>");                    
+                    },
+                    error: function (xhr,status, error) {
+					   	console.log(xhr.responseText);
+					}
+                })
 			});
 		});
 	</script>
