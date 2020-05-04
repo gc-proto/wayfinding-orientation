@@ -67,8 +67,8 @@
             		title: "Benefits",
             		href: "https://www.canada.ca/en/services/benefits.html"
             	},{
-            		title: "Employment Insurance benefits",
-            		href: "https://www.canada.ca/en/services/benefits/ei.html"
+            		title: "Education planning and student aid",
+            		href: "https://www.canada.ca/en/services/benefits/education.html"
             	},{
             		title: "Canada Emergency Student Benefit (CESB)",
             		href: "index.html"
@@ -88,7 +88,10 @@
                <nav aria-label="Section menu">
                   <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
                   <ul class="gc-navseq">
-                     <li class="active"><a aria-current="page">Who can apply</a></li>
+                     <li class="active"><a aria-current="page">Who can apply</a>
+						<ul class="gc-navseq">
+						<li><a href="who-apply-education.html">Recognized post-secondary educational programs</a></li>
+						</ul></li>
 					  <li><a href="how-much.html">How much you can get<a></li>
                      <li><a href="how-apply.html">How to apply</a></li>
                      <li><a href="keep-payment.html">Keep getting your payments</a></li>
@@ -101,70 +104,128 @@
                <h1 property="name" id="wb-cont">Who can apply</h1>
                <div class="experimental">
                   <section class="alert alert-info mrgn-tp-lg">
-                     <h2 class="h3">Application deadline</h2>
-                     <p>Applications for this benefit must be submitted before <span class="nowrap">September 30, 2020</span>.</p>
+			  <h2 class="h3">You <strong class="text-danger">cannot</strong> apply for the CESB if you already applied for the CERB or EI</h2>
+                     <p>If you have already applied, or are receiving support from the Canada Emergency Response Benefit (CERB) or Employment Insurance (EI,) you are not eligible to apply for the CESB.</p>
                   </section>
                </div>
-               <p class="lead" id="eligibility">To be eligible for the CESB, you must meet the following conditions:</p>
+		    <h2 id="eligibility">Eligibility</h2>
+               <p class="lead">Check the boxes below to see if you are eligible for the CESB:</p>
                <section>
-                  <ul class="checkbox-lg">
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg1" class="action-checkbox action-checkbox2">
-                        <label for="eg1">You are a Canadian citizen, permanent resident, or a student living abroad</label>
-                     </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg2" class="action-checkbox action-checkbox2">
-                        <label for="eg2">You are not receiving, nor do you qualify, for the CERB or EI benefits</label>
-                     </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg3" class="action-checkbox action-checkbox2">
-                        <label for="eg3">Between December 1, 2019 and August 31, 2020, one of the following applies: </label>
-			     <ul class="std-blt"> 
-				     <li>
-					     <label for="eg3">you enrolled in a post-secondary education program leading to a degree, diploma, or certificate </label>
-				     </li>
-				     <li> 
-					     <label for="eg3">you graduated from or left your post-secondary education program</label>
-				     </li>
-				     <li> 
-					     <label for="eg3">you graduated from high school and will start a post-secondary educational program before February 1, 2021</label>
-				     </li>
-			     </ul>
-                     </li>
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg4" class="action-checkbox action-checkbox2">
-                        <label for="eg4">Due to COVID-19, you cannot find part-time or full-time work 
-				or you are earning less than $1,000 (before taxes) from employment and self-employment income during the 4-week period you are applying for</label>
-			     <p class="mrgn-lft-lg"><a href="#">What counts towards the $X in income I can earn?</a> </p>
-                     </li>
-					
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg6" class="action-checkbox2">
-                        <label for="eg6" class="clearfix"><strong>[Optional] <br>The benefit payment increases by $500, if one of the following applies: </strong></label>
-						<ul class="std-blt">
-							<li>
-								<label for="eg6">you are receiving the Disability Tax Credit (DTC) or other disability financial support from provincial or federal programs</label>
-							</li>
-                             <li> 
-								<label for="eg6">you have children under the age of 18 or dependants</label> 
-							</li>
-							
-						</ul>			  
-                     </li>  
-                  </ul>
-                  <div class="alert alert-success hidden-action"  id="action-msg-all">
-                     <p>You are eligible for  <strong class="lead">$1,250</strong> per 4-week(s) and ready to proceed</p>
-                  </div>
-				  <div class="alert alert-success hidden-action"  id="action-msg-all2">
-                     <p>You are eligible for <strong class="lead">$1,750</strong>  per 4-week(s) and ready to proceed</p>
-                  </div>
+                <ul class="checkbox-lg">
+        <li class="checkbox">
+          <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
+          <label for="eg1">You are not receiving, nor do you qualify, for the CERB or EI benefits</label>
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
+		<label for="eg2"><strong>You are one of the following:</strong></label>
+		<ul class="std-blt">
+			<li><label for="eg2">Canadian citizen studying in Canada or abroad</label></li>
+			<li><label for="eg2">registered Indian</label></li>
+			<li><label for="eg2">permanent resident</label></li>
+			<li><label for="eg2">protected person </label>
+			<details class="mrgn-lft-md mrgn-right-md">
+			<summary>Who is considered a protected person</summary>
+			<p>An individual who is recognized by the Immigration and Refugee Board of Canada (IRB) and Immigration Refugees and Citizenship Canada (IRCC) as a person in need of protection.</p>
+		</details>
+		</li>
+		</ul>
+		
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+          <label for="eg3"><strong>One of the following applies: </strong></label>
+          <ul class="std-blt">
+            <li>
+              <label for="eg3">you are enrolled in a post-secondary educational program (at least 12 weeks in duration) that is needed to get a degree, diploma, or certificate</label>
+            </li>
+            <li>
+              <label for="eg3">you have completed or ended your post-secondary studies after December&nbsp;2019</label>
+            </li>
+            <li>
+              <label for="eg3">you have graduated, or expect to graduate from high school in 2020, have applied to a post-secondary educational program that starts before February 1, 2021, and plan to enroll in the program</label>
+            </li>
+          </ul>
+		  <p><a href="who-apply-education.html">Recognized post-secondary educational programs</a></p>
+         <!-- <details class="mrgn-lft-xl mrgn-right-md">
+          <summary>Recognized post-secondary educational programs</summary>
+          <ul>
+		  <li>post-secondary level courses (from a university, college, or secondary level vocational training in Quebec) that are at least 12 weeks in duration and are needed to obtain a degree, diploma, or certificate </li>
+		  <li>educational institutions listed on:
+		  	<ul class="std-blt">
+				<li><a href="https://www.canada.ca/en/employment-social-development/programs/designated-schools.html">Master List of designated educational institutions</a></li>
+				<li><a href="http://certification.esdc.gc.ca/lea-mcl/h.4m.2@-eng.jsp">Master List of certified educational institutions</a></li>
+				<li><a href="http://www.afe.gouv.qc.ca/en/all-publications/detail/directory-of-educational-institutions-and-programs/">Quebec’s directory of educational institutions and programs</a> (universities, colleges, and secondary level vocational training)</li>
+			</ul>
+		  </li>
+		  <li>Indigenous institutions recognized by their province</li>
+	  </ul>
+          </details>
+		  -->
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg4" class="action-checkbox">
+          <label for="eg4"><strong>One of the following applies:</strong></label>
+          <ul class="std-blt">
+            <li><label for="eg4">you are unable to work due to COVID-19</label></li>
+	    <li><label for="eg4">you are looking for, but cannot find work due to COVID-19</label>
+		<a href="#" class="mrgn-lft-lg">Register with the Job Bank</a></li>
+            <li><label for="eg4">you are earning less than $1,000 (before taxes) from employment and self-employment income during the 4-week period you are applying for</label>
+			  
+		  <ul>
+		  <li>Current eligibility period: <span class="far fa-calendar-alt"></span> May&nbsp;10 to June&nbsp;6,&nbsp;2020 </li>
+		  <li>Next eligibility period: <span class="far fa-calendar-alt"></span> June&nbsp;7 to July&nbsp;4,&nbsp;2020</li>
+		  </ul> 
+	  </li>
+          </ul>
+        
+        </li>
+        
+      </ul>
+      <div class="alert alert-success hidden" id="action-msg1">
+        <p>You are eligible for the CESB.  You can get <strong class="lead">$1,250</strong> for each 4-week period that you qualify for.</p>
+      </div>
+       
                </section>
+			   <h3>Eligibility conditions for the benefit top-up</h3>
+			   <p>If you meet all of the conditions above, you may also be eligible for $750 extra per payment.</p>
+			   <ul class="checkbox-lg">
+			   <li class="checkbox">
+          <input type="checkbox" id="eg5" class="action-checkbox">
+          <label for="eg5" class="clearfix"><strong>Additional support is available, if at least one of the following applies:</strong></label>
+          <ul class="std-blt">
+            <li>
+              <label for="eg5">you are receiving the Disability Tax Credit (DTC) or other disability financial support from provincial or federal programs</label>
+			   <details class="mrgn-lft-md mrgn-right-md">
+            <summary>Disability as defined for this benefit</summary>
+            <ul>		    
+		    <li>A physical, mental, intellectual, cognitive, learning, communication or sensory impairment, or a permanent, temporary or episodic functional limitation that hinders a person’s full and equal participation in society</li>
+	    </ul>
+          </details>
+            </li>
+            <li>
+              <label for="eg5">you have children under the age of 18 or other dependants</label>
+			   <details class="mrgn-lft-md mrgn-right-md">
+            <summary>Who can be claimed as a dependant</summary>
+            <ul>		    
+		    <li>a child (adopted child, stepchild, or foster child) who is under 18 years old and is completely dependent on the student, student’s spouse, or common-law partner for support, care, and upbringing </li>
+		    <li>a person who is completely dependent on the student, student’s spouse, or common-law partner for support, care, and upbringing</li>
+	    </ul>
+          </details>
+            </li>
+          </ul>
+         
+        </li>
+		</ul>
+		<div class="alert alert-success hidden"  id="action-msg2">
+        <p>You are eligible for <strong class="lead">$2,000</strong> for each 4-week period that you qualify for.</p>
+      </div>
                <div class="clearfix"></div>
-               <p>The current <a href="how-apply.html#ep">eligibility period</a> is <span class="nowrap"><span class="far fa-calendar-alt"></span> May 10, 2020</span> to <span class="nowrap"> June 6, 2020</span>.  The next eligibility period is <span class="nowrap"><span class="far fa-calendar-alt"></span> June 7, 2020</span> to <span class="nowrap">July 4, 2020</span>.</p>
-			   <div class="alert alert-info mrgn-tp-lg">
-                  <h2 class="h3">We verify eligibility</h2>
+              
+			   
+                  <h2>Verifying your eligibility</h2>
                   <p>The CRA will verify that you are eligible to receive the CESB. If you apply but are not eligible, we will contact you to make arrangements to repay any amounts you may owe.</p>
-               </div>
+              
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                   <h3 class="wb-inv">Document navigation</h3>
                   <ul class="pager">
@@ -202,32 +263,28 @@
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
          
-		 <script>
-            $(".action-checkbox2").change(function(){
-            if ($('.action-checkbox2:checked').length == $('.action-checkbox2').length) {
-            $("#action-msg-all2").removeClass("hidden-action").addClass("visible-action");
-            $("#action-msg-notall").addClass("hidden-action").removeClass("visible-action");
-			$("#action-msg-all").addClass("hidden-action").removeClass("visible-action");
-            }
-            if ($('.action-checkbox2:checked').length !== $('.action-checkbox2').length) {
-            $("#action-msg-all2").addClass("hidden-action").removeClass("visible-action");
-            $("#action-msg-notall").removeClass("hidden-action").addClass("visible-action");
-			$("#action-msg-all").removeClass("hidden-action").addClass("visible-action");
-            $("#action-msg-notall").addClass("hidden-action").removeClass("visible-action");
-            }
-            })
-         </script>
-		 <script>
-            $(".action-checkbox").change(function(){
-            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-            $("#action-msg-all").removeClass("hidden-action").addClass("visible-action");
-            $("#action-msg-notall").addClass("hidden-action").removeClass("visible-action");
-            }
-            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
-            $("#action-msg-all").addClass("hidden-action").removeClass("visible-action");
-            $("#action-msg-notall").removeClass("hidden-action").addClass("visible-action");
-            }
-            })
-         </script>
+		<script>
+ $(".action-checkbox").change(function(){
+   if ($(".cb-dmm:checked, #eg4:checked, #eg5:not(:checked)").length == 5) {
+
+     $("#action-msg1").removeClass("hidden");
+     $("#action-msg2").addClass("hidden");
+    }
+    if ($(".cb-dmm:checked, #eg4:checked, #eg5:checked").length == 5) {
+ $("#action-msg1").addClass("hidden");
+      $("#action-msg2").removeClass("hidden");
+    }
+    if ($(".cb-dmm:not(:checked), #eg4:not(:checked)").length == 1)  {
+
+     $("#action-msg1").addClass("hidden");
+    }
+     if ($(".cb-dmm:not(:checked), #eg4:not(:checked), #eg5:not(:checked)").length == 1)  {
+
+     $("#action-msg2").addClass("hidden");
+    }
+  
+  });
+
+</script> 
       </body>
    </html>
