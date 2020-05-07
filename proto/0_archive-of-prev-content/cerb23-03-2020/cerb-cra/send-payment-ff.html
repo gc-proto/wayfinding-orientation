@@ -123,131 +123,124 @@
             <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="repay">Determine if you need to make a CERB repayment</h3>
             <div class="clearfix"></div>
             <div class="mrgn-lft-lg">
-		  <!--Start of fieldflow //-->
+		<!--Start of fieldflow //-->
             <div class="wb-frmvld">
               <form>
                 <div class="wb-fieldflow"  data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                  <p>Have you  already applied for financial support through CERB or EI because you were affected by COVID-19?</p>
+                  <p>Which government department did you use when you applied for the CERB?</p>
                   <ul>
-                    <li>Yes
-                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                        <p>Which government department did you use to apply?</p>
+                    <li>Canada Revenue Agency (CRA)
+                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge5">
+                        <p>Choose the situation that applies to you</p>
                         <ul>
-                          <li>CRA My Account
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge5">
-                              <p>Choose the situation that applies to you</p>
+                          <li>Earned employment or self-employment income earlier than expected
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <div class="wb-fieldflow-header">
+                                <p class="wb-fieldflow-label">Choose the eligibility period that you received a payment</p>
+                              </div>
                               <ul>
-                                <li>Returned  to work earlier than expected, received retroactive pay from your employer, or  earned more than you expected
-                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                    <div class="wb-fieldflow-header">
-                                      <p class="wb-fieldflow-label">Choose the payment period that you received a payment</p>
-                                    </div>
+                                <li>The first eligibility period that you applied for
+                                  <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="change">
+                                    <p>Has your situation changed, were you  rehired, or did you recieve back pay for the first eligibility period?</p>
                                     <ul>
-                                      <li>First eligibility period
-                                        <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="change">
-                                          <p>Has your situation changed where you were rehired, or recieved back pay for the first eligibility period?</p>
+                                      <li>Yes
+                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                          <p><span class="bg-warning">Did you earn more than $1,000 (before deductions) in employment or self-employment income for at least 14 days in a row during the 4-week period?</span></p>
                                           <ul>
-                                            <li>Yes
-                                              <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                                <p>Did you earn more than $1,000 (before deductions) in employment or self-employment income for at least 14 days in a row during the 4-week period?</p>
-                                                <ul>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1a", "class": "hidden", "live": true}'>Yes</li>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2a", "class": "hidden", "live": true}'>No</li>
-                                                </ul>
-                                              </div>
-                                            </li>
+                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1a", "class": "hidden", "live": true}'>Yes</li>
                                             <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2a", "class": "hidden", "live": true}'>No</li>
                                           </ul>
                                         </div>
                                       </li>
-                                      <li>Subsequent eligibility period
-                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="change2">
-                                          <p>Has your situation changed where you were rehired or recieved back pay for a subsequent eligibility period?</p>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2a", "class": "hidden", "live": true}'>No</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>Any subsequent eligibility period that you applied for
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="change2">
+                                    <p>Has your situation changed , were you rehired, or recieved back pay for a subsequent eligibility period?</p>
+                                    <ul>
+                                      <li>Yes
+                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                          <p><span class="bg-warning">Did you earn more than $1,000 (before deductions) in employment or self-employment income during the entire 4-week period?</span></p>
                                           <ul>
-                                            <li>Yes
-                                              <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                                <p>Did you earn more than $1,000 (before deductions) in employment or self-employment income during the entire 4-week period?</p>
-                                                <ul>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1b", "class": "hidden", "live": true}'>Yes</li>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2b", "class": "hidden", "live": true}'>No</li>
-                                                </ul>
-                                              </div>
-                                            </li>
+                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1b", "class": "hidden", "live": true}'>Yes</li>
                                             <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2b", "class": "hidden", "live": true}'>No</li>
                                           </ul>
                                         </div>
                                       </li>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2b", "class": "hidden", "live": true}'>No</li>
                                     </ul>
                                   </div>
                                 </li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>Applied in error or realized you are not entitled to a payment after submitting your application</li>
-                                <li>Received
-                                  more payments than you should have
-                                  <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge1">
-                                    <p>Did you recieve 2 payments of $2,000 for the same eligibility period?</p>
-                                    <ul>
-                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>Yes</li>
-                                      <li>No
-                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                          <p>Did you receive any other payments for the same eligibility period, such as $500, $1,000, $1,500 from Service Canada/EI, or $1,250 from CESB, or a combination of payments, in addition to a $2,000 CERB benefit?</p>
-                                          <ul>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>No</li>
-                                            <li data-wb-fieldflow='{"action": "append", "source": "#diverge2"}'>I'm not sure</li>
-                                          </ul>
-                                        </div>
-                                      </li>
-                                      <li>I'm not sure
-                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge2">
-                                          <div class="wb-fieldflow-header">
-                                            <p>One way to know whether you have an additional payment is to look at the payer on your online bank account. If you have payers listed as both "Federal Government" and "EI" you were probably paid twice.</p>
-                                            <p class="wb-fieldflow-label"> Do you have multiple payers on your bank statements for your CERB benefits in the same period?</p>
-                                          </div>
-                                          <ul>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>No</li>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>I'm not sure</li>
-                                          </ul>
-                                        </div>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>None of the above</li>
                               </ul>
                             </div>
                           </li>
-                          <li>EI/Service Canada
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge4">
-                              <p>Did you apply for EI before March 15, 2020?</p>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>Applied for the CERB but later realize you’re not eligible</li>
+                          <li>Received
+                            more payments than you should have
+                            <div class="wb-fieldflow-sub"  data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge1">
+                              <p>Did you recieve 2 payments of $2,000 for the same eligibility period?</p>
                               <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
+                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>Yes</li>
                                 <li>No
                                   <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                    <p>Choose the situation the applies to you</p>
+                                    <p>Did you receive any other payments for the same eligibility period, such as a payment from Service Canada/EI, in addition to the $2,000 CERB payment?</p>
                                     <ul>
-                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Returned to work earlier than expected, received retroactive pay from your employer, or earned more than you expected </li>
-                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Applied in error or realized you are not entitled to a payment after submitting your application</li>
-                                      <li>Received more payments than you should have
-                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge3">
-                                          <p>Did you receive more than $2,000 for CERB in a single period or did Service Canada send you more than one payment?</p>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "append", "source": "#diverge2"}'>I'm not sure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>I'm not sure
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge2">
+                                    <div class="wb-fieldflow-header">
+                                      <p>One way to know whether you have an additional payment is to look at the payer on your online bank account. If you have payers listed as both "Federal Government" and "EI" you were probably paid twice.</p>
+                                      <p class="wb-fieldflow-label"> Do you have multiple payers on your bank statements for your CERB benefits in the same period?</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>I'm not sure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>None of the above</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>EI/Service Canada
+                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge4">
+                        <p>Did you apply for EI before March 15, 2020?</p>
+                        <ul>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
+                          <li>No
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <p>Choose the situation the applies to you</p>
+                              <ul>
+                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Earned employment or self-employment income earlier than expected</li>
+                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Applied for the CERB but later realize you&rsquo;re not eligible</li>
+                                <li>Received more payments than you should have
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}' id="diverge3">
+                                    <p>Did you receive more than $2,000 for CERB in a single period or did Service Canada send you more than one payment?</p>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer8", "class": "hidden", "live": true}'>Yes</li>
+                                      <li>No
+                                        <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                          <p>Did you receive an EI payment and a CERB payment?</p>
                                           <ul>
-                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer8", "class": "hidden", "live": true}'>Yes</li>
-                                            <li>No
+                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
+                                            <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>No</li>
+                                            <li>I'm not sure
                                               <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                                <p>Did you receive an EI payment and a CERB payment?</p>
+                                                <p>Did you apply for CERB with CRA?</p>
                                                 <ul>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer10", "class": "hidden", "live": true}'>Yes</li>
-                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>No</li>
-                                                  <li>I'm not sure
-                                                    <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                                                      <p>Did you apply for CERB with CRA?</p>
-                                                      <ul>
-                                                        <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>Yes</li>
-                                                        <li  data-wb-fieldflow='{"action": "removeClass", "source": "#answer8", "class": "hidden", "live": true}'>No</li>
-                                                      </ul>
-                                                    </div>
-                                                  </li>
+                                                  <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>Yes</li>
+                                                  <li  data-wb-fieldflow='{"action": "removeClass", "source": "#answer8", "class": "hidden", "live": true}'>No</li>
                                                 </ul>
                                               </div>
                                             </li>
@@ -257,52 +250,43 @@
                                     </ul>
                                   </div>
                                 </li>
-                              </ul>
-                            </div>
-                          </li>
-                          <li>EI/Service Canada and CRA
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <p>Did you apply for EI before March 15, 2020?</p>
-                              <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
-                                <li data-wb-fieldflow='{"action": "append", "source": "#diverge3"}'>No</li>
-                              </ul>
-                            </div>
-                          </li>
-                          <li>I'm not sure
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <div>
-                                  <p>You probably applied through the  CRA if:</p>
-                                  <ul>
-                                    <li>the application you filled was very short</li>
-                                    <li>you applied through <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html?utm_campaign=not-applicable&utm_medium=vanity-url&utm_source=canada-ca_my-cra-account" target="_blank">CRA  My Account</a> or applied with an automated phone service</li>
-                                    <li>you were asked what period of eligibility you  were applying for and then had to certify that you met the eligibility  requirements</li>
-                                  </ul>
-                                  <p>Note: It is possible you may have  logged in to <a href="https://www.canada.ca/en/employment-social-development/services/my-account.html" target="_blank">My  Service Canada Account</a> and then switched to <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html?utm_campaign=not-applicable&utm_medium=vanity-url&utm_source=canada-ca_my-cra-account" target="_blank">CRA  My Account</a> to apply. </p>
-                                  <p>You probably applied through  Service Canada if:</p>
-                                  <ul>
-                                    <li>you applied online and did not need to enter a  user ID or password. Applying by telephone was not available</li>
-                                    <li>you were asked several questions, similar to an  employment insurance (EI) application, including the type of EI benefits you  were applying for and the name of your former employer</li>
-                                  </ul>
-                                </div>
-                                <p class="wb-fieldflow-label">Where did you apply?</p>
-                              </div>
-                              <ul>
-                                <li data-wb-fieldflow='{"action": "append", "source": "#diverge4"}'>Service Canada</li>
-                                <li data-wb-fieldflow='{"action": "append", "source": "#diverge5"}'>CRA</li>
                               </ul>
                             </div>
                           </li>
                         </ul>
                       </div>
                     </li>
-                    <li>No
+                    <li>EI/Service Canada and CRA
                       <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                        <p>Did you receive a payment for CERB without applying?</p>
+                        <p>Did you apply for EI before March 15, 2020?</p>
                         <ul>
-                          <li data-wb-fieldflow='{}'>Yes (we need to determine if we allow payments to be kept if the person does qualify and they want the money or if they have to return the money first and then apply) </li>
-                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer9", "class": "hidden", "live": true}'>No</li>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Yes</li>
+                          <li data-wb-fieldflow='{"action": "append", "source": "#diverge3"}'>No</li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>I'm not sure
+                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                        <div class="wb-fieldflow-header">
+                          <div>
+                            <p><strong>You probably applied through the  CRA if:</strong></p>
+                            <ul>
+                              <li>the application you filled was very short</li>
+                              <li>you applied through <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html?utm_campaign=not-applicable&utm_medium=vanity-url&utm_source=canada-ca_my-cra-account" target="_blank">CRA  My Account</a> or applied with an automated phone service</li>
+                              <li>you were asked what period of eligibility you  were applying for and then had to certify that you met the eligibility  requirements</li>
+                            </ul>
+                            <p>Note: It is possible you may have  logged in to <a href="https://www.canada.ca/en/employment-social-development/services/my-account.html" target="_blank">My  Service Canada Account</a> and then switched to <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html?utm_campaign=not-applicable&utm_medium=vanity-url&utm_source=canada-ca_my-cra-account" target="_blank">CRA  My Account</a> to apply. </p>
+                            <p><strong>You probably applied through  Service Canada if:</strong></p>
+                            <ul>
+                              <li>you applied online and did not need to enter a  user ID or password. Applying by telephone was not available</li>
+                              <li>you were asked several questions, similar to an  employment insurance (EI) application, including the type of EI benefits you  were applying for and the name of your former employer</li>
+                            </ul>
+                          </div>
+                          <p class="wb-fieldflow-label">Where did you apply?</p>
+                        </div>
+                        <ul>
+                          <li data-wb-fieldflow='{"action": "append", "source": "#diverge4"}'>Service Canada</li>
+                          <li data-wb-fieldflow='{"action": "append", "source": "#diverge5"}'>Canada Revenue Agency (CRA)</li>
                         </ul>
                       </div>
                     </li>
@@ -316,7 +300,7 @@
               <p>You must repay the full amount you received for your first CERB payment. Since you were rehired or received back pay,  you no longer meet the criteria for the first period. </p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Eligibility</dt>
-                <dd><a href="#">Review the eligibility criteria</a></dd>
+                <dd><a href="who-apply.html">Review the eligibility criteria</a></dd>
                 <dt>Return</dt>
                 <dd><a href="#h4">How to return or repay the CERB</a></dd>
               </dl>
@@ -326,7 +310,7 @@
               <p>You must repay the full amount you received for your CERB payment. Since you earned over $1,000 in employment or self-employment income during this period, you no longer meet the CERB criteria for this period. </p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Eligibility</dt>
-                <dd><a href="#">Review the eligibility criteria</a></dd>
+                <dd><a href="who-apply.html">Review the eligibility criteria</a></dd>
                 <dt>Return</dt>
                 <dd><a href="#h4">How to return or repay the CERB</a></dd>
               </dl>
@@ -358,31 +342,31 @@
             <div class="hidden alert alert-info alert-answer" id="answer5">
               <p class="h5 mrgn-tp-0">No repayment</p>
               <p>Based on your responses, you do not need to repay your CERB  payment.</p>
-              <p>If you are still unsure, contact the CRA at <strong>1-800-999-9999</strong>.</p>
+              <p>If you are still unsure, contact the CRA at <strong class="bg-warning">1-800-999-9999</strong>.</p>
             </div>
             <div class="hidden alert alert-warning alert-answer" id="answer6">
               <p class="h5 mrgn-tp-0">Unsure of requirement to repay</p>
-              <p>Please contact the CRA at <strong>1-800-999-9999</strong> to discuss your situation.</p>
+              <p>Please contact the CRA at <strong class="bg-warning">1-800-999-9999</strong> to discuss your situation.</p>
             </div>
             <div class="hidden alert alert-info alert-answer" id="answer7">
               <p class="h5 mrgn-tp-0">Your applicaton is considered an EI claim</p>
-              <p>Please contact <a href="#">Service Canada</a>.</p>
+              <p>Please contact <a href="#" class="bg-warning">Service Canada</a>.</p>
             </div>
             <div class="hidden alert alert-info alert-answer" id="answer8">
               <p class="h5 mrgn-tp-0">Contact Service Canada</p>
-              <p>Please contact <a href="#">Service Canada</a> to discuss your situation.</p>
+              <p>Please contact <a href="#" class="bg-warning">Service Canada</a> to discuss your situation.</p>
             </div>
             <div class="hidden alert alert-info alert-answer" id="answer9">
               <p class="h5 mrgn-tp-0">No repayment required</p>
               <p>Since you did not receive a CERB payment, you don’t need to repay.</p>
             </div>
             <div class="hidden alert alert-warning alert-answer" id="answer10">
-              <p class="h5 mrgn-tp-0">Repayment of additional amount</p>
-              <p>Based on your responses, it looks like you received more than one  payment in the same period. You need to repay one of them.</p>
-              <p>*Need to confirm how to determine which of the payments they have to send back*</p>
+              <p class="h5 mrgn-tp-0">Repayment of CERB</p>
+              <p>Based on your responses, it looks like you received more than one  payment in the same period. </p>
+              <p>You must repay the full amount you received for your CERB payment.</p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Return</dt>
-                <dd><a href="#">???</a> or do they have to call</dd>
+                <dd><a href="#h4">How to return or repay the CERB</a></dd>
               </dl>
             </div>
             <!--End of Fieldflow //--> 
