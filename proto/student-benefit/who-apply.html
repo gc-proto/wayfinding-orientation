@@ -31,15 +31,48 @@
             transform: scaleX(1);
             display:visible;
             }
-            .checkbox-lg label {font-size: 1em;}
-            .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
-            .checkbox-lg > li:nth-child(2n+1) {
-            background-color: #f5f5f5;
-            margin-left: -40px;
-            padding-left: 40px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            }
+ /*Checkbox/Fieldflow radio input sizing,positioning*/
+.checkbox-lg > li.checkbox {
+	margin-top: 0px;
+}
+.checkbox-lg > li {
+	margin-left: -40px;
+	padding-left: 40px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+	padding-right: 15px;
+}
+.checkbox-zebra > li:nth-child(2n+1) {
+	background-color: #f5f5f5;
+	padding-top: 10px;
+	padding-bottom:15px;
+}
+.checkbox-lg > li.checkbox input[type=checkbox], .fieldflow-lg .radio input[type=radio] {
+	margin-top: 12px;
+	transform: scale(2);
+}
+.checkbox-lg label, .fieldflow-lg, .fieldflow-lg label, .fieldflow-lg div, .fieldflow-lg select, .std-blt {
+	font-size: 20px;
+	line-height: 1.65em;
+}
+.std-blt {
+	list-style-type: disc;
+}
+.std-blt li label {
+	display: block;
+	padding-left: 0px;
+}
+.fieldflow-lg .radio label {
+	margin-left: 40px;
+}
+.fieldflow-lg .radio input[type=radio] {
+	margin-left: -40px;
+}
+.fieldflow-lg fieldset legend {
+	font-size: 22px;
+	margin-top: 0px;
+}
 
          </style>
          <!-- Write closure template -->
@@ -109,7 +142,7 @@
 		    <h2 id="eligibility">Eligibility</h2>
                <p class="lead">Check these boxes to see if you are eligible for the CESB:</p>
                <section>
-                <ul class="checkbox-lg">
+                <ul class="checkbox-lg checkbox-zebra">
         <li class="checkbox">
           <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
           <label for="eg1">You did not apply, receive,  nor qualify, for the CERB or EI benefits for the same eligibility period</label>
