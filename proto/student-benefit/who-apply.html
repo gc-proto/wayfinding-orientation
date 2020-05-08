@@ -33,7 +33,7 @@
             }
             .checkbox-lg label {font-size: 1em;}
             .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
-            .checkbox-lg > li:nth-child(2n) {
+            .checkbox-lg > li:nth-child(2n+1) {
             background-color: #f5f5f5;
             margin-left: -40px;
             padding-left: 40px;
@@ -134,16 +134,16 @@
 		
 		
 		<li class="checkbox">
-          <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
-		<label for="eg5">You are studying in Canada or abroad</label></li>
+          <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+		<label for="eg3">You are studying in Canada or abroad</label></li>
 		
 		
         <li class="checkbox">
-          <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-          <label for="eg3"><strong>One of the following applies: </strong></label>
+          <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
+          <label for="eg4"><strong>One of the following applies: </strong></label>
           <ul class="std-blt">
             <li>
-              <label for="eg3">you are enrolled in a post-secondary educational program (at least 12 weeks in duration) that leads to a degree, diploma, or certificate</label>
+              <label for="eg4">you are enrolled in a post-secondary educational program (at least 12 weeks in duration) that leads to a degree, diploma, or certificate</label>
               <details class="mrgn-lft-md mrgn-right-md">
 		      <summary>Recognized post-secondary educational institutions</summary>
           		<ul class="mrgn-bttm-md">
@@ -162,10 +162,10 @@
 		      
 		  </li>
             <li>
-              <label for="eg3">you completed or ended your post-secondary studies after December&nbsp;2019</label>
+              <label for="eg4">you completed or ended your post-secondary studies after December&nbsp;2019</label>
             </li>
             <li>
-              <label for="eg3">you completed or expect to complete high school, or received, or expect to receive your high school equivalency in 2020, and have applied for (and plan to attend) a post-secondary educational program that starts before February 1, 2021</label>
+              <label for="eg4">you completed or expect to complete high school, or received, or expect to receive your high school equivalency in 2020, and have applied for (and plan to attend) a post-secondary educational program that starts before February 1, 2021</label>
             </li>
           </ul>
 		  
@@ -186,16 +186,16 @@
 		  -->
         </li>
         <li class="checkbox">
-          <input type="checkbox" id="eg4" class="action-checkbox">
-          <label for="eg4"><strong>One of the following applies:</strong></label>
+          <input type="checkbox" id="eg5" class="action-checkbox">
+          <label for="eg5"><strong>One of the following applies:</strong></label>
           <ul class="std-blt">
 				<li><label for="eg4">you are unable to work due to COVID-19</label></li>   
-            	<li><label for="eg4">you are looking for, but cannot find work due to COVID-19</label>
+            	<li><label for="eg5">you are looking for, but cannot find work due to COVID-19</label>
 					<ul>
 						<li>You may be asked to verify that you've been <a href="keep-payment.html#h-1">looking for work</a></li>
 					</ul>
 				</li> 
-            <li><label for="eg4">you are currently working during the COVID-19 pandemic, but your income from employment and self-employment has been reduced to less than $1000 (before taxes) during the 4-week period you are applying for</label>	  
+            <li><label for="eg5">you are currently working during the COVID-19 pandemic, but your income from employment and self-employment has been reduced to less than $1,000 (before taxes) during the 4-week period you are applying for</label>	  
 				<ul class="fa-ul">
 				  <li> <span class="far fa-calendar-alt fa-li"></span>Current eligibility period: May&nbsp;10 to June&nbsp;6,&nbsp;2020 </li>
 				  <li><span class="far fa-calendar-alt fa-li"></span>Next eligibility period:  June&nbsp;7 to July&nbsp;4,&nbsp;2020</li>
@@ -213,8 +213,8 @@
 			   <p>If you meet all of the conditions above, you may also be eligible for an extra $750 per payment.</p>
 			   <ul class="checkbox-lg">
 			   <li class="checkbox">
-          <input type="checkbox" id="eg5" class="action-checkbox">
-          <label for="eg5" class="clearfix"><strong>Additional support is available, if at least one of the following applies:</strong></label>
+          <input type="checkbox" id="eg6" class="action-checkbox">
+          <label for="eg6" class="clearfix"><strong>Additional support is available, if at least one of the following applies:</strong></label>
           <ul class="std-blt">
             <li>
               <label for="eg6">you are receiving the Disability Tax Credit (DTC) or other disability financial support from provincial or federal programs</label>
@@ -288,20 +288,20 @@
          
 		<script>
  $(".action-checkbox").change(function(){
-   if ($(".cb-dmm:checked, #eg4:checked, #eg5:not(:checked)").length == 5) {
+   if ($(".cb-dmm:checked, #eg5:checked, #eg6:not(:checked)").length == 5) {
 
      $("#action-msg1").removeClass("hidden");
      $("#action-msg2").addClass("hidden");
     }
-    if ($(".cb-dmm:checked, #eg4:checked, #eg5:checked").length == 5) {
+    if ($(".cb-dmm:checked, #eg5:checked, #eg6:checked").length == 5) {
  $("#action-msg1").addClass("hidden");
       $("#action-msg2").removeClass("hidden");
     }
-    if ($(".cb-dmm:not(:checked), #eg4:not(:checked)").length == 1)  {
+    if ($(".cb-dmm:not(:checked), #eg5:not(:checked)").length == 1)  {
 
      $("#action-msg1").addClass("hidden");
     }
-     if ($(".cb-dmm:not(:checked), #eg4:not(:checked), #eg5:not(:checked)").length == 1)  {
+     if ($(".cb-dmm:not(:checked), #eg5:not(:checked), #eg6:not(:checked)").length == 1)  {
 
      $("#action-msg2").addClass("hidden");
     }
