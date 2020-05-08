@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Find COVID-19 support for businesses - employees - Canada.ca</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/checkbox-radio.css" rel="stylesheet">
+
+
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			document.write(wet.builder.refTop({
+			}));
+		</script>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="def-top">
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				lngLinks: [{
+					lang: "fr",
+					href: "travel-advice-fr.html",
+					text: "Français"
+				}],
+				breadcrumbs: [{
+					title: "Home",
+					href: "https://www.canada.ca/en.html"
+				},{
+					title: "Health",
+					href: "https://www.canada.ca/en/services/health.html"
+				},{
+					title: "Diseases and conditions",
+					href: "https://www.canada.ca/en/public-health/services/diseases.html"
+				},{
+					title: "Coronavirus (COVID-19)",
+					href: "../landing.html"
+				},{
+					title: "Find out what support you need",
+					href: "./who-needs.html"
+				}],
+				search: true,
+				siteMenu: true,
+				showPreContent: true
+			});
+</script>
+
+<main role="main" property="mainContentOfPage" class="container">
+
+<h1>Find COVID-19 support for businesses - employees</h1>
+
+<div class="wb-frmvld">
+	<div id="select-employees">
+		<legend id="employees-legend" class="h3"><span class="field-name">Do you need support to prevent lay offs or reduced hours of work of employees?</span></legend>
+		<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="yes" type="radio" name="employees" value="yes">
+				<label for="yes">Yes</label>
+			</li>
+			<li class="radio">
+				<input id="no" type="radio" name="employees" value="no">
+				<label for="no">No</label>
+			</li>
+		</ul>
+		<div class="row">
+			<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+				<button id="continue" class="btn btn-call-to-action btn-block mrgn-bttm-md">Next</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><a class="btn btn-link" href="who-needs.html">Start over</a></p>
+
+<!-- <div id="question">
+	<fieldset class="mrgn-bttm-md">
+		<legend id="legend" class="h5">Do you need support to prevent lay offs or reduced hours of work of employees?</legend>
+		<div class="radio">
+			<label for="yes">
+				<input id="yes" type="radio" name="employees" value="Yes" required="required"> Yes  
+			</label>
+		</div>
+		<div class="radio">
+			<label for="no">
+				<input id="no" type="radio" name="employees" value="No"> No  
+			</label>
+		</div>
+	</fieldset>
+	<button id="continue" class="btn btn-primary mrgn-bttm-md">Continue</button>
+</div> -->
+
+<!--div class="wb-frmvld">
+  <div class="wb-fieldflow" data-wb-fieldflow='{
+      "noForm":false,
+      "renderas":"radio",
+      "base": { "live": true },
+      "noreqlabel": true
+  }' id="question1">
+    <p>Do you need support to prevent lay offs or reduced hours of work of employees?</p>
+    <ul>
+      <li><a href="answer-business.html">Yes</a></li>
+      <li><a href="answer-business.html">No</a></li>
+    </ul>
+  </div>
+</div-->
+
+<div id="def-preFooter">
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+	var defPreFooter = document.getElementById("def-preFooter");
+	defPreFooter.outerHTML = wet.builder.preFooter({
+		dateModified: "2020-03-13",
+		showPostContent: true,
+		showFeedback: true,
+		showShare: true
+	});
+</script>
+		</main>
+		<div id="def-footer">
+
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				showFooter: true,
+				showFeatures: true
+			});
+		</script>
+		<!-- Write closure template -->
+				<script type="text/javascript">
+			document.write(wet.builder.refFooter({
+			}));
+		</script>
+		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
+		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="./validator.js"></script>
+		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
+		<script>
+			$(document).ready(function(){		
+				//Capture changes
+				$("#select-employees").change(function(field){
+					localStorage.setItem("employees", field.target.id);
+					console.log(localStorage.getItem("employees"));
+					console.log(localStorage.getItem("agr"));
+				});
+				$('#error1').addClass("hidden");
+			});
+
+			$("#continue").click(function(){
+				//VALIDATION
+				var top = [50000,""];
+				var sCheck = localStorage.getItem("employees");
+				if (localStorage.getItem("employees") != null){
+					if (sCheck == "yes") {
+						window.location.href = "./abroad.html"
+					} else {
+						localStorage.setItem("abr", "no");
+						window.location.href = "./answer-business.html"
+					}
+				} else {
+					top = validateElement("legend", "error1", "Please indicate if you need support to prevent lay offs", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
+			});
+			
+		</script>
+	</body>
+</html>
