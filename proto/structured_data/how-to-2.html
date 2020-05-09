@@ -371,31 +371,69 @@ aside.gc-nav h1 {
 	margin-top: 30px;
 }
 </style>
-<main property="mainContentOfPage" class="container">
-	<div class="container" vocab="http://schema.org/" typeof="HowTo">
-	<h1 property="name" id="wb-cont">Canada child benefit - HowTo test RDFa</h1>
-	<section data-ajax-replace="/content/dam/cra-arc/camp-promo/covid19-ccb.txt#ccb-eng"></section>
-	<div class="row">
-	<div class="col-md-8">
-	<div id="steps-content" >
-	<p property="description">The Canada child benefit (CCB) is a tax-free monthly payment made to eligible families to help with the cost of raising children under 18 years of age. The CCB may include the <a href="/en/revenue-agency/services/child-family-benefits/child-disability-benefit.html">child disability benefit</a> and any related <a href="/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs.html">provincial and territorial programs</a>.</p>
-	<h2 class="mrgn-bttm-lg">Sections</h2>
-	<ul class="gc-navseq section-menu">
-	<li property="step" typeof="HowToStep"><meta property="position" content="1"/><a property="url" href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html"><span property="name">Who can apply</span><span class="wb-inv"> - Canada child benefit</span></a><br>
-	<span property="text">Who can get the Canada child benefit, who is primarily responsible for the care and upbringing of the child, and impact of shared custody on your benefits</span></li>
-	<li property="step" typeof="HowToStep"><meta property="position" content="2"/><a property="url"href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-apply.html"><span property="name">Apply</span><span class="wb-inv"> - Canada child benefit</span></a><br><span property="text">When and how to apply, and when you need to provide additional documents</span></li>
-	<li property="step" typeof="HowToStep"><meta property="position" content="3"/><a property="url" href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html"><span property="name">How much you can get</span><span class="wb-inv"> - Canada child benefit</span></a><br><span property="text">Estimate your payments, how and when payments are calculated, child disability benefit, and related provincial and territorial benefits</span></li>
-	<li property="step" typeof="HowToStep"><meta property="position" content="4"/><a property="url" href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-payment-dates.html"><span property="name">Payment dates</span><span class="wb-inv"> - Canada child benefit</span></a><br><span property="text">Find out when the Canada child benefit is paid</span></li>
-	<li property="step" typeof="HowToStep"><meta property="position" content="5"/><a property="url" href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-after-you-apply.html"><span property="name">Keep getting your payments</span><span class="wb-inv"> - Canada child benefit</span></a><br>
-	<span property="text">Filing your tax returns, if payments stop or change, and informing us when your situation changes</span></li>
-	<li property="step" typeof="HowToStep"><meta property="position" content="6"/><a property="url" href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-contact.html"><span property="name">Contact the CRA</span><span class="wb-inv"> - Canada child benefit</span></a><br>
-	<span property="text">How to contact the CRA about the CCB and related provincial and territorial benefits</span></li>
+<script type="application/ld+json">
+  {"@context":"http://schema.org",
+	"@type":"HowTo",
+	"description":"The Canada child benefit (CCB) is a tax-free monthly payment made to eligible families to help with the cost of raising children under 18 years of age. ",
+	"name":"Canada child benefit",
+	"step":[{
+			"@type":"HowToStep",
+			"image":"http://test.canada.ca/covid-19-guidance/proto/structured_data/step_1.svg",
+			"name":"Who can apply",
+			"url":"https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html","position":1,
+			"text":"Who can get the Canada child benefit, who is primarily responsible for the care and upbringing of the child, and impact of shared custody on your benefits"},
+		{"@type":"HowToStep",
+		"image":"http://test.canada.ca/covid-19-guidance/proto/structured_data/step_2.svg",
+		"name":"Apply",
+		"url":"http://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-apply.html","position":2,
+		"text":"When and how to apply, and when you need to provide additional documents"},
+		{"@type":"HowToStep",
+		"image":"http://test.canada.ca/covid-19-guidance/proto/structured_data/step_3.svg",
+		"name":"How much you can get",
+		"url":"http://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html","position":3,
+		"text":"Estimate your payments, how and when payments are calculated, child disability benefit, and related provincial and territorial benefits"},
+		{"@type":"HowToStep",
+		"image":"http://test.canada.ca/covid-19-guidance/proto/structured_data/step_4.svg",
+		"name":"Payment dates",
+		"url":"http://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-payment-dates.html","position":4,
+		"text":"Find out when the Canada child benefit is paid"},
+		{"@type":"HowToStep",
+		"image":"http://test.canada.ca/covid-19-guidance/proto/structured_data/step_5.svg",
+		"name":"Keep getting your payments",
+		"url":"http://test.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-after-you-apply.html","position":5,
+		"text":"Filing your tax returns, if payments stop or change, and informing us when your situation changes"}
+	]
+	}
+</script>
+<main property="mainContentOfPage" typeof="WebPageElement">
+	<div class="mwsgeneric-base-html parbase section">
 
-	</ul>
 
-	</div>
-	</div>
-	</div>
+
+    <div class="container">
+<h1 property="name" id="wb-cont">Canada child benefit - HowTo test -JSON-LD </h1>
+<section data-ajax-replace="/content/dam/cra-arc/camp-promo/covid19-ccb.txt#ccb-eng"></section>
+<div class="row">
+<div class="col-md-8">
+<div id="steps-content">
+<p>The Canada child benefit (CCB) is administered by the Canada Revenue Agency (CRA). It is a tax-free monthly payment made to eligible families to help with the cost of raising children under 18 years of age. The CCB may include the <a href="/en/revenue-agency/services/child-family-benefits/child-disability-benefit.html">child disability benefit</a> and any related <a href="/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs.html">provincial and territorial programs</a>.</p>
+<h2 class="mrgn-bttm-lg">Sections</h2>
+<ul class="gc-navseq section-menu">
+<li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html">Who can apply<span class="wb-inv"> - Canada child benefit</span></a><br>
+Who can get the Canada child benefit, who is primarily responsible for the care and upbringing of the child, and impact of shared custody on your benefits</li>
+<li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-apply.html">Apply<span class="wb-inv"> - Canada child benefit</span></a><br>When and how to apply, and when you need to provide additional documents</li>
+ <li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html">How much you can get<span class="wb-inv"> - Canada child benefit</span></a><br>Estimate your payments, how and when payments are calculated, child disability benefit, and related provincial and territorial benefits</li>
+<li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-payment-dates.html">Payment dates<span class="wb-inv"> - Canada child benefit</span></a><br>Find out when the Canada child benefit is paid</li>
+<li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-after-you-apply.html">Keep getting your payments<span class="wb-inv"> - Canada child benefit</span></a><br>
+Filing your tax returns, if payments stop or change, and informing us when your situation changes</li>
+<li><a href="/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-contact.html">Contact the CRA<span class="wb-inv"> - Canada child benefit</span></a><br>
+How to contact the CRA about the CCB and related provincial and territorial benefits</li>
+
+ </ul>
+
+</div>
+</div>
+</div>
 
 
 
