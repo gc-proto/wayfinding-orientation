@@ -114,7 +114,7 @@
             <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="repay">Determine if you need to make a CERB repayment</h3>
             <div class="clearfix"></div>
             <div class="mrgn-lft-lg">
-		<!--Start of fieldflow //-->
+            <!--Start of fieldflow //-->
             <div class="wb-frmvld fieldflow-lg" data-gc-analytics-formname="CRA|ARC:Determine if you need to make a CERB repayment" data-gc-analytics-collect='[ {"value":"input,select","emptyField": "N/A"}]'>
               <form>
                 <div class="wb-fieldflow"  data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
@@ -123,7 +123,7 @@
                     <li>Earned employment or self-employment income earlier than expected
                       <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
                         <div class="wb-fieldflow-header">
-                          <p class="wb-fieldflow-label">Choose the eligibility period that you received a payment</p>
+                          <p class="wb-fieldflow-label">Choose the eligibility period that you received the CERB payment</p>
                           <p>If you started working again after you got the CERB, and then stopped working again in a later period, any re-application you do is treated like your first eligibility period.</p>
                         </div>
                         <ul>
@@ -149,7 +149,7 @@
                       </div>
                     </li>
                     <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer7", "class": "hidden", "live": true}'>Applied for and got the CERB from both EI/Service Canada and from the CRA for the same eligibility period</li>
-                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>Applied for the CERB but later realize you’re not eligible</li>
+                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer5", "class": "hidden", "live": true}'>Applied for the CERB but later realized you’re not eligible</li>
                     <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer6", "class": "hidden", "live": true}'>None of the above</li>
                   </ul>
                 </div>
@@ -185,22 +185,24 @@
               <p>Based on your responses, you do not need to repay.</p>
             </div>
             <div class="hidden alert alert-warning alert-answer" id="answer5">
-              <p class="h5 mrgn-tp-0">Unable to cancel an application</p>
-              <p>There is no way to cancel an application once you have submitted it. Wait until you receive the payment, then you can return or repay it to the CRA.</p>
-              <dl class="dl-horizontal mrgn-tp-md">
+              <p class="h5 mrgn-tp-0">Repay the CERB</p>
+				<p>Please wait until you receive your payment, then return or repay it to the CRA.</p>
+				<p>There is no way to cancel an application once  it is submitted.</p>
+<dl class="dl-horizontal mrgn-tp-md">
                 <dt>Return</dt>
                 <dd><a href="#h4">How to return or repay the CERB</a></dd>
               </dl>
             </div>
           </div>
-          <div class="hidden alert alert-warning alert-answer" id="answer6">
-            <p class="h5 mrgn-tp-0">Unsure if you need to repay</p>
-            <p>Please contact the CRA at <strong>1-833-966-2099</strong> to discuss your situation.</p>
+          <div class="hidden alert alert-info alert-answer" id="answer6">
+            <p class="h5 mrgn-tp-0">No repayment</p>
+            <p>Based on your response, you do not need to repay your CERB payment.</p>
+			  <p>If you're not sure, please contact the CRA at <strong>1-833-966-2099</strong> to discuss your situation.</p>
             <p>If your CERB payment came from EI/Service Canada, please contact <a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">EI/Service Canada</a>.</p>
           </div>
           <div class="hidden alert alert-warning alert-answer" id="answer7">
             <p class="h5 mrgn-tp-0">Repay the CERB</p>
-            <p>Based on your responses, it looks like you received 2 CERB payments in the same period. You need to repay one of them to the CRA.</p>
+            <p>Based on your response, you may have recieved more than one payment in the same period. You must repay the CERB payment to the CRA.</p>
             <dl class="dl-horizontal mrgn-tp-md">
               <dt>Return</dt>
               <dd><a href="#h4">How to return or repay the CERB</a></dd>
