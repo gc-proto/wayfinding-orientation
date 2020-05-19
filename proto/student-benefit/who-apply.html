@@ -300,7 +300,7 @@
                      </ul>
                   </li>
                </ul>
-               <div class="alert alert-success" id="action-msg1">
+               <div class="alert alert-success" id="action-msg1" role="alert">
                   <p>You are eligible for the CESB. You can get <strong class="lead">$1,250</strong> for each 4-week period that you qualify for.</p>
                </div>
             </section>
@@ -336,7 +336,7 @@
                   </ul>
                </li>
             </ul>
-            <div class="alert alert-success" id="action-msg2">
+            <div class="alert alert-success" id="action-msg2" role="alert">
                <p>You are eligible for <strong class="lead">$2,000</strong> for each 4-week period that you qualify for.</p>
             </div>
             <h2>Verifying your eligibility</h2>
@@ -405,9 +405,9 @@
                         );
 
                         $( settings.target ).addClass( "hidden" );
+                        $elm.trigger( "click", settings );
+                        wb.ready( $elm, componentName );
                      }
-                     $elm.trigger( "click", settings );
-                     wb.ready( $elm, componentName );
                   };
 
             // Add your plugin event handler
