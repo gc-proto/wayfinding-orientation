@@ -214,10 +214,10 @@
                           id="eg2">You are one of the following:
                      </div>
                      <ul class="std-blt">
-                        <li><label for="eg2">Canadian citizen</label></li>
-                        <li><label for="eg2">registered Indian</label></li>
-                        <li><label for="eg2">permanent resident</label></li>
-                        <li><label for="eg2">protected person </label>
+                        <li>Canadian citizen</li>
+                        <li>registered Indian</li>
+                        <li>permanent resident</li>
+                        <li>protected person 
                            <details class="mrgn-lft-md mrgn-right-md">
                               <summary>Who is considered a protected person</summary>
                               <p>An individual who is recognized by the Immigration and Refugee Board of Canada (IRB) and Immigration Refugees and Citizenship Canada (IRCC) as a person in need of protection.</p>
@@ -240,7 +240,7 @@
                      </div>
                      <ul class="std-blt">
                         <li>
-                           <label for="eg4">you are enrolled in a post-secondary educational program (at least 12 weeks in duration) that leads to a degree, diploma, or certificate</label>
+                           <p>you are enrolled in a post-secondary educational program (at least 12 weeks in duration) that leads to a degree, diploma, or certificate</p>
                            <details class="mrgn-lft-md mrgn-right-md">
                               <summary>Recognized post-secondary educational institutions</summary>
                               <ul class="mrgn-bttm-md">
@@ -256,12 +256,8 @@
                               </ul>
                            </details>
                         </li>
-                        <li>
-                           <label for="eg4">you completed or ended your post-secondary studies after December&nbsp;2019</label>
-                        </li>
-                        <li>
-                           <label for="eg4">you completed or expect to complete high school, or received, or expect to receive your high school equivalency in 2020, and have applied for (and plan to attend) a post-secondary educational program that starts before February 1, 2021</label>
-                        </li>
+                        <li>you completed or ended your post-secondary studies after December&nbsp;2019</li>
+                        <li>you completed or expect to complete high school, or received, or expect to receive your high school equivalency in 2020, and have applied for (and plan to attend) a post-secondary educational program that starts before February 1, 2021</li>
                      </ul>
                <!-- <details class="mrgn-lft-xl mrgn-right-md">
                         <summary>Recognized post-secondary educational programs</summary>
@@ -285,13 +281,13 @@
                           id="eg5">One of the following applies:
                      </div>
                      <ul class="std-blt">
-                        <li><label for="eg5">you are unable to work due to COVID-19</label></li>
-                        <li><label for="eg5">you are looking for, but cannot find work due to COVID-19</label>
+                        <li>you are unable to work due to COVID-19</li>
+                        <li>you are looking for, but cannot find work due to COVID-19
                            <ul>
                               <li>You may be asked to verify that you've been <a href="keep-payment.html#h-1">looking for work</a></li>
                            </ul>
                         </li>
-                        <li><label for="eg5">you are currently working during the COVID-19 pandemic, but your income from employment and self-employment has been reduced to less than $1,000 (before taxes) during the 4-week period you are applying for</label>
+                        <li>you are currently working during the COVID-19 pandemic, but your income from employment and self-employment has been reduced to less than $1,000 (before taxes) during the 4-week period you are applying for
                            <ul class="fa-ul">
                               <li> <span class="far fa-calendar-alt fa-li"></span>Current eligibility period: <time datetime="2020-05-10">May&nbsp;10</time> to <time datetime="2020-06-06">June&nbsp;6,&nbsp;2020</time> </li>
                               <li><span class="far fa-calendar-alt fa-li"></span>Next eligibility period: <time datetime="2020-06-07">June&nbsp;7</time> to <time datetime="2020-07-04">July&nbsp;4,&nbsp;2020</time></li>
@@ -314,17 +310,15 @@
                        id="eg6">Additional support is available, if at least one of the following applies:
                   </div>
                   <ul class="std-blt">
+                     <li>you are receiving the Disability Tax Credit (DTC) or other disability financial support from provincial or federal programs</li>
                      <li>
-                        <label for="eg6">you are receiving the Disability Tax Credit (DTC) or other disability financial support from provincial or federal programs</label>
-                     </li>
-                     <li>
-                        <label for="eg6">you have a disability as defined for this benefit</label>
+                        <p>you have a disability as defined for this benefit</p>
                         <details class="mrgn-lft-md mrgn-right-md">
                            <summary>What is considered a disability</summary>
                            <p>A physical, mental, intellectual, cognitive, learning, communication or sensory impairment, or a permanent, temporary or episodic functional limitation that hinders a person’s full and equal participation in society</p>
                         </details>
                      <li>
-                        <label for="eg6">you have at least one child under the age of 18 or other dependants</label>
+                        <p>you have at least one child under the age of 18 or other dependants</p>
                         <details class="mrgn-lft-md mrgn-right-md">
                            <summary>Who can be claimed as a dependant</summary>
                            <ul>
@@ -390,7 +384,9 @@
                      var elm = wb.init( event, componentName, selector ),
                         $elm,
                         settings,
-                        conditions,
+                        conditions = [],
+                        lastState = false,
+                        ids,
                         flag;
 
                      if ( elm ) {
@@ -405,6 +401,17 @@
                         );
 
                         $( settings.target ).addClass( "hidden" );
+                        ids = settings.conditions.split( " " );
+                        for (let i = 0; i < ids.length; i++) {
+                           if ( ids[i].charAt(0) !== "!" ) {
+                              const input = $( "#" + ids[i] );
+                              const condition = {
+                                 lastState: true,
+                                 input: input
+                              }
+                           }
+                           conditions.push(condition);
+                        }
                         $elm.trigger( "click", settings );
                         wb.ready( $elm, componentName );
                      }
@@ -449,7 +456,7 @@
 
             // This is a huge hack. Need to be refactored
             $document.on( "click keydown", selector, function ( event ) {
-               if( $( "#eg1[aria-checked='true'], #eg2[aria-checked='true'], #eg3[aria-checked='true'], #eg4[aria-checked='true'], #eg5[aria-checked='true']" ).length === 5 && $( "#eg6[aria-checked='false']" ).length === 1 ) {
+               if( $( "#eg1[aria-checked='true'], #eg2[aria-checked='true'], #eg3[aria-checked='true'], #eg4[aria-checked='true'], #eg5[aria-checked='true'], #eg6[aria-checked='false']" ).length === 6 ) {
                   $( "#action-msg1" ).removeClass( "hidden" );
                   $( "#action-msg2" ).addClass( "hidden" );
                } else if ( $( "#eg1[aria-checked='true'], #eg2[aria-checked='true'], #eg3[aria-checked='true'], #eg4[aria-checked='true'], #eg5[aria-checked='true'], #eg6[aria-checked='true']" ).length === 6 ) {
