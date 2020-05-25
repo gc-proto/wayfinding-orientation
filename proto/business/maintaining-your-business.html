@@ -92,6 +92,16 @@
 		}
 	</script>
 
+	<script type="text/javascript">
+					$(document).ready(function () {
+							$(document).on('click', '#btnGoToCountry', function () {
+									mySelection = $(this).parent().siblings("#CountryDropDown1_ddlCountries").find(":selected").val();
+									window.location.href = "https://gc-proto.github.io/travel-advice/scenarioA/travelling/destinations/" + mySelection + ".html";
+									return false;
+							});
+					});
+			</script>
+
 	</div>
 	<div class="mwstitle section">
 
@@ -134,19 +144,32 @@
 
 	</div>
 	<div class="mwsgeneric-base-html parbase section">
-
-
-
 		<section class="well-sm">
+		<div class="container">
+			<div class="col-md-3">
+				<h2 class="mrgn-tp-sm h3">Reopening</h2>
+			</div>
+			<div class="col-md-9">
+				<ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-2">
+					<li> <a href="#">Health measures</a></li>
+							<li> <a href="#">Access to protective equipment</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="well well-sm brdr-0 mrgn-bttm-0">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Small businesses and self-employed</h2>
 				</div>
 				<div class="col-md-9">
 					<ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-2">
-						<li><mark>Coming soon</mark> <a
+						<li><a
 								href="#">Support for small business</a></li>
-<li><mark>Should be added?</mark><a href="https://www.cmhc-schl.gc.ca/en/finance-and-investing/covid19-cecra-small-business">Canada Emergency Commercial Rent Assistance (CECRA)</a></li>
+								<li><a href="https://www.cmhc-schl.gc.ca/en/finance-and-investing/covid19-cecra-small-business">Canada Emergency Commercial Rent Assistance (CECRA)</a></li>
+
 					</ul>
 
 					<p>Small business hotline - small business owners with pressing financial needs can call 1-866-989-1080 (toll-free) seven days a week, from 8 a.m. to 8 p.m. (ET)</p>
@@ -155,19 +178,19 @@
 		</section>
 
 
-		<section class="well well-sm brdr-0 mrgn-bttm-0">
+		<section class="well-sm">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Loans and financing</h2>
 				</div>
 				<div class="col-md-9">
-					<p><mark>There's a lot of credit links on the current ERP page...  the Business grants and financing page is the closest to a topic page for these items: https://www.canada.ca/en/services/business/grants.html.  </mark></p>
+
 					<ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-2">
 
 
 						<li><mark>Coming soon</mark> <a	href="#">Business loans</a></li>
 				<li><mark>Coming soon</mark> <a	href="#">Business credit</a></li>
-				<li><mark>Add?</mark><a href="https://ceba-cuec.ca/">Canada Emergency Business Account (CEBA) </a></li>
+				<li><a href="https://ceba-cuec.ca/">Canada Emergency Business Account (CEBA) </a></li>
 					</ul>
 
 					<p>Get customized support for your situation: <a href="https://innovation.ised-isde.canada.ca/s/?language=en">Business support finder</a></p>
@@ -175,7 +198,7 @@
 			</div>
 		</section>
 
-		<section class="well-sm">
+		<section class="well well-sm brdr-0 mrgn-bttm-0">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Employees </h2>
@@ -193,7 +216,7 @@
 			</div>
 		</section>
 
-		<section class="well well-sm brdr-0 mrgn-bttm-0">
+		<section class="well-sm">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Taxes</h2>
@@ -210,14 +233,39 @@
 
 
 
-		<section class="well-sm">
+		<section class="well well-sm brdr-0 mrgn-bttm-0">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Help near you</h2>
 				</div>
 				<div class="col-md-9">
+
+
+
+<!-- Code from Jennifer
+					<div class="input-group">
+					   <label for="CountryDropDown1_ddlCountries" class="wb-inv">Find your regional development agency</label>
+					   <select name="CountryDropDown1$ddlCountries" id="CountryDropDown1_ddlCountries" placeholder="Select your location" class="form-control" Title="Find your regional development agency">
+					    <option value="">Select a location</option>
+
+					     <option value="acoa">Atlantic Canada Opportunities Agency (ACOA)</option>
+							 	  <option value="ced">Canada Economic Development for Quebec Regions (CED)</option>
+									  <option value="cannor">Canadian Northern Economic Development Agency (CanNor)</option>
+										  <option value="feddev">FedDev Ontario</option>
+											  <option value="fednor">FedNor</option>
+										  <option value="wd">Western Economic Diversification Canada (WD)</option>
+
+
+					   <span class="input-group-btn">
+					       <button class="btn btn-default" id="btnGoToCountry" type="button">Go!</button>
+					   </span>
+					</div>
+				-->
+
+<p>Regional development agencies: (dropdown list)</p>
+
 					<ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-2">
-						<li><a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07677.html">Regional development agencies</a></li>
+						<li><a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07677.html">Regional development relief funds</a></li>
 						<li><a href="#">Contact us</a> <mark>Contact who??</mark></li>
 
 
@@ -227,7 +275,7 @@
 		</section>
 
 
-			<section class="well well-sm brdr-0 mrgn-bttm-0">
+			<section class="well-sm">
 			<div class="container">
 				<div class="col-md-3">
 					<h2 class="mrgn-tp-sm h3">Suppliers</h2>
@@ -242,16 +290,7 @@
 			</div>
 		</section>
 
-		<section class="well-sm">
-		<div class="container">
-			<div class="col-md-3">
-				<h2 class="mrgn-tp-sm h3">Reopening</h2>
-			</div>
-			<div class="col-md-9">
-			<p><mark>Probably should have a reopening bar on this page too</mark></p>
-			</div>
-		</div>
-	</section>
+
 
 
 		<div class="mrgn-tp-lg"></div>
