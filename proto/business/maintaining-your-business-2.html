@@ -114,28 +114,28 @@
 			</div>
 
 		  <div class="col-md-9">
-											<div class="mrgn-bttm-md mrgn-lft-lg">
+											<div class="mrgn-bttm-md mrgn-lft-lg input-group">
 												<p><strong>Local reopening guidance</strong></p>
-												<select class="form-control">
-											
-													<option>Select your location</option>
-													<option value="ab">Alberta</option>
-													<option value="bc">British Columbia</option>
-													<option value="mb">Manitoba</option>
-													<option value="nl">Newfoundland and Labrador</option>
-													<option value="nb">New Brunswick</option>
-													<option value="ns">Nova Scotia</option>
-													<option value="on">Ontario</option>
-													<option value="pe">Prince Edward Island</option>
-													<option value="pq">Quebec</option>
-											
-											
-													<option value="sk">Saskatchewan</option>
-													<option value="nwt">North West Territories</option>
-													<option value="nu">Nunavut</option>
-													<option value="yk">Yukon</option>
-											
-												</select>
+
+												<form>
+													<select style="width: 85%" class="form-control" name="list" id="list" accesskey="target">
+														<option value='none' selected>Select your location</option>
+														<option value="ab.html">Alberta</option>
+														<option value="bc.html">British Columbia</option>
+														<option value="mb.html">Manitoba</option>
+														<option value="nl.html">Newfoundland and Labrador</option>
+														<option value="nb.html">New Brunswick</option>
+														<option value="ns.html">Nova Scotia</option>
+														<option value="on.html">Ontario</option>
+														<option value="pe.html">Prince Edward Island</option>
+														<option value="pq.html">Quebec</option>							
+														<option value="sk.html">Saskatchewan</option>
+														<option value="nwt.html">North West Territories</option>
+														<option value="nu.html">Nunavut</option>
+														<option value="yk.html">Yukon</option>
+													</select>
+													<input style="width: 15%" type=button value="Go" onclick="goToNewPage()" />
+												</form>
 											</div>
 
 		    <ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-1">
@@ -231,19 +231,23 @@
 
 
 			<div class="col-md-9">
-				<div class="mrgn-bttm-md mrgn-lft-lg">
-					<p><strong>Regional development agencies</strong></p>
-					<select class="form-control">
-						<option value="slct">Select a regional development agency</option>
 
-						<option value="acoa">Atlantic Canada Opportunities Agency (ACOA)</option>
-						<option value="ced">Canada Economic Development for Quebec Regions (CED)</option>
-						<option value="cannor">Canadian Northern Economic Development Agency (CanNor)</option>
-						<option value="feddev">FedDev Ontario</option>
-						<option value="fednor">FedNor</option>
-						<option value="wd">Western Economic Diversification Canada (WD)</option>
-					</select>
-				</div>
+								<div class="mrgn-bttm-md mrgn-lft-lg input-group">
+					<p><strong>Regional development agencies</strong></p>
+								
+									<form>
+										<select style="width: 90%" class="form-control" name="list2" id="list2" accesskey="target">
+											<option value="">Select a regional development agency</option>
+											<option value="acoa.html">Atlantic Canada Opportunities Agency (ACOA)</option>
+											<option value="ced.html">Canada Economic Development for Quebec Regions (CED)</option>
+											<option value="cannor.html">Canadian Northern Economic Development Agency (CanNor)</option>
+											<option value="feddev.html">FedDev Ontario</option>
+											<option value="fednor.html">FedNor</option>
+											<option value="wd.html">Western Economic Diversification Canada (WD)</option>
+										</select>
+										<input style="width: 10%" type=button value="Go" onclick="goToNewPage2()" />
+									</form>
+								</div>
 			
 				<ul class="mrgn-tp-0 mrgn-bttm-md colcount-md-1">
 									<li><a href="https://www.ic.gc.ca/eic/site/icgc.nsf/eng/07677.html">Regional development relief funds</a></li>
@@ -365,6 +369,22 @@
 				showFooter: true,
 				showFeatures: true
 			});
+		</script>
+
+		<script>
+			 function goToNewPage() {
+					var url = document.getElementById('list').value;
+					if (url != 'none') {
+						window.location = url;
+					}
+				}
+
+				function goToNewPage2() {
+						var url = document.getElementById('list2').value;
+						if (url != 'none') {
+							window.location = url;
+						}
+					}
 		</script>
 		<!-- Write closure template -->
 				<script type="text/javascript">
