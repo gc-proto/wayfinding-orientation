@@ -23,6 +23,9 @@
 
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
+	 <div typeof="Organisation" resource="#wb-publisher">
+	  <meta property="name" content="Publisher name" />
+	 </div>
 		<div id="def-top">
 		</div>
 		<!-- Write closure template -->
@@ -44,57 +47,158 @@
 			});
 </script>
 
+<script id="wb-script"
+type="application/ld+json">
+ {
+  "@context":"http://schema.org",
+  "@id": "#wb-main",
+  "@type": "FAQPage",
+  "publisher":{
+   "@type":"GovernmentOrganization",
+   "@id":"#wb-publisher",
+   "name":"Government of Canada",
+   "url":"https://www.canada.ca/en.html"
+   },
+  "headline": "ISED top questions",
+  "description":"Answers to top questions for ISED",
+  "mainEntity": [{
+   "@type": "Question",
+   "name": "How do I file a trademark?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "<p>You can register your trademark with the Canadian Intellectual Property Office: </p>
+		<ul>
+		<li><a href='http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr01369.html?Open&wt_src=cipo-tm-main&wt_cxt=apply'>Trademark e-filing appication system</a></li>
+		</ul>
+		<p>The IP roadmap for trademarks provides an overview of the trademark registration process: </p>
+		<ul>
+		<li><a href='https://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr04355.html'>IP roadmap</a></li>
+		</ul>"
+     }
+	  },
+		{
+	    "@type": "Question",
+	    "name": "I lost my code for the Connecting Families initiative. Can I get another one?",
+	    "acceptedAnswer": {
+	     "@type": "Answer",
+	     "text": "
+	      <p>Unfortunately, if you lost your letter, you will not be able to register for the initiative. Privacy laws, particularly the Income Tax Act, prevent us from confirming whether a letter was sent to a particular residential address. For this reason, we are not able to recover a copy of the letter to reissue the code.</p>"
+	     }
+	   },
+		 {
+	 		"@type": "Question",
+	 		"name": "How can I get grants or financing for my business?",
+	 		"acceptedAnswer": {
+	 		 "@type": "Answer",
+	 		 "text": "
+			 <p>Get a tailored list of government programs that offer financing, grants, tax credits, government-backed loans, wage subsidies and expert advice:</p>
+			 <ul>
+			 <li><a href='https://innovation.ised-isde.canada.ca/s/?language=en_CA'>Innovation Canada</a></li>
+			 </ul>"
+	 		 }
+	 	 },
+		 {
+	 		"@type": "Question",
+	 		"name": "How do I reset my password for My ISED Account?",
+	 		"acceptedAnswer": {
+	 		 "@type": "Answer",
+	 		 "text": "
+			 <p>An ISED username or password can be retrieved by accessing the secure server:</p>
+	 			<ul>
+	 			<li><a href='http://www.ic.gc.ca/registration'>My ISED Account</a></li>
+	 			</ul>
+	 		<p>A security question must be answered correctly before a username/password is released.</p>
+	 		<p>If you encounter any problems, give us a call at 1-800-328-6189, or 613-954-5031.</p>"
+	 		 }
+	 	 },
+		 {
+	 		"@type": "Question",
+	 		"name": "How do I get a radio licence?",
+	 		"acceptedAnswer": {
+	 		 "@type": "Answer",
+	 		 "text": "
+			 <p>To get a radio licence, contact your regional Spectrum Management office:</p>
+	 		<ul>
+	 		<li><a href='http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01742.html'>Addresses and Telephone Numbers of District Offices</a></li>
+	 		</ul>"
+	 		 }
+	 	 },
+		 {
+ 		 "@type": "Question",
+ 		 "name": "How do I file a patent?",
+ 		 "acceptedAnswer": {
+ 			"@type": "Answer",
+ 			"text": "
+			<p>You can patent your invention if it meets three basic criteria:</p>
+			<ol>
+			<li>It is novel – the first of its kind in the world.</li>
+			<li>It is useful – it works and is functional and operational.</li>
+			<li>It shows inventive ingenuity – it is a new improvement to an existing invention that wouldn’t be obvious to someone skilled in that field.</li>
+			</ol>
+			<p>A patent can only be granted for the physical embodiment of an idea (for example, the description of a plausible door lock) or for a process that produces something tangible. You can’t patent a scientific principle, an abstract theory, or a mathematical formula. </p>
+			<p>For more information:</p>
+			<ul>
+			<li><a href='http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr03716.html'>What is a patent</a></li>
+			<li><a href='https://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr03652.html#patentsDefined'>Guide to patents</a></li>
+			<li><a href='http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr01477.html'>Filing Canadian patent applications</a></li>
+			</ul>"
+ 			}
+ 		},
+
+		{
+		"@type": "Question",
+		"name": "How do I protect my copyright?",
+		"acceptedAnswer": {
+		 "@type": "Answer",
+		 "text": "
+		 <p>A copyright provides protection for original literary, musical, dramatic, or artistic works. By securing a copyright, you have the right to prevent others from reproducing your work. Copyright laws also apply to performers’ performances, sound recordings, and communication signals. </p>
+		 <p>For more information:</p>
+		 <ul>
+		 <li><a href='http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr00003.html'>Copyright</a></li>
+		 <li><a href='http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr02281.html'>Guide to copyright</a></li>
+		 </ul>"
+		 }
+	 },
+
+	 {
+	 "@type": "Question",
+	 "name": "How do I get information on labelling and packaging?",
+	 "acceptedAnswer": {
+		"@type": "Answer",
+		"text": "
+		<p>Businesses who want to ensure that their product labels conform to all the requirements should refer to the Competition Bureau:</p>
+		<ul>
+		<li><a href='https://www.competitionbureau.gc.ca/eic/site/cb-bc.nsf/eng/h_02936.html'>Labelling assessment tools</a></li>
+		</ul>
+		<p>For more information:</p>
+		<ul>
+		<li><a href='https://www.competitionbureau.gc.ca/eic/site/cb-bc.nsf/eng/00157.html'>Contact the Competition Bureau's Information Centre</a></li>
+		</ul>
+		<p>The province of Québec has additional requirements concerning the use of the French language on all products marketed within its jurisdiction. Get information on these requirements at:</p>
+		<p><a href='http://www.oqlf.gouv.qc.ca/english/charter/index.html'>Office québécois de la langue française</a><br>
+		125 rue Sherbrooke ouest<br>
+		Montréal (Québec) H2X 1X4<br>
+		Telephone: 514-873-6565 or toll free: 1-800-873-6202</p>"
+		}
+	},
+ {
+   "@type": "Question",
+   "name": "How can I file a complaint against a company?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "
+		<p>For inforation on the complaint processes for different consumer issues, go to: </p>
+		<ul>
+		<li><a href='https://www.ic.gc.ca/eic/site/Oca-bc.nsf/eng/h_ca02964.html'>Complaint roadmap</a></li>
+		</ul>"
+    }
+  }]
+ }
 </script>
 
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Financial support for students, employees, seniors and other individuals",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>The Canada Economic Response Plan offers several suppport programs for individuals.</p>
-					<ul>
-					<li><a href='https://www.canada.ca/en/services/benefits/ei/cerb-application.html'>&nbsp; Canada Emergency Response Benefit (CERB)</a></li>
-
-					<li><a href='https://www.canada.ca/en/revenue-agency/services/benefits/emergency-student-benefit.html'>Canada Emergency Student Benefit (CESB)
-</a></li>
-<li><a href='https://covid-benefits.alpha.canada.ca/en/start'>Answer a few questions for a list of benefits and support tailored to you</a></li>
-  <li><a href='https://www.canada.ca/en/department-finance/economic-response-plan.html#individuals'>All support for individuals</a></li><ul>"
-        }
-      }, {
-        "@type": "Question",
-        "name": "Financial support for businesses and self-employed people",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>The Canada Economic Response Plan offers several suppport programs for businesses.</p>
-          <ul><li><a href='https://www.canada.ca/en/revenue-agency/services/subsidy/emergency-wage-subsidy.html'>&nbsp; Canada Emergency Wage Subsidy (CEWS)</a></li>
-
-  <li><a href='https://www.canada.ca/en/department-finance/economic-response-plan.html#businesses'>All support for businesses</a></li><ul>
-          "
-        }
-      }, {
-        "@type": "Question",
-        "name": "Economic support for industry sectors",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "<p>The Canada Economic Response Plan offers several suppport programs for industry sectors.</p>
-          <ul><li><a href='https://www.canada.ca/en/department-finance/economic-response-plan.html#industry'>&nbsp; All support for industry</a></li><ul>
-"
-        }
-        }]
-    }
-    </script>
-
-<main property="mainContentOfPage" class="container">
+<main property="mainContentOfPage" typeof="WebPageElement" resource="#wb-main">
 
 <div aria-hidden="true">
-
-<div class="container" typeof="schema:FAQPage">
-
-  <h1 property="name" class="wb-inv" id="wb-cont" dir="ltr" property="schema:name" id="wb-cont">Contact Innovation, Science and Economic Development Canada</h1>
 
 
 <div class="mwsgeneric-base-html parbase section">
@@ -108,65 +212,8 @@
 </div>
 
 
-<script id="wb-script"
-type="application/ld+json">
- {
-  "@context":"http://schema.org",
-  "@id": "#wb-main",
-  "@type": "FAQPage",
-  "publisher":{
-   "@type":"GovernmentOrganization",
-   "@id":"#wb-publisher",
-   "name":"Government of Canada",
-   "url":"https://www.canada.ca/en.html"
-   },
-  "headline": "How much you can get",
-  "description":"Calculate your payments, shared custody and your payments, payments are recalculated in July, Related provincial and territorial benefits, children with a disability, repaying an overpayment",
-  "mainEntity": [{
-   "@type": "Question",
-   "name": "Question 1",
-   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html",
-    "text": "<p>Use the child and family benefits calculator to help plan your budget.</p>
-     <p><a href='https://www.canada.ca/en/revenue-agency/services/child-family-benefits/child-family-benefits-calculator.html?utm_source=google&utm_medium=organic&utm_campaign=faq-data&utm_content=ccbhowmuch-en-q1-001'>  Calculate how much you can get</a></p>
-
-     <p><a href='https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html?utm_source=google&utm_medium=organic&utm_campaign=faq-data&utm_content=ccbhowmuch-en-q1-002#math'>See the math behind CCB payments</a></p>"
-     }
-	  },
- {
-   "@type": "Question",
-   "name": "Question 2",
-   "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html",
-   "acceptedAnswer": {
-    "@type": "Answer",
-    "url": "https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-we-calculate-your-ccb.html",
-    "text": "
-     <p>Each parent with shared custody will get 50% of what they would have gotten if they had full custody of the child, calculated based on their own adjusted family net income.</li>
-     <p>The CRA will not split the amount using other percentages, or give the full amount to one of the parents if CRA considers you to have shared custody.</li>
-     <p>If a child only lives with you <strong>part time</strong>, go to  <a href='https://www.canada.ca/en/revenue-agency/services/child-family-benefits/canada-child-benefit-overview/canada-child-benefit-before-you-apply.html?utm_source=google&utm_medium=organic&utm_campaign=faq-data&utm_content=ccbhowmuch-en-q2-001#shared'>Custody arrangements and your benefits</a> to find out if you are considered to have shared custody.</p>"
-    }
-  }]
- }
-</script>
-<body vocab="http://schema.org/" typeof="WebPage">
- <div typeof="Organisation" resource="#wb-publisher">
-  <meta property="name" content="Publisher name" />
- </div>
- <main property="mainContentOfPage" typeof="WebPageElement" resource="#wb-main">
- </main>
-</body>
-
-
-<div class="mwsgeneric-base-html parbase section">
-
-
-    <!-- Start hide duplicate content from screen readers -->
-
 	<h1 property="name" id="wb-cont" dir="ltr">
 	Contact Innovation, Science and Economic Development Canada</h1>
-
 
 
 	<div class="mwsgeneric-base-html parbase section">
@@ -191,59 +238,119 @@ type="application/ld+json">
 												</select>
 											</form>
 
-<section property="schema:mainEntity" typeof="schema:Question">
 		<h2>Answers to top questions</h2>
 
 	<details>
-		<summary>Question 1</summary>
-		<p>The CERB is now available if you earned $1,000 (before taxes) or less during an eligibility period or if you received regular EI benefits for at least 1 week since December 29, 2019 and you are no longer eligible for EI benefits.</p>
-		<p>If this applies to your situation, you may be eligible to apply for a previous period, starting March 15, 2020.</p>
-		<p>Get more details under <a href="/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html#who">Who can apply</a>, or read more about <a href="/en/services/benefits/ei/cerb-application/questions.html#income-requirements">Income Requirements</a></a>.</p>
+		<summary>How do I file a trademark?</summary>
+		<p>You can register your trademark with the Canadian Intellectual Property Office: </p>
+		<ul>
+		<li><a href="http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr01369.html?Open&wt_src=cipo-tm-main&wt_cxt=apply">Trademark e-filing appication system</a></li>
+		</ul>
+		<p>The IP roadmap for trademarks provides an overview of the trademark registration process: </p>
+		<ul>
+		<li><a href="https://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr04355.html">IP roadmap</a></li>
+		</ul>
 
 	</details>
 
 	<details>
-	      <summary>Question 2</summary>
-	      <p>The CERB is being jointly delivered by Service Canada (using EI) and the Canada Revenue Agency.</p>
-	      <p>You <strong>must</strong> contact the department you applied with.</p>
-
+	      <summary>I lost my code for the Connecting Families initiative. Can I get another one?</summary>
+	      <p>Unfortunately, if you lost your letter, you will not be able to register for the initiative. Privacy laws, particularly the Income Tax Act, prevent us from confirming whether a letter was sent to a particular residential address. For this reason, we are not able to recover a copy of the letter to reissue the code.</p>
 	    </details>
 
 	<details>
-	  <summary>Question 3</summary>
-	  <p>You may want to return or repay the CERB if you:</p>
-	  <ul>
-	    <li>return to work earlier than expected</li>
-	    <li>applied for CERB but later realize you’re not eligible</li>
-	  </ul>
-	  <p><a href="/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html#return">How to return or repay your CERB payment with CRA</a></p>
+	  <summary>How can I get grants or financing for my business?</summary>
+		<p>Get a tailored list of government programs that offer financing, grants, tax credits, government-backed loans, wage subsidies and expert advice:</p>
+		<ul>
+		<li><a href="https://innovation.ised-isde.canada.ca/s/?language=en_CA">Innovation Canada</a></li>
+		</ul>
 	</details>
 
 	<details>
-		<summary>Question 4</summary>
-		<p>If you’ve already applied for EI, you will get CERB automatically. You don’t need to apply again, but you must continue to do your <a href="/en/services/benefits/ei/ei-internet-reporting.html">Internet report</a> every 2 weeks.</p>
-		<p>More about <a href="/en/services/benefits/ei/notice-covid-19.html">Employment Insurance (EI)</a></p>
+		<summary>How do I reset my password for My ISED Account?</summary>
+		<p>An ISED username or password can be retrieved by accessing the secure server:</p>
+			<ul>
+			<li><a href="http://www.ic.gc.ca/registration">My ISED Account</a></li>
+			</ul>
+		<p>A security question must be answered correctly before a username/password is released.</p>
+		<p>If you encounter any problems, give us a call at 1-800-328-6189, or 613-954-5031.</p>
 	</details>
 	<details>
-		<summary>Question 5</summary>
-		<p>Eligibility periods are fixed in 4-week periods.</p>
-		<h3>If you applied through CRA</h3>
-
-		<p>If your situation continues, you can re-apply for CERB for an additional 4-week period, to a maximum of 16 weeks (4 periods).</p>
-		<p><a href="/en/revenue-agency/services/benefits/apply-for-cerb-with-cra.html#apply">Find out on which day you should apply</a></p>
-		<h3>If you applied through Service Canada (EI)</h3>
-		<p>You do not have to reapply, but you must continue to do your <a href="/en/services/benefits/ei/ei-internet-reporting.html">Internet report</a> every 2
-			weeks.</p>
+		<summary>How do I get a radio licence?</summary>
+		<p>To get a radio licence, contact your regional Spectrum Management office:</p>
+		<ul>
+		<li><a href="http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01742.html">Addresses and Telephone Numbers of District Offices</a></li>
+		</ul>
 
 	</details>
 	<details>
-		<summary>Question 6</summary>
+		<summary>How do I file a patent?</summary>
 
-		<p>You should get your payment in 3 business days if you signed up for direct deposit. If you haven’t, you should get a cheque in about 10 business days. There is no waiting period.</p>
-		<p>More about <a href="/en/services/benefits/ei/cerb-application.html">Canada Emergency Response Benefit (CERB)</a></p>
+		<p>You can patent your invention if it meets three basic criteria:</p>
+		<ol>
+		<li>It is novel – the first of its kind in the world.</li>
+		<li>It is useful – it works and is functional and operational.</li>
+		<li>It shows inventive ingenuity – it is a new improvement to an existing invention that wouldn’t be obvious to someone skilled in that field.</li>
+		</ol>
+		<p>A patent can only be granted for the physical embodiment of an idea (for example, the description of a plausible door lock) or for a process that produces something tangible. You can’t patent a scientific principle, an abstract theory, or a mathematical formula. </p>
+		<p>For more information:</p>
+		<ul>
+		<li><a href="http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr03716.html">What is a patent</a></li>
+		<li><a href="https://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr03652.html#patentsDefined">Guide to patents</a></li>
+		<li><a href="http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/wr01477.html">Filing Canadian patent applications</a></li>
+		</ul>
 
 	</details>
 
+	<details>
+		<summary>How do I protect my copyright?</summary>
+		<p>A copyright provides protection for original literary, musical, dramatic, or artistic works. By securing a copyright, you have the right to prevent others from reproducing your work. Copyright laws also apply to performers’ performances, sound recordings, and communication signals. </p>
+		<p>For more information:</p>
+		<ul>
+		<li><a href="http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr00003.html">Copyright</a></li>
+		<li><a href="http://www.ic.gc.ca/eic/site/cipointernet-internetopic.nsf/eng/h_wr02281.html">Guide to copyright</a></li>
+		</ul>
+
+	</details>
+
+	<details>
+		<summary>How do I get information on labelling and packaging?</summary>
+		<p>Businesses who want to ensure that their product labels conform to all the requirements should refer to the Competition Bureau:</p>
+		<ul>
+		<li><a href="https://www.competitionbureau.gc.ca/eic/site/cb-bc.nsf/eng/h_02936.html">Labelling assessment tools</a></li>
+		</ul>
+		<p>For more information:</p>
+		<ul>
+		<li><a href="https://www.competitionbureau.gc.ca/eic/site/cb-bc.nsf/eng/00157.html">Contact the Competition Bureau's Information Centre</a></li>
+		</ul>
+		<p>The province of Québec has additional requirements concerning the use of the French language on all products marketed within its jurisdiction. Get information on these requirements at:</p>
+		<p><a href="http://www.oqlf.gouv.qc.ca/english/charter/index.html">Office québécois de la langue française</a><br>
+		125 rue Sherbrooke ouest<br>
+		Montréal (Québec) H2X 1X4<br>
+		Telephone: 514-873-6565 or toll free: 1-800-873-6202</p>
+
+	</details>
+
+	<details>
+		<summary>How do I incorporate a federal corporation?</summary>
+		<p>In order to incorporate at the federal level, you will have to file Articles of Incorporation.</p>
+		<p>Articles of incorporation can be filed at: </p>
+		<ul>
+		<li><a href="https://www.ic.gc.ca/app/scr/cc/CorporationsCanada/hm.html?locale=en">Corporations Canada Online Filing Centre</a></li>
+		</ul>
+
+	</details>
+
+	<details>
+		<summary>How can I file a complaint against a company?</summary>
+		<p>For inforation on the complaint processes for different consumer issues, go to: </p>
+		<ul>
+		<li><a href="https://www.ic.gc.ca/eic/site/Oca-bc.nsf/eng/h_ca02964.html">Complaint roadmap</a></li>
+		</ul>
+
+	</details>
+</div>
+</div>
 
 <div id="def-preFooter">
 </div>
