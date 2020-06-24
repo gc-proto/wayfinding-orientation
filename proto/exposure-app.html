@@ -175,6 +175,11 @@
 				<p>This exposure notification application is built upon a decentralized notification system where randomly generated keys (proximity numbers) are exchanged, via Bluetooth, between smartphones that are within range and which have the application installed. Both phones store these proximity numbers for 14 days by default.</p>
 				<p>Every other phone checks the server regularly to see if any of the random identifiers they were in contact with may have tested positive for COVID-19.</p>
 			</details>
+			<details>
+				<summary>How Bluetooth works and when a signal could be weakened</summary>
+				<p>Bluetooth is a short-range wireless technology and there are many factors that can influence the strength of its signal: metals, walls, and even other devices including microwave ovens. In addition, Bluetooth technology can share its frequency with some Wi-Fi networks, which can result in a slower connection. Unfortunately, this type of interference cannot be completely eliminated and these factors are beyond the ability of any app to control.</p>
+				<p>In general, it is best that the distance between the two devices does not exceed 10 meters. Since recommended social distancing is approximately 6 meters, this works out well.</p>
+			</details>
 		</div>
 	</section>
 	
@@ -189,11 +194,15 @@
 			</ul>
 			<details>
 				<summary>Proximity numbers cannot be connected with you</summary>
-				<p>A proximity number is a randomly generated string of digits and letters that an app sends to other apps in range. The proximity number an app sends changes every 10 minutes.</p>
-				<p>The numbers are recorded when your phone gets in range of the other phone (~x meters). Distance between devices is determined by Bluetooth range of the phones. The app does not use or access any location data.</p>
+				<p>A proximity number is a randomly generated string of digits and letters that an app sends to other phones when they are within range (around 6-10 meters). The proximity number an app sends to other phones changes every 10 minutes to prevent repeat instances that could identify a phone.</p>
+				<p>Distance between devices is determined by Bluetooth. The app does not use or access any location data.</p>
 				<p>Only if you test positive for COVID-19 and share this with your app will your app flag proximity numbers it gave out over the past 14 days. Every other phone checks the server regularly to see if any of the proximity numbers they recorded have tested positive for COVID-19 and, if so, notify their users they were exposed.</p>
 				<p>The only information shared in this notification service is the proximity number.</p>
-				<p>The proximity numbers are automatically deleted after 14 days from all devices.</p>
+				<p>The proximity numbers are automatically deleted after 15 days from all devices.</p>
+			</details>
+			<details>
+				<summary>Bluetooth requires location services to be on, even if it doesn't use or access location data</summary>
+				<p>The Exposure Notification technology uses Bluetooth scanning to understand what devices are near one another. For the app to work, location settings must be on. However, no location information is stored or transmitted. Google and Apple have built in safeguards to ensure that government exposure notification apps are unable to infer your location. This is done by rotating random IDs assigned to your device, so that your individual device cannot be tracked. The random IDs do not contain any information about your location when they are exchanged with other devices in the system.</p>
 			</details>
 			<p><a href="https://digital.canada.ca/exposure-notification-app-privacy-policy/">Full details in the privacy statement</a></p>
 		</div>
