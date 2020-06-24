@@ -158,7 +158,10 @@
 	<script type="application/ld+json">
 	</script>
 
-	<h1 property="name" id="wb-cont" dir="ltr">COVID-19 exposure notification app</h1>
+	<h1 property="name" id="wb-cont" dir="ltr">StopCOVID Canada <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico" style="padding-bottom:10px;"> - COVID-19 exposure notification app</h1>
+	<p class="tagline">Help stop the spread of COVID-19 and protect your friends, family andcommunity by downloading (Health?) Canada’s mobile exposure notification app.</p>
+
+
 
 	<section class="well-sm">
 		<div class="container">
@@ -166,24 +169,31 @@
 			<p>After contracting COVID-19, the virus is contagious to others even though it can take up to 14 days for symptoms to appear.</p>
 			<p>The app will notify you when someone you encountered within the past 14 days tests positive for COVID-19 and shares that with their app.</p>
 		</div>
+		<details>
+			<summary>How the app works</summary>
+			<p>StopCOVID is a mobile app that supports Health Canada’s efforts to stop the spread of the virusby notifying you if you’ve been exposed to other app users who have been diagnosed with COVID-19.</p>
+			<p>This exposure notification application is built-upon a decentralized notification system where randomly generated keys (proximity numbers) are exchanged, via Bluetooth, between smartphones that are within range and which have the application installed. Both phones store these randomly generated keys for 14 days by default.</p>
+			<p>With this system, if someone tests positive for COVID-19, their healthcare provider can give them a one-time code that lets them upload their past 14 days of exposure keys to a central server. These keys are then automatically retrieved by other app users’ phones.</p>
+			<p>Every other phone checks the server regularly to see if any of the random identifiers they were in contact with may have tested positive for COVID-19.</p>
+		</details>
 	</section>
 	
 	<section class="well well-sm brdr-0">
 		<div class="container">
-			<h2>Your personal data is not collected</h2>
+			<h2>Completely private, completely anonymous</h2>
 			<p>The app:</p>
 			<ul>
-				<li>Only shares proximity numbers when you test positive</li>
+				<li>Only shares proximity numbers when you tell the app you test positive</li>
 				<li>Does <strong>not</strong> use or access any of your personal information (name, email, etc) - downloading and using the app is anonymous</li>
 				<li>Does <strong>not</strong> use or access geolocation data (GPS) in any way</li>
 			</ul>
 			<details>
-				<summary>Proximity numbers cannot be connected with you</summary>
-				<p>A proximity number is a randomly generated string of digits and letters that represents an encounter.</p>
-				<p>The proximity number is saved by both your app and any app that appears in bluetooth range of your device (~2 meters).</p>
-				<p>Only if you test positive for COVID-19 and share this with your app will your app flag proximity numbers from your past 14 days to other apps so that they can check if those same proximity numbers were recorded and, if so, notify their users they were exposed.</p>
-				<p>If someone you encountered tests positive for COVID-19, your app will notify you that you were exposed to COVID-19 if any of those encounters are from the last 14 days.</p>
-				<p>There is no personally identifiable information shared in this notification and the only information received by other users is the proximity numbers.</p>
+				<summary>Ping codes cannot be connected with you</summary>
+				<p>A proximity number is a randomly generated string of digits and letters that an app near that gets in range of you gives to your app.</p>
+				<p>The codes are recorded when your phone gets in bluetooth range of the other phone (~x meters) </p>
+				<p>Only if you test positive for COVID-19 and share this with your app will your app flag proximity numbers it gave out over the past 14 days to other apps so that they can check if those same proximity numbers were recorded and, if so, notify their users they were exposed.</p>
+				<p>If someone you encountered tests positive for COVID-19 and shares that with their app, your app will notify you that you were exposed to COVID-19 if any of those encounters are from the last 14 days.</p>
+				<p>There is no personally identifiable information shared in this notification and the only information received by other users is that they were exposed. Other apps don't even get the proximity codes.</p>
 				<p>The proximity numbers are automatically deleted after 14 days from all devices.</p>
 				<p><a href="https://digital.canada.ca/exposure-notification-app-privacy-policy/">More on how the notification app handles proximity number data</a></p>
 			</details>
@@ -201,7 +211,7 @@
 	
 	<section class="well well-sm brdr-0">
 		<div class="container mrgn-bttm-lg">
-			<h2 class="mrgn-bttm-lg" id="getit">Get the app</h2>
+			<h2 class="mrgn-bttm-lg" id="getit">Get StopCOVID Canada <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico" style="padding-bottom:10px;"></h2>
 			<img src="images/apple-store.png" style="height:80px">
 			<img src="images/google-store.png" style="height:80px">
 			<!-- <details>
@@ -213,13 +223,22 @@
 
 	<section class="well-sm">
 		<div class="container">
+			<h2>What you should do if you were exposed</h2>
+			<p>If your app notifies you that you were exposed to COVID-19, you should wash your hands regularly, socially distance yourself and check for symptoms.</p>
+			<p>Just because you were in proximity of someone with COVID-19, does not necessarily mean you were infected.</p>
+			<p>If you do start feeling ill, you should <a href="https://ca.thrive.health/covid19/en">Take a self-assessment</a> and follow the guidance given.</p>
+		</div>
+	</section>
+
+	<section class="well well-sm brdr-0">
+		<div class="container">
 			<h2>The more Canadians use the app, the safer we'll all be</h2>
 			<p>Quickly identifying if we've been exposed to COVID-19 and knowing when to get tested or take precautions to prevent others from getting infected are important parts of limiting the spread of COVID-19.</p>
-			<p>The more Canadians use the app, the more effective it becomes, notifying us of more potential exposures to COVID-19.</p>
+			<p>The more people who voluntarily download and use the app in Canada, the more effective it becomes and the healthier we'll be, and the faster we can hug our loved ones, reopen our economy, and stop COVID-19.</p>
 			<p>Share the app with your friends and family to ensure that we all protect ourselves and help keep others safe.</p>
-			<div class="col-sm-4 col-md-3">
+			<!-- <div class="col-sm-4 col-md-3">
 				<div class="wb-share" data-wb-share='{&#34;lnkClass&#34;: &#34;btn btn-default btn-block&#34;}'></div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 
@@ -316,7 +335,7 @@
 		</details>
 	</div>
 			   <div class="col-sm-4 col-md-3 col-sm-offset-2 col-md-offset-4 col-lg-offset-5">
-			<!-- <div class="wb-share" data-wb-share='{&#34;lnkClass&#34;: &#34;btn btn-default btn-block&#34;}'></div> -->
+			<div class="wb-share" data-wb-share='{&#34;lnkClass&#34;: &#34;btn btn-default btn-block&#34;}'></div>
 			</div>
 	</div>
 			<dl id="wb-dtmd">
