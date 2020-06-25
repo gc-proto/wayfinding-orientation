@@ -177,14 +177,14 @@
 				<p>Every day, the app checks a list of random codes from people who report a COVID-19 diagnosis through the app.</p>
 			</details>
 			<details>
-				<summary>COVIDAlert does not tell you if you get near someone diagnosed with COVID-19</summary>
-				<p>The app will not tell you in the moment if you're currently near someone who's been diagnosed.</p>
-				<p>It will not tell you about outbreaks in your city or neighbourhood either.</p>
-			</details>
-			<details>
 				<summary>How Bluetooth works and when a signal could be weakened</summary>
 				<p>Bluetooth is a short-range wireless technology and there are many factors that can influence the strength of its signal: metals, walls, and even other devices including microwave ovens. In addition, Bluetooth technology can share its frequency with some Wi-Fi networks, which can result in a slower connection. Unfortunately, this type of interference cannot be completely eliminated and these factors are beyond the ability of any app to control.</p>
 				<p>In general, it is best that the distance between the two devices does not exceed 10 meters. Since recommended social distancing is approximately 6 meters, this works out well.</p>
+			</details>
+			<details>
+				<summary>COVIDAlert does not tell you if you get near someone diagnosed with COVID-19</summary>
+				<p>The app will not tell you in the moment if you're currently near someone who's been diagnosed.</p>
+				<p>It will not tell you about outbreaks in your city or neighbourhood either.</p>
 			</details>
 		</div>
 	</section>
@@ -192,28 +192,30 @@
 	<section class="well well-sm brdr-0">
 		<div class="container">
 			<h2>Completely private, completely anonymous</h2>
-			<p>The app:</p>
+			<p>COVIDAlert:</p>
 			<ul>
 				<li>Only shares random tags when you tell the app you test positive</li>
-				<li>Does <strong>not</strong> use or access any of your personal information (name, email, etc)</li>
+				<li>Does <strong>not</strong> use or access any of your personal information (name, email, phone contacts, health information, etc)</li>
 				<li>Does <strong>not</strong> use or access geolocation data (GPS) in any way</li>
 			</ul>
 			<details>
 				<summary>Random tags cannot be connected with you</summary>
-				<p>A random tag is a randomly generated string of digits and letters that an app sends to other phones when they are within range. The random tag an app sends to other phones changes every 10 minutes to prevent repeat instances that could identify a phone.</p>
-				<p>Distance between devices is determined by Bluetooth. The app does not use or access any location data.</p>
-				<p>Only if you test positive for COVID-19 and share this with your app will your app flag random tags it gave out over the past 14 days. Every other phone checks the server regularly to see if any of the random tags they recorded have tested positive for COVID-19 and, if so, notify their users they were exposed.</p>
-				<p>The only information shared in this notification service is the random tag.</p>
-				<p>The random tags are automatically deleted after 15 days from all devices.</p>
-			</details>
-			<details>
-				<summary>Range at which random tags are recorded can be changed in the settings</summary>
-				<p>By default, the app will record random tags from any phones with the app within 10 meters.</p>
-				<p>You can change this in the app to only record at shorter distances.</p>
+				<p>The random tag is a randomly generated string of digits and letters that the app sends over Bluetooth when another phone is within range.</p>
+				<p>You control what that range is in your app settings. The app estimates how far away ohter phones are with the strength of their Bluetooth signal. It does not use or access any location data.</p>
+				<p>The random tag your phone sends out changes every 5 minutes so they can cannot be used to identify you.</p>
+				<p>Only if you test positive for COVID-19, you can choose to upload all the tags your phone sent out during the last 14 days. The tags go into a central server. The sever only gets the tags. It does not get any information about the person.</p>
+				<p>Every other phone checks the server regularly to see if any of the random tags they recorded have tested positive for COVID-19 and, if so, notify their users they were exposed.</p>
+				<p>The only information shared in this notification service is the random tags.</p>
+				<p>The random tags are automatically deleted after 14 days from all devices and the server.</p>
 			</details>
 			<details>
 				<summary>Bluetooth requires location services to be on, even if it doesn't use or access location data</summary>
 				<p>The Exposure Notification technology uses Bluetooth scanning to understand what devices are near one another. For the app to work, location settings must be on. However, no location information is stored or transmitted. Google and Apple have built in safeguards to ensure that government exposure notification apps are unable to infer your location. This is done by rotating random IDs assigned to your device, so that your individual device cannot be tracked. The random IDs do not contain any information about your location when they are exchanged with other devices in the system.</p>
+			</details>
+			<details>
+				<summary>Nothing is done without your permission</summary>
+				<p>Your phone keeps the date, duration and signal strength related all the random tags it collects. But those details are never shared outside your phone.</p>
+				<p>The app will ask you to allow it to log random codes. If you want to use COVIDAlert, you need to give permission.</p>
 			</details>
 			<p><a href="privacy-policy.html">Full details in the privacy policy</a></p>
 		</div>
