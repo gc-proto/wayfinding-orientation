@@ -167,13 +167,19 @@
 	<section class="well-sm">
 		<div class="container">
 			<h2>Protect yourself, protect others. Get notified.</h2>
+			<p>COVIDAlert warns you if someone you've been near during the past 14 days tells the app they tested positive for COVID-19.</p>
+			<p>That way, you can isolate right away and stop the spread.</p>
 			<p>After contracting COVID-19, the virus is contagious to others even though it can take up to 14 days for symptoms to appear.</p>
-			<p>The app will notify you when someone you encountered within the past 14 days tests positive for COVID-19 and shares that with their app.</p>
 			<details>
-				<summary>How the app works</summary>
+				<summary>How it works</summary>
 				<p>COVIDAlert <img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico" style="padding-bottom:10px;"> is a mobile app that supports Health Canada’s efforts to stop the spread of the virus by notifying you if you’ve been exposed to other app users who have been diagnosed with COVID-19.</p>
-				<p>This exposure notification application is built upon a decentralized notification system where randomly generated keys (proximity numbers) are exchanged, via Bluetooth, between smartphones that are within range and which have the application installed. Both phones store these proximity numbers for 14 days by default.</p>
-				<p>Every other phone checks the server regularly to see if any of the random identifiers they were in contact with may have tested positive for COVID-19.</p>
+				<p>This exposure notification application is built upon a decentralized notification system where random tags are exchanged, via Bluetooth, between smartphones that are within range and which have the application installed. Both phones store these tags for 14 days by default.</p>
+				<p>Every day, the app checks a list of random codes from people who report a COVID-19 diagnosis through the app.</p>
+			</details>
+			<details>
+				<summary>COVIDAlert does not tell you if you get near someone diagnosed with COVID-19</summary>
+				<p>The app will not tell you in the moment if you're currently near someone who's been diagnosed.</p>
+				<p>It will not tell you about outbreaks in your city or neighbourhood either.</p>
 			</details>
 			<details>
 				<summary>How Bluetooth works and when a signal could be weakened</summary>
@@ -188,21 +194,21 @@
 			<h2>Completely private, completely anonymous</h2>
 			<p>The app:</p>
 			<ul>
-				<li>Only shares proximity numbers when you tell the app you test positive</li>
+				<li>Only shares random tags when you tell the app you test positive</li>
 				<li>Does <strong>not</strong> use or access any of your personal information (name, email, etc)</li>
 				<li>Does <strong>not</strong> use or access geolocation data (GPS) in any way</li>
 			</ul>
 			<details>
-				<summary>Proximity numbers cannot be connected with you</summary>
-				<p>A proximity number is a randomly generated string of digits and letters that an app sends to other phones when they are within range. The proximity number an app sends to other phones changes every 10 minutes to prevent repeat instances that could identify a phone.</p>
+				<summary>Random tags cannot be connected with you</summary>
+				<p>A random tag is a randomly generated string of digits and letters that an app sends to other phones when they are within range. The random tag an app sends to other phones changes every 10 minutes to prevent repeat instances that could identify a phone.</p>
 				<p>Distance between devices is determined by Bluetooth. The app does not use or access any location data.</p>
-				<p>Only if you test positive for COVID-19 and share this with your app will your app flag proximity numbers it gave out over the past 14 days. Every other phone checks the server regularly to see if any of the proximity numbers they recorded have tested positive for COVID-19 and, if so, notify their users they were exposed.</p>
-				<p>The only information shared in this notification service is the proximity number.</p>
-				<p>The proximity numbers are automatically deleted after 15 days from all devices.</p>
+				<p>Only if you test positive for COVID-19 and share this with your app will your app flag random tags it gave out over the past 14 days. Every other phone checks the server regularly to see if any of the random tags they recorded have tested positive for COVID-19 and, if so, notify their users they were exposed.</p>
+				<p>The only information shared in this notification service is the random tag.</p>
+				<p>The random tags are automatically deleted after 15 days from all devices.</p>
 			</details>
 			<details>
-				<summary>Range at which proximity numbers are recorded can be changed in the settings</summary>
-				<p>By default, the app will record proximity numbers from any phones with the app within 10 meters.</p>
+				<summary>Range at which random tags are recorded can be changed in the settings</summary>
+				<p>By default, the app will record random tags from any phones with the app within 10 meters.</p>
 				<p>You can change this in the app to only record at shorter distances.</p>
 			</details>
 			<details>
@@ -215,11 +221,11 @@
 
 	<section class="well-sm">
 		<div class="container">
-			<h2>Notify others with your positive test code</h2>
-			<p>If you test positive for COVID-19, your healthcare provider will give you a one-time positive test code that lets you flag any proximity numbers you gave out in the past 14 days.</p>
-			<p>These proximity numbers are then automatically retrieved by other phones. When there is a match the app will give the user an exposure notification.</p>
-			<h3>Not all provinces are giving out codes yet</h3>
-			<p>Ontario will be the first to distribute positive test codes. The Government of Canada is working with other provinces and territories to make this available across Canada soon.</p>
+			<h2>Notify others with your positive test number</h2>
+			<p>If you test positive for COVID-19, your healthcare provider will give you a one-time 8-digit number that lets you flag any random tags you gave out in the past 14 days.</p>
+			<p>These random tags are then automatically retrieved by other phones. When there is a match the app will give the user an exposure notification.</p>
+			<h3>Not all provinces are giving out positive test numbers yet</h3>
+			<p>Ontario will be the first to distribute the 8-digit numbers. The Government of Canada is working with other provinces and territories to make this available across Canada soon.</p>
 			<ul>
 				<li><a href="">More from Ontario on their exposure notification support</a></li>
 			</ul>
