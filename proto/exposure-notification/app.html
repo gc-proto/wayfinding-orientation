@@ -155,8 +155,41 @@
 </div>
 
 <main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="">
-	<script type="application/ld+json">
-	</script>
+  <div class="mwsmediaplayer section">
+    <script type="application/ld+json">
+{
+     "@context":"http://schema.org",
+     "@type": "WebPage",
+     "name": "How much Canada Child Benefit you could get",
+     "speakable":{
+      "@type": "SpeakableSpecification","cssSelector": [".speakable1",".speakable2"]
+      },
+     "url":"http://test.canada.ca/covid-19-guidance/proto/exposure-notification/app.html"
+},
+{
+   "@context":"https://schema.org",
+   "@type":"FAQPage",
+   "mainEntity":[
+      {
+         "@type":"Question",
+         "name":"Diagnosed with COVID-19? Help others get notified",
+         "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"If you test positive for COVID-19, your health care provider provides a number for you to enter into the app."
+         }
+      },
+      {
+         "@type":"Question",
+         "name":"Get COVID Alert",
+         "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"<p><a href="">Download on the Apple store</a> or <a href="">Get it on Google Play</a>. The app is currently supported on iOS or Android devices.</p>"
+         }
+      }
+   ]
+}
+    </script>
+
 
 	<div class="container">
 		<h1 property="name" id="wb-cont" dir="ltr"><img src="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico" style="padding-bottom:10px;"> COVID Alert - COVID-19 exposure notification app</h1>
@@ -167,9 +200,11 @@
 	<section class="well-sm">
 		<div class="container">
 			<h2>Protect yourself, protect others. Get notified.</h2>
-			<p>The COVID Alert app notifies you if someone you were near in the past 14 days tells the app they tested positive.</p>
-			<p>That way, you can isolate and stop the spread.</p>
-			<p>The app uses Bluetooth to exchange anonymous random codes with nearby phones. <strong>No GPS or location tracking</strong> is involved.</p>
+			<div class="speakable2">
+				<p>The COVID Alert app notifies you if someone you were near in the past 14 days tells the app they tested positive.</p>
+				<p>That way, you can isolate and stop the spread.</p>
+				<p>The app uses Bluetooth to exchange anonymous random codes with nearby phones. <strong>No GPS or location tracking</strong> is involved.</p>
+			</div>
 			<img class="img-responsive center-block" style="max-width:300px;" src="../images/sketch-tokens-phones.png" alt="Shows 2 devices exchanging tags that have a random string of numbers and letters written on them.">
 			<p>The app will not tell you in the moment if you're currently near someone who's been diagnosed.</p>
 			<details>
@@ -188,17 +223,14 @@
 	<section class="well well-sm brdr-0">
 		<div class="container">
 			<h2>Completely private, completely anonymous</h2>
-			<p>COVID Alert has no way of knowing:</p>
-			<ul class="fa-ul">
-				<li><span class="fa-li fas fa-times text-danger"></span>your location - COVID Alert <strong>does not use GPS or location services</strong></li>
-				<li><span class="fa-li fas fa-times text-danger"></span>your name or address</li>
-				<li><span class="fa-li fas fa-times text-danger"></span>the place or time you were near someone</li>
-
-				<!-- <li><span class="fa-li fas fa-times text-danger"></span>Only the anonymous codes are collected and stored for 14 days.  They are shared with the server only when a one-time positive test number is entered.</li>
-				<li><span class="fa-li fas fa-times text-danger"></span>It has <strong>no</strong> way of knowing any of your personal information (name, email, phone contacts, health information, etc)</li>
-				<li><span class="fa-li fas fa-times text-danger"></span>It <strong>can't</strong> know, use or access your location data (GPS) in any way</li> -->
-				<!-- <li>Nothing is done without your permission.</li> -->
-			</ul>
+			<div class="speakable1">
+				<p>COVID Alert has no way of knowing:</p>
+				<ul class="fa-ul">
+					<li><span class="fa-li fas fa-times text-danger"></span>your location - COVID Alert <strong>does not use GPS or location services</strong></li>
+					<li><span class="fa-li fas fa-times text-danger"></span>your name or address</li>
+					<li><span class="fa-li fas fa-times text-danger"></span>the place or time you were near someone</li>
+				</ul>
+			</div>
 			<details>
 				<summary>Random codes cannot be connected with you</summary>
 				<p>The random code is a randomly generated string of digits and letters. It changes every 5 minutes so it cannot be used to identify you.</p>
