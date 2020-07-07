@@ -229,19 +229,13 @@
 			<h2 class="mrgn-tp-sm" id="protect">Protect yourself, protect others</h2>
 			<p>Canada's COVID Alert app notifies you if someone you were near in the past 14 days tells the app they tested positive.</p>
 			<p>That way, you can isolate and stop the spread.</p>
-			<!-- <img class="img-responsive center-block mrgn-bttm-lg mrgn-tp-lg" style="max-width:300px;" src="../images/sketch-tokens-phones.png" alt="2 mobile phones side by side. A tag with a code is shown moving from one phone to the other, with a Bluetooth logo above."> -->
-			<!-- class="mrgn-bttm-md" -->
-			<details class="mrgn-bttm-md">
-				<summary>How it works</summary>
-				<ul class="fa-ul">
-					<li><span class="fa-li fas fa-check text-success"></span>COVID Alert uses Bluetooth to exchange random codes with nearby phones.</li>
-					<li><span class="fa-li fas fa-check text-success"></span>It estimates how far away other phones are by the strength of their Bluetooth signal. COVID Alert does not use or access any location data.</li>
-					<li><span class="fa-li fas fa-check text-success"></span>Every day, it checks a list of codes from people who tell the app they tested positive.</li>
-					<li><span class="fa-li fas fa-check text-success"></span>You’ll get a notification if a code you received matches one of the positive codes.</li>
-				</ul>
-				<p><a href="#positive-number">Find out how notifications happen when someone tests positive</a></p>
-				<p>COVID Alert is built on the private exposure notification framework by Apple and Google.</p>
-			</details>
+			<ul class="fa-ul">
+				<li><span class="fa-li fas fa-check text-success"></span>COVID Alert sends randomly generated codes to nearby phones. It also records the codes those phones are sending out.</li>
+				<li><span class="fa-li fas fa-check text-success"></span>Every day, COVID Alert checks a list of codes from people who tell the app they tested positive.</li>
+				<li><span class="fa-li fas fa-check text-success"></span>You’ll get a notification with advice on what to do next in your province, if a code you received in the last 14 days matches one of the positive codes.</li>
+			</ul>
+			<p>The app will not tell you if you're currently near someone who's been diagnosed.</p>
+			<p><a href="#positive-number">Find out how notifications happen when someone tests positive</a></p>
 		</div>
 	</section>
 
@@ -255,6 +249,13 @@
 				<li><span class="fa-li fas fa-times text-danger"></span>the place or time you were near someone</li>
 				<li><span class="fa-li fas fa-times text-danger"></span>if you're currently near someone who was previously diagnosed</li>
 			</ul>
+			<p>COVID Alert does:</p>
+			<ul class="fa-ul">
+				<li><span class="fa-li fas fa-check text-success"></span>use Bluetooth to exchange random codes with nearby phones. Codes are changed every 5 minutes to keep phones anonymous</li>
+				<li><span class="fa-li fas fa-check text-success"></span>estimate how far away other phones are by the strength of their Bluetooth signal</li>	
+			</ul>
+
+
 			<!-- <details>
 				<summary>Random codes cannot be connected with you</summary>
 				<p>The codes are randomly generated strings of digits and letters. They change every 5 minutes so they cannot be used to identify you.</p>
@@ -308,15 +309,6 @@
 
 	<section class="well-sm">
 		<div class="container">
-			<h2>Check for symptoms if you were exposed</h2>
-			<p>Just because you were in proximity of someone with COVID-19, does not necessarily mean you were infected.</p>
-			<p>If your app notifies you that you were exposed to COVID-19, you should wash your hands regularly, physically distance yourself and check for symptoms.</p>
-			<p>The app will give you next steps when it notifies you of possible exposure to COVID-19.</p>
-		</div>
-	</section>
-
-	<section class="well well-sm brdr-0">
-		<div class="container">
 			<h2 class="mrgn-tp-sm" id="transparency">Open source and transparent</h2>
 			<p>The Canadian Digital Service is working with Canadians to build and continually improve the COVID Alert app.</p>
 			<ul>
@@ -324,6 +316,7 @@
 				<li><a href="https://github.com/cds-snc/covid-shield-server">COVID Alert open source server repository</a></li>
 				<li><a href="https://github.com/cds-snc/covid-healthcare-portal">Prototype repository for COVID Alert healthcare provider portal</a></li>
 			</ul>
+			<p>COVID Alert is built on the <a href="https://www.google.com/covid19/exposurenotifications/">private exposure notification framework by Apple and Google</a>.</p>
 			<p><a href="accessibility-statement.html">Find out how COVID Alert supports accessibility and adaptive devices</a>.</p>
 			<details>
 				<summary>Contact us</summary>
