@@ -46,195 +46,371 @@
 			});
 </script>
 
+<style>
+.provisional.ilp-cover-img {
+	background-image: url("https://design.canada.ca/coded-layout/images/ip-cover-image-1200x726.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: right;
+	margin-top: 15px;
+	padding-bottom: 25px;
+}
+
+.provisional .ilp-btn {
+	font-size: 1em;
+}
+
+.provisional.featured {
+	margin-bottom: 0em;
+	padding-top:20px;
+	padding-bottom:20px;
+	background: #31708f;
+}
+
+.provisional.featured a {
+	color:#fff
+}
+
+ul.feeds-cont li a {
+	font-weight: bold;
+}
+
+.provisional.most-requested-bullets li {
+	font-family: 'Lato', sans-serif;
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 26px;
+	margin-top: 0
+}
+
+.provisional.most-requested-bullets .pddng-r-0 {
+	padding-right: 0px;
+}
+
+.provisional.most-requested-bullets h2 {
+	font-size: 1.2em;
+}
+
+.provisional.list-bld {
+	font-weight: 600;
+}
+
+.provisional.followus h2 {
+	font-size: 1.1em;
+	margin-top: 10px;
+}
+
+.provisional.followus {
+	padding: 0;
+}
+
+.provisional.followus h2 {
+	display: block;
+}
+
+.provisional.followus h2,
+.provisional.followus ul {
+	margin-left: 0;
+}
+
+.provisional.followus-vertical {
+	line-height: 0em;
+}
+
+.provisional.followus-vertical,
+.provisional.followus {
+	background-color: transparent;
+}
+
+.provisional.followus-vertical a {
+	text-decoration: none;
+}
+
+.provisional.followus-vertical ul {
+	display: block;
+	list-style-type: none;
+	margin-block-start: 1em;
+	padding-inline-start: 1em;
+	font-size: 16px;
+	margin-block-end: 0em;
+}
+
+.provisional.followus-vertical ul li {
+	margin-bottom: 15px;
+}
+
+.provisional.followus-vertical ul li:last-child {
+	margin-bottom: 0px;
+}
+
+.provisional.followus-vertical ul li a {
+	border: none;
+	padding: 0px 5px;
+}
+
+.provisional.followus ul li a {
+	border: none;
+}
+
+.provisional .social-lnk {
+	position: relative;
+	bottom:-18px;
+	left:45px;
+}
+
+.provisional.followus-vertical li {
+	display: block;
+	background-position: left;
+}
+
+.provisional.followus .facebook,
+.provisional.followus .twitter,
+.provisional.followus .youtube,
+.provisional.followus .instagram,
+.provisional.followus .linkedin {
+	display: block;
+	height: 38px;
+	width: 38px;
+}
+/* remove this section if you do not want the new icons */
+
+.provisional.followus .facebook {
+	background: url("https://design.canada.ca/images/social-media/facebook.png") 0 0 / cover no-repeat;
+}
+.provisional.followus .twitter {
+	background: url("https://design.canada.ca/images/social-media/twitter.png") 0 0 / cover no-repeat;
+}
+.provisional.followus .youtube {
+	background: url("https://design.canada.ca/images/social-media/youtube.png") 0 0 / cover no-repeat;
+}
+.provisional.followus .instagram {
+	background: url("https://design.canada.ca/images/social-media/instagram.png") 0 0 / cover no-repeat;
+}
+.provisional.followus .linkedin {
+	background: url("https://design.canada.ca/images/social-media/linkedin.png") 0 0 / cover no-repeat;
+}
+/* end of new social media icons */
+
+@media screen and (max-width: 425px) {
+	.ilp-cover-hide-xxs {
+		background-image: url("none") !important;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.btn-call-to-action {
+		font-size: 19px !important;
+		}
+
+	.mobile-left {
+		float: left !important;
+		}
+}
+
+@media screen and (max-width: 768px) {
+	.ilp-cover-hide-xs {
+		background-image: url("none") !important;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.provisional.most-requested-bullets li {
+		font-size: 19px;
+	}
+}
+</style>
 <main role="main" property="mainContentOfPage">
-				<div class="ip-cover-img">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-7">
-								<h1 property="name" id="wb-cont">[Institution name]</h1>
-								<p>Short description of the institution’s mandate.</p>
-								<a class="btn btn-call-to-action ip-btn" href="#">Super task button [optional]</a>
+			<div class="provisional ilp-cover-img ilp-cover-hide-xs ilp-cover-hide-xxs">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-7">
+							<h1 property="name" id="wb-cont">[Institution name]</h1>
+							<p>Short description of the institution’s mandate.</p>
+							<a class="btn btn-call-to-action ilp-btn" href="#">Super task button [optional]</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<section class="provisional featured opct-90">
+				<div class="container">
+					<h2 class="wb-inv">Featured link</h2>
+					<a class="h5" href="#">Featured link [optional]</a>
+				</div>
+			</section>
+			<section class="provisional most-requested-bullets well well-sm brdr-0">
+				<div class="container">
+					<div class="row">
+						<div class="pddng-r-0 col-md-2">
+							<h2 class="mrgn-tp-md">Most requested</h2>
+						</div>
+						<div class="col-md-10">
+							<!-- change colcount-md-2 class with colcount-md-1 to make it 1 column instead of 2 -->
+							<ul class="wb-eqht mrgn-tp-md mrgn-bttm-md colcount-md-2">
+								<li><a href="#">[Top task hyperlink]</a></li>
+								<li><a href="#">[Top task hyperlink]</a></li>
+								<li><a href="#">[Top task hyperlink]</a></li>
+								<li><a href="#">[Top task hyperlink]</a></li>
+								<li><a href="#">[Top task hyperlink]</a></li>
+								<li><a href="#">[Top task hyperlink]</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="gc-srvinfo col-md-12 mrgn-bttm-lg">
+				<div class="container">
+					<div class="row">
+						<h2 class="wb-inv">Services and information</h2>
+						<div class="wb-eqht">
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
+							</div>
+							<div class="col-lg-4 col-md-6">
+								<h3><a href="#">[Hyperlink text]</a></h3>
+								<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
+									the page it links to.</p>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
 				</div>
-				<section class="featured opct-90">
-					<div class="container">
-						<h2 class="wb-inv">Featured link</h2>
-						<a class="h5" href="#">Featured link [optional]</a>
+			</section>
+			<div class="clearfix"></div>
+			<section class="well well-sm brdr-0">
+				<div class="container">
+					<div class="wb-eqht">
+						<h2 class="h3 mrgn-tp-md">Contact us</h2>
+						<ul class="provisional list-bld list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-3">
+							<li><a href="#">Contact [Institution]</a></li>
+							<li><a href="#">[Top contact task 2]</a></li>
+							<li><a href="#">[Top contact task 3]</a></li>
+						</ul>
 					</div>
-				</section>
-				<section class="provisional most-requested-bullets well well-sm brdr-0">
-					<div class="container">
-						<div class="row">
-							<div class="pddng-r-0 col-md-2">
-								<h2 class="mrgn-tp-md">Most requested</h2>
-							</div>
-							<div class="col-md-10">
-								<!-- change colcount-md-2 class with colcount-md-1 to make it 1 column instead of 2 -->
-								<ul class="wb-eqht mrgn-tp-md mrgn-bttm-md colcount-md-2">
-									<li><a href="#">[Top task hyperlink]</a></li>
-									<li><a href="#">[Top task hyperlink]</a></li>
-									<li><a href="#">[Top task hyperlink]</a></li>
-									<li><a href="#">[Top task hyperlink]</a></li>
-									<li><a href="#">[Top task hyperlink]</a></li>
-									<li><a href="#">[Top task hyperlink]</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="gc-srvinfo col-md-12 mrgn-bttm-lg">
-					<div class="container">
-						<div class="row">
-							<h2 class="wb-inv">Services and information</h2>
-							<div class="wb-eqht">
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="col-lg-4 col-md-6">
-									<h3><a href="#">[Hyperlink text]</a></h3>
-									<p>Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on
-										the page it links to.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<div class="clearfix"></div>
-				<section class="well well-sm brdr-0">
-					<div class="container">
-						<div class="wb-eqht">
-							<h2 class="h3 mrgn-tp-md">Contact us</h2>
-							<ul class="provisional list-bld list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-3">
-								<li><a href="#">Contact [Institution]</a></li>
-								<li><a href="#">[Top contact task 2]</a></li>
-								<li><a href="#">[Top contact task 3]</a></li>
+					<div class="row">
+						<section class="col-md-8 pull-left mrgn-bttm-lg">
+							<h2 class="h3 mrgn-tp-md">About the [Institution]</h2>
+							<ul class="provisional list-bld list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2">
+								<li><a href="#">Mandate</a></li>
+								<li><a href="#">Organizational structure</a></li>
+								<li><a href="#">Transparency</a></li>
+								<li><a href="#">Job opportunities</a></li>
+								<li><a href="#">Reports</a></li>
+								<li><a href="#">Compliance</a></li>
+								<li><a href="#">Enforcement notifications</a></li>
+								<li><a href="#">[Institutional link]</a></li>
+								<li><a href="#">[Institutional link]</a></li>
+								<li>More: <a href="#" rel="external">About the [Institution]</a></li>
 							</ul>
-						</div>
-						<div class="row">
-							<section class="col-md-8 pull-left mrgn-bttm-lg">
-								<h2 class="h3 mrgn-tp-md">About the [Institution]</h2>
-								<ul class="provisional list-bld list-unstyled mrgn-tp-lg lst-spcd-2 colcount-md-2">
-									<li><a href="#">Mandate</a></li>
-									<li><a href="#">Organizational structure</a></li>
-									<li><a href="#">Transparency</a></li>
-									<li><a href="#">Job opportunities</a></li>
-									<li><a href="#">Reports</a></li>
-									<li><a href="#">Compliance</a></li>
-									<li><a href="#">Enforcement notifications</a></li>
-									<li><a href="#">[Institutional link]</a></li>
-									<li><a href="#">[Institutional link]</a></li>
-									<li>More: <a href="#" rel="external">About the [Institution]</a></li>
+						</section>
+						<div class="col-md-4 col-sm-5 pull-right mobile-left">
+							<section class="lnkbx">
+								<h2 class="h3">Minister</h2>
+								<p><a href="#">[(Honourable) first and last name]</a><br>
+									<small>Minister's official title</small></p>
+								<p><a href="#">[(Honourable) first and last name]</a><br>
+									<small>Minister's official title</small></p>
+								<p><a href="#">[(Honourable) first and last name]</a><br>
+									<small>Minister's official title</small></p>
+							</section>
+							<section class="provisional followus">
+								<h2 class="mrgn-tp-lg h3">Follow us</h2>
+								<ul>
+									<li><a href="#" class="facebook" rel="external"><span class="wb-inv">Facebook</span></a></li>
+									<li><a href="#" class="twitter" rel="external"><span class="wb-inv">Twitter</span></a></li>
+									<li><a href="#" class="youtube" rel="external"><span class="wb-inv">YouTube</span></a></li>
+									<li><a href="#" class="linkedin" rel="external"><span class="wb-inv">LinkedIn</span></a></li>
 								</ul>
 							</section>
-							<div class="col-md-4 col-sm-5 pull-right mobile-left">
-								<section class="lnkbx">
-									<h2 class="h3">Minister</h2>
-									<p><a href="#">[(Honourable) first and last name]</a><br>
-										<small>Minister's official title</small></p>
-									<p><a href="#">[(Honourable) first and last name]</a><br>
-										<small>Minister's official title</small></p>
-									<p><a href="#">[(Honourable) first and last name]</a><br>
-										<small>Minister's official title</small></p>
-								</section>
-								<section class="provisional followus">
-									<h2 class="mrgn-tp-lg h3">Follow us</h2>
-									<ul>
-										<li><a href="#" class="facebook" rel="external"><span class="wb-inv">Facebook</span></a></li>
-										<li><a href="#" class="twitter" rel="external"><span class="wb-inv">Twitter</span></a></li>
-										<li><a href="#" class="youtube" rel="external"><span class="wb-inv">YouTube</span></a></li>
-										<li><a href="#" class="linkedin" rel="external"><span class="wb-inv">LinkedIn</span></a></li>
-									</ul>
-								</section>
-							</div>
 						</div>
 					</div>
-				</section>
-				<div class="container">
-					<div class="row">
-						<section class="col-md-4 wb-feeds limit-3 gc-nws">
-							<h2 class="h3">News</h2>
-							<!-- demonstrate the look - use json feed where applicable -->
-							<ul class="feeds-cont list-unstyled lst-spcd feed-active">
-								<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
-								<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
-								<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
-							</ul>
-							<!-- json feed for news example
-									<ul class="feeds-cont list-unstyled lst-spcd">
-										<li> <a data-ajax="https://www.canada.ca/content/canadasite/api/nws/fds/en/web-feeds/revenue-agency.json" href="https://www.canada.ca/en/revenue-agency.atom.xml" rel="external">Canada Revenue Agency news items</a> </li>
-									</ul>-->
-							<p>More: <a href="#" class="admin">[Institution] news</a></p>
-						</section>
-						<section class="col-md-8 gc-prtts">
-							<h2 class="h3">Features</h2>
-							<div class="row wb-eqht gc-srvinfo">
-								<div class="col-md-6 mrgn-bttm-md">
-									<a class="hght-inhrt" href="#">
-										<figure class="well well-sm brdr-rds-0 hght-inhrt">
-											<img class="img-responsive full-width" alt="#"
-												src="https://wet-boew.github.io/themes-dist/GCWeb/img/360x203.png" />
-											<figcaption class="mrgn-lft-sm">[Featured hyperlink text]</figcaption>
-											<p class="mrgn-lft-sm">Brief description of the feature being promoted.</p>
-										</figure>
-									</a>
-								</div>
-								<div class="col-md-6 mrgn-bttm-md">
-									<a class="hght-inhrt" href="#">
-										<figure class="well well-sm brdr-rds-0 hght-inhrt">
-											<img class="img-responsive full-width" alt="#"
-												src="https://wet-boew.github.io/themes-dist/GCWeb/img/360x203.png" />
-											<figcaption class="mrgn-lft-sm">[Featured hyperlink text]</figcaption>
-											<p class="mrgn-lft-sm">Brief description of the feature being promoted.</p>
-										</figure>
-									</a>
-								</div>
-							</div>
-						</section>
-					</div>
 				</div>
+			</section>
+			<div class="container">
+				<div class="row">
+					<section class="col-md-4 wb-feeds limit-3 gc-nws">
+						<h2 class="h3">News</h2>
+						<!-- demonstrate the look - use json feed where applicable -->
+						<ul class="feeds-cont list-unstyled lst-spcd feed-active">
+							<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
+							<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
+							<li><a href="#">[News title]</a><br> <small class="feeds-date">YYYY-MM-DD HH:MM</small></li>
+						</ul>
+						<!-- json feed for news example
+						<ul class="feeds-cont list-unstyled lst-spcd">
+							<li> <a data-ajax="https://www.canada.ca/content/canadasite/api/nws/fds/en/web-feeds/revenue-agency.json" href="https://www.canada.ca/en/revenue-agency.atom.xml" rel="external">Canada Revenue Agency news items</a> </li>
+						</ul>-->
+						<p>More: <a href="#" class="admin">[Institution] news</a></p>
+					</section>
+					<section class="col-md-8 gc-prtts">
+						<h2 class="h3">Features</h2>
+						<div class="row wb-eqht gc-srvinfo">
+							<div class="col-md-6 mrgn-bttm-md">
+								<a class="hght-inhrt" href="#">
+									<figure class="well well-sm brdr-rds-0 hght-inhrt">
+										<img class="img-responsive full-width" alt="#"
+											src="https://wet-boew.github.io/themes-dist/GCWeb/img/360x203.png" />
+										<figcaption class="mrgn-lft-sm">[Featured hyperlink text]</figcaption>
+										<p class="mrgn-lft-sm">Brief description of the feature being promoted.</p>
+									</figure>
+								</a>
+							</div>
+							<div class="col-md-6 mrgn-bttm-md">
+								<a class="hght-inhrt" href="#">
+									<figure class="well well-sm brdr-rds-0 hght-inhrt">
+										<img class="img-responsive full-width" alt="#"
+											src="https://wet-boew.github.io/themes-dist/GCWeb/img/360x203.png" />
+										<figcaption class="mrgn-lft-sm">[Featured hyperlink text]</figcaption>
+										<p class="mrgn-lft-sm">Brief description of the feature being promoted.</p>
+									</figure>
+								</a>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+			<div class="container">
 
 <div id="def-preFooter">
+</div>
 </div>
 <!-- Write closure template -->
 <script type="text/javascript">
