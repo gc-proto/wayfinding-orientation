@@ -1310,26 +1310,35 @@
       //convert currency fields to two decimal places and remove '$' if present
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
-        var formattedVal = toMoney.format($("#" + target.id).val());
+        var formattedVal = toMoney.format($(target).val());
         formattedVal = formattedVal.replace("$", "");
-        $("#" + target.id).text(formattedVal);
+        $(target).val(formattedVal);
       });
 
-
+      //update the emplyee wage summary
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
         var updateTarget = $("#" + $(target).data("updates"));
-        $(updateTarget).text(target.value);
+        var formattedVal = toMoney.format(target.value);
+        //update the weekly/bi-weekly entry
+        $(updateTarget).text(formattedVal);
+        //update the total
         if ($(updateTarget).data("updates")) {
-          //update the target to the second level target
+          /*
+            update the target to the total column and get all elements that make up the total
+          */
           updateTarget = $("#" + $(updateTarget).data("updates"));
           var elements = $("." + $(updateTarget).data("updated-by"));
           var total = 0;
+          //get the total wage
           $(elements).each(function(i, element) {
-            if (parseInt($(element).text())) {
-              total += parseInt($(element).text());
+            //strip the $ that was added by the toMoney.format call
+            formattedVal = $(element).text().replace("$", "");
+            if (parseFloat(formattedVal)) {
+              total += parseFloat(formattedVal);
             }
           });
+          //format the wage and update the total
           var formattedTotal = toMoney.format(total);
           $(updateTarget).text(formattedTotal);
         }
