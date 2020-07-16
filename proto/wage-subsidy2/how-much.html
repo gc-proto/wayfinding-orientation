@@ -449,28 +449,28 @@
                                       <label for="wkly-wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required step="any" type="number"
-                                          class="form-control text-right input-sm currency emp-wage" data-updates="w1-amt-1" id="wkly-wkone-1">
+                                          class="form-control text-right input-sm currency emp-wage emp-wkly-wage-1" data-updates="w1-amt-1" id="wkly-wkone-1">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkly-wktwo-1">Week two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency emp-wage" step="any" id="wkly-wktwo-1" data-updates="w2-amt-1">
+                                          class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any" id="wkly-wktwo-1" data-updates="w2-amt-1">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkly-wkthree-1">Week three</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency emp-wage" step="any" id="wkly-wkthree-1" data-updates="w3-amt-1">
+                                          class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any" id="wkly-wkthree-1" data-updates="w3-amt-1">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkly-wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency emp-wage" step="any" id="wkly-wkfour-1" data-updates="w4-amt-1">
+                                          class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any" id="wkly-wkfour-1" data-updates="w4-amt-1">
                                       </div>
                                     </div>
                                   </div>
@@ -493,19 +493,19 @@
                                     <tbody>
                                       <tr>
                                         <td>Week one</td>
-                                        <td class="emp-wkly-wage-1" data-updates="amt-ttl-1" id="w1-amt-1">$XXX</td>
+                                        <td data-updates="amt-ttl-1" id="w1-amt-1">$XXX</td>
                                       </tr>
                                       <tr>
                                         <td>Week two</td>
-                                        <td class="emp-wkly-wage-1" data-updates="amt-ttl-1" id="w2-amt-1">$XXX</td>
+                                        <td data-updates="amt-ttl-1" id="w2-amt-1">$XXX</td>
                                       </tr>
                                       <tr>
                                         <td>Week three</td>
-                                        <td class="emp-wkly-wage-1" data-updates="amt-ttl-1" id="w3-amt-1">$XXX</td>
+                                        <td data-updates="amt-ttl-1" id="w3-amt-1">$XXX</td>
                                       </tr>
                                       <tr>
                                         <td>Week four</td>
-                                        <td class="emp-wkly-wage-1" data-updates="amt-ttl-1" id="w4-amt-1">$XXX</td>
+                                        <td data-updates="amt-ttl-1" id="w4-amt-1">$XXX</td>
                                       </tr>
                                     </tbody>
                                     <tfoot>
@@ -1331,8 +1331,7 @@
           var total = 0;
           //get the total wage
           $(elements).each(function(i, element) {
-            //strip the $ that was added by the toMoney.format call
-            formattedVal = $(element).text().replace("$", "");
+            formattedVal = $(element).val();
             if (parseFloat(formattedVal)) {
               total += parseFloat(formattedVal);
             }
