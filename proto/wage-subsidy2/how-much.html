@@ -10,6 +10,7 @@
   <!-- Meta data -->
   <!-- Meta data-->
   <!-- Load closure template scripts -->
+  
   <script type="text/javascript"
     src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
   <script type="text/javascript"
@@ -448,28 +449,28 @@
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required step="any" type="number"
-                                          class="form-control text-right input-sm currency" id="wkone-1">
+                                          class="form-control text-right input-sm currency" data-updates="w1-amt-1" onblur="$('#' + $(this).data('updates')).text(this.value);updateTotals();" id="wkone-1">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wktwo-1">Week two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency" step="any" id="wktwo-1">
+                                          class="form-control text-right currency" step="any" id="wktwo-1" data-updates="w2-amt-1" onblur="$('#' + $(this).data('updates')).text(this.value)">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkthree-1">Week three</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency" step="any" id="wkthree-1">
+                                          class="form-control text-right currency" step="any" id="wkthree-1" data-updates="w3-amt-1" onblur="$('#' + $(this).data('updates')).text(this.value)">
                                       </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency" step="any" id="wkfour-1">
+                                          class="form-control text-right currency" step="any" id="wkfour-1" data-updates="w4-amt-1" onblur="$('#' + $(this).data('updates')).text(this.value)">
                                       </div>
                                     </div>
                                   </div>
@@ -1311,26 +1312,7 @@
         var target = event.target;
         var formattedVal = toMoney.format($("#" + target.id).val());
         formattedVal = formattedVal.replace("$", "");
-        parseFloat(formattedVal);
-        $("#" + target.id).val(formattedVal);
-      });
-      
-      //display specific employee work hours panel based on pay schedule
-      $document.on("change", "#py-schl", function (event) {
-        var target = event.target
-        //user chose weekly pay schedule
-        if (target.value == "1") {
-          $("#emp1").removeClass('hidden');
-          $("#emp2").addClass('hidden');
-        //user chose bi-weekly schedule
-        } else if(target.value == "2") {
-          $("#emp2").removeClass('hidden');
-          $("#emp1").addClass('hidden');
-        //default index selected
-        } else {
-          $("#emp1").addClass('hidden');
-          $("#emp2").addClass('hidden');
-        }
+        $("#" + target.id).text(formattedVal);
       });
 
       // Bind the init event of the plugin
@@ -1342,5 +1324,6 @@
            // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
   </script>
 </body>
-
+  <script type="text/javascript"
+    src="../js/employee-wage-form-display.js"></script>
 </html>
