@@ -1310,8 +1310,7 @@
       //convert currency fields to two decimal places and remove '$' if present
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
-        var formattedVal = toMoney.format($(target).val());
-        formattedVal = formattedVal.replace("$", "");
+        var formattedVal = parseFloat($(target).val()).toFixed(2);
         $(target).val(formattedVal);
       });
 
