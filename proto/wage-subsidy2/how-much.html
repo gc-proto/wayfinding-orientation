@@ -413,7 +413,7 @@
                             </div>
                           </div>
                         </fieldset>
-                        <fieldset id="employees">
+                        <fieldset class="hidden" id="employees">
                           <legend>Calculate your employee's wages</legend>
                           <div>
                             <p>Include all your eligible employees.</p>
@@ -511,7 +511,7 @@
                                     <tfoot>
                                       <tr>
                                         <td>4 week total</td>
-                                        <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1"></td>
+                                        <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$XXX</td>
                                       </tr>
                                     </tfoot>
                                   </table>
@@ -602,8 +602,8 @@
                               18 employees left </p>
                           </div>
                         </fieldset>
-                        <input type="submit" name="submit" value="Send this information to the fields below"
-                          class="btn btn-primary">
+                        <input id="sendTo" type="submit" name="submit" value="Send this information to the fields below"
+                          class="btn btn-primary hidden">
                       </details>
                       <details>
                         <summary>
