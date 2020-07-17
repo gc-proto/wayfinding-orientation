@@ -1313,7 +1313,7 @@
        */
       EmployeeFormGenerator.prototype.updateInputs = function (frag) {
         var inputs = $(frag).find("input[id$='-1']");
-        var numEmps = this.numberOfEmployees + 1
+        var numEmps = this.numberOfEmployees + 1;
         $(inputs).each(function (i, element) {
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
@@ -1323,10 +1323,10 @@
           $(label).attr("for", $(label).attr("for").replace(/-1$/g, "-" + numEmps)
           );
           //update the class that drives employee wage summary 
-          if ($(element).hasClass("emp-wkly-wage-" + (numEmps - 1))) {
+          if ($(element).hasClass("emp-wkly-wage-1")) {
             $(element).removeClass("emp-wkly-wage-" + (numEmps - 1));
             $(element).addClass("emp-wkly-wage-" + numEmps);
-          } else if ($(element).hasClass("emp-bwkly-wage-" + (numEmps - 1))) {
+          } else if ($(element).hasClass("emp-bwkly-wage-1")) {
             $(element).removeClass("emp-bwkly-wage-" + (numEmps - 1));
             $(element).addClass("emp-bwkly-wage-" + numEmps);
           }
