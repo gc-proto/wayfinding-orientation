@@ -256,7 +256,7 @@
               <label for="eg4">You completed or ended your post-secondary studies after December&nbsp;2019</label>
             </li>
             <li>
-              <label for="eg4">You completed or expect to complete high school or equivalency in 2020 <strong class="text-capitalize">and</strong> have applied for a post-secondary educational program that starts before February 1, 2021</label>
+              <label for="eg4">You completed or expect to complete high school or equivalency in 2020 <strong class="text-uppercase">and</strong> have applied for a post-secondary educational program that starts before February 1, 2021</label>
             </li>
           </ul>
 		  
@@ -306,6 +306,9 @@
           </ul> 
         </li> 
       </ul>
+<div class="alert alert-warning provisional hidden" id="noaction-msg">
+			<p>You need all of the above to be eligible for the CESB.</p>
+			</div>		       
       <div class="alert alert-success hidden provisional" id="action-msg1">
        <p>You are eligible for the CESB. You can get <strong class="lead">$1,250</strong> for each 4-week period that you qualify for.</p>
       </div>
@@ -403,29 +406,40 @@
       </script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 
-      <script>
+     <script>
  $(".action-checkbox").change(function(){
+	 if ($(".action-checkbox:checked")) {
+		$("#noaction-msg").removeClass("hidden");
+		 
+	 }
+	 if ($(".action-checkbox:not(:checked)").length == 6) {
+		$("#noaction-msg").addClass("hidden");
+		 
+	 }
    if ($(".cb-dmm:checked, #eg5:checked, #eg6:not(:checked)").length == 6) {
 
      $("#action-msg1").removeClass("hidden");
+	   $("#noaction-msg").addClass("hidden");
      $("#action-msg2").addClass("hidden");
     }
     if ($(".cb-dmm:checked, #eg5:checked, #eg6:checked").length == 6) {
  $("#action-msg1").addClass("hidden");
+	$("#noaction-msg").addClass("hidden");
       $("#action-msg2").removeClass("hidden");
     }
     if ($(".cb-dmm:not(:checked), #eg5:not(:checked)").length == 1)  {
 
      $("#action-msg1").addClass("hidden");
+		$("#noaction-msg").removeClass("hidden");
     }
      if ($(".cb-dmm:not(:checked), #eg5:not(:checked), #eg6:not(:checked)").length == 1)  {
 
      $("#action-msg2").addClass("hidden");
+	
     }
   
   });
 
 </script> 
-      </script>
    </body>
 </html>
