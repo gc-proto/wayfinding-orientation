@@ -419,7 +419,7 @@
                             <p>Include all your eligible employees.</p>
                             <fieldset class="panel panel-default p-0 hidden" id="wkly-emp-1">
                               <div class="panel-body">
-                                <legend><span class="fas fa-user"></span> Eligible employee 1</legend>
+                                <legend><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
                                 <div class="form-group">
                                   <label for="wkly-arms-1">Is employee at arm's length</label>
                                   <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
@@ -483,11 +483,11 @@
                               </div>
                               <footer class="panel-footer">
                                 <details>
-                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee 1
+                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee <span class="employeeNumber">1</span>
                                   </summary>
                                   <table class="table table-condensed small text-muted">
                                     <caption class="wb-inv">
-                                      Calculation summary for employee 1
+                                      Calculation summary for employee <span class="employeeNumber">1</span>
                                     </caption>
                                     <thead>
                                       <tr>
@@ -525,7 +525,7 @@
                             </fieldset>
                             <fieldset class="panel panel-default p-0 hidden" id="bwkly-emp-1">
                               <div class="panel-body">
-                                <legend><span class="fas fa-user"></span> Eligible employee 2</legend>
+                                <legend><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
                                 <div class="form-group">
                                   <label for="bwkly-arms-1">Is employee at arm's length</label>
                                   <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
@@ -573,11 +573,11 @@
                               </div>
                               <footer class="panel-footer">
                                 <details>
-                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee 2
+                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee <span class="employeeNumber">1</span>
                                   </summary>
                                   <table class="table table-condensed small text-muted">
                                     <caption class="wb-inv">
-                                      Calculation summary for employee 2
+                                      Calculation summary for employee <span class="employeeNumber">1</span>
                                     </caption>
                                     <thead>
                                       <tr>
@@ -610,7 +610,7 @@
                             <button class="btn btn-default" id="addemp" type="button"><span
                                 class="fas fa-plus-circle"></span> Add
                               another employee</button>
-                            18 employees left </p>
+                            <span id="remainingEmplyees">18</span> employees left </p>
                         </fieldset>
                         <input id="sendTo" type="submit" name="submit" value="Send this information to the fields below"
                           class="btn btn-primary hidden">
@@ -1236,8 +1236,16 @@
         var frag = document.getElementById(this.templateId);
         //clone the document fragment, with all children, and all attributes
         frag = $(frag).clone();
+        //update the frame id
         $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)));
+        //add class that will be used to identify panels to remove when the selected pay schedule is changed
         $(frag).addClass("extra-emp-pnl");
+        //update the employee number text
+        var numEmps = this.numberOfEmployees + 1;
+        $(frag).find(".employeeNumber").each(function(e, element) {
+          $(element).text(numEmps);
+        });
+        //update the DOM fragment
         this.updateArmsLengthElementId(frag);
         this.updateBaselineWageElementId(frag);
         this.setUpdatesAndUpdatedByData(frag);
@@ -1564,6 +1572,7 @@
         numEmployeePanels++;
         var frag = employeeFormGenerator.generateNewEmployeeForm(numEmployeePanels);
         $(frag).appendTo("#employeeDiv");
+        $("#remainingEmplyees").text(parseInt($("#remainingEmplyees").text()) - 1);
       }
 
       // Bind the init event of the plugin
