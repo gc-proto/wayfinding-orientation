@@ -415,7 +415,7 @@
                         </fieldset>
                         <fieldset class="hidden" id="employees">
                           <legend>Calculate your employee's wages</legend>
-                          <div>
+                          <div id="employeeDiv">
                             <p>Include all your eligible employees.</p>
                             <fieldset class="panel panel-default p-0 hidden" id="wkly-emp-1">
                               <div class="panel-body">
@@ -549,14 +549,14 @@
                                       <label for="pdone-2">2-week period one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right input-sm currency" skip="any" id="bwkly-pdone-1" data-updates="p1-amt-1">
+                                          class="form-control text-right input-sm currency emp-bwkly-wage-1" skip="any" id="bwkly-pdone-1" data-updates="p1-amt-1">
                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                       <label for="bwkly-pdtwo-1">2-week period two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
-                                          class="form-control text-right currency" id="bwkly-pdtwo-1" data-updates="p2-amt-1">
+                                          class="form-control text-right currency emp-bwkly-wage-1" id="bwkly-pdtwo-1" data-updates="p2-amt-1">
                                       </div>
                                     </div>
                                   </div>
@@ -579,11 +579,11 @@
                                     <tbody>
                                       <tr>
                                         <td>2-week period one</td>
-                                        <td class="emp-bwkly-wage-1" data-updates="bwkly-amt-ttl-1" id="p1-amt-1">$XXX</td>
+                                        <td data-updates="bwkly-amt-ttl-1" id="p1-amt-1">$XXX</td>
                                       </tr>
                                       <tr>
                                         <td>2-week period two</td>
-                                        <td class="emp-bwkly-wage-1" data-updates="bwkly-amt-ttl-1" id="p2-amt-1">$XXX</td>
+                                        <td data-updates="bwkly-amt-ttl-1" id="p2-amt-1">$XXX</td>
                                       </tr>
                                     </tbody>
                                     <tfoot>
@@ -596,11 +596,11 @@
                                 </details>
                               </footer>
                             </fieldset>
-                            <p class="mrgn-bttm-xl">
-                              <button class="btn btn-default" id="addemp"><span class="fas fa-plus-circle"></span> Add
-                                another employee</button>
-                              18 employees left </p>
                           </div>
+                              <p class="mrgn-bttm-xl">
+                                <button class="btn btn-default" id="addemp" type="button"><span class="fas fa-plus-circle"></span> Add
+                                  another employee</button>
+                                18 employees left </p>
                         </fieldset>
                         <input id="sendTo" type="submit" name="submit" value="Send this information to the fields below"
                           class="btn btn-primary hidden">
@@ -1168,6 +1168,167 @@
   </script>
   <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
   <script>
+    
+var EmployeeFormGenerator = (function () {
+  
+
+  /**
+   * Constructor
+   * @param {Int} paySchedule the numeric value of the chosen pay schedule
+   */
+  function EmployeeFormGenerator(paySchedule) {
+    this.paySchedule = paySchedule;
+    this.updateTemplateId();
+    this.prefix = "";
+    this.numberOfEmployees = 1;
+    this.weekly = 1;
+    this.biWeekly = 2;
+    this.weeklyPrefix = "wkly-";
+    this.biWeeklyPrefix = "bwkly-";
+    this.weeklyTemplateId = this.weeklyPrefix +"emp-1";
+    this.biWeeklyTemplateId = this.biWeeklyPrefix+ "emp-1";
+    this.armsLengthId = "arms-";
+    this.baselineId = "baseline-"
+    this.updatePrefix();
+  }
+
+  /**
+   * 
+   */
+  EmployeeFormGenerator.prototype.generateNewEmployeeForm = function() {
+    if (this.paySchedule == this.weekly) {
+      //generate another weekly pay template
+      var newTemplate =  this.newWeeklyTemplate();
+      this.numberOfEmployees++;
+      //update number of employee frames
+      return newTemplate;
+    } else if (this.paySchedule == this.biWeekly) {
+      //generate another bi-weekly pay template
+      var newTemplate = this.newBiWeeklyTemplate();
+      //update number of employee frames
+      this.numberOfEmployees++;
+      return newTemplate;
+    } else {
+      //clear all employee data? check with designers
+    }
+  }
+
+  /**
+   * 
+   * @param {Int} newPaySchedule 
+   */
+  EmployeeFormGenerator.prototype.updatePaySchedule = function(newPaySchedule) {
+    this.paySchedule = newPaySchedule;
+    this.updateTemplateId();
+    this.updatePrefix();
+  }
+
+  /**
+   * 
+   */
+  EmployeeFormGenerator.prototype.newBiWeeklyTemplate = function() {
+    var frag = document.getElementById(this.templateId);
+    frag = $(frag).clone(true,true);
+    $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)))
+    this.updateArmsLengthElementId(frag);
+    this.updateBaselineWageElementId(frag);
+    this.setUpdatesAndUpdatedByData(frag);
+    return frag;
+  }
+  
+  /**
+   * 
+   */
+  EmployeeFormGenerator.prototype.newWeeklyTemplate = function() {
+    var frag = document.getElementById(this.templateId);
+    //clone the document fragment, with all children, and all attributes
+    frag = $(frag).clone(true, true);
+    $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)))
+    this.updateArmsLengthElementId(frag);
+    this.updateBaselineWageElementId(frag);
+    this.setUpdatesAndUpdatedByData(frag);
+    this.updateInputIds(frag);
+    return frag;
+  }
+
+  /**
+   * 
+   */
+  EmployeeFormGenerator.prototype.updateTemplateId = function() {
+    if (this.paySchedule == this.weekly) {
+      this.templateId = this.weeklyTemplateId;
+    } else {
+      this.templateId = this.biWeeklyTemplateId;
+    }
+  }
+
+  /**
+   * 
+   * @param {DOMDocumentFragment} frag 
+   */
+  EmployeeFormGenerator.prototype.updateArmsLengthElementId = function(frag) {
+    var armsLengthElement = $(frag).find(
+      "#" + this.prefix + this.armsLengthId + this.numberOfEmployees
+    );
+    console.debug("#" + this.prefix + this.armsLengthId + this.numberOfEmployees);
+    $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
+  }
+
+  /**
+   * 
+   * @param {DOMDocumentFragment} frag 
+   */
+  EmployeeFormGenerator.prototype.updateBaselineWageElementId = function(frag) {
+    var baselineWageElement = $(frag).find(
+      "#" + this.prefix + this.baselineId + this.numberOfEmployees
+    );
+    $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
+  }
+
+  /**
+   * 
+   * @param {DOMDocumentFragment} frag 
+   */
+  EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function(frag) {
+    var updateElements = $(frag).find("*[data-updates]");
+    var updatedByElements = $(frag).find("*[data-updated-by]");
+    var numEmps = this.numberOfEmployees + 1
+    $(updateElements).each(function(i, element) {
+      $(element).data("updates", $(element).data("updates").replace(/-1$/g, "-" + numEmps));
+    });
+    $(updatedByElements).each(function(i, element) {
+      $(element).data("updated-by", $(element).data("updated-by").replace(/-1$/g, "-" + numEmps));
+    });
+  }
+
+  /**
+   * 
+   * @param {DOMDocumentFragment} frag 
+   */
+  EmployeeFormGenerator.prototype.updateInputIds = function(frag) {
+    var inputs = $(frag).find("input[id$='-1']");
+    var numEmps = this.numberOfEmployees + 1
+    $(inputs).each(function(i, element) {
+      //need to get the label for each of these elements and update the 'for' attr
+      $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps));
+    });
+  }
+
+  EmployeeFormGenerator.prototype.updatePrefix = function () {
+    if (this.templateId == this.weeklyTemplateId) {
+      this.prefix = this.weeklyPrefix
+    } else if (this.templateId == this.biWeeklyTemplateId) {
+      this.prefix = this.biWeeklyPrefix
+    } else {
+      this.prefix = "";
+    }
+  }
+
+  return EmployeeFormGenerator;
+})();
+
+  </script>
+  <script>
     (function ($, window, wb) {
       "use strict";
       /*
@@ -1182,7 +1343,7 @@
         currency: "CAD",
         minimumFractionDigits: 2
       });
-
+      var employeeFormGenerator = new EmployeeFormGenerator($("#py-schl").val());
       var componentName = "wb-calc",
         selector = "." + componentName,
         initEvent = "wb-init" + selector,
@@ -1343,8 +1504,9 @@
       });
 
       //display specific employee work hours panel based on pay schedule
-      $("#py-schl").on("change", function (event) {
+      $(document).on("change", "#py-schl", function (event) {
         var target = event.target;
+        employeeFormGenerator.updatePaySchedule(target.value)
         $("#employees").removeClass('hidden');
         $("#sendTo").removeClass('hidden');
         //user chose weekly pay schedule
@@ -1364,6 +1526,13 @@
         }
         target.parentElement.scrollIntoView(true);
       });
+      
+      $("#addemp").on("click", addEmp);
+      $("#addemp").on("keypress", addEmp);
+      function addEmp() {
+        var frag = employeeFormGenerator.generateNewEmployeeForm();
+        $(frag).appendTo("#employeeDiv");
+      }
 
       // Bind the init event of the plugin
       $document.on("timerpoke.wb " + initEvent, selector, init);
