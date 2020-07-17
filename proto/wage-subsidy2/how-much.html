@@ -546,7 +546,7 @@
                                   <legend>Eligible remuneration in respect of the claim period <span class="claim-period" ></span></legend>
                                   <div class="form-group row">
                                     <div class="col-md-6">
-                                      <label for="pdone-2">2-week period one</label>
+                                      <label for="bwkly-pdone-1">2-week period one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right input-sm currency emp-bwkly-wage-1" skip="any" id="bwkly-pdone-1" data-updates="p1-amt-1">
@@ -1196,18 +1196,14 @@ var EmployeeFormGenerator = (function () {
    * 
    */
   EmployeeFormGenerator.prototype.generateNewEmployeeForm = function() {
-    if (this.paySchedule == this.weekly) {
-      //generate another weekly pay template
-      var newTemplate =  this.newWeeklyTemplate();
-      this.numberOfEmployees++;
-      //update number of employee frames
-      return newTemplate;
-    } else if (this.paySchedule == this.biWeekly) {
-      //generate another bi-weekly pay template
-      var newTemplate = this.newBiWeeklyTemplate();
+    if (this.paySchedule == this.weekly ||
+      this.paySchedule == this.biWeekly
+    ) {
+      //generate another pay form
+      var newForm =  this.generateNewForm();
       //update number of employee frames
       this.numberOfEmployees++;
-      return newTemplate;
+      return newForm;
     } else {
       //clear all employee data? check with designers
     }
@@ -1222,32 +1218,20 @@ var EmployeeFormGenerator = (function () {
     this.updateTemplateId();
     this.updatePrefix();
   }
-
-  /**
-   * 
-   */
-  EmployeeFormGenerator.prototype.newBiWeeklyTemplate = function() {
-    var frag = document.getElementById(this.templateId);
-    frag = $(frag).clone(true,true);
-    $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)))
-    this.updateArmsLengthElementId(frag);
-    this.updateBaselineWageElementId(frag);
-    this.setUpdatesAndUpdatedByData(frag);
-    return frag;
-  }
   
   /**
    * 
    */
-  EmployeeFormGenerator.prototype.newWeeklyTemplate = function() {
+  EmployeeFormGenerator.prototype.generateNewForm = function() {
     var frag = document.getElementById(this.templateId);
     //clone the document fragment, with all children, and all attributes
-    frag = $(frag).clone(true, true);
+    frag = $(frag).clone();
     $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)))
     this.updateArmsLengthElementId(frag);
     this.updateBaselineWageElementId(frag);
     this.setUpdatesAndUpdatedByData(frag);
-    this.updateInputIds(frag);
+    this.updateInputs(frag);
+    this.updateTableIds(frag);
     return frag;
   }
 
@@ -1289,14 +1273,16 @@ var EmployeeFormGenerator = (function () {
    * @param {DOMDocumentFragment} frag 
    */
   EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function(frag) {
-    var updateElements = $(frag).find("*[data-updates]");
-    var updatedByElements = $(frag).find("*[data-updated-by]");
+    var updateElements = $(frag).find("*[data-updates$='-1']");
+    var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
     var numEmps = this.numberOfEmployees + 1
     $(updateElements).each(function(i, element) {
-      $(element).data("updates", $(element).data("updates").replace(/-1$/g, "-" + numEmps));
+      var newval = $(element).data("updates").replace(/-1$/g, "-" + numEmps);
+      $(element).attr("data-updates", newval);
     });
     $(updatedByElements).each(function(i, element) {
-      $(element).data("updated-by", $(element).data("updated-by").replace(/-1$/g, "-" + numEmps));
+      var newval = $(element).data("updated-by").replace(/-1$/g, "-" + numEmps)
+      $(element).attr("data-updated-by", newval);
     });
   }
 
@@ -1304,12 +1290,24 @@ var EmployeeFormGenerator = (function () {
    * 
    * @param {DOMDocumentFragment} frag 
    */
-  EmployeeFormGenerator.prototype.updateInputIds = function(frag) {
+  EmployeeFormGenerator.prototype.updateInputs = function(frag) {
     var inputs = $(frag).find("input[id$='-1']");
     var numEmps = this.numberOfEmployees + 1
     $(inputs).each(function(i, element) {
       //need to get the label for each of these elements and update the 'for' attr
-      $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps));
+      var label = $(frag).find("label[for='"+ $(element).attr("id") + "']");
+      $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps)
+      );
+      $(label).attr("for", $(label).attr("for").replace(/-1$/g, "-" + numEmps)
+      );
+      //update the class that drives employee wage summary 
+      if ($(element).hasClass("emp-wkly-wage-" + (numEmps - 1))) {
+        $(element).removeClass("emp-wkly-wage-" + (numEmps - 1));
+        $(element).addClass("emp-wkly-wage-" + numEmps);
+      } else if ($(element).hasClass("emp-bwkly-wage-" + (numEmps - 1))) {
+        $(element).removeClass("emp-bwkly-wage-" + (numEmps - 1));
+        $(element).addClass("emp-bwkly-wage-" + numEmps);
+      }
     });
   }
 
@@ -1321,6 +1319,16 @@ var EmployeeFormGenerator = (function () {
     } else {
       this.prefix = "";
     }
+  }
+
+  EmployeeFormGenerator.prototype.updateTableIds = function(frag) {
+    var tds = $(frag).find("td[id$='-amt-1']");
+    var totalCell = $(frag).find("td[id$='ttl-1']");
+    var numEmps = this.numberOfEmployees + 1
+    $(tds).each(function(i, element) {
+      $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps));
+    });
+    $(totalCell).attr("id", $(totalCell).attr("id").replace(/-1$/g, "-" + numEmps));
   }
 
   return EmployeeFormGenerator;
@@ -1467,7 +1475,7 @@ var EmployeeFormGenerator = (function () {
         }
       });
 
-      //convert currency fields to two decimal places and remove '$' if present
+      //convert currency fields to two decimal places
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
         var formattedVal = parseFloat($(target).val()).toFixed(2);
@@ -1477,7 +1485,7 @@ var EmployeeFormGenerator = (function () {
       //update the employee wage summary
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
-        var updateTarget = $("#" + $(target).data("updates"));
+        var updateTarget = $("#" + $(target).attr("data-updates"));
         var formattedVal = toMoney.format(target.value);
         //update the weekly/bi-weekly entry
         $(updateTarget).text(formattedVal);
@@ -1486,8 +1494,8 @@ var EmployeeFormGenerator = (function () {
           /*
             update the target to the total column and get all elements that make up the total
           */
-          updateTarget = $("#" + $(updateTarget).data("updates"));
-          var elements = $("." + $(updateTarget).data("updated-by"));
+         updateTarget = $("#" + $(updateTarget).attr("data-updates"));
+         var elements = $("." + $(updateTarget).attr("data-updated-by"));
           var total = 0;
           //get the total wage
           $(elements).each(function(i, element) {
