@@ -1178,13 +1178,23 @@
   </script>
   <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
   <script>
-
+    /**
+     * EmployeeFormGenerator class
+     * used to help creating new employee wage forms based on the chosen pay 
+     * schedule
+     */
     var EmployeeFormGenerator = (function () {
 
 
       /**
        * Constructor
+       * 
        * @param {Int} paySchedule the numeric value of the chosen pay schedule
+       * 
+       * @calls EmployeeFormGenerator::updateTemplateId() to update the 
+       * templateId
+       * @calls EmployeeFormGenerator::updatePrefix() to update the prefix 
+       * to identify weekly and bi-weekly employee forms
        */
       function EmployeeFormGenerator(paySchedule) {
         this.paySchedule = paySchedule;
@@ -1203,7 +1213,15 @@
       }
 
       /**
+       * generateNewEmployeeForm
        * 
+       * function called to run the routine to generate the new form
+       * 
+       * @param {Int} numEmps the number of employee panels currently on the 
+       * page
+       * 
+       * @return {DOMDocumentFragment} the cloned template with ID's and other 
+       * attributes updated for use in as a new employee wage form
        */
       EmployeeFormGenerator.prototype.generateNewEmployeeForm = function (numEmps) {
         if (this.paySchedule == this.weekly ||
@@ -1220,8 +1238,16 @@
       }
 
       /**
+       * updatePaySchedule
+       * 
+       * update the chosen pay schedule and dependant variables
        * 
        * @param {Int} newPaySchedule 
+       * 
+       * @calls EmployeeFormGenerator::updateTemplateId() to update the 
+       * templateId
+       * @calls EmployeeFormGenerator::updatePrefix() to update the prefix 
+       * to identify weekly and bi-weekly employee forms
        */
       EmployeeFormGenerator.prototype.updatePaySchedule = function (newPaySchedule) {
         this.paySchedule = newPaySchedule;
@@ -1230,7 +1256,22 @@
       }
 
       /**
+       * generateNewForm
        * 
+       * clone the template DOM element and update the required attributes for 
+       * a new employee wage form
+       * 
+       * @calls EmployeeFormGenerator::updateArmsLengthElementId()
+       * @calls EmployeeFormGenerator::updateBaselineWageElementId() to update 
+       * the baseline wage element
+       * @calls EmployeeFormGenerator::setUpdatesAndUpdatedByData() to update 
+       * the data-updates and data-update-by attributes
+       * @calls EmployeeFormGenerator::updateInputs() to update the input fields
+       * @calls EmployeeFormGenerator::updateTableIds() to update the summary 
+       * table cells
+       * 
+       * @return {DOMDocumentFragment} the update DOM fragment to be used as 
+       * the new employee wage form
        */
       EmployeeFormGenerator.prototype.generateNewForm = function () {
         var frag = document.getElementById(this.templateId);
@@ -1255,7 +1296,9 @@
       }
 
       /**
+       * updateTemplateId
        * 
+       * update the templateId based on the chosen pay schedule
        */
       EmployeeFormGenerator.prototype.updateTemplateId = function () {
         if (this.paySchedule == this.weekly) {
@@ -1266,8 +1309,11 @@
       }
 
       /**
+       * updateArmsLengthElementId
        * 
-       * @param {DOMDocumentFragment} frag 
+       * update the arms length dropdown element
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
        */
       EmployeeFormGenerator.prototype.updateArmsLengthElementId = function (frag) {
         var armsLengthElement = $(frag).find(
@@ -1279,7 +1325,7 @@
 
       /**
        * 
-       * @param {DOMDocumentFragment} frag 
+       * @param {DOMDocumentFragment} frag the cloned template
        */
       EmployeeFormGenerator.prototype.updateBaselineWageElementId = function (frag) {
         var baselineWageElement = $(frag).find(
@@ -1290,8 +1336,12 @@
       }
 
       /**
+       * setUpdatesAndUpdatedByData
        * 
-       * @param {DOMDocumentFragment} frag 
+       * increment the date-updates and data-updated-by value so the 
+       * appropriate summary table is updated
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
        */
       EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
         var updateElements = $(frag).find("*[data-updates$='-1']");
@@ -1308,8 +1358,12 @@
       }
 
       /**
+       * updateInputs
        * 
-       * @param {DOMDocumentFragment} frag 
+       * update the id, class, and value for the new inputs. also update the 
+       * label 'for' value with the new input id
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
        */
       EmployeeFormGenerator.prototype.updateInputs = function (frag) {
         var inputs = $(frag).find("input[id$='-1']");
@@ -1333,6 +1387,11 @@
         });
       }
 
+      /**
+       * updatePrefix
+       * 
+       * update the weekly/biweekly prefix
+       */
       EmployeeFormGenerator.prototype.updatePrefix = function () {
         if (this.templateId == this.weeklyTemplateId) {
           this.prefix = this.weeklyPrefix
@@ -1343,6 +1402,11 @@
         }
       }
 
+      /**
+       * updateTableIds
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
       EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
