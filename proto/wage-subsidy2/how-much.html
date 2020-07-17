@@ -1268,9 +1268,8 @@ var EmployeeFormGenerator = (function () {
    */
   EmployeeFormGenerator.prototype.updateArmsLengthElementId = function(frag) {
     var armsLengthElement = $(frag).find(
-      "#" + this.prefix + this.armsLengthId + this.numberOfEmployees
+      "#" + this.prefix + this.armsLengthId + "1"
     );
-    console.debug("#" + this.prefix + this.armsLengthId + this.numberOfEmployees);
     $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
   }
 
@@ -1280,7 +1279,7 @@ var EmployeeFormGenerator = (function () {
    */
   EmployeeFormGenerator.prototype.updateBaselineWageElementId = function(frag) {
     var baselineWageElement = $(frag).find(
-      "#" + this.prefix + this.baselineId + this.numberOfEmployees
+      "#" + this.prefix + this.baselineId + "1"
     );
     $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
   }
@@ -1529,6 +1528,10 @@ var EmployeeFormGenerator = (function () {
       
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
+
+      /**
+       * add a new employee form  
+       */
       function addEmp() {
         var frag = employeeFormGenerator.generateNewEmployeeForm();
         $(frag).appendTo("#employeeDiv");
