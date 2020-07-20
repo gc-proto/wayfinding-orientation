@@ -1197,8 +1197,9 @@
        * to identify weekly and bi-weekly employee forms
        */
       function EmployeeFormGenerator(paySchedule) {
+        //the payschedule chosen by the user
         this.paySchedule = paySchedule;
-        this.updateTemplateId();
+        //variables to avoid magic numbers & strings
         this.prefix = "";
         this.numberOfEmployees = 1;
         this.weekly = 1;
@@ -1209,6 +1210,18 @@
         this.biWeeklyTemplateId = this.biWeeklyPrefix + "emp-1";
         this.armsLengthId = "arms-";
         this.baselineId = "baseline-"
+        this.employeeNumberClass = "employeeNumber";
+        this.removeablePanelClass = "extra-emp-pnl";
+        this.currencyPlaceholderValue = "$XXX";
+        this.percentPlaceholderValue = "XX%";
+        this.weeklySummaryBaseClass = "emp-wkly-wage-1";
+        this.biweeklySummaryBaseClass = "emp-bwkly-wage-1";
+        this.weeklySummaryClass = "emp-wkly-wage-";
+        this.biweeklySummaryClass = "emp-bwkly-wage-";
+        this.employeeIndexRegex = /-1$/g;
+        //update the templateId based on the chosen paychedule
+        this.updateTemplateId();
+        //update the prefix based on payschedule
         this.updatePrefix();
       }
 
@@ -1280,10 +1293,10 @@
         //update the frame id
         $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + this.numberOfEmployees));
         //add class that will be used to identify panels to remove when the selected pay schedule is changed
-        $(frag).addClass("extra-emp-pnl");
+        $(frag).addClass(this.removeablePanelClass);
         //update the employee number text
         var numEmps = this.numberOfEmployees;
-        $(frag).find(".employeeNumber").each(function(e, element) {
+        $(frag).find("." + this.employeeNumberClass).each(function(e, element) {
           $(element).text(numEmps);
         });
         //add the aria-live=polite attr for screen readers
@@ -1321,7 +1334,7 @@
         var armsLengthElement = $(frag).find(
           "#" + this.prefix + this.armsLengthId + "1"
         );
-        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + this.numberOfEmployees));
+        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
         $(armsLengthElement).first("option").attr("selected", true);
       }
 
@@ -1336,7 +1349,7 @@
         var baselineWageElement = $(frag).find(
           "#" + this.prefix + this.baselineId + "1"
         );
-        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + this.numberOfEmployees));
+        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
         $(baselineWageElement).val(null);
       }
 
@@ -1352,12 +1365,13 @@
         var updateElements = $(frag).find("*[data-updates$='-1']");
         var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
         var numEmps = this.numberOfEmployees;
+        var indexRegex = this.employeeIndexRegex;
         $(updateElements).each(function (i, element) {
-          var newval = $(element).data("updates").replace(/-1$/g, "-" + numEmps);
+          var newval = $(element).data("updates").replace(indexRegex, "-" + numEmps);
           $(element).attr("data-updates", newval);
         });
         $(updatedByElements).each(function (i, element) {
-          var newval = $(element).data("updated-by").replace(/-1$/g, "-" + numEmps)
+          var newval = $(element).data("updated-by").replace(indexRegex, "-" + numEmps)
           $(element).attr("data-updated-by", newval);
         });
       }
@@ -1373,21 +1387,26 @@
       EmployeeFormGenerator.prototype.updateInputs = function (frag) {
         var inputs = $(frag).find("input[id$='-1']");
         var numEmps = this.numberOfEmployees;
+        var weeklyBaseClass = this.weeklySummaryBaseClass;
+        var weeklyClass = this.weeklySummaryClass;
+        var biweeklyBaseClass = this.biweeklySummaryBaseClass;
+        var biweeklyClass = this.biweeklySummaryClass;
+        var indexRegex = this.employeeIndexRegex;
         $(inputs).each(function (i, element) {
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
-          $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps)
+          $(element).attr("id", $(element).attr("id").replace(indexRegex, "-" + numEmps)
           );
           $(element).val(null);
-          $(label).attr("for", $(label).attr("for").replace(/-1$/g, "-" + numEmps)
+          $(label).attr("for", $(label).attr("for").replace(indexRegex, "-" + numEmps)
           );
           //update the class that drives employee wage summary 
-          if ($(element).hasClass("emp-wkly-wage-1")) {
-            $(element).removeClass("emp-wkly-wage-1");
-            $(element).addClass("emp-wkly-wage-" + numEmps);
-          } else if ($(element).hasClass("emp-bwkly-wage-1")) {
-            $(element).removeClass("emp-bwkly-wage-1");
-            $(element).addClass("emp-bwkly-wage-" + numEmps);
+          if ($(element).hasClass(weeklyBaseClass)) {
+            $(element).removeClass(weeklyBaseClass);
+            $(element).addClass(weeklyClass + numEmps);
+          } else if ($(element).hasClass(biweeklyBaseClass)) {
+            $(element).removeClass(biweeklyBaseClass);
+            $(element).addClass(biweeklyClass + numEmps);
           }
         });
       }
@@ -1418,12 +1437,14 @@
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
         var numEmps = this.numberOfEmployees;
+        var currencyPlaceholderValue = this.currencyPlaceholderValue;
+        var indexRegex = this.employeeIndexRegex;
         $(tds).each(function (i, element) {
-          $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps));
-          $(element).text("$XXX");
+          $(element).attr("id", $(element).attr("id").replace(indexRegex, "-" + numEmps));
+          $(element).text(currencyPlaceholderValue);
         });
-        $(totalCell).attr("id", $(totalCell).attr("id").replace(/-1$/g, "-" + numEmps));
-        $(totalCell).text("$XXX");
+        $(totalCell).attr("id", $(totalCell).attr("id").replace(indexRegex, "-" + numEmps));
+        $(totalCell).text(currencyPlaceholderValue);
       }
 
       return EmployeeFormGenerator;
