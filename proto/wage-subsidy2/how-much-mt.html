@@ -1278,7 +1278,7 @@
         //clone the document fragment, with all children, and all attributes
         frag = $(frag).clone();
         //update the frame id
-        $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees)));
+        $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + this.numberOfEmployees));
         //add class that will be used to identify panels to remove when the selected pay schedule is changed
         $(frag).addClass("extra-emp-pnl");
         //update the employee number text
@@ -1321,7 +1321,7 @@
         var armsLengthElement = $(frag).find(
           "#" + this.prefix + this.armsLengthId + "1"
         );
-        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees)));
+        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + this.numberOfEmployees));
         $(armsLengthElement).first("option").attr("selected", true);
       }
 
@@ -1336,7 +1336,7 @@
         var baselineWageElement = $(frag).find(
           "#" + this.prefix + this.baselineId + "1"
         );
-        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees)));
+        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + this.numberOfEmployees));
         $(baselineWageElement).val(null);
       }
 
