@@ -1186,6 +1186,7 @@
      * EmployeeFormGenerator class
      * used to help creating new employee wage forms based on the chosen pay 
      * schedule
+     * @author Michel Tremblay
      */
     var EmployeeFormGenerator = (function () {
 
@@ -1603,6 +1604,9 @@
       });
 
       //update the employee wage summary
+      /**
+       * @author Michel Tremblay
+       */
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
         var updateTarget = $("#" + $(target).attr("data-updates"));
@@ -1630,6 +1634,9 @@
         }
       });
 
+      /**
+       * @author Michel Tremblay
+       */
       var numEmployeePanels = 1;
       //display specific employee work hours panel based on pay schedule
       $(document).on("change", "#py-schl", function (event) {
@@ -1661,9 +1668,12 @@
         target.parentElement.scrollIntoView(true);
       });
 
+
+      /**
+       * @author Michel Tremblay
+       */
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
-
       /**
        * add a new employee form  
        */
@@ -1681,6 +1691,9 @@
     })(jQuery, window, wb);
     $(document).on("wb-ready.wb", function () {
       //allow wet4 to initialize on these fields then hide them. This solves the issue where the input fields still use periods ('.') rather than commas (',') in french
+      /**
+       * @author Michel Tremblay
+       */
       $("#wkly-emp-1").addClass("hidden");
       $("#employees").addClass("hidden");
       $("#bwkly-emp-1").addClass("hidden");

@@ -34,7 +34,6 @@
     var defTop = document.getElementById("def-top");
     defTop.outerHTML = wet.builder.top({
       lngLinks: [{
-
         lang: "fr",
         href: "how-much-mt.html",
         text: "Français"
@@ -1184,8 +1183,11 @@
   <script>
     /**
      * EmployeeFormGenerator class
+     * 
      * used to help creating new employee wage forms based on the chosen pay 
      * schedule
+     * 
+     * @author Michel Tremblay
      */
     var EmployeeFormGenerator = (function () {
 
@@ -1231,7 +1233,7 @@
 
       /**
        * generateNewEmployeeForm
-       * 
+       *  
        * function called to run the routine to generate the new form
        * 
        * @param {Int} numEmps the number of employee panels currently on the 
@@ -1596,6 +1598,9 @@
       });
 
       //convert currency fields to two decimal places
+      /**
+       * @author Michel Tremblay
+       */
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
         var formattedVal = parseFloat($(target).val()).toFixed(2);
@@ -1603,6 +1608,9 @@
       });
 
       //update the employee wage summary
+      /**
+       * @author Michel Tremblay
+       */
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
         var updateTarget = $("#" + $(target).attr("data-updates"));
@@ -1630,6 +1638,9 @@
         }
       });
 
+      /**
+       * @author Michel Tremblay
+       */
       var numEmployeePanels = 1;
       //display specific employee work hours panel based on pay schedule
       $(document).on("change", "#py-schl", function (event) {
@@ -1661,9 +1672,11 @@
         target.parentElement.scrollIntoView(true);
       });
 
+      /**
+       * @author Michel Tremblay
+       */
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
-
       /**
        * add a new employee form  
        */
@@ -1681,6 +1694,9 @@
     })(jQuery, window, wb);
     $(document).on("wb-ready.wb", function () {
       //allow wet4 to initialize on these fields then hide them. This solves the issue where the input fields still use periods ('.') rather than commas (',') in french
+      /**
+       * @author Michel Tremblay
+       */
       $("#wkly-emp-1").addClass("hidden");
       $("#employees").addClass("hidden");
       $("#bwkly-emp-1").addClass("hidden");
