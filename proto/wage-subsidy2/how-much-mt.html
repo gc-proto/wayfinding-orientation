@@ -1227,10 +1227,10 @@
         if (this.paySchedule == this.weekly ||
           this.paySchedule == this.biWeekly
         ) {
-          //generate another pay form
-          var newForm = this.generateNewForm();
           //update number of employee frames
           this.numberOfEmployees = numEmps;
+          //generate another pay form
+          var newForm = this.generateNewForm();
           return newForm;
         } else {
           //clear all employee data? check with designers
@@ -1278,14 +1278,16 @@
         //clone the document fragment, with all children, and all attributes
         frag = $(frag).clone();
         //update the frame id
-        $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees + 1)));
+        $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + (this.numberOfEmployees)));
         //add class that will be used to identify panels to remove when the selected pay schedule is changed
         $(frag).addClass("extra-emp-pnl");
         //update the employee number text
-        var numEmps = this.numberOfEmployees + 1;
+        var numEmps = this.numberOfEmployees;
         $(frag).find(".employeeNumber").each(function(e, element) {
           $(element).text(numEmps);
         });
+        //add the aria-live=polite attr for screen readers
+        $(frag).attr("aria-live", "polite");
         //update the DOM fragment
         this.updateArmsLengthElementId(frag);
         this.updateBaselineWageElementId(frag);
@@ -1319,11 +1321,14 @@
         var armsLengthElement = $(frag).find(
           "#" + this.prefix + this.armsLengthId + "1"
         );
-        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
+        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees)));
         $(armsLengthElement).first("option").attr("selected", true);
       }
 
       /**
+       * updateBaselineWageElementId
+       * 
+       * update the baseline wage input id and reset the value
        * 
        * @param {DOMDocumentFragment} frag the cloned template
        */
@@ -1331,7 +1336,7 @@
         var baselineWageElement = $(frag).find(
           "#" + this.prefix + this.baselineId + "1"
         );
-        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees + 1)));
+        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(/-1$/g, "-" + (this.numberOfEmployees)));
         $(baselineWageElement).val(null);
       }
 
@@ -1346,7 +1351,7 @@
       EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
         var updateElements = $(frag).find("*[data-updates$='-1']");
         var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
-        var numEmps = this.numberOfEmployees + 1
+        var numEmps = this.numberOfEmployees;
         $(updateElements).each(function (i, element) {
           var newval = $(element).data("updates").replace(/-1$/g, "-" + numEmps);
           $(element).attr("data-updates", newval);
@@ -1367,7 +1372,7 @@
        */
       EmployeeFormGenerator.prototype.updateInputs = function (frag) {
         var inputs = $(frag).find("input[id$='-1']");
-        var numEmps = this.numberOfEmployees + 1;
+        var numEmps = this.numberOfEmployees;
         $(inputs).each(function (i, element) {
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
@@ -1378,10 +1383,10 @@
           );
           //update the class that drives employee wage summary 
           if ($(element).hasClass("emp-wkly-wage-1")) {
-            $(element).removeClass("emp-wkly-wage-" + (numEmps - 1));
+            $(element).removeClass("emp-wkly-wage-1");
             $(element).addClass("emp-wkly-wage-" + numEmps);
           } else if ($(element).hasClass("emp-bwkly-wage-1")) {
-            $(element).removeClass("emp-bwkly-wage-" + (numEmps - 1));
+            $(element).removeClass("emp-bwkly-wage-1");
             $(element).addClass("emp-bwkly-wage-" + numEmps);
           }
         });
@@ -1410,7 +1415,7 @@
       EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
-        var numEmps = this.numberOfEmployees + 1
+        var numEmps = this.numberOfEmployees;
         $(tds).each(function (i, element) {
           $(element).attr("id", $(element).attr("id").replace(/-1$/g, "-" + numEmps));
           $(element).text("$XXX");
@@ -1597,6 +1602,7 @@
           $(updateTarget).text(formattedTotal);
         }
       });
+
       var numEmployeePanels = 1;
       //display specific employee work hours panel based on pay schedule
       $(document).on("change", "#py-schl", function (event) {
@@ -1605,7 +1611,9 @@
         //remove all extra employee panels that were created
         $(document).find(".extra-emp-pnl").each(function (i, element) {
           $(element).remove();
+          $("#remainingEmplyees").text(parseInt($("#remainingEmplyees").text()) + 1);
         });
+        numEmployeePanels = 1;
         $("#employees").removeClass('hidden');
         $("#sendTo").removeClass('hidden');
         //user chose weekly pay schedule
