@@ -1792,7 +1792,6 @@
         target.parentElement.scrollIntoView(true);
       });
 
-
       /**
        * @author Michel Tremblay
        */
@@ -1823,6 +1822,7 @@
         for (var i = 0; i < 4; i++) {
           weeklyWageCells[i] = document.createElement("td");
         }
+        //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
         $(weeklyWageCells[0]).attr(
           "data-updated-by", 
           "wkly-wkone-" + numEmployeePanels
@@ -1841,12 +1841,14 @@
         );
         //create the total cell
         var totalCell = document.createElement("td");
+        //put the row together
         row.appendChild(eligibleEmployeeCell);
         row.appendChild(armsLengthCell);
         row.appendChild(baselineCell);
         $(weeklyWageCells).each(function (i, element) { 
           row.appendChild(weeklyWageCells[i]);
         });
+        //add the row to the table
         row.appendChild(totalCell);
         $("#wkly-tbl > tbody").append(row);
         $(frag).appendTo("#employeeDiv");
