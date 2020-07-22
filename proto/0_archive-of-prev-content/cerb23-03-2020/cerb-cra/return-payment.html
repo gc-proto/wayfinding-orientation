@@ -178,41 +178,137 @@
           <div class="clearfix"></div>
           <div class="mrgn-lft-lg"> 
             <!--Start of fieldflow //-->
-            <div class="wb-frmvld fieldflow-lg" data-gc-analytics-formname="CRA|ARC:Determine if you need to make a CERB repayment" data-gc-analytics-collect="[ {"value":"input,select","emptyField": "N/A"}]">
+            <div class="wb-frmvld fieldflow-lg hidden" data-gc-analytics-formname="CRA|ARC:Determine if you need to make a CERB repayment" data-gc-analytics-collect='[ {" value":"input,select","emptyfield": "n "}]' id="cerb-repay">
               <form>
-                <div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                <div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}, "unhideelm": "#cerb-repay"}'>
                   <p>Choose the situation that applies to you</p>
                   <ul>
-                    <li>Earned employment or self-employment income earlier than expected
+                    <li>Earned more income than expected  during the time you received the CERB payment
                       <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                        <div class="wb-fieldflow-header">
-                          <p class="wb-fieldflow-label">Choose the eligibility period that you received the CERB payment</p>
-                          <p class="text-muted">If you started working again after you got the CERB, and then stopped working again in a later period, any re-application you do is treated like your first eligibility period.</p>
-                          <p class="text-muted">If you're not sure, review the <a href="eligibility-periods.html#h2">eligibility period dates in a calendar</a>. </p>
-                        </div>
+                        <p>Select the eligibility period you may need to repay</p>
                         <ul>
-                          <li>The first eligibility period that you applied for
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                          <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio" }
+]'>March 15 to April 11, 2020 </li>
+                          <li>April 12 to May 9, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
                               <div class="wb-fieldflow-header">
-                                <p class="wb-fieldflow-label">For your first eligibility period, you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period.<br>
-                                  Do you still meet this criteria?</p>
-                                <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                <p>You received a CERB payment for the period April 12 to May 9, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period March 15 to April 11, 2020? </p>
                               </div>
                               <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer3", "class": "hidden", "live": true}'>Yes</li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer1", "class": "hidden", "live": true}'>No</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio" }
+]'>No</li>
                               </ul>
                             </div>
                           </li>
-                          <li>Any subsequent eligibility period that you applied for
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                          <li>May 10 to June 6, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
                               <div class="wb-fieldflow-header">
-                                <p class="wb-fieldflow-label">During this 4-week period, was your income more than $1,000 (before deductions)?</p>
-                                <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                <p>You received a CERB payment for the period May 10 to June 6, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period April 12 to May 9, 2020? </p>
                               </div>
                               <ul>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2", "class": "hidden", "live": true}'>Yes</li>
-                                <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer4", "class": "hidden", "live": true}'>No</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
+]'>No</li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>June 7 to July 4, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <div class="wb-fieldflow-header">
+                                <p>You received a CERB payment for the period June 7 to July 4, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period May 10 to June 6, 2020? </p>
+                              </div>
+                              <ul>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
+]'>No</li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>July 5 to August 1, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <div class="wb-fieldflow-header">
+                                <p>You received a CERB payment for the period July 5 to August 1, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period June 7 to July 4, 2020? </p>
+                              </div>
+                              <ul>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
+]'>No</li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>August 2 to August 29, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <div class="wb-fieldflow-header">
+                                <p>You received a CERB payment for the period August 2 to August 29, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period July 5 to August 1, 2020? </p>
+                              </div>
+                              <ul>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
+]'>No</li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>August 30 to September 26, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <div class="wb-fieldflow-header">
+                                <p>You received a CERB payment for the period August 30 to September 26, 2020.</p>
+                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period August 2 to August 29, 2020? </p>
+                              </div>
+                              <ul>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
+			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
+]'>Yes</li>
+                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
+			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
+			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
+			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
+]'>No</li>
                               </ul>
                             </div>
                           </li>
@@ -226,17 +322,39 @@
                 </div>
               </form>
             </div>
+            <!--Appended //-->
+            <div id="initial-ep" class="hidden">
+              <p>For this period you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                Do you still meet this criteria? </p>
+              <ul>
+                <li id="initial-yes">Yes</li>
+                <li id="initial-no">No</li>
+                <li id="initial-unsure">Unsure</li>
+              </ul>
+            </div>
+            <div id="subsequent-ep" class="hidden" >
+              <div class="wb-fieldflow-header">
+                <p class="wb-fieldflow-label">During this period, was your income more than $1,000 (before deductions)?</p>
+                <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+              </div>
+              <ul>
+                <li id="subsequent-yes">Yes</li>
+                <li id="subsequent-no">No</li>
+                <li id="subsequent-unsure">Unsure</li>
+              </ul>
+            </div>
+            
             <!--Answers -->
             <div class="hidden provisional alert alert-warning alert-answer" id="answer1">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
-              <p>Based on your responses, you must repay the full amount that you received for your first CERB payment to the CRA.</p>
+              <p>Based on your responses, you must repay the full $2,000 that you received for your first CERB payment to the CRA.</p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Eligibility</dt>
-                <dd><a href="https://canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">Review the eligibility criteria</a></dd>
+                <dd><a href="/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">Review the eligibility criteria</a></dd>
                 <dt>Return</dt>
                 <dd>
                   <p>Repay online using CRA My Account:<br>
-                    <a class="btn btn-call-to-action" href="https://canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
+                    <a class="btn btn-call-to-action" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
                   <p>Repay by mail or through your financial institution:<br>
                     <a href="#h4">How to return or repay the CERB</a></p>
                 </dd>
@@ -244,14 +362,14 @@
             </div>
             <div class="hidden provisional alert alert-warning alert-answer" id="answer2">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
-              <p>Based on your responses, you must repay the full amount that you received for this CERB payment to the CRA.</p>
+              <p>Based on your responses, you must repay the full $2,000 that you received for this CERB payment to the CRA.</p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Eligibility</dt>
-                <dd><a href="https://canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">Review the eligibility criteria</a></dd>
+                <dd><a href="/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">Review the eligibility criteria</a></dd>
                 <dt>Return</dt>
                 <dd>
                   <p>Repay online using CRA My Account:<br>
-                    <a class="btn btn-call-to-action" href="https://canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
+                    <a class="btn btn-call-to-action" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
                   <p>Repay by mail or through your financial institution:<br>
                     <a href="#h4">How to return or repay the CERB</a></p>
                 </dd>
@@ -259,21 +377,29 @@
             </div>
             <div class="hidden provisional alert alert-info alert-answer" id="answer3">
               <p class="h5 mrgn-tp-0">No repayment</p>
-              <p>Based on your responses, you do not need to repay.</p>
+              <p>Based on your responses, you do not need to repay your CERB payment.</p>
             </div>
             <div class="hidden provisional alert alert-info alert-answer" id="answer4">
-              <p class="h5 mrgn-tp-0">No repayment</p>
-              <p>Based on your responses, you do not need to repay.</p>
+              <p class="h5 mrgn-tp-0">Unsure of repayment</p>
+              <p>You may work while receiving the  CERB, but some restrictions apply to how much you can earn within an  eligibility period. </p>
+              <p>Having to repay or not will  depend on if you continue to meet the <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">eligibility  criteria</a> for that period. <br>
+                The timing for when you can earn  income during your first eligibility period is different than during subsequent  periods.</p>
+              <p>Note that if you started working again after you got  the CERB, and then stopped working again in a later period, any re-application  you do is treated like your first eligibility period. </p>
+              <p>If you are still unsure and  concerned you might need to repay, please contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
+              <div>
+                <div> </div>
+                <div> </div>
+              </div>
             </div>
             <div class="hidden provisional alert alert-warning alert-answer" id="answer5">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
-              <p>Please wait until you receive the payment, then you can return or repay it to the CRA.</p>
+              <p>Please wait until you receive the payment, then you can return or repay the $2,000 to the CRA.</p>
               <p>There is no way to cancel an application once it is submitted.</p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Return</dt>
                 <dd>
                   <p>Repay online using CRA My Account:<br>
-                    <a class="btn btn-call-to-action" href="https://canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
+                    <a class="btn btn-call-to-action" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
                   <p>Repay by mail or through your financial institution:<br>
                     <a href="#h4">How to return or repay the CERB</a></p>
                 </dd>
@@ -286,12 +412,12 @@
             </div>
             <div class="hidden provisional alert alert-warning alert-answer" id="answer7">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
-              <p>Based on your response, you may have received more than one payment in the same period. You must repay the CERB payment to the CRA.</p>
+              <p>Based on your response, you may have received more than one payment in the same period. You must repay $2,000 to the CRA.</p>
               <dl class="dl-horizontal mrgn-tp-md">
                 <dt>Return</dt>
                 <dd>
-                  <p>Repay online using CRA My Account:<br>
-                    <a class="btn btn-call-to-action" href="https://canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
+                  <p>Repay the CRA online using CRA My Account:<br>
+                    <a class="btn btn-call-to-action" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
                   <p>Repay by mail or through your financial institution:<br>
                     <a href="#h4">How to return or repay the CERB</a></p>
                 </dd>
@@ -330,57 +456,132 @@
     </div>
     <h2 id="h4">How to return or repay the CERB</h2>
     <p>If you received the CERB from the CRA, you must send your payment back to the CRA. If you received the CERB from Service Canada, you must send it back to Service Canada.</p>
-    <h3>Send your payment back to the CRA </h3>
+  	  <!--start of fieldflow //-->
+    <div class="row mrgn-bttm-md mrgn-tp-md">
+      <div class="col-xs-12">
+        <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
+          <div class="pstn-lft-xs pstn-tp-xs"> <span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-file-invoice-dollar fa-stack-2x"></span></span></div>
+          <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="returnpymnt">Return the payment</h3>
+          <div class="clearfix"></div>
+          <div class="mrgn-lft-lg">
+            <div class="wb-frmvld fieldflow-lg" id="cerb-send">
+              <form>
+                <div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer2", "class": "hidden"}, "unhideelm": "#cerb-send"}'>
+                  <p>Where did you apply for the CERB?</p>
+                  <ul>
+                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer-cra", "class": "hidden", "live": true}'>CRA </li>
+                    <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer-sc", "class": "hidden", "live": true}'>Service Canada</li>
+                    <li>Not sure where I applied
+                      <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer2", "class": "hidden"}}'>
+                        <div class="wb-fieldflow-header">
+                          <div>
+                            <p>Read the descriptions below to determine where you applied. </p>
+                            <p><strong>You  applied through the CRA if</strong>:</p>
+                            <ul>
+                              <li>the application you filled out was very short</li>
+                              <li>you applied through CRA <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">My Account</a> or applied with an automated phone service</li>
+                              <li>you were asked what period of eligibility you were  applying for and then had to certify that you met the eligibility requirements</li>
+                            </ul>
+                            <p><strong>Note:</strong> It is  possible you may have logged in to <a href="https://www.canada.ca/en/employment-social-development/services/my-account.html">My Service Canada Account</a> and then switched  to CRA <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">My Account</a> to apply.</p>
+                            <p><strong>You  applied through Service Canada if</strong>:</p>
+                            <ul>
+                              <li>you  applied online and did not need to enter a user ID or password.</li>
+                              <li>applying  by telephone was not available</li>
+                              <li>you  were asked several questions, similar to an employment insurance (EI)  application, including the type of EI benefits you were applying for and the  name of your former employer</li>
+                            </ul>
+                          </div>
+                          <p class="wb-fieldflow-label">Where did you apply for the CERB?</p>
+                        </div>
+                        <ul>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer-cra", "class": "hidden", "live": true}'>CRA</li>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer-sc", "class": "hidden", "live": true}'>Service Canada</li>
+                          <li data-wb-fieldflow='{"action": "removeClass", "source": "#answer-unsure", "class": "hidden", "live": true}'>I'm still not sure</li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+            <div class="hidden provisional alert alert-info alert-answer2" id="answer-cra">
+              <p class="h5 mrgn-tp-0">Send your CRA payment back to the CRA</p>
+              <details>
+                <summary>If you were paid by direct deposit <strong>or</strong> don't have the original CERB cheque</summary>
+                <div data-ajax-replace=" #back-cra"></div>
+              </details>
+              <details>
+                <summary>If you still have the original CERB cheque </summary>
+                <div data-ajax-replace=" #back-cheque"></div>
+              </details>
+            </div>
+            <div class="hidden provisional alert alert-info alert-answer2" id="answer-sc">
+              <p class="h5 mrgn-tp-0"> Send your EI/ Service Canada payment back to Service Canada </p>
+              <div data-ajax-replace=" #back-sc"></div>
+            </div>
+            <div class="hidden provisional alert alert-info alert-answer2" id="answer-unsure">
+              <p>If you are still not sure, contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+	  <!--End of fieldflow //-->
     <details>
-      <summary>If you were paid by direct deposit <strong>or</strong> don't have the original CERB cheque</summary>
-      <p>To repay the CERB, choose  one of the following options:</p>
-      <dl class="dl-horizontal brdr-0">
-        <dt>Online:</dt>
-        <dd><a class="btn btn-call-to-action" href="https://canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></dd>
-        <dt>Online banking:</dt>
-        <dd>
-          <p>With your financial institution:</p>
-          <ol>
-            <li>Sign in to your financial institution's online banking service</li>
-            <li>Under "Add a payee" look for an option such as: CRA (revenue) – tax instalment</li>
-            <li>Enter your 9 digit social insurance number (SIN) as the CRA account number</li>
-          </ol>
-        </dd>
-        <dt>By mail:</dt>
-        <dd>
-          <p>Mail a cheque or money order to the CRA:</p>
-          <ol>
-            <li>Make the payment out to "Receiver General for Canada" </li>
-            <li>Indicate it is for "Repayment of CERB"</li>
-            <li>Indicate which eligibility period you are repaying</li>
-            <li>Include your Social Insurance Number (SIN) or your Temporary Tax Number (TTN) </li>
-            <li>
-              <p>Mail your payment to:</p>
-              <p class="mrgn-lft-md mrgn-tp-md">Revenue Processing – Repayment of CERB<br>
-                Sudbury Tax Centre<br>
-                1050 Notre Dame Avenue<br>
-                Sudbury ON P3A 0C3 </p>
-            </li>
-          </ol>
-        </dd>
-      </dl>
+      <summary>Alternative format: How to return or repay the CERB</summary>
+      <h3>Send your payment back to the CRA </h3>
+      <h4>If you were paid by direct deposit or don't have the original CERB cheque</h4>
+      <div id="back-cra">
+        <p>To repay the CERB, choose  one of the following options:</p>
+        <dl class="dl-horizontal brdr-0">
+          <dt>Online:</dt>
+          <dd><a class="btn btn-call-to-action" href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></dd>
+          <dt>Online banking:</dt>
+          <dd>
+            <p>With your financial institution:</p>
+            <ol>
+              <li>Sign in to your financial institution's online banking service</li>
+              <li>Under "Add a payee" look for an option such as: CRA (revenue) – tax instalment</li>
+              <li>Enter your 9 digit social insurance number (SIN) as the CRA account number</li>
+            </ol>
+          </dd>
+          <dt>By mail:</dt>
+          <dd>
+            <p>Mail a cheque or money order to the CRA:</p>
+            <ol>
+              <li>Make the payment out to "Receiver General for Canada" </li>
+              <li>Indicate it is for "Repayment of CERB"</li>
+              <li>Indicate which eligibility period you are repaying</li>
+              <li>Include your Social Insurance Number (SIN) or your Temporary Tax Number (TTN) </li>
+              <li>Mail your payment to:
+                <p>Revenue Processing – Repayment of CERB<br>
+                  Sudbury Tax Centre<br>
+                  1050 Notre Dame Avenue<br>
+                  Sudbury ON P3A 0C3 </p>
+              </li>
+            </ol>
+          </dd>
+        </dl>
+      </div>
+      <h4>If you still have the original CERB cheque</h4>
+      <div id="back-cheque">
+        <p>You can return the cheque by mail.</p>
+        <p><strong>Be sure to include:</strong></p>
+        <ol>
+          <li>the reason for returning the cheque (not entitled or overpayment)</li>
+          <li>your Social Insurance Number (SIN) or Temporary Tax Number (TTN)</li>
+        </ol>
+        <p><strong>Mail the cheque to:</strong> </p>
+        <p id="address">Revenue Processing – Repayment of CERB<br>
+          Sudbury Tax Centre<br>
+          1050 Notre Dame Avenue<br>
+          Sudbury ON P3A 0C3 </p>
+      </div>
+      <h3>Send your EI/ Service Canada payment back to Service Canada</h3>
+      <div id="back-sc">
+        <p>If you received your CERB from Service Canada (EI), you must <a href="https://www.canada.ca/en/services/benefits/ei/cerb-application/return-or-repay.html">send it back to Service Canada</a>. </p>
+      </div>
     </details>
-    <details>
-      <summary>If you still have the original CERB cheque</summary>
-      <p>You can return the cheque by mail.</p>
-      <p><strong>Be sure to include:</strong></p>
-      <ol>
-        <li>the reason for returning the cheque (not entitled or overpayment)</li>
-        <li>your Social Insurance Number (SIN) or Temporary Tax Number (TTN)</li>
-      </ol>
-      <p><strong>Mail the cheque to:</strong> </p>
-      <p id="address">Revenue Processing – Repayment of CERB<br>
-        Sudbury Tax Centre<br>
-        1050 Notre Dame Avenue<br>
-        Sudbury ON P3A 0C3 </p>
-    </details>
-    <h3>Send your payment back to Service Canada</h3>
-    <p>If  you received your CERB from Service Canada (EI), you must <a href="https://canada.ca/en/services/benefits/ei/cerb-application/return-or-repay.html">send it back to Service Canada</a>. </p>
     <h2 id="h3"> Impact on tax slips </h2>
     <p>The CERB is taxable. You will receive a T4A tax slip on the amount of CERB you receive.</p>
     <p>If you repay the CERB, the CRA won’t issue a T4A for that payment. To ensure that we don’t issue slips improperly, you need to repay your CERB <strong>before December 31, 2020</strong>.</p>
