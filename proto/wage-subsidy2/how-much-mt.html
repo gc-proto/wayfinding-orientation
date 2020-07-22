@@ -422,10 +422,10 @@
                                 <legend><span class="fas fa-user"></span> Eligible employee <span
                                     class="employeeNumber">1</span></legend>
                                 <div class="form-group">
-                                  <label for="wkly-arms-1">Is employee at arm's length</label>
+                                  <label for="wkly-arms-1" class="required"><span class="field-name"></span>Is employee at arm's length</span></label>
                                   <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
                                       length definition<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
-                                  <select class="form-control" id="wkly-arms-1">
+                                  <select class="form-control" id="wkly-arms-1" required data-updates="emp-arms-1">
                                     <option>Select</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -433,13 +433,13 @@
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                  <label for="wkly-baseline-1">Average weekly baseline pay for January 1 to March 15,
-                                    2020</label>
+                                  <label for="wkly-baseline-1" class="required"><span class="field-name"></span>Average weekly baseline pay for January 1 to March 15,
+                                    2020</span></label>
                                   <p><a class="wb-lbx" role="button" aria-controls="bl-def" href="#bl-def">Baseline pay
                                       definition<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
-                                    <input type="number" class="form-control input-lg text-right currency" step="any"
-                                      id="wkly-baseline-1">
+                                    <input type="number" required class="form-control input-lg text-right currency" step="any"
+                                      id="wkly-baseline-1" data-updates="emp-base-1">
                                   </div>
                                 </div>
                                 <fieldset>
@@ -448,7 +448,7 @@
                                   </legend>
                                   <div class="form-group row">
                                     <div class="col-md-3">
-                                      <label for="wkly-wkone-1">Week one</label>
+                                      <label for="wkly-wkone-1" class="required"><span class="field-name">Week one</span></label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required step="any" type="number"
                                           class="form-control text-right input-sm currency emp-wage emp-wkly-wage-1"
@@ -456,7 +456,7 @@
                                       </div>
                                     </div>
                                     <div class="col-md-3">
-                                      <label for="wkly-wktwo-1">Week two</label>
+                                      <label for="wkly-wktwo-1" class="required"><span class="field-name">Week two</span></label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
@@ -464,7 +464,7 @@
                                       </div>
                                     </div>
                                     <div class="col-md-3">
-                                      <label for="wkly-wkthree-1">Week three</label>
+                                      <label for="wkly-wkthree-1" class="required"><span class="field-name">Week three</span></label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
@@ -472,7 +472,7 @@
                                       </div>
                                     </div>
                                     <div class="col-md-3">
-                                      <label for="wkly-wkfour-1">Week four</label>
+                                      <label for="wkly-wkfour-1" class="required"><span class="field-name">Week four</span></label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
@@ -530,10 +530,10 @@
                                 <legend><span class="fas fa-user"></span> Eligible employee <span
                                     class="employeeNumber">1</span></legend>
                                 <div class="form-group">
-                                  <label for="bwkly-arms-1">Is employee at arm's length</label>
+                                  <label for="bwkly-arms-1" class="required">Is employee at arm's length</label>
                                   <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
                                       length definition<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
-                                  <select class="form-control" id="bwkly-arms-1">
+                                  <select class="form-control" id="bwkly-arms-1" required>
                                     <option>Select</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -541,14 +541,14 @@
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                  <label for="bwkly-baseline-1">Average bi-weekly baseline pay for January 1 to March
+                                  <label for="bwkly-baseline-1" class="required">Average bi-weekly baseline pay for January 1 to March
                                     15,
                                     2020</label>
                                   <p><a class="wb-lbx" role="button" aria-controls="bl-def" href="#bl-def">Baseline pay
                                       definition<span class="far fa-question-circle mrgn-lft-sm"></span></a>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
                                     <input type="number" class="form-control input-lg text-right currency" skip="any"
-                                      id="bwkly-baseline-1">
+                                      id="bwkly-baseline-1" required>
                                   </div>
                                 </div>
                                 <fieldset>
@@ -556,15 +556,15 @@
                                       class="claim-period"></span></legend>
                                   <div class="form-group row">
                                     <div class="col-md-6">
-                                      <label for="bwkly-pdone-1">2-week period one</label>
+                                      <label for="bwkly-pdone-1" class="required">2-week period one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right input-sm currency emp-bwkly-wage-1" skip="any"
-                                          id="bwkly-pdone-1" data-updates="p1-amt-1">
+                                          id="bwkly-pdone-1" data-updates="p1-amt-1" >
                                       </div>
                                     </div>
                                     <div class="col-md-6">
-                                      <label for="bwkly-pdtwo-1">2-week period two</label>
+                                      <label for="bwkly-pdtwo-1" class="required">2-week period two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input required type="number"
                                           class="form-control text-right currency emp-bwkly-wage-1" id="bwkly-pdtwo-1"
@@ -927,7 +927,7 @@
             </ol>
           </form>
         </div>
-        <div class="panel panel-primary hidden" id="results">
+        <!-- <div class="panel panel-primary hidden" id="results">
           <header class="panel-heading">
             <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
           </header>
@@ -1032,7 +1032,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div>-->
       </section>
       <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
@@ -1145,6 +1145,100 @@
         </div>
         <div class="modal-footer hidden"> </div>
       </section>
+      <section id="results" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
+        <header class="modal-header">
+          <h2 class="modal-title">CEWS calculations for claim period <span class="claim-period"></span></h2>
+        </header>
+        <div class="modal-body">
+          <table id="wkly-tbl" class="table table-bordered small hidden">
+            <thead>
+              <tr>
+                <th>Eligible employees</th>
+                <th>Arm's length</th>
+                <th>Average weekly gross pay 2020-01-01 to 2020-03-15</th>
+                <th>Weekly gross pay for Week 1</th>
+                <th>Weekly gross pay for Week 2</th>
+                <th>Weekly gross pay for Week 3</th>
+                <th>Weekly gross pay for Week 4</th>
+                <th>Basic CEWS total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Employee 1</td>
+                <td id="emp-arms-1"></td>
+                <td id="emp-base-1"></td>
+                <td data-updated-by="wkly-wkone-1"></td>
+                <td data-updated-by="wkly-wktwo-1"></td>
+                <td data-updated-by="wkly-wkthree-1"></td>
+                <td data-updated-by="wkly-wkfour-1"></td>
+                <td></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="nowrap">Total EEs: <spanc class="numEmps"></span></td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span>All EE total: <span class="wkly-total"></span></span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <table id="bwkly-tbl" class="table table-bordered small hidden">
+            <thead>
+              <tr>
+                <th>Eligible employees</th>
+                <th>Arm's length</th>
+                <th>Average weekly gross pay 2020-01-01 to 2020-03-15</th>
+                <th>Weekly gross pay for period 1</th>
+                <th>Weekly gross pay for period 2</th>
+                <th>Basic CEWS total</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="nowrap">Total EEs: <spanc class="numEmps"></span></td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span class="wb-inv">-</span>
+                </td>
+                <td>
+                  <span>All EE total: <span class="bwkly-total"></span></span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer hidden"> </div>
+      </section>
       <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
       <nav class="mrgn-bttm-lg mrgn-tp-lg">
         <h3 class="wb-inv">Document navigation</h3>
@@ -1189,7 +1283,6 @@
      * @author Michel Tremblay
      */
     var EmployeeFormGenerator = (function () {
-
 
       /**
        * Constructor
@@ -1576,7 +1669,7 @@
       $document.on("click", "#calculate", function (event) {
         event.preventDefault();
         var count = 0,
-          $elms = $(".wb-frmvld select, .wb-frmvld input"),
+          $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
           $emptyElms = [];
 
         for (let i = 0; i < $($elms).length; i++) {
@@ -1591,8 +1684,28 @@
           $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
         } else if ($emptyElms[0]) {
           $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+          console.debug($emptyElms);
         } else {
-          $("#results").toggleClass('hidden');
+          $document.trigger('open.wb-lbx', [
+            [
+              {
+                src: "#results",
+                type: "inline"
+              }
+            ],
+            false
+          ]);
+          //display weekly calculations
+          var paySchedule = $("#py-schl").val();
+          if ( paySchedule== "1") {
+            $("#wkly-tbl").removeClass("hidden");
+          //display biweekly calculations 
+          } else if (paySchedule == "2") {
+            $("#bwkly-tbl").removeClass("hidden");
+          //user somehow got past validation without choosing a payschedule
+          } else {
+
+          }
         }
       });
 
@@ -1613,6 +1726,10 @@
         var formattedVal = toMoney.format(target.value);
         //update the weekly/bi-weekly entry
         $(updateTarget).text(formattedVal);
+        var updatedByElements = $("*[data-updated-by='" + target.id + "']");
+        $(updatedByElements).each(function (i, element) {
+          $(element).text(formattedVal);
+        });
         //update the total
         if ($(updateTarget).data("updates")) {
           /*
@@ -1632,6 +1749,7 @@
           var formattedTotal = toMoney.format(total);
           $(updateTarget).text(formattedTotal);
         }
+        
       });
 
       /**
@@ -1654,10 +1772,16 @@
         if (target.value == "1") {
           $("#wkly-emp-1").removeClass('hidden');
           $("#bwkly-emp-1").addClass('hidden');
+          $("#bwkly-emp-1").find("*[required]").each(function (i, element) {
+            $(element).attr("required", false);
+          });
           //user chose bi-weekly schedule
         } else if (target.value == "2") {
           $("#bwkly-emp-1").removeClass('hidden');
           $("#wkly-emp-1").addClass('hidden');
+          $("#wkly-emp-1").find("*[required]").each(function (i, element) {
+            $(element).attr("required", false);
+          });
           //default index selected
         } else {
           $("#employees").addClass('hidden');
@@ -1679,9 +1803,56 @@
        */
       function addEmp() {
         numEmployeePanels++;
-        var frag = employeeFormGenerator.generateNewEmployeeForm(numEmployeePanels);
+        var frag = employeeFormGenerator.generateNewEmployeeForm(
+          numEmployeePanels
+        );
+        //create new row for the calculation table
+        var row = document.createElement("tr");
+        row.id = "emp" + numEmployeePanels;
+        //create the employee 'name' cell
+        var eligibleEmployeeCell = document.createElement("td");
+        eligibleEmployeeCell.innerHTML = "Employee " + numEmployeePanels;
+        // create the arms length cell 
+        var armsLengthCell = document.createElement("td");
+        armsLengthCell.id = "emp-arms-" + numEmployeePanels;
+        //create the cell for the baseline wage
+        var baselineCell = document.createElement("td");
+        baselineCell.id = "emp-base-" + numEmployeePanels;
+        //create cells for each wage entry
+        var weeklyWageCells = [];
+        for (var i = 0; i < 4; i++) {
+          weeklyWageCells[i] = document.createElement("td");
+        }
+        $(weeklyWageCells[0]).attr(
+          "data-updated-by", 
+          "wkly-wkone-" + numEmployeePanels
+        ); 
+        $(weeklyWageCells[1]).attr(
+          "data-updated-by", 
+          "wkly-wktwo-" + numEmployeePanels
+        );
+        $(weeklyWageCells[2]).attr(
+          "data-updated-by", 
+          "wkly-wkthree-" + numEmployeePanels
+        );
+        $(weeklyWageCells[3]).attr(
+          "data-updated-by", 
+          "wkly-wkfour-" + numEmployeePanels
+        );
+        //create the total cell
+        var totalCell = document.createElement("td");
+        row.appendChild(eligibleEmployeeCell);
+        row.appendChild(armsLengthCell);
+        row.appendChild(baselineCell);
+        $(weeklyWageCells).each(function (i, element) { 
+          row.appendChild(weeklyWageCells[i]);
+        });
+        row.appendChild(totalCell);
+        $("#wkly-tbl > tbody").append(row);
         $(frag).appendTo("#employeeDiv");
-        $("#remainingEmplyees").text(parseInt($("#remainingEmplyees").text()) - 1);
+        $("#remainingEmplyees").text(
+          parseInt($("#remainingEmplyees").text()) - 1
+        );
       }
 
       // Bind the init event of the plugin
