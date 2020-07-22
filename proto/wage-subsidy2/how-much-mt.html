@@ -1723,32 +1723,37 @@
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
         var updateTarget = $("#" + $(target).attr("data-updates"));
-        var formattedVal = toMoney.format(target.value);
-        //update the weekly/bi-weekly entry
-        $(updateTarget).text(formattedVal);
-        var updatedByElements = $("*[data-updated-by='" + target.id + "']");
-        $(updatedByElements).each(function (i, element) {
-          $(element).text(formattedVal);
-        });
-        //update the total
-        if ($(updateTarget).data("updates")) {
-          /*
-            update the target to the total column and get all elements that make up the total
-          */
-          updateTarget = $("#" + $(updateTarget).attr("data-updates"));
-          var elements = $("." + $(updateTarget).attr("data-updated-by"));
-          var total = 0;
-          //get the total wage
-          $(elements).each(function (i, element) {
-            formattedVal = $(element).val();
-            if (parseFloat(formattedVal)) {
-              total += parseFloat(formattedVal);
-            }
+        if (target.nodeName == 'SELECT') {
+          var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
+          $(updateTarget).text(formattedVal);
+        } else {
+          var formattedVal = toMoney.format(target.value);
+          $(updateTarget).text(formattedVal);
+          var updatedByElements = $("*[data-updated-by='" + target.id + "']");
+          $(updatedByElements).each(function (i, element) {
+            $(element).text(formattedVal);
           });
-          //format the wage and update the total
-          var formattedTotal = toMoney.format(total);
-          $(updateTarget).text(formattedTotal);
+          //update the total
+          if ($(updateTarget).data("updates")) {
+            /*
+              update the target to the total column and get all elements that make up the total
+            */
+            updateTarget = $("#" + $(updateTarget).attr("data-updates"));
+            var elements = $("." + $(updateTarget).attr("data-updated-by"));
+            var total = 0;
+            //get the total wage
+            $(elements).each(function (i, element) {
+              formattedVal = $(element).val();
+              if (parseFloat(formattedVal)) {
+                total += parseFloat(formattedVal);
+              }
+            });
+            //format the wage and update the total
+            var formattedTotal = toMoney.format(total);
+            $(updateTarget).text(formattedTotal);
+          }
         }
+        
         
       });
 
