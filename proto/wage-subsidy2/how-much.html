@@ -128,7 +128,7 @@
               <fieldset class="brdr-tp">
                 <legend>Eligible remuneration for eligible employees</legend>
                 <div class="clearfix"></div>
-		      <p>You may calculate the amount of eligible remuneration (pay) for your eligible employees and basic CEWS using the calculators provided. </p>
+		      <p>You may calculate the amount of eligible remuneration (pay) for your eligible employees and basic CEWS using <mark>one of</mark> the calculators provided. </p>
                 <ol class="lst-lwr-alph">
                 <!--  <li class="mrgn-bttm-lg">
                     <p class="lead">Understand how situations are calculated </p>
@@ -181,6 +181,7 @@
                               <td>$847</td>
                               <td class="success">$3,388</td>
                             </tr>
+
                           </tbody>
                         </table>
                       </div>
@@ -409,15 +410,87 @@
                     </details>
                   </li>-->
                   <li class="mrgn-bttm-lg">
-                    <p class="lead">Calculate the values using the online calculator or spreadsheet</p>
-		<p>Use the online calculator if:
+                    <p class="lead">Calculate the values using the spreadsheet or online calculator</p>
+					  <div class="alert alert-warning">
+                      <p>The calculation spreadsheet is improving based on your feedback. For accuracy, please check that you made your calculations with the most recent version.</p>
+                    </div>
+                    <p><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx" class="btn btn-primary btn-lg">Download the calculation spreadsheet (Excel)</a></p>
+                    <p class="small">Current version: 2020-5</p>
+                    <details class="small">
+                      <summary>Version updates</summary>
+                      <div class="table-responsive">
+                        <table class="table small">
+                          <caption class="wb-inv">
+                          Version updates
+                          </caption>
+                          <thead>
+                            <tr>
+                              <th scope="col">Release<br class="visible-xs">
+                                date</th>
+                              <th scope="col">Version</th>
+                              <th scope="col">Description</th>
+                          </tr></thead>
+                          <tbody>
+		             <tr>
+                              <td class="nowrap"><time datetime="TBD"><span class="nowrap">2020-06-25</span> <br>
+                                  <span class="nowrap">17:30:00 (EDT)</span></time>
+                              </td><td class="nowrap">Version<br class="visible-xs">
+                                2020-5</td>
+                              <td><ul>
+                                  <li>Add period 4</li>
+                                </ul></td>
+                            </tr>
+                            <tr>
+                              <td class="nowrap"><time datetime="2020-04-27 16:15"><span class="nowrap">2020-04-27</span> <br>
+                                  <span class="nowrap">16:15:00 (EDT)</span></time>
+                              </td><td class="nowrap">Version<br class="visible-xs">
+                                2020-4</td>
+                              <td><ul>
+                                  <li>Text updates (change does not affect calculation)</li>
+                                </ul></td>
+                            </tr>
+                            <tr>
+                              <td class="nowrap"><time datetime="2020-04-24 19:15"><span class="nowrap">2020-04-24</span> <br>
+                                  <span class="nowrap">19:15:00 (EDT)</span></time>
+                              </td><td class="nowrap">Version<br class="visible-xs">
+                                2020-3</td>
+                              <td><ul>
+                                  <li>Batch rows moved to a separate sheet</li>
+                                  <li>Layout updates to make the spreadsheet easier to complete</li>
+                                  <li>More detailed instructions on how to input amounts and avoid errors</li>
+                                  <li>Rounding made more accurate</li>
+                                </ul></td>
+                            </tr>
+                            <tr>
+                              <td class="nowrap"><time datetime="2020-04-21 16:12"><span class="nowrap">2020-04-22</span> <br>
+                                  <span class="nowrap">12:45:00 (EDT)</span></time>
+                              </td><td class="nowrap">Version<br class="visible-xs">
+                                2020-2</td>
+                              <td>On the “Instructions and results” worksheet, the "Total Gross Payroll" label has been renamed to "Total eligible remuneration", so it matches the corresponding web application form label</td>
+                            </tr>
+                            <tr>
+                              <td><time datetime="2020-04-21 20:00"><span class="nowrap">2020-04-21</span><br>
+                                  <span class="nowrap">09:30:00 (EDT)</span></time></td>
+                              <td class="nowrap">Version<br class="visible-xs">
+                                2020-1</td>
+                              <td>Initial worksheet</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </details>
+                    <p class="small">(If you don't have Excel, you can open the spreadsheet in free solutions like Google Sheets, Numbers or OpenOffice.)</p> 
+					  
+					  
+		<p><mark>Alternatively, you can</mark> use the online calculator if:
 			<ul>
-				<li>you have 20 eligible employees or less, and</li>
-				<li>all their wages can be calculated either weekly or bi-weekly (not both)</li>
+				<li>you around 20 eligible employees or less, and</li>
+				<li>all their wages can be calculated <mark>on a week by week basis within the claim period</mark></li>
 			  </ul>
-			If you have more than 20 employees or have various pay schedules, use the downloadable spreadsheet.</p>	  
+			If you have more than 20 employees, or have various/<mark>more complex</mark> pay schedules, use the downloadable spreadsheet.</p>	  
                     <details>
-			    <summary><h3>Online calculator for 20 employees or less</h3></summary>  
+			    <summary class="btn btn-primary  btn-lg pull-left">Alternative online calculator</summary> 
+						<div class="clearfix"></div>
 			   <fieldset id="rate-reduction">
   <legend>Calculate your revenue drop rates</legend>
   <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
@@ -614,14 +687,14 @@
                 <input type="text" size="10" id="reduction-percent" name="reduction-percent" class="form-control" />
                 <span class="input-group-addon">%</span></div>
             </div>  
-            <div class="form-group">
+     <!-- <div class="form-group">
               <label for="py-schl">Select pay schedule</label>
               <select class="form-control" id="py-schl">
                 <option>Select</option>
                 <option value="1">Weekly (52 weeks)</option>
                 <option value="2">Bi-weekly (every 2 weeks)</option>
               </select>
-            </div>
+            </div>//-->
           </div>
         </fieldset>
         <fieldset id="employees">
@@ -719,7 +792,7 @@
                 </details>
               </footer>
             </fieldset>
-            <fieldset class="panel panel-default p-0" id="emp2">
+          <!--  <fieldset class="panel panel-default p-0" id="emp2">
               <div class="panel-body">
                 <legend><span class="fas fa-user"></span> Eligible employee 2</legend>
                 <div class="form-group">
@@ -789,85 +862,107 @@
                   </table>
                 </details>
               </footer>
-            </fieldset>
-            <p class="mrgn-bttm-xl">
-              <button class="btn btn-default" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
-              18 employees left </p>
-          </div>
+            </fieldset>//-->
+           
         </fieldset>
-        <input type="submit" name="submit" value="Send this information to the fields below" class="btn btn-primary">
+        <ul class="list-inline"><li class="mrgn-tp-md"><input type="submit" name="submit" value="Send data to the form below" class="btn btn-primary"></li> <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button"><span class="fas fa-users"></span> Review employee calculations</a></li></ul>
+	 <section id="ee-calculation-table" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
+      <header class="modal-header">
+        <h2 class="modal-title">CEWS calculations for claim period [claim period here]</h2>
+      </header>
+      <div class="modal-body">
+        <p class="mrgn-bttm-md">
+          <button type="button" class="btn btn-default hidden-print" data-wb-doaction='{ "action": "tocsv", "source": "#dataset-filter" }'>Download the following table as CSV</button>
+        </p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed small" id="dataset-filter" summary="enter summary here">
+            <thead>
+              <tr>
+                <th scope="col" class="small">Eligible employees</th>
+                <th scope="col" class="small">Arm's length</th>
+                <th scope="col" class="small">Average weekly gross pay <br>
+                  2020-01-01 to 2020-03-15</th>
+                <th scope="col" class="small">Weekly gross pay for <br>
+                  Week 1</th>
+                <th scope="col" class="small">Weekly gross pay for <br>
+                  Week 2</th>
+                <th scope="col" class="small">Weekly gross pay for <br>
+                  Week 3</th>
+                <th scope="col" class="small">Weekly gross pay for <br>
+                  Week 4</th>
+                <th scope="col" class="small">Basic CEWS total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>EE 1</td>
+                <td>Yes</td>
+                <td>$1,500</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+              </tr>
+              <tr>
+                <td>EE 2</td>
+                <td>Yes</td>
+                <td>$1,200</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+              </tr>
+              <tr>
+                <td>EE 3</td>
+                <td>No</td>
+                <td>$1,300</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+              </tr>
+              <tr>
+                <td>EE 4</td>
+                <td>Yes</td>
+                <td>$1,400</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+                <td>$1,000</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td class="nowrap">Total EEs: XX</td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="wb-inv">-</span></td>
+                <td><span class="nowrap">All EE total:</span> $100,000</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <ul class="list-inline">
+          <li>
+            <button onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span class="glyphicon glyphicon-print"></span> Print this summary</button>
+          </li>
+          <li class="pull-right">
+            <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" type="button">Close<span class="wb-inv"> overlay</span></button>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer hidden"> </div>
+    </section>					
+						
 			  </details>
-			  <details><summary><h3>Spreadsheet download for 21 employees or more</h3></summary>
-			  <div class="alert alert-warning">
-                      <p>The calculation spreadsheet is improving based on your feedback. For accuracy, please check that you made your calculations with the most recent version.</p>
-                    </div>
-                    <p><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx" class="btn btn-primary btn-lg">Download the calculation spreadsheet (Excel)</a></p>
-                    <p class="small">Current version: 2020-5</p>
-                    <details class="small">
-                      <summary>Version updates</summary>
-                      <div class="table-responsive">
-                        <table class="table small">
-                          <caption class="wb-inv">
-                          Version updates
-                          </caption>
-                          <thead>
-                            <tr>
-                              <th scope="col">Release<br class="visible-xs">
-                                date</th>
-                              <th scope="col">Version</th>
-                              <th scope="col">Description</th>
-                          </tr></thead>
-                          <tbody>
-		             <tr>
-                              <td class="nowrap"><time datetime="TBD"><span class="nowrap">2020-06-25</span> <br>
-                                  <span class="nowrap">17:30:00 (EDT)</span></time>
-                              </td><td class="nowrap">Version<br class="visible-xs">
-                                2020-5</td>
-                              <td><ul>
-                                  <li>Add period 4</li>
-                                </ul></td>
-                            </tr>
-                            <tr>
-                              <td class="nowrap"><time datetime="2020-04-27 16:15"><span class="nowrap">2020-04-27</span> <br>
-                                  <span class="nowrap">16:15:00 (EDT)</span></time>
-                              </td><td class="nowrap">Version<br class="visible-xs">
-                                2020-4</td>
-                              <td><ul>
-                                  <li>Text updates (change does not affect calculation)</li>
-                                </ul></td>
-                            </tr>
-                            <tr>
-                              <td class="nowrap"><time datetime="2020-04-24 19:15"><span class="nowrap">2020-04-24</span> <br>
-                                  <span class="nowrap">19:15:00 (EDT)</span></time>
-                              </td><td class="nowrap">Version<br class="visible-xs">
-                                2020-3</td>
-                              <td><ul>
-                                  <li>Batch rows moved to a separate sheet</li>
-                                  <li>Layout updates to make the spreadsheet easier to complete</li>
-                                  <li>More detailed instructions on how to input amounts and avoid errors</li>
-                                  <li>Rounding made more accurate</li>
-                                </ul></td>
-                            </tr>
-                            <tr>
-                              <td class="nowrap"><time datetime="2020-04-21 16:12"><span class="nowrap">2020-04-22</span> <br>
-                                  <span class="nowrap">12:45:00 (EDT)</span></time>
-                              </td><td class="nowrap">Version<br class="visible-xs">
-                                2020-2</td>
-                              <td>On the “Instructions and results” worksheet, the "Total Gross Payroll" label has been renamed to "Total eligible remuneration", so it matches the corresponding web application form label</td>
-                            </tr>
-                            <tr>
-                              <td><time datetime="2020-04-21 20:00"><span class="nowrap">2020-04-21</span><br>
-                                  <span class="nowrap">09:30:00 (EDT)</span></time></td>
-                              <td class="nowrap">Version<br class="visible-xs">
-                                2020-1</td>
-                              <td>Initial worksheet</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </details>
-                    <p class="small">(If you don't have Excel, you can open the spreadsheet in free solutions like Google Sheets, Numbers or OpenOffice.)</p>
-			  </details>		  
+			  	<div class="clearfix"></div>	  
 			  <p><strong>Note:</strong> If you have an employee that also works for a related eligible employer, you may need to manually adjust the information you enter in the <mark>online calculator or spreadsheet</mark>. The combined total CEWS amount that can be claimed for that employee between yourself and any related eligible employers for each week can't exceed $847. A related eligible employer is any eligible employer that you do not deal with on an arm’s-length basis.</p>
                     <details>
                       <summary>Example of an adjustment for an employee working for related entities</summary>
