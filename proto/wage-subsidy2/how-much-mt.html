@@ -316,56 +316,56 @@
                                 <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="jan2020-yes">January 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-01-yes">January 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="jan2020-yes"
-                                            id="jan2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-01-yes"
+                                            id="2020-01-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="feb2020-yes">February 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-02-yes">February 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="feb2020-yes"
-                                            id="feb2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-02-yes"
+                                            id="2020-02-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="apr2020-yes">April 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-04-yes">April 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="apr2020-yes"
-                                            id="apr2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-04-yes"
+                                            id="2020-04-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="may2020-yes">May 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-05-yes">May 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="may2020-yes"
-                                            id="may2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-05-yes"
+                                            id="2020-05-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="jun2020-yes">June 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-06-yes">June 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="jun2020-yes"
-                                            id="jun2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-06-yes"
+                                            id="2020-06-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
                                     <div class="form-group row">
-                                      <label class="col-sm-6 control-label" for="jul2020-yes">July 2020</label>
+                                      <label class="col-sm-6 control-label" for="2020-07-yes">July 2020</label>
                                       <div class="col-sm-6">
                                         <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="jul2020-yes"
-                                            id="jul2020-yes" size="10">
+                                          <input type="number" class="form-control currency cews-rate-calc-alt" name="2020-07-yes"
+                                            id="2020-07-yes" size="10">
                                         </div>
                                       </div>
                                     </div>
@@ -1840,17 +1840,17 @@
 
       /**
        * @author Michel Tremblay
+       * convert currency fields to two decimal places
        */
-      //convert currency fields to two decimal places
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
         var formattedVal = parseFloat($(target).val()).toFixed(2);
         $(target).val(formattedVal);
       });
 
-      //update the employee wage summary
       /**
        * @author Michel Tremblay
+       * update the employee wage summary
        */
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
@@ -1929,12 +1929,10 @@
 
       /**
        * @author Michel Tremblay
+       * add a new employee form  
        */
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
-      /**
-       * add a new employee form  
-       */
       function addEmp() {
         numEmployeePanels++;
         var frag = employeeFormGenerator.generateNewEmployeeForm(
@@ -2000,12 +1998,18 @@
         var cewsRateElements = $('.cews-rate-calc');
         var allDataEntered = true;
         $(cewsRateElements).each(function (i, element) {
-          if ($(element).val() == null) {
+          var value = $(element).val();
+          if (value == null || value == "") {
             allDataEntered = false;
           }
         });
         if (allDataEntered) {
-
+          //find the claim month based on the chosen claim period
+          var claimMonth = new Date(
+            "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
+          ).getUTCMonth();
+          //get the previous month from the claim month
+          var prevClaimMonth = claimMonth - 1;
         }
       });
 
@@ -2014,60 +2018,64 @@
        * calculate the cews rate reductions with alternate baseline
        */
       $document.on("blur", ".cews-rate-calc-alt", function(event) {
+        //get all elements used for this calculation
         var cewsRateElements = $('.cews-rate-calc-alt');
-        //if user hasnt entered values for each month, dont calculate
+        //if user hasnt entered values for each field, dont calculate
         var allDataEntered = true;
         $(cewsRateElements).each(function (i, element) {
           var value = $(element).val();
-          if (value == null ||
-            value == ""
-          ) {
+          if (value == null || value == "") {
             allDataEntered = false;
           }
         });
         //if user entered all required data
         if (allDataEntered) {
           //get the jan+feb avg
-          var janRev = parseInt($("#jan2020-yes").val());
-          var febRev = parseInt($("#feb2020-yes").val());
+          var janRev = parseInt($("#2020-01-yes").val());
+          var febRev = parseInt($("#2020-02-yes").val());
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
           var claimMonth = new Date(
             "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
           ).getUTCMonth();
+          //get the value of the claim month
+          var claimMonthValue = parseInt($("#2020-0" + claimMonth + "-yes").val());
           //get the previous month from the claim month
           var prevClaimMonth = claimMonth - 1;
+          //get the value of the previous month
+          var prevClaimValue = parseInt($("#2020-0" + prevClaimMonth + "-yes").val());
           //get the avg of the revenue from apr-june
-          var threeMonthAvg = (parseInt($("#apr2020-yes").val()) + parseInt($("#may2020-yes").val()) + parseInt($("#jun2020-yes").val())) / 3;
+          var threeMonthAvg = (parseInt($("#2020-04-yes").val()) + parseInt($("#2020-05-yes").val()) + parseInt($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
           var threeMonthReduction = (threeMonthAvg - baseRev) / threeMonthAvg;
           //get the revenue reduction
           var revReduction = Math.max(
-            (baseRev - claimMonth) / baseRev,
-            (baseRev - prevClaimMonth) / baseRev
+            (baseRev - claimMonthValue) / baseRev,
+            (baseRev - prevClaimValue) / baseRev
           );
           //max base and period for P5+
           var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
           var period = $("#claim-period option:selected").data("claim-period");
+          //get the base rate
           var baseRate = 0;
           if (1.25 * revReduction > maxBase[period - 5]) {
             baseRate = 0.5;
           } else {
             baseRate = 1.2 * revReduction;
           }
+          //get the top-up rate
           var topUpRate = 0;
           if (1.25 * threeMonthAvg - 0.5 > 0.25) {
             topUpRate = 0.5;
           } else {
             topUpRate = 1.25 * threeMonthReduction - 0.5;
           }
-          
+          //calculate the overall rate
           var cewsRate = baseRate + topUpRate;
-
-          $("#top-up-rate-alt").text(topUpRate*100 + "%");
-          $("#rev-reduc-alt-base").text(baseRate*100 + "%");
-          $("#cews-rate-alt").text(cewsRate*100 + "%");
-
+          //update the view
+          $("#top-up-rate-alt").text(topUpRate * 100 + "%");
+          $("#rev-reduc-alt-base").text(baseRate * 100 + "%");
+          $("#cews-rate-alt").text(cewsRate * 100 + "%");
         }
       });
 
@@ -2099,7 +2107,6 @@
           date2Counter++;
           date2.setUTCDate(date2.getUTCDate() - 1);
         }
-        
         if (parseInt(date1Counter) < parseInt(date2Counter)) {
           return date2Month + 1;
         } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
@@ -2107,7 +2114,6 @@
         } else {
           return null;
         }
-
       }
 
       // Bind the init event of the plugin
