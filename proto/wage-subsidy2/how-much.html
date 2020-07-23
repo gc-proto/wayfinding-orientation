@@ -411,51 +411,49 @@
                   </li>-->
                   <li class="mrgn-bttm-lg">
                     <p class="lead">Calculate the values using the spreadsheet or online calculator</p>
-					<div class="row wb-eqht" data-wb-actionmng='[
+					<div class="row">
+          <div class="col-xs-12">
+            <div class="row wb-eqht" data-wb-actionmng='[
 		{ "trggroup":"clearFilter", "action": "removeClass", "source": ".btn-cews-cal", "class": "btn-primary" }
 	]'>
-    <div class="col-xs-12 col-sm-6 mrgn-bttm-lg brdr-rght">
-      <div class="mrgn-rght-md">
-        <div class="eqht-trgt">
-          <p><strong class="h3 mrgn-tp-sm">Use the spreadsheet if you:</strong></p>
-          <ul class="mrgn-bttm-0">
-            <li>have more than 20 employees, or</li>
-            <li>work with various/complex pay schedules</li>
-          </ul>
-        </div>
-        <div class="row">
-          <div class="col-xs-2 visible-xs"></div>
-          <div class="col-xs-11 col-sm-12"> <a href="#cews-cal-opt1" class="btn-cews-cal btn btn-default mrgn-tp-md" data-wb-doaction='[
+              <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg">
+                <div class="col-sm-12">
+                  <div class="eqht-trgt">
+                    <p><strong class="h3 mrgn-tp-sm">Use the spreadsheet document if you:</strong></p>
+                    <ul class="mrgn-bttm-0">
+                      <li>have more than 20 employees, or</li>
+                      <li>work with various or complex pay schedules within a claim period</li>
+                    </ul>
+                  </div>
+                  <a href="#cews-cal-opt1" class="btn-cews-cal btn btn-default mrgn-tp-md" data-wb-doaction='[
 		{ "action": "run", "trggroup": "clearFilter" },	
 		{"action": "removeClass",
 			"source": "#cews-cal-opt1", "class": "hidden"}, {"action": "addClass",
 			"source": "#cews-cal-opt2", "class": "hidden"}, { "action": "addClass", "class": "btn-primary" }
 	]'>Calculation spreadsheet</a> </div>
-        </div>
-      </div>
-    </div>
-    <div class="full-width mrgn-bttm-lg pstn-lft-sm mrgn-lft-lg">
-      <div class="text-center"><span class="fa-stack fa-fw text-muted mrgn-lft-lg"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
-    </div>
-    <div class="col-xs-11 col-sm-6 mrgn-bttm-md">
-      <div class="mrgn-lft-md">
-        <div class="eqht-trgt">
-          <p><strong class="h3 mrgn-tp-sm">Use the online calculator if you:</strong></p>
-          <ul class="mrgn-bttm-0">
-            <li>have around 20 employees or less, and</li>
-            <li>can calculate all wages on a week by week basis within the claim period</li>
-          </ul>
-        </div>
-        <a href="#cews-cal-opt2" class="btn-cews-cal btn btn-default mrgn-tp-md" data-wb-doaction='[
+              </div>
+              <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+              <div class="col-xs-12 col-sm-6 mrgn-bttm-lg">
+                <div class="col-sm-12">
+                  <div class="eqht-trgt">
+                    <p><strong class="h3 mrgn-tp-sm">Use the online calculator if you:</strong></p>
+                    <ul class="mrgn-bttm-0">
+                      <li>have about 20 employees or less, and</li>
+                      <li>can calculate wages  week-by-week within a claim period</li>
+                    </ul>
+                  </div>
+                  <a href="#cews-cal-opt2" class="btn-cews-cal btn btn-default mrgn-tp-md" data-wb-doaction='[
 			{ "action": "run", "trggroup": "clearFilter" },
 				{"action": "addClass",
 			"source": "#cews-cal-opt1", "class": "hidden"}, {"action": "removeClass",
 			"source": "#cews-cal-opt2", "class": "hidden"}, { "action": "addClass", "class": "btn-primary" }
 	]' >Online calculator</a> </div>
-    </div>
-  </div>
+              </div>
+            </div>
+          </div>
+        </div>
   <div class="mrgn-tp-lg">
-    <div id="cews-cal-opt1" class="hidden" aria-live="polite">
+    <div id="cews-cal-opt1" class="hidden panel panel-primary panel-body" aria-live="polite">
       <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
       <div class="alert alert-warning">
         <p>The calculation spreadsheet is improving based on your feedback. For accuracy, please check that you made your calculations with the most recent version.</p>
@@ -535,7 +533,7 @@
         <p>The claim amount of WRL or EBL will need to be manually reduced by a total of $128 so that the total CEWS amount related to Mary does not exceed the $847 maximum for that week.</p>
       </details>
     </div>
-    <div id="cews-cal-opt2" class="hidden" aria-live="polite">
+    <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
       <p class="h4 mrgn-tp-0">Online calculator</p>
     
         <fieldset class="brdr-0">
