@@ -614,7 +614,8 @@
                             <button class="btn btn-default" id="addemp" type="button"><span
                                 class="fas fa-plus-circle"></span> Add
                               another employee</button>
-                            <span id="remainingEmplyees">18</span> employees left </p>
+                            <!--<span id="remainingEmplyees">18</span> employees left </p>-->
+                            <button class="btn btn-default pull-right" id="emp-calc-review"><span class="fas fa-users"></span> Review Employee calculations</button>
                         </fieldset>
                         <input id="sendTo" type="submit" name="submit" value="Send this information to the fields below"
                           class="btn btn-primary hidden">
@@ -1145,7 +1146,114 @@
         </div>
         <div class="modal-footer hidden"> </div>
       </section>
-      <section id="results" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
+      <div class="panel panel-primary hidden" id="results">
+        <header class="panel-heading">
+          <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
+        </header>
+        <div class="panel-body">
+          <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg "
+              role="button"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
+                statement</span></a></p>
+          <div id="cews-statement">
+            <p class="lead"><strong>You will need the amounts below when you apply for CEWS.</strong> Print and keep
+              this record. You will need these line amounts when you complete your online application for CEWS.</p>
+            <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:
+            </p>
+            <ul class="lst-spcd">
+              <li> Line A: Number of eligible employees: <strong>
+                  <output class="h3 wb-calc nowrap" for="p2c-ee"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}"></output>
+                </strong> </li>
+              <li> Line B: Total eligible remuneration paid: <strong>
+                  <output class="h3 wb-calc nowrap" for="p2c-pyrl"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+              <li> Line C: Basic CEWS: <strong>
+                  <output class="h3 wb-calc nowrap" for="p2c-cews"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+              <li> Line D: Employer’s EI and QPIP premiums payable on salary paid to furloughed employees <small>(for
+                  the claim period)</small>: <strong>
+                  <output class="h3 wb-calc nowrap" for="p3-ei"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+              <li> Line E: Employer’s CPP and QPP contributions payable on salary paid to furloughed employees
+                <small>(for the claim period)</small>: <strong>
+                  <output class="h3 wb-calc nowrap" for="p3-cpp"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+              <li> Line F: Amount calculated under the 10% Temporary Wage Subsidy for Employers <small>(for the claim
+                  period)</small>: <strong>
+                  <output class="h3 wb-calc nowrap" for="p4-tws"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+              <li> Line G: Amount received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
+                  the claim period)</small>: <strong>
+                  <output class="h3 wb-calc nowrap" for="p4-wsb"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> </li>
+            </ul>
+            <div class="alert alert-success">
+              <h3>Result</h3>
+              <p> Line H: The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
+                  <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </strong> This amount is subject to verification. </p>
+            </div>
+          </div>
+        </div>
+        <table class="table" id="cews-statement-table">
+          <caption>
+            Summary of CEWS claim
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
+              <td class="text-right nowrap"><output class="h3 wb-calc nowrap" for="p2c-cews"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+              <td class="text-right nowrap">+
+                <output class="h3 wb-calc nowrap" for="p3-ei"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+              <td class="text-right nowrap">+
+                <output class="h3 wb-calc nowrap" for="p3-cpp"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
+                  F)</small></th>
+              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+                <output class="h3 wb-calc nowrap" for="p4-tws"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
+              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+                <output class="h3 wb-calc nowrap" for="p4-wsb"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+            <tr class="success">
+              <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
+              <td class="text-right nowrap"><output class="h3 wb-calc nowrap"
+                  for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+                  data-wb-calc="{&quot;expr&quot;: &quot;#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section id="employeeDetails" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
         <header class="modal-header">
           <h2 class="modal-title">CEWS calculations for claim period <span class="claim-period"></span></h2>
         </header>
@@ -1686,10 +1794,16 @@
           $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
           console.debug($emptyElms);
         } else {
-          $document.trigger('open.wb-lbx', [
+          $("#results").removeClass("hidden");
+        }
+      });
+
+      //show the employee calculation review modal
+      $document.on("click", "#emp-calc-review", function (event) {
+        $document.trigger('open.wb-lbx', [
             [
               {
-                src: "#results",
+                src: "#employeeDetails",
                 type: "inline"
               }
             ],
@@ -1706,9 +1820,7 @@
           } else {
 
           }
-        }
-      });
-
+      })
       //convert currency fields to two decimal places
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
