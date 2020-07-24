@@ -187,128 +187,221 @@
                       <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
                         <p>Select the eligibility period you may need to repay</p>
                         <ul>
-                          <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio" }
-]'>March 15 to April 11, 2020 </li>
-                          <li>April 12 to May 9, 2020
-                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                          <li>March 15 to April 11, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
                               <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period April 12 to May 9, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period March 15 to April 11, 2020? </p>
+                                <p class="wb-fieldflow-label">For the period of <span class="nowrap">March 15 to April 11, 2020</span> you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                  Do you still meet this criteria? </p>
+                                <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
                               </div>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio" }
-]'>No</li>
+                                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li>April 12 to May 9, 2020
+                            <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                              <p>In addition to the period <span class="nowrap">April 12 to May 9, 2020</span>, did you also receive the CERB for the period <span class="nowrap">March 15 to April 11, 2020</span>? </p>
+                              <ul>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of <span class="nowrap">April 12 to May 9, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of <span class="nowrap">April 12 to May 9, 2020</span> you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
                           <li>May 10 to June 6, 2020
                             <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period May 10 to June 6, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period April 12 to May 9, 2020? </p>
-                              </div>
+                              <p>In addition to the period <span class="nowrap">May 10 to June 6, 2020</span>, did you also receive the CERB for the period <span class="nowrap">April 12 to May 9, 2020</span>? </p>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
-]'>No</li>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of<span class="nowrap"> May 10 to June 6, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of <span class="nowrap">May 10 to June 6, 2020 </span>you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
                           <li>June 7 to July 4, 2020
                             <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period June 7 to July 4, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period May 10 to June 6, 2020? </p>
-                              </div>
+                              <p>In addition to the period <span class="nowrap">June 7 to July 4, 2020</span>, did you also receive the CERB for the period <span class="nowrap">May 10 to June 6, 2020</span>? </p>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
-]'>No</li>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of<span class="nowrap"> June 7 to July 4, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of <span class="nowrap">June 7 to July 4, 2020 </span>you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
                           <li>July 5 to August 1, 2020
                             <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period July 5 to August 1, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period June 7 to July 4, 2020? </p>
-                              </div>
+                              <p>In addition to the period <span class="nowrap">July 5 to August 1, 2020</span>, did you also receive the CERB for the period <span class="nowrap">June 7 to July 4, 2020</span>? </p>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
-]'>No</li>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of <span class="nowrap">July 5 to August 1, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of <span class="nowrap">July 5 to August 1, 2020 </span>you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
                           <li>August 2 to August 29, 2020
                             <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period August 2 to August 29, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period July 5 to August 1, 2020? </p>
-                              </div>
+                              <p>In addtion to the period <span class="nowrap">August 2 to August 29, 2020</span>, did you also receive the CERB for the period <span class="nowrap">July 5 to August 1, 2020</span>? </p>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
-]'>No</li>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of <span class="nowrap">August 2 to August 29, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of <span class="nowrap">August 2 to August 29, 2020 </span>you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
                           <li>August 30 to September 26, 2020
                             <div class="wb-fieldflow-sub" data-wb-fieldflow='{"noForm": true, "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
-                              <div class="wb-fieldflow-header">
-                                <p>You received a CERB payment for the period August 30 to September 26, 2020.</p>
-                                <p class="wb-fieldflow-label">Did you also receive the CERB for the period August 2 to August 29, 2020? </p>
-                              </div>
+                              <p>In addition to the period <span class="nowrap">August 30 to September 26, 2020</span>, did you also receive the CERB for the period <span class="nowrap">August 2 to August 29, 2020</span>? </p>
                               <ul>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer2", "target": "subsequent-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer3", "target": "subsequent-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "subsequent-unsure", "live": true},
-			{"action": "append", "source": "#subsequent-ep", "isoptional": true, "renderas": "radio"}
-]'>Yes</li>
-                                <li data-wb-fieldflow='[{"action": "toggle", "toggle": "#answer3", "target": "initial-yes", "live": true},
-			{"action": "toggle", "toggle": "#answer1", "target": "initial-no", "live": true},
-			{"action": "toggle", "toggle": "#answer4", "target": "initial-unsure", "live": true},
-			{"action": "append", "source": "#initial-ep", "isoptional": true, "renderas": "radio"}
-]'>No</li>
+                                <li>Yes
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}}'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">During the period of<span class="nowrap"> August 30 to September 26, 2020</span>, was your income more than $1,000 (before deductions)?</p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer2", "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3", "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4", "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
+                                <li>No
+                                  <div class="wb-fieldflow-sub" data-wb-fieldflow='{ "isoptional": true, "renderas": "radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"} }'>
+                                    <div class="wb-fieldflow-header">
+                                      <p class="wb-fieldflow-label">For the period of<span class="nowrap"> August 30 to September 26, 2020</span> you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
+                                        Do you still meet this criteria? </p>
+                                      <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
+                                    </div>
+                                    <ul>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer3",  "live": true}'>Yes</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer1",  "live": true}'>No</li>
+                                      <li data-wb-fieldflow='{"action": "toggle", "toggle": "#answer4",  "live": true}'>Unsure</li>
+                                    </ul>
+                                  </div>
+                                </li>
                               </ul>
                             </div>
                           </li>
@@ -322,29 +415,7 @@
                 </div>
               </form>
             </div>
-            <!--Appended //-->
-            <div id="initial-ep" class="hidden">
-              <p>For this period you must not have earned over $1,000 in employment or self employment income for at least 14 days in a row during the 4-week period. <br>
-                Do you still meet this criteria? </p>
-              <ul>
-                <li id="initial-yes">Yes</li>
-                <li id="initial-no">No</li>
-                <li id="initial-unsure">Unsure</li>
-              </ul>
-            </div>
-            <div id="subsequent-ep" class="hidden" >
-              <div class="wb-fieldflow-header">
-                <p class="wb-fieldflow-label">During this period, was your income more than $1,000 (before deductions)?</p>
-                <p class="text-muted">Include all income from employment and self-employment earned during this eligibility period.</p>
-              </div>
-              <ul>
-                <li id="subsequent-yes">Yes</li>
-                <li id="subsequent-no">No</li>
-                <li id="subsequent-unsure">Unsure</li>
-              </ul>
-            </div>
-            
-            <!--Answers -->
+          <!--Answers -->
             <div class="hidden provisional alert alert-warning alert-answer" id="answer1">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
               <p>Based on your responses, you must repay the full $2,000 that you received for your first CERB payment to the CRA.</p>
@@ -380,16 +451,12 @@
               <p>Based on your responses, you do not need to repay your CERB payment.</p>
             </div>
             <div class="hidden provisional alert alert-info alert-answer" id="answer4">
-              <p class="h5 mrgn-tp-0">Unsure of repayment</p>
+              <p class="h5 mrgn-tp-0">Unsure if I earned to much</p>
               <p>You may work while receiving the  CERB, but some restrictions apply to how much you can earn within an  eligibility period. </p>
               <p>Having to repay or not will  depend on if you continue to meet the <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">eligibility  criteria</a> for that period. <br>
                 The timing for when you can earn  income during your first eligibility period is different than during subsequent  periods.</p>
-              <p>Note that if you started working again after you got  the CERB, and then stopped working again in a later period, any re-application  you do is treated like your first eligibility period. </p>
+              <p><strong>Note: </strong>If you started working again after you got  the CERB, and then stopped working again in a later period, any re-application  you do is treated like your first eligibility period. </p>
               <p>If you are still unsure and  concerned you might need to repay, please contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
-              <div>
-                <div> </div>
-                <div> </div>
-              </div>
             </div>
             <div class="hidden provisional alert alert-warning alert-answer" id="answer5">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
@@ -461,7 +528,7 @@
       <div class="col-xs-12">
         <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
           <div class="pstn-lft-xs pstn-tp-xs"> <span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-file-invoice-dollar fa-stack-2x"></span></span></div>
-          <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="returnpymnt">Return the payment</h3>
+          <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="returnpymnt">Send back your payment to the department where you applied for it</h3>
           <div class="clearfix"></div>
           <div class="mrgn-lft-lg">
             <div class="wb-frmvld fieldflow-lg" id="cerb-send">
@@ -515,7 +582,7 @@
               </details>
             </div>
             <div class="hidden provisional alert alert-info alert-answer2" id="answer-sc">
-              <p class="h5 mrgn-tp-0"> Send your EI/ Service Canada payment back to Service Canada </p>
+              <p class="h5 mrgn-tp-0"> Send your Service Canada (EI) payment back to Service Canada </p>
               <div data-ajax-replace=" #back-sc"></div>
             </div>
             <div class="hidden provisional alert alert-info alert-answer2" id="answer-unsure">
