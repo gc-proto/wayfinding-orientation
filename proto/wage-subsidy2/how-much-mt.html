@@ -446,6 +446,11 @@
                                           class="form-control text-right input-sm currency emp-wage emp-wkly-wage-1"
                                           data-updates="w1-amt-1" id="wkly-wkone-1">
                                       </div>
+                                      <div class="checkbox">
+                                        <label for="wkly-wkone-lv-1">
+                                          <input id="wkly-wkone-lv-1" type="checkbox" value=""/> Leave with pay <span class="wb-inv">in week one</span>
+                                        </label>
+                                      </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkly-wktwo-1" class="required"><span class="field-name">Week two</span></label>
@@ -453,6 +458,11 @@
                                         <input required type="number"
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
                                           id="wkly-wktwo-1" data-updates="w2-amt-1">
+                                      </div>
+                                      <div class="checkbox">
+                                        <label for="wkly-wktwo-lv-1">
+                                          <input id="wkly-wktwo-lv-1" type="checkbox" value=""/> Leave with pay <span class="wb-inv">in week one</span>
+                                        </label>
                                       </div>
                                     </div>
                                     <div class="col-md-3">
@@ -462,6 +472,11 @@
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
                                           id="wkly-wkthree-1" data-updates="w3-amt-1">
                                       </div>
+                                      <div class="checkbox">
+                                        <label for="wkly-wkthree-lv-1">
+                                          <input id="wkly-wkthree-lv-1" type="checkbox" value=""/> Leave with pay <span class="wb-inv">in week one</span>
+                                        </label>
+                                      </div>
                                     </div>
                                     <div class="col-md-3">
                                       <label for="wkly-wkfour-1" class="required"><span class="field-name">Week four</span></label>
@@ -470,6 +485,12 @@
                                           class="form-control text-right currency emp-wage emp-wkly-wage-1" step="any"
                                           id="wkly-wkfour-1" data-updates="w4-amt-1">
                                       </div>
+                                      <div class="checkbox">
+                                        <label for="wkly-wkfour-lv-1">
+                                          <input id="wkly-wkfour-lv-1" type="checkbox" value=""/> Leave with pay <span class="wb-inv">in week one</span>
+                                        </label>
+                                      </div>
+
                                     </div>
                                   </div>
                                 </fieldset>
@@ -1319,10 +1340,14 @@
         $(inputs).each(function (i, element) {
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
-          $(element).attr("id", $(element).attr("id").replace(indexRegex, "-" + numEmps)
+          $(element).attr(
+            "id",
+            $(element).attr("id").replace(indexRegex, "-" + numEmps)
           );
           $(element).val(null);
-          $(label).attr("for", $(label).attr("for").replace(indexRegex, "-" + numEmps)
+          $(label).attr(
+            "for", 
+            $(label).attr("for").replace(indexRegex, "-" + numEmps)
           );
           //update the class that drives employee wage summary 
           if ($(element).hasClass(weeklyBaseClass)) {
@@ -1346,10 +1371,16 @@
         var currencyPlaceholderValue = this.currencyPlaceholderValue;
         var indexRegex = this.employeeIndexRegex;
         $(tds).each(function (i, element) {
-          $(element).attr("id", $(element).attr("id").replace(indexRegex, "-" + numEmps));
+          $(element).attr(
+            "id", 
+            $(element).attr("id").replace(indexRegex, "-" + numEmps)
+          );
           $(element).text(currencyPlaceholderValue);
         });
-        $(totalCell).attr("id", $(totalCell).attr("id").replace(indexRegex, "-" + numEmps));
+        $(totalCell).attr(
+          "id", 
+          $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
+        );
         $(totalCell).text(currencyPlaceholderValue);
       }
 
