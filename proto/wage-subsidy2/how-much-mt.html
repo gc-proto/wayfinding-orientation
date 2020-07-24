@@ -1181,7 +1181,6 @@
         this.employeeNumberClass = "employeeNumber";
         this.removeablePanelClass = "extra-emp-pnl";
         this.currencyPlaceholderValue = "$XXX";
-        this.percentPlaceholderValue = "XX%";
         this.weeklySummaryBaseClass = "emp-wkly-wage-1";
         this.weeklySummaryClass = "emp-wkly-wage-";
         this.employeeIndexRegex = /-1$/g;
@@ -1316,8 +1315,6 @@
         var numEmps = this.numberOfEmployees;
         var weeklyBaseClass = this.weeklySummaryBaseClass;
         var weeklyClass = this.weeklySummaryClass;
-        var biweeklyBaseClass = this.biweeklySummaryBaseClass;
-        var biweeklyClass = this.biweeklySummaryClass;
         var indexRegex = this.employeeIndexRegex;
         $(inputs).each(function (i, element) {
           //need to get the label for each of these elements and update the 'for' attr
@@ -1331,9 +1328,6 @@
           if ($(element).hasClass(weeklyBaseClass)) {
             $(element).removeClass(weeklyBaseClass);
             $(element).addClass(weeklyClass + numEmps);
-          } else if ($(element).hasClass(biweeklyBaseClass)) {
-            $(element).removeClass(biweeklyBaseClass);
-            $(element).addClass(biweeklyClass + numEmps);
           }
         });
       }
@@ -1686,7 +1680,7 @@
           //get the base rate
           var baseRate = getP5PlusBaseRate(revReduction);
           //get the top-up rate
-          var topUpRate = getP5PlusTopUpRate(threeMonthReduction);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
           //calculate the overall rate
           var cewsRate = baseRate + topUpRate;
           //update the view
@@ -1739,7 +1733,7 @@
           //get the base rate
           var baseRate = getP5PlusBaseRate(revReduction);
           //get the top-up rate
-          var topUpRate = getP5PlusTopUpRate(threeMonthReduction);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
           //calculate the overall rate
           var cewsRate = baseRate + topUpRate;
           //update the view
