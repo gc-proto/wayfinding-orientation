@@ -179,8 +179,8 @@
             </ul>
             <details>
               <summary>Choose your financial institution</summary>
-              <div data-ajax-replace="/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html #dd-individuals" class="data-ajax">
-                <p><a href="/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html#dd-individuals">Direct deposit for individuals</a></p>
+              <div data-ajax-replace="https://canada.ca/content/canadasite/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html #dd-individuals" class="data-ajax">
+                <p><a href="https://canada.ca/en/revenue-agency/services/about-canada-revenue-agency-cra/direct-deposit.html#dd-individuals">Direct deposit for individuals</a></p>
               </div>
             </details>
           </div>
@@ -375,5 +375,25 @@
             }));
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		 <script>
+		(function( $, document, wb ) {
+	"use strict";
+	$('.data-ajax').on( "wb-contentupdated", function( event, data ){
+		// "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
+		// "data.content" contains the
+		var $elm = $(event.currentTarget);
+		$elm
+			.find( wb.allSelectors )
+				.addClass( "wb-init" )
+				.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+					.trigger( "timerpoke.wb" );
+		/*
+		 * Since we are working with events we want to ensure that we are being
+		 * passive about our control, so returning true allows for events to always
+		 * continue
+		 */
+		return true;
+	});
+})( jQuery, document, wb );</script>
       </body>
    </html>
