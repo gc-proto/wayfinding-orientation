@@ -2021,7 +2021,7 @@
           //get the avg of the revenue from apr-june2019
           var threeMonthAvg2019 = (parseFloat($("#2019-04-no").val()) + parseFloat($("#2019-05-no").val()) + parseFloat($("#2019-06-no").val())) / 3;
           //get the rate reduction from the three month average
-          var threeMonthReduction = (threeMonthAvg2020 - threeMonthAvg2019) / threeMonthAvg2020;
+          var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
           var revReduction = Math.max(
             (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
@@ -2074,7 +2074,7 @@
           //get the avg of the revenue from apr-june
           var threeMonthAvg = (parseFloat($("#2020-04-yes").val()) + parseFloat($("#2020-05-yes").val()) + parseFloat($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
-          var threeMonthReduction = (threeMonthAvg - baseRev) / threeMonthAvg;
+          var threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           //get the revenue reduction
           var revReduction = Math.max(
             (baseRev - claimMonthValue) / baseRev,
@@ -2154,6 +2154,31 @@
           return 0.5;
         } else {
           return 1.2 * revReduction;
+        }
+      }
+
+      /**
+       * @author Michel Tremblay
+       */
+      function oldFormula(armsLength, weeklyRemun, baselineRemun) {
+        if(armsLength) {
+          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
+        } else {
+          return Math.max(
+            Math.min(0.75 * weeklyRemun, 847),
+            Math.min(0.75 * baselineRemun, weeklyRemun, 847)
+          );
+        }
+      }
+
+      /**
+       * @author Michel Tremblay
+       */
+      function newFormula(armsLength, weeklyRemun, baselineRemun, overall) {
+        if(armsLength) {
+          return Math.min(1129, weeklyRemun, baselineRemun) * overall;
+        } else {
+          return Math.min(1129, weeklyRemun) * overall;
         }
       }
 
