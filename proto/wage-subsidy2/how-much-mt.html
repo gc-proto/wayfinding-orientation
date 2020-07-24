@@ -403,21 +403,13 @@
                                   class="form-control" />
                                 <span class="input-group-addon">%</span></div>
                             </div>
-                            <div class="form-group">
-                              <label for="py-schl">Select pay schedule</label>
-                              <select class="form-control" id="py-schl">
-                                <option>Select</option>
-                                <option value="1">Weekly (52 weeks)</option>
-                                <option value="2">Bi-weekly (every 2 weeks)</option>
-                              </select>
-                            </div>
                           </div>
                         </fieldset>
-                        <fieldset class="hidden" id="employees">
+                        <fieldset id="employees">
                           <legend>Calculate your employee's wages</legend>
                           <div id="employeeDiv">
                             <p>Include all your eligible employees.</p>
-                            <fieldset class="panel panel-default p-0 hidden" id="wkly-emp-1">
+                            <fieldset class="panel panel-default p-0" id="wkly-emp-1">
                               <div class="panel-body">
                                 <legend><span class="fas fa-user"></span> Eligible employee <span
                                     class="employeeNumber">1</span></legend>
@@ -519,90 +511,6 @@
                                       <tr>
                                         <td>4 week total</td>
                                         <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$XXX</td>
-                                      </tr>
-                                    </tfoot>
-                                  </table>
-                                </details>
-                              </footer>
-                            </fieldset>
-                            <fieldset class="panel panel-default p-0 hidden" id="bwkly-emp-1">
-                              <div class="panel-body">
-                                <legend><span class="fas fa-user"></span> Eligible employee <span
-                                    class="employeeNumber">1</span></legend>
-                                <div class="form-group">
-                                  <label for="bwkly-arms-1" class="required">Is employee at arm's length</label>
-                                  <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
-                                      length definition<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
-                                  <select class="form-control" id="bwkly-arms-1" required>
-                                    <option>Select</option>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
-                                  </select>
-                                </div>
-                                <hr>
-                                <div class="form-group">
-                                  <label for="bwkly-baseline-1" class="required">Average bi-weekly baseline pay for January 1 to March
-                                    15,
-                                    2020</label>
-                                  <p><a class="wb-lbx" role="button" aria-controls="bl-def" href="#bl-def">Baseline pay
-                                      definition<span class="far fa-question-circle mrgn-lft-sm"></span></a>
-                                  <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
-                                    <input type="number" class="form-control input-lg text-right currency" skip="any"
-                                      id="bwkly-baseline-1" required>
-                                  </div>
-                                </div>
-                                <fieldset>
-                                  <legend>Eligible remuneration in respect of the claim period <span
-                                      class="claim-period"></span></legend>
-                                  <div class="form-group row">
-                                    <div class="col-md-6">
-                                      <label for="bwkly-pdone-1" class="required">2-week period one</label>
-                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input required type="number"
-                                          class="form-control text-right input-sm currency emp-bwkly-wage-1" skip="any"
-                                          id="bwkly-pdone-1" data-updates="p1-amt-1" >
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                      <label for="bwkly-pdtwo-1" class="required">2-week period two</label>
-                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input required type="number"
-                                          class="form-control text-right currency emp-bwkly-wage-1" id="bwkly-pdtwo-1"
-                                          data-updates="p2-amt-1">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </fieldset>
-                              </div>
-                              <footer class="panel-footer">
-                                <details>
-                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee
-                                    <span class="employeeNumber">1</span>
-                                  </summary>
-                                  <table class="table table-condensed small text-muted">
-                                    <caption class="wb-inv">
-                                      Calculation summary for employee <span class="employeeNumber">1</span>
-                                    </caption>
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">Period</th>
-                                        <th scope="col">Calculated amount</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>2-week period one</td>
-                                        <td data-updates="bwkly-amt-ttl-1" id="p1-amt-1">$XXX</td>
-                                      </tr>
-                                      <tr>
-                                        <td>2-week period two</td>
-                                        <td data-updates="bwkly-amt-ttl-1" id="p2-amt-1">$XXX</td>
-                                      </tr>
-                                    </tbody>
-                                    <tfoot>
-                                      <tr>
-                                        <td>4 week total</td>
-                                        <td id="bwkly-amt-ttl-1" data-updated-by="emp-bwkly-wage-1">$XXX</td>
                                       </tr>
                                     </tfoot>
                                   </table>
@@ -928,112 +836,6 @@
             </ol>
           </form>
         </div>
-        <!-- <div class="panel panel-primary hidden" id="results">
-          <header class="panel-heading">
-            <h2 class="panel-title">Canada Emergency Wage Subsidy (CEWS) amount to claim</h2>
-          </header>
-          <div class="panel-body">
-            <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg "
-                role="button"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
-                  statement</span></a></p>
-            <div id="cews-statement">
-              <p class="lead"><strong>You will need the amounts below when you apply for CEWS.</strong> Print and keep
-                this record. You will need these line amounts when you complete your online application for CEWS.</p>
-              <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria:
-              </p>
-              <ul class="lst-spcd">
-                <li> Line A: Number of eligible employees: <strong>
-                    <output class="h3 wb-calc nowrap" for="p2c-ee"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}"></output>
-                  </strong> </li>
-                <li> Line B: Total eligible remuneration paid: <strong>
-                    <output class="h3 wb-calc nowrap" for="p2c-pyrl"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-                <li> Line C: Basic CEWS: <strong>
-                    <output class="h3 wb-calc nowrap" for="p2c-cews"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-                <li> Line D: Employer’s EI and QPIP premiums payable on salary paid to furloughed employees <small>(for
-                    the claim period)</small>: <strong>
-                    <output class="h3 wb-calc nowrap" for="p3-ei"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-                <li> Line E: Employer’s CPP and QPP contributions payable on salary paid to furloughed employees
-                  <small>(for the claim period)</small>: <strong>
-                    <output class="h3 wb-calc nowrap" for="p3-cpp"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-                <li> Line F: Amount calculated under the 10% Temporary Wage Subsidy for Employers <small>(for the claim
-                    period)</small>: <strong>
-                    <output class="h3 wb-calc nowrap" for="p4-tws"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-                <li> Line G: Amount received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
-                    the claim period)</small>: <strong>
-                    <output class="h3 wb-calc nowrap" for="p4-wsb"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> </li>
-              </ul>
-              <div class="alert alert-success">
-                <h3>Result</h3>
-                <p> Line H: The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
-                    <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                      data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                  </strong> This amount is subject to verification. </p>
-              </div>
-            </div>
-          </div>
-          <table class="table" id="cews-statement-table">
-            <caption>
-              Summary of CEWS claim
-            </caption>
-            <tbody>
-              <tr>
-                <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
-                <td class="text-right nowrap"><output class="h3 wb-calc nowrap" for="p2c-cews"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-                <td class="text-right nowrap">+
-                  <output class="h3 wb-calc nowrap" for="p3-ei"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-                <td class="text-right nowrap">+
-                  <output class="h3 wb-calc nowrap" for="p3-cpp"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
-                    F)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                  <output class="h3 wb-calc nowrap" for="p4-tws"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
-                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                  <output class="h3 wb-calc nowrap" for="p4-wsb"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-              <tr class="success">
-                <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-                <td class="text-right nowrap"><output class="h3 wb-calc nowrap"
-                    for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                    data-wb-calc="{&quot;expr&quot;: &quot;#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>-->
       </section>
       <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
@@ -1258,7 +1060,7 @@
           <h2 class="modal-title">CEWS calculations for claim period <span class="claim-period"></span></h2>
         </header>
         <div class="modal-body">
-          <table id="wkly-tbl" class="table table-bordered small hidden">
+          <table id="wkly-tbl" class="table table-bordered small">
             <thead>
               <tr>
                 <th>Eligible employees</th>
@@ -1306,40 +1108,6 @@
                 </td>
                 <td>
                   <span>All EE total: <span class="wkly-total"></span></span>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-          <table id="bwkly-tbl" class="table table-bordered small hidden">
-            <thead>
-              <tr>
-                <th>Eligible employees</th>
-                <th>Arm's length</th>
-                <th>Average weekly gross pay 2020-01-01 to 2020-03-15</th>
-                <th>Weekly gross pay for period 1</th>
-                <th>Weekly gross pay for period 2</th>
-                <th>Basic CEWS total</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td class="nowrap">Total EEs: <spanc class="numEmps"></span></td>
-                <td>
-                  <span class="wb-inv">-</span>
-                </td>
-                <td>
-                  <span class="wb-inv">-</span>
-                </td>
-                <td>
-                  <span class="wb-inv">-</span>
-                </td>
-                <td>
-                  <span class="wb-inv">-</span>
-                </td>
-                <td>
-                  <span>All EE total: <span class="bwkly-total"></span></span>
                 </td>
               </tr>
             </tfoot>
@@ -1396,11 +1164,6 @@
        * Constructor
        * 
        * @param {Int} paySchedule the numeric value of the chosen pay schedule
-       * 
-       * @calls EmployeeFormGenerator::updateTemplateId() to update the 
-       * templateId
-       * @calls EmployeeFormGenerator::updatePrefix() to update the prefix 
-       * to identify weekly and bi-weekly employee forms
        */
       function EmployeeFormGenerator(paySchedule) {
         //the payschedule chosen by the user
@@ -1411,7 +1174,6 @@
         this.weekly = 1;
         this.biWeekly = 2;
         this.weeklyPrefix = "wkly-";
-        this.biWeeklyPrefix = "bwkly-";
         this.weeklyTemplateId = this.weeklyPrefix + "emp-1";
         this.biWeeklyTemplateId = this.biWeeklyPrefix + "emp-1";
         this.armsLengthId = "arms-";
@@ -1421,14 +1183,10 @@
         this.currencyPlaceholderValue = "$XXX";
         this.percentPlaceholderValue = "XX%";
         this.weeklySummaryBaseClass = "emp-wkly-wage-1";
-        this.biweeklySummaryBaseClass = "emp-bwkly-wage-1";
         this.weeklySummaryClass = "emp-wkly-wage-";
-        this.biweeklySummaryClass = "emp-bwkly-wage-";
         this.employeeIndexRegex = /-1$/g;
-        //update the templateId based on the chosen paychedule
-        this.updateTemplateId();
-        //update the prefix based on payschedule
-        this.updatePrefix();
+        this.templateId = this.weeklyTemplateId;
+        this.prefix = this.weeklyPrefix
       }
 
       /**
@@ -1443,35 +1201,11 @@
        * attributes updated for use in as a new employee wage form
        */
       EmployeeFormGenerator.prototype.generateNewEmployeeForm = function (numEmps) {
-        if (this.paySchedule == this.weekly ||
-          this.paySchedule == this.biWeekly
-        ) {
-          //update number of employee frames
-          this.numberOfEmployees = numEmps;
-          //generate another pay form
-          var newForm = this.generateNewForm();
-          return newForm;
-        } else {
-          //clear all employee data? check with designers
-        }
-      }
-
-      /**
-       * updatePaySchedule
-       * 
-       * update the chosen pay schedule and dependant variables
-       * 
-       * @param {Int} newPaySchedule 
-       * 
-       * @calls EmployeeFormGenerator::updateTemplateId() to update the 
-       * templateId
-       * @calls EmployeeFormGenerator::updatePrefix() to update the prefix 
-       * to identify weekly and bi-weekly employee forms
-       */
-      EmployeeFormGenerator.prototype.updatePaySchedule = function (newPaySchedule) {
-        this.paySchedule = newPaySchedule;
-        this.updateTemplateId();
-        this.updatePrefix();
+        //update number of employee frames
+        this.numberOfEmployees = numEmps;
+        //generate another pay form
+        var newForm = this.generateNewForm();
+        return newForm;
       }
 
       /**
@@ -1514,19 +1248,6 @@
         this.updateInputs(frag);
         this.updateTableIds(frag);
         return frag;
-      }
-
-      /**
-       * updateTemplateId
-       * 
-       * update the templateId based on the chosen pay schedule
-       */
-      EmployeeFormGenerator.prototype.updateTemplateId = function () {
-        if (this.paySchedule == this.weekly) {
-          this.templateId = this.weeklyTemplateId;
-        } else {
-          this.templateId = this.biWeeklyTemplateId;
-        }
       }
 
       /**
@@ -1618,21 +1339,6 @@
       }
 
       /**
-       * updatePrefix
-       * 
-       * update the weekly/biweekly prefix
-       */
-      EmployeeFormGenerator.prototype.updatePrefix = function () {
-        if (this.templateId == this.weeklyTemplateId) {
-          this.prefix = this.weeklyPrefix
-        } else if (this.templateId == this.biWeeklyTemplateId) {
-          this.prefix = this.biWeeklyPrefix
-        } else {
-          this.prefix = "";
-        }
-      }
-
-      /**
        * updateTableIds
        * 
        * update table cell id and values required for employee wage summary
@@ -1672,7 +1378,7 @@
         currency: "CAD",
         minimumFractionDigits: 2
       });
-      var employeeFormGenerator = new EmployeeFormGenerator($("#py-schl").val());
+      var employeeFormGenerator = new EmployeeFormGenerator();
       var componentName = "wb-calc",
         selector = "." + componentName,
         initEvent = "wb-init" + selector,
@@ -1825,17 +1531,6 @@
             ],
             false
           ]);
-          //display weekly calculations
-          var paySchedule = $("#py-schl").val();
-          if ( paySchedule == "1") {
-            $("#wkly-tbl").removeClass("hidden");
-          //display biweekly calculations 
-          } else if (paySchedule == "2") {
-            $("#bwkly-tbl").removeClass("hidden");
-          //user somehow got past validation without choosing a payschedule
-          } else {
-            //discuss what should happen here 
-          }
       })
 
       /**
@@ -1889,48 +1584,9 @@
 
       /**
        * @author Michel Tremblay
-       */
-      var numEmployeePanels = 1;
-      //display specific employee work hours panel based on pay schedule
-      $(document).on("change", "#py-schl", function (event) {
-        var target = event.target;
-        employeeFormGenerator.updatePaySchedule(target.value);
-        //remove all extra employee panels that were created
-        $(document).find(".extra-emp-pnl").each(function (i, element) {
-          $(element).remove();
-          $("#remainingEmplyees").text(parseInt($("#remainingEmplyees").text()) + 1);
-        });
-        numEmployeePanels = 1;
-        $("#employees").removeClass('hidden');
-        $("#sendTo").removeClass('hidden');
-        //user chose weekly pay schedule
-        if (target.value == "1") {
-          $("#wkly-emp-1").removeClass('hidden');
-          $("#bwkly-emp-1").addClass('hidden');
-          $("#bwkly-emp-1").find("*[required]").each(function (i, element) {
-            $(element).attr("required", false);
-          });
-          //user chose bi-weekly schedule
-        } else if (target.value == "2") {
-          $("#bwkly-emp-1").removeClass('hidden');
-          $("#wkly-emp-1").addClass('hidden');
-          $("#wkly-emp-1").find("*[required]").each(function (i, element) {
-            $(element).attr("required", false);
-          });
-          //default index selected
-        } else {
-          $("#employees").addClass('hidden');
-          $("#sendTo").addClass('hidden');
-          $("#wkly-emp-1").addClass('hidden');
-          $("#bwkly-emp-1").addClass('hidden');
-        }
-        target.parentElement.scrollIntoView(true);
-      });
-
-      /**
-       * @author Michel Tremblay
        * add a new employee form  
        */
+      var numEmployeePanels = 1;
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
       function addEmp() {
@@ -2192,9 +1848,6 @@
       /**
        * @author Michel Tremblay
        */
-      $("#wkly-emp-1").addClass("hidden");
-      $("#employees").addClass("hidden");
-      $("#bwkly-emp-1").addClass("hidden");
       $("#rate-reduction").addClass("hidden");
       $("#reduction-percent-panel").addClass("hidden");
     });
