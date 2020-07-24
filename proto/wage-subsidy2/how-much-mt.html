@@ -2009,17 +2009,17 @@
             "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
           ).getUTCMonth();
           //get the value of the claim month
-          var claimMonth2020Value = parseInt($("#2020-0" + claimMonth + "-no").val());
-          var claimMonth2019Value = parseInt($("#2019-0" + claimMonth + "-no").val());
+          var claimMonth2020Value = parseFloat($("#2020-0" + claimMonth + "-no").val());
+          var claimMonth2019Value = parseFloat($("#2019-0" + claimMonth + "-no").val());
           //get the previous month from the claim month
           var prevClaimMonth = claimMonth - 1;
           //get the value of the previous month
-          var prevClaim2020Value = parseInt($("#2020-0" + prevClaimMonth + "-no").val());
-          var prevClaim2019Value = parseInt($("#2019-0" + prevClaimMonth + "-no").val());
+          var prevClaim2020Value = parseFloat($("#2020-0" + prevClaimMonth + "-no").val());
+          var prevClaim2019Value = parseFloat($("#2019-0" + prevClaimMonth + "-no").val());
           //get the avg of the revenue from apr-june2020
-          var threeMonthAvg2020 = (parseInt($("#2020-04-no").val()) + parseInt($("#2020-05-no").val()) + parseInt($("#2020-06-no").val())) / 3;
+          var threeMonthAvg2020 = (parseFloat($("#2020-04-no").val()) + parseFloat($("#2020-05-no").val()) + parseFloat($("#2020-06-no").val())) / 3;
           //get the avg of the revenue from apr-june2019
-          var threeMonthAvg2019 = (parseInt($("#2019-04-no").val()) + parseInt($("#2019-05-no").val()) + parseInt($("#2019-06-no").val())) / 3;
+          var threeMonthAvg2019 = (parseFloat($("#2019-04-no").val()) + parseFloat($("#2019-05-no").val()) + parseFloat($("#2019-06-no").val())) / 3;
           //get the rate reduction from the three month average
           var threeMonthReduction = (threeMonthAvg2020 - threeMonthAvg2019) / threeMonthAvg2020;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
@@ -2058,21 +2058,21 @@
         //if user entered all required data
         if (allDataEntered) {
           //get the jan+feb avg
-          var janRev = parseInt($("#2020-01-yes").val());
-          var febRev = parseInt($("#2020-02-yes").val());
+          var janRev = parseFloat($("#2020-01-yes").val());
+          var febRev = parseFloat($("#2020-02-yes").val());
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
           var claimMonth = new Date(
             "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
           ).getUTCMonth();
           //get the value of the claim month
-          var claimMonthValue = parseInt($("#2020-0" + claimMonth + "-yes").val());
+          var claimMonthValue = parseFloat($("#2020-0" + claimMonth + "-yes").val());
           //get the previous month from the claim month
           var prevClaimMonth = claimMonth - 1;
           //get the value of the previous month
-          var prevClaimValue = parseInt($("#2020-0" + prevClaimMonth + "-yes").val());
+          var prevClaimValue = parseFloat($("#2020-0" + prevClaimMonth + "-yes").val());
           //get the avg of the revenue from apr-june
-          var threeMonthAvg = (parseInt($("#2020-04-yes").val()) + parseInt($("#2020-05-yes").val()) + parseInt($("#2020-06-yes").val())) / 3;
+          var threeMonthAvg = (parseFloat($("#2020-04-yes").val()) + parseFloat($("#2020-05-yes").val()) + parseFloat($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
           var threeMonthReduction = (threeMonthAvg - baseRev) / threeMonthAvg;
           //get the revenue reduction
