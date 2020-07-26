@@ -131,11 +131,12 @@
       </ul>
     </li>	  
     <li class="checkbox">
+	    <input type="checkbox" id="bfore5" class="action-checkbox"> 
 	     <label for="bfore5"><strong>One of the following applies:</strong></label>
       <ul class="std-blt lst-spcd">
         <li>
           <label for="bfore5">If you are calculating a claim for period 5 to 9: You have information about your monthly eligible revenue from 2020 and 2019 (if available) to calculate your revenue drop </label>
-       <label for="bfore5"><strong>or</strong></label> <br>
+       <label for="bfore5"><strong>or</strong></label> 
         </li>
         <li>
           <label for="bfore5">If you are calculating a claim for period 1 to 4: You know the amount you calculated for the 10% Temporary Wage Subsidy for Employers program (available for periods 1 to 4 only)</label>
@@ -1351,6 +1352,18 @@
          }));
       </script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+<script>
+            $(".action-checkbox").change(function(){
+            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+            $("#action-msg1").removeClass("hidden").addClass("visible");
+            $("#action-no-msg").addClass("hidden-").removeClass("visible-action");
+            }
+            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+            $("#action-msg1").addClass("hidden").removeClass("visible");
+            $("#action-no-msg").removeClass("hidden").addClass("visible");
+            }
+            })
+         </script>
       <script>
          ( function( $, window, wb ) {
            "use strict";
