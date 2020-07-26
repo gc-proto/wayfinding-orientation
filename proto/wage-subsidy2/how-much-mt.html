@@ -1832,7 +1832,7 @@
         var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
         var period = $("#claim-period option:selected").data("claim-period");
         if (1.25 * revReduction > maxBase[period - 5]) {
-          return 0.5;
+          return maxBase[period - 5];
         } else {
           return 1.2 * revReduction;
         }
