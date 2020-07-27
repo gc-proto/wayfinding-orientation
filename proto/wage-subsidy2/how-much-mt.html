@@ -408,7 +408,7 @@
                         <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
                           <p class="h4 mrgn-tp-0">Online calculator</p>
 
-                          <fieldset class="brdr-0">
+                          <fieldset class="brdr-0" id="rate-reduction" class="hidden">
                             <legend>Calculate your rate reduction</legend>
                             <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                               <p>Have you claimed CEWS before this period?</p>
@@ -627,7 +627,7 @@
                               </ul>
                             </div>
                           </div>
-                          <fieldset id="payroll">
+                          <fieldset id="payroll" class="hidden">
                             <legend>Payroll details</legend>
                             <div>
                               <div class="form-group">
@@ -665,8 +665,8 @@
                                   <p><a class="wb-lbx" role="button" aria-controls="bl-def" href="#bl-def">Baseline pay
                                       definition<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
-                                    <input type="number"
-                                      class="form-control input-lg text-right" id="baseline-1" value="0.00" data-updates="emp-base-1">
+                                    <input type="text"
+                                      class="form-control input-lg text-right" id="baseline-1" value="0.00" data-updates="emp-base-1" placeholder="0.00">
                                   </div>
                                 </div>
                                 <fieldset>
@@ -677,10 +677,10 @@
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number"
-                                          class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1" placholder="0.00" data-updates="w1-amt-1">
+                                        <input type="text"
+                                          class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1">
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wkone-cb-1"><input id="wkone-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week one</span></label>
                                       </div>
@@ -688,10 +688,10 @@
                                     <div class="col-md-3">
                                       <label for="wktwo-1">Week two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wktwo-1" placeholder="0.00" data-updates="w2-amt-1" >
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wktwo-cb-1"><input id="wktwo-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week two</span></label>
                                       </div>
@@ -699,10 +699,10 @@
                                     <div class="col-md-3">
                                       <label for="wkthree-1">Week three</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wkthree-1" placeholder="0.00" data-updates="w3-amt-1">
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wkthree-cb-1"><input id="wkthree-cb-1" type="checkbox"
                                             value="">Leave with pay<span class="wb-inv"> in week three</span></label>
                                       </div>
@@ -710,11 +710,11 @@
                                     <div class="col-md-3">
                                       <label for="wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
-                                          id="wkfour-1" placholder="0.00" data-updates="w4-amt-1">
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
+                                          id="wkfour-1" placeholder="0.00" data-updates="w4-amt-1">
                                       </div>
-                                      <div class="checkbox">
-                                        <label for="wkfour-cb-1"><input id="wkfour-cb-1" type="checkbox" value="">Leave
+                                      <div class="checkbox emp-lv hidden">
+                                        <label for="wkfour-cb-1"><input id="wkfour-cb-1" class="emp-lv hidden" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week four</span></label>
                                       </div>
                                     </div>
@@ -726,7 +726,7 @@
                                   <summary><span class="fas fa-calculator"></span> Calculation summary for employee
                                     <span class="employeeNumber">1</span>
                                   </summary>
-                                  <table class="table table-condensed small text-muted">
+                                  <table class="table table-condensed small text-muted" id="emp-smry-1">
                                     <caption class="wb-inv">
                                       Calculation summary for employee <span class="employeeNumber">1</span>
                                     </caption>
@@ -761,6 +761,20 @@
                                       </tr>
                                     </tfoot>
                                   </table>
+                                  <table id="emp-no-elgbl-1" class="table table-condensed small text-muted hidden">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Week</th>
+                                        <th scope="col">Calculated amount</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr >
+                                        <td colspan="2">This employee is not eligible for this claim period</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
                                 </details>
                               </footer>
                             </fieldset>
@@ -773,7 +787,7 @@
                             <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table"
                                 class="wb-lbx lbx-modal btn btn-default" role="button"><span
                                   class="fas fa-users"></span> Review employee calculations</a></li>
-                            <li class="mrgn-tp-md"><button id="transfer-data" class="btn btn-primary">Send data to the
+                            <li class="mrgn-tp-md"><button type="button" id="transfer-data" class="btn btn-primary">Send data to the
                                 form below</button>
                             </li>
                           </ul>
@@ -803,7 +817,7 @@
                                   <th>Weekly gross pay for Week 2</th>
                                   <th>Weekly gross pay for Week 3</th>
                                   <th>Weekly gross pay for Week 4</th>
-                                  <th>Basic CEWS total</th>
+                                  <th>Calculated CEWS before deductions</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -811,10 +825,10 @@
                                   <td>Employee 1</td>
                                   <td id="emp-arms-1"></td>
                                   <td id="emp-base-1"></td>
-                                  <td data-updated-by="wkly-wkone-1"></td>
-                                  <td data-updated-by="wkly-wktwo-1"></td>
-                                  <td data-updated-by="wkly-wkthree-1"></td>
-                                  <td data-updated-by="wkly-wkfour-1"></td>
+                                  <td data-updated-by="wkone-1"></td>
+                                  <td data-updated-by="wktwo-1"></td>
+                                  <td data-updated-by="wkthree-1"></td>
+                                  <td data-updated-by="wkfour-1"></td>
                                   <td></td>
                                 </tr>
                               </tbody>
@@ -1655,10 +1669,12 @@
           parseInt($("#claim-period option:selected").data("claim-period")) >= 5
         ) {
           $("#rate-reduction").removeClass("hidden");
-          $("#reduction-percent-panel").removeClass("hidden");
+          $("#payroll").removeClass("hidden");
+          $(".emp-lv").removeClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
-          $("#reduction-percent-panel").addClass("hidden");
+          $("#payroll").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
         }
       });
 
@@ -1700,8 +1716,15 @@
        * @author Michel Tremblay
        * update the employee wage summary
        */
+      var numEmployeePanels = 1;
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
+        if (target.value == "0") {
+          if (!checkEmployeeEligibility(target)) {
+            $("#emp-smry-" + numEmployeePanels).addClass("hidden");
+            $("#emp-no-elgbl-" + numEmployeePanels).removeClass("hidden");
+          }
+        }
         var updateTarget = $("#" + $(target).attr("data-updates"));
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
@@ -1737,9 +1760,31 @@
 
       /**
        * @author Michel Tremblay
+       * determine if an employee has been paid $0 for two consecutive pays
+       */
+      function checkEmployeeEligibility(element) {
+        //get all inputs for this employees weekly wages
+        var classname = element.className.match(/emp-wkly-wage-\d/g);
+        if (classname == "") {
+          return;
+        }
+        //put employee on notice on first 0 value found; if another 0 value is found while on notice, the employee is not eligible for this claim period
+        var onNotice = false;
+        var eligibility = true;
+          $("." + classname).each(function(i, element) {
+            if (onNotice && parseFloat($(element).val()) == 0) {
+              eligibility = false;
+            } else if (parseFloat($(element).val()) == 0) {
+              onNotice = true;
+            }
+        });
+        return eligibility;
+      }
+
+      /**
+       * @author Michel Tremblay
        * add a new employee form  
        */
-      var numEmployeePanels = 1;
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
       function addEmp() {
@@ -1767,19 +1812,19 @@
         //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
         $(weeklyWageCells[0]).attr(
           "data-updated-by",
-          "wkly-wkone-" + numEmployeePanels
+          "wkone-" + numEmployeePanels
         );
         $(weeklyWageCells[1]).attr(
           "data-updated-by",
-          "wkly-wktwo-" + numEmployeePanels
+          "wktwo-" + numEmployeePanels
         );
         $(weeklyWageCells[2]).attr(
           "data-updated-by",
-          "wkly-wkthree-" + numEmployeePanels
+          "wkthree-" + numEmployeePanels
         );
         $(weeklyWageCells[3]).attr(
           "data-updated-by",
-          "wkly-wkfour-" + numEmployeePanels
+          "wkfour-" + numEmployeePanels
         );
         //create the total cell
         var totalCell = document.createElement("td");
@@ -1792,8 +1837,8 @@
         });
         //add the row to the table
         row.appendChild(totalCell);
-        $("#wkly-tbl > tbody").append(row);
-        $(frag).insertAfter("#emp-1");
+        $("#dataset-filter > tbody").append(row);
+        $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
       }
 
       /**
@@ -1899,6 +1944,17 @@
         }
       });
 
+
+
+      $(document).on("click", "transfer-data", function(event) {
+        $("#p2c-ee").val(numEmployeePanels);
+        var total = 0;
+        $(".wkly-total").each(function (i, element) {
+          total += parseFloat(element.text().replace("$", ""));
+        });
+        $("#p2c-pyrl").val(total);
+      });
+
       /**
        * getClaimMonth()
        * 
@@ -1919,12 +1975,15 @@
         var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1], date2Arr[2]));
         var date1Counter = 0;
         var date1Month = date1.getUTCMonth();
+        var date2Counter = 0;
+        var date2Month = date2.getUTCMonth();
+        if (date1Month == date2Month) {
+          return date1Month;
+        }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;
           date1.setUTCDate(date1.getUTCDate() + 1);
         }
-        var date2Counter = 0;
-        var date2Month = date2.getUTCMonth();
         while (date2Month == date2.getUTCMonth()) {
           date2Counter++;
           date2.setUTCDate(date2.getUTCDate() - 1);
@@ -1942,10 +2001,10 @@
        * @author Michel Tremblay
        */
       function getP5PlusTopUpRate(reduction) {
-        if (1.25 * reduction - 0.5 > 0.25) {
+        if (1.25 * (reduction - 0.5) > 0.25) {
           return 0.25;
         } else {
-          return 1.25 * reduction - 0.5;
+          return 1.25 * (reduction - 0.5);
         }
       }
 
@@ -1955,11 +2014,12 @@
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
         var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.4];
         var period = $("#claim-period option:selected").data("claim-period");
-        if (1.25 * revReduction > maxBase[period - 5]) {
+        if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
           return maxBase[period - 5];
         } else {
-          return 1.2 * revReduction;
+          return scaleBase[period - 5] * revReduction;
         }
       }
 
