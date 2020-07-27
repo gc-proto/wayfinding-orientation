@@ -665,8 +665,8 @@
                                   <p><a class="wb-lbx" role="button" aria-controls="bl-def" href="#bl-def">Baseline pay
                                       definition<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
-                                    <input type="number"
-                                      class="form-control input-lg text-right" id="baseline-1" value="0.00" data-updates="emp-base-1">
+                                    <input type="text"
+                                      class="form-control input-lg text-right" id="baseline-1" value="0.00" data-updates="emp-base-1" placeholder="0.00">
                                   </div>
                                 </div>
                                 <fieldset>
@@ -677,7 +677,7 @@
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number"
+                                        <input type="text"
                                           class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1" placholder="0.00" data-updates="w1-amt-1">
                                       </div>
                                       <div class="checkbox">
@@ -688,7 +688,7 @@
                                     <div class="col-md-3">
                                       <label for="wktwo-1">Week two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wktwo-1" placeholder="0.00" data-updates="w2-amt-1" >
                                       </div>
                                       <div class="checkbox">
@@ -699,7 +699,7 @@
                                     <div class="col-md-3">
                                       <label for="wkthree-1">Week three</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wkthree-1" placeholder="0.00" data-updates="w3-amt-1">
                                       </div>
                                       <div class="checkbox">
@@ -710,7 +710,7 @@
                                     <div class="col-md-3">
                                       <label for="wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="number" class="form-control text-right emp-wkly-wage-1"
+                                        <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wkfour-1" placholder="0.00" data-updates="w4-amt-1">
                                       </div>
                                       <div class="checkbox">
@@ -1793,7 +1793,7 @@
         //add the row to the table
         row.appendChild(totalCell);
         $("#wkly-tbl > tbody").append(row);
-        $(frag).insertAfter("#emp-1");
+        $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
       }
 
       /**
