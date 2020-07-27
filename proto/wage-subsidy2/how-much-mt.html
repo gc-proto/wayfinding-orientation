@@ -408,7 +408,7 @@
                         <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
                           <p class="h4 mrgn-tp-0">Online calculator</p>
 
-                          <fieldset class="brdr-0">
+                          <fieldset class="brdr-0" id="rate-reduction" class="hidden">
                             <legend>Calculate your rate reduction</legend>
                             <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                               <p>Have you claimed CEWS before this period?</p>
@@ -627,7 +627,7 @@
                               </ul>
                             </div>
                           </div>
-                          <fieldset id="payroll">
+                          <fieldset id="payroll" class="hidden">
                             <legend>Payroll details</legend>
                             <div>
                               <div class="form-group">
@@ -680,7 +680,7 @@
                                         <input type="text"
                                           class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1">
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wkone-cb-1"><input id="wkone-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week one</span></label>
                                       </div>
@@ -691,7 +691,7 @@
                                         <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wktwo-1" placeholder="0.00" data-updates="w2-amt-1" >
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wktwo-cb-1"><input id="wktwo-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week two</span></label>
                                       </div>
@@ -702,7 +702,7 @@
                                         <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wkthree-1" placeholder="0.00" data-updates="w3-amt-1">
                                       </div>
-                                      <div class="checkbox">
+                                      <div class="checkbox emp-lv hidden">
                                         <label for="wkthree-cb-1"><input id="wkthree-cb-1" type="checkbox"
                                             value="">Leave with pay<span class="wb-inv"> in week three</span></label>
                                       </div>
@@ -713,8 +713,8 @@
                                         <input type="text" class="form-control text-right emp-wkly-wage-1"
                                           id="wkfour-1" placeholder="0.00" data-updates="w4-amt-1">
                                       </div>
-                                      <div class="checkbox">
-                                        <label for="wkfour-cb-1"><input id="wkfour-cb-1" type="checkbox" value="">Leave
+                                      <div class="checkbox emp-lv hidden">
+                                        <label for="wkfour-cb-1"><input id="wkfour-cb-1" class="emp-lv hidden" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week four</span></label>
                                       </div>
                                     </div>
@@ -817,7 +817,7 @@
                                   <th>Weekly gross pay for Week 2</th>
                                   <th>Weekly gross pay for Week 3</th>
                                   <th>Weekly gross pay for Week 4</th>
-                                  <th>Basic CEWS total</th>
+                                  <th>Calculated CEWS before deductions</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -1669,10 +1669,12 @@
           parseInt($("#claim-period option:selected").data("claim-period")) >= 5
         ) {
           $("#rate-reduction").removeClass("hidden");
-          $("#reduction-percent-panel").removeClass("hidden");
+          $("#payroll").removeClass("hidden");
+          $(".emp-lv").removeClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
-          $("#reduction-percent-panel").addClass("hidden");
+          $("#payroll").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
         }
       });
 
@@ -1962,12 +1964,15 @@
         var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1], date2Arr[2]));
         var date1Counter = 0;
         var date1Month = date1.getUTCMonth();
+        var date2Counter = 0;
+        var date2Month = date2.getUTCMonth();
+        if (date1Month == date2Month) {
+          return date1Month;
+        }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;
           date1.setUTCDate(date1.getUTCDate() + 1);
         }
-        var date2Counter = 0;
-        var date2Month = date2.getUTCMonth();
         while (date2Month == date2.getUTCMonth()) {
           date2Counter++;
           date2.setUTCDate(date2.getUTCDate() - 1);
@@ -1985,10 +1990,10 @@
        * @author Michel Tremblay
        */
       function getP5PlusTopUpRate(reduction) {
-        if (1.25 * reduction - 0.5 > 0.25) {
+        if (1.25 * (reduction - 0.5) > 0.25) {
           return 0.25;
         } else {
-          return 1.25 * reduction - 0.5;
+          return 1.25 * (reduction - 0.5);
         }
       }
 
@@ -1998,11 +2003,12 @@
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
         var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.4];
         var period = $("#claim-period option:selected").data("claim-period");
-        if (1.25 * revReduction > maxBase[period - 5]) {
+        if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
           return maxBase[period - 5];
         } else {
-          return 1.2 * revReduction;
+          return scaleBase[period - 5] * revReduction;
         }
       }
 
