@@ -787,7 +787,7 @@
                             <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table"
                                 class="wb-lbx lbx-modal btn btn-default" role="button"><span
                                   class="fas fa-users"></span> Review employee calculations</a></li>
-                            <li class="mrgn-tp-md"><button id="transfer-data" class="btn btn-primary">Send data to the
+                            <li class="mrgn-tp-md"><button type="button" id="transfer-data" class="btn btn-primary">Send data to the
                                 form below</button>
                             </li>
                           </ul>
@@ -1719,7 +1719,7 @@
       var numEmployeePanels = 1;
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
-        if (target.value = "0") {
+        if (target.value == "0") {
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + numEmployeePanels).addClass("hidden");
             $("#emp-no-elgbl-" + numEmployeePanels).removeClass("hidden");
@@ -1942,6 +1942,17 @@
           $("#rev-reduc-alt-base").text(baseRate * 100 + "%");
           $("#cews-rate-alt").text(cewsRate * 100 + "%");
         }
+      });
+
+
+
+      $(document).on("click", "transfer-data", function(event) {
+        $("#p2c-ee").val(numEmployeePanels);
+        var total = 0;
+        $(".wkly-total").each(function (i, element) {
+          total += parseFloat(element.text().replace("$", ""));
+        });
+        $("#p2c-pyrl").val(total);
       });
 
       /**
