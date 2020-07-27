@@ -1455,30 +1455,7 @@
           "#" + this.baselineId + "1"
         );
         $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
-        $(baselineWageElement).val(null);
-      }
-
-      /**
-       * setUpdatesAndUpdatedByData
-       * 
-       * increment the date-updates and data-updated-by value so the 
-       * appropriate summary table is updated
-       * 
-       * @param {DOMDocumentFragment} frag the cloned template
-       */
-      EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
-        var updateElements = $(frag).find("*[data-updates$='-1']");
-        var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
-        var numEmps = this.numberOfEmployees;
-        var indexRegex = this.employeeIndexRegex;
-        $(updateElements).each(function (i, element) {
-          var newval = $(element).data("updates").replace(indexRegex, "-" + numEmps);
-          $(element).attr("data-updates", newval);
-        });
-        $(updatedByElements).each(function (i, element) {
-          var newval = $(element).data("updated-by").replace(indexRegex, "-" + numEmps)
-          $(element).attr("data-updated-by", newval);
-        });
+        $(baselineWageElement).val("0.00");
       }
 
       /**
@@ -1496,13 +1473,17 @@
         var weeklyClass = this.weeklySummaryClass;
         var indexRegex = this.employeeIndexRegex;
         $(inputs).each(function (i, element) {
+          if ($(element).is(":checkbox")) {
+            $(element).prop("checked", false);
+          } else if ($(element).attr("type", "text")) {
+            $(element).val("0.00");
+          }
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
           $(element).attr(
             "id",
             $(element).attr("id").replace(indexRegex, "-" + numEmps)
           );
-          $(element).val(null);
           $(label).attr(
             "for",
             $(label).attr("for").replace(indexRegex, "-" + numEmps)
@@ -1512,6 +1493,29 @@
             $(element).removeClass(weeklyBaseClass);
             $(element).addClass(weeklyClass + numEmps);
           }
+        });
+      }
+
+      /**
+       * setUpdatesAndUpdatedByData
+       * 
+       * increment the date-updates and data-updated-by value so the 
+       * appropriate summary table is updated
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+       EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
+        var updateElements = $(frag).find("*[data-updates$='-1']");
+        var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
+        var numEmps = this.numberOfEmployees;
+        var indexRegex = this.employeeIndexRegex;
+        $(updateElements).each(function (i, element) {
+          var newval = $(element).data("updates").replace(indexRegex, "-" + numEmps);
+          $(element).attr("data-updates", newval);
+        });
+        $(updatedByElements).each(function (i, element) {
+          var newval = $(element).data("updated-by").replace(indexRegex, "-" + numEmps)
+          $(element).attr("data-updated-by", newval);
         });
       }
 
@@ -1761,41 +1765,64 @@
       $(document).on("click", "#showEmpTable", function(event) {
         var businessTotal = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
-          var weekone = $(element).find("[data-updated-by^='wkone-']").text().replace("$", "");
-          var weektwo = $(element).find("[data-updated-by^='wktwo-']").text().replace("$", "");
-          var weekthree = $(element).find("[data-updated-by^='wkthree-']").text().replace("$", "");
-          var weekfour = $(element).find("[data-updated-by^='wkfour-']").text().replace("$", "");
+          var weekone = parseFloat($('#wkone-' + (i + 1)).val());
+          var weekOnePaidLeave = $("#wkone-cb-" + (i + 1)).prop("checked");
+          var weektwo = parseFloat($('#wktwo-' + (i + 1)).val());
+          var weekTwoPaidLeave = $("#wktwo-cb-" + (i + 1)).prop("checked");
+          var weekthree = parseFloat($('#wkthree-' + (i + 1)).val());
+          var weekThreePaidLeave = $("#wkthree-cb-" + (i + 1)).prop("checked");
+          var weekfour = parseFloat($('#wkfour-' + (i + 1)).val());
+          var weekFourPaidLeave = $("#wkfour-cb-" + (i + 1)).prop("checked");
           var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
-          var baselineWage = parseFloat($("#emp-base-" + (i + 1)).text().replace("$", ""));
+          var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
           var totalWage = parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
-          businessTotal += Math.max(totalWage, 0);
+          
+          var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
+          var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
+          var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
+          var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
+          var totalCews = parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
+          businessTotal += Math.max(totalCews, 0);
           var totalCell = $("#emp-ttl-" + (i + 1));
-          var formattedTotal = toMoney.format(Math.max(totalWage, 0));
+          var formattedTotal = toMoney.format(Math.max(totalCews, 0));
           $(totalCell).html(formattedTotal);
         });
         $(".total").html(toMoney.format(businessTotal));
       });
 
-
-      function getWeeklyCEWS(armsLength, baselineAmount, covidAmount, paidLeave) {
-        var period = $("#claim-period").data("claim-period");
-        switch (period) {
-          case period < 5:
-            return oldFormula()
+      /**
+       * @author Michel Tremblay
+       *
+       */
+      function getWeeklyCEWS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
+        var period = parseInt($("#claim-period option:selected").data("claim-period"));
+        switch (true) {
+          //period 1-4
+          case (period < 5):
+            return oldFormula(armsLength, weeklyAmount, baselineAmount)
             break;
-          case period > 4 && period < 7: 
+          // period 5-7
+          case (period < 8): 
             if (paidLeave) {
-              return oldFormula();
+              return oldFormula(armsLength, weeklyAmount, baselineAmount);
             } else {
               if (revReduction > 0.3) {
-                return Math.max(oldFormula(), newFormula());
+                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction));
               } else {
-                return Math.max(newFormula(), 0);
+                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, revReduction), 0);
               }
             }
             break;
-          case period > 6:
+          //period 7+
+          case (period > 7):
+            if (paidLeave) {
+              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+            } else {
+              return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction))
+            }
             break;
+          default:
+            return 0;
         }
       }
       /**
