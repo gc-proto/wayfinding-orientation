@@ -1765,15 +1765,39 @@
           var weektwo = $(element).find("[data-updated-by^='wktwo-']").text().replace("$", "");
           var weekthree = $(element).find("[data-updated-by^='wkthree-']").text().replace("$", "");
           var weekfour = $(element).find("[data-updated-by^='wkfour-']").text().replace("$", "");
-          var total = parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
-          businessTotal += total;
+          var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
+          var baselineWage = parseFloat($("#emp-base-" + (i + 1)).text().replace("$", ""));
+          var totalWage = parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
+          businessTotal += Math.max(totalWage, 0);
           var totalCell = $("#emp-ttl-" + (i + 1));
-          var formattedTotal = toMoney.format(total);
+          var formattedTotal = toMoney.format(Math.max(totalWage, 0));
           $(totalCell).html(formattedTotal);
         });
         $(".total").html(toMoney.format(businessTotal));
       });
 
+
+      function getWeeklyCEWS(armsLength, baselineAmount, covidAmount, paidLeave) {
+        var period = $("#claim-period").data("claim-period");
+        switch (period) {
+          case period < 5:
+            return oldFormula()
+            break;
+          case period > 4 && period < 7: 
+            if (paidLeave) {
+              return oldFormula();
+            } else {
+              if (revReduction > 0.3) {
+                return Math.max(oldFormula(), newFormula());
+              } else {
+                return Math.max(newFormula(), 0);
+              }
+            }
+            break;
+          case period > 6:
+            break;
+        }
+      }
       /**
        * @author Michel Tremblay
        * determine if an employee has been paid $0 for two consecutive pays
@@ -1862,6 +1886,8 @@
        * @author Michel Tremblay
        * calculate the cews rate reductions
        */
+       var revReduction = 0;
+       var cewsRate = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var cewsRateElements = $('.cews-rate-calc');
         var allDataEntered = true;
@@ -1891,7 +1917,7 @@
           //get the rate reduction from the three month average
           var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
-          var revReduction = Math.max(
+          revReduction = Math.max(
             (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
             (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
           );
@@ -1900,11 +1926,11 @@
           //get the top-up rate
           var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
           //calculate the overall rate
-          var cewsRate = baseRate + topUpRate;
+          cewsRate = baseRate + topUpRate;
           //update the view
-          $("#cews-rate").text(cewsRate * 100 + "%");
-          $("#rev-reduc-base").text(baseRate * 100 + "%");
-          $("#top-up-rate").text(topUpRate * 100 + "%");
+          $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
+          $("#rev-reduc-base").text(parseInt(baseRate * 100) + "%");
+          $("#top-up-rate").text(parseInt(topUpRate * 100) + "%");
         }
       });
 
@@ -1944,7 +1970,7 @@
           //get the rate reduction from the three month average
           var threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           //get the revenue reduction
-          var revReduction = Math.max(
+          revReduction = Math.max(
             (baseRev - claimMonthValue) / baseRev,
             (baseRev - prevClaimValue) / baseRev
           );
@@ -1953,11 +1979,11 @@
           //get the top-up rate
           var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
           //calculate the overall rate
-          var cewsRate = baseRate + topUpRate;
+          cewsRate = baseRate + topUpRate;
           //update the view
-          $("#top-up-rate-alt").text(topUpRate * 100 + "%");
-          $("#rev-reduc-alt-base").text(baseRate * 100 + "%");
-          $("#cews-rate-alt").text(cewsRate * 100 + "%");
+          $("#top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
+          $("#rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
+          $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
         }
       });
 
@@ -1966,12 +1992,7 @@
 
       $(document).on("click", "#transfer-data", function(event) {
         $("#p2c-ee").val(numEmployeePanels);
-        var total = 0;
-        $(".wkly-total").each(function (i, element) {
-          var val = $(element).text().replace("$", "");
-          total += parseFloat(val);
-        });
-        $("#p2c-pyrl").val(total);
+        $("#p2c-pyrl").val(parseFloat($(".total").text().replace("$", "")));
       });
 
       /**
