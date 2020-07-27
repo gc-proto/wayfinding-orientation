@@ -2022,8 +2022,11 @@
 
       $(document).on("click", "#transfer-data", function(event) {
         $("#p2c-ee").val(numEmployeePanels);
+        $( "#p2c-ee" ).trigger( "change" );
         $("#p2c-pyrl").val($(".total").data("total-wages"));
+        $( "#p2c-pyrl" ).trigger( "change" );
         $("#p2c-cews").val($(".total").data("total-cews"));
+        $( "#p2c-cews" ).trigger( "change" );
       });
 
       /**
