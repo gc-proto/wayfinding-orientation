@@ -887,7 +887,7 @@
                               <strong class="required">(required)</strong> </label>
                             <div class="row">
                               <div class="col-md-3">
-                                <input required data-rule-digits="true" type="number"
+                                <input required type="number"
                                   class="form-control input-lg text-right" id="p2c-ee">
                               </div>
                             </div>
@@ -900,9 +900,9 @@
                                   not include a dollar sign, commas, or decimals)</span></span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required data-rule-digits="true" type="number"
+                              <input required type="number"
                                 class="form-control input-lg text-right" id="p2c-pyrl">
-                              <span class="input-group-addon">.00</span> </div>
+                               </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
                               <strong class="h4 mrgn-tp-0">$ , .</strong></p>
                           </div>
@@ -912,9 +912,9 @@
                                   dollar sign, commas, or decimals)</span> </span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required data-rule-digits="true" type="number"
+                              <input required type="number"
                                 class="form-control input-lg text-right" id="p2c-cews">
-                              <span class="input-group-addon">.00</span> </div>
+                               </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
                               <strong class="h4 mrgn-tp-0">$ , .</strong></p>
                           </div>
@@ -959,9 +959,9 @@
                             period)</small><span class="wb-inv"> (do not include a dollar sign, commas, or
                             decimals)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required data-rule-digits="true" type="number" class="form-control input-lg text-right"
+                        <input required type="number" class="form-control input-lg text-right"
                           id="p3-ei">
-                        <span class="input-group-addon">.00</span> </div>
+                         </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ , .</strong></p>
                     </div>
@@ -971,9 +971,9 @@
                             period)</small><span class="wb-inv"> (do not include a dollar sign, commas, or
                             decimals)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required data-rule-digits="true" type="number" class="form-control input-lg text-right"
+                        <input required type="number" class="form-control input-lg text-right"
                           id="p3-cpp">
-                        <span class="input-group-addon">.00</span> </div>
+                         </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ , .</strong></p>
                     </div>
@@ -1011,9 +1011,9 @@
                       <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                           Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required data-rule-digits="true" type="number" class="form-control input-lg text-right"
+                        <input required type="number" class="form-control input-lg text-right"
                           id="p4-tws">
-                        <span class="input-group-addon">.00</span> </div>
+                         </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ , .</strong></p>
                     </div>
@@ -1026,9 +1026,9 @@
                       <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                           benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required data-rule-digits="true" type="number" class="form-control input-lg text-right"
+                        <input required type="number" class="form-control input-lg text-right"
                           id="p4-wsb">
-                        <span class="input-group-addon">.00</span> </div>
+                         </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ , .</strong></p>
                     </div>
@@ -1763,7 +1763,8 @@
       });
 
       $(document).on("click", "#showEmpTable", function(event) {
-        var businessTotal = 0;
+        var totalWagesPaid = 0;
+        var cews = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var weekone = parseFloat($('#wkone-' + (i + 1)).val());
           var weekOnePaidLeave = $("#wkone-cb-" + (i + 1)).prop("checked");
@@ -1776,18 +1777,20 @@
           var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
           var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
           var totalWage = parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
-          
+          totalWagesPaid += totalWage;
           var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
           var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
           var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
           var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
-          var totalCews = parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
-          businessTotal += Math.max(totalCews, 0);
+          var employeeCews = parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
+          cews += employeeCews;
           var totalCell = $("#emp-ttl-" + (i + 1));
-          var formattedTotal = toMoney.format(Math.max(totalCews, 0));
+          var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
           $(totalCell).html(formattedTotal);
         });
-        $(".total").html(toMoney.format(businessTotal));
+        $(".total").html(toMoney.format(cews));
+        $(".total").attr("data-total-cews", cews.toFixed(2));
+        $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
       });
 
       /**
@@ -2019,7 +2022,8 @@
 
       $(document).on("click", "#transfer-data", function(event) {
         $("#p2c-ee").val(numEmployeePanels);
-        $("#p2c-pyrl").val(parseFloat($(".total").text().replace("$", "")));
+        $("#p2c-pyrl").val($(".total").data("total-wages"));
+        $("#p2c-cews").val($(".total").data("total-cews"));
       });
 
       /**
