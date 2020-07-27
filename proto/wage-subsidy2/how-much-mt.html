@@ -678,7 +678,7 @@
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input type="text"
-                                          class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1" placholder="0.00" data-updates="w1-amt-1">
+                                          class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1">
                                       </div>
                                       <div class="checkbox">
                                         <label for="wkone-cb-1"><input id="wkone-cb-1" type="checkbox" value="">Leave
@@ -711,7 +711,7 @@
                                       <label for="wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input type="text" class="form-control text-right emp-wkly-wage-1"
-                                          id="wkfour-1" placholder="0.00" data-updates="w4-amt-1">
+                                          id="wkfour-1" placeholder="0.00" data-updates="w4-amt-1">
                                       </div>
                                       <div class="checkbox">
                                         <label for="wkfour-cb-1"><input id="wkfour-cb-1" type="checkbox" value="">Leave
@@ -726,7 +726,7 @@
                                   <summary><span class="fas fa-calculator"></span> Calculation summary for employee
                                     <span class="employeeNumber">1</span>
                                   </summary>
-                                  <table class="table table-condensed small text-muted">
+                                  <table class="table table-condensed small text-muted" id="emp-smry-1">
                                     <caption class="wb-inv">
                                       Calculation summary for employee <span class="employeeNumber">1</span>
                                     </caption>
@@ -761,6 +761,20 @@
                                       </tr>
                                     </tfoot>
                                   </table>
+                                  <table id="emp-no-elgbl-1" class="table table-condensed small text-muted hidden">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Week</th>
+                                        <th scope="col">Calculated amount</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr >
+                                        <td colspan="2">This employee is not eligible for this claim period</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
                                 </details>
                               </footer>
                             </fieldset>
@@ -1700,8 +1714,15 @@
        * @author Michel Tremblay
        * update the employee wage summary
        */
+      var numEmployeePanels = 1;
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
+        if (target.value = "0") {
+          if (!checkEmployeeEligibility(target)) {
+            $("#emp-smry-" + numEmployeePanels).addClass("hidden");
+            $("#emp-no-elgbl-" + numEmployeePanels).removeClass("hidden");
+          }
+        }
         var updateTarget = $("#" + $(target).attr("data-updates"));
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
@@ -1735,11 +1756,28 @@
         }
       });
 
+
+      function checkEmployeeEligibility(element) {
+        var classname = element.className.match(/emp-wkly-wage-\d/g);
+        if (classname == "") {
+          return;
+        }
+        var onNotice = false;
+        var eligibility = true;
+          $("." + classname).each(function(i, element) {
+            if (onNotice && parseFloat($(element).val()) == 0) {
+              eligibility = false;
+            } else if (parseFloat($(element).val()) == 0) {
+              onNotice = true;
+            }
+        });
+        return eligibility;
+      }
+
       /**
        * @author Michel Tremblay
        * add a new employee form  
        */
-      var numEmployeePanels = 1;
       $("#addemp").on("click", addEmp);
       $("#addemp").on("keypress", addEmp);
       function addEmp() {
