@@ -825,10 +825,10 @@
                                   <td>Employee 1</td>
                                   <td id="emp-arms-1"></td>
                                   <td id="emp-base-1"></td>
-                                  <td data-updated-by="wkly-wkone-1"></td>
-                                  <td data-updated-by="wkly-wktwo-1"></td>
-                                  <td data-updated-by="wkly-wkthree-1"></td>
-                                  <td data-updated-by="wkly-wkfour-1"></td>
+                                  <td data-updated-by="wkone-1"></td>
+                                  <td data-updated-by="wktwo-1"></td>
+                                  <td data-updated-by="wkthree-1"></td>
+                                  <td data-updated-by="wkfour-1"></td>
                                   <td></td>
                                 </tr>
                               </tbody>
@@ -1812,19 +1812,19 @@
         //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
         $(weeklyWageCells[0]).attr(
           "data-updated-by",
-          "wkly-wkone-" + numEmployeePanels
+          "wkone-" + numEmployeePanels
         );
         $(weeklyWageCells[1]).attr(
           "data-updated-by",
-          "wkly-wktwo-" + numEmployeePanels
+          "wktwo-" + numEmployeePanels
         );
         $(weeklyWageCells[2]).attr(
           "data-updated-by",
-          "wkly-wkthree-" + numEmployeePanels
+          "wkthree-" + numEmployeePanels
         );
         $(weeklyWageCells[3]).attr(
           "data-updated-by",
-          "wkly-wkfour-" + numEmployeePanels
+          "wkfour-" + numEmployeePanels
         );
         //create the total cell
         var totalCell = document.createElement("td");
@@ -1837,7 +1837,7 @@
         });
         //add the row to the table
         row.appendChild(totalCell);
-        $("#wkly-tbl > tbody").append(row);
+        $("#dataset-filter > tbody").append(row);
         $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
       }
 
