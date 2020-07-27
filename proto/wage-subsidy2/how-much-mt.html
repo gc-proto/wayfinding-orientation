@@ -1756,12 +1756,17 @@
         }
       });
 
-
+      /**
+       * @author Michel Tremblay
+       * determine if an employee has been paid $0 for two consecutive pays
+       */
       function checkEmployeeEligibility(element) {
+        //get all inputs for this employees weekly wages
         var classname = element.className.match(/emp-wkly-wage-\d/g);
         if (classname == "") {
           return;
         }
+        //put employee on notice on first 0 value found; if another 0 value is found while on notice, the employee is not eligible for this claim period
         var onNotice = false;
         var eligibility = true;
           $("." + classname).each(function(i, element) {
