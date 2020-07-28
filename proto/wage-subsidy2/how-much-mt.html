@@ -1817,12 +1817,12 @@
           totalWagesPaid += getEmployeeTotalWages((i + 1));
           var totalCell = $("#emp-ttl-" + (i + 1));
           var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
-          $(".total").html(toMoney.format(cews));
-          $(".total").attr("data-total-cews", cews.toFixed(2));
-          $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
           $("#emp-ttl-" + (i + 1)).text(employeeCews);
           $(totalCell).html(formattedTotal);
         });
+        $(".total").html(toMoney.format(cews));
+        $(".total").attr("data-total-cews", cews.toFixed(2));
+        $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
       }
 
       /**
@@ -2058,9 +2058,11 @@
         calculateTotals();
         $("#p2c-ee").val(numEmployeePanels);
         $( "#p2c-ee" ).trigger( "change" );
-        $("#p2c-pyrl").val($(".total").data("total-wages"));
+        var totalWages = $(".total").attr("data-total-wages");
+        $("#p2c-pyrl").val(totalWages);
         $( "#p2c-pyrl" ).trigger( "change" );
-        $("#p2c-cews").val($(".total").data("total-cews"));
+        var totalCews = $(".total").attr("data-total-cews");
+        $("#p2c-cews").val(totalCews);
         $( "#p2c-cews" ).trigger( "change" );
       });
 
