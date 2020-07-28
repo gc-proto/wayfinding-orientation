@@ -1846,7 +1846,7 @@
               if (cewsRate == 0) { 
                 return 0;
               } else if (revReduction > 0.3) {
-                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction));
+                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate));
               } else {
                 return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
               }
@@ -1857,7 +1857,7 @@
             if (paidLeave) {
               return oldFormula(armsLength, weeklyAmount, baselineAmount);
             } else {
-              return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction))
+              return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate))
             }
             break;
           default:
