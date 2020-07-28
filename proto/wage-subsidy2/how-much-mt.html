@@ -1972,10 +1972,9 @@
           }
         });
         if (allDataEntered) {
-          var month = getClaimMonth($("#claim-period").val());
           //find the claim month based on the chosen claim period
           var claimMonth = new Date(
-            "2020-" + month + '-01'
+            "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
           ).getUTCMonth();
           //get the value of the claim month
           var claimMonth2020Value = parseFloat($("#2020-0" + claimMonth + "-no").val());
@@ -2051,7 +2050,7 @@
           );
           //get the base rate
           var baseRate = parseFloat(
-            Math.Max(getP5PlusBaseRate(revReduction).toFixed(4), 0)
+            Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0)
             );
           //get the top-up rate
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
