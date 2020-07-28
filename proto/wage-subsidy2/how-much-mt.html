@@ -1848,7 +1848,7 @@
               } else if (revReduction > 0.3) {
                 return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction));
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, revReduction), 0);
+                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
               }
             }
             break;
