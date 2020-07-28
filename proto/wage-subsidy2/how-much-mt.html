@@ -654,8 +654,8 @@
                                   <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
                                       length definition<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
                                   <select class="form-control" id="arms-1" data-updates="emp-arms-1">
-                                    <option value="yes">Yes (default)</option>
-                                    <option value="no">No</option>
+                                    <option value="Yes">Yes (default)</option>
+                                    <option value="No">No</option>
                                   </select>
                                 </div>
                                 <hr>
@@ -1733,8 +1733,16 @@
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
           $(updateTarget).text(formattedVal);
+        } else if ($(target).is(":checkbox")) {
+          return;
         } else {
-          var formattedVal = toMoney.format(target.value);
+          var baselineWage = parseFloat($("#baseline-" + numEmployeePanels).val());
+          var armsLength = $("#emp-arms-" + numEmployeePanels).text() == "Yes" || $("#emp-arms-" + numEmployeePanels).text() == "Oui" ? true : false;
+          //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
+          var weekNumber = target.id.match(/wk(one|two|three|four)-/)[1];
+          var paidLeave = $("#wk" + weekNumber + "-cb-" + numEmployeePanels).is(":checked");
+          var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
+          var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
           $(updatedByElements).each(function (i, element) {
@@ -1746,51 +1754,70 @@
               update the target to the total column and get all elements that make up the total
             */
             updateTarget = $("#" + $(updateTarget).attr("data-updates"));
-            var elements = $("." + $(updateTarget).attr("data-updated-by"));
-            var total = 0;
-            //get the total wage
-            $(elements).each(function (i, element) {
-              formattedVal = $(element).val();
-              if (parseFloat(formattedVal)) {
-                total += parseFloat(formattedVal);
-              }
-            });
+            //get the total cews
+            var employeeCews = getEmployeeCews(numEmployeePanels, baselineWage);
             //format the wage and update the total
-            var formattedTotal = toMoney.format(total);
+            var formattedTotal = toMoney.format(employeeCews);
             $(updateTarget).text(formattedTotal);
+            
           }
         }
       });
 
+      /**
+       * 
+       */
+      function getEmployeeCews(employeeNumber, baselineWage) {
+        var armsLength = $("#emp-arms-" + employeeNumber).text() == "Yes" || $("#emp-arms-" + employeeNumber).text() == "Oui" ? true : false;
+        var weekone = parseFloat($('#wkone-' + employeeNumber).val());
+        var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
+        var weektwo = parseFloat($('#wktwo-' + employeeNumber).val());
+        var weekTwoPaidLeave = $("#wktwo-cb-" + employeeNumber).is(":checked");
+        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
+        var weekThreePaidLeave = $("#wkthree-cb-" + employeeNumber).is(":checked");
+        var weekfour = parseFloat($('#wkfour-' + employeeNumber).val());
+        var weekFourPaidLeave = $("#wkfour-cb-" + employeeNumber).is(":checked");
+        var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
+        var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
+        var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
+        var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
+        return parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
+      }
+
+      /**
+       * 
+       */
+      function getEmployeeTotalWages(employeeNumber) {
+        var weekone = parseFloat($('#wkone-' + employeeNumber).val());
+        var weektwo = parseFloat($('#wktwo-' + employeeNumber).val());
+        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
+        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
+        var weekfour = parseFloat($('#wkfour-' + employeeNumber).val());
+        return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
+      }
+
+      /**
+       * 
+       */
       $(document).on("click", "#showEmpTable", function(event) {
         var totalWagesPaid = 0;
         var cews = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
-          var weekone = parseFloat($('#wkone-' + (i + 1)).val());
-          var weekOnePaidLeave = $("#wkone-cb-" + (i + 1)).prop("checked");
-          var weektwo = parseFloat($('#wktwo-' + (i + 1)).val());
-          var weekTwoPaidLeave = $("#wktwo-cb-" + (i + 1)).prop("checked");
-          var weekthree = parseFloat($('#wkthree-' + (i + 1)).val());
-          var weekThreePaidLeave = $("#wkthree-cb-" + (i + 1)).prop("checked");
-          var weekfour = parseFloat($('#wkfour-' + (i + 1)).val());
-          var weekFourPaidLeave = $("#wkfour-cb-" + (i + 1)).prop("checked");
-          var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
           var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
-          var totalWage = parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
-          totalWagesPaid += totalWage;
-          var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
-          var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
-          var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
-          var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
-          var employeeCews = parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
+          $("#emp-base-" + (i + 1)).html(toMoney.format(baselineWage));
+          var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
+          $("#emp-arms-" + (i + 1)).html(armsLength);
+          var employeeCews = getEmployeeCews((i + 1), baselineWage);
           cews += employeeCews;
+          totalWagesPaid += getEmployeeTotalWages((i + 1));
           var totalCell = $("#emp-ttl-" + (i + 1));
           var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
+          $(".total").html(toMoney.format(cews));
+          $(".total").attr("data-total-cews", cews.toFixed(2));
+          $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
+          $("#emp-ttl-" + (i + 1)).text(employeeCews);
           $(totalCell).html(formattedTotal);
         });
-        $(".total").html(toMoney.format(cews));
-        $(".total").attr("data-total-cews", cews.toFixed(2));
-        $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
       });
 
       /**
@@ -2007,9 +2034,9 @@
             (baseRev - prevClaimValue) / baseRev
           );
           //get the base rate
-          var baseRate = getP5PlusBaseRate(revReduction).toFixed(2);
+          var baseRate = parseFloat(getP5PlusBaseRate(revReduction).toFixed(2));
           //get the top-up rate
-          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2);
+          var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           //update the view
