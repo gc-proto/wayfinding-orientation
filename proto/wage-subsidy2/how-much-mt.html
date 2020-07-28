@@ -1954,9 +1954,9 @@
             (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
           );
           //get the base rate
-          var baseRate = getP5PlusBaseRate(revReduction);
+          var baseRate = getP5PlusBaseRate(revReduction).toFixed(2);
           //get the top-up rate
-          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2);
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           //update the view
@@ -2007,9 +2007,9 @@
             (baseRev - prevClaimValue) / baseRev
           );
           //get the base rate
-          var baseRate = getP5PlusBaseRate(revReduction);
+          var baseRate = getP5PlusBaseRate(revReduction).toFixed(2);
           //get the top-up rate
-          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2);
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           //update the view
