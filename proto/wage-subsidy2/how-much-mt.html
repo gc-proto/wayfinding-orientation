@@ -1809,7 +1809,9 @@
             if (paidLeave) {
               return oldFormula(armsLength, weeklyAmount, baselineAmount);
             } else {
-              if (revReduction > 0.3) {
+              if (cewsRate == 0) { 
+                return 0;
+              } else if (revReduction > 0.3) {
                 return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction));
               } else {
                 return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, revReduction), 0);
