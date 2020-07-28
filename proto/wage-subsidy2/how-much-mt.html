@@ -1809,7 +1809,9 @@
             if (paidLeave) {
               return oldFormula(armsLength, weeklyAmount, baselineAmount);
             } else {
-              if (revReduction > 0.3) {
+              if (cewsRate == 0) { 
+                return 0;
+              } else if (revReduction > 0.3) {
                 return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, revReduction));
               } else {
                 return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, revReduction), 0);
@@ -1952,9 +1954,9 @@
             (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
           );
           //get the base rate
-          var baseRate = getP5PlusBaseRate(revReduction);
+          var baseRate = getP5PlusBaseRate(revReduction).toFixed(2);
           //get the top-up rate
-          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2);
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           //update the view
@@ -2005,9 +2007,9 @@
             (baseRev - prevClaimValue) / baseRev
           );
           //get the base rate
-          var baseRate = getP5PlusBaseRate(revReduction);
+          var baseRate = getP5PlusBaseRate(revReduction).toFixed(2);
           //get the top-up rate
-          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0);
+          var topUpRate = Math.max(getP5PlusTopUpRate(threeMonthReduction), 0).toFixed(2);
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           //update the view
