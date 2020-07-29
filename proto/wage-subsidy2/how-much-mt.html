@@ -1054,7 +1054,7 @@
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p4-tws">
                         </div>
-                      <p id="p4-tws-disclaimer" class="small hidden text-danger">This subsidy is not available for this claim-period</p>
+                      <p id="p4-tws-disclaimer" class="small hidden text-danger">This subsidy is not available for this claim period</p>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
@@ -1812,8 +1812,14 @@
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + employeeNumber).addClass("hidden");
             $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
+            var updatedByElements = $("*[data-updated-by='" + target.id + "']");
+            $(updatedByElements).each(function (i, element) {
+              $(element).text(toMoney.format(0.00));
+            });
+            return;
           }
         }
+        
         var updateTarget = $("#" + $(target).attr("data-updates"));
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
@@ -1853,7 +1859,7 @@
        * 
        */
       function getEmployeeCews(employeeNumber, baselineWage) {
-        var armsLength = $("#emp-arms-" + employeeNumber).text() == "Yes" || $("#emp-arms-" + employeeNumber).text() == "Oui" ? true : false;
+        var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
         var weekone = parseFloat($('#wkone-' + employeeNumber).val());
         var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
         var weektwo = parseFloat($('#wktwo-' + employeeNumber).val());
@@ -1866,7 +1872,7 @@
         var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
         var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
         var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
-        return parseFloat(weekOneCews) + parseFloat(weekTwoCews) + parseFloat(weekThreeCews) + parseFloat(weekFourCews);
+        return parseFloat(weekOneCews + weekTwoCews + weekThreeCews + weekFourCews);
       }
 
       /**
@@ -1891,6 +1897,9 @@
         var totalWagesPaid = 0;
         var cews = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
+          if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
+            return;
+          }
           var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
           $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
           var armsLength = $("#arms-" + (i + 1)).val().toLowerCase() == "yes" || $("#arms-" + (i + 1)).val().toLowerCase() == "oui" ? true : false;
