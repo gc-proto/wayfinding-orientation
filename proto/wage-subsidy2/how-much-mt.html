@@ -8,7 +8,7 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta name="robots" content="noindex">
   <!-- Meta data -->
-  <!-- Meta data-->
+
   <!-- Load closure template scripts -->
 
   <script type="text/javascript"
@@ -63,29 +63,27 @@
       </ul>
       <nav aria-label="Section menu">
         <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
-        <ul class="gc-navseq">
-          <li><a href="who-apply.html">Who is an eligible employer</a></li>
-          <li><a href="who-employees.html">Determine your eligible employees</a></li>
-          <li class="active"><a aria-current="page">Calculate your subsidy amount<span class="wb-inv">: Canada Emergency
-                Wage Subsidy (CEWS)</span></a>
-            <ul class="gc-navseq noline">
-              <li><a href="how-much-reduction.html">How the eligible revenue reduction is calculated<span
-                    class="wb-inv">: Canada Emergency Wage Subsidy (CEWS)</span></a></li>
-              <li><a href="how-much-version-math.html">How the subsidy is calculated<span class="wb-inv">: Canada
-                    Emergency Wage Subsidy (CEWS)</span></a></li>
-            </ul>
-          </li>
-          <li><a href="how-apply.html">How to apply</a></li>
-          <li><a href="after.html">After you apply</a></li>
-          <li><a href="contact.html">Contact the CRA</a></li>
-
-        </ul>
+      <ul class="gc-navseq">
+                   <li><a href="overview.html">How the subsidy works</a></li>
+                     <li><a href="who-apply.html">Who can apply</a></li>
+					 <li><a href="periods.html">Periods you can apply for</a></li>
+                     <li><a href="who-employees.html">Which of your employees qualify</a></li>
+                  <li class="active"><a aria-current="page">Calculate your subsidy amount</a>
+		<ul class="gc-navseq noline">
+		<li><a href="how-much-reduction.html">How the revenue drop and subsidy rate are calculated</a></li>
+        <li><a href="how-much-version-math.html">How the subsidy is calculated</a></li>
+		</ul></li>
+                  <li><a href="how-apply.html">How to apply</a></li>
+                  <li><a href="after.html">After you apply</a></li>
+                  <li><a href="contact.html">Contact us about CEWS</a></li>
+				  
+               </ul>
         <div class="hidden-sm hidden-xs" data-ajax-replace="index.html #related-menu>"> </div>
       </nav>
     </section>
     <section class="gc-nav-section experimental">
       <h1 property="name" id="wb-cont">Calculate your subsidy amount</h1>
-      <h2 class="h3 mrgn-tp-sm">On this page</h3>
+      <h2 class="h3 mrgn-tp-sm">On this page</h2>
         <ul>
           <li><a href="#h-1">Why to use the calculator</a></li>
           <li><a href="#h-2">Before you start the calculation</a></li>
@@ -189,6 +187,7 @@
                           benefit program through Employment Insurance amount&nbsp;<span
                             class="far fa-question-circle"></span></a></li>
                     </ul>
+					   <label for="bfore6"><strong>or</strong></label> 
                   </li>
                   <li>
                     <label for="bfore6">You did not participate in the Work-Sharing program (enter $0)</label>
@@ -200,10 +199,11 @@
               <p>You should understand the definitions and gather all the necessary information before you calculate
                 your claim.</p>
             </div>
-          </section>
-          <div class="alert alert-success hidden provisional" id="action-msg1">
+			 <div class="alert alert-success hidden provisional" id="action-msg1">
             <p>You can now proceed to calculate the amounts you will need for your claim. </p>
-          </div>
+          </div> 
+          </section>
+          
         </section>
         <h2 id="h-3">Use the calculator</h2>
         <details>
@@ -226,18 +226,18 @@
                         you are claiming for</span> <strong class="required">(required)</strong></label>
                     <select required id="claim-period" class="form-control input-lg">
                       <option value=""> Select a claim period</option>
-                      <option data-claim-period="1"  value="2020-03-15--2020-04-11">March 15, 2020 to April 11, 2020</option>
-                      <option data-claim-period="2"  value="2020-04-12--2020-05-09">April 12, 2020 to May 9, 2020</option>
-                      <option data-claim-period="3"  value="2020-05-10--2020-06-06">May 10, 2020 to June 6, 2020</option>
-                      <option data-claim-period="4"  value="2020-06-07--2020-07-04">June 7, 2020 to July 4, 2020</option>
-                      <option data-claim-period="5"  value="2020-07-05--2020-08-01">July 5, 2020 to August 1, 2020</option>
-                      <option data-claim-period="6"  value="2020-08-02--2020-08-29">August 2, 2020 to August 29, 2020</option>
+                      <option data-claim-period="1"  value="2020-03-15--2020-04-11">Period 1: March 15, 2020 to April 11, 2020</option>
+                      <option data-claim-period="2"  value="2020-04-12--2020-05-09">Period 2: April 12, 2020 to May 9, 2020</option>
+                      <option data-claim-period="3"  value="2020-05-10--2020-06-06">Period 3: May 10, 2020 to June 6, 2020</option>
+                      <option data-claim-period="4"  value="2020-06-07--2020-07-04">Period 4: June 7, 2020 to July 4, 2020</option>
+                      <option data-claim-period="5"  value="2020-07-05--2020-08-01">Period 5: July 5, 2020 to August 1, 2020</option>
+                   <!--   <option data-claim-period="6"  value="2020-08-02--2020-08-29">Period 6: August 2, 2020 to August 29, 2020</option>//-->
                     </select>
                   </div>
                 </fieldset>
                 <hr class="brdr-bttm">
                 <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-                  <h3 class="mrgn-tp-0"><span class="far fa-calendar-alt"></span> Summary of Step 1</h3>
+                  <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                   <ul class="list-unstyled lst-spcd">
                     <li>Claim period is: <span class="h3 claim-period"></span></li>
                   </ul>
@@ -248,7 +248,7 @@
                   <legend>Eligible remuneration for eligible employees</legend>
                   <div class="clearfix"></div>
                   <p>You may calculate the amount of eligible remuneration (pay) for your eligible employees and basic
-                    CEWS using <mark>one of</mark> the calculators provided. </p>
+                    CEWS using one of the calculators provided. </p>
                   <ol class="lst-lwr-alph">
                     <li class="mrgn-bttm-lg">
                       <p class="lead">Calculate the values using the spreadsheet or online calculator</p>
@@ -300,15 +300,57 @@
                         </div>
                       </div>
                       <div class="mrgn-tp-lg">
+	     
                         <div id="cews-cal-opt1" class="hidden panel panel-primary panel-body" aria-live="polite">
+				
+				
                           <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
                           <div class="alert alert-warning">
                             <p>The calculation spreadsheet is improving based on your feedback. For accuracy, please
                               check that you made your calculations with the most recent version.</p>
                           </div>
-                          <p><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx"
-                              class="btn btn-primary btn-lg">Download the calculation spreadsheet (Excel)</a></p>
-                          <p class="small">Current version: 2020-5</p>
+			<div id="cal-sprdsht-none">
+				  <p class="mrgn-bttm-0"><button 
+                              class="btn btn-primary btn-lg" disabled="disabled">Download the spreadsheet (Excel)</button> <br>Please select a claim period to download the spreadsheet</p>
+				</div>
+				
+			<div id="cal-sprsht-p5" class="hidden">	
+                         
+                          <p class="small mrgn-bttm-0">Current version: 2020-2-1</p>
+                          <details class="small mrgn-bttm-lg">
+                            <summary>Version updates</summary>
+                            <div class="table-responsive">
+                              <table class="table small">
+                                <caption class="wb-inv">
+                                  Version updates
+                                </caption>
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Release<br class="visible-xs">
+                                      date</th>
+                                    <th scope="col">Version</th>
+                                    <th scope="col">Description</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <td class="nowrap"></td>
+                                    <td class="nowrap"></td>
+                                    <td>
+                                      
+                                    </td>
+                                  </tr>
+                                
+                                </tbody>
+                              </table>
+                            </div>
+                          </details>	
+				</div>
+				<div id="cal-sprdsht-p1-4" class="hidden">
+                          <p class="mrgn-bttm-0"><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx"
+                              class="btn btn-primary btn-lg">Download the spreadsheet for period 1 to 4 (Excel)</a></p>
+                          <p class="small mrgn-bttm-0">Current version: 2020-5</p>
                           <details class="small">
                             <summary>Version updates</summary>
                             <div class="table-responsive">
@@ -384,6 +426,7 @@
                               </table>
                             </div>
                           </details>
+				</div>
                           <p class="small">(If you don't have Excel, you can open the spreadsheet in free solutions like
                             Google Sheets, Numbers or OpenOffice.)</p>
                           <p><strong>Note:</strong> If you have an employee that also works for a related eligible
@@ -407,8 +450,8 @@
                         </div>
                         <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
                           <p class="h4 mrgn-tp-0">Online calculator</p>
-
-                          <fieldset class="brdr-0" id="rate-reduction" class="hidden">
+				<p><strong>Note:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
+                          <fieldset class="brdr-0 hidden" id="rate-reduction" >
                             <legend>Calculate your rate reduction</legend>
                             <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                               <p>Have you claimed CEWS before this period?</p>
@@ -448,8 +491,9 @@
                           <div class="hidden" id="alt-bl-no">
                             <p><strong>Determine your rate of CEWS for the claim period</strong></p>
                             <fieldset>
-                              <legend>Enter your eligible revenue for the following months</legend>
-                              <div class="row">
+                              <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
+				    <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
+                              <div class="row mrgn-tp-lg">
                                 <div class="col-md-6 brdr-rght">
                                   <p><strong>2019 revenue</strong></p>
                                   <div class="form-group row">
@@ -531,17 +575,16 @@
                               </div>
                             </fieldset>
                             <div class="well text-muted mrgn-tp-md">
-                              <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of revenue drop
+                              <h3 class="mrgn-tp-0">Summary of revenue drop
                                 rates</h3>
                               <ul class="list-unstyled">
                                 <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
                                     class="h3" id="cews-rate">0%</span> <br>
                                   This is based on:
                                   <ul class="list-unstyled mrgn-lft-lg small">
-                                    <li>Revenue drop from July 2019 to July 2020 (used in base rate): <span
+                                    <li>Base rate (revenue drop from July 2019 to July 2020): <span
                                         class="h4" id="rev-reduc-base">0%</span></li>
-                                    <li>Average revenue drop from April, May and June 2019 to April, May and June 2020
-                                      (used in top-up rate): <span class="h4" id="top-up-rate">0%</span></li>
+                                    <li>Top-up rate (use average revenue drop from April, May and June 2019 to April, May and June 2020): <span class="h4" id="top-up-rate">0%</span></li>
                                   </ul>
                                 </li>
                               </ul>
@@ -550,8 +593,9 @@
                           <div class="hidden" id="alt-bl-yes">
                             <p><strong>Determine your rate of CEWS for the claim period</strong></p>
                             <fieldset>
-                              <legend>Enter your eligible revenue for the following months</legend>
-                              <div class="row">
+                              <legend class="mrgn-bttm=0">Enter your eligible revenue for the following months</legend>
+				<p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
+                              <div class="row mrgn-tp-lg">
                                 <div class="col-md-6">
                                   <div class="form-group row">
                                     <label class="col-sm-6 control-label" for="2020-01-yes">January 2020</label>
@@ -611,17 +655,16 @@
                               </div>
                             </fieldset>
                             <div class="well text-muted mrgn-tp-md">
-                              <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of average revenue
+                              <h3 class="mrgn-tp-0">Summary of average revenue
                                 drop rates</h3>
                               <ul class="list-unstyled">
                                 <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span id="cews-rate-alt"
                                     class="h3">0%</span> <br>
                                   This is based on:
                                   <ul class="list-unstyled mrgn-lft-lg small">
-                                    <li>Revenue drop from July 2019 to July 2020 (used in base rate): <span id="rev-reduc-alt-base"
+                                    <li>Base rate (revenue drop from July 2019 to July 2020): <span id="rev-reduc-alt-base"
                                         class="h4">0%</span></li>
-                                    <li>Average revenue drop from April, May and June 2019 to April, May and June 2020
-                                      (used in top-up rate): <span class="h4" id="top-up-rate-alt">0%</span></li>
+                                    <li>Top-up rate (use average revenue drop from April, May and June 2019 to April, May and June 2020): <span class="h4" id="top-up-rate-alt">0%</span></li>
                                   </ul>
                                 </li>
                               </ul>
@@ -668,15 +711,16 @@
                                   </div>
                                 </div>
                                 <fieldset>
-                                  <legend>Eligible remuneration (pay) in respect of the claim period <span
+                                  <legend class="mrgn-bttm-0">Eligible remuneration (pay) in respect of the claim period <span
                                     class="claim-period"></span>
                                   </legend>
-                                  <div class="form-group row">
+				 <p><a class="wb-lbx" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
+                                  <div class="form-group row mrgn-tp-lg">
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon">$</span>
                                         <input type="text"
-                                          class="form-control text-right input-sm emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1" value="0.00">
+                                          class="form-control text-right emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1" value="0.00">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
                                         <label for="wkone-cb-1"><input id="wkone-cb-1" type="checkbox" value="">Leave
@@ -721,7 +765,7 @@
                               </div>
                               <footer class="panel-footer">
                                 <details>
-                                  <summary><span class="fas fa-calculator"></span> Calculation summary for employee
+                                  <summary>Calculation summary for employee
                                     <span class="employeeNumber">1</span>
                                   </summary>
                                   <table class="table table-condensed small text-muted" id="emp-smry-1">
@@ -874,7 +918,7 @@
                       </section>
                     </li>
                     <li>
-                      <p class="lead">Input the values from the <mark>online calculator or spreadsheet</mark></p>
+                      <p class="lead">Input the values from the online calculator or spreadsheet</p>
                       <p>If you used the spreadsheet, refer to the <strong>instructions and results</strong> sheet for
                         the final values.</p>
                       <div class="row mrgn-tp-md">
@@ -895,26 +939,26 @@
                           <div class="form-group">
                             <label class="control-label required" for="p2c-pyrl"><span class="field-name">Total eligible
                                 remuneration paid to these employees during this claim period<span class="wb-inv"> (do
-                                  not include a dollar sign, commas, or decimals)</span></span> <strong
+                                  not include a dollar sign or commas)</span></span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                               <input required type="number"
                                 class="form-control input-lg text-right currency" id="p2c-pyrl">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
-                              <strong class="h4 mrgn-tp-0">$ , .</strong></p>
+                              <strong class="h4 mrgn-tp-0">$ ,</strong></p>
                           </div>
                           <div class="form-group">
                             <label class="control-label required" for="p2c-cews"><span class="field-name">Total basic
                                 CEWS for these employees during this claim period<span class="wb-inv"> (do not include a
-                                  dollar sign, commas, or decimals)</span> </span> <strong
+                                  dollar sign or commas)</span> </span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                               <input required type="number"
                                 class="form-control input-lg text-right currency" id="p2c-cews">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
-                              <strong class="h4 mrgn-tp-0">$ , .</strong></p>
+                              <strong class="h4 mrgn-tp-0">$ ,</strong></p>
                           </div>
                         </div>
                       </div>
@@ -922,7 +966,7 @@
                   </ol>
                   <hr class="brdr-bttm">
                   <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-                    <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 2</h3>
+                    <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                     <ul class="list-unstyled lst-spcd">
                       <li> <span class="h3">Line A</span> Number of eligible employees <abbr title="equals"
                           class="brdr-0">=</abbr>
@@ -954,31 +998,29 @@
                     <div class="form-group">
                       <label class="control-label required" for="p3-ei"><span class="field-name">Total EI and QPIP
                           premiums that you paid on salary to furloughed eligible employees <small>(for the claim
-                            period)</small><span class="wb-inv"> (do not include a dollar sign, commas, or
-                            decimals)</span></span> <strong class="required">(required)</strong> </label>
+                            period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p3-ei">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
-                          class="h4 mrgn-tp-0">$ , .</strong></p>
+                          class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
                     <div class="form-group">
                       <label class="control-label required" for="p3-cpp"><span class="field-name">Total CPP and QPP
                           contributions that you made on salary to furloughed eligible employees <small>(for the claim
-                            period)</small><span class="wb-inv"> (do not include a dollar sign, commas, or
-                            decimals)</span></span> <strong class="required">(required)</strong> </label>
+                            period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p3-cpp">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
-                          class="h4 mrgn-tp-0">$ , .</strong></p>
+                          class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
                   </div>
                   <hr class="brdr-bttm">
                   <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-                    <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 3</h3>
+                    <h3 class="mrgn-tp-0">Summary of Step 3</h3>
                     <ul class="list-unstyled lst-spcd">
                       <li> <span class="h3">Line D</span> Employer’s EI and QPIP premiums payable on salary paid to
                         furloughed employees <small>(for the claim period)</small> <abbr title="equals"
@@ -1004,7 +1046,7 @@
                       <label class="control-label required" for="p4-tws"><span class="field-name">Amount that you
                           calculated for the 10% Temporary Wage Subsidy for Employers <small>(for the claim
                             period)</small> (enter $0 if not applicable)<span class="wb-inv"> (do not include a dollar
-                            sign, commas, or decimals)</span></span> <strong class="required">(required)</strong>
+                            sign or commas)</span></span> <strong class="required">(required)</strong>
                       </label>
                       <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                           Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -1013,13 +1055,13 @@
                           id="p4-tws">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
-                          class="h4 mrgn-tp-0">$ , .</strong></p>
+                          class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
                     <div class="form-group">
                       <label class="control-label required" for="p4-wsb"><span class="field-name">Total amount that your
                           eligible employees have received under ESDC’s Work-Sharing benefit program <small>(for the
                             claim period)</small> (enter $0 if not applicable) <span class="wb-inv"> (do not include a
-                            dollar sign, commas, or decimals)</span></span> <strong class="required">(required)</strong>
+                            dollar sign or commas)</span></span> <strong class="required">(required)</strong>
                       </label>
                       <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                           benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -1028,12 +1070,12 @@
                           id="p4-wsb">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
-                          class="h4 mrgn-tp-0">$ , .</strong></p>
+                          class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
                   </div>
                   <hr class="brdr-bttm">
                   <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-                    <h3 class="mrgn-tp-0"><span class="fas fa-calculator"></span> Summary of Step 4</h3>
+                    <h3 class="mrgn-tp-0">Summary of Step 4</h3>
                     <ul class="list-unstyled lst-spcd">
                       <li> <span class="h3">Line F</span> Amount calculated under the 10% Temporary Wage Subsidy for
                         Employers program <small>(for the claim period)</small> <abbr title="equals"
@@ -1312,6 +1354,28 @@
 	      <p><a hrefa="who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>	     
       </div>
     </section>
+  <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Claim period pay per week</h2>
+      </header>
+      <div class="modal-body" data-ajax-replace="who-employees.html #week-cntnt">
+	      <p><a hrefa="who-employees.html#week">Claim period pay per week</a></p>	     
+      </div>
+    </section>
+ <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Eligible revenue</h2>
+      </header>
+      <div class="modal-body">
+	      <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
+	      <div data-ajax-replace="who-apply.html #eligible-revenue-cntnt">
+	      <p><a hrefa="who-apply.html#eligible-revenue">Eligible revenue</a></p>	     
+      </div>
+	      <p>You can view special revenue circumstances under <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
+	 </div>
+    </section>
+
+
     <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
     
     <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu>"> </div>
@@ -1399,6 +1463,7 @@
       /**
        * generateNewForm
        * 
+
        * clone the template DOM element and update the required attributes for 
        * a new employee wage form
        * 
@@ -1972,9 +2037,10 @@
           }
         });
         if (allDataEntered) {
+          var month = getClaimMonth($("#claim-period").val());
           //find the claim month based on the chosen claim period
           var claimMonth = new Date(
-            "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
+            "2020-" + month + '-01'
           ).getUTCMonth();
           //get the value of the claim month
           var claimMonth2020Value = parseFloat($("#2020-0" + claimMonth + "-no").val());
@@ -2190,6 +2256,20 @@
     });
            // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
   </script>
+<script>
+	
+            $(".action-checkbox").change(function(){
+            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+            $("#action-msg1").removeClass("hidden").addClass("visible");
+            $("#action-no-msg").addClass("hidden").removeClass("visible");
+            }
+            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+            $("#action-msg1").addClass("hidden").removeClass("visible");
+            $("#action-no-msg").removeClass("hidden").addClass("visible");
+            }
+            })
+	
+         </script>
 </body>
 
 </html>
