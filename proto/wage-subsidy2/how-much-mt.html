@@ -723,7 +723,7 @@
                                           class="form-control text-right emp-wkly-wage-1" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1" value="0.00">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
-                                        <label for="wkone-cb-1"><input id="wkone-cb-1" type="checkbox" value="">Leave
+                                        <label for="wkone-cb-1" class="emp-lv"><input id="wkone-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week one</span></label>
                                       </div>
                                     </div>
@@ -734,7 +734,7 @@
                                           id="wktwo-1" value="0.00" placeholder="0.00" data-updates="w2-amt-1" >
                                       </div>
                                       <div class="checkbox emp-lv hidden">
-                                        <label for="wktwo-cb-1"><input id="wktwo-cb-1" type="checkbox" value="">Leave
+                                        <label for="wktwo-cb-1" class="emp-lv"><input id="wktwo-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week two</span></label>
                                       </div>
                                     </div>
@@ -745,7 +745,7 @@
                                           id="wkthree-1" value="0.00" placeholder="0.00" data-updates="w3-amt-1">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
-                                        <label for="wkthree-cb-1"><input id="wkthree-cb-1" type="checkbox"
+                                        <label for="wkthree-cb-1" class="emp-lv"><input id="wkthree-cb-1" type="checkbox"
                                             value="">Leave with pay<span class="wb-inv"> in week three</span></label>
                                       </div>
                                     </div>
@@ -756,7 +756,7 @@
                                           id="wkfour-1" value="0.00" placeholder="0.00" data-updates="w4-amt-1">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
-                                        <label for="wkfour-cb-1"><input id="wkfour-cb-1" class="emp-lv hidden" type="checkbox" value="">Leave
+                                        <label for="wkfour-cb-1" class="emp-lv"><input id="wkfour-cb-1" type="checkbox" value="">Leave
                                           with pay<span class="wb-inv"> in week four</span></label>
                                       </div>
                                     </div>
@@ -1798,11 +1798,13 @@
       var numEmployeePanels = 1;
       $document.on("blur", "*[data-updates]", function (event) {
         var target = event.target;
+        var parts = target.id.split("-");
+        var employeeNumber = parts[parts.length - 1];
         target.value = target.value.replace("$", "");
         if (target.value == "0") {
           if (!checkEmployeeEligibility(target)) {
-            $("#emp-smry-" + numEmployeePanels).addClass("hidden");
-            $("#emp-no-elgbl-" + numEmployeePanels).removeClass("hidden");
+            $("#emp-smry-" + employeeNumber).addClass("hidden");
+            $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
           }
         }
         var updateTarget = $("#" + $(target).attr("data-updates"));
@@ -1812,11 +1814,11 @@
         } else if ($(target).is(":checkbox")) {
           return;
         } else {
-          var baselineWage = parseFloat($("#baseline-" + numEmployeePanels).val());
-          var armsLength = $("#emp-arms-" + numEmployeePanels).text() == "Yes" || $("#emp-arms-" + numEmployeePanels).text() == "Oui" ? true : false;
+          var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
+          var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
           var weekNumber = target.id.match(/wk(one|two|three|four)-/)[1];
-          var paidLeave = $("#wk" + weekNumber + "-cb-" + numEmployeePanels).is(":checked");
+          var paidLeave = $("#wk" + weekNumber + "-cb-" + employeeNumber).is(":checked");
           var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
           var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
@@ -1831,7 +1833,7 @@
             */
             updateTarget = $("#" + $(updateTarget).attr("data-updates"));
             //get the total cews
-            var employeeCews = getEmployeeCews(numEmployeePanels, baselineWage);
+            var employeeCews = getEmployeeCews(employeeNumber, baselineWage);
             //format the wage and update the total
             var formattedTotal = toMoney.format(employeeCews);
             $(updateTarget).text(formattedTotal);
@@ -1885,8 +1887,8 @@
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
           $("#emp-base-" + (i + 1)).html(toMoney.format(baselineWage));
-          var armsLength = $("#emp-arms-" + (i + 1)).text() == "Yes" || $("#emp-arms-" + (i + 1)).text() == "Oui" ? true : false;
-          $("#emp-arms-" + (i + 1)).html(armsLength);
+          var armsLength = $("#arms-" + (i + 1)).text().toLowerCase() == "yes" || $("#arms-" + (i + 1)).text().toLowerCase() == "oui" ? true : false;
+          $("#arms-" + (i + 1)).text(armsLength);
           var employeeCews = getEmployeeCews((i + 1), baselineWage);
           cews += employeeCews;
           totalWagesPaid += getEmployeeTotalWages((i + 1));
@@ -2130,11 +2132,29 @@
       });
 
       
-      $(document).on("change", ".emp-lv", function (event) {
-        $("*[data-updates]").each(function(i, element) {
-          $(element).trigger("blur");
-        });
+      $(document).on("click", ".emp-lv", function (event) {
+        leaveWithPayStateChanged(event);
       });
+      $(document).on("keypress", ".emp-lv", function (event) {
+        leaveWithPayStateChanged(event);
+      });
+
+      function leaveWithPayStateChanged(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var target = null;
+        //keypress event will send the checkbox as the event target
+        if (event.target.nodeName == 'INPUT') {
+          target = $("label[for='" + event.target.id + "']");
+        } else {
+          target = event.target;
+        }
+        var forValue = $(target).attr("for");
+        $("#" + forValue).prop("checked", !$("#" + forValue).prop("checked"));
+        var parts = forValue.split('-');
+        var wageInputId = parts[0] + '-' + parts[2];
+        $("#" + wageInputId).blur();
+      }
 
       $(document).on("click", "#transfer-data", function(event) {
         calculateTotals();
