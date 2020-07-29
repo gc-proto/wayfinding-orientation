@@ -2055,25 +2055,27 @@
        var revReduction = 0;
        var cewsRate = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
-        var cewsRateElements = $('.cews-rate-calc');
-        var allDataEntered = true;
-        $(cewsRateElements).each(function (i, element) {
-          var value = $(element).val();
-          if (value == null || value == "") {
-            allDataEntered = false;
-          }
-        });
-        if (allDataEntered) {
-          var month = getClaimMonth($("#claim-period").val());
-          //find the claim month based on the chosen claim period
-          var claimMonth = new Date(
-            "2020-" + month + '-01'
-          ).getUTCMonth();
+        var month = getClaimMonth($("#claim-period").val());
+        //find the claim month based on the chosen claim period
+        var claimMonth = new Date(
+          "2020-" + month + '-01'
+        ).getUTCMonth();
+        var prevClaimMonth = claimMonth - 1;
+        if (
+            (
+              parseFloat($("#2019-0" + claimMonth + "-no").val()) > 0 || parseFloat($("#2019-0" + prevClaimMonth + "-no").val()) > 0
+            ) &&
+            (
+              parseFloat($("#2019-04-no").val()) > 0 || 
+              parseFloat($("#2019-05-no").val()) > 0 ||
+              parseFloat($("#2019-06-no").val()) > 0
+            )
+        ) {
           //get the value of the claim month
           var claimMonth2020Value = parseFloat($("#2020-0" + claimMonth + "-no").val());
           var claimMonth2019Value = parseFloat($("#2019-0" + claimMonth + "-no").val());
           //get the previous month from the claim month
-          var prevClaimMonth = claimMonth - 1;
+          
           //get the value of the previous month
           var prevClaim2020Value = parseFloat($("#2020-0" + prevClaimMonth + "-no").val());
           var prevClaim2019Value = parseFloat($("#2019-0" + prevClaimMonth + "-no").val());
@@ -2084,10 +2086,16 @@
           //get the rate reduction from the three month average
           var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
-          revReduction = Math.max(
-            (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
-            (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
-          );
+          if (claimMonth2019Value == 0) {
+            revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
+          } else if (prevClaim2019Value == 0) {
+            revReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+          } else {
+            revReduction = Math.max(
+              (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
+              (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
+            );
+          }
           //get the base rate
           var baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0));
           //get the top-up rate
@@ -2111,21 +2119,9 @@
        * calculate the cews rate reductions with alternate baseline
        */
       $document.on("blur", ".cews-rate-calc-alt", function (event) {
-        //get all elements used for this calculation
-        var cewsRateElements = $('.cews-rate-calc-alt');
-        //if user hasnt entered values for each field, dont calculate
-        var allDataEntered = true;
-        $(cewsRateElements).each(function (i, element) {
-          var value = $(element).val();
-          if (value == null || value == "") {
-            allDataEntered = false;
-          }
-        });
-        //if user entered all required data
-        if (allDataEntered) {
-          //get the jan+feb avg
-          var janRev = parseFloat($("#2020-01-yes").val());
-          var febRev = parseFloat($("#2020-02-yes").val());
+        var janRev = parseFloat($("#2020-01-yes").val());
+        var febRev = parseFloat($("#2020-02-yes").val());
+        if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
           var claimMonth = new Date(
