@@ -1053,7 +1053,8 @@
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p4-tws">
-                         </div>
+                        </div>
+                      <p id="p4-tws-disclaimer" class="small hidden text-danger">This subsidy is not available for this claim-period</p>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
                           class="h4 mrgn-tp-0">$ ,</strong></p>
                     </div>
@@ -1750,10 +1751,15 @@
           $("#rate-reduction").removeClass("hidden");
           $("#payroll").removeClass("hidden");
           $(".emp-lv").removeClass("hidden");
+          $("#p4-tws").prop("readonly", true);
+          $("#p4-tws").val("0.00");
+          $("#p4-tws-disclaimer").removeClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
           $(".emp-lv").addClass("hidden");
+          $("#p4-tws").prop("readonly", false);
+          $("#p4-tws-disclaimer").addClass("hidden");
         }
       });
 
@@ -1780,6 +1786,7 @@
           $("#results").removeClass("hidden");
         }
       });
+
 
       /**
        * @author Michel Tremblay
@@ -1875,12 +1882,11 @@
       }
 
       /**
-       * 
+       * calculate the total wages/total cews when the summary table is opened
        */
       $(document).on("click", "#showEmpTable", function(event) {
         calculateTotals();
       });
-      
       function calculateTotals() {
         var totalWagesPaid = 0;
         var cews = 0;
