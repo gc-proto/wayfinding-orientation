@@ -300,15 +300,22 @@
                         </div>
                       </div>
                       <div class="mrgn-tp-lg">
+	     
                         <div id="cews-cal-opt1" class="hidden panel panel-primary panel-body" aria-live="polite">
+				
+				
                           <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
                           <div class="alert alert-warning">
                             <p>The calculation spreadsheet is improving based on your feedback. For accuracy, please
                               check that you made your calculations with the most recent version.</p>
                           </div>
-			<div id="cal-sprsht-p5">	
-                           <p class="mrgn-bttm-0"><a href="revised-cews-calculation-p5-to-p6.xlsx"
-                              class="btn btn-primary btn-lg">Download the spreadsheet for period 5 or 6 (Excel)</a></p>
+			<div id="cal-sprdsht-none">
+				  <p class="mrgn-bttm-0"><button 
+                              class="btn btn-primary btn-lg" disabled="disabled">Download the spreadsheet (Excel)</button> <br>Please select a claim period to download the spreadsheet</p>
+				</div>
+				
+			<div id="cal-sprsht-p5" class="hidden">	
+                         
                           <p class="small mrgn-bttm-0">Current version: 2020-2-1</p>
                           <details class="small mrgn-bttm-lg">
                             <summary>Version updates</summary>
@@ -340,7 +347,7 @@
                             </div>
                           </details>	
 				</div>
-				<div id="cal-sprdsht-p1-4">
+				<div id="cal-sprdsht-p1-4" class="hidden">
                           <p class="mrgn-bttm-0"><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx"
                               class="btn btn-primary btn-lg">Download the spreadsheet for period 1 to 4 (Excel)</a></p>
                           <p class="small mrgn-bttm-0">Current version: 2020-5</p>
@@ -443,7 +450,7 @@
                         </div>
                         <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
                           <p class="h4 mrgn-tp-0">Online calculator</p>
-
+				<p><strong>Note:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
                           <fieldset class="brdr-0 hidden" id="rate-reduction" >
                             <legend>Calculate your rate reduction</legend>
                             <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
@@ -485,6 +492,7 @@
                             <p><strong>Determine your rate of CEWS for the claim period</strong></p>
                             <fieldset>
                               <legend>Enter your eligible revenue for the following months</legend>
+				    <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
                               <div class="row">
                                 <div class="col-md-6 brdr-rght">
                                   <p><strong>2019 revenue</strong></p>
@@ -586,6 +594,7 @@
                             <p><strong>Determine your rate of CEWS for the claim period</strong></p>
                             <fieldset>
                               <legend>Enter your eligible revenue for the following months</legend>
+				<p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenuek<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
                               <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group row">
@@ -705,6 +714,7 @@
                                   <legend>Eligible remuneration (pay) in respect of the claim period <span
                                     class="claim-period"></span>
                                   </legend>
+				 <p><a class="wb-lbx" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
                                   <div class="form-group row">
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
@@ -1344,6 +1354,27 @@
 	      <p><a hrefa="who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>	     
       </div>
     </section>
+  <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Claim period pay per week</h2>
+      </header>
+      <div class="modal-body" data-ajax-replace="who-employees.html #week-cntnt">
+	      <p><a hrefa="who-employees.html#week">Claim period pay per week</a></p>	     
+      </div>
+    </section>
+ <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Eligible revenue</h2>
+      </header>
+      <div class="modal-body">
+	      <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
+	      <div data-ajax-replace="who-apply.html #eligible-revenue-cntnt">
+	      <p><a hrefa="who-apply.html#eligible-revenue">Eligible revenue</a></p>	     
+      </div>
+	 </div>
+    </section>
+
+
     <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
     
     <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu>"> </div>
