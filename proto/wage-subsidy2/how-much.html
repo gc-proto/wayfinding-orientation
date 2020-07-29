@@ -2067,6 +2067,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+	  if (cewsRate < 0.75 && revReduction >=0.3) {
+		cewsRate = 0.75;
+	  }
           //update the view
           $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
           $("#rev-reduc-base").text(parseInt(baseRate * 100) + "%");
@@ -2122,6 +2125,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+	  if (cewsRate < 0.75 && revReduction >=0.3) {
+		cewsRate = 0.75;
+	  }
           //update the view
           $("#top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
           $("#rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");

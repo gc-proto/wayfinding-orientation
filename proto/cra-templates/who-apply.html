@@ -192,10 +192,7 @@
          <section class="gc-nav-section experimental provisional">
             <h1 property="name" id="wb-cont">Who can apply</h1>
             <p>If you are [details]. </p>
-            <section class="alert alert-info mrgn-tp-lg">
-               <h2 class="h3">You cannot apply for the [ABC] if you already applied for the CERB or EI</h2>
-               <p>If you have already applied, or are receiving support from the Canada Emergency Response Benefit (CERB) or Employment Insurance (EI,) you are not eligible to apply for the [ABC].</p>
-            </section>
+ 
             <section>
               <h2 id="eligibility">Eligibility criteria</h2>
                <p class="lead">Check these boxes to see if you are eligible for the [ABC]:</p>
@@ -203,7 +200,7 @@
                 <ul class="checkbox-lg checkbox-zebra">
         <li class="checkbox">
           <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
-          <label for="eg1">[details]</label>
+          <label for="eg1">You have not receiving support from the Canada Emergency Response Benefit (CERB) or Employment Insurance (EI,), [other goes here]</label>
         </li>
         <li class="checkbox">
           <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
@@ -238,13 +235,14 @@
         </li>
     
       </ul>
-<div class="alert alert-warning provisional hidden" id="noaction-msg">
-			<p>You need all of the above to be eligible for the [ABC].</p>
-			</div>		       
-      <div class="alert alert-success hidden provisional" id="action-msg1">
-       <p>You are eligible for the [ABC]. You can get <strong class="lead">[#]</strong> for each [#]-week period that you qualify for.</p>
-      </div>
-       
+	  
+
+<div class="alert alert-danger provisional" id="action-no-msg">
+              <p>You need all of the above to be eligible for the [ABC].</p>
+            </div>
+			 <div class="alert alert-success hidden provisional" id="action-msg1">
+            <p>You are eligible for the [ABC]. You can get <strong class="lead">[#]</strong> for each [#]-week period that you qualify for. </p>
+          </div> 
                </section>
                <div class="clearfix"></div>
 		 </section>
@@ -304,40 +302,19 @@
       </script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 
-     <script>
- $(".action-checkbox").change(function(){
-	 if ($(".action-checkbox:checked")) {
-		$("#noaction-msg").removeClass("hidden");
-		 
-	 }
-	 if ($(".action-checkbox:not(:checked)").length == 6) {
-		$("#noaction-msg").addClass("hidden");
-		 
-	 }
-   if ($(".cb-dmm:checked, #eg5:checked, #eg6:not(:checked)").length == 6) {
-
-     $("#action-msg1").removeClass("hidden");
-	   $("#noaction-msg").addClass("hidden");
-     $("#action-msg2").addClass("hidden");
-    }
-    if ($(".cb-dmm:checked, #eg5:checked, #eg6:checked").length == 6) {
- $("#action-msg1").addClass("hidden");
-	$("#noaction-msg").addClass("hidden");
-      $("#action-msg2").removeClass("hidden");
-    }
-    if ($(".cb-dmm:not(:checked), #eg5:not(:checked)").length == 1)  {
-
-     $("#action-msg1").addClass("hidden");
-		$("#noaction-msg").removeClass("hidden");
-    }
-     if ($(".cb-dmm:not(:checked), #eg5:not(:checked), #eg6:not(:checked)").length == 1)  {
-
-     $("#action-msg2").addClass("hidden");
+   <script>
 	
-    }
-  
-  });
-
-</script> 
+            $(".action-checkbox").change(function(){
+            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+            $("#action-msg1").removeClass("hidden").addClass("visible");
+            $("#action-no-msg").addClass("hidden").removeClass("visible");
+            }
+            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+            $("#action-msg1").addClass("hidden").removeClass("visible");
+            $("#action-no-msg").removeClass("hidden").addClass("visible");
+            }
+            })
+	
+         </script>
    </body>
 </html>
