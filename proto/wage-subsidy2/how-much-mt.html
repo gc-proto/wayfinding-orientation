@@ -2059,7 +2059,7 @@
         var allDataEntered = true;
         $(cewsRateElements).each(function (i, element) {
           var value = $(element).val();
-          if (value == null || value == "" || parseFloat(value) == 0) {
+          if (value == null || value == "") {
             allDataEntered = false;
           }
         });
@@ -2094,6 +2094,11 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+          if (cewsRate < 0.1) {
+            $("#employees").addClass("hidden");
+          } else {
+            $("#employees").removeClass("hidden");
+          }
           //update the view
           $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
           $("#rev-reduc-base").text(parseInt(baseRate * 100) + "%");
@@ -2112,7 +2117,7 @@
         var allDataEntered = true;
         $(cewsRateElements).each(function (i, element) {
           var value = $(element).val();
-          if (value == null || value == "" || parseFloat(value) == 0) {
+          if (value == null || value == "") {
             allDataEntered = false;
           }
         });
@@ -2149,6 +2154,11 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+          if (cewsRate < 0.1) {
+            $("#employees").addClass("hidden");
+          } else {
+            $("#employees").removeClass("hidden");
+          }
           //update the view
           $("#top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
           $("#rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
@@ -2268,7 +2278,7 @@
        */
       function oldFormula(armsLength, weeklyRemun, baselineRemun) {
         if (armsLength) {
-          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
+          return Math.max(0, Math.min(847, weeklyRemun, baselineRemun * 0.75));
         } else {
           return Math.max(
             Math.min(0.75 * weeklyRemun, 847),
