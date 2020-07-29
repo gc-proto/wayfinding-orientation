@@ -1819,7 +1819,6 @@
             return;
           }
         }
-        
         var updateTarget = $("#" + $(target).attr("data-updates"));
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
@@ -1837,7 +1836,7 @@
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
           $(updatedByElements).each(function (i, element) {
-            $(element).text(formattedVal);
+            $(element).text(toMoney.format(target.value));
           });
           //update the total
           if ($(updateTarget).data("updates")) {
@@ -1897,20 +1896,26 @@
         var totalWagesPaid = 0;
         var cews = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
+          var eligibility = true;
           if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
-            return;
+            eligibility = false;
           }
           var baselineWage = parseFloat($("#baseline-" + (i + 1)).val());
           $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
           var armsLength = $("#arms-" + (i + 1)).val().toLowerCase() == "yes" || $("#arms-" + (i + 1)).val().toLowerCase() == "oui" ? true : false;
           $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
-          var employeeCews = getEmployeeCews((i + 1), baselineWage);
-          cews += employeeCews;
-          totalWagesPaid += getEmployeeTotalWages((i + 1));
           var totalCell = $("#emp-ttl-" + (i + 1));
-          var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
-          $("#emp-ttl-" + (i + 1)).text(employeeCews);
-          $(totalCell).html(formattedTotal);
+          if (eligibility) {
+            var employeeCews = getEmployeeCews((i + 1), baselineWage);
+            cews += employeeCews;
+            totalWagesPaid += getEmployeeTotalWages((i + 1));
+            
+            var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
+            $("#emp-ttl-" + (i + 1)).text(employeeCews);
+            $(totalCell).html(formattedTotal);
+          } else {
+            $(totalCell).html(toMoney.format(0.00));
+          }
         });
         $(".total").html(toMoney.format(cews));
         $(".total").attr("data-total-cews", cews.toFixed(2));
