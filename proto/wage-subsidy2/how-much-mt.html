@@ -315,7 +315,9 @@
 				</div>
 				
 			<div id="cal-sprsht-p5" class="hidden">	
-                         
+        <p class="mrgn-bttm-0"><a
+          href="revised-cews-calculation-p5-to-p6.xlsx"
+          class="btn btn-primary btn-lg">Download the spreadsheet for period 5 to 6 (Excel)</a></p>
                           <p class="small mrgn-bttm-0">Current version: 2020-2-1</p>
                           <details class="small mrgn-bttm-lg">
                             <summary>Version updates</summary>
@@ -1846,7 +1848,7 @@
           $('.claim-period').html($("#claim-period option:selected").text());
         }
         /**
-         * if p5+; else p1-4
+         * if p5+; else if  p1-4; else 'select'
          * @author Michel Tremblay
          */
         if (
@@ -1863,6 +1865,7 @@
           $("#employees").removeClass("hidden");
           $("#calc-pnl").removeClass("hidden");
           $("#cal-sprdsht-p1-4").addClass("hidden");
+          $("#cal-sprdsht-none").addClass("hidden");
           $("#cal-sprsht-p5").removeClass("hidden");
           $(".p59").removeClass("hidden");
           $(".p14").addClass("hidden");
@@ -1885,6 +1888,7 @@
           $("#cews-cal-opt2").addClass("hidden");
           $(".p14").removeClass("hidden");
           $(".p59").addClass("hidden");
+          $("#cal-sprdsht-none").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
