@@ -929,7 +929,7 @@
                               <strong class="required">(required)</strong> </label>
                             <div class="row">
                               <div class="col-md-3">
-                                <input required type="number"
+                                <input required type="text"
                                   class="form-control input-lg text-right currency" id="p2c-ee">
                               </div>
                             </div>
@@ -942,7 +942,7 @@
                                   not include a dollar sign or commas)</span></span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="number"
+                              <input required type="text"
                                 class="form-control input-lg text-right currency" id="p2c-pyrl">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
@@ -954,7 +954,7 @@
                                   dollar sign or commas)</span> </span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="number"
+                              <input required type="text"
                                 class="form-control input-lg text-right currency" id="p2c-cews">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
@@ -1000,7 +1000,7 @@
                           premiums that you paid on salary to furloughed eligible employees <small>(for the claim
                             period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p3-ei">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1011,7 +1011,7 @@
                           contributions that you made on salary to furloughed eligible employees <small>(for the claim
                             period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p3-cpp">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1051,7 +1051,7 @@
                       <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                           Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p4-tws">
                         </div>
                       <p id="p4-tws-disclaimer" class="small hidden text-danger">This subsidy is not available for this claim period</p>
@@ -1067,7 +1067,7 @@
                       <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                           benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p4-wsb">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1700,6 +1700,10 @@
 
         if (data.expr) {
           if (data.format === "currency") {
+            if (document.documentElement.lang == "fr") {
+              value = value.replace(",", ".");
+              value = value.replace(" ", "");
+            }
             $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
           } else {
             $("output[for='" + $elmId + "']").html(value * 1);
@@ -1790,17 +1794,16 @@
 
       /**
        * @author Michel Tremblay
-       * convert currency fields to two decimal places
+       * convert currency fields to localized value
        */
-      $document.on("blur", ".currency", function (event) {
+       $document.on("blur", ".currency", function (event) {
         var target = event.target;
-        var formattedVal = $(target).val().replace("$", ""); 
-        formattedVal = parseFloat(formattedVal).toFixed(2).toString();
-        if (document.documentElement.lang == "en") {
-          formattedVal = formattedVal.replace(/,/g, ".");
-        } else {
-          formattedVal = formattedVal.replace(/\./g, ",");
+        if ($(target).val() == "") {
+          return;
         }
+        var formattedVal = $(target).val();
+        formattedVal = formattedVal.replace(",", ".");
+        formattedVal = toMoney.format(formattedVal).replace("$", "");
         $(target).val(formattedVal);
       });
 
