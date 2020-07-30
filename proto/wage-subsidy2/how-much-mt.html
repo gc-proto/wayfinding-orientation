@@ -1531,7 +1531,6 @@
           "#" + this.baselineId + "1"
         );
         $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
-        $(baselineWageElement).val("0.00");
       }
 
       /**
@@ -1551,8 +1550,6 @@
         $(inputs).each(function (i, element) {
           if ($(element).is(":checkbox")) {
             $(element).prop("checked", false);
-          } else if ($(element).attr("type", "text")) {
-            $(element).val("0.00");
           }
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
