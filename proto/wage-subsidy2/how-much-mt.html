@@ -918,19 +918,50 @@
                       </section>
                     </li>
                     <li>
-                      <p class="lead">Input the values from the online calculator or spreadsheet</p>
+                      <p class="lead">Enter the values from the online calculator or spreadsheet</p>
                       <p>If you used the spreadsheet, refer to the <strong>instructions and results</strong> sheet for
                         the final values.</p>
                       <div class="row mrgn-tp-md">
                         <div class="mrgn-lft-lg mrgn-rght-md">
-                          <div class="form-group">
+                          <!--For periods 1 to 4 //-->
+                          <div class="form-group p14" id="ee-p1-4">
                             <label class="control-label required" for="p2c-ee"><span class="field-name">Total number of
                                 eligible employees<span class="wb-inv"> (do not include spaces or commas)</span></span>
                               <strong class="required">(required)</strong> </label>
                             <div class="row">
                               <div class="col-md-3">
-                                <input required type="text"
-                                  class="form-control input-lg text-right currency" id="p2c-ee">
+                                <input required type="number" class="form-control input-lg text-right currency"
+                                  id="p2c-ee">
+                              </div>
+                            </div>
+                            <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or
+                              <strong>commas</strong></p>
+                          </div>
+  
+                          <!--For periods 5 to 9 //-->
+                          <div class="form-group hidden p59" id="ee-p5-9">
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <label class="control-label required" for="p2c-ee-alt1"><span class="field-name">Eligible
+                                    active employees<span class="wb-inv"> (do not include spaces or commas)</span></span>
+                                  <strong class="required">(required)</strong> </label>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <input required type="number" class="form-control input-lg text-right currency"
+                                      id="p2c-ee-alt1">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <label class="control-label required" for="p2c-ee-alt2"><span class="field-name">Eligible
+                                    employees on leave with pay (furloughed)<span class="wb-inv"> (do not include spaces
+                                      or commas)</span></span> <strong class="required">(required)</strong> </label>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <input required type="number" class="form-control input-lg text-right currency"
+                                      id="p2c-ee-alt2">
+                                  </div>
+                                </div>
                               </div>
                             </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or
@@ -942,21 +973,57 @@
                                   not include a dollar sign or commas)</span></span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="text"
-                                class="form-control input-lg text-right currency" id="p2c-pyrl">
-                               </div>
+                              <input required type="number" class="form-control input-lg text-right currency"
+                                id="p2c-pyrl">
+                            </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
                               <strong class="h4 mrgn-tp-0">$ ,</strong></p>
                           </div>
+                          <!--For periods 5 - 9 only//-->
+                          <div class="hidden p59" id="p2b-rev">
+                            <div class="form-group">
+  
+                              <label for="p2b-c1">Revenue drop for the current period</label>
+  
+                              <div class="input-group col-sm-3">
+                                <input type="text" size="10" id="p2b-c1" name="p2b-c1" class="form-control text-right"
+                                  placeholder="0">
+                                <span class="input-group-addon">%</span></div>
+                            </div>
+                            <div class="form-group">
+  
+                              <label for="p2b-c2">Average revenue drop for the preceeding 3 months</label>
+  
+                              <div class="input-group col-sm-3">
+                                <input type="text" size="10" id="p2b-c2" name="p2b-c2" class="form-control text-right"
+                                  placeholder="0">
+                                <span class="input-group-addon">%</span></div>
+                            </div>
+                            <div class="form-group">
+  
+                              <label for="p2b-c3">Subsidy rate used for active employees in the calculation of the total
+                                basic CEWS</label>
+  
+                              <div class="input-group col-sm-3">
+                                <input type="text" size="10" id="p2b-c3" name="p2b-c3" class="form-control text-right"
+                                  placeholder="0">
+                                <span class="input-group-addon">%</span></div>
+                            </div>
+                          </div>
+  
+  
+  
                           <div class="form-group">
                             <label class="control-label required" for="p2c-cews"><span class="field-name">Total basic
                                 CEWS for these employees during this claim period<span class="wb-inv"> (do not include a
-                                  dollar sign or commas)</span> </span> <strong
-                                class="required">(required)</strong> </label>
+                                  dollar sign or commas)</span> </span> <strong class="required">(required)</strong>
+                            </label>
+                            <p class="text-muted small hidden p59" aria-describedby="p2c-cews" id="p2c-cews-p5-9">This
+                              amount includes both the base and top-up amount (if applicable).</p>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="text"
-                                class="form-control input-lg text-right currency" id="p2c-cews">
-                               </div>
+                              <input required type="number" class="form-control input-lg text-right currency"
+                                id="p2c-cews">
+                            </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
                               <strong class="h4 mrgn-tp-0">$ ,</strong></p>
                           </div>
@@ -968,15 +1035,46 @@
                   <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                     <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                     <ul class="list-unstyled lst-spcd">
-                      <li> <span class="h3">Line A</span> Number of eligible employees <abbr title="equals"
-                          class="brdr-0">=</abbr>
+                      <li id="sum-ee-p1-4" class="p14"> <span class="h3">Line A</span> Number of eligible employees <abbr
+                          title="equals" class="brdr-0">=</abbr>
                         <output class="h3 wb-calc nowrap" for="p2c-ee"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}"></output>
+                      </li>
+                      <li id="sum-ee-active" class="hidden p59"> <span class="h3">Line A</span> Number of active eligible
+                        employees <abbr title="equals" class="brdr-0">=</abbr>
+                        <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
+                          data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 1&quot;}"></output>
+                      </li>
+                      <li id="sum-ee-lwp" class="hidden p59"> <span class="h3">Line AA</span> Number of eligible employees
+                        on leave with pay (furloughed) <abbr title="equals" class="brdr-0">=</abbr>
+                        <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
+                          data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 2&quot;}"></output>
                       </li>
                       <li> <span class="h3">Line B</span> Total eligible remuneration paid <abbr title="equals"
                           class="brdr-0">=</abbr>
                         <output class="h3 wb-calc nowrap" for="p2c-pyrl"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                      </li>
+                      <li id="sum-rev" class="hidden p59"><span class="h3">Revenue drop</span>
+                        <ul class="list-unstyled">
+                          <li><span class="h4">Line c1</span>
+                            Percentage revenue drop for the current period <abbr title="equals" class="brdr-0">=</abbr>
+                            <output class="h3 wb-calc nowrap" for="p2b-c1"
+                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c1 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                          </li>
+                          <li><span class="h4">Line c2</span>
+                            Average percentage revenue drop for the preceding 3 months <abbr title="equals"
+                              class="brdr-0">=</abbr>
+                            <output class="h3 wb-calc nowrap" for="p2b-c2"
+                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c2 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                          </li>
+                          <li><span class="h4">Line c3</span>
+                            Subsidy rate used for active employees in the calculation of Line C <abbr title="equals"
+                              class="brdr-0">=</abbr>
+                            <output class="h3 wb-calc nowrap" for="p2b-c3"
+                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c3 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                          </li>
+                        </ul>
                       </li>
                       <li> <span class="h3">Line C</span> Basic CEWS <abbr title="equals" class="brdr-0">=</abbr>
                         <output class="h3 wb-calc nowrap" for="p2c-cews"
@@ -1763,6 +1861,8 @@
           $("#calc-pnl").removeClass("hidden");
           $("#cal-sprdsht-p1-4").addClass("hidden");
           $("#cal-sprsht-p5").removeClass("hidden");
+          $(".p59").removeClass("hidden");
+          $(".p14").addClass("hidden");
         } else if (
           parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
           parseInt($("#claim-period option:selected").data("claim-period")) < 5 
@@ -1780,6 +1880,8 @@
           $("#calc-separator").addClass("hidden");
           $("#cews-cal-opt").addClass("hidden");
           $("#cews-cal-opt2").addClass("hidden");
+          $(".p14").removeClass("hidden");
+          $(".p59").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
@@ -1792,6 +1894,8 @@
           $("#calc-separator").addClass("hidden");
           $("#cews-cal-opt").addClass("hidden");
           $("#cews-cal-opt2").addClass("hidden");
+          $(".p59").addClass("hidden");
+          $(".p14").removeClass("hidden");
         }
       });
 
