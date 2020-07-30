@@ -2481,9 +2481,9 @@
        */
       function newFormula(armsLength, weeklyRemun, baselineRemun, overall) {
         if (armsLength) {
-          return Math.min(1129, weeklyRemun, baselineRemun) * overall;
-        } else {
           return Math.min(1129, weeklyRemun) * overall;
+        } else {
+          return Math.min(1129, weeklyRemun, baselineRemun) * overall;
         }
       }
       
