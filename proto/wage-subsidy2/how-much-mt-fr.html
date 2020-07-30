@@ -2094,6 +2094,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+	  if (cewsRate < 0.75 && revReduction >=0.3) {
+		cewsRate = 0.75;
+	  }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
@@ -2154,6 +2157,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
+	  if (cewsRate < 0.75 && revReduction >=0.3) {
+		cewsRate = 0.75;
+	  }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
