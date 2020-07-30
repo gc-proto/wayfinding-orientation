@@ -585,7 +585,7 @@
                                   <ul class="list-unstyled mrgn-lft-lg small">
                                   <li>Your base rate is <span
                                           class="h4 rev-reduc-base">0%</span> because your revenue drop from <strong>July 2019 to July 2020 <!--(eventually dynamic based on last 2019/2020 values)//--></strong> was <span
-                                          class="h4 rev-drop-base">0% <!--July 2019 divided by July 2020, 0 if negative //--></span> <span class="h3">[line c1]</span></li>
+                                          class="h4 rev-reduc-base">0% <!--July 2019 divided by July 2020, 0 if negative //--></span> <span class="h3">[line c1]</span></li>
                                   <li>Your top-up rate is <span class="h4 top-up-rate">0%</span> because your revenue drop from <strong>April, May and June 2019 to April, May and June 2020 <!--(eventually dynamic based on first three 2019/2020 values)//--></strong> was <span class="h4 top-up-rate" id="rev-drop-top-up">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span> <span class="h3">[line c2]</span></li>
                                 </ul>
                                 </li>
@@ -2273,9 +2273,9 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $(".cews-rate").text(parseInt(cewsRate * 100) + "%");
+          $(".top-up-rate").text(parseInt(topUpRate * 100) + "%");
           $(".rev-reduc-base").text(parseInt(baseRate * 100) + "%");
-          $("#top-up-rate").text(parseInt(topUpRate * 100) + "%");
+          $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
         }
       });
 
