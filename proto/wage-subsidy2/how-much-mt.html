@@ -275,19 +275,19 @@
 	]'>Calculation spreadsheet</a>
                               </div>
                             </div>
-                            <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span
+                            <div id="calc-separator" class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span
                                 class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span
                                   class="fa-stack-1x fa-inverse">or</span></span></div>
                             <div class="col-xs-12 col-sm-6 mrgn-bttm-lg">
                               <div class="col-sm-12">
-                                <div class="eqht-trgt">
+                                <div id="calc-pnl" class="eqht-trgt">
                                   <p><strong class="h3 mrgn-tp-sm">Use the online calculator if you:</strong></p>
                                   <ul class="mrgn-bttm-0">
                                     <li>have about 20 employees or less, and</li>
                                     <li>can calculate wages week-by-week within a claim period</li>
                                   </ul>
                                 </div>
-                                <a href="#cews-cal-opt2" class="btn-cews-cal btn btn-default mrgn-tp-md"
+                                <a href="#cews-cal-opt2" id="show-online-calc" class="btn-cews-cal btn btn-default mrgn-tp-md"
                                   data-wb-doaction='[
 			{ "action": "run", "trggroup": "clearFilter" },
 				{"action": "addClass",
@@ -929,7 +929,7 @@
                               <strong class="required">(required)</strong> </label>
                             <div class="row">
                               <div class="col-md-3">
-                                <input required type="number"
+                                <input required type="text"
                                   class="form-control input-lg text-right currency" id="p2c-ee">
                               </div>
                             </div>
@@ -942,7 +942,7 @@
                                   not include a dollar sign or commas)</span></span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="number"
+                              <input required type="text"
                                 class="form-control input-lg text-right currency" id="p2c-pyrl">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
@@ -954,7 +954,7 @@
                                   dollar sign or commas)</span> </span> <strong
                                 class="required">(required)</strong> </label>
                             <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                              <input required type="number"
+                              <input required type="text"
                                 class="form-control input-lg text-right currency" id="p2c-cews">
                                </div>
                             <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or:
@@ -1000,7 +1000,7 @@
                           premiums that you paid on salary to furloughed eligible employees <small>(for the claim
                             period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p3-ei">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1011,7 +1011,7 @@
                           contributions that you made on salary to furloughed eligible employees <small>(for the claim
                             period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required">(required)</strong> </label>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p3-cpp">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1051,7 +1051,7 @@
                       <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                           Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p4-tws">
                         </div>
                       <p id="p4-tws-disclaimer" class="small hidden text-danger">This subsidy is not available for this claim period</p>
@@ -1067,7 +1067,7 @@
                       <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                           benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                       <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                        <input required type="number" class="form-control input-lg text-right currency"
+                        <input required type="text" class="form-control input-lg text-right currency"
                           id="p4-wsb">
                          </div>
                       <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong
@@ -1531,7 +1531,6 @@
           "#" + this.baselineId + "1"
         );
         $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
-        $(baselineWageElement).val("0.00");
       }
 
       /**
@@ -1551,8 +1550,6 @@
         $(inputs).each(function (i, element) {
           if ($(element).is(":checkbox")) {
             $(element).prop("checked", false);
-          } else if ($(element).attr("type", "text")) {
-            $(element).val("0.00");
           }
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
@@ -1742,7 +1739,7 @@
           $('.claim-period').html($("#claim-period option:selected").text());
         }
         /**
-         * display rate reduction calculator for P5+
+         * if p5+; else p1-4
          * @author Michel Tremblay
          */
         if (
@@ -1754,12 +1751,41 @@
           $("#p4-tws").prop("readonly", true);
           $("#p4-tws").val("0.00");
           $("#p4-tws-disclaimer").removeClass("hidden");
+          $("#calc-separator").removeClass("hidden");
+          $("#show-online-calc").removeClass("hidden");
+          $("#employees").removeClass("hidden");
+          $("#calc-pnl").removeClass("hidden");
+          $("#cal-sprdsht-p1-4").addClass("hidden");
+          $("#cal-sprsht-p5").removeClass("hidden");
+        } else if (
+          parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
+          parseInt($("#claim-period option:selected").data("claim-period")) < 5 
+        ){
+          $("#cal-sprdsht-p1-4").removeClass("hidden");
+          $("#cal-sprsht-p5").addClass("hidden");
+          $("#rate-reduction").addClass("hidden");
+          $("#payroll").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
+          $("#p4-tws").prop("readonly", false);
+          $("#p4-tws-disclaimer").addClass("hidden");
+          $("#employees").addClass("hidden");
+          $("#calc-pnl").addClass("hidden");
+          $("#show-online-calc").addClass("hidden");
+          $("#calc-separator").addClass("hidden");
+          $("#cews-cal-opt").addClass("hidden");
+          $("#cews-cal-opt2").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
           $(".emp-lv").addClass("hidden");
           $("#p4-tws").prop("readonly", false);
           $("#p4-tws-disclaimer").addClass("hidden");
+          $("#employees").addClass("hidden");
+          $("#calc-pnl").addClass("hidden");
+          $("#show-online-calc").addClass("hidden");
+          $("#calc-separator").addClass("hidden");
+          $("#cews-cal-opt").addClass("hidden");
+          $("#cews-cal-opt2").addClass("hidden");
         }
       });
 
@@ -1790,17 +1816,15 @@
 
       /**
        * @author Michel Tremblay
-       * convert currency fields to two decimal places
+       * convert currency fields to localized value
        */
       $document.on("blur", ".currency", function (event) {
         var target = event.target;
-        var formattedVal = $(target).val().replace("$", ""); 
-        formattedVal = parseFloat(formattedVal).toFixed(2).toString();
-        if (document.documentElement.lang == "en") {
-          formattedVal = formattedVal.replace(/,/g, ".");
-        } else {
-          formattedVal = formattedVal.replace(/\./g, ",");
+        if ($(target).val() == "") {
+          return;
         }
+        var formattedVal = $(target).val();
+        formattedVal = formattedVal.replace("$", "");
         $(target).val(formattedVal);
       });
 
@@ -2115,9 +2139,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
-	  if (cewsRate < 0.75 && revReduction >=0.3) {
-		cewsRate = 0.75;
-	  }
+          if (cewsRate < 0.75 && revReduction >=0.3) {
+            cewsRate = 0.75;
+          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
@@ -2177,9 +2201,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
-	  if (cewsRate < 0.75 && revReduction >=0.3) {
-		cewsRate = 0.75;
-	  }
+          if (cewsRate < 0.75 && revReduction >=0.3) {
+            cewsRate = 0.75;
+          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
