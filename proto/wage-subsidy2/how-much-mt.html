@@ -2344,6 +2344,7 @@
         }
       });
 
+      var numWeeksLeaveWPay = 0;
       /**
        * run the blur event for the wage input when the corresponding leave 
        * with pay option is checked
@@ -2373,14 +2374,20 @@
 
       $(document).on("click", "#transfer-data", function(event) {
         calculateTotals();
-        $("#p2c-ee").val(numEmployeePanels);
-        $( "#p2c-ee" ).trigger( "change" );
+        var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
+        var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
+        //eligible active employees
+        $("#p2c-ee-alt1").val(eligibleEmps);
+        $("#p2c-ee-alt1").trigger("change");
+        //get eligible furloughed employees
+        $("#p2c-ee-alt2").val(numEmployeePanels - eligibleEmps);
+        $("#p2c-ee-alt2").trigger("change");
         var totalWages = $(".total").attr("data-total-wages");
         $("#p2c-pyrl").val(totalWages);
-        $( "#p2c-pyrl" ).trigger( "change" );
+        $("#p2c-pyrl").trigger( "change" );
         var totalCews = $(".total").attr("data-total-cews");
         $("#p2c-cews").val(totalCews);
-        $( "#p2c-cews" ).trigger( "change" );
+        $("#p2c-cews").trigger( "change" );
       });
 
       /**
