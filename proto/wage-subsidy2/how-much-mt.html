@@ -2384,12 +2384,12 @@
         var totalCews = $(".total").attr("data-total-cews");
         $("#p2c-cews").val(totalCews);
         $("#p2c-cews").trigger("change");
-        $("#p2b-c1").val(baseRate * 100);
-        $("output[for='p2b-c1']").text((baseRate * 100) + "%");
-        $("#p2b-c2").val(topUpRate * 100);
-        $("output[for='p2b-c2']").text((topUpRate * 100) + "%");
-        $("#p2b-c3").val(cewsRate * 100);
-        $("output[for='p2b-c3']").text((cewsRate * 100) + "%");
+        $("#p2b-c1").val(parseInt(baseRate * 100));
+        $("output[for='p2b-c1']").text(parseInt(baseRate * 100) + "%");
+        $("#p2b-c2").val(parseInt(topUpRate * 100));
+        $("output[for='p2b-c2']").text(parseInt(topUpRate * 100) + "%");
+        $("#p2b-c3").val(parseInt(cewsRate * 100));
+        $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
 
       });
 
