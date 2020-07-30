@@ -1700,10 +1700,13 @@
 
         if (data.expr) {
           if (data.format === "currency") {
-            if (document.documentElement.lang == "fr") {
-              value = value.replace(",", ".");
-              value = value.replace(" ", "");
-            }
+           //convert the first one to a period, any commas after that are strictly removed.
+           value = value.replace(",", ".");
+            value = value.replace(/,/gm, "");
+            //remove all spaces
+            value = value.replace(/\s/gm, "");
+            //replace all $ signs
+            value = value.replace(/\$/gm, "");
             $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
           } else {
             $("output[for='" + $elmId + "']").html(value * 1);
@@ -1791,7 +1794,6 @@
         }
       });
 
-
       /**
        * @author Michel Tremblay
        * convert currency fields to localized value
@@ -1802,9 +1804,13 @@
           return;
         }
         var formattedVal = $(target).val();
+        //convert the first one to a period, any commas after that are strictly removed.
         formattedVal = formattedVal.replace(",", ".");
-        formattedVal = formattedVal.replace(" ", "");
-        formattedVal = toMoney.format(formattedVal).replace("$", "");
+        formattedVal = formattedVal.replace(/,*/gm, "");
+        //remove all spaces
+        formattedVal = formattedVal.replace(/\s*/gm, "");
+        //replace all $ signs
+        formattedVal = formattedVal.replace(/\$*/gm, "");
         $(target).val(formattedVal);
       });
 
@@ -1968,6 +1974,7 @@
             return 0;
         }
       }
+
       /**
        * @author Michel Tremblay
        * determine if an employee has been paid $0 for two consecutive pays
@@ -2098,9 +2105,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
-	  if (cewsRate < 0.75 && revReduction >=0.3) {
-		cewsRate = 0.75;
-	  }
+          if (cewsRate < 0.75 && revReduction >=0.3) {
+            cewsRate = 0.75;
+          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
@@ -2161,9 +2168,9 @@
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
-	  if (cewsRate < 0.75 && revReduction >=0.3) {
-		cewsRate = 0.75;
-	  }
+          if (cewsRate < 0.75 && revReduction >=0.3) {
+            cewsRate = 0.75;
+          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
