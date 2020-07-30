@@ -18,119 +18,105 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
       <style type="text/css">
          div.hidden-action {
-            transform: scaleX(0);
-            overflow: hidden;
-            display: none;
+         transform: scaleX(0);
+         overflow: hidden;
+         display: none;
          }
          div.visible-action {
-            transform: scaleX(1);
-            display: visible;
+         transform: scaleX(1);
+         display: visible;
          }
          /*Checkbox/Fieldflow radio input sizing,positioning*/
          .checkbox-zebra > li:nth-child(2n+1) {
-            background-color: #f5f5f5;
-            margin-left: -50px;
-            padding-top: 10px;
-            padding-bottom: 15px;
-            padding-left: 50px;
+         background-color: #f5f5f5;
+         margin-left: -50px;
+         padding-top: 10px;
+         padding-bottom: 15px;
+         padding-left: 50px;
          }
-
          .checkbox-zebra [role="checkbox"]::before {
-            background-color: #fff;
-         }
-
-        .std-blt {
-            font-size: 20px;
-            line-height: 1.65em;
+         background-color: #fff;
          }
          .std-blt {
-            list-style-type: disc;
+         font-size: 20px;
+         line-height: 1.65em;
+         }
+         .std-blt {
+         list-style-type: disc;
          }
          .std-blt li label {
-            display: block;
-            padding-left: 0px;
+         display: block;
+         padding-left: 0px;
          }
-
          /********
-          ********
-          ** New checklist example
-          ** May 15, 2020
-          ** Replacing checkkboxes with clickable divs that convey a sense of success to the user
-          ********
-          ********/
-
+         ********
+         ** New checklist example
+         ** May 15, 2020
+         ** Replacing checkkboxes with clickable divs that convey a sense of success to the user
+         ********
+         ********/
          /* One input per line */
          .provisional [role="checkbox"] { /* (0,2,0) */
-            cursor: pointer;
-            display: inline-block;
-            padding-left: 15px;
-            position: relative;
+         cursor: pointer;
+         display: inline-block;
+         padding-left: 15px;
+         position: relative;
          }
-
          .provisional [role="checkbox"]::before,
          .provisional [role="checkbox"]::after { /* (0,2,1) */
-            content: "";
-            left: 0;
-            position: absolute;
-            top: 0;
-            transform: translate(-100%, 0%);
+         content: "";
+         left: 0;
+         position: absolute;
+         top: 0;
+         transform: translate(-100%, 0%);
          }
-
          .provisional .wb-checklist.wb-checklist-sm { /* (0,3,0) */
          font-size: 17px;
          }
-
          /* the basic, unchecked style */
          .provisional [role="checkbox"]::before { /* (0,2,1) */
-            border: 4px solid #fff;
-            box-shadow: 0 0 0 2px #000;
-            display: inline-block;
-            height: 36px;
-            width: 36px;
+         border: 4px solid #fff;
+         box-shadow: 0 0 0 2px #000;
+         display: inline-block;
+         height: 36px;
+         width: 36px;
          }
-
          .provisional .wb-checklist-sm [role="checkbox"]::before { /* (0,3,1) */
-            border-width: 3px;
-            height: 24px;
-            transform: translate(-100%, 20%);
-            width: 24px;
+         border-width: 3px;
+         height: 24px;
+         transform: translate(-100%, 20%);
+         width: 24px;
          }
-
          /* hover styling */
          .provisional [role="checkbox"][aria-checked="false"]:hover::before { /* (0,3,1) */
-            background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
+         background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
          }
-
          /* focus styling */
          .provisional [role="checkbox"]:focus { /* (0,3,0) */
-            outline: none;
+         outline: none;
          }
-
          .provisional [role="checkbox"]:focus::before { /* (0,3,2) */
-            box-shadow: 0 0 0 2px #000, 0 0 8px 4px rgb(59, 153, 252);
+         box-shadow: 0 0 0 2px #000, 0 0 8px 4px rgb(59, 153, 252);
          }
-
          /* the checked style using the [aria-checked='true'] pseudo class and aria-checked=true attribute */
          .provisional [role="checkbox"][aria-checked="true"]::before { /* (0,3,1) */
-            background-color: #318000;
-            border: none;
+         background-color: #318000;
+         border: none;
          }
-
          .provisional [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
-            border-color: white;
-            border-style: solid;
-            border-width: 0 5px 5px 0;
-            display: inline-block;
-            height: 26px;
-            width: 13px;
-            transform: translate(-185%, 10%) rotate(45deg);
+         border-color: white;
+         border-style: solid;
+         border-width: 0 5px 5px 0;
+         display: inline-block;
+         height: 26px;
+         width: 13px;
+         transform: translate(-185%, 10%) rotate(45deg);
          }
-
          .provisional .wb-checklist-sm [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
-            border-width: 0 4px 4px 0;
-            height: 16px;
-            width: 9px;
-            transform: translate(-185%, 40%) rotate(45deg);
+         border-width: 0 4px 4px 0;
+         height: 16px;
+         width: 9px;
+         transform: translate(-185%, 40%) rotate(45deg);
          }
       </style>
       <!-- Write closure template -->
@@ -192,79 +178,84 @@
          <section class="gc-nav-section experimental provisional">
             <h1 property="name" id="wb-cont">Who can apply</h1>
             <p>If you are [details]. </p>
- 
             <section>
-              <h2 id="h-1">Eligibility criteria</h2>
+               <h2 id="h-1">Eligibility criteria</h2>
                <p class="lead">To be eligible for the $[#] [ABC] payment, you must meet the following conditions:</p>
                <section>
-                <ul class="checkbox-lg checkbox-zebra">
-        <li class="checkbox">
-          <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
-          <label for="eg1">You have not receiving support from the Canada Emergency Response Benefit (CERB) or Employment Insurance (EI,), [other goes here]</label>
-        </li>
-        <li class="checkbox">
-          <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
-		<label for="eg2">[details]</label>
-		
-		
-        </li>
-		
-		
-		
-		<li class="checkbox">
-          <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-		<label for="eg3">[details]</label></li>
-		
-		
-        <li class="checkbox">
-          <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
-          <label for="eg4"><strong>One of the following: </strong></label>
-          <ul class="std-blt lst-spcd">
-            <li>
-              <label for="eg4">[details]</label>
-            
-		      
-		  </li>
-            <li>
-              <label for="eg4">[details]</label>
-            </li>
-            
-          </ul>
-		  
-         
-        </li>
-    
-      </ul>
-	  
-
-<div class="alert alert-danger provisional" id="action-no-msg">
-              <p>You need all of the above to be eligible for the [ABC].</p>
-            </div>
-			 <div class="alert alert-success hidden provisional" id="action-msg1">
-            <p>You are eligible for the [ABC]. You can get <strong class="lead">$[#]</strong> for each [#]-week period that you qualify for. </p>
-          </div> 
+                  <ul class="checkbox-lg checkbox-zebra">
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
+                        <label for="eg1">You did not apply, receive, nor qualify, for the CERB, EI benefits, or  [other goes here] for the same eligibility period</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
+                        <label for="eg2">You reside in Canada and are at least 15 years old</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+                        <label for="eg3">[details]</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
+                        <label for="eg4"><strong>One of the following: </strong></label>
+                        <ul class="std-blt lst-spcd">
+                           <li>
+                              <label for="eg4">[details]</label>
+                           </li>
+                           <li>
+                              <label for="eg4">[details]</label>
+                           </li>
+                        </ul>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
+                        <label for="eg5">[details]</label>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
+                        <label for="eg6">[details]</label>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
+                        <label for="eg7">[details]</label>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg8" class="action-checkbox cb-dmm">
+                        <label for="eg8"><strong>One of the following: </strong></label>
+                        <ul class="std-blt lst-spcd">
+                           <li>
+                              <label for="eg8">[details]</label>
+                           </li>
+                           <li>
+                              <label for="eg8">[details]</label>
+                           </li>
+                        </ul>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
+                        <label for="eg9"><strong>One of the following: </strong></label>
+                        <ul class="std-blt lst-spcd">
+                           <li>
+                              <label for="eg9">[details]</label>
+                           </li>
+                           <li>
+                              <label for="eg9">[details]</label>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <div class="alert alert-danger provisional" id="action-no-msg">
+                     <p>You need all of the above to be eligible for the [ABC].</p>
+                  </div>
+                  <div class="alert alert-success hidden provisional" id="action-msg1">
+                     <p>You are eligible for the [ABC]. You can get <strong class="lead">$[#]</strong> for each [#]-week period that you qualify for. </p>
+                  </div>
                </section>
                <div class="clearfix"></div>
-		 </section>
+            </section>
             <h2 id="h-2">Verifying your eligibility</h2>
-            <p>The Canada Revenue Agency (CRA) will verify your eligibility to receive the [ABC] after you have applied. CRA may ask you to provide supporting documents to confirm your eligibility at a later date.</p> 
-            <p>If we find that you are not eligible, we will contact you to make arrangements to repay any amounts you may owe.</p>
-            <ul class="list-unstyled">
-               <li>
-
-            <details class="mrgn-lft-md mrgn-right-md">
-               <summary>Documents showing [x] due to COVID-19</summary>
-               <ul>
-                  <li>[x]</li> 
-                  <li>[x]</li
-				  <li>[x]</li
-				  <li>[x]</li
-				  <li>[x]</li
-               </ul>
-            </details>
-		    </li>
-		</ul>
-	
+            <p>The CRA will be verifying that you are eligible to receive the benefit. In cases where claimants are found to be ineligible, they will be contacted to make arrangements to repay any applicable amounts.</p>
+			<p>Canadians can also report suspected [ABC] misuse through the <a href="/en/revenue-agency/programs/about-canada-revenue-agency-cra/suspected-tax-cheating-in-canada-overview.html">CRA's Leads program</a>.</p>
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                <h3 class="wb-inv">Document navigation</h3>
                <ul class="pager">
@@ -301,20 +292,18 @@
          }));
       </script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
-
-   <script>
-	
-            $(".action-checkbox").change(function(){
-            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-            $("#action-msg1").removeClass("hidden").addClass("visible");
-            $("#action-no-msg").addClass("hidden").removeClass("visible");
-            }
-            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
-            $("#action-msg1").addClass("hidden").removeClass("visible");
-            $("#action-no-msg").removeClass("hidden").addClass("visible");
-            }
-            })
-	
-         </script>
+      <script>
+         $(".action-checkbox").change(function(){
+         if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+         $("#action-msg1").removeClass("hidden").addClass("visible");
+         $("#action-no-msg").addClass("hidden").removeClass("visible");
+         }
+         if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+         $("#action-msg1").addClass("hidden").removeClass("visible");
+         $("#action-no-msg").removeClass("hidden").addClass("visible");
+         }
+         })
+         
+      </script>
    </body>
 </html>
