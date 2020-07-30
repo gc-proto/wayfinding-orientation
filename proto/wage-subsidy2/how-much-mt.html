@@ -1979,6 +1979,9 @@
           var weekNumber = parts[0];
           var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
           var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
+          if (!isInt(weeklyCews) && !isFloat(weeklyCews)) {
+            weeklyCews = 0;
+          }
           var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
@@ -1998,6 +2001,15 @@
           }
         }
       });
+
+      //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
+      function isInt(n){
+        return Number(n) === n && n % 1 === 0;
+      }
+      //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
+      function isFloat(n){
+        return Number(n) === n && n % 1 !== 0;
+      }
 
       /**
        * 
@@ -2390,7 +2402,6 @@
         $("output[for='p2b-c2']").text(parseInt(topUpRate * 100) + "%");
         $("#p2b-c3").val(parseInt(cewsRate * 100));
         $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
-
       });
 
       /**
