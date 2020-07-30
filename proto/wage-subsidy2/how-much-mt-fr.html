@@ -1803,6 +1803,7 @@
         }
         var formattedVal = $(target).val();
         formattedVal = formattedVal.replace(",", ".");
+        formattedVal = formattedVal.replace(" ", "");
         formattedVal = toMoney.format(formattedVal).replace("$", "");
         $(target).val(formattedVal);
       });
