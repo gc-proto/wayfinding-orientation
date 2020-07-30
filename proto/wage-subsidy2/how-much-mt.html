@@ -1698,7 +1698,6 @@
         if (data.expr) {
           if (data.format === "currency") {
             //convert the first one to a period, any commas after that are strictly removed.
-            value = value.replace(",", ".");
             value = value.replace(/,*/gm, "");
             //remove all spaces
             value = value.replace(/\s*/gm, "");
@@ -1832,7 +1831,6 @@
         }
         var formattedVal = $(target).val();
         //convert the first one to a period, any commas after that are strictly removed.
-        formattedVal = formattedVal.replace(",", ".");
         formattedVal = formattedVal.replace(/,*/gm, "");
         //remove all spaces
         formattedVal = formattedVal.replace(/\s*/gm, "");
