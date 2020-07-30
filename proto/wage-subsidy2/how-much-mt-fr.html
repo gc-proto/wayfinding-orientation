@@ -1846,13 +1846,13 @@
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
           var weekNumber = target.id.match(/wk(one|two|three|four)-/)[1];
-          var paidLeave = $("#wk" + weekNumber + "-cb-" + employeeNumber).is(":checked");
+          var paidLeave = $("#" + weekNumber + "-cb-" + employeeNumber).is(":checked");
           var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
           var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
           $(updatedByElements).each(function (i, element) {
-            $(element).text(toMoney.format(target.value));
+            $(element).text(toMoney.format(weeklyCews));
           });
           //update the total
           if ($(updateTarget).data("updates")) {
