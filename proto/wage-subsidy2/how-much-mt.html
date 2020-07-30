@@ -578,16 +578,16 @@
                             </fieldset>
                             <div class="well text-muted mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of revenue drop
-                                rates</h3>
+                              rates</h3>
                               <ul class="list-unstyled">
-                                <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
-                                    class="h3" id="cews-rate">0%</span> <br>
-                                  This is based on:
+                              <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
+                                      class="h3" id="cews-rate">0%</span> <span class="h3">[line c3]</span>:
                                   <ul class="list-unstyled mrgn-lft-lg small">
-                                    <li>Base rate (revenue drop from July 2019 to July 2020): <span
-                                        class="h4" id="rev-reduc-base">0%</span></li>
-                                    <li>Top-up rate (use average revenue drop from April, May and June 2019 to April, May and June 2020): <span class="h4" id="top-up-rate">0%</span></li>
-                                  </ul>
+                                  <li>Your base rate is <span
+                                          class="h4 rev-reduc-base">0%</span> because your revenue drop from <strong>July 2019 to July 2020 <!--(eventually dynamic based on last 2019/2020 values)//--></strong> was <span
+                                          class="h4 rev-drop-base">0% <!--July 2019 divided by July 2020, 0 if negative //--></span> <span class="h3">[line c1]</span></li>
+                                  <li>Your top-up rate is <span class="h4 top-up-rate">0%</span> because your revenue drop from <strong>April, May and June 2019 to April, May and June 2020 <!--(eventually dynamic based on first three 2019/2020 values)//--></strong> was <span class="h4 top-up-rate" id="rev-drop-top-up">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span> <span class="h3">[line c2]</span></li>
+                                </ul>
                                 </li>
                               </ul>
                             </div>
@@ -660,32 +660,26 @@
                               <h3 class="mrgn-tp-0">Summary of average revenue
                                 drop rates</h3>
                               <ul class="list-unstyled">
-                                <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span id="cews-rate-alt"
-                                    class="h3">0%</span> <br>
-                                  This is based on:
+                                <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
+                                    id="cews-rate-alt" class="h3">0%</span> <span class="h3">[line c3]</span>:
                                   <ul class="list-unstyled mrgn-lft-lg small">
-                                    <li>Base rate (revenue drop from July 2019 to July 2020): <span id="rev-reduc-alt-base"
-                                        class="h4">0%</span></li>
-                                    <li>Top-up rate (use average revenue drop from April, May and June 2019 to April, May and June 2020): <span class="h4" id="top-up-rate-alt">0%</span></li>
+                                    <li>Your base rate is <span id="rev-reduc-alt-base" class="h4 rev-reduc-alt-base">0%</span> because your
+                                      revenue drop from <strong>the average revenue from January and Feburary 2020 to June
+                                        or July 2020 (whichever is greater)
+                                        <!--(eventually dynamic based on last 2019/2020 values)//--></strong> was <span
+                                        class="h4 rev-reduc-alt-base">0%
+                                        <!--average of Jan/Feb 2020 divided by June or July 2020 (whichever is the lower amount), 0 if negative //--></span>
+                                      <span class="h3">[line c1]</span></li>
+                                    <li>Your top-up rate is <span class="h4 top-up-rate-alt">0%</span> because your
+                                      revenue drop from <strong>the average revenue from January and February 2020 to
+                                        April, May and June 2020</strong> was <span class="h4 top-up-rate-alt" id="rev-drop-alt-top-up">0%
+                                        <!--average of Jan/Feb 2020 divided by 3 months in 2020, 0 if negative//--></span>
+                                      <span class="h3">[line c2]</span></li>
                                   </ul>
                                 </li>
                               </ul>
                             </div>
                           </div>
-                          <fieldset id="payroll" class="hidden">
-                            <legend>Payroll details</legend>
-                            <div>
-                              <div class="form-group">
-                                <label for="reduction-percent">Enter your overall CEWS rate for the current claim
-                                  period</label>
-                                <p class="text-muted">Use the rate reduction calculator above</p>
-                                <div class="input-group col-sm-3">
-                                  <input type="text" size="10" id="reduction-percent" name="reduction-percent"
-                                    class="form-control text-right" placeholder="0">
-                                  <span class="input-group-addon">%</span></div>
-                              </div>
-                            </div>
-                          </fieldset>
                           <fieldset id="employees">
                             <legend>Calculate your employee wages</legend>
                             <p>Include all your eligible employees.</p>
@@ -1061,20 +1055,17 @@
                         <ul class="list-unstyled">
                           <li><span class="h4">Line c1</span>
                             Percentage revenue drop for the current period <abbr title="equals" class="brdr-0">=</abbr>
-                            <output class="h3 wb-calc nowrap" for="p2b-c1"
-                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c1 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                            <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
                           </li>
                           <li><span class="h4">Line c2</span>
                             Average percentage revenue drop for the preceding 3 months <abbr title="equals"
                               class="brdr-0">=</abbr>
-                            <output class="h3 wb-calc nowrap" for="p2b-c2"
-                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c2 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                            <output class="h3 wb-calc nowrap" for="p2b-c2"></output>
                           </li>
                           <li><span class="h4">Line c3</span>
                             Subsidy rate used for active employees in the calculation of Line C <abbr title="equals"
                               class="brdr-0">=</abbr>
-                            <output class="h3 wb-calc nowrap" for="p2b-c3"
-                              data-wb-calc="{&quot;expr&quot;: &quot;#p2b-c3 * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                            <output class="h3 wb-calc nowrap" for="p2b-c3"></output>
                           </li>
                         </ul>
                       </li>
@@ -2212,6 +2203,8 @@
        */
        var revReduction = 0;
        var cewsRate = 0;
+       var topUpRate = 0;
+       var baseRate = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var cewsRateElements = $('.cews-rate-calc');
         var allDataEntered = true;
@@ -2266,9 +2259,9 @@
             );
           }
           //get the base rate
-          var baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0));
+          baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0));
           //get the top-up rate
-          var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           if (cewsRate < 0.75 && revReduction >=0.3) {
@@ -2280,8 +2273,8 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
-          $("#rev-reduc-base").text(parseInt(baseRate * 100) + "%");
+          $(".cews-rate").text(parseInt(cewsRate * 100) + "%");
+          $(".rev-reduc-base").text(parseInt(baseRate * 100) + "%");
           $("#top-up-rate").text(parseInt(topUpRate * 100) + "%");
         }
       });
@@ -2326,11 +2319,11 @@
             (baseRev - prevClaimValue) / baseRev
           );
           //get the base rate
-          var baseRate = parseFloat(
+          baseRate = parseFloat(
             Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0)
             );
           //get the top-up rate
-          var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
           cewsRate = baseRate + topUpRate;
           if (cewsRate < 0.75 && revReduction >=0.3) {
@@ -2342,13 +2335,12 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $("#top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
-          $("#rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
+          $(".top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
+          $(".rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
           $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
         }
       });
 
-      var numWeeksLeaveWPay = 0;
       /**
        * run the blur event for the wage input when the corresponding leave 
        * with pay option is checked
@@ -2388,10 +2380,17 @@
         $("#p2c-ee-alt2").trigger("change");
         var totalWages = $(".total").attr("data-total-wages");
         $("#p2c-pyrl").val(totalWages);
-        $("#p2c-pyrl").trigger( "change" );
+        $("#p2c-pyrl").trigger("change");
         var totalCews = $(".total").attr("data-total-cews");
         $("#p2c-cews").val(totalCews);
-        $("#p2c-cews").trigger( "change" );
+        $("#p2c-cews").trigger("change");
+        $("#p2b-c1").val(baseRate * 100);
+        $("output[for='p2b-c1']").text((baseRate * 100) + "%");
+        $("#p2b-c2").val(topUpRate * 100);
+        $("output[for='p2b-c2']").text((topUpRate * 100) + "%");
+        $("#p2b-c3").val(cewsRate * 100);
+        $("output[for='p2b-c3']").text((cewsRate * 100) + "%");
+
       });
 
       /**
