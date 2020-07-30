@@ -1739,7 +1739,7 @@
           $('.claim-period').html($("#claim-period option:selected").text());
         }
         /**
-         * display rate reduction calculator for P5+
+         * if p5+; else p1-4
          * @author Michel Tremblay
          */
         if (
@@ -1755,6 +1755,25 @@
           $("#show-online-calc").removeClass("hidden");
           $("#employees").removeClass("hidden");
           $("#calc-pnl").removeClass("hidden");
+          $("#cal-sprdsht-p1-4").addClass("hidden");
+          $("#cal-sprsht-p5").removeClass("hidden");
+        } else if (
+          parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
+          parseInt($("#claim-period option:selected").data("claim-period")) < 5 
+        ){
+          $("#cal-sprdsht-p1-4").removeClass("hidden");
+          $("#cal-sprsht-p5").addClass("hidden");
+          $("#rate-reduction").addClass("hidden");
+          $("#payroll").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
+          $("#p4-tws").prop("readonly", false);
+          $("#p4-tws-disclaimer").addClass("hidden");
+          $("#employees").addClass("hidden");
+          $("#calc-pnl").addClass("hidden");
+          $("#show-online-calc").addClass("hidden");
+          $("#calc-separator").addClass("hidden");
+          $("#cews-cal-opt").addClass("hidden");
+          $("#cews-cal-opt2").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
