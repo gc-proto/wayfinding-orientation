@@ -706,7 +706,7 @@
                                   <label for="baseline-1">Average weekly baseline pre-crisis (baseline) pay</label>
                                   <p><a class="wb-lbx" role="button" aria-controls="baseline-rem" href="#baseline-rem">How to determine the pre-crisis pay amount<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
-                                    <input type="text"
+                                    <input type="number"
                                       class="form-control input-lg text-right currency" id="baseline-1" data-updates="emp-base-1" placeholder="0.00">
                                   </div>
                                 </div>
@@ -719,7 +719,7 @@
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
                                       <div class="input-group"> <span class="input-group-addon">$</span>
-                                        <input type="text"
+                                        <input type="number"
                                           class="form-control text-right emp-wkly-wage-1 currency" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
@@ -730,7 +730,7 @@
                                     <div class="col-md-3">
                                       <label for="wktwo-1">Week two</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
+                                        <input type="number" class="form-control text-right emp-wkly-wage-1 currency"
                                           id="wktwo-1" placeholder="0.00" data-updates="w2-amt-1" >
                                       </div>
                                       <div class="checkbox emp-lv hidden">
@@ -741,7 +741,7 @@
                                     <div class="col-md-3">
                                       <label for="wkthree-1">Week three</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
+                                        <input type="number" class="form-control text-right emp-wkly-wage-1 currency"
                                           id="wkthree-1" placeholder="0.00" data-updates="w3-amt-1">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
@@ -752,7 +752,7 @@
                                     <div class="col-md-3">
                                       <label for="wkfour-1">Week four</label>
                                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                        <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
+                                        <input type="number" class="form-control text-right emp-wkly-wage-1 currency"
                                           id="wkfour-1" placeholder="0.00" data-updates="w4-amt-1">
                                       </div>
                                       <div class="checkbox emp-lv hidden">
@@ -1629,6 +1629,7 @@
           "#" + this.baselineId + "1"
         );
         $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
+        $(baselineWageElement).val("");
       }
 
       /**
@@ -1648,6 +1649,8 @@
         $(inputs).each(function (i, element) {
           if ($(element).is(":checkbox")) {
             $(element).prop("checked", false);
+          } else if ($(element).attr("type", "text")) {
+            $(element).val("");
           }
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
@@ -1974,8 +1977,12 @@
           var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
-          var weekNumber = target.id.match(/wk(one|two|three|four)-/)[1];
-          var paidLeave = $("#wk" + weekNumber + "-cb-" + employeeNumber).is(":checked");
+          var parts = target.id.match(/(wk)(one|two|three|four)-/g);
+          if (!parts) {
+            return;
+          }
+          var weekNumber = parts[0];
+          var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
           var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
           var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
@@ -1991,10 +1998,8 @@
             updateTarget = $("#" + $(updateTarget).attr("data-updates"));
             //get the total cews
             var employeeCews = getEmployeeCews(employeeNumber, baselineWage);
-            //format the wage and update the total
             var formattedTotal = toMoney.format(employeeCews);
             $(updateTarget).text(formattedTotal);
-            
           }
         }
       });
@@ -2016,6 +2021,14 @@
         var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
         var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
         var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
+        if (
+          isNaN(weekOneCews) ||
+          isNaN(weekTwoCews) ||
+          isNaN(weekThreeCews) ||
+          isNaN(weekFourCews)
+        ) {
+          return 0;
+        }
         return parseFloat(weekOneCews + weekTwoCews + weekThreeCews + weekFourCews);
       }
 
