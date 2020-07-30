@@ -868,7 +868,7 @@
                     <div class="row mrgn-tp-md">
                     <div class="mrgn-lft-lg mrgn-rght-md"> 
                         <!--For periods 1 to 4 //-->
-                        <div class="form-group" id="ee-p1-4">
+                        <div class="form-group p14" id="ee-p1-4">
                         <label class="control-label required" for="p2c-ee"><span class="field-name">Total number of
                           eligible employees<span class="wb-inv"> (do not include spaces or commas)</span></span> <strong class="required">(required)</strong> </label>
                         <div class="row">
@@ -881,7 +881,7 @@
                       </div>
 						
 						<!--For periods 5 to 9 //-->
-                        <div class="form-group hidden" id="ee-p5-9">
+                        <div class="form-group hidden p59" id="ee-p5-9">
                         <div class="row">
                             <div class="col-sm-6">
                             <label class="control-label required" for="p2c-ee-alt1"><span class="field-name">Total number of
@@ -918,7 +918,7 @@
                         <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces</strong> or: <strong class="h4 mrgn-tp-0">$ ,</strong></p>
                       </div>
 						<!--For periods 5 - 9 only//-->
-						<div class="hidden" id="p2b-rev">
+						<div class="hidden p59" id="p2b-rev">
 							<div class="form-group">
 								
                                 <label for="p2b-c1">Revenue drop for the current period</label>
@@ -955,7 +955,7 @@
                           CEWS for these employees during this claim period<span class="wb-inv"> (do not include a
                           dollar sign or commas)</span> </span> <strong
                                 class="required">(required)</strong> </label>
-						<p class="text-muted small hidden" aria-describedby="p2c-cews" id="p2c-cews-p5-9">This amount includes both the base and top-up amount (if applicable).</p>	
+						<p class="text-muted small hidden p59" aria-describedby="p2c-cews" id="p2c-cews-p5-9">This amount includes both the base and top-up amount (if applicable).</p>	
                         <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                             <input required type="number"
                                 class="form-control input-lg text-right currency" id="p2c-cews">
@@ -970,17 +970,17 @@
                 <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                 <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                 <ul class="list-unstyled lst-spcd">
-                    <li id="sum-ee-p1-4"> <span class="h3">Line A</span> Number of eligible employees <abbr title="equals"
+                    <li id="sum-ee-p1-4" class="p14"> <span class="h3">Line A</span> Number of eligible employees <abbr title="equals"
                           class="brdr-0">=</abbr>
                     <output class="h3 wb-calc nowrap" for="p2c-ee"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}"></output>
                   </li>
-					<li id="sum-ee-active" class="hidden"> <span class="h3">Line A</span> Number of active eligible employees <abbr title="equals"
+					<li id="sum-ee-active" class="hidden p59"> <span class="h3">Line A</span> Number of active eligible employees <abbr title="equals"
                           class="brdr-0">=</abbr>
                     <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 1&quot;}"></output>
                   </li>
-					<li id="sum-ee-lwp"> <span class="h3">Line AA</span> Number of eligible employees on leave with pay (furloughed) <abbr title="equals"
+					<li id="sum-ee-lwp" class="hidden p59"> <span class="h3">Line AA</span> Number of eligible employees on leave with pay (furloughed) <abbr title="equals"
                           class="brdr-0">=</abbr>
                       <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 2&quot;}"></output>
@@ -990,7 +990,7 @@
                     <output class="h3 wb-calc nowrap" for="p2c-pyrl"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
                   </li>
-					<li id="sum-rev" class="hidden"><span class="h3">Revenue drop</span>
+					<li id="sum-rev" class="hidden p59"><span class="h3">Revenue drop</span>
 						<ul class="list-unstyled">
 						<li><span class="h4">Line c1</span>
                     Percentage revenue drop for the current period <abbr title="equals" class="brdr-0">=</abbr>
@@ -1148,15 +1148,15 @@
             this record. You will need these line amounts when you complete your online application for CEWS.</p>
             <p>For the claim period of <strong class="claim-period"></strong>, and based on the following criteria: </p>
             <ul class="lst-spcd">
-            <li> Line A: Number of eligible employees: <strong>
+            <li class="p14"> Line A: Number of eligible employees: <strong>
               <output class="h3 wb-calc nowrap" for="p2c-ee"
                       data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}"></output>
               </strong> </li>
-			<li id="sum-ee-active2" class="hidden"> Line A: Number of active eligible employees:
+			<li id="sum-ee-active2" class="hidden p59"> Line A: Number of active eligible employees:
               <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 1&quot;}"></output>
                   </li>
-			  <li id="sum-ee-lwp2"> Line AA: Number of eligible employees on leave with pay (furloughed):
+			  <li id="sum-ee-lwp2" class="hidden p59"> Line AA: Number of eligible employees on leave with pay (furloughed):
                 <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
                           data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee-alt1 * 2&quot;}"></output>
                   </li>	
@@ -1164,7 +1164,7 @@
               <output class="h3 wb-calc nowrap" for="p2c-pyrl"
                       data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
               </strong> </li>
-			<li id="sum-rev2" class="hidden">Revenue drop
+			<li id="sum-rev2" class="hidden p59">Revenue drop
 						<ul class="list-unstyled">
 						<li>Line c1:
                     Percentage revenue drop for the current period:
@@ -1795,12 +1795,16 @@
           $("#p4-tws").prop("readonly", true);
           $("#p4-tws").val("0.00");
           $("#p4-tws-disclaimer").removeClass("hidden");
+			 $(".p59").removeClass("hidden");
+			$(".p14").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $("#payroll").addClass("hidden");
           $(".emp-lv").addClass("hidden");
           $("#p4-tws").prop("readonly", false);
           $("#p4-tws-disclaimer").addClass("hidden");
+			 $(".p59").addClass("hidden");
+			$(".p14").removeClass("hidden");
         }
       });
 
