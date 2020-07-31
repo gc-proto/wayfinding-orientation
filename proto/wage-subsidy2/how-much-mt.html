@@ -1750,7 +1750,8 @@
         };
         $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
       });
-
+      
+      
       $document.on("change", "#claim-period", function (event) {
         var rangeISO = $(this).find('option:selected').val(),
           startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
@@ -1772,15 +1773,10 @@
           parseInt($("#claim-period option:selected").data("claim-period")) >= 5
         ) {
           $("#rate-reduction").removeClass("hidden");
-          $("#payroll").removeClass("hidden");
           $(".emp-lv").removeClass("hidden");
           $("#p4-tws").prop("readonly", true);
           $("#p4-tws").val("0.00");
           $("#p4-tws-disclaimer").removeClass("hidden");
-          $("#calc-separator").removeClass("hidden");
-          $("#show-online-calc").removeClass("hidden");
-          $("#employees").removeClass("hidden");
-          $("#calc-pnl").removeClass("hidden");
           $("#cal-sprdsht-p1-4").addClass("hidden");
           $("#cal-sprdsht-none").addClass("hidden");
           $("#cal-sprsht-p5").removeClass("hidden");
@@ -1793,31 +1789,17 @@
           $("#cal-sprdsht-p1-4").removeClass("hidden");
           $("#cal-sprsht-p5").addClass("hidden");
           $("#rate-reduction").addClass("hidden");
-          $("#payroll").addClass("hidden");
           $(".emp-lv").addClass("hidden");
           $("#p4-tws").prop("readonly", false);
           $("#p4-tws-disclaimer").addClass("hidden");
-          $("#employees").addClass("hidden");
-          $("#calc-pnl").addClass("hidden");
-          $("#show-online-calc").addClass("hidden");
-          $("#calc-separator").addClass("hidden");
-          $("#cews-cal-opt").addClass("hidden");
-          $("#cews-cal-opt2").addClass("hidden");
           $(".p14").removeClass("hidden");
           $(".p59").addClass("hidden");
           $("#cal-sprdsht-none").addClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
-          $("#payroll").addClass("hidden");
           $(".emp-lv").addClass("hidden");
           $("#p4-tws").prop("readonly", false);
           $("#p4-tws-disclaimer").addClass("hidden");
-          $("#employees").addClass("hidden");
-          $("#calc-pnl").addClass("hidden");
-          $("#show-online-calc").addClass("hidden");
-          $("#calc-separator").addClass("hidden");
-          $("#cews-cal-opt").addClass("hidden");
-          $("#cews-cal-opt2").addClass("hidden");
           $(".p59").addClass("hidden");
           $(".p14").removeClass("hidden");
         }
@@ -2152,8 +2134,8 @@
        * calculate the cews rate reductions
        */
        var revReduction = 0;
-       var cewsRate = 0;
        var topUpRate = 0;
+       var cewsRate = 0;
        var baseRate = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var cewsRateElements = $('.cews-rate-calc');
@@ -2359,26 +2341,38 @@
 
       $(document).on("click", "#transfer-data", function(event) {
         calculateTotals();
-        var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
-        var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
-        //eligible active employees
-        $("#p2c-ee-alt1").val(eligibleEmps);
-        $("#p2c-ee-alt1").trigger("change");
-        //get eligible furloughed employees
-        $("#p2c-ee-alt2").val(numEmployeePanels - eligibleEmps);
-        $("#p2c-ee-alt2").trigger("change");
-        var totalWages = $(".total").attr("data-total-wages");
-        $("#p2c-pyrl").val(totalWages);
-        $("#p2c-pyrl").trigger("change");
-        var totalCews = $(".total").attr("data-total-cews");
-        $("#p2c-cews").val(totalCews);
-        $("#p2c-cews").trigger("change");
-        $("#p2b-c1").val(parseInt(baseRate * 100));
-        $("output[for='p2b-c1']").text(parseInt(baseRate * 100) + "%");
-        $("#p2b-c2").val(parseInt(topUpRate * 100));
-        $("output[for='p2b-c2']").text(parseInt(topUpRate * 100) + "%");
-        $("#p2b-c3").val(parseInt(cewsRate * 100));
-        $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
+        if ($("#claim-period option:selected").data("claim-period") >= 5) {
+          var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
+          var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
+          //eligible active employees
+          $("#p2c-ee-alt1").val(eligibleEmps);
+          $("#p2c-ee-alt1").trigger("change");
+          //get eligible furloughed employees
+          $("#p2c-ee-alt2").val(numEmployeePanels - eligibleEmps);
+          $("#p2c-ee-alt2").trigger("change");
+          var totalWages = $(".total").attr("data-total-wages");
+          $("#p2c-pyrl").val(totalWages);
+          $("#p2c-pyrl").trigger("change");
+          var totalCews = $(".total").attr("data-total-cews");
+          $("#p2c-cews").val(totalCews);
+          $("#p2c-cews").trigger("change");
+          $("#p2b-c1").val(parseInt(baseRate * 100));
+          $("output[for='p2b-c1']").text(parseInt(baseRate * 100) + "%");
+          $("#p2b-c2").val(parseInt(topUpRate * 100));
+          $("output[for='p2b-c2']").text(parseInt(topUpRate * 100) + "%");
+          $("#p2b-c3").val(parseInt(cewsRate * 100));
+          $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
+        } else {
+          $("#p2c-ee").val(numEmployeePanels);
+          $("#p2c-ee").trigger("change")
+          var totalWages = $(".total").attr("data-total-wages");
+          $("#p2c-pyrl").val(totalWages);
+          $("#p2c-pyrl").trigger("change");
+          var totalCews = $(".total").attr("data-total-cews");
+          $("#p2c-cews").val(totalCews);
+          $("#p2c-cews").trigger("change");
+        }
+        
       });
 
       $(document).on("blur", "#p2b-c1", function(event) {
