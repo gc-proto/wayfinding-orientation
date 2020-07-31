@@ -2358,6 +2358,29 @@
         }
       });
 
+      //update the employee wages summary when the arms length value is changed
+      $(document).on("change", "select[id^='arms-']", function(event) {
+        //get the employee number
+        var target = event.target;
+        var id = target.id.split('-')[1];
+        //trigger the blur event on all the inputs for the employees wages to recalculate
+        $("#wkone-" + id).blur();
+        $("#wktwo-" + id).blur();
+        $("#wkthree-" + id).blur();
+        $("#wkfour-" + id).blur();
+      });
+      //update the employee wage summary when the baseline 
+      $(document).on("blur", "input[id^='baseline-']", function(event) {
+        //get the employee number
+        var target = event.target;
+        var id = target.id.split('-')[1];
+        //trigger the blur event on all the inputs for the employees wages to recalculate
+        $("#wkone-" + id).blur();
+        $("#wktwo-" + id).blur();
+        $("#wkthree-" + id).blur();
+        $("#wkfour-" + id).blur();
+      });
+
       /**
        * run the blur event for the wage input when the corresponding leave 
        * with pay option is checked
