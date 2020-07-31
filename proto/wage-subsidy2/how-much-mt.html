@@ -1861,6 +1861,8 @@
           return;
         }
         var formattedVal = $(target).val();
+        //uncomment for French version
+        //formattedVal = formattedVal.replace(",", ".");
         //convert the first one to a period, any commas after that are strictly removed.
         formattedVal = formattedVal.replace(/,*/gm, "");
         //remove all spaces
