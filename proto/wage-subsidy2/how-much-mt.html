@@ -1395,17 +1395,17 @@
           <p><a href="who-employees.html#week">Claim period pay per week</a></p>
         </div>
     </section>
- <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
+    <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
-        <h2 class="modal-title">Eligible revenue</h2>
-      </header>
+          <h2 class="modal-title">Eligible revenue</h2>
+        </header>
       <div class="modal-body">
-	      <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
-	      <div data-ajax-replace="who-apply.html #eligible-revenue-cntnt">
-	      <p><a hrefa="who-apply.html#eligible-revenue">Eligible revenue</a></p>	     
-      </div>
-	      <p>You can view special revenue circumstances under <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
-	 </div>
+          <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
+          <div data-ajax-replace="who-apply.html #eligible-revenue-cntnt">
+          <p><a href="who-apply.html#eligible-revenue">Eligible revenue</a></p>
+        </div>
+          <p>You can view special revenue circumstances under <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
+        </div>
     </section>
 
 
@@ -1657,7 +1657,10 @@
 
       /**
        * closeAccordion
+       *
        * close all open accordions
+       *
+       * @param {DOMDocumentFragment} frag the cloned template
        */
       EmployeeFormGenerator.prototype.closeAccordion = function(frag) {
         var accordion = $(frag).find("details[open]").each(function (i, element) {
