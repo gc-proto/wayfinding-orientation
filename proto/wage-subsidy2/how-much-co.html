@@ -659,7 +659,7 @@
                                 <p><a class="wb-lbx" role="button" aria-controls="baseline-rem" href="#baseline-rem">How to determine the pre-crisis pay amount<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                 <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
                                 <input type="text"
-                                      class="form-control input-lg text-right currency" id="baseline-1" value="0.00" data-updates="emp-base-1" placeholder="0.00">
+                                      class="form-control input-lg text-right currency" id="baseline-1" data-updates="emp-base-1" placeholder="0.00">
                               </div>
                               </div>
                             <fieldset>
@@ -671,7 +671,7 @@
                                     <label for="wkone-1">Week one</label>
                                     <div class="input-group"> <span class="input-group-addon">$</span>
                                     <input type="text"
-                                          class="form-control text-right emp-wkly-wage-1 currency" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1" value="0.00">
+                                          class="form-control text-right emp-wkly-wage-1 currency" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1" >
                                   </div>
                                     <div class="checkbox emp-lv hidden">
                                     <label for="wkone-cb-1" class="emp-lv">
@@ -684,7 +684,7 @@
                                     <label for="wktwo-1">Week two</label>
                                     <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                     <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
-                                          id="wktwo-1" value="0.00" placeholder="0.00" data-updates="w2-amt-1" >
+                                          id="wktwo-1"  placeholder="0.00" data-updates="w2-amt-1" >
                                   </div>
                                     <div class="checkbox emp-lv hidden">
                                     <label for="wktwo-cb-1" class="emp-lv">
@@ -697,7 +697,7 @@
                                     <label for="wkthree-1">Week three</label>
                                     <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                     <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
-                                          id="wkthree-1" value="0.00" placeholder="0.00" data-updates="w3-amt-1">
+                                          id="wkthree-1"  placeholder="0.00" data-updates="w3-amt-1">
                                   </div>
                                     <div class="checkbox emp-lv hidden">
                                     <label for="wkthree-cb-1" class="emp-lv">
@@ -710,7 +710,7 @@
                                     <label for="wkfour-1">Week four</label>
                                     <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                     <input type="text" class="form-control text-right emp-wkly-wage-1 currency"
-                                          id="wkfour-1" value="0.00" placeholder="0.00" data-updates="w4-amt-1">
+                                          id="wkfour-1"  placeholder="0.00" data-updates="w4-amt-1">
                                   </div>
                                     <div class="checkbox emp-lv hidden">
                                     <label for="wkfour-cb-1" class="emp-lv">
@@ -1163,7 +1163,7 @@
                       data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
               </strong> </li>
 			<li id="sum-rev2" class="hidden p59">Revenue drop
-						<ul class="list-unstyled">
+						<ul class="list-unstyled mrgn-lft-md">
 						<li>Line c1:
                     Percentage revenue drop for the current period:
 						  <output class="h3 wb-calc nowrap" for="p2b-c1"
@@ -1267,32 +1267,14 @@
       </ul>
       </nav>
   </section>
-    <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
-    <header class="modal-header">
+     <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
         <h2 class="modal-title">Arm's length and non-arm's length</h2>
       </header>
-    <div class="modal-body">
-        <dl class="dl-horizontal">
-        <dt>Non-arm's length (not at arm's length)</dt>
-        <dd>Generally, a “non-arm’s length” relationship is between persons who are related to each other. In a small
-            business, a non-arm’s-length employee would most often be:
-            <ul>
-            <li>the person who owns the business</li>
-            <li>a member of the owner’s immediate family (for example, a spouse, parent, child, sibling, grandparent,
-                or grandchild)</li>
-          </ul>
-            It is possible (but less common) for a non-arm’s-length employee relationship to exist between unrelated
-            people, partnerships, or corporations, depending on the circumstances. </dd>
-        <dt>Arm’s length</dt>
-        <dd>Most employees that are unrelated to the owner (act in their own separate interests) are arm’s-length
-            employees.</dd>
-      </dl>
-        <p>If you are uncertain about whether a particular employee is considered arm’s length or non-arm’s length, or
-        have a business or corporation involving more complex control, you can read more about <a
-            href="/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-1-individuals/series-1-individuals/income-tax-folio-s1-f5-c1-related-persons-dealing-arms-length.html"
-            target="_blank">specific relationships that are considered non-arm’s length</a>.</p>
+      <div class="modal-body" data-ajax-replace="who-employees.html #nonarm-cntnt">
+<p><a href="who-employees.html#nonarm">Non-arm’s-length and arm’s-length eligible employees</a></p>
       </div>
-  </section>
+    </section>
     <section id="contributions" class="mfp-hide modal-dialog modal-content overlay-def">
     <header class="modal-header">
         <h2 class="modal-title">Lines D and E - Employer’s EI, QPIP, CPP, and QPP premiums payable on salary paid to
@@ -1311,7 +1293,7 @@
         <li>the Quebec Pension Plan (QPP), and</li>
         <li>the Quebec Parental Insurance Plan (QPIP)</li>
       </ul>
-        </p>
+      
       </div>
   </section>
     <section id="tempwage" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -1341,29 +1323,23 @@
       </div>
   </section>
     <section id="worksharing" class="mfp-hide modal-dialog modal-content overlay-def">
-    <header class="modal-header">
-        <h2 class="modal-title">Line G - Amounts received by eligible employees under ESDC's Work-Sharing benefit
-        program </h2>
+      <header class="modal-header">
+        <h2 class="modal-title">Line G - Amounts received by eligible employees under ESDC's Work-Sharing benefit program </h2>
       </header>
-    <div class="modal-body">
-        <p class="mrgn-tp-0">For employers and employees that are participating in Employment and Social Development
-        Canada's <a
-            href="https://www.canada.ca/en/employment-social-development/corporate/notices/coronavirus/employers-factsheet.html">Work-Sharing
-          benefit program</a>, EI benefits received by employees through the Work-Sharing program will reduce the
-        benefit that their employer is entitled to receive under the CEWS.</p>
-        <p>Enter the total amount received under the Work-Sharing program by your eligible employees during the period
-        covered by this claim in the box for line G. On an administrative basis, we will accept a reasonable estimate
-        of work sharing benefits received by your eligible employees if you do not have the exact amount.</p>
+      <div class="modal-body">
+         <div data-ajax-replace="who-employees.html #worksharing-cntnt"><a href="who-employees.html #worksharing-cntnt">Eligible employees participating in a Work-Sharing benefit program</a></div>	 
+	<p>Enter the total amount received under the Work-Sharing program by your eligible employees during the period covered by this claim in the box for line G. </p>
+		 
       </div>
-  </section>
+    </section>
     <section id="lwp" class="mfp-hide modal-dialog modal-content overlay-def">
-    <header class="modal-header">
-        <h2 class="modal-title">Leave with pay</h2>
+      <header class="modal-header">
+        <h2 class="modal-title">Active employees and employees on leave with pay</h2>
       </header>
-    <div class="modal-body">
-        <p>Add information/definition here.</p>
+      <div class="modal-body" data-ajax-replace="who-employees.html #leave-cntnt">
+	      <p><a href a="who-employees.html#leave">Active employees and employees on leave with pay</a></p>	     
       </div>
-  </section>
+    </section>
     <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
     <header class="modal-header">
         <h2 class="modal-title">Print preview for CEWS statement</h2>
@@ -1384,15 +1360,13 @@
       </div>
     <div class="modal-footer hidden"> </div>
   </section>
-    </div>
-    <div class="modal-footer hidden"> </div>
-    </section>
+    
     <section id="baseline-rem" class="mfp-hide modal-dialog modal-content overlay-def">
     <header class="modal-header">
         <h2 class="modal-title">Pre-crisis pay (baseline remuneration)</h2>
       </header>
     <div class="modal-body" data-ajax-replace="who-employees.html #baselineremuneration-cntnt">
-        <p><a hrefa="who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
+        <p><a href="who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
       </div>
   </section>
     <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -1400,7 +1374,7 @@
         <h2 class="modal-title">Claim period pay per week</h2>
       </header>
     <div class="modal-body" data-ajax-replace="who-employees.html #week-cntnt">
-        <p><a hrefa="who-employees.html#week">Claim period pay per week</a></p>
+        <p><a href="who-employees.html#week">Claim period pay per week</a></p>
       </div>
   </section>
     <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -1410,7 +1384,7 @@
     <div class="modal-body">
         <p><strong>Note:</strong> These months are needed to calculate your revenue drops for the current period, prior period, and top-up period, using your chosen baseline.</p>
         <div data-ajax-replace="who-apply.html #eligible-revenue-cntnt">
-        <p><a hrefa="who-apply.html#eligible-revenue">Eligible revenue</a></p>
+        <p><a href="who-apply.html#eligible-revenue">Eligible revenue</a></p>
       </div>
         <p>You can view special revenue circumstances under <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
       </div>

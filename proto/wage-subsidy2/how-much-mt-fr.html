@@ -2058,7 +2058,6 @@
         $("#dataset-filter > tbody").append(row);
         $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
       }
-
       /**
        * @author Michel Tremblay
        * calculate the cews rate reductions
@@ -2067,57 +2066,65 @@
        var cewsRate = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var cewsRateElements = $('.cews-rate-calc');
-        var allDataEntered = true;
-        $(cewsRateElements).each(function (i, element) {
-          var value = $(element).val();
-          if (value == null || value == "") {
-            allDataEntered = false;
-          }
-        });
-        if (allDataEntered) {
-          var month = getClaimMonth($("#claim-period").val());
-          //find the claim month based on the chosen claim period
-          var claimMonth = new Date(
-            "2020-" + month + '-01'
-          ).getUTCMonth();
-          //get the value of the claim month
+        
+        var month = getClaimMonth($("#claim-period").val());
+        //find the claim month based on the chosen claim period
+        var claimMonth = new Date(
+          "2020-" + month + '-01'
+        ).getUTCMonth();
+        //get the value of the claim month
+        if ($("#2020-0" + claimMonth + "-no").val() != null) {
           var claimMonth2020Value = parseFloat($("#2020-0" + claimMonth + "-no").val());
-          var claimMonth2019Value = parseFloat($("#2019-0" + claimMonth + "-no").val());
-          //get the previous month from the claim month
-          var prevClaimMonth = claimMonth - 1;
-          //get the value of the previous month
-          var prevClaim2020Value = parseFloat($("#2020-0" + prevClaimMonth + "-no").val());
-          var prevClaim2019Value = parseFloat($("#2019-0" + prevClaimMonth + "-no").val());
-          //get the avg of the revenue from apr-june2020
-          var threeMonthAvg2020 = (parseFloat($("#2020-04-no").val()) + parseFloat($("#2020-05-no").val()) + parseFloat($("#2020-06-no").val())) / 3;
-          //get the avg of the revenue from apr-june2019
-          var threeMonthAvg2019 = (parseFloat($("#2019-04-no").val()) + parseFloat($("#2019-05-no").val()) + parseFloat($("#2019-06-no").val())) / 3;
-          //get the rate reduction from the three month average
-          var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
-          //get the revenue reduction from claim/prev claim months from 2020 and 2019
-          revReduction = Math.max(
-            (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
-            (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
-          );
-          //get the base rate
-          var baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0));
-          //get the top-up rate
-          var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
-          //calculate the overall rate
-          cewsRate = baseRate + topUpRate;
-          if (cewsRate < 0.75 && revReduction >=0.3) {
-            cewsRate = 0.75;
-          }
-          if (cewsRate < 0.1) {
-            $("#employees").addClass("hidden");
-          } else {
-            $("#employees").removeClass("hidden");
-          }
-          //update the view
-          $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
-          $("#rev-reduc-base").text(parseInt(baseRate * 100) + "%");
-          $("#top-up-rate").text(parseInt(topUpRate * 100) + "%");
+        } else {
+          var claimMonth2020Value = 0;
         }
+        if ($("#2019-0" + claimMonth + "-no").val() != null) {
+          var claimMonth2019Value = parseFloat($("#2019-0" + claimMonth + "-no").val());
+        } else {
+          var claimMonth2019Value = 0;
+        }
+        //get the previous month from the claim month
+        var prevClaimMonth = claimMonth - 1;
+        //get the value of the previous month
+        if ($("#2020-0" + prevClaimMonth + "-no").val() != null) {
+          var prevClaim2020Value = parseFloat($("#2020-0" + prevClaimMonth + "-no").val());
+        } else {
+          var prevClaim2020Value = 0;
+        }
+        if ($("#2019-0" + prevClaimMonth + "-no").val() != null) {
+          var prevClaim2019Value = parseFloat($("#2019-0" + prevClaimMonth + "-no").val());
+        } else {
+          var prevClaim2019Value = 0;
+        }
+        //get the avg of the revenue from apr-june2020
+        var threeMonthAvg2020 = (parseFloat($("#2020-04-no").val()) + parseFloat($("#2020-05-no").val()) + parseFloat($("#2020-06-no").val())) / 3;
+        //get the avg of the revenue from apr-june2019
+        var threeMonthAvg2019 = (parseFloat($("#2019-04-no").val()) + parseFloat($("#2019-05-no").val()) + parseFloat($("#2019-06-no").val())) / 3;
+        //get the rate reduction from the three month average
+        var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
+        //get the revenue reduction from claim/prev claim months from 2020 and 2019
+        revReduction = Math.max(
+          (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
+          (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
+        );
+        //get the base rate
+        var baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
+        //get the top-up rate
+        var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+        //calculate the overall rate
+        cewsRate = (baseRate + topUpRate).toFixed(4);
+        if (cewsRate < 0.75 && revReduction >=0.3) {
+          cewsRate = 0.75;
+        }
+        if (cewsRate < 0.1) {
+          $("#employees").addClass("hidden");
+        } else {
+          $("#employees").removeClass("hidden");
+        }
+        //update the view
+        $("#cews-rate").text(cewsRate * 100 + "%");
+        $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
+        $(".rev-reduc-base").text(roundPercDown(baseRate) + "%");
       });
 
       /**
@@ -2167,7 +2174,7 @@
           //get the top-up rate
           var topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
           //calculate the overall rate
-          cewsRate = baseRate + topUpRate;
+          cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.75 && revReduction >=0.3) {
             cewsRate = 0.75;
           }
@@ -2177,11 +2184,18 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $("#top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
-          $("#rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
-          $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
+          $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
+          $(".rev-reduc-alt-base").text(roundPercDown(baseRate) + "%");
+          $("#cews-rate-alt").text(cewsRate * 100 + "%");
         }
       });
+
+      function roundPercDown(perc) {
+        perc = perc * 10000;
+        perc = Math.floor(perc);
+        perc = perc/100;
+        return perc;
+      }
 
       /**
        * run the blur event for the wage input when the corresponding leave 
@@ -2295,12 +2309,12 @@
        */
       function oldFormula(armsLength, weeklyRemun, baselineRemun) {
         if (armsLength) {
-          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
-        } else {
           return Math.max(
             Math.min(0.75 * weeklyRemun, 847),
             Math.min(0.75 * baselineRemun, weeklyRemun, 847)
           );
+        } else {
+          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
         }
       }
 

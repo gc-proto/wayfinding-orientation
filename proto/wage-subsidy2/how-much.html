@@ -2228,12 +2228,12 @@
        */
       function oldFormula(armsLength, weeklyRemun, baselineRemun) {
         if (armsLength) {
-          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
-        } else {
           return Math.max(
             Math.min(0.75 * weeklyRemun, 847),
             Math.min(0.75 * baselineRemun, weeklyRemun, 847)
           );
+        } else {
+          return Math.min(1129, weeklyRemun, baselineRemun) * 0.75;
         }
       }
 
