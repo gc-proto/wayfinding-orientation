@@ -2381,6 +2381,17 @@
         $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
       });
 
+      $(document).on("blur", "#p2b-c1", function(event) {
+        $("output[for='p2b-c1']").text(parseInt(event.target.value) + "%");
+      });
+      $(document).on("blur", "#p2b-c2", function(event) {
+        $("output[for='p2b-c2']").text(parseInt(event.target.value) + "%");
+      }); 
+      $(document).on("blur", "#p2b-c3", function(event) {
+        $("output[for='p2b-c3']").text(parseInt(event.target.value) + "%");
+      });
+
+
       /**
        * getClaimMonth()
        * 
