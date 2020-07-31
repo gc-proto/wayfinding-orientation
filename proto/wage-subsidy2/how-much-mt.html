@@ -2276,11 +2276,11 @@
             );
           }
           //get the base rate
-          baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0));
+          baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
           //get the top-up rate
-          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           //calculate the overall rate
-          cewsRate = baseRate + topUpRate;
+          cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.75 && revReduction >=0.3) {
             cewsRate = 0.75;
           }
@@ -2289,9 +2289,9 @@
           } else {
             $("#employees").removeClass("hidden");
           }
-          //update the view
-          $(".top-up-rate").text(parseInt(topUpRate * 100) + "%");
-          $(".rev-reduc-base").text(parseInt(baseRate * 100) + "%");
+          //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+          $(".top-up-rate").text(parseInt(((baseRate * 10000).floor()/100)) + "%");
+          $(".rev-reduc-base").text(parseInt(((baseRate * 10000).floor()/100)) + "%");
           $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
         }
       });
@@ -2337,12 +2337,12 @@
           );
           //get the base rate
           baseRate = parseFloat(
-            Math.max(getP5PlusBaseRate(revReduction).toFixed(4), 0)
+            Math.max(getP5PlusBaseRate(revReduction), 0)
             );
           //get the top-up rate
-          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction).toFixed(4), 0));
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           //calculate the overall rate
-          cewsRate = baseRate + topUpRate;
+          cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.75 && revReduction >=0.3) {
             cewsRate = 0.75;
           }
@@ -2352,8 +2352,8 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $(".top-up-rate-alt").text(parseInt(topUpRate * 100) + "%");
-          $(".rev-reduc-alt-base").text(parseInt(baseRate * 100) + "%");
+          $(".top-up-rate-alt").text(parseInt(((baseRate * 10000).floor()/100)) + "%");
+          $(".rev-reduc-alt-base").text(parseInt(((baseRate * 10000).floor()/100)) + "%");
           $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
         }
       });
