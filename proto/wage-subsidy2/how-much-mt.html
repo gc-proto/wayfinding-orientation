@@ -1533,6 +1533,7 @@
         this.setUpdatesAndUpdatedByData(frag);
         this.updateInputs(frag);
         this.updateTableIds(frag);
+        this.closeAccordion(frag);
         return frag;
       }
 
@@ -1654,6 +1655,16 @@
         $(totalCell).text(currencyPlaceholderValue);
       }
 
+      /**
+       * closeAccordion
+       * close all open accordions
+       */
+      EmployeeFormGenerator.prototype.closeAccordion = function(frag) {
+        var accordion = $(frag).find("details[open]").each(function (i, element) {
+          $(element).removeAttr("open");
+        });
+      }
+ 
       return EmployeeFormGenerator;
     })();
 
