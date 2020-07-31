@@ -2166,7 +2166,9 @@
         $("#dataset-filter > tbody").append(row);
         $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
         $("#employees").focus();
-        document.getElementById("employees").scrollIntoView();
+        document.getElementById("emp-" + numEmployeePanels).scrollIntoView({
+            behavior: 'smooth'
+        });
       }
 
       /**
