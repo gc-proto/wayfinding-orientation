@@ -1854,6 +1854,12 @@
 
       $document.on("click", "#calculate", function (event) {
         event.preventDefault();
+        $("[required]:hidden").each(function(i ,element) {
+          //var required = $(element).find("*[required]");
+          //$(required).each(function(i, element) {
+            $(element).removeAttr("required");
+          //})
+        });
         var count = 0,
           $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
           $emptyElms = [];
