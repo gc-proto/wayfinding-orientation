@@ -1971,13 +1971,13 @@
        */
       function getEmployeeCews(employeeNumber, baselineWage) {
         var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
-        var weekone = parseFloat($('#wkone-' + employeeNumber).val());
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
         var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
-        var weektwo = parseFloat($('#wktwo-' + employeeNumber).val());
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
         var weekTwoPaidLeave = $("#wktwo-cb-" + employeeNumber).is(":checked");
-        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
         var weekThreePaidLeave = $("#wkthree-cb-" + employeeNumber).is(":checked");
-        var weekfour = parseFloat($('#wkfour-' + employeeNumber).val());
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
         var weekFourPaidLeave = $("#wkfour-cb-" + employeeNumber).is(":checked");
         var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
         var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
@@ -1998,11 +1998,11 @@
        * 
        */
       function getEmployeeTotalWages(employeeNumber) {
-        var weekone = parseFloat($('#wkone-' + employeeNumber).val());
-        var weektwo = parseFloat($('#wktwo-' + employeeNumber).val());
-        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
-        var weekthree = parseFloat($('#wkthree-' + employeeNumber).val());
-        var weekfour = parseFloat($('#wkfour-' + employeeNumber).val());
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
         return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
       }
 
@@ -2031,9 +2031,9 @@
           $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
           var totalCell = $("#emp-ttl-" + (i + 1));
           if (eligibility) {
-            var employeeCews = getEmployeeCews((i + 1), baselineWage);
+            var employeeCews = zeroIfEmpty(getEmployeeCews((i + 1), baselineWage));
             cews += employeeCews;
-            totalWagesPaid += getEmployeeTotalWages((i + 1));
+            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages((i + 1)));
             var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
             $("#emp-ttl-" + (i + 1)).text(employeeCews);
             $(totalCell).html(formattedTotal);
