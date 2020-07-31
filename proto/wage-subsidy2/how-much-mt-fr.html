@@ -2123,8 +2123,8 @@
         }
         //update the view
         $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
-        $(".top-up-rate").text(parseInt(roundPercDown(topUpRate) + "%"));
-        $(".rev-reduc-base").text(parseInt(roundPercDown(baseRate) + "%"));
+        $(".top-up-rate").text(parseInt(roundPercDown(topUpRate)) + "%"));
+        $(".rev-reduc-base").text(parseInt(roundPercDown(baseRate)) + "%"));
       });
 
       /**
@@ -2184,15 +2184,15 @@
             $("#employees").removeClass("hidden");
           }
           //update the view
-          $(".top-up-rate-alt").text(parseInt(roundPercDown(topUpRate) + "%"));
-          $(".rev-reduc-alt-base").text(parseInt(roundPercDown(baseRate) + "%"));
+          $(".top-up-rate-alt").text(parseInt(roundPercDown(topUpRate)) + "%"));
+          $(".rev-reduc-alt-base").text(parseInt(roundPercDown(baseRate)) + "%"));
           $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
         }
       });
 
       function roundPercDown(perc) {
         perc = perc * 10000;
-        perc = perc.floor();
+        perc = Math.floor(perc);
         perc = perc/100;
         return perc;
       }

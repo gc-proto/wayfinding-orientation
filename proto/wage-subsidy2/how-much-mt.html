@@ -2256,8 +2256,8 @@
             $("#employees").removeClass("hidden");
           }
           //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-          $(".top-up-rate").text(parseInt(roundPercDown(topUpRate) + "%"));
-          $(".rev-reduc-base").text(parseInt(roundPercDown(baseRate) + "%"));
+          $(".top-up-rate").text(parseInt(roundPercDown(topUpRate)) + "%"));
+          $(".rev-reduc-base").text(parseInt(roundPercDown(baseRate)) + "%"));
           $("#cews-rate").text(parseInt(cewsRate * 100) + "%");
         }
       });
@@ -2319,15 +2319,15 @@
           }
           //round down to 2 decimals in percentage for base and topUp
           //update the view
-          $(".top-up-rate-alt").text(parseInt(roundPercDown(baseRate) + "%"));
-          $(".rev-reduc-alt-base").text(parseInt(roundPercDown(topUpRate) + "%"));
+          $(".top-up-rate-alt").text(parseInt(roundPercDown(baseRate)) + "%"));
+          $(".rev-reduc-alt-base").text(parseInt(roundPercDown(topUpRate)) + "%"));
           $("#cews-rate-alt").text(parseInt(cewsRate * 100) + "%");
         }
       });
 
       function roundPercDown(perc) {
         perc = perc * 10000;
-        perc = math.floor(perc);
+        perc = Math.floor(perc);
         perc = perc/100;
         return perc;
       }
