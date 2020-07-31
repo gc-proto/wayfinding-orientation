@@ -1861,6 +1861,8 @@
           return;
         }
         var formattedVal = $(target).val();
+        //uncomment for French version
+        //formattedVal = formattedVal.replace(",", ".");
         //convert the first one to a period, any commas after that are strictly removed.
         formattedVal = formattedVal.replace(/,*/gm, "");
         //remove all spaces
@@ -2378,6 +2380,17 @@
         $("#p2b-c3").val(parseInt(cewsRate * 100));
         $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
       });
+
+      $(document).on("blur", "#p2b-c1", function(event) {
+        $("output[for='p2b-c1']").text(parseInt(event.target.value) + "%");
+      });
+      $(document).on("blur", "#p2b-c2", function(event) {
+        $("output[for='p2b-c2']").text(parseInt(event.target.value) + "%");
+      }); 
+      $(document).on("blur", "#p2b-c3", function(event) {
+        $("output[for='p2b-c3']").text(parseInt(event.target.value) + "%");
+      });
+
 
       /**
        * getClaimMonth()
