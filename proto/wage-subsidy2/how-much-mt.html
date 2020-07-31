@@ -657,7 +657,7 @@
                               <div class="panel-body">
                                 <div class="form-group">
                                   <label for="arms-1">Is employee at arm's length?</label>
-                                  <p><a class="wb-lbx" role="button" aria-controls="armslength" href="#armslength">Arm's
+                                  <p><a class="wb-lbx arms-length-def" role="button" aria-controls="armslength" href="#armslength">Arm's
                                       length definition<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
                                   <select class="form-control" id="arms-1" data-updates="emp-arms-1">
                                     <option value="Yes">Yes (default)</option>
@@ -667,7 +667,7 @@
                                 <hr>
                                 <div class="form-group">
                                   <label for="baseline-1">Average weekly baseline pre-crisis (baseline) pay</label>
-                                  <p><a class="wb-lbx" role="button" aria-controls="baseline-rem" href="#baseline-rem">How to determine the pre-crisis pay amount<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
+                                  <p><a class="wb-lbx baseline-rem-def" role="button" aria-controls="baseline-rem" href="#baseline-rem">How to determine the pre-crisis pay amount<span class="far fa-question-circle mrgn-lft-sm"></span></a></p>
                                   <div class="input-group col-md-5"> <span class="input-group-addon">$</span>
                                     <input type="number"
                                       class="form-control input-lg text-right currency" id="baseline-1" data-updates="emp-base-1" placeholder="0.00">
@@ -677,7 +677,7 @@
                                   <legend class="mrgn-bttm-0">Eligible remuneration (pay) in respect of the claim period <span
                                     class="claim-period"></span>
                                   </legend>
-				 <p><a class="wb-lbx" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
+				 <p><a class="wb-lbx pay-claim-def" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
                                   <div class="form-group row mrgn-tp-lg">
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
@@ -2510,6 +2510,35 @@
       $("#reduction-percent-panel").addClass("hidden");
     });
            // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
+
+
+    //fix for duplicated popup trigger
+    $(document).on("click", ".arms-length-def", function(event) {
+      showPopup("armslength");
+    });
+    $(document).on("click", ".baseline-rem-def", function(event) {
+      showPopup("baseline-rem");
+    });
+    $(document).on("click", ".pay-claim-def", function(event) {
+      showPopup("pay-claim");
+    });
+
+    function showPopup(id) {
+      (function ($, wb) {
+        'use strict';
+        var $document = wb.doc;
+        $document.trigger("open.wb-lbx", [
+          [
+            {
+              src: "#" + id,
+              type: "inline"
+            }
+          ],
+          false
+        ]);
+      })(jQuery, wb);
+    }
+      
   </script>
 <script>
 	
