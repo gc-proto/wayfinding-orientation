@@ -546,14 +546,14 @@
                               <h3 class="mrgn-tp-0">Summary of revenue drop
                               rates</h3>
                               <ul class="list-unstyled">
-                              <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
-                                      class="h3" id="cews-rate">0%</span> <span class="h3">[line c3]</span>:
+                                <li>Your overall CEWS rate <span class="safe-harbour-hide">(base rate + top-up rate)</span> for this claim period is <span class="h3" id="cews-rate">0%</span>:
                                   <ul class="list-unstyled mrgn-lft-lg small">
-                                  <li>Your base rate is <span
-                                          class="h4 rev-reduc-base">0%</span> because your revenue drop from <strong>July 2019 to July 2020 <!--(eventually dynamic based on last 2019/2020 values)//--></strong> was <span
-                                          class="h4 rev-reduc-base">0% <!--July 2019 divided by July 2020, 0 if negative //--></span> <span class="h3">[line c1]</span></li>
-                                  <li>Your top-up rate is <span class="h4 top-up-rate">0%</span> because your revenue drop from <strong>April, May and June 2019 to April, May and June 2020 <!--(eventually dynamic based on first three 2019/2020 values)//--></strong> was <span class="h4 top-up-rate" id="rev-drop-top-up">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span> <span class="h3">[line c2]</span></li>
-                                </ul>
+                                    <li class="safe-harbour-show">The rate is 75% because the period 1-4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</li>
+                                    <!-- <li>Your <strong>current period revenue drop</strong> is <strong><span class="h4 claim-month-rev-reduc">0%</span></strong></li>
+                                    <li>Your prior period revenue drop is <strong><span class="h4 prev-month-rev-reduc">0%</span></strong></li> -->
+                                    <li>Y<span class="safe-harbour-hide">our <strong>base rate</strong> is <strong><span class="h4 base-rate">0%</span></strong> because y</span>our revenue drop for the claim period is <strong><span class="h4 rev-reduc-base">0%</span></strong></li>
+                                    <li>Y<span class="safe-harbour-hide">our <strong>top-up rate</strong> is <strong><span class="h4 top-up-rate">0%</span></strong> because y</span>our 3-month average top-up revenue drop is <strong><span class="h4 rev-drop-top-up">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span></strong></li>
+                                  </ul>
                                 </li>
                               </ul>
                             </div>
@@ -625,23 +625,17 @@
                             <div class="well text-muted mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of average revenue
                                 drop rates</h3>
-                              <ul class="list-unstyled">
-                                <li>Your overall CEWS rate (base rate + top-up rate) for this claim period is: <span
-                                    id="cews-rate-alt" class="h3">0%</span> <span class="h3">[line c3]</span>:
-                                  <ul class="list-unstyled mrgn-lft-lg small">
-                                    <li>Your base rate is <span id="rev-reduc-alt-base" class="h4 rev-reduc-alt-base">0%</span> because your
-                                      revenue drop from <strong>the average revenue from January and Feburary 2020 to June
-                                        or July 2020 (whichever is greater)
-                                        <!--(eventually dynamic based on last 2019/2020 values)//--></strong> was <span
-                                        class="h4 rev-reduc-alt-base">0%
-                                        <!--average of Jan/Feb 2020 divided by June or July 2020 (whichever is the lower amount), 0 if negative //--></span>
-                                      <span class="h3">[line c1]</span></li>
-                                    <li>Your top-up rate is <span class="h4 top-up-rate-alt">0%</span> because your
-                                      revenue drop from <strong>the average revenue from January and February 2020 to
-                                        April, May and June 2020</strong> was <span class="h4 top-up-rate-alt" id="rev-drop-alt-top-up">0%
-                                        <!--average of Jan/Feb 2020 divided by 3 months in 2020, 0 if negative//--></span>
-                                      <span class="h3">[line c2]</span></li>
-                                  </ul>
+                                <ul class="list-unstyled">
+                                  <li>Your overall CEWS rate <span class="safe-harbour-hide">(base rate + top-up rate)</span> for this claim period is <span class="h3" id="cews-rate-alt">0%</span>:
+                                    <ul class="list-unstyled mrgn-lft-lg small">
+                                      <li class="safe-harbour-show">The rate is 75% because the period 1-4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</li>
+                                      <!-- <li>Your <strong>current period revenue drop</strong> is <strong><span class="h4 claim-month-rev-reduc">0%</span></strong></li>
+                                      <li>Your prior period revenue drop is <strong><span class="h4 prev-month-rev-reduc">0%</span></strong></li> -->
+                                      <li>Y<span class="safe-harbour-hide">our <strong>base rate</strong> is <strong><span class="h4 base-rate-alt">0%</span></strong> because y</span>our revenue drop for the claim period is <strong><span class="h4 rev-reduc-alt-base">0%</span></strong></li>
+                                      <li>Y<span class="safe-harbour-hide">our <strong>top-up rate</strong> is <strong><span class="h4 top-up-rate-alt">0%</span></strong> because y</span>our 3-month average top-up revenue drop is <strong><span class="h4 rev-drop-top-up-alt">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span></strong></li>
+                                    </ul>
+                                  </li>
+                                </ul>
                                 </li>
                               </ul>
                             </div>
@@ -2220,21 +2214,33 @@
           topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
-          if (cewsRate < 0.75 && revReduction >= 0.3) {
-            cewsRate = 0.75;
-          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
+            if (cewsRate < 0.75 && revReduction >= 0.3) { 
+              //if safe harbour applies
+              cewsRate = 0.75;
+              $("#rate-reduction").addClass("hidden");
+              $(".safe-harbour-show").removeClass("hidden");
+              $(".safe-harbour-hide").addClass("hidden");
+            } else {
+              //if safe harbour doesn't apply
+              $(".safe-harbour-show").addClass("hidden");
+              $(".safe-harbour-hide").removeClass("hidden");
+              //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+              $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
+              $(".base-rate").text(roundPercDown(baseRate) + "%");
+            }
+            $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
+            $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
+            $("#cews-rate").text(cewsRate * 100 + "%");
             $("#employees").removeClass("hidden");
           }
-          //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-          $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
-          $(".rev-reduc-base").text(roundPercDown(baseRate) + "%");
-          $("#cews-rate").text(cewsRate * 100 + "%");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
           $(".top-up-rate").text("0%");
+          $(".base-rate").text("0%");
+          $(".rev-drop-top-up").text("0%");
           $(".rev-reduc-base").text("0%");
           $("#cews-rate").text("0%");
         }
@@ -2276,22 +2282,33 @@
           topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
-          if (cewsRate < 0.75 && revReduction >= 0.3) {
-            cewsRate = 0.75;
-          }
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           } else {
+            if (cewsRate < 0.75 && revReduction >= 0.3) { 
+              //if safe harbour applies
+              cewsRate = 0.75;
+              $("#rate-reduction").addClass("hidden");
+              $(".safe-harbour-show").removeClass("hidden");
+              $(".safe-harbour-hide").addClass("hidden");
+            } else {
+              //if safe harbour doesn't apply
+              $(".safe-harbour-show").addClass("hidden");
+              $(".safe-harbour-hide").removeClass("hidden");
+              //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+              $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
+              $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
+            }
+            $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+            $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
+            $("#cews-rate-alt").text(cewsRate * 100 + "%");
             $("#employees").removeClass("hidden");
           }
-          //round down to 2 decimals in percentage for base and topUp
-          //update the view
-          $(".top-up-rate-alt").text(roundPercDown(baseRate) + "%");
-          $(".rev-reduc-alt-base").text(roundPercDown(topUpRate) + "%");
-          $("#cews-rate-alt").text(cewsRate * 100 + "%");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
           $(".top-up-rate-alt").text("0%");
+          $(".base-rate-alt").text("0%");
+          $(".rev-drop-top-up-alt").text("0%");
           $(".rev-reduc-alt-base").text("0%");
           $("#cews-rate-alt").text("0%");
         }
