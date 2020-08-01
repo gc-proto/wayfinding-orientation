@@ -351,76 +351,120 @@ h1#wb-cont::after {
 	border-bottom: .18em solid #af3c43; /* This creates the border. Replace black with whatever color you want. */
 }
 /* Styled ordered list design */
-ol.lst-stps:after, ol.lst-stps:before {
-	content: " ";
-	display: table
+ol.lst-stps, .lst-stps {
+     counter-reset: item;
 }
-ol.lst-stps:after {
-	clear: both
+ ol.lst-stps, .lst-stps {
+     margin: 15px 0 15px 0px;
+     padding-left: 0;
+     position: relative;
 }
-ol.lst-stps {
-	counter-reset: item;
-	margin: 0;
-	padding-left: 0;
-	position: relative;
-	margin-left: 5px;
+ ol.lst-stps>li, .lst-stps>.lst-item {
+     counter-increment: item;
 }
-ol.lst-stps>li {
-	counter-increment: item;
-	list-style: none;
-	margin: 30px 0px;
-	position: relative;
-	min-height: 30px;
+ ol.lst-stps > li, .lst-stps .lst-item {
+     list-style: none;
+     margin-top: 30px;
+     position: relative;
+     padding-left:60px;
+     padding-right: 15px;
+     min-height: 2.2em;
 }
-ol.lst-stps>li:before {
-	content: counter(item);
-	display: block;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	background: #fff;
-	color: #555;
-	text-align: center;
-	font-weight: 100;
-	float: left;
-	border: 3px solid #555;
-	position: absolute;
-	left: -5px;
+ ol.lst-stps fieldset {
+     padding-top:0;
+}
+ ol.lst-stps li>*:last-child, .lst-stps .lst-item>*:last-child {
+    margin-bottom:0px;
+}
+ ol.lst-stps>li:before, .lst-stps .lst-item:before {
+     content: counter(item);
+}
+ ol.lst-stps li>ol, .lst-stps .lst-item>.sub-lst-stps {
+     counter-reset: subitem;
+}
+ ol.lst-stps li>ol {
+     margin-left: -35px;
+}
+ .lst-stps .lst-item {
+     position: relative;
+     padding-left: 60px;
+     margin-top: 30px;
+}
+ ol.lst-stps li:before, .lst-stps .lst-item:before {
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     border-radius: 50%;
+     border: 3px solid #26374a;
+     background-color: #fff;
+     float: left;
+     position: absolute;
+     box-sizing: content-box;
+     line-height: 2.2;
+     text-align: center;
+     font-weight: 600;
+     height: 2.2em;
+     width: 2.2em;
+     left: 0px;
+     margin-top: -8px;
+}
+ ol.lst-stps>li>ol>li:before, .lst-stps>.lst-item>.sub-lst-stps>.lst-item:before {
+     counter-increment: subitem;
+     content: counter(item) "" counter(subitem, lower-alpha) "";
+}
+ .sub-lst-stps>.lst-item:last-child {
+     margin-bottom: 0px 
+}
+ .lst-stps-striped>li ol, .lst-stps-striped > .lst-item > .sub-lst-stps {
+    margin-top:15px;
+}
+ .lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+    padding-top: 23px;
+     padding-bottom:23px;
+     margin-top:0px;
+}
+ .lst-stps-striped >li:nth-child(odd), .lst-stps-striped >li:nth-child(even)>ol>li:nth-child(odd), .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(even), .lst-stps-striped >.lst-item:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(even)>.sub-lst-stps>.lst-item:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(even) {
+     background-color: #f5f5f5;
+}
+ .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(odd){
+     background-color: #fff!important;
+}
+ .lst-stps-striped >li:nth-child(even)>ol>li:nth-child(even):last-child, .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(even):last-child, .lst-stps-striped >.lst-item:nth-child(even)>.sub-lst-stps>.lst-item:nth-child(even):last-child, .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(even):last-child {
+     padding-bottom: 0px;
+}
+ ol.lst-stps li>:first-child, .lst-stps .lst-item>:first-child {
+     margin-top:auto;
+}
+ ol.lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+    padding-left: 75px;
+}
+ .lst-stps-striped li:before, .lst-stps-striped .lst-item:before {
+    margin-left: 15px;
+}
+ /* ol.lst-stps li ul, ol.lst-stps li ul li, ol.lst-stps.lst-stps-striped li ul, ol.lst-stps.lst-stps-striped li ul li {
+     padding-left: 0px;
+}
+*/
+ @media all and (max-width: 767px) {
+     ol.lst-stps li:before, .lst-stps .lst-item:before {
+         font-size: 0.8em;
+         line-height: 2;
+         height: 2em;
+         width: 2em;
+         margin-top: -3px;
+         font-weight: 600;
+    }
+     ol.lst-stps>li, .lst-stps>.lst-item {
+         padding-left: 45px 
+    }
+
+	 
+     .lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+        padding-top: 19px;
+         padding-bottom:19px;
+         margin-top:0px;
+    }
 }
 
-@media all and (max-width:767px) {
-ol.lst-stps>li {
-	padding-left: 30px;
-}
-ol.lst-stps>li:before {
-	padding: 0px;
-	min-width: 30px;
-	min-height: 30px;
-	margin-top: 15px;
-	font-size: 1em;
-	line-height: 1.1;
-}
-ol.lst-stps li ol {
-	margin-left: -30px;
-}
-}
-
-@media all and (min-width:768px) {
-ol.lst-stps>li {
-	padding-left: 55px;
-}
-ol.lst-stps>li:before {
-	padding: 6px;
-	min-width: 50px;
-	min-height: 50px;
-	margin-top: 5px;
-	font-size: 1.2em;
-	line-height: 1.2;
-}
-ol.lst-stps li ol {
-	margin-left: 0px;
-}
-}
 .lst-lwr-alph {
 	list-style-position: outside;
 }
