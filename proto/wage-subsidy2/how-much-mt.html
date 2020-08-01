@@ -1860,7 +1860,7 @@
           return;
         //target was an input type=text
         } else {
-          var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
+          var baselineWage = parseFloat(toUnformattedNumber($("#baseline-" + employeeNumber).val()));
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
           var parts = target.id.match(/(wk)(one|two|three|four)-/g);
@@ -1916,13 +1916,13 @@
        */
       function getEmployeeCews(employeeNumber, baselineWage) {
         var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
-        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
+        var weekone = zeroIfEmpty(toUnformattedNumber($('#wkone-' + employeeNumber).val()));
         var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
-        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
+        var weektwo = zeroIfEmpty(toUnformattedNumber($('#wktwo-' + employeeNumber).val()));
         var weekTwoPaidLeave = $("#wktwo-cb-" + employeeNumber).is(":checked");
-        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
         var weekThreePaidLeave = $("#wkthree-cb-" + employeeNumber).is(":checked");
-        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
+        var weekfour = zeroIfEmpty(toUnformattedNumber($('#wkfour-' + employeeNumber).val()));
         var weekFourPaidLeave = $("#wkfour-cb-" + employeeNumber).is(":checked");
         var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
         var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
@@ -1949,11 +1949,11 @@
        * @return {Float} The total wage paid for 4 weeks 
        */
       function getEmployeeTotalWages(employeeNumber) {
-        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
-        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
-        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
-        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
-        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
+        var weekone = zeroIfEmpty(toUnformattedNumber($('#wkone-' + employeeNumber).val()));
+        var weektwo = zeroIfEmpty(toUnformattedNumber($('#wktwo-' + employeeNumber).val()));
+        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
+        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
+        var weekfour = zeroIfEmpty(toUnformattedNumber($('#wkfour-' + employeeNumber).val()));
         return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
       }
 
