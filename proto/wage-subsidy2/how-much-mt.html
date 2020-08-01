@@ -2549,11 +2549,11 @@
     function export_table_to_csv(filename) {
       var csv = [];
       var rows = $("#dataset-filter tr");
-        for (var i = 0; i < rows.length; i++) {
+      for (var i = 0; i < rows.length; i++) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
-        
-          for (var j = 0; j < cols.length; j++) 
-            row.push(cols[j].innerText.replace(",", ""));
+      
+        for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText.replace(",", ""));
             
         csv.push(row.join(","));		
       }
