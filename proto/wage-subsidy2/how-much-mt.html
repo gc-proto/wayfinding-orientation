@@ -1414,7 +1414,7 @@
      * EmployeeFormGenerator class
      * used to help creating new employee wage forms based on the chosen pay 
      * schedule
-     * @author Michel Tremblay
+     * 
      */
     var EmployeeFormGenerator = (function () {
 
@@ -1769,7 +1769,7 @@
         }
         /**
          * if p5+; else if  p1-4; else 'select'
-         * @author Michel Tremblay
+         * 
          */
         if (
           parseInt($("#claim-period option:selected").data("claim-period")) >= 5
@@ -1836,7 +1836,7 @@
 
 
       /**
-       * @author Michel Tremblay
+       * 
        * convert currency fields to localized value
        */
       $document.on("blur", ".currency", function (event) {
@@ -1861,7 +1861,7 @@
       });
 
       /**
-       * @author Michel Tremblay
+       * 
        * update the employee wage summary
        */
       var numEmployeePanels = 1;
@@ -2011,7 +2011,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        *
        */
       function getWeeklyCEWS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
@@ -2048,7 +2048,7 @@
         }
       }
       /**
-       * @author Michel Tremblay
+       * 
        * determine if an employee has been paid $0 for two consecutive pays
        */
       function checkEmployeeEligibility(element) {
@@ -2071,7 +2071,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        * add a new employee form  
        */
       $("#addemp").on("click", addEmp);
@@ -2136,7 +2136,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        * calculate the cews rate reductions
        */
        var revReduction = 0;
@@ -2213,7 +2213,7 @@
       });
 
       /**
-       * @author Michel Tremblay
+       * 
        * calculate the cews rate reductions with alternate baseline
        */
       $document.on("blur", ".cews-rate-calc-alt", function (event) {
@@ -2397,7 +2397,7 @@
        * 
        * get the month where the claim period mostly falls
        * 
-       * @author Michel Tremblay
+       * 
        * 
        * @param {Int} dateRange the claim period dates in 
        * YYYY-MM-DD--YYYY--MM-DD format
@@ -2435,7 +2435,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        */
       function getP5PlusTopUpRate(reduction) {
         if (1.25 * (reduction - 0.5) > 0.25) {
@@ -2446,7 +2446,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
@@ -2461,7 +2461,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        */
       function oldFormula(armsLength, weeklyRemun, baselineRemun) {
         if (armsLength) {
@@ -2475,7 +2475,7 @@
       }
 
       /**
-       * @author Michel Tremblay
+       * 
        */
       function newFormula(armsLength, weeklyRemun, baselineRemun, overall) {
         if (armsLength) {
@@ -2493,7 +2493,7 @@
     $(document).on("wb-ready.wb", function () {
       //allow wet4 to initialize on these fields then hide them. This solves the issue where the input fields still use periods ('.') rather than commas (',') in french
       /**
-       * @author Michel Tremblay
+       * 
        */
       $("#rate-reduction").addClass("hidden");
       $("#reduction-percent-panel").addClass("hidden");
