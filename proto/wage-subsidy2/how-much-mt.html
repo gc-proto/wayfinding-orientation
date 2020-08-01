@@ -2163,6 +2163,7 @@
        var topUpRate = 0;
        var cewsRate = 0;
        var baseRate = 0;
+       var threeMonthReduction = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var cewsRateElements = $('.cews-rate-calc');
         var month = getClaimMonth($("#claim-period").val());
@@ -2194,7 +2195,7 @@
           //get the avg of the revenue from apr-june2019
           var threeMonthAvg2019 = (zeroIfEmpty($("#2019-04-no").val()) + zeroIfEmpty($("#2019-05-no").val()) + zeroIfEmpty($("#2019-06-no").val())) / 3;
           //get the rate reduction from the three month average
-          var threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
+          threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
           if (claimMonth2019Value == 0) {
             revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
@@ -2266,7 +2267,7 @@
           //get the avg of the revenue from apr-june
           var threeMonthAvg = (zeroIfEmpty($("#2020-04-yes").val()) + zeroIfEmpty($("#2020-05-yes").val()) + zeroIfEmpty($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
-          var threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+          threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           //get the revenue reduction
           revReduction = Math.max(
             (baseRev - claimMonthValue) / baseRev,
@@ -2403,15 +2404,15 @@
           var totalCews = $(".total").attr("data-total-cews");
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
-          $("#p2b-c1").val(parseInt(baseRate * 100));
-          $("output[for='p2b-c1']").text(parseInt(baseRate * 100) + "%");
-          $("#p2b-c2").val(parseInt(topUpRate * 100));
-          $("output[for='p2b-c2']").text(parseInt(topUpRate * 100) + "%");
-          $("#p2b-c3").val(parseInt(cewsRate * 100));
-          $("output[for='p2b-c3']").text(parseInt(cewsRate * 100) + "%");
+          $("#p2b-c1").val(roundPercDown(revReduction));
+          $("output[for='p2b-c1']").text(roundPercDown(revReduction) + "%");
+          $("#p2b-c2").val(roundPercDown(threeMonthReduction));
+          $("output[for='p2b-c2']").text(roundPercDown(threeMonthReduction) + "%");
+          $("#p2b-c3").val(roundPercDown(cewsRate));
+          $("output[for='p2b-c3']").text(roundPercDown(cewsRate) + "%");
         } else {
           $("#p2c-ee").val(numEmployeePanels);
-          $("#p2c-ee").trigger("change")
+          $("#p2c-ee").trigger("change");
           var totalWages = $(".total").attr("data-total-wages");
           $("#p2c-pyrl").val(totalWages);
           $("#p2c-pyrl").trigger("change");
