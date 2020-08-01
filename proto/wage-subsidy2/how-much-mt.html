@@ -805,8 +805,7 @@
                         </header>
                         <div class="modal-body">
                           <p class="mrgn-bttm-md">
-                            <button type="button" class="btn btn-default hidden-print"
-                              data-wb-doaction='{ "action": "tocsv", "source": "#dataset-filter" }'>Download the
+                            <button type="button" class="btn btn-default hidden-print toCSV">Download the
                               following table as CSV</button>
                           </p>
                           <div class="table-responsive">
@@ -1477,14 +1476,14 @@
        * @calls EmployeeFormGenerator::updateInputs() to update the input fields
        * @calls EmployeeFormGenerator::updateTableIds() to update the summary 
        * table cells
-       * 
+       * @calls EmployeeFormGenerator::openAccordion() to open all accordion 
+       * elements
+       *
        * @return {DOMDocumentFragment} the update DOM fragment to be used as 
        * the new employee wage form
        */
       EmployeeFormGenerator.prototype.generateNewForm = function () {
-        var frag = document.getElementById(this.templateId);
-        //clone the document fragment, with all children, and all attributes
-        frag = $(frag).clone();
+        var frag = $("#" + this.templateId).clone();
         //update the frame id
         $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + this.numberOfEmployees));
         //add class that will be used to identify panels to remove when the selected pay schedule is changed
@@ -1767,10 +1766,8 @@
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
         }
-        /**
-         * if p5+; else if  p1-4; else 'select'
-         * 
-         */
+        //show/hide elements based on chosen claim period
+        //if p5+; else if  p1-4; else 'select'
         if (
           parseInt($("#claim-period option:selected").data("claim-period")) >= 5
         ) {
@@ -1807,15 +1804,17 @@
         }
       });
 
+      // when the submit button is clicked
       $document.on("click", "#calculate", function (event) {
         event.preventDefault();
+        //remove the required attribute in all hidden elements
         $("[required]:hidden").each(function(i ,element) {
           $(element).removeAttr("required");
         });
         var count = 0,
           $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
           $emptyElms = [];
-
+        //find all required fields that were left empty
         for (let i = 0; i < $($elms).length; i++) {
           var $elm = $($elms).eq(i);
           if ($elm.val() == "") {
@@ -1823,12 +1822,14 @@
             count++;
           }
         }
-
+        //if WET4 already has errors, scroll to those
         if ($("#errors-default")[0]) {
           $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+        //scroll to the FIRST element that failed custom validation
         } else if ($emptyElms[0]) {
           $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
           console.debug($emptyElms);
+        //validation passed, show the results
         } else {
           $("#results").removeClass("hidden");
         }
@@ -1836,7 +1837,6 @@
 
 
       /**
-       * 
        * convert currency fields to localized value
        */
       $document.on("blur", ".currency", function (event) {
@@ -1853,6 +1853,7 @@
         formattedVal = formattedVal.replace(/\s*/gm, "");
         //replace all $ signs
         formattedVal = formattedVal.replace(/\$*/gm, "");
+        //TODO: test in french version
         if (!parseFloat(formattedVal)) {
           $(target).val("");  
         } else {
@@ -1861,7 +1862,6 @@
       });
 
       /**
-       * 
        * update the employee wage summary
        */
       var numEmployeePanels = 1;
@@ -1870,6 +1870,7 @@
         var parts = target.id.split("-");
         var employeeNumber = parts[parts.length - 1];
         target.value = target.value.replace("$", "");
+        //determine if this employee is eligible for cews
         if (target.value == "0") {
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + employeeNumber).addClass("hidden");
@@ -1882,11 +1883,13 @@
           }
         }
         var updateTarget = $("#" + $(target).attr("data-updates"));
+        //if the target is a select element, capitalize the first letter then update the target
         if (target.nodeName == 'SELECT') {
           var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
           $(updateTarget).text(formattedVal);
         } else if ($(target).is(":checkbox")) {
           return;
+        //target was an input type=text
         } else {
           var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
@@ -1897,10 +1900,12 @@
           }
           var weekNumber = parts[0];
           var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
+          //get the weekly cews; if it's not an int or float, use 0
           var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
           if (!isInt(weeklyCews) && !isFloat(weeklyCews)) {
             weeklyCews = 0;
           }
+          //format and update the targets using localized currency format
           var formattedVal = toMoney.format(weeklyCews);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
@@ -1925,13 +1930,20 @@
       function isInt(n){
         return Number(n) === n && n % 1 === 0;
       }
-      //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
       function isFloat(n){
         return Number(n) === n && n % 1 !== 0;
       }
 
       /**
+       * getEmployeeCews()
        * 
+       * get the cews total for an employee 
+       * 
+       * @param {Int} employeeNumber The employee panel number
+       * @param {String} baselineWage The employees baseline pre-crisis wage
+       *
+       * @return {Float} Total calculated cews for this employee || 0 if not 
+       * all data was entered
        */
       function getEmployeeCews(employeeNumber, baselineWage) {
         var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
@@ -1959,7 +1971,13 @@
       }
 
       /**
+       * getEmployeeTotalWages
        * 
+       * get the total wages paid for the given employee number
+       *
+       * @param {Int} employeeNumber The employee panel number 
+       * 
+       * @return {Float} The total wage paid for 4 weeks 
        */
       function getEmployeeTotalWages(employeeNumber) {
         var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
@@ -2520,7 +2538,62 @@
     $(document).on("click", ".pay-claim-def", function(event) {
       showPopup("pay-claim");
     });
+    $(document).on("click", ".toCSV", function(event) {
+      export_table_to_csv("employee-cews.csv");
+    });
 
+    /**
+     * export_table_to_csv
+     * https://jsfiddle.net/gengns/j1jm2tjx/
+     */
+    function export_table_to_csv(filename) {
+      var csv = [];
+      var rows = $("#dataset-filter tr");
+        for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+        
+            for (var j = 0; j < cols.length; j++) 
+                row.push(cols[j].innerText.replace(",", ""));
+            
+        csv.push(row.join(","));		
+      }
+
+        // Download CSV
+        download_csv(csv.join("\n"), filename);
+    }
+    /**
+     * export_table_to_csv
+     * https://jsfiddle.net/gengns/j1jm2tjx/
+     */
+    function download_csv(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        // CSV FILE
+        csvFile = new Blob([csv], {type: "text/csv"});
+
+        // Download link
+        downloadLink = document.createElement("a");
+
+        // File name
+        downloadLink.download = filename;
+
+        // We have to create a link to the file
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+
+        // Make sure that the link is not displayed
+        downloadLink.style.display = "none";
+
+        // Add the link to your DOM
+        document.body.appendChild(downloadLink);
+
+        // Lanzamos
+        downloadLink.click();
+    }
+    
+    /**
+     * required to allow duplicated popup buttons to open the associated popup
+     */
     function showPopup(id) {
       (function ($, wb) {
         'use strict';
