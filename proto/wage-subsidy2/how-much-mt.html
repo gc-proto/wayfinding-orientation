@@ -2552,8 +2552,8 @@
         for (var i = 0; i < rows.length; i++) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
         
-            for (var j = 0; j < cols.length; j++) 
-                row.push(cols[j].innerText.replace(",", ""));
+          for (var j = 0; j < cols.length; j++) 
+            row.push(cols[j].innerText.replace(",", ""));
             
         csv.push(row.join(","));		
       }
@@ -2566,29 +2566,29 @@
      * https://jsfiddle.net/gengns/j1jm2tjx/
      */
     function download_csv(csv, filename) {
-        var csvFile;
-        var downloadLink;
+      var csvFile;
+      var downloadLink;
 
-        // CSV FILE
-        csvFile = new Blob([csv], {type: "text/csv"});
+      // CSV FILE
+      csvFile = new Blob([csv], {type: "text/csv"});
 
-        // Download link
-        downloadLink = document.createElement("a");
+      // Download link
+      downloadLink = document.createElement("a");
 
-        // File name
-        downloadLink.download = filename;
+      // File name
+      downloadLink.download = filename;
 
-        // We have to create a link to the file
-        downloadLink.href = window.URL.createObjectURL(csvFile);
+      // We have to create a link to the file
+      downloadLink.href = window.URL.createObjectURL(csvFile);
 
-        // Make sure that the link is not displayed
-        downloadLink.style.display = "none";
+      // Make sure that the link is not displayed
+      downloadLink.style.display = "none";
 
-        // Add the link to your DOM
-        document.body.appendChild(downloadLink);
+      // Add the link to your DOM
+      document.body.appendChild(downloadLink);
 
-        // Lanzamos
-        downloadLink.click();
+      // Lanzamos
+      downloadLink.click();
     }
     
     /**
