@@ -1828,30 +1828,7 @@
       });
 
 
-      /**
-       * convert currency fields to localized value
-       */
-      $document.on("blur", ".currency", function (event) {
-        var target = event.target;
-        if ($(target).val() == "") {
-          return;
-        }
-        var formattedVal = $(target).val();
-        //uncomment for French version
-        //formattedVal = formattedVal.replace(",", ".");
-        //convert the first one to a period, any commas after that are strictly removed.
-        formattedVal = formattedVal.replace(/,*/gm, "");
-        //remove all spaces
-        formattedVal = formattedVal.replace(/\s*/gm, "");
-        //replace all $ signs
-        formattedVal = formattedVal.replace(/\$*/gm, "");
-        //TODO: test in french version
-        if (!parseFloat(formattedVal)) {
-          $(target).val("");  
-        } else {
-          $(target).val(formattedVal);
-        }
-      });
+      
 
       /**
        * update the employee wage summary
@@ -1861,9 +1838,9 @@
         var target = event.target;
         var parts = target.id.split("-");
         var employeeNumber = parts[parts.length - 1];
-        target.value = target.value.replace("$", "");
+        var unformattedValue = toUnformattedNumber(target.value).replace("$", "");
         //determine if this employee is eligible for cews
-        if (target.value == "0") {
+        if (unformattedValue == "0") {
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + employeeNumber).addClass("hidden");
             $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
@@ -1893,7 +1870,7 @@
           var weekNumber = parts[0];
           var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
           //get the weekly cews; if it's not an int or float, use 0
-          var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(target.value), paidLeave);
+          var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(unformattedValue), paidLeave);
           if (!isInt(weeklyCews) && !isFloat(weeklyCews)) {
             weeklyCews = 0;
           }
@@ -1902,7 +1879,7 @@
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + target.id + "']");
           $(updatedByElements).each(function (i, element) {
-            $(element).text(toMoney.format(target.value));
+            $(element).text(toMoney.format(unformattedValue));
           });
           //update the total
           if ($(updateTarget).data("updates")) {
@@ -2606,6 +2583,13 @@
       downloadLink.click();
     }
     
+    function toUnformattedNumber(formattedNumber) {
+      var formattedVal = formattedNumber.replace(/,*/gm, "");
+      //remove all spaces
+      formattedVal = formattedVal.replace(/\s*/gm, "");
+      return formattedVal;
+    }
+
     /**
      * required to allow duplicated popup buttons to open the associated popup
      */
