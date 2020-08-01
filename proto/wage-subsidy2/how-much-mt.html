@@ -1847,7 +1847,7 @@
         var target = event.target;
         var parts = target.id.split("-");
         var employeeNumber = parts[parts.length - 1];
-        var unformattedValue = toUnformattedNumber(target.value).replace("$", "");
+        var unformattedValue = target.value.replace("$", "");
         //determine if this employee is eligible for cews
         if (unformattedValue == "0") {
           if (!checkEmployeeEligibility(target)) {
@@ -1869,7 +1869,7 @@
           return;
         //target was an input type=text
         } else {
-          var baselineWage = parseFloat(toUnformattedNumber($("#baseline-" + employeeNumber).val()));
+          var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
           var parts = target.id.match(/(wk)(one|two|three|four)-/g);
@@ -1925,13 +1925,13 @@
        */
       function getEmployeeCews(employeeNumber, baselineWage) {
         var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
-        var weekone = zeroIfEmpty(toUnformattedNumber($('#wkone-' + employeeNumber).val()));
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
         var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
-        var weektwo = zeroIfEmpty(toUnformattedNumber($('#wktwo-' + employeeNumber).val()));
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
         var weekTwoPaidLeave = $("#wktwo-cb-" + employeeNumber).is(":checked");
-        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
         var weekThreePaidLeave = $("#wkthree-cb-" + employeeNumber).is(":checked");
-        var weekfour = zeroIfEmpty(toUnformattedNumber($('#wkfour-' + employeeNumber).val()));
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
         var weekFourPaidLeave = $("#wkfour-cb-" + employeeNumber).is(":checked");
         var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
         var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
@@ -1958,11 +1958,11 @@
        * @return {Float} The total wage paid for 4 weeks 
        */
       function getEmployeeTotalWages(employeeNumber) {
-        var weekone = zeroIfEmpty(toUnformattedNumber($('#wkone-' + employeeNumber).val()));
-        var weektwo = zeroIfEmpty(toUnformattedNumber($('#wktwo-' + employeeNumber).val()));
-        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
-        var weekthree = zeroIfEmpty(toUnformattedNumber($('#wkthree-' + employeeNumber).val()));
-        var weekfour = zeroIfEmpty(toUnformattedNumber($('#wkfour-' + employeeNumber).val()));
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
         return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
       }
 
@@ -1982,7 +1982,7 @@
             eligibility = false;
           }
           //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
-          var baselineWage = toUnformattedNumber($("#baseline-" + (i + 1)).val());
+          var baselineWage = $("#baseline-" + (i + 1)).val();
           if (baselineWage == "") {
             $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
           } else {
@@ -2169,22 +2169,22 @@
             )
         ) {
           //get the value of the claim month
-          var claimMonth2020Value = zeroIfEmpty(toUnformattedNumber($("#2020-0" + claimMonth + "-no").val()));
-          var claimMonth2019Value = zeroIfEmpty(toUnformattedNumber($("#2019-0" + claimMonth + "-no").val()));
+          var claimMonth2020Value = zeroIfEmpty($("#2020-0" + claimMonth + "-no").val());
+          var claimMonth2019Value = zeroIfEmpty($("#2019-0" + claimMonth + "-no").val());
           //get the previous month from the claim month
           
           //get the value of the previous month
-          var prevClaim2020Value = zeroIfEmpty(toUnformattedNumber($("#2020-0" + prevClaimMonth + "-no").val()));
-          var prevClaim2019Value = zeroIfEmpty(toUnformattedNumber($("#2019-0" + prevClaimMonth + "-no").val()));
+          var prevClaim2020Value = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-no").val());
+          var prevClaim2019Value = zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val());
           //get the avg of the revenue from apr-june2020
-          var april2020Val = zeroIfEmpty(toUnformattedNumber($("#2020-04-no").val()));
-          var may2020Val = zeroIfEmpty(toUnformattedNumber($("#2020-05-no").val()));
-          var june2020Val = zeroIfEmpty(toUnformattedNumber($("#2020-06-no").val()));
+          var april2020Val = zeroIfEmpty($("#2020-04-no").val());
+          var may2020Val = zeroIfEmpty(("#2020-05-no").val());
+          var june2020Val = zeroIfEmpty($("#2020-06-no").val());
           var threeMonthAvg2020 = (april2020Val + may2020Val + june2020Val) / 3;
           //get the avg of the revenue from apr-june2019
-          var april2019Val = zeroIfEmpty(toUnformattedNumber($("#2019-04-no").val()));
-          var may2019Val = zeroIfEmpty(toUnformattedNumber($("#2019-05-no").val()));
-          var june2019Val = zeroIfEmpty(toUnformattedNumber($("#2019-06-no").val()));
+          var april2019Val = zeroIfEmpty($("#2019-04-no").val());
+          var may2019Val = zeroIfEmpty($("#2019-05-no").val());
+          var june2019Val = zeroIfEmpty($("#2019-06-no").val());
           var threeMonthAvg2019 = (april2019Val + may2019Val + june2019Val) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
@@ -2242,8 +2242,8 @@
        */
       $document.on("blur", ".cews-rate-calc-alt", function (event) {
         var cewsRateElements = $('.cews-rate-calc-alt');
-        var janRev = zeroIfEmpty(toUnformattedNumber($("#2020-01-yes").val()));
-        var febRev = zeroIfEmpty(toUnformattedNumber($("#2020-02-yes").val()));
+        var janRev = zeroIfEmpty($("#2020-01-yes").val());
+        var febRev = zeroIfEmpty($("#2020-02-yes").val());
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
@@ -2251,13 +2251,13 @@
             "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
           ).getUTCMonth();
           //get the value of the claim month
-          var claimMonthValue = zeroIfEmpty(toUnformattedNumber($("#2020-0" + claimMonth + "-yes").val()));
+          var claimMonthValue = zeroIfEmpty($("#2020-0" + claimMonth + "-yes").val());
           //get the previous month from the claim month
           var prevClaimMonth = claimMonth - 1;
           //get the value of the previous month
-          var prevClaimValue = zeroIfEmpty(toUnformattedNumber($("#2020-0" + prevClaimMonth + "-yes").val()));
+          var prevClaimValue = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-yes").val());
           //get the avg of the revenue from apr-june
-          var threeMonthAvg = (zeroIfEmpty(toUnformattedNumber($("#2020-04-yes").val())) + zeroIfEmpty(toUnformattedNumber($("#2020-05-yes").val())) + zeroIfEmpty(toUnformattedNumber($("#2020-06-yes").val()))) / 3;
+          var threeMonthAvg = (zeroIfEmpty($("#2020-04-yes").val()) + zeroIfEmpty($("#2020-05-yes").val()) + zeroIfEmpty($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           //get the revenue reduction
@@ -2599,7 +2599,12 @@
     }
     
     function toUnformattedNumber(formattedNumber) {
-      var formattedVal = formattedNumber.replace(/,*/gm, "");
+      var formattedVal = formattedNumber;
+      if (document.documentElement.lang == "fr") {
+        //replace the first (leftmost) comma with a period to denote the decimal place
+        formattedVal = formattedNumber.replace(",", ".");
+      }
+      formattedVal = formattedNumber.replace(/,*/gm, "");
       //remove all spaces
       formattedVal = formattedVal.replace(/\s*/gm, "");
       return formattedVal;
