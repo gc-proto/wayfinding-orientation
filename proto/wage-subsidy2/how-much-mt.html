@@ -1982,7 +1982,7 @@
             eligibility = false;
           }
           //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
-          var baselineWage = $("#baseline-" + (i + 1)).val();
+          var baselineWage = toUnformattedNumber($("#baseline-" + (i + 1)).val());
           if (baselineWage == "") {
             $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
           } else {
