@@ -1981,17 +1981,19 @@
         var cews = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var eligibility = true;
+          //determine the eligibility
           if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
             eligibility = false;
           }
-          var baselineWage = $("#baseline-" + (i + 1)).val()
+          //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
+          var baselineWage = $("#baseline-" + (i + 1)).val();
           if (baselineWage == "") {
             $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
           } else {
             baselineWage = parseFloat(baselineWage);
           }
           $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
-          var armsLength = $("#arms-" + (i + 1)).val().toLowerCase() == "yes" || $("#arms-" + (i + 1)).val().toLowerCase() == "oui" ? true : false;
+          //show the arms length value
           $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
           var totalCell = $("#emp-ttl-" + (i + 1));
           if (eligibility) {
@@ -2011,8 +2013,18 @@
       }
 
       /**
+       * getWeeklyCEWS
        * 
+       * determine the weekly cews amount based on claim period
        *
+       * @param {Boolean} armsLength Whether the employee is at arms length
+       * @param {String} baselineAmount The employees baseline pay pre-crisis
+       * @param {String} weeklyAmount The weekly wage value
+       * @param {Boolean} paidLeave Whether the employee was on paid leave for 
+       * the week being calculated
+       * 
+       * @return {Int} The calculated weekly cews amount || 0 if no claim 
+       * period is chosen
        */
       function getWeeklyCEWS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
         var period = parseInt($("#claim-period option:selected").data("claim-period"));
@@ -2071,7 +2083,6 @@
       }
 
       /**
-       * 
        * add a new employee form  
        */
       $("#addemp").on("click", addEmp);
@@ -2136,7 +2147,6 @@
       }
 
       /**
-       * 
        * calculate the cews rate reductions
        */
        var revReduction = 0;
@@ -2213,21 +2223,10 @@
       });
 
       /**
-       * 
        * calculate the cews rate reductions with alternate baseline
        */
       $document.on("blur", ".cews-rate-calc-alt", function (event) {
         var cewsRateElements = $('.cews-rate-calc-alt');
-        // var allDataEntered = true;
-        // $(cewsRateElements).each(function (i, element) {
-        //   var value = $(element).val();
-        //   if (value == null || value == "") {
-        //     allDataEntered = false;
-        //   }
-        // });
-        // if (!allDataEntered) {
-        //   return;
-        // }
         var janRev = zeroIfEmpty($("#2020-01-yes").val());
         var febRev = zeroIfEmpty($("#2020-02-yes").val());
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
@@ -2280,6 +2279,10 @@
         }
       });
 
+      /**
+       * roundPercDown()
+       * round the given percent value to two decimal places
+       */
       function roundPercDown(perc) {
         perc = perc * 10000;
         perc = Math.floor(perc);
@@ -2287,6 +2290,10 @@
         return perc;
       }
 
+      /**
+       * zeroIfEmpty()
+       * return 0 if the number cannot be parsed into a float; does not account * for letter values.
+       */
       function zeroIfEmpty(fieldVal) {
         if (fieldVal != null && fieldVal != "") {
           return parseFloat(fieldVal);
@@ -2345,6 +2352,7 @@
         $("#" + wageInputId).blur();
       }
 
+      //send data to fields in 2B
       $(document).on("click", "#transfer-data", function(event) {
         calculateTotals();
         if ($("#claim-period option:selected").data("claim-period") >= 5) {
@@ -2380,7 +2388,8 @@
         }
         
       });
-
+      
+      //update percentage summary elements in 2B 
       $(document).on("blur", "#p2b-c1", function(event) {
         $("output[for='p2b-c1']").text(parseInt(event.target.value) + "%");
       });
