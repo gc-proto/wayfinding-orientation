@@ -453,9 +453,11 @@ ol.lst-stps, .lst-stps {
          margin-top: -3px;
          font-weight: 600;
     }
-     ol.lst-stps li, .lst-stps .lst-item {
+     ol.lst-stps>li, .lst-stps>.lst-item {
          padding-left: 45px 
     }
+
+	 
      .lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
         padding-top: 19px;
          padding-bottom:19px;
@@ -567,4 +569,16 @@ h1 span.stacked span:nth-child(2) {
 	color: #666;
 	font-weight: 500;
 	margin-bottom: 0.17em;
+}
+/*Lower opacity for placeholders */
+::-webkit-input-placeholder { /* Edge */
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  opacity: 0.5;
+}
+
+::placeholder {
+   opacity: 0.5;
 }
