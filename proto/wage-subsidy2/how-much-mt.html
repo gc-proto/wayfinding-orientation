@@ -2144,12 +2144,13 @@
         var prevClaimMonth = claimMonth - 1;
         if (
             (
-              parseFloat($("#2019-0" + claimMonth + "-no").val()) > 0 || parseFloat($("#2019-0" + prevClaimMonth + "-no").val()) > 0
+              parseFloat(zeroIfEmpty($("#2019-0" + claimMonth + "-no").val())) > 0 ||
+              parseFloat(zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val())) > 0
             ) &&
             (
-              parseFloat($("#2019-04-no").val()) > 0 || 
-              parseFloat($("#2019-05-no").val()) > 0 ||
-              parseFloat($("#2019-06-no").val()) > 0
+              parseFloat(zeroIfEmpty($("#2019-04-no").val())) > 0 || 
+              parseFloat(zeroIfEmpty($("#2019-05-no").val())) > 0 ||
+              parseFloat(zeroIfEmpty($("#2019-06-no").val())) > 0
             )
         ) {
           //get the value of the claim month
