@@ -2135,11 +2135,6 @@
        var baseRate = 0;
        var threeMonthReduction = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
-        var revReduction = 0;
-       var topUpRate = 0;
-       var cewsRate = 0;
-       var baseRate = 0;
-       var threeMonthReduction = 0;
         var cewsRateElements = $('.cews-rate-calc');
         var month = getClaimMonth($("#claim-period").val());
         //find the claim month based on the chosen claim period
@@ -2229,11 +2224,6 @@
        * calculate the cews rate reductions with alternate baseline
        */
       $document.on("blur", ".cews-rate-calc-alt", function (event) {
-        var revReduction = 0;
-       var topUpRate = 0;
-       var cewsRate = 0;
-       var baseRate = 0;
-       var threeMonthReduction = 0;
         var cewsRateElements = $('.cews-rate-calc-alt');
         var janRev = zeroIfEmpty($("#2020-01-yes").val());
         var febRev = zeroIfEmpty($("#2020-02-yes").val());
