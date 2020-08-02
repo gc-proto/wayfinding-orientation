@@ -1751,17 +1751,7 @@
 
         if (data.expr) {
           if (data.format === "currency") {
-            //convert the first one to a period, any commas after that are strictly removed.
-            value = value.replace(/,*/gm, "");
-            //remove all spaces
-            value = value.replace(/\s*/gm, "");
-            //replace all $ signs
-            value = value.replace(/\$*/gm, "");
-            if (!parseFloat(value)) {
-              return;
-            } else {
-              $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
-            }
+            $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
           } else {
             $("output[for='" + $elmId + "']").html(value * 1);
           };
@@ -2499,7 +2489,12 @@
       }
 
       /**
+       * Calculate the top up rate
        * 
+       * @param {Float} the percentage average three month revenue reduction 
+       * represented as a decimal
+       *
+       * @return {Float} the top up rate
        */
       function getP5PlusTopUpRate(reduction) {
         if (1.25 * (reduction - 0.5) > 0.25) {
@@ -2510,7 +2505,11 @@
       }
 
       /**
-       * 
+       * Calculate the base rate
+       * @param {Float} revReduction the revenue reduction percentage 
+       * represented as a decimal
+       *  
+       * @return {Float} the calculated base rate
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
@@ -2525,7 +2524,13 @@
       }
 
       /**
-       * 
+       * Calculate the employee CEWS amount with the p1-4 formula
+       *
+       * @param {Boolean} armsLength whether the employee is at arms length
+       * @param {Int} weeklyRemun the employees weekly pay being calculated
+       * @param {Int} baselineRemun the employees baseline pre-crisis pay
+       *
+       * @return {Int} the calculated weekly CEWS amount 
        */
       function oldFormula(armsLength, weeklyRemun, baselineRemun) {
         if (armsLength) {
@@ -2539,7 +2544,14 @@
       }
 
       /**
-       * 
+       * Calculate the employee cews amount with the P5+ formula
+       *
+       * @param {Boolean} armsLength whether the employee is at arms length
+       * @param {Int} weeklyRemun the employees weekly pay being calculated
+       * @param {Int} baselineRemun the employees baseline pre-crisis pay
+       * @param {String} overall the overall CEWS rate 
+       *  
+       * @return {Int} the calculated weekly CEWS amount    
        */
       function newFormula(armsLength, weeklyRemun, baselineRemun, overall) {
         if (armsLength) {
@@ -2555,10 +2567,6 @@
       wb.add(selector);
     })(jQuery, window, wb);
     $(document).on("wb-ready.wb", function () {
-      //allow wet4 to initialize on these fields then hide them. This solves the issue where the input fields still use periods ('.') rather than commas (',') in french
-      /**
-       * 
-       */
       $("#rate-reduction").addClass("hidden");
       $("#reduction-percent-panel").addClass("hidden");
     });
