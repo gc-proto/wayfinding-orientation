@@ -1393,7 +1393,1249 @@
     }));
   </script>
   <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+  <script>
+    /**
+     * EmployeeFormGenerator class
+     * used to help creating new employee wage forms based on the chosen pay 
+     * schedule
+     * 
+     */
+    var EmployeeFormGenerator = (function () {
+
+      /**
+       * Constructor
+       * 
+       * @param {Int} paySchedule the numeric value of the chosen pay schedule
+       */
+      function EmployeeFormGenerator(paySchedule) {
+        //the payschedule chosen by the user
+        this.paySchedule = paySchedule;
+        //variables to avoid magic numbers & strings
+        this.prefix = "";
+        this.numberOfEmployees = 1;
+        this.weekly = 1;
+        this.biWeekly = 2;
+        this.templateId = "emp-1";
+        this.armsLengthId = "arms-";
+        this.baselineId = "baseline-"
+        this.employeeNumberClass = "employeeNumber";
+        this.removeablePanelClass = "extra-emp-pnl";
+        this.currencyPlaceholderValue = "$0";
+        this.weeklySummaryBaseClass = "emp-wkly-wage-1";
+        this.weeklySummaryClass = "emp-wkly-wage-";
+        this.employeeIndexRegex = /-1$/g;
+        this.prefix = this.weeklyPrefix
+      }
+
+      /**
+       * generateNewEmployeeForm
+       * 
+       * function called to run the routine to generate the new form
+       * 
+       * @param {Int} numEmps the number of employee panels currently on the 
+       * page
+       * 
+       * @return {DOMDocumentFragment} the cloned template with ID's and other 
+       * attributes updated for use in as a new employee wage form
+       */
+      EmployeeFormGenerator.prototype.generateNewEmployeeForm = function (numEmps) {
+        //update number of employee frames
+        this.numberOfEmployees = numEmps;
+        //generate another pay form
+        var newForm = this.generateNewForm();
+        return newForm;
+      }
+
+      /**
+       * generateNewForm
+       * 
+
+       * clone the template DOM element and update the required attributes for 
+       * a new employee wage form
+       * 
+       * @calls EmployeeFormGenerator::updateArmsLengthElementId()
+       * @calls EmployeeFormGenerator::updateBaselineWageElementId() to update 
+       * the baseline wage element
+       * @calls EmployeeFormGenerator::setUpdatesAndUpdatedByData() to update 
+       * the data-updates and data-update-by attributes
+       * @calls EmployeeFormGenerator::updateInputs() to update the input fields
+       * @calls EmployeeFormGenerator::updateTableIds() to update the summary 
+       * table cells
+       * @calls EmployeeFormGenerator::openAccordion() to open all accordion 
+       * elements
+       *
+       * @return {DOMDocumentFragment} the update DOM fragment to be used as 
+       * the new employee wage form
+       */
+      EmployeeFormGenerator.prototype.generateNewForm = function () {
+        var frag = $("#" + this.templateId).clone();
+        //update the frame id
+        $(frag).attr("id", $(frag).attr("id").replace("-1", "-" + this.numberOfEmployees));
+        //add class that will be used to identify panels to remove when the selected pay schedule is changed
+        $(frag).addClass(this.removeablePanelClass);
+        //update the employee number text
+        var numEmps = this.numberOfEmployees;
+        $(frag).find("." + this.employeeNumberClass).each(function (e, element) {
+          $(element).text(numEmps);
+        });
+        //add the aria-live=polite attr for screen readers
+        $(frag).attr("aria-live", "polite");
+        //update the DOM fragment
+        this.updateArmsLengthElementId(frag);
+        this.updateBaselineWageElementId(frag);
+        this.setUpdatesAndUpdatedByData(frag);
+        this.updateInputs(frag);
+        this.updateTableIds(frag);
+        this.openAccordion(frag);
+        return frag;
+      }
+
+      /**
+       * updateArmsLengthElementId
+       * 
+       * update the arms length dropdown element
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+      EmployeeFormGenerator.prototype.updateArmsLengthElementId = function (frag) {
+        var armsLengthElement = $(frag).find(
+          "#" + this.armsLengthId + "1"
+        );
+        $(armsLengthElement).attr("id", $(armsLengthElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
+        $(armsLengthElement).first("option").attr("selected", true);
+      }
+
+      /**
+       * updateBaselineWageElementId
+       * 
+       * update the baseline wage input id and reset the value
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+      EmployeeFormGenerator.prototype.updateBaselineWageElementId = function (frag) {
+        var baselineWageElement = $(frag).find(
+          "#" + this.baselineId + "1"
+        );
+        $(baselineWageElement).attr("id", $(baselineWageElement).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
+        $(baselineWageElement).val("");
+      }
+
+      /**
+       * updateInputs
+       * 
+       * update the id, class, and value for the new inputs. also update the 
+       * label 'for' value with the new input id
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+      EmployeeFormGenerator.prototype.updateInputs = function (frag) {
+        var inputs = $(frag).find("input[id$='-1']");
+        var numEmps = this.numberOfEmployees;
+        var weeklyBaseClass = this.weeklySummaryBaseClass;
+        var weeklyClass = this.weeklySummaryClass;
+        var indexRegex = this.employeeIndexRegex;
+        $(inputs).each(function (i, element) {
+          if ($(element).is(":checkbox")) {
+            $(element).prop("checked", false);
+          } else if ($(element).attr("type", "text")) {
+            $(element).val("");
+          }
+          //need to get the label for each of these elements and update the 'for' attr
+          var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
+          $(element).attr(
+            "id",
+            $(element).attr("id").replace(indexRegex, "-" + numEmps)
+          );
+          $(label).attr(
+            "for",
+            $(label).attr("for").replace(indexRegex, "-" + numEmps)
+          );
+          //update the class that drives employee wage summary 
+          if ($(element).hasClass(weeklyBaseClass)) {
+            $(element).removeClass(weeklyBaseClass);
+            $(element).addClass(weeklyClass + numEmps);
+          }
+        });
+      }
+
+      /**
+       * setUpdatesAndUpdatedByData
+       * 
+       * increment the date-updates and data-updated-by value so the 
+       * appropriate summary table is updated
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+       EmployeeFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
+        var updateElements = $(frag).find("*[data-updates$='-1']");
+        var updatedByElements = $(frag).find("*[data-updated-by$='-1']");
+        var numEmps = this.numberOfEmployees;
+        var indexRegex = this.employeeIndexRegex;
+        $(updateElements).each(function (i, element) {
+          var newval = $(element).data("updates").replace(indexRegex, "-" + numEmps);
+          $(element).attr("data-updates", newval);
+        });
+        $(updatedByElements).each(function (i, element) {
+          var newval = $(element).data("updated-by").replace(indexRegex, "-" + numEmps)
+          $(element).attr("data-updated-by", newval);
+        });
+      }
+
+      /**
+       * updateTableIds
+       * 
+       * update table cell id and values required for employee wage summary
+       * 
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+      EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
+        var tds = $(frag).find("td[id$='-amt-1']");
+        var totalCell = $(frag).find("td[id$='ttl-1']");
+        var numEmps = this.numberOfEmployees;
+        var currencyPlaceholderValue = this.currencyPlaceholderValue;
+        var indexRegex = this.employeeIndexRegex;
+        $(tds).each(function (i, element) {
+          $(element).attr(
+            "id",
+            $(element).attr("id").replace(indexRegex, "-" + numEmps)
+          );
+          $(element).text(currencyPlaceholderValue);
+        });
+        $(totalCell).attr(
+          "id",
+          $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
+        );
+        $(totalCell).text(currencyPlaceholderValue);
+      }
+
+      /**
+       * openAccordion
+       *
+       * open all open accordions
+       *
+       * @param {DOMDocumentFragment} frag the cloned template
+       */
+      EmployeeFormGenerator.prototype.openAccordion = function(frag) {
+        var accordion = $(frag).find("details").each(function (i, element) {
+          $(element).attr("open", "open");
+        });
+      }
  
+      return EmployeeFormGenerator;
+    })();
+
+  </script>
+  <script>
+    (function ($, window, wb) {
+      "use strict";
+      /*
+      * Variable and function definitions.
+      * These are global to the plugin - meaning that they will be initialized once per page,
+      * not once per instance of plugin on the page. So, this is a good place to define
+      * variables that are common to all instances of the plugin on a page.
+      */
+      // function that should be moved as a helper class or something
+      const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+        style: "currency",
+        currency: "CAD",
+        minimumFractionDigits: 2
+      });
+      var employeeFormGenerator = new EmployeeFormGenerator();
+      var componentName = "wb-calc",
+        selector = "." + componentName,
+        initEvent = "wb-init" + selector,
+        $document = wb.doc,
+        defaults = {},
+        sep = {
+          iso: {
+            en: "--",
+            fr: "--"
+          },
+          claim: {
+            en: " to ",
+            fr: " au "
+          }
+        },
+        /**
+         * @method init
+         * @param {jQuery Event} event Event that triggered the function call
+         */
+        init = function (event) {
+          // Start initialization
+          // returns DOM object = proceed with init
+          // returns undefined = do not proceed with init (e.g., already initialized)
+
+          var elm = wb.init(event, componentName, selector),
+            $elm,
+            settings;
+
+          if (elm) {
+            $elm = $(elm);
+            // ... Do the plugin initialisation
+            // Get the plugin JSON configuration set on attribute data-wb-helloworld
+            settings = $.extend(
+              true,
+              {},
+              defaults,
+              window[componentName],
+              wb.getData($elm, componentName)
+            );
+
+            // Call my custom event
+            $elm.trigger("change", settings);
+            // Identify that initialization has completed
+            wb.ready($elm, componentName);
+          }
+        };
+
+      // Plugin event handlers
+      $document.on("change", "input", function (event) {
+        var elm = event.currentTarget,
+          $elm = $(elm),
+          $elmId = $elm.attr("id"),
+          data = wb.getData($("output[for='" + $elmId + "']"), componentName),
+          value = $elm.val().replace(/\,\s/g, ''), // Needs to be replaced by data.expr evaluation
+          total = 0;
+
+        if (data.expr) {
+          if (data.format === "currency") {
+            //convert the first one to a period, any commas after that are strictly removed.
+            value = value.replace(/,*/gm, "");
+            //remove all spaces
+            value = value.replace(/\s*/gm, "");
+            //replace all $ signs
+            value = value.replace(/\$*/gm, "");
+            if (!parseFloat(value)) {
+              return;
+            } else {
+              $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
+            }
+          } else {
+            $("output[for='" + $elmId + "']").html(value * 1);
+          };
+        }
+
+        total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        if (total < 0) {
+          $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
+        } else {
+          $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(total));
+        };
+      });
+
+      $document.on("change", selector, function (event, data) {
+        var elm = event.currentTarget,
+          $elm = $(elm),
+          $input = $("#" + $elm.attr("for")),
+          value = $input.val();
+
+        if (data && data.format === "currency") {
+          $elm.html(toMoney.format(value * 1));
+        } else {
+          $elm.html(value * 1);
+        };
+        $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
+      });
+      
+      
+      $document.on("change", "#claim-period", function (event) {
+        var rangeISO = $(this).find('option:selected').val(),
+          startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
+          endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
+          rangeClaim = $(this).find("option:selected").text(),
+          startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
+          endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
+
+        if (!$("#claim-period option:selected:eq(0)")) {
+          $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
+        } else {
+          $('.claim-period').html($("#claim-period option:selected").text());
+        }
+        //show/hide elements based on chosen claim period
+        //if p5+; else if  p1-4; else 'select'
+        if (
+          parseInt($("#claim-period option:selected").data("claim-period")) >= 5
+        ) {
+          $("#rate-reduction").removeClass("hidden");
+          $(".emp-lv").removeClass("hidden");
+          $("#p4-tws").prop("readonly", true);
+          $("#p4-tws").val("0.00");
+          $("#p4-tws-disclaimer").removeClass("hidden");
+          $("#cal-sprdsht-p1-4").addClass("hidden");
+          $("#cal-sprdsht-none").addClass("hidden");
+          $("#cal-sprsht-p5").removeClass("hidden");
+          $(".p59").removeClass("hidden");
+          $(".p14").addClass("hidden");
+        } else if (
+          parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
+          parseInt($("#claim-period option:selected").data("claim-period")) < 5 
+        ){
+          $("#cal-sprdsht-p1-4").removeClass("hidden");
+          $("#cal-sprsht-p5").addClass("hidden");
+          $("#rate-reduction").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
+          $("#p4-tws").prop("readonly", false);
+          $("#p4-tws-disclaimer").addClass("hidden");
+          $(".p14").removeClass("hidden");
+          $(".p59").addClass("hidden");
+          $("#cal-sprdsht-none").addClass("hidden");
+        } else {
+          $("#rate-reduction").addClass("hidden");
+          $(".emp-lv").addClass("hidden");
+          $("#p4-tws").prop("readonly", false);
+          $("#p4-tws-disclaimer").addClass("hidden");
+          $(".p59").addClass("hidden");
+          $(".p14").removeClass("hidden");
+        }
+      });
+
+      // when the submit button is clicked
+      $document.on("click", "#calculate", function (event) {
+        event.preventDefault();
+        //remove the required attribute in all hidden elements
+        $("[required]:hidden").each(function(i ,element) {
+          $(element).removeAttr("required");
+        });
+        var count = 0,
+          $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+          $emptyElms = [];
+        //find all required fields that were left empty
+        for (let i = 0; i < $($elms).length; i++) {
+          var $elm = $($elms).eq(i);
+          if ($elm.val() == "") {
+            $emptyElms.push($elm);
+            count++;
+          }
+        }
+        //if WET4 already has errors, scroll to those
+        if ($("#errors-default")[0]) {
+          $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+        //scroll to the FIRST element that failed custom validation
+        } else if ($emptyElms[0]) {
+          $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+          console.debug($emptyElms);
+        //validation passed, show the results
+        } else {
+          $("#results").removeClass("hidden");
+        }
+      });
+
+
+      
+
+      /**
+       * update the employee wage summary
+       */
+      var numEmployeePanels = 1;
+      $document.on("blur", "*[data-updates]", function (event) {
+        var target = event.target;
+        var parts = target.id.split("-");
+        var employeeNumber = parts[parts.length - 1];
+        var unformattedValue = target.value.replace("$", "");
+        //determine if this employee is eligible for cews
+        if (unformattedValue == "0") {
+          if (!checkEmployeeEligibility(target)) {
+            $("#emp-smry-" + employeeNumber).addClass("hidden");
+            $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
+            var updatedByElements = $("*[data-updated-by='" + target.id + "']");
+            $(updatedByElements).each(function (i, element) {
+              $(element).text(toMoney.format(0.00));
+            });
+            return;
+          }
+        }
+        var updateTarget = $("#" + $(target).attr("data-updates"));
+        //if the target is a select element, capitalize the first letter then update the target
+        if (target.nodeName == 'SELECT') {
+          var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
+          $(updateTarget).text(formattedVal);
+        } else if ($(target).is(":checkbox")) {
+          return;
+        //target was an input type=text
+        } else {
+          var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
+          var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
+          //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
+          var parts = target.id.match(/(wk)(one|two|three|four)-/g);
+          if (!parts) {
+            return;
+          }
+          var weekNumber = parts[0];
+          var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
+          //get the weekly cews; if it's not an int or float, use 0
+          var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(unformattedValue), paidLeave);
+          if (!isInt(weeklyCews) && !isFloat(weeklyCews)) {
+            weeklyCews = 0;
+          }
+          //format and update the targets using localized currency format
+          var formattedVal = toMoney.format(weeklyCews);
+          $(updateTarget).text(formattedVal);
+          var updatedByElements = $("*[data-updated-by='" + target.id + "']");
+          $(updatedByElements).each(function (i, element) {
+            $(element).text(toMoney.format(unformattedValue));
+          });
+          //update the total
+          if ($(updateTarget).data("updates")) {
+            /*
+              update the target to the total column and get all elements that make up the total
+            */
+            updateTarget = $("#" + $(updateTarget).attr("data-updates"));
+            //get the total cews
+            var employeeCews = getEmployeeCews(employeeNumber, baselineWage);
+            var formattedTotal = toMoney.format(employeeCews);
+            $(updateTarget).text(formattedTotal);
+          }
+        }
+      });
+
+      //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
+      function isInt(n){
+        return Number(n) === n && n % 1 === 0;
+      }
+      function isFloat(n){
+        return Number(n) === n && n % 1 !== 0;
+      }
+
+      /**
+       * getEmployeeCews()
+       * 
+       * get the cews total for an employee 
+       * 
+       * @param {Int} employeeNumber The employee panel number
+       * @param {String} baselineWage The employees baseline pre-crisis wage
+       *
+       * @return {Float} Total calculated cews for this employee || 0 if not 
+       * all data was entered
+       */
+      function getEmployeeCews(employeeNumber, baselineWage) {
+        var armsLength = $("#arms-" + employeeNumber).val() == "Yes" || $("#arms-" + employeeNumber).val() == "Oui" ? true : false;
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
+        var weekOnePaidLeave = $("#wkone-cb-" + employeeNumber).is(":checked");
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
+        var weekTwoPaidLeave = $("#wktwo-cb-" + employeeNumber).is(":checked");
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekThreePaidLeave = $("#wkthree-cb-" + employeeNumber).is(":checked");
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
+        var weekFourPaidLeave = $("#wkfour-cb-" + employeeNumber).is(":checked");
+        var weekOneCews = getWeeklyCEWS(armsLength, baselineWage, weekone, weekOnePaidLeave);
+        var weekTwoCews = getWeeklyCEWS(armsLength, baselineWage, weektwo, weekTwoPaidLeave);
+        var weekThreeCews = getWeeklyCEWS(armsLength, baselineWage, weekthree, weekThreePaidLeave);
+        var weekFourCews = getWeeklyCEWS(armsLength, baselineWage, weekfour, weekFourPaidLeave);
+        if (
+          isNaN(weekOneCews) ||
+          isNaN(weekTwoCews) ||
+          isNaN(weekThreeCews) ||
+          isNaN(weekFourCews)
+        ) {
+          return 0;
+        }
+        return parseFloat(weekOneCews + weekTwoCews + weekThreeCews + weekFourCews);
+      }
+
+      /**
+       * getEmployeeTotalWages
+       * 
+       * get the total wages paid for the given employee number
+       *
+       * @param {Int} employeeNumber The employee panel number 
+       * 
+       * @return {Float} The total wage paid for 4 weeks 
+       */
+      function getEmployeeTotalWages(employeeNumber) {
+        var weekone = zeroIfEmpty($('#wkone-' + employeeNumber).val());
+        var weektwo = zeroIfEmpty($('#wktwo-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekthree = zeroIfEmpty($('#wkthree-' + employeeNumber).val());
+        var weekfour = zeroIfEmpty($('#wkfour-' + employeeNumber).val());
+        return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
+      }
+
+      /**
+       * calculate the total wages/total cews when the summary table is opened
+       */
+      $(document).on("click", "#showEmpTable", function(event) {
+        calculateTotals();
+      });
+      function calculateTotals() {
+        var totalWagesPaid = 0;
+        var cews = 0;
+        $("#dataset-filter > tbody > tr").each(function (i, element) {
+          var eligibility = true;
+          //determine the eligibility
+          if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
+            eligibility = false;
+          }
+          //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
+          var baselineWage = $("#baseline-" + (i + 1)).val();
+          if (baselineWage == "") {
+            $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
+          } else {
+            baselineWage = parseFloat(baselineWage);
+          }
+          $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
+          //show the arms length value
+          $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
+          var totalCell = $("#emp-ttl-" + (i + 1));
+          if (eligibility) {
+            var employeeCews = zeroIfEmpty(getEmployeeCews((i + 1), baselineWage));
+            cews += employeeCews;
+            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages((i + 1)));
+            var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
+            $("#emp-ttl-" + (i + 1)).text(employeeCews);
+            $(totalCell).html(formattedTotal);
+          } else {
+            $(totalCell).html(toMoney.format(0.00));
+          }
+        });
+        $(".total").html(toMoney.format(cews));
+        $(".total").attr("data-total-cews", cews.toFixed(2));
+        $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
+      }
+
+      /**
+       * getWeeklyCEWS
+       * 
+       * determine the weekly cews amount based on claim period
+       *
+       * @param {Boolean} armsLength Whether the employee is at arms length
+       * @param {String} baselineAmount The employees baseline pay pre-crisis
+       * @param {String} weeklyAmount The weekly wage value
+       * @param {Boolean} paidLeave Whether the employee was on paid leave for 
+       * the week being calculated
+       * 
+       * @return {Int} The calculated weekly cews amount || 0 if no claim 
+       * period is chosen
+       */
+      function getWeeklyCEWS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
+        var period = parseInt($("#claim-period option:selected").data("claim-period"));
+        switch (true) {
+          //period 1-4
+          case (period < 5):
+            return oldFormula(armsLength, weeklyAmount, baselineAmount)
+            break;
+          // period 5-7
+          case (period < 8): 
+            if (paidLeave) {
+              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+            } else {
+              if (cewsRate == 0) { 
+                return 0;
+              } else if (revReduction > 0.3) {
+                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate));
+              } else {
+                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+              }
+            }
+            break;
+          //period 7+
+          case (period > 7):
+            if (paidLeave) {
+              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+            } else {
+              return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate))
+            }
+            break;
+          default:
+            return 0;
+        }
+      }
+      /**
+       * 
+       * determine if an employee has been paid $0 for two consecutive pays
+       */
+      function checkEmployeeEligibility(element) {
+        //get all inputs for this employees weekly wages
+        var classname = element.className.match(/emp-wkly-wage-\d/g);
+        if (classname == "") {
+          return;
+        }
+        //put employee on notice on first 0 value found; if another 0 value is found while on notice, the employee is not eligible for this claim period
+        var onNotice = false;
+        var eligibility = true;
+          $("." + classname).each(function(i, element) {
+            if (onNotice && parseFloat($(element).val()) == 0) {
+              eligibility = false;
+            } else if (parseFloat($(element).val()) == 0) {
+              onNotice = true;
+            }
+        });
+        return eligibility;
+      }
+
+      /**
+       * add a new employee form  
+       */
+      $("#addemp").on("click", addEmp);
+      $("#addemp").on("keypress", addEmp);
+      function addEmp() {
+        numEmployeePanels++;
+        var frag = employeeFormGenerator.generateNewEmployeeForm(
+          numEmployeePanels
+        );
+        //create new row for the calculation table
+        var row = document.createElement("tr");
+        row.id = "emp" + numEmployeePanels;
+        //create the employee 'name' cell
+        var eligibleEmployeeCell = document.createElement("td");
+        eligibleEmployeeCell.innerHTML = "Employee " + numEmployeePanels;
+        // create the arms length cell 
+        var armsLengthCell = document.createElement("td");
+        armsLengthCell.id = "emp-arms-" + numEmployeePanels;
+        //create the cell for the baseline wage
+        var baselineCell = document.createElement("td");
+        baselineCell.id = "emp-base-" + numEmployeePanels;
+        //create cells for each wage entry
+        var weeklyWageCells = [];
+        for (var i = 0; i < 4; i++) {
+          weeklyWageCells[i] = document.createElement("td");
+        }
+        //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
+        $(weeklyWageCells[0]).attr(
+          "data-updated-by",
+          "wkone-" + numEmployeePanels
+        );
+        $(weeklyWageCells[1]).attr(
+          "data-updated-by",
+          "wktwo-" + numEmployeePanels
+        );
+        $(weeklyWageCells[2]).attr(
+          "data-updated-by",
+          "wkthree-" + numEmployeePanels
+        );
+        $(weeklyWageCells[3]).attr(
+          "data-updated-by",
+          "wkfour-" + numEmployeePanels
+        );
+        //create the total cell
+        var totalCell = document.createElement("td");
+        totalCell.id = "emp-ttl-" + numEmployeePanels;
+        //put the row together
+        row.appendChild(eligibleEmployeeCell);
+        row.appendChild(armsLengthCell);
+        row.appendChild(baselineCell);
+        $(weeklyWageCells).each(function (i, element) {
+          row.appendChild(weeklyWageCells[i]);
+        });
+        //add the row to the table
+        row.appendChild(totalCell);
+        $("#dataset-filter > tbody").append(row);
+        $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
+        $("#emp-" + numEmployeePanels).focus();
+        document.getElementById("emp-" + numEmployeePanels).scrollIntoView({
+            behavior: 'smooth'
+        });
+      }
+
+      /**
+       * calculate the cews rate reductions
+       */
+       var revReduction = 0;
+       var topUpRate = 0;
+       var cewsRate = 0;
+       var baseRate = 0;
+       var threeMonthReduction = 0;
+      $document.on("blur", ".cews-rate-calc", function (event) {
+        var revReduction = 0;
+       var topUpRate = 0;
+       var cewsRate = 0;
+       var baseRate = 0;
+       var threeMonthReduction = 0;
+        var cewsRateElements = $('.cews-rate-calc');
+        var month = getClaimMonth($("#claim-period").val());
+        //find the claim month based on the chosen claim period
+        var claimMonth = new Date(
+          "2020-" + month + '-01'
+        ).getUTCMonth();
+        var prevClaimMonth = claimMonth - 1;
+        if (
+            (
+              parseFloat($("#2019-0" + claimMonth + "-no").val()) > 0 || parseFloat($("#2019-0" + prevClaimMonth + "-no").val()) > 0
+            ) &&
+            (
+              parseFloat($("#2019-04-no").val()) > 0 || 
+              parseFloat($("#2019-05-no").val()) > 0 ||
+              parseFloat($("#2019-06-no").val()) > 0
+            )
+        ) {
+          //get the value of the claim month
+          var claimMonth2020Value = zeroIfEmpty($("#2020-0" + claimMonth + "-no").val());
+          var claimMonth2019Value = zeroIfEmpty($("#2019-0" + claimMonth + "-no").val());
+          //get the previous month from the claim month
+          
+          //get the value of the previous month
+          var prevClaim2020Value = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-no").val());
+          var prevClaim2019Value = zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val());
+          //get the avg of the revenue from apr-june2020
+          var april2020Val = zeroIfEmpty($("#2020-04-no").val());
+          var may2020Val = zeroIfEmpty($("#2020-05-no").val());
+          var june2020Val = zeroIfEmpty($("#2020-06-no").val());
+          var threeMonthAvg2020 = (april2020Val + may2020Val + june2020Val) / 3;
+          //get the avg of the revenue from apr-june2019
+          var april2019Val = zeroIfEmpty($("#2019-04-no").val());
+          var may2019Val = zeroIfEmpty($("#2019-05-no").val());
+          var june2019Val = zeroIfEmpty($("#2019-06-no").val());
+          var threeMonthAvg2019 = (april2019Val + may2019Val + june2019Val) / 3;
+          //get the rate reduction from the three month average
+          threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
+          //get the revenue reduction from claim/prev claim months from 2020 and 2019
+          if (claimMonth2019Value == 0) {
+            revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
+          } else if (prevClaim2019Value == 0) {
+            revReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+          } else {
+            revReduction = Math.max(
+              (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
+              (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
+            );
+          }
+          //get the base rate
+          baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
+          //get the top-up rate
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+          //calculate the overall rate
+          cewsRate = (baseRate + topUpRate).toFixed(4);
+          if (cewsRate < 0.1) {
+            $("#employees").addClass("hidden");
+          }
+          if (cewsRate < 0.75 && revReduction >= 0.3) { 
+            //if safe harbour applies
+            cewsRate = 0.75;
+            $("#rate-reduction").addClass("hidden");
+            $(".safe-harbour-show").removeClass("hidden");
+            $(".safe-harbour-hide").addClass("hidden");
+          } else {
+            //if safe harbour doesn't apply
+            $(".safe-harbour-show").addClass("hidden");
+            $(".safe-harbour-hide").removeClass("hidden");
+            //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+            $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
+            $(".base-rate").text(roundPercDown(baseRate) + "%");
+          }
+          $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
+          $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
+          $("#cews-rate").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#employees").removeClass("hidden");
+        } else {
+          //if it can't compute because of 0 values, then reset calculation summary to 0
+          $(".top-up-rate").text("0%");
+          $(".base-rate").text("0%");
+          $(".rev-drop-top-up").text("0%");
+          $(".rev-reduc-base").text("0%");
+          $("#cews-rate").text("0%");
+        }
+      });
+
+      /**
+       * calculate the cews rate reductions with alternate baseline
+       */
+      $document.on("blur", ".cews-rate-calc-alt", function (event) {
+        var revReduction = 0;
+       var topUpRate = 0;
+       var cewsRate = 0;
+       var baseRate = 0;
+       var threeMonthReduction = 0;
+        var cewsRateElements = $('.cews-rate-calc-alt');
+        var janRev = zeroIfEmpty($("#2020-01-yes").val());
+        var febRev = zeroIfEmpty($("#2020-02-yes").val());
+        if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
+          var baseRev = (janRev + febRev) / 2;
+          //find the claim month based on the chosen claim period 
+          var claimMonth = new Date(
+            "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
+          ).getUTCMonth();
+          //get the value of the claim month
+          var claimMonthValue = zeroIfEmpty($("#2020-0" + claimMonth + "-yes").val());
+          //get the previous month from the claim month
+          var prevClaimMonth = claimMonth - 1;
+          //get the value of the previous month
+          var prevClaimValue = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-yes").val());
+          //get the avg of the revenue from apr-june
+          var threeMonthAvg = (zeroIfEmpty($("#2020-04-yes").val()) + zeroIfEmpty($("#2020-05-yes").val()) + zeroIfEmpty($("#2020-06-yes").val())) / 3;
+          //get the rate reduction from the three month average
+          threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+          //get the revenue reduction
+          revReduction = Math.max(
+            (baseRev - claimMonthValue) / baseRev,
+            (baseRev - prevClaimValue) / baseRev
+          );
+          //get the base rate
+          baseRate = parseFloat(
+            Math.max(getP5PlusBaseRate(revReduction), 0)
+          );
+          //get the top-up rate
+          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+          //calculate the overall rate
+          cewsRate = (baseRate + topUpRate).toFixed(4);
+          if (cewsRate < 0.1) {
+            $("#employees").addClass("hidden");
+          }
+          if (cewsRate < 0.75 && revReduction >= 0.3) { 
+            //if safe harbour applies
+            cewsRate = 0.75;
+            $("#rate-reduction").addClass("hidden");
+            $(".safe-harbour-show").removeClass("hidden");
+            $(".safe-harbour-hide").addClass("hidden");
+          } else {
+            //if safe harbour doesn't apply
+            $(".safe-harbour-show").addClass("hidden");
+            $(".safe-harbour-hide").removeClass("hidden");
+            //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+            $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
+            $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
+          }
+          $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+          $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
+          $("#cews-rate-alt").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#employees").removeClass("hidden");
+        } else {
+          //if it can't compute because of 0 values, then reset calculation summary to 0
+          $(".top-up-rate-alt").text("0%");
+          $(".base-rate-alt").text("0%");
+          $(".rev-drop-top-up-alt").text("0%");
+          $(".rev-reduc-alt-base").text("0%");
+          $("#cews-rate-alt").text("0%");
+        }
+      });
+
+      /**
+       * roundPercDown()
+       * round the given percent value to two decimal places
+       */
+      function roundPercDown(perc) {
+        perc = perc * 10000;
+        perc = Math.floor(perc);
+        perc = perc/100;
+        return perc;
+      }
+
+      /**
+       * zeroIfEmpty()
+       * return 0 if the number cannot be parsed into a float; does not account * for letter values.
+       */
+      function zeroIfEmpty(fieldVal) {
+        if (fieldVal != null && fieldVal != "") {
+          return parseFloat(fieldVal);
+        } else {
+          return 0;
+        }
+      }
+
+      //update the employee wages summary when the arms length value is changed
+      $(document).on("change", "select[id^='arms-']", function(event) {
+        //get the employee number
+        var target = event.target;
+        var id = target.id.split('-')[1];
+        //trigger the blur event on all the inputs for the employees wages to recalculate
+        $("#wkone-" + id).blur();
+        $("#wktwo-" + id).blur();
+        $("#wkthree-" + id).blur();
+        $("#wkfour-" + id).blur();
+      });
+      //update the employee wage summary when the baseline value is changed
+      $(document).on("blur", "input[id^='baseline-']", function(event) {
+        //get the employee number
+        var target = event.target;
+        var id = target.id.split('-')[1];
+        //trigger the blur event on all the inputs for the employees wages to recalculate
+        $("#wkone-" + id).blur();
+        $("#wktwo-" + id).blur();
+        $("#wkthree-" + id).blur();
+        $("#wkfour-" + id).blur();
+      });
+
+      /**
+       * run the blur event for the wage input when the corresponding leave 
+       * with pay option is checked
+       */
+      $(document).on("click", ".emp-lv", function (event) {
+        leaveWithPayStateChanged(event);
+      });
+      $(document).on("keypress", ".emp-lv", function (event) {
+        leaveWithPayStateChanged(event);
+      });
+      function leaveWithPayStateChanged(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var target = null;
+        //keypress event will send the checkbox as the event target
+        if (event.target.nodeName == 'INPUT') {
+          target = $("label[for='" + event.target.id + "']");
+        } else {
+          target = event.target;
+        }
+        var forValue = $(target).attr("for");
+        $("#" + forValue).prop("checked", !$("#" + forValue).prop("checked"));
+        var parts = forValue.split('-');
+        var wageInputId = parts[0] + '-' + parts[2];
+        $("#" + wageInputId).blur();
+      }
+
+      //send data to fields in 2B
+      $(document).on("click", "#transfer-data", function(event) {
+        calculateTotals();
+        if ($("#claim-period option:selected").data("claim-period") >= 5) {
+          var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
+          var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
+          //eligible active employees
+          $("#p2c-ee-alt1").val(eligibleEmps);
+          $("#p2c-ee-alt1").trigger("change");
+          //get eligible furloughed employees
+          $("#p2c-ee-alt2").val(numEmployeePanels - eligibleEmps);
+          $("#p2c-ee-alt2").trigger("change");
+          var totalWages = $(".total").attr("data-total-wages");
+          $("#p2c-pyrl").val(totalWages);
+          $("#p2c-pyrl").trigger("change");
+          var totalCews = $(".total").attr("data-total-cews");
+          $("#p2c-cews").val(totalCews);
+          $("#p2c-cews").trigger("change");
+          $("#p2b-c1").val(roundPercDown(revReduction));
+          $("output[for='p2b-c1']").text(roundPercDown(revReduction) + "%");
+          $("#p2b-c2").val(roundPercDown(threeMonthReduction));
+          $("output[for='p2b-c2']").text(roundPercDown(threeMonthReduction) + "%");
+          $("#p2b-c3").val(roundPercDown(cewsRate));
+          $("output[for='p2b-c3']").text(roundPercDown(cewsRate) + "%");
+        } else {
+          $("#p2c-ee").val(numEmployeePanels);
+          $("#p2c-ee").trigger("change");
+          var totalWages = $(".total").attr("data-total-wages");
+          $("#p2c-pyrl").val(totalWages);
+          $("#p2c-pyrl").trigger("change");
+          var totalCews = $(".total").attr("data-total-cews");
+          $("#p2c-cews").val(totalCews);
+          $("#p2c-cews").trigger("change");
+        }
+        
+      });
+      
+      //update percentage summary elements in 2B 
+      $(document).on("blur", "#p2b-c1", function(event) {
+        $("output[for='p2b-c1']").text(parseInt(event.target.value) + "%");
+      });
+      $(document).on("blur", "#p2b-c2", function(event) {
+        $("output[for='p2b-c2']").text(parseInt(event.target.value) + "%");
+      }); 
+      $(document).on("blur", "#p2b-c3", function(event) {
+        $("output[for='p2b-c3']").text(parseInt(event.target.value) + "%");
+      });
+
+
+      /**
+       * getClaimMonth()
+       * 
+       * get the month where the claim period mostly falls
+       * 
+       * 
+       * 
+       * @param {Int} dateRange the claim period dates in 
+       * YYYY-MM-DD--YYYY--MM-DD format
+       * 
+       * @return {Int} the claim month in numeric form 
+       */
+      function getClaimMonth(dateRange) {
+        var dates = dateRange.split('--');
+        var date1Arr = dates[0].split("-");
+        var date2Arr = dates[1].split("-");
+        var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1], date1Arr[2]));
+        var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1], date2Arr[2]));
+        var date1Counter = 0;
+        var date1Month = date1.getUTCMonth();
+        var date2Counter = 0;
+        var date2Month = date2.getUTCMonth();
+        if (date1Month == date2Month) {
+          return date1Month;
+        }
+        while (date1Month == date1.getUTCMonth()) {
+          date1Counter++;
+          date1.setUTCDate(date1.getUTCDate() + 1);
+        }
+        while (date2Month == date2.getUTCMonth()) {
+          date2Counter++;
+          date2.setUTCDate(date2.getUTCDate() - 1);
+        }
+        if (parseInt(date1Counter) < parseInt(date2Counter)) {
+          return date2Month + 1;
+        } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
+          return date1Month + 1;
+        } else {
+          return null;
+        }
+      }
+
+      /**
+       * 
+       */
+      function getP5PlusTopUpRate(reduction) {
+        if (1.25 * (reduction - 0.5) > 0.25) {
+          return 0.25;
+        } else {
+          return 1.25 * (reduction - 0.5);
+        }
+      }
+
+      /**
+       * 
+       */
+      function getP5PlusBaseRate(revReduction) {
+        //max base and period for P5+
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.4];
+        var period = $("#claim-period option:selected").data("claim-period");
+        if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
+          return maxBase[period - 5];
+        } else {
+          return scaleBase[period - 5] * revReduction;
+        }
+      }
+
+      /**
+       * 
+       */
+      function oldFormula(armsLength, weeklyRemun, baselineRemun) {
+        if (armsLength) {
+          return Math.max(
+            Math.min(0.75 * weeklyRemun, 847),
+            Math.min(0.75 * baselineRemun, weeklyRemun, 847)
+          );
+        } else {
+          return Math.max(0, Math.min(847, weeklyRemun, baselineRemun * 0.75));
+        }
+      }
+
+      /**
+       * 
+       */
+      function newFormula(armsLength, weeklyRemun, baselineRemun, overall) {
+        if (armsLength) {
+          return Math.min(1129, weeklyRemun) * overall;
+        } else {
+          return Math.min(1129, weeklyRemun, baselineRemun) * overall;
+        }
+      }
+      
+      // Bind the init event of the plugin
+      $document.on("timerpoke.wb " + initEvent, selector, init);
+      // Add the timer poke to initialize the plugin
+      wb.add(selector);
+    })(jQuery, window, wb);
+    $(document).on("wb-ready.wb", function () {
+      //allow wet4 to initialize on these fields then hide them. This solves the issue where the input fields still use periods ('.') rather than commas (',') in french
+      /**
+       * 
+       */
+      $("#rate-reduction").addClass("hidden");
+      $("#reduction-percent-panel").addClass("hidden");
+    });
+           // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
+
+
+    //fix for duplicated popup trigger
+    $(document).on("click", ".arms-length-def", function(event) {
+      showPopup("armslength");
+    });
+    $(document).on("click", ".baseline-rem-def", function(event) {
+      showPopup("baseline-rem");
+    });
+    $(document).on("click", ".pay-claim-def", function(event) {
+      showPopup("pay-claim");
+    });
+    $(document).on("click", ".toCSV", function(event) {
+      export_table_to_csv("employee-cews.csv");
+    });
+
+    /**
+     * export_table_to_csv
+     * https://jsfiddle.net/gengns/j1jm2tjx/
+     */
+    function export_table_to_csv(filename) {
+      var csv = [];
+      var rows = $("#dataset-filter tr");
+      for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+      
+        for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText.replace(",", ""));
+            
+        csv.push(row.join(","));		
+      }
+      // Download CSV
+      download_csv(csv.join("\n"), filename);
+    }
+    /**
+     * download_csv
+     * https://jsfiddle.net/gengns/j1jm2tjx/
+     */
+    function download_csv(csv, filename) {
+      var csvFile;
+      var downloadLink;
+
+      // CSV FILE
+      csvFile = new Blob([csv], {type: "text/csv"});
+
+      // Download link
+      downloadLink = document.createElement("a");
+
+      // File name
+      downloadLink.download = filename;
+
+      // We have to create a link to the file
+      downloadLink.href = window.URL.createObjectURL(csvFile);
+
+      // Make sure that the link is not displayed
+      downloadLink.style.display = "none";
+
+      // Add the link to your DOM
+      document.body.appendChild(downloadLink);
+
+      // Lanzamos
+      downloadLink.click();
+    }
+    
+    function toUnformattedNumber(formattedNumber) {
+      var formattedVal = formattedNumber;
+      if (document.documentElement.lang == "fr") {
+        //replace the first (leftmost) comma with a period to denote the decimal place
+        formattedVal = formattedNumber.replace(",", ".");
+      }
+      formattedVal = formattedNumber.replace(/,*/gm, "");
+      //remove all spaces
+      formattedVal = formattedVal.replace(/\s*/gm, "");
+      return formattedVal;
+    }
+
+    /**
+     * required to allow duplicated popup buttons to open the associated popup
+     */
+    function showPopup(id) {
+      (function ($, wb) {
+        'use strict';
+        var $document = wb.doc;
+        $document.trigger("open.wb-lbx", [
+          [
+            {
+              src: "#" + id,
+              type: "inline"
+            }
+          ],
+          false
+        ]);
+      })(jQuery, wb);
+    }
+      
+  </script>
+<script>
+	
+            $(".action-checkbox").change(function(){
+            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+            $("#action-msg1").removeClass("hidden").addClass("visible");
+            $("#action-no-msg").addClass("hidden").removeClass("visible");
+            }
+            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+            $("#action-msg1").addClass("hidden").removeClass("visible");
+            $("#action-no-msg").removeClass("hidden").addClass("visible");
+            }
+            })
+	
+         </script>
 </body>
 
 </html>
