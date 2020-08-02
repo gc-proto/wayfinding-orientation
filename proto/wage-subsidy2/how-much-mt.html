@@ -265,7 +265,7 @@
 					  <li>expect to complete your calculation now</li>
                                   </ul>
                                 </div>
-                                <a href="#cews-cal-opt2" id="show-online-calc" class="btn-cews-cal btn btn-default mrgn-tp-md btn-block"
+                                <a href="#cews-cal-options" id="show-online-calc" class="btn-cews-cal btn btn-default mrgn-tp-md btn-block"
                                   data-wb-doaction='[
 			{ "action": "run", "trggroup": "clearFilter" },
 				{"action": "addClass",
@@ -287,7 +287,7 @@
 					  <li>want to save your calculation and come back to it later</li>
                                   </ul>
                                 </div>
-                                <a href="#cews-cal-opt1" class="btn-cews-cal btn btn-default mrgn-tp-md btn-block"
+                                <a href="#cews-cal-options" class="btn-cews-cal btn btn-default mrgn-tp-md btn-block"
                                   data-wb-doaction='[
 		{ "action": "run", "trggroup": "clearFilter" },	
 		{"action": "removeClass",
@@ -304,7 +304,7 @@
 			     </div>
 			    </div>
                       <div class="mrgn-tp-lg">
-	     
+			      <p class="wb-inv" id="cews-cal-options">Online calculator or spreadsheet</p>    
                         <div id="cews-cal-opt1" class="hidden panel panel-primary panel-body" aria-live="polite">
 				
 				
@@ -454,6 +454,7 @@
                             </p>
                           </details>
                         </div>
+			 
                         <div id="cews-cal-opt2" class="hidden panel panel-primary panel-body" aria-live="polite">
                           <p class="h4 mrgn-tp-0">Online calculator</p>
 				                
@@ -555,18 +556,17 @@
                               </div>
                             </fieldset>
                             <div class="well text-muted mrgn-tp-md">
-                              <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
-                              <ul class="lst-spcd  small">
-                               
-                                    <li>Y<span class="safe-harbour-hide">our <strong>base rate</strong> is <strong><span class="h4 base-rate">0%</span></strong> because y</span>our revenue drop for the claim period is <span class="rev-reduc-base">0%</span></li>
-                                    <li>Y<span class="safe-harbour-hide">our <strong>top-up rate</strong> is <strong><span class="h4 top-up-rate">0%</span></strong> because y</span>our three-month average top-up revenue drop is <span class="rev-drop-top-up">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span></li>
-                                  </ul>
-                               <p>Your overall CEWS rate <span class="safe-harbour-hide">(base rate + top-up rate)</span> for this claim period is <span class="h3" id="cews-rate">0%</span></p>
-                                
-                                    <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because the period 1 to 4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</p>
-                                    <!-- <li>Your <strong>current period revenue drop</strong> is <strong><span class="h4 claim-month-rev-reduc">0%</span></strong></li>
-                                    <li>Your prior period revenue drop is <strong><span class="h4 prev-month-rev-reduc">0%</span></strong></li> -->
-                            </div>
+          <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
+          <ul class="lst-spcd  small brdr-bttm">
+            <li>Y<span class="safe-harbour-hide">our base rate is <span class="h4 base-rate">0%</span> because y</span>our <strong>revenue drop for the current period</strong> is <span class="h4 mrgn-tp-sm badge rev-reduc-base">0%</span></li>
+            <li>Y<span class="safe-harbour-hide">our top-up rate is <span class="h4 top-up-rate">0%</span> because y</span>our <strong>three-month average top-up revenue drop</strong> is <span class="rev-drop-top-up h4 mrgn-tp-sm badge">0%<!--average of 3 months 2019 divided by 3 months in 2020, 0 if negative//--></span></li>
+          </ul>
+			
+          <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up rate)</span> for this claim period is <span class="h3 mrgn-tp-sm badge" id="cews-rate">0%</span></p>
+          <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because the period 1 to 4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</p>
+          <!-- <li>Your <strong>current period revenue drop</strong> is <strong><span class="h4 claim-month-rev-reduc">0%</span></strong></li>
+                                    <li>Your prior period revenue drop is <strong><span class="h4 prev-month-rev-reduc">0%</span></strong></li> --> 
+        </div>
                           </div>
                           <div class="hidden" id="alt-bl-yes">
                             <p><strong>Determine your subsidy rate for the claim period</strong></p>
@@ -680,7 +680,7 @@
                                   <div class="form-group row mrgn-tp-lg">
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one</label>
-                                      <div class="input-group"> <span class="input-group-addon">$</span>
+                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                         <input type="number"
                                           class="form-control text-right emp-wkly-wage-1 currency" id="wkone-1"  placeholder="0.00" data-updates="w1-amt-1">
                                       </div>
