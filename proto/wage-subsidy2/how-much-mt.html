@@ -1239,7 +1239,59 @@
             </div>
             </div>
         </div>
-    
+      <table class="table" id="cews-statement-table">
+            <caption>
+              Summary of CEWS claim
+            </caption>
+            <tbody>
+              <tr>
+                <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
+                <td class="text-right nowrap"><output class="h3 wb-calc nowrap" for="p2c-cews"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+                <td class="text-right nowrap">+
+                  <output class="h3 wb-calc nowrap" for="p3-ei"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+                <td class="text-right nowrap">+
+                  <output class="h3 wb-calc nowrap" for="p3-cpp"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
+                    F)</small></th>
+                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+                  <output class="h3 wb-calc nowrap" for="p4-tws"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
+                <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+                  <output class="h3 wb-calc nowrap" for="p4-wsb"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+              <tr class="success">
+                <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
+                <td class="text-right nowrap"><output class="h3 wb-calc nowrap"
+                    for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+                    data-wb-calc="{&quot;expr&quot;: &quot;#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}"></output>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="panel-footer">
+            <p>You are now ready to use these amounts to <a href="how-apply.html">apply for the wage subsidy</a>.</p>
+          </div>
+        </div>
         <nav class="mrgn-bttm-lg mrgn-tp-lg">
           <h3 class="wb-inv">Document navigation</h3>
           <ul class="pager">
