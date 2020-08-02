@@ -2637,18 +2637,6 @@
       downloadLink.click();
     }
     
-    function toUnformattedNumber(formattedNumber) {
-      var formattedVal = formattedNumber;
-      if (document.documentElement.lang == "fr") {
-        //replace the first (leftmost) comma with a period to denote the decimal place
-        formattedVal = formattedNumber.replace(",", ".");
-      }
-      formattedVal = formattedNumber.replace(/,*/gm, "");
-      //remove all spaces
-      formattedVal = formattedVal.replace(/\s*/gm, "");
-      return formattedVal;
-    }
-
     /**
      * required to allow duplicated popup buttons to open the associated popup
      */
