@@ -2196,26 +2196,25 @@
           cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
-          } else {
-            if (cewsRate < 0.75 && revReduction >= 0.3) { 
-              //if safe harbour applies
-              cewsRate = 0.75;
-              $("#rate-reduction").addClass("hidden");
-              $(".safe-harbour-show").removeClass("hidden");
-              $(".safe-harbour-hide").addClass("hidden");
-            } else {
-              //if safe harbour doesn't apply
-              $(".safe-harbour-show").addClass("hidden");
-              $(".safe-harbour-hide").removeClass("hidden");
-              //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-              $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
-              $(".base-rate").text(roundPercDown(baseRate) + "%");
-            }
-            $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
-            $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
-            $("#cews-rate").text(cewsRate * 100 + "%");
-            $("#employees").removeClass("hidden");
           }
+          if (cewsRate < 0.75 && revReduction >= 0.3) { 
+            //if safe harbour applies
+            cewsRate = 0.75;
+            $("#rate-reduction").addClass("hidden");
+            $(".safe-harbour-show").removeClass("hidden");
+            $(".safe-harbour-hide").addClass("hidden");
+          } else {
+            //if safe harbour doesn't apply
+            $(".safe-harbour-show").addClass("hidden");
+            $(".safe-harbour-hide").removeClass("hidden");
+            //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+            $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
+            $(".base-rate").text(roundPercDown(baseRate) + "%");
+          }
+          $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
+          $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
+          $("#cews-rate").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
           $(".top-up-rate").text("0%");
@@ -2269,26 +2268,25 @@
           cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
-          } else {
-            if (cewsRate < 0.75 && revReduction >= 0.3) { 
-              //if safe harbour applies
-              cewsRate = 0.75;
-              $("#rate-reduction").addClass("hidden");
-              $(".safe-harbour-show").removeClass("hidden");
-              $(".safe-harbour-hide").addClass("hidden");
-            } else {
-              //if safe harbour doesn't apply
-              $(".safe-harbour-show").addClass("hidden");
-              $(".safe-harbour-hide").removeClass("hidden");
-              //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-              $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
-              $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
-            }
-            $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
-            $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
-            $("#cews-rate-alt").text(cewsRate * 100 + "%");
-            $("#employees").removeClass("hidden");
           }
+          if (cewsRate < 0.75 && revReduction >= 0.3) { 
+            //if safe harbour applies
+            cewsRate = 0.75;
+            $("#rate-reduction").addClass("hidden");
+            $(".safe-harbour-show").removeClass("hidden");
+            $(".safe-harbour-hide").addClass("hidden");
+          } else {
+            //if safe harbour doesn't apply
+            $(".safe-harbour-show").addClass("hidden");
+            $(".safe-harbour-hide").removeClass("hidden");
+            //update the view and round down base and top up dates to nearest 2 decimals on the percentage
+            $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
+            $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
+          }
+          $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+          $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
+          $("#cews-rate-alt").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
           $(".top-up-rate-alt").text("0%");
