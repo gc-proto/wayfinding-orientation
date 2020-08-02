@@ -2338,15 +2338,10 @@
        * run the blur event for the wage input when the corresponding leave 
        * with pay option is checked
        */
-      $(document).on("click", ".emp-lv", function (event) {
-        leaveWithPayStateChanged(event);
-      });
-      $(document).on("keypress", ".emp-lv", function (event) {
+      $(document).on("click", ".emp-lv > *", function (event) {
         leaveWithPayStateChanged(event);
       });
       function leaveWithPayStateChanged(event) {
-        event.preventDefault();
-        event.stopPropagation();
         var target = null;
         //keypress event will send the checkbox as the event target
         if (event.target.nodeName == 'INPUT') {
@@ -2355,7 +2350,6 @@
           target = event.target;
         }
         var forValue = $(target).attr("for");
-        $("#" + forValue).prop("checked", !$("#" + forValue).prop("checked"));
         var parts = forValue.split('-');
         var wageInputId = parts[0] + '-' + parts[2];
         $("#" + wageInputId).blur();
