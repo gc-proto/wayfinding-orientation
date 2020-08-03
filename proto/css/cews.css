@@ -582,6 +582,11 @@ h1 span.stacked span:nth-child(2) {
 input::placeholder {
    opacity: 0.5;
 }
+/*placholder disappears on focus */
+input:focus::-webkit-input-placeholder {
+	opacity: 0; 
+}
+
 input:focus::placeholder {
 	opacity: 0; 
 }
