@@ -2251,7 +2251,7 @@
           }
           $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
           $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#cews-rate").text(Math.floor(cewsRate * 10000)/100 + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
@@ -2318,7 +2318,7 @@
           }
           $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
           $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate-alt").text(Math.trunc(cewsRate * 10000)/100 + "%");
+          $("#cews-rate-alt").text(Math.floor(cewsRate * 10000)/100 + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
