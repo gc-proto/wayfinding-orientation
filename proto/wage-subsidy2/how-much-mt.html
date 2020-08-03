@@ -2181,7 +2181,7 @@
         var month = getClaimMonth($("#claim-period").val());
         //find the claim month based on the chosen claim period
         var claimMonth = new Date(
-          "2020-" + month + '-01'
+          "2020-0" + month + '-01'
         ).getUTCMonth();
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -2450,8 +2450,6 @@
        * getClaimMonth()
        * 
        * get the month where the claim period mostly falls
-       * 
-       * 
        * 
        * @param {Int} dateRange the claim period dates in 
        * YYYY-MM-DD--YYYY--MM-DD format
