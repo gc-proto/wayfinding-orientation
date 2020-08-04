@@ -2226,6 +2226,7 @@
        * calculate the cews rate reductions
        */
        var revReduction = 0;
+       var claimPeriodRevReduction = 0;
        var topUpRate = 0;
        var cewsRate = 0;
        var baseRate = 0;
@@ -2269,6 +2270,7 @@
           //get the rate reduction from the three month average
           threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
+          claimPeriodRevReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           if (claimMonth2019Value == 0) {
             revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
           } else if (prevClaim2019Value == 0) {
@@ -2339,6 +2341,7 @@
           var threeMonthAvg = (zeroIfEmpty($("#2020-04-yes").val()) + zeroIfEmpty($("#2020-05-yes").val()) + zeroIfEmpty($("#2020-06-yes").val())) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+          claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
           //get the revenue reduction
           revReduction = Math.max(
             (baseRev - claimMonthValue) / baseRev,
@@ -2468,8 +2471,8 @@
           var totalCews = $(".total").attr("data-total-cews");
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
-          $("#p2b-c1").val(roundPercDown(revReduction));
-          $("output[for='p2b-c1']").text(roundPercDown(revReduction) + "%");
+          $("#p2b-c1").val(roundPercDown(claimPeriodRevReduction));
+          $("output[for='p2b-c1']").text(roundPercDown(claimPeriodRevReduction) + "%");
           $("#p2b-c2").val(roundPercDown(threeMonthReduction));
           $("output[for='p2b-c2']").text(roundPercDown(threeMonthReduction) + "%");
           $("#p2b-c3").val(roundPercDown(cewsRate));
