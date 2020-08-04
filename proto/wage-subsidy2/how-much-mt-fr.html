@@ -2185,6 +2185,7 @@
         var claimMonth = new Date(
           "2020-" + month + '-01'
         ).getUTCMonth();
+        //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
             (
@@ -2200,8 +2201,6 @@
           //get the value of the claim month
           var claimMonth2020Value = zeroIfEmpty($("#2020-0" + claimMonth + "-no").val());
           var claimMonth2019Value = zeroIfEmpty($("#2019-0" + claimMonth + "-no").val());
-          //get the previous month from the claim month
-          
           //get the value of the previous month
           var prevClaim2020Value = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val());
