@@ -1837,7 +1837,7 @@
         $("[for='p2c-ee p2c-pyrl p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
       });
       
-      
+      //when the claim period dropdown is changed
       $document.on("change", "#claim-period", function (event) {
         var rangeISO = $(this).find('option:selected').val(),
           startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
@@ -1919,9 +1919,6 @@
           $("#results").removeClass("hidden");
         }
       });
-
-
-      
 
       /**
        * update the employee wage summary
@@ -2139,8 +2136,8 @@
             return 0;
         }
       }
+
       /**
-       * 
        * determine if an employee has been paid $0 for two consecutive pays
        */
       function checkEmployeeEligibility(element) {
@@ -2491,7 +2488,6 @@
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
         }
-        
       });
       
       //update percentage summary elements in 2B 
@@ -2504,7 +2500,6 @@
       $(document).on("blur", "#p2b-c3", function(event) {
         $("output[for='p2b-c3']").text(zeroIfEmpty(event.target.value) + "%");
       });
-
 
       /**
        * getClaimMonth()
@@ -2549,8 +2544,8 @@
       /**
        * Calculate the top up rate
        * 
-       * @param {Float} the percentage average three month revenue reduction 
-       * represented as a decimal
+       * @param {Float} reduction the percentage average three month revenue 
+       * reduction represented as a decimal
        *
        * @return {Float} the top up rate
        */
@@ -2647,6 +2642,7 @@
 
     /**
      * export_table_to_csv
+     *
      * https://jsfiddle.net/gengns/j1jm2tjx/
      */
     function export_table_to_csv(filename) {
@@ -2665,7 +2661,9 @@
     }
     /**
      * download_csv
+     *
      * https://jsfiddle.net/gengns/j1jm2tjx/
+     * 
      */
     function download_csv(csv, filename) {
       var csvFile;
