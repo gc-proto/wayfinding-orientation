@@ -212,7 +212,7 @@
             <ol class="lst-stps">
               <li>
                 <fieldset>
-                  <legend><span class="wb-inv">Step 1: <span>Claim period</legend>
+                  <legend><span class="wb-inv">Step 1: </span>Claim period</legend>
                   <div class="form-group">
                     <label for="claim-period" class="control-label required"><span class="field-name">Select the period
                         you are claiming for</span> <strong class="required">(required)</strong></label>
@@ -237,13 +237,13 @@
               </li>
               <li>
                 <fieldset class="brdr-tp">
-                  <legend><span class="wb-inv">Step 2: <span>Eligible remuneration for eligible employees</legend>
+                  <legend><span class="wb-inv">Step 2: </span>Eligible remuneration for eligible employees</legend>
                   <div class="clearfix"></div>
                   <p>You may calculate the amount of eligible remuneration (pay) for your eligible employees and basic
                     CEWS using one of the calculators provided. </p>
                   <ol class="lst-lwr-alph">
                     <li class="mrgn-bttm-lg">
-                      <p class="lead"><span class="wb-inv">Step 2a: <span>Calculate the values using the spreadsheet or online calculator</p>
+                      <p class="lead"><span class="wb-inv">Step 2a: </span>Calculate the values using the spreadsheet or online calculator</p>
                      <div class="panel panel-default">
 			     <header class="panel-heading">
 				     <p class="h4 mrgn-tp-0 panel-title">Calculator options</p>
@@ -320,7 +320,7 @@
 				
 			<div id="cal-sprsht-p5" class="hidden">	
         <p class="mrgn-bttm-0"><a
-          href="revised-cews-calculation-p5-to-p6.xlsx"
+          href="cews-calculation-p5-6.xlsx"
           class="btn btn-primary btn-lg">Download the spreadsheet for period 5 to 6 (Excel)</a></p>
                           <p class="small mrgn-bttm-0">Current version: 2020-B-1</p>
                           <details class="small mrgn-bttm-lg">
@@ -354,7 +354,7 @@
                           </details>	
 				</div>
 				<div id="cal-sprdsht-p1-4" class="hidden">
-                          <p class="mrgn-bttm-0"><a href="/content/dam/cra-arc/serv-info/tax/business/topics/cews/cews-calculation.xlsx"
+                          <p class="mrgn-bttm-0"><a href="cews-calculation-p1-4.xlsx"
                               class="btn btn-primary btn-lg">Download the spreadsheet for period 1 to 4 (Excel)</a></p>
                           <p class="small mrgn-bttm-0">Current version: 2020-5</p>
                           <details class="small">
@@ -915,7 +915,7 @@
                       </section>
                     </li>
                     <li>
-                      <p class="lead"><span class="wb-inv">Step 2b: <span>Enter the values from the online calculator or spreadsheet</p>
+                      <p class="lead"><span class="wb-inv">Step 2b: </span>Enter the values from the online calculator or spreadsheet</p>
                       <p>If you used the spreadsheet, refer to the <strong>instructions and results</strong> sheet for
                         the final values.</p>
                       <div class="row mrgn-tp-md">
@@ -1095,7 +1095,7 @@
               </li>
               <li>
                 <fieldset class="brdr-tp">
-                  <legend><span class="wb-inv">Step 3: <span>Premiums and contributions</legend>
+                  <legend><span class="wb-inv">Step 3: </span>Premiums and contributions</legend>
                   <p>Enter the total amount of <a href="#contributions" aria-controls="contributions" class="wb-lbx"
                       role="button">premiums or contributions&nbsp;<span class="far fa-question-circle"></span></a> paid
                     on behalf of <a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">eligible
@@ -1145,7 +1145,7 @@
               </li>
               <li>
                 <fieldset class="mrgn-bttm-lg">
-                  <legend><span class="wb-inv">Step 4: <span>Deductions</legend>
+                  <legend><span class="wb-inv">Step 4: </span>Deductions</legend>
                   <div class="mrgn-lft-md">
                     <div class="form-group">
                       <label class="control-label required" for="p4-tws"><span class="field-name">Amount you
@@ -1201,7 +1201,7 @@
               </li>
               <li>
                 <fieldset>
-                  <legend><span class="wb-inv">Step 5: <span>Get results</legend>
+                  <legend><span class="wb-inv">Step 5: </span>Get results</legend>
                   <p>After completing the four steps above, you can now calculate the results.</p>
                   <p>
                     <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total wage
@@ -2274,19 +2274,19 @@
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
           if (claimMonth2019Value == 0) {
             revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
-            currentRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
-            priorRevReduc = 0;
+            priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
+            currentRevReduc = 0;
           } else if (prevClaim2019Value == 0) {
             revReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
-            currentRevReduc = 0;
-            priorRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+            priorRevReduc = 0;
+            currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           } else {
             revReduction = Math.max(
               (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
               (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
             );
-            currentRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
-            priorRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+            priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
+            currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           }
           //get the base rate
           baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
