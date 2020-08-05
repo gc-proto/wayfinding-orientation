@@ -2051,6 +2051,7 @@
       function calculateTotals() {
         var totalWagesPaid = 0;
         var cews = 0;
+        var eligibleEmployees = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var eligibility = true;
           //determine the eligibility
@@ -2069,6 +2070,7 @@
           $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
           var totalCell = $("#emp-ttl-" + (i + 1));
           if (eligibility) {
+            eligibleEmployees++;
             var employeeCews = zeroIfEmpty(getEmployeeCews((i + 1), baselineWage));
             cews += employeeCews;
             totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages((i + 1)));
@@ -2079,6 +2081,7 @@
             $(totalCell).html(toMoney.format(0.00));
           }
         });
+        $(".numEmps").text(eligibleEmployees);
         $(".total").html(toMoney.format(cews));
         $(".total").attr("data-total-cews", cews.toFixed(2));
         $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
