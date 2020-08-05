@@ -700,7 +700,7 @@
                                   <legend class="mrgn-bttm-0">Eligible remuneration (pay) in respect of the claim period <span
                                     class="claim-period"></span>
                                   </legend>
-				 <p><a class="wb-lbx pay-claim-def" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
+				 <p><a class="wb-lbx pay-claim-def" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week&nbsp;<span class="emp-lv hidden"> and leave with pay definition</span><span class="far fa-question-circle"></span></a></p>	
                                   <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
                                     <div class="col-md-3">
                                       <label for="wkone-1">Week one<span class="wb-inv"> (do not include a
@@ -1430,11 +1430,18 @@
     </section>
     <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
-          <h2 class="modal-title">Claim period pay per week</h2>
+          <h2 class="modal-title">Claim period pay per week<span class="emp-lv hidden"> and defining leave with pay</span></h2>
         </header>
-      <div class="modal-body" data-ajax-replace="who-employees.html #week-cntnt">
+      <div class="modal-body">
+	      <div  data-ajax-replace="who-employees.html #week-cntnt">
           <p><a href="who-employees.html#week">Claim period pay per week</a></p>
+	      </div>
+	      <div class="emp-lv hidden">
+		 <dl>
+			 <dt data-ajax-replace="who-employees.html #leave>dt:nth-of-type(2)>">Leave with pay</dt><dd data-ajax-replace="who-employees.html #leave>dd:nth-of-type(2)>"></dd></dl>
+	      
         </div>
+	    </div>
     </section>
     <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
