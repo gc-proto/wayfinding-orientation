@@ -2486,10 +2486,10 @@
           var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
           var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
           //eligible active employees
-          $("#p2c-ee-alt1").val(Math.ciel(eligibleEmps));
+          $("#p2c-ee-alt1").val(Math.ceil(eligibleEmps));
           $("#p2c-ee-alt1").trigger("change");
           //get eligible furloughed employees
-          $("#p2c-ee-alt2").val(Math.ciel(numEmployeePanels - eligibleEmps));
+          $("#p2c-ee-alt2").val(Math.ceil(numEmployeePanels - eligibleEmps));
           $("#p2c-ee-alt2").trigger("change");
           var totalWages = $(".total").attr("data-total-wages");
           $("#p2c-pyrl").val(totalWages);
