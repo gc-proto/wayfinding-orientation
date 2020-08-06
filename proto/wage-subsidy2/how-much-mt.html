@@ -1848,10 +1848,9 @@
           startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
           endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
           rangeClaim = $(this).find("option:selected").text(),
-	  rangeClaimNo = rangeClaim.substring(7, 1),
+	  rangeClaimNo = rangeClaim.substring(7, 8),
           startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
           endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
-	  
 	      
         if (!$("#claim-period option:selected:eq(0)")) {
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
