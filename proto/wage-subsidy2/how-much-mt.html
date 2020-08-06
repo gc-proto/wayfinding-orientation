@@ -136,7 +136,7 @@
               </ul>
             <label for="bfore3"><strong>and</strong></label>
             <br>
-            <label for="bfore3">you have calculated their EI and QPIP, and CPP or QPP contributions during the claim
+            <label for="bfore3">you have calculated the employer portion of their EI and QPIP, and CPP or QPP contributions during the claim
                 period</label>
             <ul class="list-unstyled mrgn-lft-lg">
                 <li><a href="#contributions" aria-controls="contributions" class="wb-lbx" role="button">EI and QPIP,
@@ -357,7 +357,7 @@
 				<div id="cal-sprdsht-p1-4" class="hidden">
                           <p class="mrgn-bttm-0"><a href="cews-calculation-p1-4.xlsx"
                               class="btn btn-primary btn-lg">Download the spreadsheet for period 1 to 4 (Excel)</a></p>
-                          <p class="small mrgn-bttm-0">Current version: 2020-5</p>
+                          <p class="small mrgn-bttm-0">Current version: 2020-6</p>
                           <details class="small">
                             <summary>Version updates</summary>
                             <div class="table-responsive">
@@ -374,8 +374,21 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+				  <tr>
+                                    <td class="nowrap"><time datetime="2020-08-11 08:00"><span class="nowrap">2020-08-11</span> <br>
+                                        <span class="nowrap">08:00:00 (EDT)</span></time></td>
+                                    <td class="nowrap">Version<br class="visible-xs">
+                                      2020-6</td>
+                                    <td>
+                                      <ul>
+                                        <li>New options for period to use for employee baseline pay</li>
+					      <li>New revenue drop calculation feature for eligibility</li>
+					      <li>Step by step tabs</li>
+                                      </ul>
+                                    </td>
+                                  </tr>	
                                   <tr>
-                                    <td class="nowrap"><time datetime="TBD"><span class="nowrap">2020-06-25</span> <br>
+                                    <td class="nowrap"><time datetime="2020-06-25 17:30"><span class="nowrap">2020-06-25</span> <br>
                                         <span class="nowrap">17:30:00 (EDT)</span></time></td>
                                     <td class="nowrap">Version<br class="visible-xs">
                                       2020-5</td>
@@ -476,7 +489,7 @@
                               <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
 				    <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
                              
-				     <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+				     <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 				    <div class="row">
                                 <div class="col-md-6 brdr-rght">
                                   <p><strong>2019 revenue</strong></p>
@@ -572,13 +585,13 @@
                               <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
                               <ul class="small">
                                 <li>Your <strong>current period revenue drop</strong> is <span id="currentRevReduction" class="h4">0%</span></strong></li>
-                                <li>Your <strong>prior period revenue drop</strong> is <span id="priorRevReduction" class="h4">0%</span></strong></li>
+                                <li>Your <strong>previous period revenue drop</strong> is <span id="priorRevReduction" class="h4">0%</span></strong></li>
                                 <li class="safe-harbour-hide">Because the higher of these revenue drops is <strong><span class="h4 mrgn-tp-0 rev-reduc-base">0%</span></strong>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span></li>
                                 <li class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show">Your</span> <strong>average revenue drop for the previous three months</strong> is <strong><span class="rev-drop-top-up h4">0%<!--average of 3 months 2019 divided by 3 months in 2020--></span></strong><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0  top-up-rate">0%</span></li>
                               </ul>
                               <hr class="brdr-bttm">	
                               <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up rate)</span> for this claim period is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate">0%</span></p>
-                              <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because the period 1 to 4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</p>
+                             <!-- <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because the period 1 to 4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</p>//-->
                             
                             </div>
                           </div>
@@ -587,7 +600,7 @@
                             <fieldset>
                               <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
 				<p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>	
-                                <p class="small text-muted  mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                                <p class="small text-muted  mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 				    <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group row">
@@ -658,13 +671,13 @@
                             <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
                             <ul class="small">
                               <li>Your <strong>current period revenue drop</strong> is <span id="currentRevReduction-alt" class="h4">0%</span></strong></li>
-                              <li>Your <strong>prior period revenue drop</strong> is <span id="priorRevReduction-alt" class="h4">0%</span></strong></li>
+                              <li>Your <strong>previous period revenue drop</strong> is <span id="priorRevReduction-alt" class="h4">0%</span></strong></li>
                               <li class="safe-harbour-hide">Because the higher of these revenue drops is <strong><span class="h4 rev-reduc-alt-base">0%</span></strong>, your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span></li>
                               <li class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the previous three months</strong> is <strong><span class="rev-drop-top-up-alt h4">0%<!--average of 3 months 2019 divided by 3 months in 2020--></span></strong><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></li>
                             </ul>
                            <hr class="brdr-bttm">
                             <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for this claim period is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate-alt">0%</span></p>
-                            <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because the period 1-4 rate is higher than your calculated overall rate (you qualified for the "safe harbour" rule)</p>
+                            <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because it is higher than your calculated overall rate and you qualify for the "safe harbour" rule</p>
                          
                           </div>
                           </div>
@@ -694,7 +707,7 @@
                                     <input type="number"
                                       class="form-control input-lg text-right currency" id="baseline-1" data-updates="emp-base-1" placeholder="0.00">
                                   </div>
-				   <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>	
+				   <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>	
                                 </div>
 				      
                                 <fieldset>
@@ -753,7 +766,7 @@
                                     </div>
 					
                                   </div>
-				  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>  	
+				  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>  	
                                 </fieldset>
                               </div>
                               <footer class="panel-footer">
@@ -968,7 +981,7 @@
                               <input required type="number" class="form-control input-lg text-right currency"
                                 id="p2c-pyrl">
                             </div>
-                            <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                            <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                           </div>
                           <!--For periods 5 - 9 only//-->
                           <div class="hidden p59" id="p2b-rev">
@@ -1027,7 +1040,7 @@
                               <input required type="number" class="form-control input-lg text-right currency"
                                 id="p2c-cews">
                             </div>
-                            <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                            <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                           </div>
                         </div>
                       </div>
@@ -1086,7 +1099,7 @@
               <li>
                 <fieldset class="brdr-tp">
                   <legend><span class="wb-inv">Step 3: </span>Premiums and contributions</legend>
-                  <p>Enter the total amount of <a href="#contributions" aria-controls="contributions" class="wb-lbx"
+                  <p>Enter the total employer-paid amount of <a href="#contributions" aria-controls="contributions" class="wb-lbx"
                       role="button">premiums or contributions&nbsp;<span class="far fa-question-circle"></span></a> paid
                     on behalf of <a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">eligible
                       employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a> during the selected period. Enter
@@ -1100,7 +1113,7 @@
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p3-ei">
                          </div>
-                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                     </div>
                     <div class="form-group">
                       <label class="control-label required" for="p3-cpp"><span class="field-name">Total CPP and QPP
@@ -1110,7 +1123,7 @@
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p3-cpp">
                          </div>
-                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                     </div>
                   </div>
                   <hr class="brdr-bttm">
@@ -1148,7 +1161,7 @@
                           id="p4-tws">
                         </div>
                       <p id="p4-tws-disclaimer" class="small hidden text-danger">The amount for this claim period is $0 because the temporary subsidy has ended.</p>
-                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                     </div>
                     <div class="form-group">
                       <label class="control-label required" for="p4-wsb"><span class="field-name">Total amount that your
@@ -1162,7 +1175,7 @@
                         <input required type="number" class="form-control input-lg text-right currency"
                           id="p4-wsb">
                          </div>
-                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, dollar sign</strong> or <strong>commas</strong></p>
+                      <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                     </div>
                   </div>
                   <hr class="brdr-bttm">
