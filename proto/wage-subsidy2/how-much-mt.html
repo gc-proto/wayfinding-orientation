@@ -590,8 +590,8 @@
                                 <li class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show">Your</span> <strong>average revenue drop for the previous three months</strong> is <strong><span class="rev-drop-top-up h4">0%<!--average of 3 months 2019 divided by 3 months in 2020--></span></strong><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0  top-up-rate">0%</span></li>
                               </ul>
                               <hr class="brdr-bttm">	
-                              <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up rate)</span> for this claim period is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate">0%</span></p>
-                             <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because it is higher than your calculated overall rate and you qualify for the "safe harbour" rule</p>
+                              <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim period)</span> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate">0%</span></p>
+                             <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour” rate of 75% because your revenue drop in the current or previous period was at least 30%.</p>
                             
                             </div>
                           </div>
@@ -676,14 +676,15 @@
                               <li class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the previous three months</strong> is <strong><span class="rev-drop-top-up-alt h4">0%<!--average of 3 months 2019 divided by 3 months in 2020--></span></strong><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></li>
                             </ul>
                            <hr class="brdr-bttm">
-                            <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for this claim period is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate-alt">0%</span></p>
-                            <p class="safe-harbour-show hidden mrgn-lft-md small">The rate is 75% because it is higher than your calculated overall rate and you qualify for the "safe harbour" rule</p>
+                            <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim period)</span> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0" id="cews-rate-alt">0%</span></p>
+                            <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour” rate of 75% because your revenue drop in the current or previous period was at least 30%.</p>
                          
                           </div>
                           </div>
                           <fieldset id="employees">
                             <legend>Calculate your employee wages</legend>
                             <p>Include all your eligible employees.</p>
+				  <p><strong>Note:</strong> If you want to change your revenue information above, do that step before you begin calculating employee wages.</p>
                             <fieldset class="panel panel-default" id="emp-1">
                               <legend class="mrgn-lft-md mrgn-rght-md mrgn-tp-md"><span class="fas fa-user"></span>
                                 Eligible employee <span
@@ -1847,13 +1848,16 @@
           startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
           endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
           rangeClaim = $(this).find("option:selected").text(),
+	  rangeClaimNo = rangeClaim.substring(7, 1),
           startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
           endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
-
+	  
+	      
         if (!$("#claim-period option:selected:eq(0)")) {
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
+	  $(".claim-period-no").text(rangeClaimNo);
         }
         //show/hide elements based on chosen claim period
         //if p5+; else if  p1-4; else 'select'
