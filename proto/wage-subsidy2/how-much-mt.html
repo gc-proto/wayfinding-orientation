@@ -226,6 +226,7 @@
                       <option data-claim-period="5"  value="2020-07-05--2020-08-01">Period 5: July 5, 2020 to August 1, 2020</option>
                    <!--   <option data-claim-period="6"  value="2020-08-02--2020-08-29">Period 6: August 2, 2020 to August 29, 2020</option>//-->
                     </select>
+                    <p class="hidden small" id="claim-period-refresh">Please refresh the page to change the claim period.</p>
                   </div>
                 </fieldset>
                 <hr class="brdr-bttm">
@@ -1874,10 +1875,12 @@
           $("#cal-sprsht-p5").removeClass("hidden");
           $(".p59").removeClass("hidden");
           $(".p14").addClass("hidden");
+          $(event.target).prop("disabled", true);
+          $("#claim-period-refresh").removeClass("hidden");
         } else if (
           parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
           parseInt($("#claim-period option:selected").data("claim-period")) < 5 
-        ){
+        ) {
           $("#cal-sprdsht-p1-4").removeClass("hidden");
           $("#cal-sprsht-p5").addClass("hidden");
           $("#rate-reduction").addClass("hidden");
@@ -1887,6 +1890,8 @@
           $(".p14").removeClass("hidden");
           $(".p59").addClass("hidden");
           $("#cal-sprdsht-none").addClass("hidden");
+          $(event.target).prop("disabled", true);
+          $("#claim-period-refresh").removeClass("hidden");
         } else {
           $("#rate-reduction").addClass("hidden");
           $(".emp-lv").addClass("hidden");
