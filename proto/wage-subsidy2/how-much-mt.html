@@ -690,6 +690,7 @@
                               <legend class="mrgn-lft-md mrgn-rght-md mrgn-tp-md"><span class="fas fa-user"></span>
                                 Eligible employee <span
                                 class="employeeNumber">1</span></legend>
+                                <button class="btn btn-sm btn-danger pull-right rm-emp hidden" type="button">Remove</button>
                               <div class="panel-body">
                                 <div class="form-group">
                                   <label for="arms-1">Is employee at arm's length?</label>
@@ -839,6 +840,8 @@
                                 class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download and print employee calculations</a></li>
                             <li class="mrgn-tp-md"><button type="button" id="transfer-data" class="btn btn-primary">Send data to the
                                 form below (into Step 2b)</button>
+                            </li>
+                            <li class="mrgn-tp-md"><button type="button" id="reset" class="btn btn-danger">Reset 2a</button>
                             </li>
                           </ul>
 
@@ -1592,6 +1595,8 @@
         });
         //add the aria-live=polite attr for screen readers
         $(frag).attr("aria-live", "polite");
+        var rmBtn = $(frag).find(".rm-emp");
+        $(rmBtn).removeClass("hidden");
         //update the DOM fragment
         this.updateArmsLengthElementId(frag);
         this.updateBaselineWageElementId(frag);
@@ -1858,7 +1863,7 @@
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
-	  $(".claim-period-no").text(rangeClaimNo);
+	        $(".claim-period-no").text(rangeClaimNo);
         }
         //show/hide elements based on chosen claim period
         //if p5+; else if  p1-4; else 'select'
@@ -1996,6 +2001,63 @@
             $(updateTarget).text(formattedTotal);
           }
         }
+      });
+
+      //when the reset button is clicked in 2a, reset all the fields to their default state
+      $(document).on("click", "#reset", function(event) {
+        $("#claim-period").prop("disabled", false);
+        $("#claim-period").val($("#claim-period option:first").val());
+        $("#claim-period").trigger("change");
+        $("#currentRevReduction").text("0%");
+        $("#priorRevReduction").text("0%");
+        $(".top-up-rate").text("0%");
+        $(".base-rate").text("0%");
+        $(".rev-drop-top-up").text("0%");
+        $(".rev-reduc-base").text("0%");
+        $("#cews-rate").text("0%");
+        $("#currentRevReduction-alt").text("0%");
+        $("#priorRevReduction-alt").text("0%");
+        $(".top-up-rate-alt").text("0%");
+        $(".base-rate-alt").text("0%");
+        $(".rev-drop-top-up-alt").text("0%");
+        $(".rev-reduc-alt-base").text("0%");
+        $("#cews-rate-alt").text("0%");
+        $("#claim-period-refresh").addClass("hidden");
+        for (var i = numEmployeePanels; i > 0; i--) {
+          $("#w1-amt-" + i).text(toMoney.format(0));
+          $("#w2-amt-" + i).text(toMoney.format(0));
+          $("#w3-amt-" + i).text(toMoney.format(0));
+          $("#w4-amt-" + i).text(toMoney.format(0));
+          $("#amt-ttl-" + i).text(toMoney.format(0));
+          $("#wkone-" + i).val("");
+          $("#wktwo-" + i).val("");
+          $("#wkthree-" + i).val("");
+          $("#wkfour-" + i).val("");
+          $("#baseline-" + i).val("");
+          $("#arms-" + i).val($("#arms-" + i + " option:first").val());
+        }
+        $("#2019-04-no").val("");
+        $("#2019-05-no").val("");
+        $("#2019-06-no").val("");
+        $("#2019-07-no").val("");
+        $("#2020-04-no").val("");
+        $("#2020-05-no").val("");
+        $("#2020-06-no").val("");
+        $("#2020-07-no").val("");
+        $("#2020-01-yes").val("");
+        $("#2020-02-yes").val("");
+        $("#2020-03-yes").val("");
+        $("#2020-04-yes").val("");
+        $("#2020-05-yes").val("");
+        $("#2020-06-yes").val("");
+        $("#2020-07-yes").val("");
+        $("#rate-reduction").addClass("hidden");
+      });
+
+      //when the user clicks the remove button on an employee panel
+      $(document).on("click", ".rm-emp", function(event) {
+        var fieldset = $(event.target).parent("fieldset");
+        $(fieldset).remove();
       });
 
       //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
