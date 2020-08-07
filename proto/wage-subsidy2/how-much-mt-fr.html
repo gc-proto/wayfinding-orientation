@@ -2598,8 +2598,16 @@
       for (var i = 0; i < rows.length; i++) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
       
-        for (var j = 0; j < cols.length; j++) 
-          row.push(cols[j].innerText.replace(",", ""));
+        for (var j = 0; j < cols.length; j++) {
+          if (document.documentElement.lang == "fr") {
+            var val = cols[j].innerText.replace(",", ".");
+            val = val.replace(/,/g, ".")
+            val = val.replace(/\s/g, "")
+            row.push(val);
+          } else {
+            row.push(cols[j].innerText.replace(",", ""));
+          }
+        }
             
         csv.push(row.join(","));		
       }
