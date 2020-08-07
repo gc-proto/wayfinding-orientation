@@ -1650,6 +1650,7 @@
             $(element).prop("checked", false);
           } else if ($(element).attr("type", "text")) {
             $(element).val("");
+            $(element).attr("type", "number");
           }
           //need to get the label for each of these elements and update the 'for' attr
           var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
