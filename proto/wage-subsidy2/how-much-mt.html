@@ -1597,7 +1597,7 @@
         this.setUpdatesAndUpdatedByData(frag);
         this.updateInputs(frag);
         this.updateTableIds(frag);
-        this.openAccordion(frag);
+        this.closeAccordion(frag);
         return frag;
       }
 
@@ -1720,15 +1720,15 @@
       }
 
       /**
-       * openAccordion
+       * closeAccordion
        *
-       * open all open accordions
+       * close all open accordions
        *
        * @param {DOMDocumentFragment} frag the cloned template
        */
-      EmployeeFormGenerator.prototype.openAccordion = function(frag) {
-        var accordion = $(frag).find("details").each(function (i, element) {
-          $(element).attr("open", "open");
+      EmployeeFormGenerator.prototype.closeAccordion = function(frag) {
+        $(frag).find("details").each(function (i, element) {
+          $(element).removeAttr("open");
         });
       }
  
