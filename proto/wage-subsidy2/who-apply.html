@@ -157,7 +157,7 @@
                            <details id="details-panel-1">
                               <summary>Claim periods 5 to 9</summary>
                               <div class="mrgn-lft-sm mrgn-right-sm mrgn-tp-md">
-                                 <div data-ajax-replace="how-much-reduction.html #ajax-5-later>">
+                                 <div data-ajax-replace="how-much-reduction.html #ajax-5-later>"  class="data-ajax">
                                     <p><a href="how-much-reduction.html#h-1">Revenue drop and CEWS rate calculation for claim periods 5 and  later (July 2020 and later)</a></p>
                                  </div>
                               </div>
@@ -271,6 +271,27 @@
                 $("#action-msg-notall").removeClass("hidden-action").addClass("visible-action");
             }
             })
+         </script>
+		 <script>
+            (function( $, document, wb ) {
+            "use strict";
+            $('.data-ajax').on( "wb-contentupdated", function( event, data ){
+            // "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
+            // "data.content" contains the
+            var $elm = $(event.currentTarget);
+            $elm
+            	.find( wb.allSelectors )
+            		.addClass( "wb-init" )
+            		.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+            			.trigger( "timerpoke.wb" );
+            /*
+             * Since we are working with events we want to ensure that we are being
+             * passive about our control, so returning true allows for events to always
+             * continue
+             */
+            return true;
+            });
+            })( jQuery, document, wb );
          </script>
       </body>
    </html>
