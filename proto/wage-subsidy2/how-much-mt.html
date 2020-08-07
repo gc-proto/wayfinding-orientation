@@ -2006,6 +2006,8 @@
       //when the reset button is clicked in 2a, reset all the fields to their default state
       $(document).on("click", "#reset", function(event) {
         $("#claim-period").prop("disabled", false);
+        $("#claim-period").val($("#claim-period option:first").val());
+        $("#claim-period").trigger("change");
         $("#currentRevReduction").text("0%");
         $("#priorRevReduction").text("0%");
         $(".top-up-rate").text("0%");
@@ -2020,7 +2022,7 @@
         $(".rev-drop-top-up-alt").text("0%");
         $(".rev-reduc-alt-base").text("0%");
         $("#cews-rate-alt").text("0%");
-        $(".claim-period-refresh").addClass("hidden");
+        $("#claim-period-refresh").addClass("hidden");
         for (var i = numEmployeePanels; i > 0; i--) {
           $("#w1-amt-" + i).text(toMoney.format(0));
           $("#w2-amt-" + i).text(toMoney.format(0));
@@ -2032,7 +2034,7 @@
           $("#wkthree-" + i).val("");
           $("#wkfour-" + i).val("");
           $("#baseline-" + i).val("");
-          $("#arms-" + i).first("option").prop("selected", true);
+          $("#arms-" + i).val($("#arms-" + i + " option:first").val());
         }
         $("#2019-04-no").val("");
         $("#2019-05-no").val("");
@@ -2049,6 +2051,7 @@
         $("#2020-05-yes").val("");
         $("#2020-06-yes").val("");
         $("#2020-07-yes").val("");
+        $("#rate-reduction").addClass("hidden");
       });
 
       //when the user clicks the remove button on an employee panel
