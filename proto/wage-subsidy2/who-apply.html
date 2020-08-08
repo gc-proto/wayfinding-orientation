@@ -273,15 +273,9 @@
             })
          </script>
 	
-			<script>
-	$( ".wb-tabs" ).on( "wb-ready.wb-tabs", function( event ) {
-
-	 $( "summary" ).trigger( "wb-init.wb-details" );
-});
-		</script>	
-           <!-- 
-<script>
-(function( $, document, wb ) {
+	 <script>
+		 $( document ).on( "wb-ready.wb", function( event ) {
+            (function( $, document, wb ) {
             "use strict";
             $('.data-ajax').on( "wb-contentupdated", function( event, data ){
             // "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
@@ -299,7 +293,9 @@
              */
             return true;
             });
+			});
             })( jQuery, document, wb );
-         </script>//-->
+		 
+         </script>
       </body>
    </html>
