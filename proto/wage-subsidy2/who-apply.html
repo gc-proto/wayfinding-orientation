@@ -272,13 +272,15 @@
             }
             })
          </script>
-		<script>
+	
 			<script>
 	$( document ).on( "wb-ready.wb", function( event ) {
 	 $( "summary" ).trigger( "wb-init.wb-details" );
 });
 		</script>	
-           <!-- (function( $, document, wb ) {
+           <!-- 
+<script>
+(function( $, document, wb ) {
             "use strict";
             $('.data-ajax').on( "wb-contentupdated", function( event, data ){
             // "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
@@ -296,7 +298,7 @@
              */
             return true;
             });
-            })( jQuery, document, wb );//-->
-         </script>
+            })( jQuery, document, wb );
+         </script>//-->
       </body>
    </html>
