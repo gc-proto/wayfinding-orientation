@@ -2075,7 +2075,12 @@ section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-d
       //when the user clicks the remove button on an employee panel
       $(document).on("click", ".rm-emp", function(event) {
         var fieldset = $(event.target).parent("fieldset");
+        var id = $(fieldset).attr("id");
+        var empNumber = id.split("-")[1];
+        //TODO: remove the employee row from the employee summary table
+        $("#emp-arms-" + empNumber).parent("tr").remove();
         $(fieldset).remove();
+        numEmployeePanels--;
       });
 
       //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
