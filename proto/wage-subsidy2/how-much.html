@@ -696,8 +696,8 @@
                                   <p><a class="wb-lbx arms-length-def" role="button" aria-controls="armslength" href="#armslength">Arm's
                                       length definition<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
                                   <select class="form-control" id="arms-1" data-updates="emp-arms-1">
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
+                                    <option value="Oui">Yes</option>
+                                    <option value="Non">No</option>
                                   </select>
                                 </div>
                                 <hr>
@@ -2699,8 +2699,7 @@
         for (var j = 0; j < cols.length; j++) {
      if (document.documentElement.lang == "fr") {
          var val = cols[j].innerText.replace(",", ".");
-         val = val.replace(/,/g, ".")
-         val = val.replace(/\s/g, "")
+         val = val.replace(/,/g, ".");
          row.push(val);
      } else {
         row.push(cols[j].innerText.replace(",", ""));
@@ -2723,7 +2722,7 @@
       var downloadLink;
 
       // CSV FILE
-      csvFile = new Blob([csv], {type: "text/csv"});
+      csvFile = new Blob([csv], {type: "text/csv", encoding:"UTF-8"});
 
       // Download link
       downloadLink = document.createElement("a");
