@@ -859,7 +859,7 @@
                               summary="enter summary here">
                               <thead>
                                 <tr>
-                                  <th>Eligible employees (EE)è</th>
+                                  <th>Eligible employees (EE)</th>
                                   <th>Arm's length</th>
                                   <th>Pre-crisis pay</th>
                                   <th>Weekly gross pay for week 1</th>
@@ -2720,7 +2720,7 @@
     function download_csv(csv, filename) {
       var csvFile;
       var downloadLink;
-
+      csv  =  "\uFEFF" + csv;
       // CSV FILE
       csvFile = new Blob([csv], {type: "text/csv", encoding:"UTF-8"});
 
