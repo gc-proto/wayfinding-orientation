@@ -1963,8 +1963,9 @@
         var parts = target.id.split("-");
         var employeeNumber = parts[parts.length - 1];
         var unformattedValue = target.value.replace("$", "");
+        var claimPeriod = $("#claim-period option:selected").data("claim-period");
         //determine if this employee is eligible for cews
-        if (unformattedValue == "0") {
+        if (unformattedValue == "0" && claimPeriod < 5) {
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + employeeNumber).addClass("hidden");
             $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
