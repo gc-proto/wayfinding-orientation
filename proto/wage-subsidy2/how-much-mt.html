@@ -1740,6 +1740,8 @@
           $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
         );
         $(totalCell).text(currencyPlaceholderValue);
+        $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
+        $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
 
       /**
@@ -1965,7 +1967,7 @@
         var unformattedValue = target.value.replace("$", "");
         var claimPeriod = $("#claim-period option:selected").data("claim-period");
         //determine if this employee is eligible for cews
-        if (unformattedValue == "0" && claimPeriod < 5) {
+        if (claimPeriod < 5) {
           if (!checkEmployeeEligibility(target)) {
             $("#emp-smry-" + employeeNumber).addClass("hidden");
             $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
@@ -1973,7 +1975,9 @@
             $(updatedByElements).each(function (i, element) {
               $(element).text(toMoney.format(0.00));
             });
-            return;
+          } else {
+            $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
+            $("#emp-smry-" + employeeNumber).removeClass("hidden");
           }
         }
         var updateTarget = $("#" + $(target).attr("data-updates"));
@@ -2249,11 +2253,10 @@
         //put employee on notice on first 0 value found; if another 0 value is found while on notice, the employee is not eligible for this claim period
         var onNotice = false;
         var eligibility = true;
-          $("." + classname).each(function(i, element) {
-            if (onNotice && parseFloat($(element).val()) == 0) {
+        var wages = $("." + classname);
+          $(wages).each(function(i, element) {
+            if (parseFloat($(element).val()) == 0 && $(wages[i+1]).val() == 0 && $(wages[i+1]).val() != "") {
               eligibility = false;
-            } else if (parseFloat($(element).val()) == 0) {
-              onNotice = true;
             }
         });
         return eligibility;
@@ -2321,6 +2324,8 @@
         document.getElementById("emp-" + numEmployeePanels).scrollIntoView({
             behavior: 'smooth'
         });
+        $("#emp-no-elgbl-" + numEmployeePanels).addClass("hidden");
+        $("#emp-smry-" + numEmployeePanels).removeClass("hidden");
       }
 
       /**
