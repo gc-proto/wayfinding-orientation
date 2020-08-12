@@ -2699,8 +2699,7 @@
         for (var j = 0; j < cols.length; j++) {
      if (document.documentElement.lang == "fr") {
          var val = cols[j].innerText.replace(",", ".");
-         val = val.replace(/,/g, ".")
-         val = val.replace(/\s/g, "")
+         val = val.replace(/,/g, ".");
          row.push(val);
      } else {
         row.push(cols[j].innerText.replace(",", ""));
@@ -2723,7 +2722,7 @@
       var downloadLink;
 
       // CSV FILE
-      csvFile = new Blob([csv], {type: "text/csv"});
+      csvFile = new Blob([csv], {type: "text/csv", encoding:"UTF-8"});
 
       // Download link
       downloadLink = document.createElement("a");
