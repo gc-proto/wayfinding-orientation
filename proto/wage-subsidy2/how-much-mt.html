@@ -1740,6 +1740,8 @@
           $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
         );
         $(totalCell).text(currencyPlaceholderValue);
+        $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
+        $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
 
       /**
@@ -2322,6 +2324,8 @@
         document.getElementById("emp-" + numEmployeePanels).scrollIntoView({
             behavior: 'smooth'
         });
+        $("#emp-no-elgbl-" + numEmployeePanels).addClass("hidden");
+        $("#emp-smry-" + numEmployeePanels).removeClass("hidden");
       }
 
       /**
