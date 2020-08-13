@@ -719,7 +719,7 @@ input:focus::placeholder {
       <p class="h4 mrgn-tp-0 panel-title">Calculator options</p>
     </header>
     <div class="panel-body">
-	<div class="alert alert-danger provisional hidden-sm hidden-md hidden-lg">
+	<div class="choose-claim-period alert alert-danger provisional hidden-sm hidden-md hidden-lg">
 					  <p>To access the calculator or spreadsheet, you must first <a href="#stp1">select your claim period in step 1</a></p></div>
       <div class="row">
         <div class="col-xs-12">
@@ -765,7 +765,7 @@ input:focus::placeholder {
           </div>
         </div>
       </div>
-	   <div class="alert alert-danger provisional hidden-xs">
+	   <div class="choose-claim-period alert alert-danger provisional hidden-xs">
 					   <p>To access the calculator or spreadsheet, you must first <a href="#stp1">select your claim period in step 1</a></p></div>
     </div>
   </div>                  <div class="mrgn-tp-lg">
@@ -2220,6 +2220,9 @@ $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees)
           $("#cal-sprsht-p5").removeClass("hidden");
           $(".p59").removeClass("hidden");
           $(".p14").addClass("hidden");
+          $(".btn-cews-cal").removeClass("disabled");
+          $(".btn-cews-cal").prop("disabled", false);
+          $(".choose-claim-period").addClass("hidden");
         } else if (
           parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
           parseInt($("#claim-period option:selected").data("claim-period")) < 5 
@@ -2233,13 +2236,19 @@ $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees)
           $(".p14").removeClass("hidden");
           $(".p59").addClass("hidden");
           $("#cal-sprdsht-none").addClass("hidden");
+          $(".btn-cews-cal").removeClass("disabled");
+          $(".btn-cews-cal").prop("disabled", false);
+          $(".choose-claim-period").addClass("hidden");
         } else {
+          $(".choose-claim-period").removeClass("hidden");
           $("#rate-reduction").addClass("hidden");
           $(".emp-lv").addClass("hidden");
           $("#p4-tws").prop("readonly", false);
           $("#p4-tws-disclaimer").addClass("hidden");
           $(".p59").addClass("hidden");
           $(".p14").removeClass("hidden");
+          $(".btn-cews-cal").addClass("disabled");
+          $(".btn-cews-cal").prop("disabled", true);
         }
       });
 
