@@ -19,6 +19,109 @@
          <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
          <link href="../css/cews.css" rel="stylesheet">
          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+		 <style type="text/css">
+         div.hidden-action {
+         transform: scaleX(0);
+         overflow: hidden;
+         display: none;
+         }
+         div.visible-action {
+         transform: scaleX(1);
+         display: visible;
+         }
+         /*Checkbox/Fieldflow radio input sizing,positioning*/
+         .checkbox-zebra > li:nth-child(2n+1) {
+         background-color: #f5f5f5;
+         margin-left: -50px;
+         padding-top: 10px;
+         padding-bottom: 15px;
+         padding-left: 50px;
+         }
+         .checkbox-zebra [role="checkbox"]::before {
+         background-color: #fff;
+         }
+         .std-blt {
+         font-size: 20px;
+         line-height: 1.65em;
+         }
+         .std-blt {
+         list-style-type: disc;
+         }
+         .std-blt li label {
+         display: block;
+         padding-left: 0px;
+         }
+         /********
+         ********
+         ** New checklist example
+         ** May 15, 2020
+         ** Replacing checkkboxes with clickable divs that convey a sense of success to the user
+         ********
+         ********/
+         /* One input per line */
+         .provisional [role="checkbox"] { /* (0,2,0) */
+         cursor: pointer;
+         display: inline-block;
+         padding-left: 15px;
+         position: relative;
+         }
+         .provisional [role="checkbox"]::before,
+         .provisional [role="checkbox"]::after { /* (0,2,1) */
+         content: "";
+         left: 0;
+         position: absolute;
+         top: 0;
+         transform: translate(-100%, 0%);
+         }
+         .provisional .wb-checklist.wb-checklist-sm { /* (0,3,0) */
+         font-size: 17px;
+         }
+         /* the basic, unchecked style */
+         .provisional [role="checkbox"]::before { /* (0,2,1) */
+         border: 4px solid #fff;
+         box-shadow: 0 0 0 2px #000;
+         display: inline-block;
+         height: 36px;
+         width: 36px;
+         }
+         .provisional .wb-checklist-sm [role="checkbox"]::before { /* (0,3,1) */
+         border-width: 3px;
+         height: 24px;
+         transform: translate(-100%, 20%);
+         width: 24px;
+         }
+         /* hover styling */
+         .provisional [role="checkbox"][aria-checked="false"]:hover::before { /* (0,3,1) */
+         background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
+         }
+         /* focus styling */
+         .provisional [role="checkbox"]:focus { /* (0,3,0) */
+         outline: none;
+         }
+         .provisional [role="checkbox"]:focus::before { /* (0,3,2) */
+         box-shadow: 0 0 0 2px #000, 0 0 8px 4px rgb(59, 153, 252);
+         }
+         /* the checked style using the [aria-checked='true'] pseudo class and aria-checked=true attribute */
+         .provisional [role="checkbox"][aria-checked="true"]::before { /* (0,3,1) */
+         background-color: #318000;
+         border: none;
+         }
+         .provisional [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
+         border-color: white;
+         border-style: solid;
+         border-width: 0 5px 5px 0;
+         display: inline-block;
+         height: 26px;
+         width: 13px;
+         transform: translate(-185%, 10%) rotate(45deg);
+         }
+         .provisional .wb-checklist-sm [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
+         border-width: 0 4px 4px 0;
+         height: 16px;
+         width: 9px;
+         transform: translate(-185%, 40%) rotate(45deg);
+         }
+      </style>
          <!-- Write closure template -->
          <script type="text/javascript">
             document.write(wet.builder.refTop({
@@ -57,35 +160,64 @@
             </div>
             <h2 class="h3">On this page</h2>
             <ul>
-               <li><a href="#h-1">Who is eligible</a></li>
+               <li><a href="#h-1">Eligibility criteria</a></li>
                <li><a href="#h-2">What can be claimed</a></li>
                <li><a href="#h-3">Calculating your expenses</a></li>
                <li><a href="#h-4">Claiming your expenses</a></li>
             </ul>
-            <h2 id="h-1">Who is eligible</h2>
-            <p>You can deduct expenses you paid in 2019 for the employment use of a work space in your home, as long as you had to pay for them under your contract of employment. These expenses must be used directly in your work and your employer has not reimbursed and will not reimburse you. Also, you must meet <strong>one of the following conditions</strong>:</p>
-            <div class="row">
-               <div class="col-xs-12">
-                  <div class="row">
-                     <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg">
-                        <div class="col-sm-12">
-                           <p class="mrgn-tp-0 text-muted h5">Situation 1</p>
-                           <p>The work space is where you mainly (more than 50% of the time) do your work for a period of 4-or-more continuous weeks</p>
-                        </div>
-                     </div>
-                     <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span
-                        class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span
-                        class="fa-stack-1x fa-inverse">or</span></span></div>
-                     <div class="col-xs-12 col-sm-6 mrgn-bttm-lg">
-                        <div class="col-sm-12">
-                           <p class="mrgn-tp-0 text-muted h5">Situation 2</p>
-                           <p>You use the work space only to earn your employment income. You also have to use it on a regular and continuous basis for meeting clients, customers, or other people in the course of your employment duties.</p>
-                        </div>
-                     </div>
+            <h2 id="h-1">Eligibility criteria</h2>
+		
+
+               <p>To be eligible to deduct expenses you paid in 2019 for the employment use of a work space in your home you must meet the following conditions:</p>
+               <section>
+                  <ul class="checkbox-lg checkbox-zebra">
+                   
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
+                        <label for="eg1">You had to pay the expenses under your contract of employment</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
+                        <label for="eg2">Your expenses are used directly in your work</label>
+                     </li>
+					 <li class="checkbox">
+                        <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+                        <label for="eg3">Your employer has not reimbursed and will not reimburse you</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
+                        <label for="eg4"><strong>One of the following applies: </strong></label>
+                        <ul class="std-blt lst-spcd">
+                           <li>
+                              <label for="eg4">Your work space is where you mainly (more than 50% of the time) do your work for a period of 4-or-more continuous weeks</label>
+                           </li>
+                           <li>
+                              <label for="eg4">You use the work space only to earn your employment income. You also have to use it on a regular and continuous basis for meeting clients, customers, or other people in the course of your employment duties.</label>
+                           </li>
+                        </ul>
+                     </li>
+					  <li class="checkbox">
+                        <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+                        <label for="eg3">Your employer has provided you with a copy of a Declaration of Conditions of Employment (T2200) form</label>
+						<details class="mrgn-lft-xl mrgn-right-md mrgn-tp-sm">
+                <summary>What is T2200?</summary>
+               <p>The <a href="/en/revenue-agency/services/forms-publications/forms/t2200.html">Declaration of Conditions of Employment (T2200)</a> is completed by the employer to certify that an employee is required to work from home and that any employment expenses not reimbursed by the employer may be claimed on their annual tax return.</p><p><strong>Note:</strong> Keep a copy for your records, in case we  request it.</p>
+              </details>
+						 
+                     </li>
+					 
+                  </ul>
+                  <div class="alert alert-danger provisional" id="action-no-msg">
+                     <p>You need all of the above to be eligible to claim working from home expenses</p>
                   </div>
-               </div>
-            </div>
-            <p>If you meet one of the above criteria, have your employer complete and sign a <a href="/en/revenue-agency/services/forms-publications/forms/t2200.html">Form T2200, Declaration of Conditions of Employment</a>.  Then, keep a copy for your records, in case it is requested by CRA.</p>
+                  <div class="alert alert-success hidden provisional" id="action-msg1">
+                     <p>You are eligible to claim working from home expenses </p>
+                  </div>
+               </section>
+               <div class="clearfix"></div>
+            
+          
+           
             <h3>Examples</h3>
             <details>
                <summary>Working from home for <strong>more than 4 weeks</strong> due to the COVID-19 pandemic</summary>
@@ -257,5 +389,18 @@
             }));
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		 <script>
+         $(".action-checkbox").change(function(){
+         if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+         $("#action-msg1").removeClass("hidden").addClass("visible");
+         $("#action-no-msg").addClass("hidden").removeClass("visible");
+         }
+         if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+         $("#action-msg1").addClass("hidden").removeClass("visible");
+         $("#action-no-msg").removeClass("hidden").addClass("visible");
+         }
+         })
+         
+      </script>
       </body>
    </html>
