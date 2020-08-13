@@ -1,0 +1,509 @@
+﻿
+@charset "utf-8";
+/* CSS Document */
+h1#wb-cont {
+	border-bottom: none;
+}
+/* Remove text decoration for abbr tags (equations) */
+abbr.brdr-0 {
+	text-decoration: none!important;
+}
+section.gc-nav h1 {
+	font-size: 1.3em;
+	color: #555;
+	border-bottom: none;
+}
+
+/*page structure desktop (new) */
+@media all and (min-width:992px) {
+section.gc-nav nav {
+	position: relative;
+	width: 33.33%;
+	left: 66.66%;
+	float: left;
+	padding-left: 15px;
+	margin-bottom: 30px;
+}
+section.gc-nav h1 {
+	width: 66.66%;
+	padding-right: 15px;
+	margin-top: 20px;
+	margin-bottom: -5px;
+	font-weight: 200;
+}
+section.gc-nav-section {
+	position: relative;
+	width: 66.66%;
+	float: left;
+	padding-right: 15px;
+}
+section.gc-nav ~ section.gc-nav-section {
+	right: 33.33%;
+}
+section.gc-nav ~ section.gc-nav-section h1 {
+	margin-top: 0px
+}
+section.gc-nav-section + .pagedetails {
+	clear: both;
+}
+}
+#gc-navseq-header {
+	font-size: 1.2em;
+	margin-top: 0px;
+}
+.gc-navseq {
+	padding-left: 0.9em;
+}
+.gc-navseq .small, .gc-navseq small {
+	line-height: 0em;
+}
+.gc-navseq * {
+	font-weight: inherit!important;
+	line-height: inherit!important
+}
+.gc-navseq>li, ul.gc-navseq-fa>li {
+	padding-bottom: 20px;
+        padding-right: 20px;
+	list-style: none;
+	padding-left: 1.2em;
+	border-left: 5px solid #26374a;
+	position: relative;
+}
+ul.gc-navseq-fa>li .fa-li {
+	left: 0em;
+	position: relative;
+}
+ul.gc-navseq-fa {
+	margin-left: 0.9em
+}
+li .gc-navseq {
+	margin-top: 16px;
+}
+.gc-navseq>li>:first-child::before, ul.gc-navseq-fa li span.fa-li {
+	border-radius: 50%;
+	border: 3px solid #26374a;
+	background-color: #fff;
+	float: left;
+	text-decoration: none;
+	box-sizing: content-box;
+	line-height: 1.3em;
+	text-align: center;
+	padding: 3px;
+	font-size: 1.0em;/* transition: width 0.2s, height 0.2s, margin-top 0.2s, font-size 0.2s, margin-left 0.2s, line-height 0.2s;
+	*/
+}
+ul.gc-navseq-fa li span.fa-li {
+	height: 1.3em;
+	width: 1.3em;
+	margin-left: -2.3em;
+}
+ul.gc-navseq>li>:first-child::before {
+	height: 0.8em;
+	width: 0.8em;
+	margin-left: -2.05em;
+	content: "";
+}
+@-moz-document url-prefix() {
+ ul.gc-navseq>li>:first-child::before {
+ margin-left: -2.0em;
+}
+}
+.gc-navseq li a::before {
+	text-decoration: underline;
+}
+ul.gc-navseq.noline>li {
+	border-left: 5px solid transparent
+}
+.gc-navseq>li:last-child, .gc-navseq>li.completed:last-child, ul.gc-navseq-fa li:last-child {
+	border-left: 5px solid transparent;
+	padding-bottom: 0;
+}
+ul.gc-navseq.noline>li>:first-child::before {
+	margin-top: 0.2em
+}
+/*active*/
+.gc-navseq li.active>:first-child::before, .gc-navseq-fa li.active span.fa-li {
+	background-color: #26374a;
+	color: #fff;
+}
+/*sub-steps*/
+.gc-navseq li ul {
+	margin-top: 16px!important;
+}
+/*Hover animation */
+ul.gc-navseq>li>a[href]:hover::before {
+	width: 0.83em;
+	height: 0.83em;
+	margin-top: -0.1em;
+	font-size: 1.2em;
+	margin-left: -1.775em;
+	line-height: 1.55;
+}
+ul.gc-navseq.noline>li>a[href]:hover::before {
+	margin-top: 0.15em;
+}
+.gc-navseq-fa>li>a[href]:hover span.fa-li {
+	width: 1.55em;
+	height: 1.55em;
+	margin-top: -0.05em;
+	margin-left: -2.45em;
+}
+.gc-navseq-fa>li>a[href]:hover span.fa-li::before {
+	margin-top: -0.1em;
+}
+
+/*Vertical steps in mobile */
+@media screen and (max-width:991px) {
+section.gc-nav {
+	margin-top: 30px;
+	border-right: 5px solid #26374a;
+	border-top: 5px solid #26374a;
+	border-radius: 0 6px 6px 0;
+}
+section.gc-nav nav>.gc-navseq {
+	padding-top: 15px;
+	margin-top: -18px;
+	clear: both;
+}
+section.gc-nav nav>.gc-navseq > li:last-child {
+	border-bottom: 5px solid #26374a;
+	border-left: 5px solid #26374a;
+	border-bottom-left-radius: 6px;
+	padding-bottom: 24px;
+}
+section.gc-nav h1 {
+	margin-bottom: -18px;
+	margin-right: 20px;
+	background-color: white;
+	padding: 20px 10px 10px 20px;
+	display: inline-block;
+	margin-left: -20px;
+	margin-top: -40px;
+	float: left;
+}
+}
+/*nav buttons */
+.gc-navseq-nav-btn:hover, .gc-navseq-nav-btn:focus, .gc-navseq-nav-btn:visited {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px;
+}
+.gc-navseq-nav-btn {
+	background-color: #26374a;
+}
+.gc-navseq-nav-btn:hover {
+	background-color: #444;
+}
+.gc-navseq-nav-btn:not(:focus) {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+
+@media all and (min-width:992px) {
+#gc-navseq-nav {
+	display: flex;
+}
+}
+
+/*Navigation template in mobile */
+@media all and (max-width:991px) {
+.gc-nav nav {
+	padding-top: 40px;
+}
+}
+#gc-navseq-nav {
+	margin-bottom: 0;
+	list-style: none;
+	padding-left: 0;
+}
+
+.gc-navseq-nav-btn:focus {
+	position: relative;
+}
+/* new topic style */
+h1 {
+	border-bottom: none;
+}
+h1#wb-cont::after {
+	content: ""; /* This is necessary for the pseudo element to work. */
+	display: block; /* This will put the pseudo element on its own line. */
+	width: 70px; /* Change this to whatever width you want to have before hover. */
+	padding-bottom: 8px; /* This creates some space between the element and the border. */
+	border-bottom: .18em solid #af3c43; /* This creates the border. Replace black with whatever color you want. */
+}
+ol.lst-stps:after, ol.lst-stps:before {
+	content: " ";
+	display: table
+}
+ol.lst-stps:after {
+	clear: both
+}
+ol.lst-stps {
+	counter-reset: item;
+	margin: 0;
+	padding-left: 0;
+	position: relative;
+	margin-left: 5px;
+}
+ol.lst-stps>li {
+	counter-increment: item;
+	list-style: none inside;
+	margin: 30px 0px;
+	position: relative;
+	padding-left: 55px;
+	min-height: 30px;
+}
+ol.lst-stps>li:before {
+	content: counter(item);
+	padding: 6px 6px;
+	display: block;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background: #fff;
+	color: #555;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 100;
+	float: left;
+	min-width: 50px;
+	min-height: 45px;
+	border: 3px solid #555;
+	position: absolute;
+	left: -5px;
+	margin-top: 5px;
+}
+.lst-lwr-alph {
+	list-style-position: outside;
+ padding-left: 0;
+}
+.callout {
+	padding: 19px;
+	margin-bottom: 20px;
+	border: 1px solid #e3e3e3;
+	box-shadow: 0px 0px 10px #ddd;
+}
+/*fix fieldflow margin issue for radio buttons */
+legend.h5 {
+	margin-top: 0px
+}
+input[type='radio'] {
+	margin-top: 12px !important;
+}
+/*Hide arrows in Chrome/FF for number input*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+</style>
+
+<style>
+/*chatbot styles start */
+
+  #chat-bottom-bar {overflow: visible !important;}
+  
+  .iconparent{
+    position: relative;
+    
+  }
+  
+  .iconmain{
+    top: -18px;
+    position: fixed;
+  }
+
+        #chat-bottom-bar header h6 {margin-left: 70px;}
+
+    #webchat div.ac-container button.ac-pushButton.style-positive {
+      text-decoration: underline;
+    }
+
+#chat-bottom-bar {
+  max-width: 90%;
+}
+
+      #webchat-container{
+        height:100%;
+      }
+
+      #webchat {
+      border: none;
+      font-size: 16px;
+      height: 100%;
+      padding-bottom: 42px;
+      line-height: normal;
+    }
+    
+    #webchat > div > div:first-child {
+      overflow-x: hidden;
+      overflow-y: auto;
+      /*height: 490px;*/
+    }
+    
+    #webchat > div > div:nth-child(2) {
+      /*height: 35px;*/
+    }
+    
+    #webchat div.ac-container button.ac-pushButton {
+      font-weight: normal;
+      line-height: normal;
+    }
+    
+    #webchat div.ac-container div.ac-textBlock {
+      font-size: 16px !important;
+    }
+
+
+      /*#webchat button.ac-pushButton {
+        justify-content: left;
+        border-style: none;
+        padding: 5px;
+      }*/
+      #webchat button.ac-pushButton div {
+        overflow:auto!important;
+        white-space:normal!important;
+      }
+      .chat {
+          background-color: #00a89d;
+          color: #fff;
+          border-color: #00a89d;
+          display: inline-block;
+          position: fixed;
+          bottom: 0px;
+          right: 5%;
+          border-bottom-color: currentColor;
+          border-bottom-width: 0px;
+          border-bottom-style: none;
+          min-width:200px;
+          height:40px;
+          width:275px;
+          z-index: 1050;
+          -webkit-transform: translateZ(0px);
+          box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+          -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          outline: 0px;
+        }
+
+        .chat header {
+    padding: 10px 15px;
+    border-bottom-color: transparent;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    position: relative;
+    display: block;
+        }
+        
+        .chat header * {
+    color: inherit;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#unreadMsgSpanContainer {
+    background-color: #fff;
+    color: #00a89d;
+    display: none;
+    padding: 3px 7px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: middle;
+    white-space: nowrap;
+    min-width: 10px;
+}
+
+
+      .chat.minimizedchat header{
+          cursor: pointer;
+        }
+
+        .chat.minimizedchat #toggleCollapse{
+          display:none;
+        }
+        .chat.minimizedchat #toggleExpand{
+          display:block;
+        }
+        .chat.expandedchat #toggleExpand{
+          display:none;
+        }
+        .chat.expandedchat #toggleCollapse{
+          display:block;
+        }
+
+        .chat.minimizedchat button.toprightbtn.secondFromRight{
+          display:none;
+        }
+
+
+        .chat.minimizedchat header:hover .toprightbtn{
+          opacity: 1;
+        }
+      
+        .toprightbtn:focus {
+          outline: rgb(255, 255, 255) dotted 1px;
+          outline-offset: -2px;
+          opacity: 1;
+      }
+      .toprightbtn:hover {
+          opacity: 1;
+      }
+      button.toprightbtn.innerbtn {
+        right: 44px !important;
+      }
+    
+      button.rightMost.toprightbtn {
+        right: 0px;
+      }
+      button.secondFromRight.toprightbtn {
+        right: 45px;
+      }
+      
+      button.toprightbtn {
+          background: none;
+          padding: 0px !important;
+          border: 0px currentColor;
+          border-image: none;
+          overflow: visible;
+          display: block;
+          z-index: 1046;
+          cursor: pointer;
+          box-shadow: none;
+          -webkit-appearance: none;
+          -webkit-box-shadow: none;
+          font-weight: 700;
+          padding: 0px 0px 18px 10px;
+          top: 0px;
+          width: 44px;
+          height: 44px;
+          text-align: center;
+          color: rgb(255, 255, 255);
+          line-height: 44px;
+          font-family: Arial,Baskerville,monospace;
+          font-style: normal;
+          text-decoration: none;
+          position: absolute;
+          opacity: 0.65;
+          margin: 0px;
+      }   
+
+.css-1dgbgmu {
+background-color: #00a89d !important
+}
+.css-1dgbgmu.from-user {
+background-color: #26384a !important
+}
+
+/*chatbot styles end */
