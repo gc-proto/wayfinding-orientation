@@ -16,7 +16,481 @@
   <script type="text/javascript"
     src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
   <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet"/>
-  <link href="../css/cews.css" rel="stylesheet"/>
+  <style>
+@charset "utf-8";
+/* CSS Document */
+h1#wb-cont {
+	border-bottom: none;
+}
+/* Remove text decoration for abbr tags (equations) */
+abbr.brdr-0 {
+	text-decoration: none!important;
+}
+section.gc-nav h1 {
+	font-size: 1.3em;
+	color: #555;
+	border-bottom: none;
+}
+
+/*page structure desktop (new) */
+@media all and (min-width:992px) {
+section.gc-nav nav {
+	position: relative;
+	width: 33.33%;
+	left: 66.66%;
+	float: left;
+	padding-left: 15px;
+	margin-bottom: 30px;
+}
+section.gc-nav h1 {
+	width: 66.66%;
+	padding-right: 15px;
+	margin-top: 20px;
+	margin-bottom: -5px;
+	font-weight: 200;
+}
+section.gc-nav-section {
+	position: relative;
+	width: 66.66%;
+	float: left;
+	padding-right: 15px;
+}
+section.gc-nav ~ section.gc-nav-section {
+	right: 33.33%;
+}
+section.gc-nav ~ section.gc-nav-section h1 {
+	margin-top: 0px
+}
+section.gc-nav-section + .pagedetails {
+	clear: both;
+}
+}
+#gc-navseq-header {
+	font-size: 1.2em;
+	margin-top: 0px;
+}
+.gc-navseq {
+	padding-left: 0.9em;
+}
+.gc-navseq .small, .gc-navseq small {
+	line-height: 0em;
+}
+.gc-navseq * {
+	font-weight: inherit!important;
+	line-height: inherit!important
+}
+.gc-navseq>li, ul.gc-navseq-fa>li {
+	padding-bottom: 20px;
+        padding-right: 20px;
+	list-style: none;
+	padding-left: 1.2em;
+	border-left: 5px solid #26374a;
+	position: relative;
+}
+ul.gc-navseq-fa>li .fa-li {
+	left: 0em;
+	position: relative;
+}
+ul.gc-navseq-fa {
+	margin-left: 0.9em
+}
+li .gc-navseq {
+	margin-top: 16px;
+}
+.gc-navseq>li>:first-child::before, ul.gc-navseq-fa li span.fa-li {
+	border-radius: 50%;
+	border: 3px solid #26374a;
+	background-color: #fff;
+	float: left;
+	text-decoration: none;
+	box-sizing: content-box;
+	line-height: 1.3em;
+	text-align: center;
+	padding: 3px;
+	font-size: 1.0em;/* transition: width 0.2s, height 0.2s, margin-top 0.2s, font-size 0.2s, margin-left 0.2s, line-height 0.2s;
+	*/
+}
+ul.gc-navseq-fa li span.fa-li {
+	height: 1.3em;
+	width: 1.3em;
+	margin-left: -2.3em;
+}
+ul.gc-navseq>li>:first-child::before {
+	height: 0.8em;
+	width: 0.8em;
+	margin-left: -2.05em;
+	content: "";
+}
+@-moz-document url-prefix() {
+ ul.gc-navseq>li>:first-child::before {
+ margin-left: -2.0em;
+}
+}
+.gc-navseq li a::before {
+	text-decoration: underline;
+}
+ul.gc-navseq.noline>li {
+	border-left: 5px solid transparent
+}
+.gc-navseq>li:last-child, .gc-navseq>li.completed:last-child, ul.gc-navseq-fa li:last-child {
+	border-left: 5px solid transparent;
+	padding-bottom: 0;
+}
+ul.gc-navseq.noline>li>:first-child::before {
+	margin-top: 0.2em
+}
+/*active*/
+.gc-navseq li.active>:first-child::before, .gc-navseq-fa li.active span.fa-li {
+	background-color: #26374a;
+	color: #fff;
+}
+/*sub-steps*/
+.gc-navseq li ul {
+	margin-top: 16px!important;
+}
+/*Hover animation */
+ul.gc-navseq>li>a[href]:hover::before {
+	width: 0.83em;
+	height: 0.83em;
+	margin-top: -0.1em;
+	font-size: 1.2em;
+	margin-left: -1.775em;
+	line-height: 1.55;
+}
+ul.gc-navseq.noline>li>a[href]:hover::before {
+	margin-top: 0.15em;
+}
+.gc-navseq-fa>li>a[href]:hover span.fa-li {
+	width: 1.55em;
+	height: 1.55em;
+	margin-top: -0.05em;
+	margin-left: -2.45em;
+}
+.gc-navseq-fa>li>a[href]:hover span.fa-li::before {
+	margin-top: -0.1em;
+}
+
+/*Vertical steps in mobile */
+@media screen and (max-width:991px) {
+section.gc-nav {
+	margin-top: 30px;
+	border-right: 5px solid #26374a;
+	border-top: 5px solid #26374a;
+	border-radius: 0 6px 6px 0;
+}
+section.gc-nav nav>.gc-navseq {
+	padding-top: 15px;
+	margin-top: -18px;
+	clear: both;
+}
+section.gc-nav nav>.gc-navseq > li:last-child {
+	border-bottom: 5px solid #26374a;
+	border-left: 5px solid #26374a;
+	border-bottom-left-radius: 6px;
+	padding-bottom: 24px;
+}
+section.gc-nav h1 {
+	margin-bottom: -18px;
+	margin-right: 20px;
+	background-color: white;
+	padding: 20px 10px 10px 20px;
+	display: inline-block;
+	margin-left: -20px;
+	margin-top: -40px;
+	float: left;
+}
+}
+/*nav buttons */
+.gc-navseq-nav-btn:hover, .gc-navseq-nav-btn:focus, .gc-navseq-nav-btn:visited {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px;
+}
+.gc-navseq-nav-btn {
+	background-color: #26374a;
+}
+.gc-navseq-nav-btn:hover {
+	background-color: #444;
+}
+.gc-navseq-nav-btn:not(:focus) {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+
+@media all and (min-width:992px) {
+#gc-navseq-nav {
+	display: flex;
+}
+}
+
+/*Navigation template in mobile */
+@media all and (max-width:991px) {
+.gc-nav nav {
+	padding-top: 40px;
+}
+}
+#gc-navseq-nav {
+	margin-bottom: 0;
+	list-style: none;
+	padding-left: 0;
+}
+
+.gc-navseq-nav-btn:focus {
+	position: relative;
+}
+
+/* new topic style */
+h1 {
+	border-bottom: none;
+}
+h1#wb-cont::after {
+	content: ""; /* This is necessary for the pseudo element to work. */
+	display: block; /* This will put the pseudo element on its own line. */
+	width: 70px; /* Change this to whatever width you want to have before hover. */
+	padding-bottom: 8px; /* This creates some space between the element and the border. */
+	border-bottom: .18em solid #af3c43; /* This creates the border. Replace black with whatever color you want. */
+}
+/* Styled ordered list design */
+ol.lst-stps, .lst-stps {
+     counter-reset: item;
+}
+ ol.lst-stps, .lst-stps {
+     margin: 15px 0 15px 0px;
+     padding-left: 0;
+     position: relative;
+}
+ ol.lst-stps>li, .lst-stps>.lst-item {
+     counter-increment: item;
+}
+ ol.lst-stps > li, .lst-stps .lst-item {
+     list-style: none;
+     margin-top: 30px;
+     position: relative;
+     padding-left:60px;
+     padding-right: 15px;
+     min-height: 2.2em;
+}
+ ol.lst-stps fieldset {
+     padding-top:0;
+}
+ ol.lst-stps li>*:last-child, .lst-stps .lst-item>*:last-child {
+    margin-bottom:0px;
+}
+ ol.lst-stps>li:before, .lst-stps .lst-item:before {
+     content: counter(item);
+}
+ ol.lst-stps li>ol, .lst-stps .lst-item>.sub-lst-stps {
+     counter-reset: subitem;
+}
+ ol.lst-stps li>ol {
+     margin-left: -35px;
+}
+ .lst-stps .lst-item {
+     position: relative;
+     padding-left: 60px;
+     margin-top: 30px;
+}
+ ol.lst-stps li:before, .lst-stps .lst-item:before {
+     -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+     border-radius: 50%;
+     border: 3px solid #26374a;
+     background-color: #fff;
+     float: left;
+     position: absolute;
+     box-sizing: content-box;
+     line-height: 2.2;
+     text-align: center;
+     font-weight: 600;
+     height: 2.2em;
+     width: 2.2em;
+     left: 0px;
+     margin-top: -8px;
+}
+ ol.lst-stps>li>ol>li:before, .lst-stps>.lst-item>.sub-lst-stps>.lst-item:before {
+     counter-increment: subitem;
+     content: counter(item) "" counter(subitem, lower-alpha) "";
+}
+ .sub-lst-stps>.lst-item:last-child {
+     margin-bottom: 0px 
+}
+ .lst-stps-striped>li ol, .lst-stps-striped > .lst-item > .sub-lst-stps {
+    margin-top:15px;
+}
+ .lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+    padding-top: 23px;
+     padding-bottom:23px;
+     margin-top:0px;
+}
+ .lst-stps-striped >li:nth-child(odd), .lst-stps-striped >li:nth-child(even)>ol>li:nth-child(odd), .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(even), .lst-stps-striped >.lst-item:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(even)>.sub-lst-stps>.lst-item:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(even) {
+     background-color: #f5f5f5;
+}
+ .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(odd), .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(odd){
+     background-color: #fff!important;
+}
+ .lst-stps-striped >li:nth-child(even)>ol>li:nth-child(even):last-child, .lst-stps-striped >li:nth-child(odd)>ol>li:nth-child(even):last-child, .lst-stps-striped >.lst-item:nth-child(even)>.sub-lst-stps>.lst-item:nth-child(even):last-child, .lst-stps-striped >.lst-item:nth-child(odd)>.sub-lst-stps>.lst-item:nth-child(even):last-child {
+     padding-bottom: 0px;
+}
+ ol.lst-stps li>:first-child, .lst-stps .lst-item>:first-child {
+     margin-top:auto;
+}
+ ol.lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+    padding-left: 75px;
+}
+ .lst-stps-striped li:before, .lst-stps-striped .lst-item:before {
+    margin-left: 15px;
+}
+ /* ol.lst-stps li ul, ol.lst-stps li ul li, ol.lst-stps.lst-stps-striped li ul, ol.lst-stps.lst-stps-striped li ul li {
+     padding-left: 0px;
+}
+*/
+ @media all and (max-width: 767px) {
+     ol.lst-stps li:before, .lst-stps .lst-item:before {
+         font-size: 0.8em;
+         line-height: 2;
+         height: 2em;
+         width: 2em;
+         margin-top: -3px;
+         font-weight: 600;
+    }
+     ol.lst-stps>li, .lst-stps>.lst-item {
+         padding-left: 45px 
+    }
+
+	 
+     .lst-stps.lst-stps-striped li, .lst-stps.lst-stps-striped .lst-item {
+        padding-top: 19px;
+         padding-bottom:19px;
+         margin-top:0px;
+    }
+}
+
+.lst-lwr-alph {
+	list-style-position: outside;
+}
+.callout {
+	padding: 19px;
+	margin-bottom: 20px;
+	border: 1px solid #e3e3e3;
+	box-shadow: 0px 0px 10px #ddd;
+}
+/*Checkbox/Fieldflow radio input sizing,positioning*/
+.checkbox-lg > li.checkbox {
+  margin-top: 0px;
+}
+.checkbox-lg > li {
+  margin-left: -40px;
+  padding-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  padding-right: 15px;
+}
+.checkbox-zebra > li:nth-child(2n+1) {
+  background-color: #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+.checkbox-lg > li.checkbox input[type=checkbox], .fieldflow-lg .radio input[type=radio] {
+  margin-top: 12px;
+  transform: scale(2);
+}
+.checkbox-lg label, .fieldflow-lg, .fieldflow-lg label, .fieldflow-lg div, .fieldflow-lg select, .std-blt {
+  font-size: 20px;
+  line-height: 1.65em;
+}
+.std-blt {
+  list-style-type: disc;
+}
+.std-blt li label {
+  display: block;
+  padding-left: 0px;
+}
+.fieldflow-lg .radio label {
+  margin-left: 40px;
+}
+.fieldflow-lg .radio input[type=radio] {
+  margin-left: -40px;
+}
+.fieldflow-lg fieldset legend {
+  font-size: 22px;
+  margin-top: 0px;
+}
+/*Hide arrows in Chrome/FF for number input*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+output.wb-calc {
+display: inline;
+}
+	/*Validation invisible text appearance */
+.wb-frmvld #errors-default .wb-inv, .wb-frmvld .has-error .wb-inv {
+	clip: inherit;
+	height: inherit;
+	margin: inherit;
+	overflow: inherit;
+	position: inherit;
+	width: inherit;
+}
+.wb-frmvld .has-error .wb-inv {
+	color: #333;
+}
+:not(#wb-srch) main form,main .checkbox,main .checkbox-inline,main .radio,main .radio-inline,main form :not(.btn-call-to-action).btn,main form :not(.btn-primary).btn {
+    font-size: 20px !important;
+    line-height: 1.65em !important;
+}
+/*Lower opacity for placeholders */
+::-webkit-input-placeholder { /* Edge */
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  opacity: 0.5;
+}
+
+input::placeholder {
+   opacity: 0.5;
+}
+/*placholder disappears on focus */
+input:focus::-webkit-input-placeholder {
+	opacity: 0; 
+}
+
+input:focus::placeholder {
+	opacity: 0; 
+}
+/*CSS eqht experimental */
+.wb-eqht-css {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	height: 100%;
+}
+.wb-eqht-css .wb-eqht-grid {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+.wb-eqht-css .hght-inhrt-css {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+.wb-eqht-css .hght-inhrt-css .eqht-trgt-css {
+	flex: 1 1 auto;
+}
+</style>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <!-- Write closure template -->
   <script type="text/javascript">
