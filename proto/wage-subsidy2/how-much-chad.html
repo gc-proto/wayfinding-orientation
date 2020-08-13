@@ -1894,6 +1894,7 @@
           $(".p59").removeClass("hidden");
           $(".p14").addClass("hidden");
           $(".btn-cews-cal").removeClass("disabled");
+          $(".btn-cews-cal").prop("disabled", false);
         } else if (
           parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
           parseInt($("#claim-period option:selected").data("claim-period")) < 5 
@@ -1908,6 +1909,7 @@
           $(".p59").addClass("hidden");
           $("#cal-sprdsht-none").addClass("hidden");
           $(".btn-cews-cal").removeClass("disabled");
+          $(".btn-cews-cal").prop("disabled", false);
         } else {
           $("#rate-reduction").addClass("hidden");
           $(".emp-lv").addClass("hidden");
@@ -1916,6 +1918,7 @@
           $(".p59").addClass("hidden");
           $(".p14").removeClass("hidden");
           $(".btn-cews-cal").addClass("disabled");
+          $(".btn-cews-cal").prop("disabled", true);
         }
       });
 
