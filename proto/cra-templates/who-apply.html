@@ -173,64 +173,72 @@
                   <li><a href="send-payment.html">Return a payment</a></li>
                   <li><a href="contact.html">Contact us about [ABC]</a></li>
                </ul>
-			   <div class="hidden-sm hidden-xs" data-ajax-replace="index.html #related-menu"> </div>
+               <div class="hidden-sm hidden-xs" data-ajax-replace="index.html #related-menu"> </div>
             </nav>
          </section>
          <section class="gc-nav-section experimental provisional">
             <h1 property="name" id="wb-cont">Who can apply</h1>
-            <p>If you are [details]. </p>
             <section>
                <h2 id="h-1">Eligibility criteria</h2>
-               <p class="lead">To be eligible for the $[#] [ABC] payment, you must meet the following conditions:</p>
+               <p class="lead">To be eligible for the [Name of X] [ABC], you must meet the following conditions:</p>
                <section>
                   <ul class="checkbox-lg checkbox-zebra">
                      <li class="checkbox">
                         <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
-                        <label for="eg1">You <strong>did not apply for or receive</strong> the ...</label>
-                     </li>
-					 <li class="checkbox">
-                        <input type="checkbox" id="eg1a" class="action-checkbox cb-dmm">
-                        <label for="eg1a">You were <strong>not eligible</strong> for ...</label>
-						<details class="mrgn-lft-lg">
-						<summary>Is this the right benefit for you?</summary>
-						
-					<p>If you were previously on CERB and are unsure if this is the correct benefit for you....[content goes here]</p>
-					<p class="mrgn-bttm-0">Learn more: <a href="../0_archive-of-prev-content/cerb23-03-2020/cerb-cra/after.html">What to do after CERB</a></p>
-						</details>
+                        <label for="eg1">You <strong>did not apply for or receive</strong> the CERB, the [YYY], the [ZZZ], or any EI benefits or QPIP benefits for the same period</label>
+                        <details class="mrgn-lft-lg">
+                           <summary>You can only get 1 emergency benefit at a time</summary>
+                           <p>You are only allowed to receive one type of federal emergency income support benefit in the same week: the CERB, the [YYY], the [ZZZ], the [WWW], or EI benefits.</p>
+                        </details>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
-                        <label for="eg2">You reside in Canada and are at least 15 years old</label>
+                        <label for="eg2">You were <strong>not eligible</strong> for EI benefits through Service Canada</label>
+                        <details class="mrgn-lft-lg">
+                           <summary>Find the right benefit for you</summary>
+                           <p>If you finished your CERB payments and still need financial support, find out which emergency support benefit is the best one for you.</p>
+                           <p>Go to: <a href="../0_archive-of-prev-content/cerb23-03-2020/cerb-cra/after.html">What to do after CERB</a></p>
+                        </details>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-                        <label for="eg3">[details]</label>
+                        <label for="eg3">You are not (or no longer) eligible for the CERB</label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
-                        <label for="eg4"><strong>One of the following: </strong></label>
+                        <label for="eg4">You are a Canadian resident</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
+                        <label for="eg5">You have a valid Social Insurance Number (SIN)</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
+                        <label for="eg6">You are at least 15 years old</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
+                        <label for="eg7">You earned at least $5,000 (before deductions) in the past 12 months or in 2019 from one or more of the following sources: </label>
                         <ul class="std-blt lst-spcd">
                            <li>
-                              <label for="eg4">[details]</label>
+                              <label for="eg7">employment income</label>
                            </li>
                            <li>
-                              <label for="eg4">[details]</label>
+                              <label for="eg7">self-employment income</label>
+                           </li>
+                           <li>
+                              <label for="eg7">provincial or federal benefit payments related to maternity or parental leave</label>
                            </li>
                         </ul>
+                        <details class="mrgn-lft-lg">
+                           <summary>What counts towards the $5,000?</summary>
+                           <ul class="fa-ul">
+                              <li><span class="fas fa-check text-success fa-li"></span>All employment or self-employment income, tips, non-eligible dividends, honoraria, and royalties</li>
+                              <li><span class="fas fa-times text-danger fa-li"></span>Amounts you may get from other emergency benefits (CERB, CESB, the [YYY], the [ZZZ] and the [WWW]) <strong>do not count</strong> as income</li>
+                           </ul>
+                        </details>
                      </li>
-					 <li class="checkbox">
-                        <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
-                        <label for="eg5">[details]</label>
-                     </li>
-					 <li class="checkbox">
-                        <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
-                        <label for="eg6">[details]</label>
-                     </li>
-					 <li class="checkbox">
-                        <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
-                        <label for="eg7">[details]</label>
-                     </li>
-					 <li class="checkbox">
+                     <li class="checkbox">
                         <input type="checkbox" id="eg8" class="action-checkbox cb-dmm">
                         <label for="eg8"><strong>One of the following: </strong></label>
                         <ul class="std-blt lst-spcd">
@@ -242,15 +250,39 @@
                            </li>
                         </ul>
                      </li>
-					 <li class="checkbox">
+                     <li class="checkbox">
                         <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
-                        <label for="eg9"><strong>One of the following: </strong></label>
+                        <label for="eg9">[details]</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg10" class="action-checkbox cb-dmm">
+                        <label for="eg10">[details]</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg11" class="action-checkbox cb-dmm">
+                        <label for="eg11">[details]</label>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
+                        <label for="eg12"><strong>One of the following: </strong></label>
                         <ul class="std-blt lst-spcd">
                            <li>
-                              <label for="eg9">[details]</label>
+                              <label for="eg12">[details]</label>
                            </li>
                            <li>
-                              <label for="eg9">[details]</label>
+                              <label for="eg12">[details]</label>
+                           </li>
+                        </ul>
+                     </li>
+                     <li class="checkbox">
+                        <input type="checkbox" id="eg13" class="action-checkbox cb-dmm">
+                        <label for="eg13"><strong>One of the following: </strong></label>
+                        <ul class="std-blt lst-spcd">
+                           <li>
+                              <label for="eg13">[details]</label>
+                           </li>
+                           <li>
+                              <label for="eg13">[details]</label>
                            </li>
                         </ul>
                      </li>
@@ -259,21 +291,22 @@
                      <p>You need all of the above to be eligible for the [ABC].</p>
                   </div>
                   <div class="alert alert-success hidden provisional" id="action-msg1">
-                     <p>You are eligible for the [ABC]. You can get <strong class="lead">$[#]</strong> for each [#]-week period that you qualify for. </p>
+                     <p>You are eligible for the [ABC]. You can get <strong class="lead">$[#]</strong> (before taxes) for each [#]-week period you apply for. </p>
                   </div>
                </section>
                <div class="clearfix"></div>
             </section>
             <h2 id="h-2">Verifying your eligibility</h2>
-            <p>The CRA will be verifying that you are eligible to receive the benefit. In cases where claimants are found to be ineligible, they will be contacted to make arrangements to repay any applicable amounts.</p>
-			<p>Canadians can also report suspected [ABC] misuse through the <a href="/en/revenue-agency/programs/about-canada-revenue-agency-cra/suspected-tax-cheating-in-canada-overview.html">CRA's Leads program</a>.</p>
+            <p>The CRA will be verifying that you are eligible to receive the [ABC]. You may receive a notice from the CRA asking you to <a href="how-apply.html#h-3">validate your application</a>. You will need to contact the CRA to verify your information and process your application.</p>
+            <p>If you received a payment and are later found to be ineligible, we will contact you to make arrangments to repay any amounts owing.</p>
+            <p>Canadians can also report suspected misuse through the <a href="/en/revenue-agency/programs/about-canada-revenue-agency-cra/suspected-tax-cheating-in-canada-overview.html">CRA's Leads program</a>.</p>
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                <h3 class="wb-inv">Document navigation</h3>
                <ul class="pager">
                   <li class="next"><a href="how-much.html" rel="next">How much you can get</a></li>
                </ul>
             </nav>
-			<div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
+            <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
          </section>
          <div id="def-preFooter">
          </div>
