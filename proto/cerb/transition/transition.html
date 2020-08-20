@@ -126,9 +126,20 @@
          <label for="eg5"> For maternity, parental, sickness and caregiver benefits,...something something</label>
        </li>
      </ul>
-     <div class="alert alert-success hidden-action provisional" id="action-msg-all">
+<!--      Unchecked -->
+	  <div class="alert alert-danger provisional" id="action-no-msg">
+		 <p>You need all of the above to be eligible for EI benefits.</p>
+	  </div>     
+<!-- 	  Checked -->
+     <div class="alert alert-success hidden provisional" id="action-msg1">
        <p>You should apply for EI benefits so EI processing agents can confirm that you are eligible. </p>
        </div>
+       
+
+
+       
+       
+       
       <h3 class="h2">What to expect when you apply </h3>
       <p> There are some differences between CERB and EI you should understand before you apply: 
       </p>
@@ -173,5 +184,18 @@
             }));
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script>
+			$(".action-checkbox").change(function(){
+				if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+					$("#action-msg1").removeClass("hidden").addClass("visible");
+					$("#action-no-msg").addClass("hidden").removeClass("visible");
+				}
+				if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+					$("#action-msg1").addClass("hidden").removeClass("visible");
+					$("#action-no-msg").removeClass("hidden").addClass("visible");
+				}
+			})
+
+		</script>
       </body>
    </html>
