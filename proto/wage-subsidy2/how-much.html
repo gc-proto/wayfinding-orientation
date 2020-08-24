@@ -2779,10 +2779,10 @@
           var totalCews = $(".total").attr("data-total-cews");
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
-          $("#p2b-c1").val(roundPercDown(currentRevReduc));
-          $("output[for='p2b-c1']").text(roundPercDown(currentRevReduc) + "%");
-          $("#p2b-c2").val(roundPercDown(threeMonthReduction));
-          $("output[for='p2b-c2']").text(roundPercDown(threeMonthReduction) + "%");
+          $("#p2b-c1").val(Math.max(0, roundPercDown(currentRevReduc)));
+          $("output[for='p2b-c1']").text(Math.max(0, roundPercDown(currentRevReduc) + "%"));
+          $("#p2b-c2").val(Math.max(0, roundPercDown(threeMonthReduction)));
+          $("output[for='p2b-c2']").text(Math.max(0, roundPercDown(threeMonthReduction) + "%"));
           $("#p2b-c3").val(roundPercDown(cewsRate));
           $("output[for='p2b-c3']").text(roundPercDown(cewsRate) + "%");
         } else {
