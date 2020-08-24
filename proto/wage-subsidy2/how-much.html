@@ -2096,7 +2096,6 @@
           $(".claim-period-no").text(rangeClaimNo);
         }
         //show/hide elements based on chosen claim period
-        //if p5+; else if  p1-4; else 'select'
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         switch (claimPeriod) {
           case 6:
@@ -2182,8 +2181,6 @@
         for (let i = 0; i < $($elms).length; i++) {
           var $elm = $($elms).eq(i);
           if ($elm.val() == "") {
-
-
             $emptyElms.push($elm);
             count++;
           }
@@ -2537,9 +2534,9 @@
             parseFloat(zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val())) > 0
           ) &&
           (
-            parseFloat(zeroIfEmpty($("#2019-04-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-05-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-06-no").val())) > 0
+            parseFloat(zeroIfEmpty($("#2019-0" + (claimMonth - 3) + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#2019-0" + (claimMonth - 2) + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#2019-0" + (claimMonth - 1) + "-no").val())) > 0
           )
         ) {
           //get the value of the claim month
@@ -2548,16 +2545,20 @@
           //get the value of the previous month
           var prevClaim2020Value = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val());
-          //get the avg of the revenue from apr-june2020
-          var april2020Val = zeroIfEmpty($("#2020-04-no").val());
-          var may2020Val = zeroIfEmpty($("#2020-05-no").val());
-          var june2020Val = zeroIfEmpty($("#2020-06-no").val());
-          var threeMonthAvg2020 = (april2020Val + may2020Val + june2020Val) / 3;
-          //get the avg of the revenue from apr-june2019
-          var april2019Val = zeroIfEmpty($("#2019-04-no").val());
-          var may2019Val = zeroIfEmpty($("#2019-05-no").val());
-          var june2019Val = zeroIfEmpty($("#2019-06-no").val());
-          var threeMonthAvg2019 = (april2019Val + may2019Val + june2019Val) / 3;
+          //get the avg of the revenue from the previous three motnhs (2020)
+          var threeMonthRev2020 = [
+            zeroIfEmpty($("#2020-0" + (claimMonth - 3) + "-no").val()),
+            zeroIfEmpty($("#2020-0" + (claimMonth - 2) + "-no").val()),
+            zeroIfEmpty($("#2020-0" + prevClaimMonth + "-no").val())
+          ];
+          var threeMonthAvg2020 = (threeMonthRev2020[0] + threeMonthRev2020[1] + threeMonthRev2020[2]) / 3;
+          //get the avg of the revenue from the previous three months (2019)
+          var threeMonthRev2019 = [
+            zeroIfEmpty($("#2019-0" + (claimMonth - 3) + "-no").val()),
+            zeroIfEmpty($("#2019-0" + (claimMonth - 2) + "-no").val()),
+            zeroIfEmpty($("#2019-0" + prevClaimMonth + "-no").val())
+          ];
+          var threeMonthAvg2019 = (threeMonthRev2019[0] + threeMonthRev2019[1] + threeMonthRev2019[2]) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
@@ -2639,7 +2640,7 @@
           //get the value of the previous month
           var prevClaimValue = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-yes").val());
           //get the avg of the revenue from apr-june
-          var threeMonthAvg = (zeroIfEmpty($("#2020-04-yes").val()) + zeroIfEmpty($("#2020-05-yes").val()) + zeroIfEmpty($("#2020-06-yes").val())) / 3;
+          var threeMonthAvg = (zeroIfEmpty($("#2020-0" + (claimMonth - 3) + "-yes").val()) + zeroIfEmpty($("#2020-0" + (claimMonth - 2) + "-yes").val()) + zeroIfEmpty($("#2020-0" + (claimMonth - 1) + "-yes").val())) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
@@ -2835,7 +2836,7 @@
         var date2Counter = 0;
         var date2Month = date2.getUTCMonth();
         if (date1Month == date2Month) {
-          return date1Month;
+          return date1Month + 1;
         }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;
