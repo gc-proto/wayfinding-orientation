@@ -2639,7 +2639,7 @@
           var prevClaimMonth = claimMonth - 1;
           //get the value of the previous month
           var prevClaimValue = zeroIfEmpty($("#2020-0" + prevClaimMonth + "-yes").val());
-          //get the avg of the revenue from apr-june
+          //get the avg of the revenue from the last three months
           var threeMonthAvg = (zeroIfEmpty($("#2020-0" + (claimMonth - 3) + "-yes").val()) + zeroIfEmpty($("#2020-0" + (claimMonth - 2) + "-yes").val()) + zeroIfEmpty($("#2020-0" + (claimMonth - 1) + "-yes").val())) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
