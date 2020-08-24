@@ -2097,50 +2097,66 @@
         }
         //show/hide elements based on chosen claim period
         //if p5+; else if  p1-4; else 'select'
-        if (
-          parseInt($("#claim-period option:selected").data("claim-period")) >= 5
-        ) {
-          $("#rate-reduction").removeClass("hidden");
-          $(".emp-lv").removeClass("hidden");
-          $("#p4-tws").prop("readonly", true);
-          $("#p4-tws").val("0.00");
-          $("#p4-tws-disclaimer").removeClass("hidden");
-          $("#cal-sprdsht-p1-4").addClass("hidden");
-          $("#cal-sprdsht-none").addClass("hidden");
-          $("#cal-sprsht-p5").removeClass("hidden");
-          $(".p59").removeClass("hidden");
-          $(".p14").addClass("hidden");
-          $(".btn-cews-cal").removeClass("disabled");
-          $(".btn-cews-cal").prop("disabled", false);
-          $(".choose-claim-period").addClass("hidden");
-
-        } else if (
-          parseInt($("#claim-period option:selected").data("claim-period")) > 0 &&
-          parseInt($("#claim-period option:selected").data("claim-period")) < 5
-        ) {
-          $("#cal-sprdsht-p1-4").removeClass("hidden");
-          $("#cal-sprsht-p5").addClass("hidden");
-          $("#rate-reduction").addClass("hidden");
-          $(".emp-lv").addClass("hidden");
-          $("#p4-tws").prop("readonly", false);
-          $("#p4-tws-disclaimer").addClass("hidden");
-          $(".p14").removeClass("hidden");
-          $(".p59").addClass("hidden");
-          $("#cal-sprdsht-none").addClass("hidden");
-          $(".btn-cews-cal").removeClass("disabled");
-          $(".btn-cews-cal").prop("disabled", false);
-          $(".choose-claim-period").addClass("hidden");
-        } else {
-          $("#rate-reduction").addClass("hidden");
-          $(".emp-lv").addClass("hidden");
-          $("#p4-tws").prop("readonly", false);
-          $("#p4-tws-disclaimer").addClass("hidden");
-          $(".p59").addClass("hidden");
-          $(".p14").removeClass("hidden");
-          $(".btn-cews-cal").addClass("disabled");
-          $(".btn-cews-cal").prop("disabled", true);
-          $(".choose-claim-period").removeClass("hidden");
-
+        var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
+        switch (claimPeriod) {
+          case 6:
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprdsht-p1-4").addClass("hidden");
+            $("#cal-sprdsht-none").addClass("hidden");
+            $("#cal-sprsht-p5").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2020-08-yes").closest("div.form-group").removeClass("hidden");
+            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            break;
+          case 5:
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprdsht-p1-4").addClass("hidden");
+            $("#cal-sprdsht-none").addClass("hidden");
+            $("#cal-sprsht-p5").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-04-yes").closest("div.form-group").removeClass("hidden");
+            break
+          case claimPeriod > 0 && claimPeriod < 5:
+            $("#cal-sprdsht-p1-4").removeClass("hidden");
+            $("#cal-sprsht-p5").addClass("hidden");
+            $("#rate-reduction").addClass("hidden");
+            $(".emp-lv").addClass("hidden");
+            $("#p4-tws").prop("readonly", false);
+            $("#p4-tws-disclaimer").addClass("hidden");
+            $(".p14").removeClass("hidden");
+            $(".p59").addClass("hidden");
+            $("#cal-sprdsht-none").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            break;
+          default: 
+            $("#rate-reduction").addClass("hidden");
+            $(".emp-lv").addClass("hidden");
+            $("#p4-tws").prop("readonly", false);
+            $("#p4-tws-disclaimer").addClass("hidden");
+            $(".p59").addClass("hidden");
+            $(".p14").removeClass("hidden");
+            $(".btn-cews-cal").addClass("disabled");
+            $(".btn-cews-cal").prop("disabled", true);
+            $(".choose-claim-period").removeClass("hidden");
         }
       });
 
