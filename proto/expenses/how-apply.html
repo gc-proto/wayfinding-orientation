@@ -717,11 +717,10 @@
 			   <li>
 		
 						<h3>Input these values into your form</h3>
-						<p>Use the <a href="#confirm-registration">calculator</a> above to determine these values</p>
-               <div class="wb-tabs ignore-session">
-                  <div class="tabpanels">
-                     <details id="t777c">
-                        <summary>Simplified T777C (short) form</summary>
+						<p>Use the <a href="#confirm-registration"><span class="fas fa-calculator"></span> calculator</a> above to determine these values</p>
+               <div class="panel panel-primary">
+			   <div class="panel-heading"><h4 class="panel-title">Your results</h4></div>
+			   <div class="panel-body">
                        
 						
 					
@@ -730,13 +729,46 @@
         <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
         <div id="cews-statement">
           <p>Print and keep this record.</p>
+          </div>
           
+          <table class="table" id="cews-statement-table">
+        <caption>
+        Amounts to claim
+        </caption>
+        <tbody>
+          <tr>
+            <th scope="row">Electricity, heat and water amount to claim</br>
+<small>Line 5 in form T777c </br> Line 17 in form T777</small></th>
+            <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-cews" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-53">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Maintenance amount to claim</br>
+<small>Line 6 in form T777c </br> Line 18 in form T777</small>
+</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-54">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Insurance amount to claim</br>
+<small>Line 7 in form T777c </br> Line 19 in form T777</small>
+</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-cpp" data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-55">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Property taxes amount to claim</br>
+<small>Line 8 in form T777c </br> Line 20 in form T777</small></th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+          </tr>
           
-         
+		  
+        </tbody>
+      </table>
         
       <table class="table" id="cews-statement-table">
         <caption>
-        Summary of results
+        Data you provided
         </caption>
         <tbody>
           <tr>
@@ -793,47 +825,8 @@
         </tbody>
       </table>
      
-    </div>
-                     </details>
-                     <details id="t777">
-                        <summary>Detailed T777 form</summary>
-						
-                       
-						<div class="well">
-						<h3>Results</h3>
-						<div class="form-group">
-                                          <label for="utlts-cal-amnt">Electricity, heat and water amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="utlts-cal-amnt" name="utlts-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="utlts-cal-amnt">Put on line 17 in form T777.</p>
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="mntnc-cal-amnt">Maintenance amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="mntnc-cal-amnt" name="mntnc-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="mntnc-cal-amnt">Put on line 18 in form T777.</p>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="insrnc-cal-amnt">Insurance amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="insrnc-cal-amnt" name="insrnc-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="insrnc-cal-amnt">Put on line 19 in form T777.</p>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="prprt-cal-amnt">Property taxes amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="prprt-cal-amnt" name="prprt-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="prprt-cal-amnt">Put on line 20 in form T777.</p>
-                                       </div>
-						</div>
-                     </details>
-                     </details>
-                  </div>
-               </div>
+    </div>  </div>
+                     
 			  </li>
 			  </ol>
                <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
