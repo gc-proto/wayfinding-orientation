@@ -2089,14 +2089,14 @@
           startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
           endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
 
+        var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         if (!$("#claim-period option:selected:eq(0)")) {
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
-          $(".claim-period-no").text(rangeClaimNo);
+          $(".claim-period-no").text(claimPeriod);
         }
         //show/hide elements based on chosen claim period
-        var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         switch (claimPeriod) {
           case 6:
             $("#rate-reduction").removeClass("hidden");
