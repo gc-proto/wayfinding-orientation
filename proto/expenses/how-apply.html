@@ -198,7 +198,7 @@
             		title: "Taxes",
             		href: "https://www.canada.ca/en/services/taxes.html"
             	}
-				,{
+            ,{
             		title: "Income tax",
             		href: "https://www.canada.ca/en/services/taxes/income-tax.html"
             	},{
@@ -243,47 +243,355 @@
                <h1 property="name" id="wb-cont">How to claim</h1>
                <h2 class="h3 mrgn-tp-sm">On this page</h2>
                <ul>
-                  <li><a href="#h-1">When to claim</a></li>
-                  <li><a href="#h-2">Calculate your expenses</a></li>
-				  <li><a href="#h-3">Claim your expenses</a></li>
+                  <li><a href="#h-1">Calculate your expenses</a></li>
+                  <li><a href="#h-2">Claim your expenses</a></li>
                </ul>
- 
-               
-                  <h2 id="h-1">When to claim</h2>
-                  <p>You make the claim when you send us your personal tax return.</p>
-                 
-                  <h2 id="h-2">Calculate your expenses</h2>
-				  <p>[Content goes here]</p>
-			
-			
-			<p><a href="#" class="btn btn-call-to-action">Online calculator</a></p>
-			
-			<h3>See the math behind the calculation</h3>
-		
-		<details>
-			<summary>If you work in designated room</summary>
-			
-		
-		
-			 <ol class="lst-stps">
-               <li>
-                  <h3>Calculate the percentage of work space used in the home</h3>
+               <h2 id="h-1">Calculate your expenses</h2>
+               <div class="row mrgn-bttm-md">
+
+<div class="col-xs-12">
+
+<div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
+
+<div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-calculator fa-stack-2x"></span></span></div>
+
+<h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="confirm-registration">Calculator</h3>
+
+<div class="clearfix"></div>
+
+<div class="mrgn-lft-lg">
+
+<div class="wb-frmvld fieldflow-lg">
+
+<form>
+
+<div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
+
+<div class="wb-fieldflow-header">
+
+<p class="wb-fieldflow-label">Do you earn commissions?</p>
+
+<p><a href="#">What are commissions&nbsp;<span class="far fa-question-circle"></span></a></p>
+
+</div>
+
+<ul>
+
+<li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}]'>Yes
+
+<div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
+
+<div class="wb-fieldflow-header">
+
+<p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
+
+<p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
+
+</div>
+
+<ul>
+
+<li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
+
+<li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common area</li>
+
+</ul>
+
+</div>
+
+</li>
+
+<li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}]'>No
+
+<div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
+
+<div class="wb-fieldflow-header">
+
+<p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
+
+<p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
+
+</div>
+
+<ul>
+
+<li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Designated room</li>
+
+<li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Common area</li>
+
+</ul>
+
+</div>
+
+</li>
+
+</ul>
+
+</div>
+
+</form>
+
+</div>
+
+<div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{ "reset": {"action": "addClass", "source": ".test", "class": "h2"}}'>
+
+<div class="wb-fieldflow-header">
+
+<p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
+
+<p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
+
+</div>
+
+<ul>
+
+<li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Designated room</li>
+
+<li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Common area</li>
+
+</ul>
+
+</div>
+
+<div id="measurements" class="hidden">
+
+<p>Choose your preferred measurement units </p>
+
+<ul>
+
+<li id="select-m" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-m-sq", "live": true}]'>Square meters (m&#178;)</li>
+
+<li id="select-ft" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-ft-sq", "live": true}]'>Square feet (ft&#178;)</li>
+
+</ul>
+
+</div>
+
+<div class="provisional wb-steps hidden" id="designated-room">
+
+<form method="get" id="steps-example">
+
+<fieldset id="workarea">
+
+<legend>Percentage of allowed space to calculate</legend>
+
+<div>
+
+<div class="form-group">
+
+<label for="wrkspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of work space in your home</label>
+
+<div class="input-group col-sm-4 col-md-3">
+
+<input class="form-control input-lg" id="wrkspc" name="wrkspc" type="text">
+
+<span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+
+</div>
+
+<div class="form-group">
+
+<label for="hmspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of the total finished area of your home</label>
+
+<div class="input-group col-sm-4 col-md-3">
+
+<input class="form-control input-lg" id="hmspc" name="hmspc" type="number">
+
+<span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+
+</div>
+
+<div class="form-group cmmnrm hidden">
+
+<label for="cmmn-rm">How many hours in a week do you work in this common room?</label>
+
+<div class="input-group col-sm-4 col-md-3">
+
+<input class="form-control input-lg" id="cmmn-rm" name="cmmn-rm" type="number">
+
+<span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
+
+</div>
+
+<p>
+
+<button class="btn btn-default" id="wkspc-cal">Calculate the work space percentage</button>
+
+</p>
+
+<div class="form-group">
+
+<label for="wkspc-percent">Percentage of the home used for work</label>
+
+<div class="input-group col-xs-4 col-sm-2">
+
+<input class="form-control input-lg" id="wkspc-percent" name="wkspc-percent" type="number" readonly="readonly">
+
+<span class="input-group-addon ">%</span> </div>
+
+</div>
+
+<p aria-labelledby="wkspc-percent">You can use this percentage to calculate your <span class="cmmssn-only hidden">insurance, property taxes, </span>maintenance and utility (electricity, heat and water) expenses.</p>
+
+</div>
+
+</fieldset>
+
+<fieldset id="expenses">
+
+<legend class="mrgn-bttm-sm">Expense amount to claim</legend>
+
+<div>
+
+<p class="lead">The percentage you calculated above is: <strong id="wkspc-percentage-2">0%</strong></p>
+
+<p>Amount are the total for the calendar year (January 1 to December 31).</p>
+
+<div class="form-group">
+
+<label for="utlts">Electricity, heat and water (utilities)</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="utlts" name="utlts" type="number">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label for="mntnc">Maintenance (a couple of examples here)</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+
+</div>
+
+</div>
+
+<div class="form-group cmmssn-only hidden">
+
+<label for="insrnc">Insurance</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+
+</div>
+
+</div>
+
+<div class="form-group cmmssn-only hidden">
+
+<label for="prprt">Property taxes</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="prprt" name="prprt" type="number">
+
+</div>
+
+</div>
+
+<p>
+
+<button class="btn btn-default" id="exp-cal">Calculate your expenses</button>
+
+</p>
+
+<div class="form-group">
+
+<label for="utlts-cal-amnt">Electricity, heat and water amount to claim</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="utlts-cal-amnt" name="utlts-cal-amnt" type="number" readonly="readonly">
+
+</div>
+
+<p aria-labelledby="utlts-cal-amnt">Add to line 5 in form T777c, or line 17 in form T777.</p>
+
+</div>
+
+<div class="form-group">
+
+<label for="mntnc-cal-amnt">Maintenance amount to claim</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="mntnc-cal-amnt" name="mntnc-cal-amnt" type="number" readonly="readonly">
+
+</div>
+
+<p aria-labelledby="mntnc-cal-amnt">Add to line 6 in form T777c, or line 18 in form T777.</p>
+
+</div>
+
+<div class="form-group cmmssn-only hidden">
+
+<label for="insrnc-cal-amnt">Insurance amount to claim</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="insrnc-cal-amnt" name="insrnc-cal-amnt" type="number" readonly="readonly">
+
+</div>
+
+<p aria-labelledby="insrnc-cal-amnt">Add to line 7 in form T777c, or line 19 in form T777.</p>
+
+</div>
+
+<div class="form-group cmmssn-only hidden">
+
+<label for="prprt-cal-amnt">Property taxes amount to claim</label>
+
+<div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+
+<input class="form-control input-lg" id="prprt-cal-amnt" name="prprt-cal-amnt" type="number" readonly="readonly">
+
+</div>
+
+<p aria-labelledby="prprt-cal-amnt">Add to line 8 in form T777c, or line 20 in form T777.</p>
+
+</div>
+
+</div>
+
+</fieldset>
+
+<input id="summary" type="submit" name="summary" value="Summary of expenses to claim" class="btn btn-primary hidden">
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+               <h3>See the math behind the calculation</h3>
+               <details>
+                  <summary>If you work in designated room</summary>
+                  <h4 class="mrgn-tp-md">Calculate the percentage of work space used in the home</h4>
+                  <p>Take the area you use for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
                   <div class="row">
                      <div class="col-md-6">
-					  <p>Take the area you use for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
-					   <h4><span class="fas fa-calculator text-muted"></span> Example</h4>
-					   	<p>Chris lives in a 7 room house and has a designated area in the home where Chris only performs employment duties.</p>
-			   <ul class="fa-ul lst-spcd">
-				<li><span class="mrgn-tp-0 text-muted h5">&nbsp;250 square feet</span> (area of Chris' work space in his home)
-								 </li>
-								 <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">2500 square feet</span> (total finished area)
-								 </li>
-								 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
-								 </li>
-							
-								 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">10% </span> (percentage of home Chris uses for work space)</li>
-								 </ul>
-                     
+                        <h5><span class="fas fa-calculator text-muted"></span> Example</h5>
+                        <p>Chris lives in a 7 room house and has a designated area in the home where Chris only performs employment duties.</p>
+                        <ul class="fa-ul lst-spcd">
+                           <li><span class="mrgn-tp-0 text-muted h5">&nbsp;250 square feet</span> (area of Chris' work space in his home)
+                           </li>
+                           <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">2500 square feet</span> (total finished area)
+                           </li>
+                           <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
+                           </li>
+                           <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">10% </span> (percentage of home Chris uses for work space)</li>
+                        </ul>
                      </div>
                      <div class="col-md-6">
                         <a class="wb-lbx" href="1.png" title="Image 1">
@@ -291,167 +599,243 @@
                         </a>
                      </div>
                   </div>
-               </li>
-			   <li>
-                  <h3>Calculate the personal use versus work use portion</h3>
-                 <p>Since the entire work space was used only for work purposes, the entire space can be claimed.</p>
-				  <h4><span class="fas fa-calculator text-muted"></span> Example continued</h4>
-			  
-                        <p>This home office is 10% of the total space of the home. Chris can claim 10% of the home expenses, like electricity and heat, as work-space-in-the-home expenses.</p>
-						<p>
-						<p>If Chris was <strong>sharing this work space</strong> with someone (Danielle) who was also using the room as a dedicated work space, this gives them two options:</p>
-								 <div class="row">
+                  <p>If Chris was <strong>sharing this work space</strong> with someone (Danielle) who was also using the room as a dedicated work space, this gives them two options:</p>
+                  <div class="row">
                   <div class="col-xs-12">
                      <div class="row">
                         <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg mrgn-tp-sm">
                            <div class="col-sm-12">
                               <p class="mrgn-tp-0 text-muted h5">One person claims</p>
-                             <p>Chris <strong>or</strong> Danielle could claim 10% of the work-space-in-the-home expenses such as water and electricity.</p>
+                              <p>Chris <strong>or</strong> Danielle could claim 10% of the work-space-in-the-home expenses such as water and electricity.</p>
                            </div>
                         </div>
                         <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
                         <div class="col-xs-12 col-sm-6 mrgn-bttm-lg mrgn-tp-sm">
                            <div class="col-sm-12">
                               <p class="mrgn-tp-0 text-muted h5">Both claim</p>
-                             <p>
-							 Chris <strong>and</strong> Danielle could also share the claim but would only be able to claim a total of 10% of the expenses between the two of them.</p>
+                              <p>
+                                 Chris <strong>and</strong> Danielle could also share the claim but would only be able to claim a total of 10% of the expenses between the two of them.
+                              </p>
                            </div>
                         </div>
                      </div>
                   </div>
-								
-                    
-                     
-                   
-               </li>
-               <li>
+                  <h5>Gather the bills</h5>
+                  <div data-ajax-replace="what-claim.html #claim"> </div>
+               </details>
+               <details>
+                  <summary>If you work in a common room</summary>
+                  <h4 class="mrgn-tp-md">Calculate the percentage of work space used in the home</h4>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <p>Take the area used for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
+                        <h5><span class="fas fa-calculator text-muted"></span> Example</h5>
+                        <p>Sam and Terry rent an 8 room house. Due to COVID-19, they have been working from home using their dining room table.</p>
+                        <ul class="fa-ul lst-spcd">
+                           <li><span class="mrgn-tp-0 text-muted h5">&nbsp;108 square feet</span> (area used for work space in the home)
+                           </li>
+                           <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">900 square feet</span> (total finished area)
+                           </li>
+                           <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
+                           </li>
+                           <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">12% </span> (percentage of home you use for work space)</li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <a class="wb-lbx" href="1.png" title="Image 1">
+                        <img src="1.png" alt="Image 1" class="img-responsive"/>
+                        </a>
+                     </div>
+                  </div>
+                  <h4>Calculate the personal use versus work use portion</h4>
+                  <p> Half of the time the dining table is used for work and the
+                     other half for personal use.
+                  </p>
+                  <h5><span class="fas fa-calculator text-muted"></span> Example continued</h5>
+                  <ul class="fa-ul lst-spcd">
+                     <li><span class="text-muted h5">12%</span> (percentage of home used for work space)
+                     </li>
+                     <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">50%</span> (percentage of time used for work)
+                     </li>
+                     <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">6% </span></li>
+                  </ul>
+                  <p>This gives them two options:</p>
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">One person claims</p>
+                                 <p>Sam <strong>or</strong> Terry could claim 6% of the work-space-in-the-home expenses such as water and electricity.</p>
+                              </div>
+                           </div>
+                           <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+                           <div class="col-xs-12 col-sm-6 mrgn-bttm-lg mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">Both claim</p>
+                                 <p>
+                                    Sam <strong>and</strong> Terry could also share the claim but would only be able to claim a total of 6% of the expenses between the two of them.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                   <h3>Gather the bills</h3>
                   <div data-ajax-replace="what-claim.html #claim"> </div>
-               </li>
-               <li>
-                  <h3>Fill out the T777 or T777 (short)</h3>
-                  <div class="row">
-                     <div class="col-md-6">
-                        <p>Enter the full amount of the bill on the appropriate line on the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t777.html">T777 Statement of Employment Expenses</a> or <a href="#">T777C (short) Statement of Employment Expenses</a> and then enter the total personal use portion on line 11 of the T777C (short)and line 37 of the T777.</p>
-<p>Use the new numbers to calculate the bills for workspace in the home.</p>
-<p>Use the same bills from the example or make new ones. </p>
-
-
-                     </div>
-                     <div class="col-md-6">
-                        <a class="wb-lbx" href="3.png" title="Image 3">
-                        <img src="3.png" alt="Image 3" class="img-responsive"/>
-                        </a>
-                     </div>
-                  </div>
-               </li>
-              
-            </ol>
-		</details>
-		<details>
-			<summary>If you work in a common room</summary>
-			
-			
-			
-			 <ol class="lst-stps">
-               <li>
-                  <h3>Calculate the percentage of work space used in the home</h3>
-                  <div class="row">
-                     <div class="col-md-6">
-					  <p>Take the area used for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
-					   <h4><span class="fas fa-calculator text-muted"></span> Example</h4>
-					   <p>Sam and Terry rent an 8 room house. Due to COVID-19, they have been working from home using their dining room table.</p>
-			   <ul class="fa-ul lst-spcd">
-				<li><span class="mrgn-tp-0 text-muted h5">&nbsp;108 square feet</span> (area used for work space in the home)
-								 </li>
-								 <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">900 square feet</span> (total finished area)
-								 </li>
-								 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
-								 </li>
-							
-								 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">12% </span> (percentage of home you use for work space)</li>
-								 </ul>
-                     
-                     </div>
-                     <div class="col-md-6">
-                        <a class="wb-lbx" href="1.png" title="Image 1">
-                        <img src="1.png" alt="Image 1" class="img-responsive"/>
-                        </a>
-                     </div>
-                  </div>
-               </li>
-               <li>
-                  <h3>Calculate the personal use versus work use portion</h3>
-                 
-                        <p> Half of the time the dining table is used for work and the
-other half for personal use.</p>
- <h4><span class="fas fa-calculator text-muted"></span> Example continued</h4>
-			   <ul class="fa-ul lst-spcd">
-				
-								 <li><span class="text-muted h5">12%</span> (percentage of home used for work space)
-								 </li>
-								 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">50%</span> (percentage of time used for work)
-								 </li>
-							
-								 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">6% </span></li>
-								 </ul>
-								 <p>This gives them two options:</p>
-								 <div class="row">
-                  <div class="col-xs-12">
-                     <div class="row">
-                        <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg mrgn-tp-sm">
-                           <div class="col-sm-12">
-                              <p class="mrgn-tp-0 text-muted h5">One person claims</p>
-                             <p>Sam <strong>or</strong> Terry could claim 6% of the work-space-in-the-home expenses such as water and electricity.</p>
+               </details>
+               <details>
+                  <summary>If you work in multipe rooms</summary>
+                  <p>Content goes here.</p>
+               </details>
+               <h2 id="h-2">Claim your expenses</h2>
+			   <ol class="lst-stps">
+			   <li><h3>Choose the right form</h3>
+			   <p>To make the claim, you must use either the:</p>
+			   <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-6 brdr-rght mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">Simplified form</p>
+                                 <p>Use the <a href="" target="_blank">Form T777C - Statement of Employment Expenses (short)&nbsp;<span class="fas fa-external-link-alt"></span></a>,   if you are only claiming expenses related to working from home</p>
+                              </div>
                            </div>
-                        </div>
-                        <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
-                        <div class="col-xs-12 col-sm-6 mrgn-bttm-lg mrgn-tp-sm">
-                           <div class="col-sm-12">
-                              <p class="mrgn-tp-0 text-muted h5">Both claim</p>
-                             <p>
-							 Sam <strong>and</strong> Terry could also share the claim but would only be able to claim a total of 6% of the expenses between the two of them.</p>
+                           <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+                           <div class="col-xs-12 col-sm-6 mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">Detailed form</p>
+                                 <p>
+                                    Use <a href="" target="_blank">Form T777 - Statement of Employment Expenses&nbsp;<span class="fas fa-external-link-alt"></span></a> if you need to include additional expenses like office supplies, gas, parking, etc
+                                 </p>
+                              </div>
                            </div>
                         </div>
                      </div>
+                  </div>
+				  </li>
+			   <li>
+		
+						<h3>Input these values into your form</h3>
+						<p>Use the <a href="#confirm-registration">calculator</a> above to determine these values</p>
+               <div class="wb-tabs ignore-session">
+                  <div class="tabpanels">
+                     <details id="t777c">
+                        <summary>Simplified T777C (short) form</summary>
+                       
+						
+					
+						
+									  
+        <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
+        <div id="cews-statement">
+          <p>Print and keep this record.</p>
+          
+          
+         
+        
+      <table class="table" id="cews-statement-table">
+        <caption>
+        Summary of results
+        </caption>
+        <tbody>
+          <tr>
+            <th scope="row">Earn commissions</small></th>
+            <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-cews" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-cews * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-53">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Room type
+</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-54">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Preferred measurement type
+</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-cpp" data-wb-calc="{&quot;expr&quot;: &quot;#p3-cpp * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-55">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Size of work space in your home</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Total finished area of your home</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+          </tr>
+          <tr>
+            <th scope="row">Percentage of the home used for work</th>
+            <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-58">[answer]</output></td>
+          </tr>
+		   <tr>
+            <th scope="row">Electricity, heat and water (utilities)</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+          </tr>
+		  <tr>
+            <th scope="row">Maintenance (a couple of examples here)</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+          </tr>
+		  <tr>
+            <th scope="row">Insurance</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+          </tr>
+		  <tr>
+            <th scope="row">Property taxes</th>
+            <td class="text-right nowrap">
+              <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+          </tr>
+		  
+        </tbody>
+      </table>
+     
+    </div>
+                     </details>
+                     <details id="t777">
+                        <summary>Detailed T777 form</summary>
+						
+                       
+						<div class="well">
+						<h3>Results</h3>
+						<div class="form-group">
+                                          <label for="utlts-cal-amnt">Electricity, heat and water amount to claim</label>
+                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                                             <input class="form-control input-lg" id="utlts-cal-amnt" name="utlts-cal-amnt" type="number" readonly="readonly">
+                                          </div>
+                                          <p aria-labelledby="utlts-cal-amnt">Put on line 17 in form T777.</p>
+                                       </div>
+                                       <div class="form-group">
+                                          <label for="mntnc-cal-amnt">Maintenance amount to claim</label>
+                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                                             <input class="form-control input-lg" id="mntnc-cal-amnt" name="mntnc-cal-amnt" type="number" readonly="readonly">
+                                          </div>
+                                          <p aria-labelledby="mntnc-cal-amnt">Put on line 18 in form T777.</p>
+                                       </div>
+                                       <div class="form-group cmmssn-only hidden">
+                                          <label for="insrnc-cal-amnt">Insurance amount to claim</label>
+                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                                             <input class="form-control input-lg" id="insrnc-cal-amnt" name="insrnc-cal-amnt" type="number" readonly="readonly">
+                                          </div>
+                                          <p aria-labelledby="insrnc-cal-amnt">Put on line 19 in form T777.</p>
+                                       </div>
+                                       <div class="form-group cmmssn-only hidden">
+                                          <label for="prprt-cal-amnt">Property taxes amount to claim</label>
+                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                                             <input class="form-control input-lg" id="prprt-cal-amnt" name="prprt-cal-amnt" type="number" readonly="readonly">
+                                          </div>
+                                          <p aria-labelledby="prprt-cal-amnt">Put on line 20 in form T777.</p>
+                                       </div>
+						</div>
+                     </details>
+                     </details>
                   </div>
                </div>
-								
-                    
-                     
-                   
-               </li>
-			   <li>
-                  <h3>Gather the bills</h3>
-                 <div data-ajax-replace="what-claim.html #claim"> </div>
-               </li>
-               <li>
-                  <h3>Fill out the T777 or T777 (short)</h3>
-                  <div class="row">
-                     <div class="col-md-6">
-                         <p>Enter the full amount of the bill on the appropriate line on the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t777.html">T777 Statement of Employment Expenses</a> or <a href="#">T777C (short) Statement of Employment Expenses</a> and then enter the total personal use portion on line 11 of the T777C (short)and line 37 of the T777.</p>
-<p>Use the new numbers to calculate the bills for workspace in the home.</p>
-<p>Use the same bills from the example or make new ones. </p>
-
-                     </div>
-                     <div class="col-md-6">
-                        <a class="wb-lbx" href="3.png" title="Image 3">
-                        <img src="3.png" alt="Image 3" class="img-responsive"/>
-                        </a>
-                     </div>
-                  </div>
-               </li>
-             
-            </ol>
-		</details>
-<details>
-			<summary>If you work in multipe rooms</summary>
-        <p>Content goes here.</p>
-		</details>
-				  <h2 id="h-3">Claim your expenses</h2>
-                 
-                 
-             
+			  </li>
+			  </ol>
                <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
             </section>
             <div id="def-preFooter"> </div>
