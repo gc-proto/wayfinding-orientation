@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<html class="no-js lt-ie9" lang="en" dir="ltr">
+   <![endif]-->
+   <!--[if gt IE 8]><!-->
+   <html class="no-js" lang="en" dir="ltr">
+      <!--<![endif]-->
+      <head>
+         <meta charset="utf-8">
+         <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+         <title>Calculate your claim - Employees with working from home expenses – Canada.ca</title>
+         <meta content="width=device-width,initial-scale=1" name="viewport">
+         <meta name=”robots” content=”noindex, follow”>
+         <!-- Meta data -->
+         <!-- Meta data-->
+         <!-- Load closure template scripts -->
+         <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+         <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+         <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+         <link href="../css/cews.css" rel="stylesheet">
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+         <!-- Write closure template -->
+         <script type="text/javascript">
+            document.write(wet.builder.refTop({
+            }));
+         </script>
+         <style>
+            /* Styled div design */
+            .fa-corner > :not(span) {
+            padding-right: 15px;
+            }
+            div.fa-corner, div.fa-corner-inverse {
+            position: relative;
+            margin-bottom: 50px;
+            margin-right: 15px;
+            }
+            div.fa-corner:before {
+            content : "";
+            position: absolute;
+            right : 1.25em;
+            z-index: -1;
+            top : 0;
+            height : 4px;
+            width : 100px;
+            background: #2572b4;
+            margin-top: -6px;
+            }
+            div.fa-corner:after {
+            content : "";
+            position: absolute;
+            right : 0;
+            z-index: -1;
+            top : 1.2em;
+            width : 4px;
+            height : 100px;
+            background: #2572b4;
+            }
+            .fa-corner-icon {
+            float: right;
+            margin-top: -0.6em;
+            margin-right: -0.5em;
+            font-size: 2.5em;
+            color: #2572b4;
+            background-color: #fff;
+            padding: 0px 0px 5px 5px;
+            }
+            /*inverse */
+            div.fa-corner-inverse {
+            padding-left: 1.7em;
+            margin-left: 20px;
+            }
+            /*  div.fa-corner-inverse:after {
+            content : "";
+            position: absolute;
+            left : 1.25em;
+            z-index: -1;
+            top : 0;
+            height : 6px;
+            width : 100px;
+            background: #2572b4;
+            margin-top:-6px;
+            }
+            */
+            div.fa-corner-inverse:before {
+            content : "";
+            position: absolute;
+            left : 0;
+            z-index: -1;
+            width : 1px;
+            height : 100%;
+            background: #2572b4;
+            }
+            .fa-corner-inverse .fa-corner-icon {
+            float: left;
+            margin-top: 0em;
+            margin-left: -1.4em;
+            font-size: 1.75em;
+            color: #2572b4;
+            background-color: #fff;
+            padding: 2px 25px 2px 0px;
+            }
+            .fa-corner-icon.fa-stack {
+            height: 1em;
+            line-height: 1em;
+            width: 1.25em;
+            }
+            .fa-corner-icon>.fa-stack-2x {
+            font-size: 1em;
+            left: 3px;
+            }
+            .fa-corner-icon.fa-corner-icon>.fa-stack-1x {
+            font-size: 0.5em;
+            left: 3px;
+            }
+            /*  div.fa-corner h2, div.fa-corner h3, div.fa-corner-inverse h2, div.fa-corner-inverse h3 {
+            color: #2572b4;
+            margin-top: auto;
+            }
+            */
+            .fa-corner-inverse > .fa-stack {
+            margin-left: -1.65em;
+            margin-bottom: 2px;
+            }
+            /*Ordered list icons*/
+            ol.lst-stps-alt:after, ol.lst-stps-alt:before {
+            content: " ";
+            display: table
+            }
+            ol.lst-stps-alt:after {
+            clear: both
+            }
+            ol.lst-stps-alt {
+            counter-reset: item;
+            margin: 0;
+            padding-left: 0;
+            position: relative;
+            list-style: none;
+            }
+            ol.lst-stps-alt>li {
+            counter-increment: item;
+            list-style: none inside;
+            margin: 30px 0px;
+            position: relative;
+            padding-left: 55px;
+            min-height: 30px;
+            }
+            ol.lst-stps-alt>li:before {
+            content: counter(item);
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border: 3px solid #2572b4;
+            color: #2572b4;
+            background-color: #fff;
+            position: absolute;
+            left: 0.05em;
+            text-align: center;
+            width: 2em;
+            height: 2em;
+            }
+            main form :not(.btn-call-to-action).btn {
+            line-height: 1.33333em !important;
+            }
+            .radio, .checkbox {
+            margin-left: 10px;
+            }
+            .radio input[type=radio] {
+            margin-left: -25px;
+            transform: scale(2);
+            margin-bottom: 10px;
+            }
+            .checkbox input[type=checkbox] {
+            margin-left: -40px;
+            transform: scale(2);
+            margin-bottom: 10px;
+            margin-top:10px;
+            }
+            .checkbox {
+            padding-left:40px;
+            }
+         </style>
+      </head>
+      <body vocab="http://schema.org/" typeof="WebPage">
+         <div id="def-top"> </div>
+         <!-- Write closure template --> 
+         <script type="text/javascript">
+            var defTop = document.getElementById("def-top");
+            defTop.outerHTML = wet.builder.top({
+            	lngLinks: [{
+            		lang: "fr",
+            		href: "#",
+            		text: "Français"
+            	}],
+            	breadcrumbs: [{
+            		title: "Canada.ca",
+            		href: "https://www.canada.ca/en.html"
+            	},{
+            		title: "Taxes",
+            		href: "https://www.canada.ca/en/services/taxes.html"
+            	}
+            ,{
+            		title: "Income tax",
+            		href: "https://www.canada.ca/en/services/taxes/income-tax.html"
+            	},{
+            		title: "Personal income tax",
+            		href: "https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax.html"
+            	},{
+            		title: "Completing a tax return",
+            		href: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return.html"
+            	},{
+            		title: "Deductions, credits, and expenses",
+            		href: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses.html"
+            	},{
+            		title: "Line 22900 - Other employment expenses",
+            		href: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses.html"
+            	},{
+            		title: "Employees with working from home expenses",
+            		href: "index.html"
+            	}],
+            	search: true,
+            	siteMenu: true,
+            	showPreContent: true
+            });
+         </script>
+         <main role="main" property="mainContentOfPage" class="container">
+            <section class="gc-nav">
+               <h1 property="name" id="wb-cont-nav">Employees with working from home expenses</h1>
+               <ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
+                  <li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
+                  <li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
+               </ul>
+               <nav aria-label="Section menu">
+                  <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
+                  <ul class="gc-navseq">
+                     <li><a href="who-apply.html">Who can claim</a></li>
+                     <li><a href="what-claim.html">What can be claimed</a></li>
+                     <li class="active"><a aria-current="page">Calculate your claim</a></li>
+                     <li><a href="how-apply.html">How to claim</a></li>
+                  </ul>
+                  <div class="hidden-sm hidden-xs" data-ajax-replace="index.html #related-menu"> </div>
+               </nav>
+            </section>
+            <section class="gc-nav-section experimental">
+               <h1 property="name" id="wb-cont">Calculate your claim</h1>
+               <h2 class="h3 mrgn-tp-sm">On this page</h2>
+               <ul>
+                  <li><a href="#h-1">Before you start the calculation</a></li>
+                  <li><a href="#h-2">Use the calculator</a></li>
+                  <li><a href="#h-3">Understand how the calculation works</a></li>
+               </ul>
+               <h2 id="h-1">Before you start the calculation</h2>
+               <p>You must:</p>
+               <ul class="fa-ul mrgn-bttm-lg">
+			   <li>
+                     <span class="fas fa-user-check fa-li"></span> Confirm you meet the <a href="who-apply.html#h-1">eligibility criteria</a>
+                  </li>
+                  <li>
+                     <span class="fas fa-home fa-li"></span> Know the area (square metres or square feet) of your:
+                     <ul>
+                        <li><a href="what-claim.html#h-2-1">Home's total finished area</a></li>
+                        <li><a href="what-claim.html#h-2-2">Work space in the home</a></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="far fa-calendar-alt fa-li"></span> Know the period of time you are claiming:
+                     <ul>
+                        <li>Minimum: 4-or-more continuous weeks</li>
+                        <li>Maximum: a calendar year</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="fas fa-dollar-sign fa-li"></span> Know the amount you will claim, supported by your receipts and invoices, that correspond to your claim period (the expenses must match your claim period, so prorate them as necessary)
+                     <ul>
+                        <li>Refer to:  <a href="what-claim.html">What can be claimed</a></li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="far fa-newspaper fa-li"></span> Know the income amounts from your T4 tax slip(s):
+                     <ul>
+                        <li>Box 14, which is your employment income</li>
+                        <li>Box 42, which is your commission income (commission employees only)</li>
+                     </ul>
+                  </li>
+               </ul>
+               <h2 id="h-2">Use the calculator</h2>
+             <div class="row mrgn-bttm-md">
+    <div class="col-xs-12">
+      <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
+        <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-calculator fa-stack-2x"></span></span></div>
+        <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="confirm-registration">Calculator</h3>
+        <div class="clearfix"></div>
+        <div class="mrgn-lft-lg">
+          <div class="wb-frmvld fieldflow-lg">
+            <form>
+              <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#designated-room", "class": "hidden"}}'>
+                <div class="wb-fieldflow-header">
+                  <p class="wb-fieldflow-label">Did you earn commision income (Box 42 on T4 slip)?</p>
+                  <p><a href="#commissions" class="wb-lbx" type="link">What is commission income&nbsp;<span class="far fa-question-circle"></span></a></p>
+                </div>
+                <ul>
+                  <li  data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>Yes </li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>No </li>
+                </ul>
+              </div>
+            </form>
+          </div>
+          <div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+            <div class="wb-fieldflow-header">
+              <p class="wb-fieldflow-label">Do you use a designated room or a common (shared) area to work from your home?</p>
+              <p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
+            </div>
+            <ul>
+              <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
+              <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common (shared) area</li>
+            </ul>
+          </div>
+          <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+            <p>Choose your preferred measurement units </p>
+            <ul>
+              <li id="select-m" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-m-sq", "live": true}]'>Square meters (m&#178;)</li>
+              <li id="select-ft" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-ft-sq", "live": true}]'>Square feet (ft&#178;)</li>
+            </ul>
+          </div>
+          <div class="hidden" id="designated-room">
+            <form method="get" id="designated-room-form">
+              <fieldset id="workarea">
+                <legend>Percentage of allowed space to calculate</legend>
+                <div>
+                <div class="form-group">
+                  <label for="wrkspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of work space in your home</label>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="wrkspc" name="wrkspc" type="text">
+                    <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                </div>
+					<div class="form-group cmmnrm hidden">
+                  <label for="cmmn-rm">How many hours in a week do you work in this common space?</label>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="cmmn-rm" name="cmmn-rm" type="number">
+                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
+                </div>
+                <div class="form-group">
+                  <label for="hmspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of the total finished area of your home</label>
+					<p id="finished-def"><a href="#finished-area" class="wb-lbx">What is included in the total finished area&nbsp;<span class="far fa-question-circle"></span></a></p>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="hmspc" name="hmspc" type="number" aria-describedby="finished-def" >
+                    <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                </div>
+                
+                <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+                  <h3 class="mrgn-tp-0">Summary of calculated space</h3>
+                  <ul class="fa-ul list-unstyled lst-spcd">
+                    <li><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of work space </li>
+                    <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of total finished area </li>
+                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space </li>
+                    <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</li>
+                    <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and business purposes </li>
+                  </ul>
+              
+              </fieldset>
+				 <fieldset id="income">
+					 <legend class="mrgn-bttm-sm">Income</legend>
+and					 prior year balance
+<div class="form-group">
+                <label for="box14">Employment income</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="box14" name="box14" type="number" aria-describedby="box14-def">
+                </div>
+	<p class="text-muted small" id="box14-def">Box 14 of T4 slip</p>
+              </div>
+					 <div class="form-group cmmssn-only hidden">
+                <label for="box42">Commision income</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="box42" name="box42" type="number" aria-describedby="box42-def">
+                </div>
+					<p class="text-muted small" id="box42-def">Box 42 of T4 slip</p>	 
+              </div>	 
+					<div class="form-group">
+                <label for="carry-fwd">Expense amount carried forward from previous year</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="carry-fwd" name="carry-fwd" type="number" aria-describedby="carry-fwd-def">
+                </div>
+						<p class="text-muted small" id="carry-fwd-def">Bottom of form T777 or line 16 of form T777c</p>
+              </div> 
+					 </fieldset>
+				  
+              <fieldset id="expenses">
+              <legend class="mrgn-bttm-sm">Expense amount to claim</legend>
+         
+              <div class="form-group">
+                <label for="utlts">Electricity, heat and water</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mntnc">Maintenance</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+                </div>
+				  
+              </div>
+              <div class="form-group cmmssn-only hidden">
+                <label for="insrnc">Insurance</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+                </div>
+              </div>
+              <div class="form-group cmmssn-only hidden">
+                <label for="prprt">Property taxes</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                </div>
+              </div>
+              <p>
+                <button class="btn btn-primary btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your expenses</button>
+              </p>
+				</fieldset>
+            </form>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4 class="panel-title">Your results</h4>
+              </div>
+              <div class="panel-body">
+                <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
+                <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
+                  Print and keep this record.</p>
+	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
+		"pie": { "radius": 1,
+			"label": {
+
+				"threshold": 0.001
+														
+			},
+			"combine": {
+				"threshold": 0.001
+				
+			}, "innerRadius": 0.45
+		}
+	}
+}'>
+<caption>
+Expenses breakdown
+</caption>
+<tr>
+<td></td>
+<th data-flot='{"color":"#dff0d8"}'>Expenses you are allowed to claim: $1342.54</th>
+<th  data-flot='{"color":"#999999", "label": {"radius":0.5}}'>Expenses you cannot claim: $5622.89</th>
+<th  data-flot='{"color":"#d9edf7", "label": {"radius":0.5}}'>Expenses to carry forward to next year: $200.01</th>
+
+</tr>
+<tr>
+<th>Comparison chart</th>
+<td>1342.54</td>
+<td>5622.89</td>
+<td>200.01</td>
+
+</tr>
+</table>
+
+				  
+				  
+              </div>
+		
+			  <table class="table table-bordered">
+					 <caption>
+                Amounts to claim based on <span class="h3">0%</span> of work from home use					 
+					 </caption>
+				  <thead>
+				    <tr>
+				      <th scope="col">Expense</th>
+				      <th scope="col" class="success">Amount to claim</th>
+				      <th scope="col">T777c (short) form</th>
+				      <th scope="col">T777 form</th>
+			        </tr>
+			    </thead>
+					<tbody>
+				    <tr>
+				      <td>Electricity, heat and water </td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 5</td>
+				      <td>Line 17</td>
+			        </tr>
+				    <tr>
+				      <td>Maintenance</td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 6</td>
+				      <td>Line 18</td>
+			        </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Carry forward</td>
+				       <td class="success">[$0.00]</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				      </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Insurance amount <small>(commission employees only)</br>
+				      </small></td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 7</td>
+				      <td>Line 19</td>
+			        </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Property taxes</br>
+                        <small>(commission employees only)</br>
+                      </small></td>
+				      <td class="success">[$0.00]</td>
+				      <td >Line 8</td>
+				      <td>Line 20</td>
+			        </tr>
+			      </tbody>
+			  </table>
+            
+              <table class="table" id="cews-statement-table">
+                <caption>
+                Data you provided
+                </caption>
+                <tbody>
+                  <tr>
+                    <th scope="row">Room type </th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-54">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Size of work space in your home</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmnrm hidden">
+                    <th scope="row">Hours a week in work space</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total finished area of your home</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Employment income (box 14)</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Commission income (box 42)</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Carry forward amount from previous year</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Electricity, heat and water</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Maintenance</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Insurance (commission employees only)</br></th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Property taxes (commission employees only)</br></th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+               <h2 id="h-3">Understand how the calculation works</h2>
+               <details>
+                  <summary>If you work in designated room</summary>
+                  <h4 class="mrgn-tp-md">Calculate the percentage of work space used in the home</h4>
+                  <p>Take the area you use for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h5><span class="fas fa-calculator text-muted"></span> Example</h5>
+                        <p>Chris lives in a 7 room house and has a designated area in the home where Chris only performs employment duties.</p>
+                        <ul class="fa-ul lst-spcd">
+                           <li><span class="mrgn-tp-0 text-muted h5">&nbsp;250 square feet</span> (area of Chris' work space in his home)
+                           </li>
+                           <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">2500 square feet</span> (total finished area)
+                           </li>
+                           <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
+                           </li>
+                           <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">10% </span> (percentage of home Chris uses for work space)</li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <a class="wb-lbx" href="1.png" title="Image 1">
+                        <img src="1.png" alt="Image 1" class="img-responsive"/>
+                        </a>
+                     </div>
+                  </div>
+                  <p>If Chris was <strong>sharing this work space</strong> with someone (Danielle) who was also using the room as a dedicated work space, this gives them two options:</p>
+                  <div class="row">
+                  <div class="col-xs-12">
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg mrgn-tp-sm">
+                           <div class="col-sm-12">
+                              <p class="mrgn-tp-0 text-muted h5">One person claims</p>
+                              <p>Chris <strong>or</strong> Danielle could claim 10% of the work-space-in-the-home expenses such as water and electricity.</p>
+                           </div>
+                        </div>
+                        <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+                        <div class="col-xs-12 col-sm-6 mrgn-bttm-lg mrgn-tp-sm">
+                           <div class="col-sm-12">
+                              <p class="mrgn-tp-0 text-muted h5">Both claim</p>
+                              <p>
+                                 Chris <strong>and</strong> Danielle could also share the claim but would only be able to claim a total of 10% of the expenses between the two of them.
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <h5>Gather the bills</h5>
+                  <div data-ajax-replace="what-claim.html #claim"> </div>
+               </details>
+               <details>
+                  <summary>If you work in a common room</summary>
+                  <h4 class="mrgn-tp-md">Calculate the percentage of work space used in the home</h4>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <p>Take the area used for work space in the home and divide that by the total finished area (including hallways, bathrooms, kitchens, etc.)</p>
+                        <h5><span class="fas fa-calculator text-muted"></span> Example</h5>
+                        <p>Sam and Terry rent an 8 room house. Due to COVID-19, they have been working from home using their dining room table.</p>
+                        <ul class="fa-ul lst-spcd">
+                           <li><span class="mrgn-tp-0 text-muted h5">&nbsp;108 square feet</span> (area used for work space in the home)
+                           </li>
+                           <li><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="text-muted h5">900 square feet</span> (total finished area)
+                           </li>
+                           <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">100</span> (converting into a percentage)
+                           </li>
+                           <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">12% </span> (percentage of home you use for work space)</li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <a class="wb-lbx" href="1.png" title="Image 1">
+                        <img src="1.png" alt="Image 1" class="img-responsive"/>
+                        </a>
+                     </div>
+                  </div>
+                  <h4>Calculate the personal use versus work use portion</h4>
+                  <p>Take the percentage of your home you use for work space and multiple it by the proportion of time per week you work in the space.</p>
+                  <h5><span class="fas fa-calculator text-muted"></span> Example continued</h5>
+                  <p>If 40 hours a week are spent working at the dining table:
+                  </p>
+                  <ul class="fa-ul lst-spcd">
+                     <li><span class="text-muted h5">12%</span> (percentage of home used for work space)
+                     </li>
+                     <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">23.8%</span> (40 hours worked divided by 168 total hours in a week)
+                     </li>
+                     <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">2.8% </span></li>
+                  </ul>
+                  <p>This gives them two options:</p>
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row">
+                           <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">One person claims</p>
+                                 <p>Sam <strong>or</strong> Terry could claim 2.8% of the work-space-in-the-home expenses such as water and electricity.</p>
+                              </div>
+                           </div>
+                           <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+                           <div class="col-xs-12 col-sm-6 mrgn-bttm-lg mrgn-tp-sm">
+                              <div class="col-sm-12">
+                                 <p class="mrgn-tp-0 text-muted h5">Both claim</p>
+                                 <p>
+                                    Sam <strong>and</strong> Terry could also share the claim but would only be able to claim a total of 2.8% of the expenses between the two of them.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <h3>Gather the bills</h3>
+                  <div data-ajax-replace="what-claim.html #claim"> </div>
+               </details>
+               <details>
+                  <summary>If you work in multiple rooms</summary>
+                  <p>Content goes here.</p>
+               </details>
+               <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
+                  <h3 class="wb-inv">Document navigation</h3>
+                  <ul class="pager">
+                     <li class="next"><a href="how-apply.html" rel="next">How to claim</a></li>
+                  </ul>
+               </nav>
+               <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
+            </section>
+            <div id="def-preFooter"> </div>
+            <!-- Write closure template --> 
+            <script type="text/javascript">
+               var defPreFooter = document.getElementById("def-preFooter");
+               defPreFooter.outerHTML = wet.builder.preFooter({
+               dateModified: "2020-03-13",
+               showPostContent: true,
+               showFeedback: true,
+               showShare: true
+               });
+            </script> 
+         </main>
+         <div id="def-footer"> </div>
+         <!-- Write closure template --> 
+         <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+            showFooter: true,
+            showFeatures: true
+            });
+         </script> 
+         <!-- Write closure template --> 
+         <script type="text/javascript">
+            document.write(wet.builder.refFooter({
+            }));
+         </script> 
+         <script>
+            (function( $, document, wb ) {
+            "use strict";
+            $('.data-ajax').on( "wb-contentupdated", function( event, data ){
+            // "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
+            // "data.content" contains the
+            var $elm = $(event.currentTarget);
+            $elm
+            	.find( wb.allSelectors )
+            		.addClass( "wb-init" )
+            		.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+            			.trigger( "timerpoke.wb" );
+            /*
+             * Since we are working with events we want to ensure that we are being
+             * passive about our control, so returning true allows for events to always
+             * continue
+             */
+            return true;
+            });
+            })( jQuery, document, wb );
+         </script>
+         <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+      </body>
+   </html>
