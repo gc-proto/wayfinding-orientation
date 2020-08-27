@@ -2296,8 +2296,6 @@
       //when the reset button is clicked in 2a, reset all the fields to their default state
       $(document).on("click", "#reset", function(event) {
         $("#claim-period").prop("disabled", false);
-        $("#claim-period").val($("#claim-period option:first").val());
-        $("#claim-period").trigger("change");
         $("#currentRevReduction").text("0%");
         $("#priorRevReduction").text("0%");
         $(".top-up-rate").text("0%");
