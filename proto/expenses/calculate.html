@@ -283,176 +283,291 @@
                   </li>
                </ul>
                <h2 id="h-2">Use the calculator</h2>
-               <div class="row mrgn-bttm-md mrgn-tp-lg">
-                  <div class="col-xs-12">
-                     <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
-                        <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-calculator fa-stack-2x"></span></span></div>
-                        <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="confirm-registration">Calculator</h3>
-                        <div class="clearfix"></div>
-                        <div class="mrgn-lft-lg">
-                           <div class="wb-frmvld fieldflow-lg">
-                              <form>
-                                 <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
-                                    <div class="wb-fieldflow-header">
-                                       <p class="wb-fieldflow-label">Do you earn commissions?</p>
-                                       <p><a href="#">What are commissions&nbsp;<span class="far fa-question-circle"></span></a></p>
-                                    </div>
-                                    <ul>
-                                       <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}]'>
-                                          Yes
-                                          <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
-                                             <div class="wb-fieldflow-header">
-                                                <p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
-                                                <p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
-                                             </div>
-                                             <ul>
-                                                <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
-                                                <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common area</li>
-                                             </ul>
-                                          </div>
-                                       </li>
-                                       <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}]'>
-                                          No
-                                          <div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas": "radio", "isoptional": true, "reset": {"action": "addClass", "source": ".wb-steps", "class": "hidden"}}'>
-                                             <div class="wb-fieldflow-header">
-                                                <p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
-                                                <p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
-                                             </div>
-                                             <ul>
-                                                <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Designated room</li>
-                                                <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Common area</li>
-                                             </ul>
-                                          </div>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </form>
-                           </div>
-                           <div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{ "reset": {"action": "addClass", "source": ".test", "class": "h2"}}'>
-                              <div class="wb-fieldflow-header">
-                                 <p class="wb-fieldflow-label">Do you use a designated room or a common area to work in your home?</p>
-                                 <p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
-                              </div>
-                              <ul>
-                                 <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Designated room</li>
-                                 <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio", "isoptional": true}]'>Common area</li>
-                              </ul>
-                           </div>
-                           <div id="measurements" class="hidden">
-                              <p>Choose your preferred measurement units </p>
-                              <ul>
-                                 <li id="select-m" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-m-sq", "live": true}]'>Square meters (m&#178;)</li>
-                                 <li id="select-ft" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-ft-sq", "live": true}]'>Square feet (ft&#178;)</li>
-                              </ul>
-                           </div>
-                           <div class="provisional wb-steps hidden" id="designated-room">
-                              <form method="get" id="steps-example">
-                                 <fieldset id="workarea">
-                                    <legend>Percentage of allowed space to calculate</legend>
-                                    <div>
-                                       <div class="form-group">
-                                          <label for="wrkspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of work space in your home</label>
-                                          <div class="input-group col-sm-4 col-md-3">
-                                             <input class="form-control input-lg" id="wrkspc" name="wrkspc" type="text">
-                                             <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> 
-                                          </div>
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="hmspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of the total finished area of your home</label>
-                                          <div class="input-group col-sm-4 col-md-3">
-                                             <input class="form-control input-lg" id="hmspc" name="hmspc" type="number">
-                                             <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> 
-                                          </div>
-                                       </div>
-                                       <div class="form-group cmmnrm hidden">
-                                          <label for="cmmn-rm">How many hours in a week do you work in this common room?</label>
-                                          <div class="input-group col-sm-4 col-md-3">
-                                             <input class="form-control input-lg" id="cmmn-rm" name="cmmn-rm" type="number">
-                                             <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> 
-                                          </div>
-                                       </div>
-                                       <p>
-                                          <button class="btn btn-default" id="wkspc-cal">Calculate the work space percentage</button>
-                                       </p>
-                                       <div class="form-group">
-                                          <label for="wkspc-percent">Percentage of the home used for work</label>
-                                          <div class="input-group col-xs-4 col-sm-2">
-                                             <input class="form-control input-lg" id="wkspc-percent" name="wkspc-percent" type="number" readonly="readonly">
-                                             <span class="input-group-addon ">%</span> 
-                                          </div>
-                                       </div>
-                                       <p aria-labelledby="wkspc-percent">You can use this percentage to calculate your <span class="cmmssn-only hidden">insurance, property taxes, </span>maintenance and utility (electricity, heat and water) expenses.</p>
-                                    </div>
-                                 </fieldset>
-                                 <fieldset id="expenses">
-                                    <legend class="mrgn-bttm-sm">Expense amount to claim</legend>
-                                    <div>
-                                       <p class="lead">The percentage you calculated above is: <strong id="wkspc-percentage-2">0%</strong></p>
-                                       <p>Amount are the total for the calendar year (January 1 to December 31).</p>
-                                       <div class="form-group">
-                                          <label for="utlts">Electricity, heat and water (utilities)</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="utlts" name="utlts" type="number">
-                                          </div>
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="mntnc">Maintenance (a couple of examples here)</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
-                                          </div>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="insrnc">Insurance</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
-                                          </div>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="prprt">Property taxes</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="prprt" name="prprt" type="number">
-                                          </div>
-                                       </div>
-                                       <p>
-                                          <button class="btn btn-default" id="exp-cal">Calculate your expenses</button>
-                                       </p>
-                                       <div class="form-group">
-                                          <label for="utlts-cal-amnt">Electricity, heat and water amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="utlts-cal-amnt" name="utlts-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="utlts-cal-amnt">Add to line 5 in form T777c, or line 17 in form T777.</p>
-                                       </div>
-                                       <div class="form-group">
-                                          <label for="mntnc-cal-amnt">Maintenance amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="mntnc-cal-amnt" name="mntnc-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="mntnc-cal-amnt">Add to line 6 in form T777c, or line 18 in form T777.</p>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="insrnc-cal-amnt">Insurance amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="insrnc-cal-amnt" name="insrnc-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="insrnc-cal-amnt">Add to line 7 in form T777c, or line 19 in form T777.</p>
-                                       </div>
-                                       <div class="form-group cmmssn-only hidden">
-                                          <label for="prprt-cal-amnt">Property taxes amount to claim</label>
-                                          <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                                             <input class="form-control input-lg" id="prprt-cal-amnt" name="prprt-cal-amnt" type="number" readonly="readonly">
-                                          </div>
-                                          <p aria-labelledby="prprt-cal-amnt">Add to line 8 in form T777c, or line 20 in form T777.</p>
-                                       </div>
-                                    </div>
-                                 </fieldset>
-                                 <input id="summary" type="submit" name="summary" value="Summary of expenses to claim" class="btn btn-primary hidden">
-                              </form>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+             <div class="row mrgn-bttm-md">
+    <div class="col-xs-12">
+      <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
+        <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-calculator fa-stack-2x"></span></span></div>
+        <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="confirm-registration">Calculator</h3>
+        <div class="clearfix"></div>
+        <div class="mrgn-lft-lg">
+          <div class="wb-frmvld fieldflow-lg">
+            <form>
+              <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#designated-room", "class": "hidden"}}'>
+                <div class="wb-fieldflow-header">
+                  <p class="wb-fieldflow-label">Did you earn commision income (Box 42 on T4 slip)?</p>
+                  <p><a href="#commissions" class="wb-lbx" type="link">What is commission income&nbsp;<span class="far fa-question-circle"></span></a></p>
+                </div>
+                <ul>
+                  <li  data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>Yes </li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>No </li>
+                </ul>
+              </div>
+            </form>
+          </div>
+          <div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+            <div class="wb-fieldflow-header">
+              <p class="wb-fieldflow-label">Do you use a designated room or a common (shared) area to work from your home?</p>
+              <p><a href="#">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
+            </div>
+            <ul>
+              <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
+              <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common (shared) area</li>
+            </ul>
+          </div>
+          <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+            <p>Choose your preferred measurement units </p>
+            <ul>
+              <li id="select-m" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-m-sq", "live": true}]'>Square meters (m&#178;)</li>
+              <li id="select-ft" data-wb-fieldflow='[{"action": "removeClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".exp-ft-sq", "live": true}]'>Square feet (ft&#178;)</li>
+            </ul>
+          </div>
+          <div class="hidden" id="designated-room">
+            <form method="get" id="designated-room-form">
+              <fieldset id="workarea">
+                <legend>Percentage of allowed space to calculate</legend>
+                <div>
+                <div class="form-group">
+                  <label for="wrkspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of work space in your home</label>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="wrkspc" name="wrkspc" type="text">
+                    <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                </div>
+					<div class="form-group cmmnrm hidden">
+                  <label for="cmmn-rm">How many hours in a week do you work in this common space?</label>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="cmmn-rm" name="cmmn-rm" type="number">
+                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
+                </div>
+                <div class="form-group">
+                  <label for="hmspc">Square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span> of the total finished area of your home</label>
+					<p id="finished-def"><a href="#finished-area" class="wb-lbx">What is included in the total finished area&nbsp;<span class="far fa-question-circle"></span></a></p>
+                  <div class="input-group col-sm-4 col-md-3">
+                    <input class="form-control input-lg" id="hmspc" name="hmspc" type="number" aria-describedby="finished-def" >
+                    <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                </div>
+                
+                <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+                  <h3 class="mrgn-tp-0">Summary of calculated space</h3>
+                  <ul class="fa-ul list-unstyled lst-spcd">
+                    <li><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of work space </li>
+                    <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of total finished area </li>
+                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space </li>
+                    <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</li>
+                    <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and business purposes </li>
+                  </ul>
+              
+              </fieldset>
+				 <fieldset id="income">
+					 <legend class="mrgn-bttm-sm">Income</legend>
+and					 prior year balance
+<div class="form-group">
+                <label for="box14">Employment income</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="box14" name="box14" type="number" aria-describedby="box14-def">
+                </div>
+	<p class="text-muted small" id="box14-def">Box 14 of T4 slip</p>
+              </div>
+					 <div class="form-group cmmssn-only hidden">
+                <label for="box42">Commision income</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="box42" name="box42" type="number" aria-describedby="box42-def">
+                </div>
+					<p class="text-muted small" id="box42-def">Box 42 of T4 slip</p>	 
+              </div>	 
+					<div class="form-group">
+                <label for="carry-fwd">Expense amount carried forward from previous year</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="carry-fwd" name="carry-fwd" type="number" aria-describedby="carry-fwd-def">
+                </div>
+						<p class="text-muted small" id="carry-fwd-def">Bottom of form T777 or line 16 of form T777c</p>
+              </div> 
+					 </fieldset>
+				  
+              <fieldset id="expenses">
+              <legend class="mrgn-bttm-sm">Expense amount to claim</legend>
+         
+              <div class="form-group">
+                <label for="utlts">Electricity, heat and water</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mntnc">Maintenance</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+                </div>
+				  
+              </div>
+              <div class="form-group cmmssn-only hidden">
+                <label for="insrnc">Insurance</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+                </div>
+              </div>
+              <div class="form-group cmmssn-only hidden">
+                <label for="prprt">Property taxes</label>
+                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
+                  <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                </div>
+              </div>
+              <p>
+                <button class="btn btn-primary btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your expenses</button>
+              </p>
+				</fieldset>
+            </form>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h4 class="panel-title">Your results</h4>
+              </div>
+              <div class="panel-body">
+                <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
+                <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
+                  Print and keep this record.</p>
+	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
+		"pie": { "radius": 1,
+			"label": {
+
+				"threshold": 0.001
+														
+			},
+			"combine": {
+				"threshold": 0.001
+				
+			}, "innerRadius": 0.45
+		}
+	}
+}'>
+<caption>
+Expenses breakdown
+</caption>
+<tr>
+<td></td>
+<th data-flot='{"color":"#dff0d8"}'>Expenses you are allowed to claim: $1342.54</th>
+<th  data-flot='{"color":"#999999", "label": {"radius":0.5}}'>Expenses you cannot claim: $5622.89</th>
+<th  data-flot='{"color":"#d9edf7", "label": {"radius":0.5}}'>Expenses to carry forward to next year: $200.01</th>
+
+</tr>
+<tr>
+<th>Comparison chart</th>
+<td>1342.54</td>
+<td>5622.89</td>
+<td>200.01</td>
+
+</tr>
+</table>
+
+				  
+				  
+              </div>
+		
+			  <table class="table table-bordered">
+					 <caption>
+                Amounts to claim based on <span class="h3">0%</span> of work from home use					 
+					 </caption>
+				  <thead>
+				    <tr>
+				      <th scope="col">Expense</th>
+				      <th scope="col" class="success">Amount to claim</th>
+				      <th scope="col">T777c (short) form</th>
+				      <th scope="col">T777 form</th>
+			        </tr>
+			    </thead>
+					<tbody>
+				    <tr>
+				      <td>Electricity, heat and water </td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 5</td>
+				      <td>Line 17</td>
+			        </tr>
+				    <tr>
+				      <td>Maintenance</td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 6</td>
+				      <td>Line 18</td>
+			        </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Carry forward</td>
+				       <td class="success">[$0.00]</td>
+				      <td>&nbsp;</td>
+				      <td>&nbsp;</td>
+				      </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Insurance amount <small>(commission employees only)</br>
+				      </small></td>
+				      <td class="success">[$0.00]</td>
+				      <td>Line 7</td>
+				      <td>Line 19</td>
+			        </tr>
+				    <tr class="cmmssn-only hidden">
+				      <td>Property taxes</br>
+                        <small>(commission employees only)</br>
+                      </small></td>
+				      <td class="success">[$0.00]</td>
+				      <td >Line 8</td>
+				      <td>Line 20</td>
+			        </tr>
+			      </tbody>
+			  </table>
+            
+              <table class="table" id="cews-statement-table">
+                <caption>
+                Data you provided
+                </caption>
+                <tbody>
+                  <tr>
+                    <th scope="row">Room type </th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-54">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Size of work space in your home</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmnrm hidden">
+                    <th scope="row">Hours a week in work space</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Total finished area of your home</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Employment income (box 14)</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Commission income (box 42)</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Carry forward amount from previous year</th>
+                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Electricity, heat and water</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Maintenance</th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Insurance (commission employees only)</br></th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                  <tr class="cmmssn-only hidden">
+                    <th scope="row">Property taxes (commission employees only)</br></th>
+                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
                <h2 id="h-3">Understand how the calculation works</h2>
                <details>
                   <summary>If you work in designated room</summary>
@@ -564,7 +679,7 @@
                   <div data-ajax-replace="what-claim.html #claim"> </div>
                </details>
                <details>
-                  <summary>If you work in multipe rooms</summary>
+                  <summary>If you work in multiple rooms</summary>
                   <p>Content goes here.</p>
                </details>
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
