@@ -383,38 +383,70 @@
               </div> 
 					 </fieldset>
 				  
-              <fieldset id="expenses">
-              <legend class="mrgn-bttm-sm">Expense amount to claim</legend>
-         
-              <div class="form-group">
-                <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and cents</span></label>
-                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                  <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+           <div class="row">
+                <div class="col-sm-6 brdr-rght">
+                  <fieldset id="expenses-sh">
+                    <legend class="mrgn-bttm-sm">Shared expenses to claim</legend>
+                    <div class="form-group">
+                      <label for="mntnc">Maintenance on home including work space<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="sppls">Home supplies<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="sppls" name="sppls" type="number">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="othrex">Other expenses (e.g. Rent)<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="othrex" name="othrex" type="number">
+                      </div>
+                      <div class="form-group">
+                        <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and cents</span></label>
+                        <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                          <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group cmmssn-only hidden">
+                      <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+                      </div>
+                    </div>
+                    <div class="form-group cmmssn-only hidden">
+                      <label for="prprt">Property taxes<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                      </div>
+                    </div>
+                  </fieldset>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="mntnc">Maintenance<span class="wb-inv"> in dollars and cents</span></label>
-                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                  <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
-                </div>
-				  
-              </div>
-              <div class="form-group cmmssn-only hidden">
-                <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
-                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                  <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
-                </div>
-              </div>
-              <div class="form-group cmmssn-only hidden">
-                <label for="prprt">Property taxes<span class="wb-inv"> in dollars and cents</span></label>
-                <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                  <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                <div class="col-sm-6">
+                  <fieldset id="expenses-excl">
+                    <legend class="mrgn-bttm-sm">Exclusive expenses to claim</legend>
+                    <div class="form-group">
+                      <label for="mntnc-excl">Maintenance
+                        on work space only<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="mntnc-excl" name="mntnc-excl" type="number">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="sppls-excl">Office supplies<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="sppls-excl" name="sppls-excl" type="number">
+                      </div>
+                    </div>
+                  </fieldset>
                 </div>
               </div>
               <p>
                 <button class="btn btn-primary btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your expenses</button>
               </p>
-				</fieldset>
             </form>
             <div class="panel panel-primary">
               <div class="panel-heading">
