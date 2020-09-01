@@ -309,9 +309,10 @@
               <p><a href="#rooms-lbx" class="wb-lbx">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
             </div>
             <ul>
-              <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
-              <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common area</li>
-            </ul>
+              <l data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common area</li>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm, .dsgntdrm .rmbth", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Both</li>
+		  </ul>
           </div>
           <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
             <p>Choose your preferred measurement units </p>
@@ -376,7 +377,8 @@
                 <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                   <h3 class="mrgn-tp-0">Summary of calculated space</h3>
                   <ul class="fa-ul list-unstyled lst-spcd">
-                    <li><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of work space </li>
+		 <li class="rmbth"><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of dedicated work space </li>	  
+                    <li><span class="rmbth hidden fas fa-plus fa-li"><span class="wb-inv">plus </span></span><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of <span class="cmmnrm hidden">common </span>work space </li>
                     <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of total finished area </li>
                     <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space </li>
                     <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</li>
@@ -428,7 +430,7 @@
            <div class="row">
                 <div class="col-sm-6 brdr-rght">
                   <fieldset id="expenses-sh">
-                    <legend class="mrgn-bttm-sm">Household expenses to claim</legend>
+                    <legend class="mrgn-bttm-sm">Household expenses</legend>
                     <div class="form-group">
                       <label for="mntnc">Maintenance <br><span class="text-muted">on home including work space<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -464,7 +466,7 @@
                 </div>
                 <div class="col-sm-6">
                   <fieldset id="expenses-excl">
-                    <legend class="mrgn-bttm-sm">Work space expenses to claim</legend>
+                    <legend class="mrgn-bttm-sm">Work space expenses</legend>
                     <div class="form-group dsgntdrm">
                       <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -477,6 +479,12 @@
                         <input class="form-control input-lg" id="sppls-excl" name="sppls-excl" type="number">
                       </div>
                     </div>
+			<div class="form-group">
+                      <label for="prsn-excl">Personal-use portion<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="prsn-excl" name="prsn-excl" type="number">
+                      </div>
+                    </div>  
                   </fieldset>
                 </div>
               </div>
