@@ -431,7 +431,7 @@
                     <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <div class="row"><div class="col-sm-6 brdr-rght"><span class="h4"><span class="perspc-percent-sum">0</span>%</span> of hours of personal use in common space (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div><div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use in common space (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div></div></li>
                     <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <div class="row"><div class="col-sm-6 brdr-rght"><span class="h4"><span class="perspc-percent-sum-alt">0</span>%</span> of your home used for personal space and non-business purposes</div><div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and business purposes</div></div></li>
                   </ul>
-              
+			    </div>
               </fieldset>
 				 <fieldset id="income">
 					 <legend class="mrgn-bttm-sm">Tax information</legend>
@@ -478,7 +478,8 @@
                 <div class="col-sm-6 brdr-rght">
                   <fieldset id="expenses-sh">
                     <legend class="mrgn-bttm-0">Household expenses</legend>
-			  <small>Input the full amounts for the time period you worked from home</small>
+			  <p>Prorate your expenses to the beginning and end of your work period</p>
+			  <p><a href="#" class="wb-lbx">What is prorating to the period of work from home&nbsp;<span class="far fa-question-circle"></span></a></p>
                     <div class="form-group">
                       <label for="mntnc">Maintenance <br><span class="text-muted">on home including work space<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -516,7 +517,8 @@
                 <div class="col-sm-6">
                   <fieldset id="expenses-excl">
                     <legend class="mrgn-bttm-sm">Work space expenses</legend>
-		 <small>Input the full amounts for the time period you worked from home</small>	  
+					  <p>Prorate your expenses to the beginning and end of your work period</p>
+			  <p><a href="#" class="wb-lbx">What is prorating to the period of work from home&nbsp;<span class="far fa-question-circle"></span></a></p>
                     <div class="form-group dsgntdrm">
                       <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -542,15 +544,16 @@
                 <button class="btn btn-primary btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your expenses</button>
               </p>
             </form>
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h4 class="panel-title">Your results</h4>
-              </div>
-              <div class="panel-body">
-                <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
-                <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
-                  Print and keep this record.</p>
-	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
+       <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4 class="panel-title">Your employee home work space expenses results</h4>
+  </div>
+  <div class="panel-body">
+    <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
+    <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
+      Print and keep this record.</p>
+    
+    <!--	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
 		"pie": { "radius": 1,
 			"label": {
 
@@ -580,132 +583,119 @@ Expenses breakdown
 <td>200.01</td>
 
 </tr>
-</table>
-
-				  
-				  
-              </div>
-		
-			  <table class="table table-bordered">
-					 <caption>
-                Amounts to claim based on <span class="h3">0%</span> of work from home use					 
-					 </caption>
-				  <thead>
-				    <tr>
-				      <th scope="col">Expense</th>
-				      <th scope="col" class="success">Amount to claim</th>
-				      <th scope="col">T777c (short) form</th>
-				      <th scope="col">T777 form</th>
-			        </tr>
-			    </thead>
-					<tbody>
-					 <tr>
-				      <td>Office supplies</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 1</td>
-				      <td>Line 12</td>
-			        </tr>		
-				    <tr>
-				      <td>Electricity, heat and water </td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 5</td>
-				      <td>Line 17</td>
-			        </tr>
-				    <tr>
-				      <td>Maintenance</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 6</td>
-				      <td>Line 18</td>
-			        </tr>
-				
-				
-				<tr>
-				      <td>Other expenses (e.g. Rent)</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 9</td>
-				      <td>Field 8810</td>
-			        </tr>			
-				    <tr class="cmmssn-only hidden">
+</table>//--> 
+    
+  </div>
+  <table class="table table-bordered">
+    <caption>
+    Amounts to claim based on <span class="h3">0%</span> of personal use of	home and <span class="h3">0%</span> of work from home use
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Expense</th>
+        <th scope="col" class="success">Amount to claim</th>
+        <th scope="col">T777c (short) form</th>
+        <th scope="col">T777 form</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Office supplies</td>
+        <td class="active">[$0.00]</td>
+        <td>Line 1</td>
+        <td>Line 12</td>
+      </tr>
+      <tr>
+        <td>Electricity, heat and water </td>
+        <td class="active">[$0.00]</td>
+        <td>Line 5</td>
+        <td>Line 17</td>
+      </tr>
+      <tr>
+        <td>Maintenance (home + work spaces) </td>
+        <td class="active">[$0.00]</td>
+        <td>Line 6</td>
+        <td>Line 18</td>
+      </tr>
+      <tr>
+        <td>Other expenses</td>
+        <td class="active">[$0.00]</td>
+        <td>Line 9</td>
+        <td>Field 8810</td>
+      </tr>
+      <!-- <tr>
 				      <td>Carry forward</td>
-				       <td class="success">[$0.00]</td>
+				       <td class="active">[$0.00]</td>
 				      <td>&nbsp;</td>
 				      <td>&nbsp;</td>
-				      </tr>
-				    <tr class="cmmssn-only hidden">
-				      <td>Insurance amount <small>(commission employees only)</br>
-				      </small></td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 7</td>
-				      <td>Line 19</td>
-			        </tr>
-				    <tr class="cmmssn-only hidden">
-				      <td>Property taxes</br>
-                        <small>(commission employees only)</br>
-                      </small></td>
-				      <td class="success">[$0.00]</td>
-				      <td >Line 8</td>
-				      <td>Line 20</td>
-			        </tr>
-			      </tbody>
-			  </table>
-            
-              <table class="table" id="cews-statement-table">
-                <caption>
-                Data you provided
-                </caption>
-                <tbody>
-                  <tr>
-                    <th scope="row">Size of work space in your home</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmnrm hidden">
-                    <th scope="row">Hours a week in work space</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Total finished area of your home</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Employment income (box 14)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-		 <tr>
-                    <th scope="row">Registered Pension Plan (RPP) deduction (box 20)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>	
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Commission income (box 42)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-		<tr>
-                    <th scope="row">Annual union, professional, or like dues (box 44)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>		
-                  <tr>
-                    <th scope="row">Carry forward amount from previous year</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Electricity, heat and water</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Maintenance</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Insurance (commission employees only)</br></th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Property taxes (commission employees only)</br></th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
-            </div>
+				      </tr>//-->
+      <tr class="cmmssn-only hidden">
+        <td>Insurance amount <small>(commission employees only)</br>
+          </small></td>
+        <td class="active">[$0.00]</td>
+        <td>Line 7</td>
+        <td>Line 19</td>
+      </tr>
+      <tr class="cmmssn-only hidden">
+        <td>Property taxes</br>
+          <small>(commission employees only)</br>
+          </small></td>
+        <td class="active">[$0.00]</td>
+        <td >Line 8</td>
+        <td>Line 20</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-body">
+    <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+      <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
+      <ul class="list-unstyled lst-spcd">
+        <li><span class="h4">$<span class="">0.00</span></span> of the personal-use portion based on <span class="h4"><span class="">0</span>%</span> of personal-use of your home should be reported on either
+          <ul>
+            <li><strong>Line 23</strong> in <strong>form T777</strong></li>
+            <li><strong>Line 11</strong> in <strong>form T777c (short)</strong></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <table class="table" id="cews-statement-table">
+    <caption>
+    Additional data you provided
+    </caption>
+    <tbody>
+      <tr>
+        <th scope="row">Size of work spaces in your home</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+      </tr>
+      <tr class="cmmnrm hidden">
+        <th scope="row">Hours a week in work space</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Total finished area of your home</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Employment income (box 14)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Registered Pension Plan (RPP) deduction (box 20)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr class="cmmssn-only hidden">
+        <th scope="row">Commission income (box 42)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Annual union, professional, or like dues (box 44)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
+</div>
           </div>
         </div>
       </div>
