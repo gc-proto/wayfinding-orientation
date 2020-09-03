@@ -309,9 +309,10 @@
               <p><a href="#rooms-lbx" class="wb-lbx">Difference between a designated room and a common area&nbsp;<span class="far fa-question-circle"></span></a></p>
             </div>
             <ul>
-              <li id="d-room" data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
-              <li id="c-room" data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common area</li>
-            </ul>
+              <li data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Designated room</li>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Common space</li>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm, .dsgntdrm, .rmbth", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>Both</li>
+		  </ul>
           </div>
           <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
             <p>Choose your preferred measurement units </p>
@@ -322,8 +323,26 @@
           </div>
          <div class="hidden wb-frmvld" id="designated-room">
                 <form method="get" id="designated-room-form">
+		<fieldset id="worktime">
+  <legend>Length of time worked at home within the year</legend>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="work-home-start" class="control-label">Start of work at home</label>
+        <input class="form-control" id="work-home-start" name="work-home-start" type="date" />
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="work-home-start" class="control-label">End of work at home</label>
+        <input class="form-control" id="work-home-end" name="work-home-end" type="date" />
+      </div>
+    </div>
+  </div>
+</fieldset>	
                   <fieldset id="workarea">
-                    <legend class="brdr-tp">Percentage of allowed space to calculate</legend>
+                    <legend class="brdr-tp">Size of work space and home</legend>
                     <div>
                     <div class="form-group dsgntdrm">
                       <label for="wrkspc">Designated work space in your home<span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
@@ -339,31 +358,61 @@
                               <div class="row">
                                 <div class="col-xs-9">
                                   <div class="form-group">
-                                    <label for="wrkspc-cmmn-1">Primary common space for work<span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
+                                    <label for="wrkspc-cmmn-1">Common space 1 <span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
                                     <div class="input-group col-sm-5 col-md-4">
                                       <input class="form-control input-lg" id="wrkspc-cmmn-1" name="wrkspc-cmmn-1" type="number">
                                       <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                                   </div>
                                   <div class="form-group">
-                                    <label for="cmmnrm-hrs-1">Hours a week in this space</label>
+                                    <label for="cmmnrm-hrs-1">Hours worked in common space 2</label>
                                     <div class="input-group col-sm-5 col-md-4">
                                       <input class="form-control input-lg" id="cmmnrm-hrs-1" name="cmmnrm-hrs-1" type="number">
                                       <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
                                   </div>
                                 </div>
-                                <div class="col-xs-3">
-				<!--Only appears on additional rooms, here for layout purposes only //-->
-                                  <button id="addroom" class="btn btn-default"><span class="fas fa-minus-circle"></span>&nbsp;Remove</button>
-                                </div>
+                               
                               </div>
                               <p>
-				      <!--Hides when a new room is added, appears if no rooms below it //-->
-                                <button id="addroom" class="btn btn-default"><span class="fas fa-plus-circle"></span>&nbsp;Add room</button>
+				 
+                                <button id="addroom" class="btn btn-default hidden"><span class="fas fa-plus-circle"></span>&nbsp;Add room</button>
                               </p>
                             </div>
                           </div>
                         </div>
                       </div>
+	  <div id="cmmnrm-2">
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <div class="panel panel-default panel-body">
+                              <div class="row">
+                                <div class="col-sm-9">
+                                  <div class="form-group">
+                                    <label for="wrkspc-cmmn-2">Common space 2<span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
+                                    <div class="input-group col-sm-5 col-md-4">
+                                      <input class="form-control input-lg" id="wrkspc-cmmn-2" name="wrkspc-cmmn-2" type="number">
+                                      <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="cmmnrm-hrs-2">Hours worked in common space 2</label>
+                                    <div class="input-group col-sm-5 col-md-4">
+                                      <input class="form-control input-lg" id="cmmnrm-hrs-2" name="cmmnrm-hrs-2" type="number">
+                                      <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
+                                  </div>
+				  <button id="addroom" class="btn btn-default"><span class="fas fa-plus-circle"></span>&nbsp;Add room</button>	
+                                </div>
+                                <div class="col-sm-3">
+				<!--Only appears on additional rooms, here for layout purposes only //-->
+                                  <button id="addroom" class="btn btn-default btn-xs mrgn-bttm-tp"><span class="fas fa-minus-circle"></span>&nbsp;Remove</button>
+                                </div>
+                              </div>
+                              <p>
+				      <!--Hides when a new room is added, appears if no rooms below it //-->
+                              
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>	 
                     </div>
                     <div class="form-group mrgn-tp-md">
                   <label for="hmspc">Total finished area of your home<span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
@@ -376,13 +425,14 @@
                 <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                   <h3 class="mrgn-tp-0">Summary of calculated space</h3>
                   <ul class="fa-ul list-unstyled lst-spcd">
-                    <li><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of work space </li>
+		 <li class="rmbth hidden"><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of dedicated work space </li>	  
+                    <li><span class="rmbth hidden fas fa-plus fa-li"><span class="wb-inv">plus </span></span><span class="h4"><span class="wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of <span class="cmmnrm hidden">common </span>work space </li>
                     <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of total finished area </li>
-                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space </li>
-                    <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</li>
-                    <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and business purposes </li>
+                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <div class="row"><div class="col-sm-6 brdr-rght"><span class="h4"><span class="perspc-percent-sum">0</span>%</span> of your home used for personal space</div><div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space</div></div> </li>
+                    <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <div class="row"><div class="col-sm-6 brdr-rght"><span class="h4"><span class="perspc-percent-sum">0</span>%</span> of hours of personal-use in common space (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div><div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of hours of business use in common space (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div></div></li>
+                    <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <div class="row"><div class="col-sm-6 brdr-rght"><span class="h4"><span class="perspc-percent-sum-alt">0</span>%</span> of your home used for personal space and non-business purposes</div><div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and business purposes</div></div></li>
                   </ul>
-              
+			    </div>
               </fieldset>
 				 <fieldset id="income">
 					 <legend class="mrgn-bttm-sm">Tax information</legend>
@@ -424,11 +474,15 @@
 						<p class="text-muted small" id="carry-fwd-def">Bottom of form T777 or line 16 of form T777c</p>
               </div> 
 					 </fieldset>
-				  
+	<fieldset>
+		<legend class="mrgn-bttm-0">Expenses to claim</legend>
+	  <p>Prorate your expenses to the beginning and end of your work period.</p>
+			  <p><a href="#prorate-lbx" class="wb-lbx">What is prorating to the work period&nbsp;<span class="far fa-question-circle"></span></a></p>	
            <div class="row">
                 <div class="col-sm-6 brdr-rght">
                   <fieldset id="expenses-sh">
-                    <legend class="mrgn-bttm-sm">Household expenses to claim</legend>
+                    <legend class="h5 mrgn-tp-0">Shared household expenses</legend>
+			
                     <div class="form-group">
                       <label for="mntnc">Maintenance <br><span class="text-muted">on home including work space<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -441,13 +495,14 @@
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
                         <input class="form-control input-lg" id="othrex" name="othrex" type="number">
                       </div>
+			  </div>
                       <div class="form-group">
                         <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and cents</span></label>
                         <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
                           <input class="form-control input-lg" id="utlts" name="utlts" type="number">
                         </div>
                       </div>
-                    </div>
+                 
                     <div class="form-group cmmssn-only hidden">
                       <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -464,7 +519,8 @@
                 </div>
                 <div class="col-sm-6">
                   <fieldset id="expenses-excl">
-                    <legend class="mrgn-bttm-sm">Work space expenses to claim</legend>
+                    <legend class="h5 mrgn-tp-0">Specific work space expenses</legend>
+					
                     <div class="form-group dsgntdrm">
                       <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span class="wb-inv"> in dollars and cents</span></span></label>
                       <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
@@ -477,6 +533,12 @@
                         <input class="form-control input-lg" id="sppls-excl" name="sppls-excl" type="number">
                       </div>
                     </div>
+			<!--<div class="form-group">
+                      <label for="prsn-excl">Personal-use portion<span class="wb-inv"> in dollars and cents</span></label>
+                      <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
+                        <input class="form-control input-lg" id="prsn-excl" name="prsn-excl" type="number">
+                      </div>
+                    </div>  //-->
                   </fieldset>
                 </div>
               </div>
@@ -484,15 +546,16 @@
                 <button class="btn btn-primary btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your expenses</button>
               </p>
             </form>
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h4 class="panel-title">Your results</h4>
-              </div>
-              <div class="panel-body">
-                <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
-                <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
-                  Print and keep this record.</p>
-	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
+       <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4 class="panel-title">Your employee home work space expenses results</h4>
+  </div>
+  <div class="panel-body">
+    <p class="pull-right hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg  wb-init wb-lbx-inited" role="button" id="wb-auto-39"><span class="glyphicon glyphicon-print"></span> Print preview</a></p>
+    <p>You will need the amounts below when fill out the T777 or T777c (short) form. <br>
+      Print and keep this record.</p>
+    
+    <!--	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
 		"pie": { "radius": 1,
 			"label": {
 
@@ -522,132 +585,130 @@ Expenses breakdown
 <td>200.01</td>
 
 </tr>
-</table>
-
-				  
-				  
-              </div>
-		
-			  <table class="table table-bordered">
-					 <caption>
-                Amounts to claim based on <span class="h3">0%</span> of work from home use					 
-					 </caption>
-				  <thead>
-				    <tr>
-				      <th scope="col">Expense</th>
-				      <th scope="col" class="success">Amount to claim</th>
-				      <th scope="col">T777c (short) form</th>
-				      <th scope="col">T777 form</th>
-			        </tr>
-			    </thead>
-					<tbody>
-					 <tr>
-				      <td>Office supplies</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 1</td>
-				      <td>Line 12</td>
-			        </tr>		
-				    <tr>
-				      <td>Electricity, heat and water </td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 5</td>
-				      <td>Line 17</td>
-			        </tr>
-				    <tr>
-				      <td>Maintenance</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 6</td>
-				      <td>Line 18</td>
-			        </tr>
-				
-				
-				<tr>
-				      <td>Other expenses (e.g. Rent)</td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 9</td>
-				      <td>Field 8810</td>
-			        </tr>			
-				    <tr class="cmmssn-only hidden">
+</table>//--> 
+    
+  </div>
+  <table class="table table-bordered">
+    <caption>
+    Amounts to claim based on <span class="h3">0%</span> of personal-use of home and <span class="h3">0%</span> of work from home use
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Expense</th>
+        <th scope="col" class="active">Amount to claim</th>
+        <th scope="col">T777c (short) form</th>
+        <th scope="col">T777 form</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Office supplies</td>
+        <td class="active">[$0.00]</td>
+        <td>Line 1</td>
+        <td>Line 12</td>
+      </tr>
+      <tr>
+        <td>Electricity, heat and water </td>
+        <td class="active">[$0.00]</td>
+        <td>Line 5</td>
+        <td>Line 17</td>
+      </tr>
+      <tr>
+        <td>Maintenance (home + work spaces) </td>
+        <td class="active">[$0.00]</td>
+        <td>Line 6</td>
+        <td>Line 18</td>
+      </tr>
+      <tr>
+        <td>Other expenses</td>
+        <td class="active">[$0.00]</td>
+        <td>Line 9</td>
+        <td>Field 8810</td>
+      </tr>
+      <!-- <tr>
 				      <td>Carry forward</td>
-				       <td class="success">[$0.00]</td>
+				       <td class="active">[$0.00]</td>
 				      <td>&nbsp;</td>
 				      <td>&nbsp;</td>
-				      </tr>
-				    <tr class="cmmssn-only hidden">
-				      <td>Insurance amount <small>(commission employees only)</br>
-				      </small></td>
-				      <td class="success">[$0.00]</td>
-				      <td>Line 7</td>
-				      <td>Line 19</td>
-			        </tr>
-				    <tr class="cmmssn-only hidden">
-				      <td>Property taxes</br>
-                        <small>(commission employees only)</br>
-                      </small></td>
-				      <td class="success">[$0.00]</td>
-				      <td >Line 8</td>
-				      <td>Line 20</td>
-			        </tr>
-			      </tbody>
-			  </table>
-            
-              <table class="table" id="cews-statement-table">
-                <caption>
-                Data you provided
-                </caption>
-                <tbody>
-                  <tr>
-                    <th scope="row">Size of work space in your home</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmnrm hidden">
-                    <th scope="row">Hours a week in work space</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Total finished area of your home</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Employment income (box 14)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-		 <tr>
-                    <th scope="row">Registered Pension Plan (RPP) deduction (box 20)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>	
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Commission income (box 42)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-		<tr>
-                    <th scope="row">Annual union, professional, or like dues (box 44)</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>		
-                  <tr>
-                    <th scope="row">Carry forward amount from previous year</th>
-                   <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Electricity, heat and water</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Maintenance</th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Insurance (commission employees only)</br></th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                  <tr class="cmmssn-only hidden">
-                    <th scope="row">Property taxes (commission employees only)</br></th>
-                    <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
-            </div>
+				      </tr>//-->
+      <tr class="cmmssn-only hidden">
+        <td>Insurance amount <small>(commission employees only)</br>
+          </small></td>
+        <td class="active">[$0.00]</td>
+        <td>Line 7</td>
+        <td>Line 19</td>
+      </tr>
+      <tr class="cmmssn-only hidden">
+        <td>Property taxes</br>
+          <small>(commission employees only)</br>
+          </small></td>
+        <td class="active">[$0.00]</td>
+        <td >Line 8</td>
+        <td>Line 20</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-body">
+    <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+      <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
+      <ul class="list-unstyled lst-spcd">
+        <li><span class="h4">$<span class="">0.00</span></span> of the personal-use portion based on <span class="h4"><span class="">0</span>%</span> of personal-use of your home should be reported on either
+          <ul>
+            <li><strong>Line 23</strong> in <strong>form T777</strong></li>
+            <li><strong>Line 11</strong> in <strong>form T777c (short)</strong></li>
+          </ul>
+        </li>
+	     <li id="carry-fwd"><mark>Only visible if tax information field total is lower than expenses total </mark>
+		    Your expenses exceed 
+		    your income, you must carry over to a future year
+		    <ul class="fa-ul list-unstyled lst-spcd">
+		      <li class="cmmssn-only hidden"><span class="h4">$<span class="">0.00</span></span> based on your Employment income</li>
+		      <li class="brdr-bttm cmmssn-only hidden"><span class="rmbth fas fa-plus fa-li"><span class="wb-inv">plus </span></span><span class="h4">$<span class="">0.00</span></span> based on your Commission income</li>
+		      <li><span class="fas fa-equals fa-li cmmssn-only hidden"><span class="wb-inv">equals </span></span><span class="h4">$<span class="">0.00</span></span> total amount to carry forward to be reported on <ul>
+            <li><strong>Last line</strong> in <strong>form T777</strong></li>
+            <li><strong>Line 16</strong> in <strong>form T777c (short)</strong></li>
+          </ul></li>
+        </ul></li>  
+      </ul>
+    </div>
+  </div>
+  <table class="table" id="cews-statement-table">
+    <caption>
+    Additional data you provided
+    </caption>
+    <tbody>
+      <tr>
+        <th scope="row">Size of work spaces in your home</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-tws" data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-56">[answer]</output></td>
+      </tr>
+      <tr class="cmmnrm hidden">
+        <th scope="row">Hours a week in work space</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Total finished area of your home</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Employment income (box 14)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Registered Pension Plan (RPP) deduction (box 20)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr class="cmmssn-only hidden">
+        <th scope="row">Commission income (box 42)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+      <tr>
+        <th scope="row">Annual union, professional, or like dues (box 44)</th>
+        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-57">[answer]</output></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
+</div>
           </div>
         </div>
       </div>
@@ -726,7 +787,7 @@ Expenses breakdown
                         </a>
                      </div>
                   </div>
-                  <h4>Calculate the personal use versus work use portion</h4>
+                  <h4>Calculate the personal-use versus work use portion</h4>
                   <p>Take the percentage of your home you use for work space and multiple it by the proportion of time per week you work in the space.</p>
                   <h5><span class="fas fa-calculator text-muted"></span> Example continued</h5>
                   <p>If 40 hours a week are spent working at the dining table:
@@ -785,7 +846,14 @@ Expenses breakdown
       <p>text here</p>
     </div>
   </section>     
-		       
+	  <section id="prorate-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+    <header class="modal-header">
+      <h2 class="modal-title">Prorate to the work period</h2>
+    </header>
+    <div class="modal-body" data-ajax-replace="how-much.html #h-2-2-cntnt">
+	    <p><a href="how-much.html#h2-2">Period of the year you work</a></p>
+    </div>
+  </section>	       
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                   <h3 class="wb-inv">Document navigation</h3>
                   <ul class="pager">
