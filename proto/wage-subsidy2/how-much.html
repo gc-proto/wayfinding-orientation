@@ -1198,7 +1198,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
+                              <tr id="emp1">
                                 <td>Employee 1</td>
                                 <td id="emp-arms-1"></td>
                                 <td id="emp-base-1"></td>
@@ -2621,29 +2621,30 @@
         var cews = 0;
         var eligibleEmployees = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
+          var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
           //determine the eligibility
-          if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
+          if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
           }
           //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
-          var baselineWage = $("#baseline-" + (i + 1)).val();
+          var baselineWage = $("#baseline-" + id).val();
           if (baselineWage == "") {
-            $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
+            $("#emp-base-" + id).text(toMoney.format("0.00"));
           } else {
             baselineWage = parseFloat(baselineWage);
           }
-          $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
+          $("#emp-base-" + id).text(toMoney.format(baselineWage));
           //show the arms length value
-          $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
-          var totalCell = $("#emp-ttl-" + (i + 1));
+          $("#emp-arms-" + id).text($("#arms-" + id).val());
+          var totalCell = $("#emp-ttl-" + id);
           if (eligibility) {
             eligibleEmployees++;
-            var employeeCews = zeroIfEmpty(getEmployeeCews((i + 1), baselineWage));
+            var employeeCews = zeroIfEmpty(getEmployeeCews(id, baselineWage));
             cews += employeeCews;
-            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages((i + 1)));
+            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages(id));
             var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
-            $("#emp-ttl-" + (i + 1)).text(employeeCews);
+            $("#emp-ttl-" + id).text(employeeCews);
             $(totalCell).html(formattedTotal);
           } else {
             $(totalCell).html(toMoney.format(0.00));
