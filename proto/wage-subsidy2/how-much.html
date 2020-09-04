@@ -1001,6 +1001,7 @@
                           <fieldset class="panel panel-default" id="emp-1">
                             <legend class="mrgn-lft-md mrgn-rght-md mrgn-tp-md"><span class="fas fa-user"></span>
                               Eligible employee <span class="employeeNumber">1</span></legend>
+                              <button class="btn btn-sm btn-danger pull-right rm-emp hidden" type="button">Remove</button>
                             <div class="panel-body">
                               <div class="form-group">
                                 <label for="arms-1">Is employee at arm's length?</label>
@@ -1197,7 +1198,7 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
+                              <tr id="emp1">
                                 <td>Employee 1</td>
                                 <td id="emp-arms-1"></td>
                                 <td id="emp-base-1"></td>
@@ -1930,6 +1931,8 @@
         });
         //add the aria-live=polite attr for screen readers
         $(frag).attr("aria-live", "polite");
+        var rmBtn = $(frag).find(".rm-emp");
+        $(rmBtn).removeClass("hidden");
         //update the DOM fragment
         this.updateArmsLengthElementId(frag);
         this.updateBaselineWageElementId(frag);
@@ -2536,6 +2539,15 @@
         }
       });
 
+      //when the user clicks the remove button on an employee panel
+      $(document).on("click", ".rm-emp", function(event) {
+        var fieldset = $(event.target).parent("fieldset");
+        var id = $(fieldset).attr("id");
+        var empNumber = id.split("-")[1];
+        $("#emp-arms-" + empNumber).parent("tr").remove();
+        $(fieldset).remove();
+      });
+
       //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
       function isInt(n) {
         return Number(n) === n && n % 1 === 0;
@@ -2609,29 +2621,30 @@
         var cews = 0;
         var eligibleEmployees = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
+          var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
           //determine the eligibility
-          if ($("#emp-smry-" + (i + 1)).hasClass("hidden")) {
+          if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
           }
           //show baselineWage or 0 if the baseline was left empty (protect against showing NaN)
-          var baselineWage = $("#baseline-" + (i + 1)).val();
+          var baselineWage = $("#baseline-" + id).val();
           if (baselineWage == "") {
-            $("#emp-base-" + (i + 1)).text(toMoney.format("0.00"));
+            $("#emp-base-" + id).text(toMoney.format("0.00"));
           } else {
             baselineWage = parseFloat(baselineWage);
           }
-          $("#emp-base-" + (i + 1)).text(toMoney.format(baselineWage));
+          $("#emp-base-" + id).text(toMoney.format(baselineWage));
           //show the arms length value
-          $("#emp-arms-" + (i + 1)).text($("#arms-" + (i + 1)).val());
-          var totalCell = $("#emp-ttl-" + (i + 1));
+          $("#emp-arms-" + id).text($("#arms-" + id).val());
+          var totalCell = $("#emp-ttl-" + id);
           if (eligibility) {
             eligibleEmployees++;
-            var employeeCews = zeroIfEmpty(getEmployeeCews((i + 1), baselineWage));
+            var employeeCews = zeroIfEmpty(getEmployeeCews(id, baselineWage));
             cews += employeeCews;
-            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages((i + 1)));
+            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages(id));
             var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
-            $("#emp-ttl-" + (i + 1)).text(employeeCews);
+            $("#emp-ttl-" + id).text(employeeCews);
             $(totalCell).html(formattedTotal);
           } else {
             $(totalCell).html(toMoney.format(0.00));
@@ -3107,6 +3120,12 @@
           var totalCews = $(".total").attr("data-total-cews");
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
+        }
+        for (var i = 1; i < (numEmployeePanels + 1); i++) {
+          $("#wkone-" + i).blur();
+          $("#wktwo-" + i).blur();
+          $("#wkthree-" + i).blur();
+          $("#wkfour-" + i).blur();
         }
       });
 
