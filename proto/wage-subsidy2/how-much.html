@@ -2785,14 +2785,14 @@
         //add the row to the table
         row.appendChild(totalCell);
         $("#dataset-filter > tbody").append(row);
-        $(frag).insertAfter("#emp-" + (numEmployeePanels - 1));
+        var lastEmpPanel = $("fieldset[id^='emp-']").last();
+        $(frag).insertAfter(lastEmpPanel);
         $("#emp-" + numEmployeePanels).focus();
-        document.getElementById("emp-" + numEmployeePanels).scrollIntoView({
+        document.getElementById($(frag).prop("id")).scrollIntoView({
           behavior: 'smooth'
         });
         $("#emp-no-elgbl-" + numEmployeePanels).addClass("hidden");
         $("#emp-smry-" + numEmployeePanels).removeClass("hidden");
-
       }
 
       /**
@@ -3105,14 +3105,13 @@
           $("#p2b-c3").val(roundPercDown(cewsRate));
           $("output[for='p2b-c3']").text(roundPercDown(cewsRate) + "%");
         } else {
-          var eligibleEmployees = numEmployeePanels;
-          for (var i = 1; i < numEmployeePanels; i++) {
+          var eligibleEmployees = $("fieldset[id^='emp-']").length;
+          for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
             if ($("#emp-smry-" + i).hasClass("hidden")) {
               eligibleEmployees--;
             }
           }
           $("#p2c-ee").val(eligibleEmployees);
-
           $("#p2c-ee").trigger("change");
           var totalWages = $(".total").attr("data-total-wages");
           $("#p2c-pyrl").val(totalWages);
