@@ -89,7 +89,7 @@
                   <li><a href="#visit">Travel documents for visitors to Canada</a></li>
                   <li><a href="#workers">Foreign workers: Travel restrictions and exemptions</a></li>
                   <!-- <li><a href="#canada">Temporary workers already in Canada</a></li> -->
-                  <li><a href="#students">International students: Travel exemptions and restrictions</a></li>
+                  <li><a href="#students">International students: Travel restrictions and exemptions</a></li>
 
                </ul>
                      <div class="alert alert-warning mrgn-tp-lg">
@@ -112,7 +112,7 @@
 
                <details>
                   <summary>If you haven’t applied for a visa or eTA yet</summary>
-                  <ol>
+                  <ol id="apply-visa-eta">
                      <li>Use our online tool to <a href="https://www.cic.gc.ca/english/visit/visas.asp">find out if you need a visitor
                            visa or an eTA</a>.</li>
                      <li>Follow the instructions to
@@ -130,7 +130,7 @@
 
 
                   <details><summary>If you’ve already applied for a visa or eTA</summary>
-                        <p>Follow the steps for:</p>
+                        <p id="already-applied-visa-eta">Follow the steps for:</p>
                         <ul>
                            <li><a
                                  href="../immigration/coronavirus-covid19/visa.html#existing">already
@@ -221,7 +221,7 @@
                   </ul>
 
                <details><summary>If you haven’t applied for a work permit yet</summary>
-               <p>Due to the impacts of coronavirus disease (COVID-19), we can’t</p>
+               <p id="apply-work">Due to the impacts of coronavirus disease (COVID-19), we can’t</p>
                <ul>
                   <li>process applications normally</li>
                   <li>provide accurate processing times</li>
@@ -278,7 +278,7 @@
                </details>
 
                <details><summary>If you’ve been approved for a work permit</summary>
-               <p>When you travel, show the following documents to show that you’re exempt from the travel restrictions: </p>
+               <p id="approved-work">When you travel, show the following documents to show that you’re exempt from the travel restrictions: </p>
                <ul>
                   <li>passport or travel document, <strong>and</strong></li>
                   <li>proof that you’re allowed to work in Canada, specifically
@@ -362,7 +362,7 @@
                   </details>
 
                   <details>
-                     <summary>commercial or research open water aquaculture workers </summary>
+                     <summary>commercial or research open water aquaculture workers</summary>
                      <p>If you’ll enter Canada and go directly to a <strong>foreign-owned</strong> open water vessel to work:</p>
                      <ul>
                         <li>you don’t need a work permit</li>
@@ -393,11 +393,11 @@
 
                   <ul>
                      <li>any person whose purpose is to deliver, maintain or repair medical equipment or devices</li>
-                     <li>air or marine crew members </li>
+                     <li>air or marine crew members</li>
                   </ul>
 
                      <h4>Applying for a visitor visa or electronic travel authorization (eTA)</h4>
-                     <p>Even if you can work without a work permit, you may still need a visitor visa or eTA to enter Canada. </p>
+                     <p id="travel-document">Even if you can work without a work permit, you may still need a visitor visa or eTA to enter Canada. </p>
                      <p>We’ve temporarily changed how to apply for a visitor visa or eTA to ensure that your application is processed.
                      </p>
                      <p><a
@@ -439,7 +439,7 @@
                      inside Canada to apply at a port of entry. </p>
 
                <details><summary>If your work permit hasn’t expired</summary>
-               <p><strong>Most workers</strong> have 2 options:</p>
+               <p id="valid-work"><strong>Most workers</strong> have 2 options:</p>
                <ol>
                   <li>If you want to continue working, you may be able to extend your <a
                         href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend-permit.html">work
@@ -468,7 +468,7 @@
                </div>
                </details>
             <details><summary>If you change jobs or employers</summary>
-                  <p>If you have an employer-specific work permit and you want to change jobs or employers, you must <a
+                  <p id="change">If you have an employer-specific work permit and you want to change jobs or employers, you must <a
                         href="https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit/temporary/extend/apply.html">apply
                         for a
                         new work permit</a> from inside Canada. International Experience Canada (IEC) participants must <a
@@ -572,7 +572,7 @@
                   </details>
 
             <details><summary>If your status as a worker has expired</summary>
-            <p>You may be able&nbsp;<a
+            <p id="expired-work">You may be able&nbsp;<a
                   href="https://www.canada.ca/en/immigration-refugees-citizenship/services/coronavirus-covid19/restoration-extension-trv.html">to
                   restore
                   your status</a>.</p>
@@ -680,7 +680,7 @@
 
                </div>
 
-               <h2 id="students">International students: Travel exemptions and restrictions</h2>
+               <h2 id="students">International students: Travel restrictions and exemptions</h2>
 
             <p>If you are entering from the United States:</p>
             <ul>
@@ -711,9 +711,9 @@
 
             <details>
                <summary>What you need when you travel to Canada</summary>
-               <p>Make sure you have proof that you’re exempt from the travel restrictions and that you’re travelling for a reason that is
+               <p id="travel">Make sure you have proof that you’re exempt from the travel restrictions and that you’re travelling for a reason that is
                   not optional (non-discretionary).</p>
-               <p>When the border services officer greets you, they will look at several factors, including whether:</p>
+               <p>When the Border Services Officer greets you, they will look at several factors, including whether:</p>
                <ul>
                   <li>your reasons for entering Canada to study are not optional</li>
                   <li>you’re able to complete a 14-day quarantine period as soon as you arrive at your final destination</li>
@@ -730,13 +730,13 @@
                      18, 2020, if you’re coming from any other country</li>
                </ul>
 
-               <p>A border services officer will make a final decision on your eligibility to enter Canada when you arrive.</p>
+               <p>A Border Services Officer will make a final decision on your eligibility to enter Canada when you arrive.</p>
 
 
             </details>
             <details>
                <summary>If you haven’t applied for a study permit yet</summary>
-               <p>Due to the impacts of coronavirus disease (COVID-19), we can’t</p>
+               <p id="apply-student">Due to the impacts of coronavirus disease (COVID-19), we can’t</p>
                <ul>
                   <li>process applications normally</li>
                   <li>provide accurate processing times</li>
@@ -837,11 +837,11 @@
 
 
             <details><summary>International students already in Canada</summary>
-            <p>Due to restrictions on non-essential travel at the Canada–US border, you&nbsp;<strong>can’t
+            <p id="students-canada">Due to restrictions on non-essential travel at the Canada–US border, you&nbsp;<strong>can’t
                   travel</strong>&nbsp;from inside Canada to apply at a port of entry.</p>
                      <details>
-                        <summary id="valid">If your study permit is expiring</summary>
-                        <p>You must apply online to extend your stay in Canada.</p>
+                        <summary>If your study permit is expiring</summary>
+                        <p id="valid-student">You must apply online to extend your stay in Canada.</p>
                         <p><strong>If you’re a student</strong>, you have 3 options:</p>
                         <ol>
                            <li>If you want to continue studying, you may be able to extend your <a
@@ -872,7 +872,7 @@
 
                      <details>
                         <summary>If your status as a student has expired</summary>
-                        <p>You may be able to <a
+                        <p id="expired-student">You may be able to <a
                               href="https://www.canada.ca/en/immigration-refugees-citizenship/services/coronavirus-covid19/restoration-extension-trv.html">restore
                               your status</a>.</p>
                      </details>
@@ -902,7 +902,7 @@
                </details>
 
                <details><summary>Compliance with study permit conditions</summary>
-                     <p>If your in-class courses are being temporarily moved to an online-only format or suspended completely because of
+                     <p id="conditions">If your in-class courses are being temporarily moved to an online-only format or suspended completely because of
                         COVID-19, you’re still compliant with your study permit conditions if you </p>
                      <ul>
                         <li>stay enrolled in your designated learning institution (DLI), and</li>
@@ -934,7 +934,7 @@
 
 
 
-               <h3 id="work">Students with authorization to work</h3>
+               <h3 id="work-students">Students with authorization to work</h3>
                <p>You can continue to work even if COVID-19 has forced you to become a part-time student or take a break in studies
                   if you were</p>
                <ul>
@@ -968,7 +968,7 @@
                         out how
                         to apply for a PGWP</a>.</p>
                   <details><summary>What to do if you can’t provide required documents</summary>
-                  <p>Upload a <strong>letter of explanation</strong> instead of the missing documents and tell us why you can’t submit
+                  <p id="required-documents">Upload a <strong>letter of explanation</strong> instead of the missing documents and tell us why you can’t submit
                      the documents (letter of completion or final transcript), for example because your school’s offices are closed.
                   </p>
                   <p>Your application won’t be rejected if you cannot submit the requested documents.</p>
@@ -978,7 +978,7 @@
                   </details>
 
                   <details><summary>Eligibility to work without a work permit</summary>
-                  <p>You may be eligible to start working full time right away until a decision is made on your application if:</p>
+                  <p id="work-permit-students">You may be eligible to start working full time right away until a decision is made on your application if:</p>
                   <ul>
                      <li>you submit your PGWP application before the expiry date of your study permit</li>
                      <li>you <a
@@ -998,7 +998,7 @@
 
                <details><summary>If you're outside of Canada</summary>
 
-		<p>You’re still eligible for a post-graduation work permit if you can’t travel to Canada at this time due to travel restrictions <strong>and</strong></p>
+		<p id="pgwp-2020">You’re still eligible for a post-graduation work permit if you can’t travel to Canada at this time due to travel restrictions <strong>and</strong></p>
 
 		<ul>
 			<li>you have a study permit</li>
