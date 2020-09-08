@@ -1432,6 +1432,7 @@
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right currency" id="p3-ei">
                     </div>
+                    <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay during this claim period.</p>
                     <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a
                       <strong>dollar sign</strong></p>
                   </div>
@@ -1444,6 +1445,7 @@
                     <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
                       <input required type="number" class="form-control input-lg text-right currency" id="p3-cpp">
                     </div>
+                    <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay during this claim period.</p>
                     <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a
                       <strong>dollar sign</strong></p>
                   </div>
@@ -3108,6 +3110,19 @@
           //get eligible furloughed employees
           $("#p2c-ee-alt2").val(Math.ceil(numEmployeePanels - eligibleEmps));
           $("#p2c-ee-alt2").trigger("change");
+          if ($("#p2c-ee-alt2").val() == 0) {
+            $("#p3-ei").prop("readonly", true);
+            $("#p3-ei").val("0.00");
+            $("#p3-cpp").prop("readonly", true);
+            $("#p3-cpp").val("0.00");
+            $(".no-lwp-disclaimer").removeClass("hidden");
+          } else {
+            $("#p3-ei").prop("readonly", false);
+            $("#p3-ei").val("");
+            $("#p3-cpp").prop("readonly", false);
+            $("#p3-cpp").val("");
+            $(".no-lwp-disclaimer").addClass("hidden");
+          }
           var totalWages = $(".total").attr("data-total-wages");
           $("#p2c-pyrl").val(totalWages);
           $("#p2c-pyrl").trigger("change");
@@ -3143,6 +3158,23 @@
           $("#wktwo-" + i).blur();
           $("#wkthree-" + i).blur();
           $("#wkfour-" + i).blur();
+        }
+      });
+
+
+      $(document).on("blur", "#p2c-ee-alt2", function(event) {
+        if (event.target.value == 0) {
+          $("#p3-ei").prop("readonly", true);
+          $("#p3-ei").val("0.00");
+          $("#p3-cpp").prop("readonly", true);
+          $("#p3-cpp").val("0.00");
+          $("#no-lwp-disclaimer").removeClass("hidden");
+        } else {
+          $("#p3-ei").prop("readonly", false);
+          $("#p3-ei").val("");
+          $("#p3-cpp").prop("readonly", false);
+          $("#p3-cpp").val("");
+          $("#no-lwp-disclaimer").addClass("hidden");
         }
       });
 
