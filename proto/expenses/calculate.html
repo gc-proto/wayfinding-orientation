@@ -1144,7 +1144,7 @@ Expenses breakdown
     /**
      * When the user enters a value in a currecy field
      */
-    $(document).on('change', ".currency", function(event) {
+    $(document).on('change', ".currency", function (event) {
       if (isEnglishNumber(event.target.value) || isFrenchNumber(event.target.value)) {
         //alert("formatted number: " + event.target.value);
       } else {
@@ -1163,18 +1163,18 @@ Expenses breakdown
      * @return {Float} the percentage of space used for work
      */
     function calculateSpaceUsed(workArea, totalArea) {
-      return workArea / totalArea  * 100;
+      return workArea / totalArea * 100;
     }
 
     //when the total area input is updated
-    $(document).on("keyup", "#hmspc", function(event) {
+    $(document).on("keyup", "#hmspc", function (event) {
       var totalArea = parseFloat($("#hmspc").val());
       var workArea = 0;
       if (!$("div.cmmnrm").hasClass("hidden")) {
-        $("input[id^='wrkspc-cmmn-'").each(function(i, element) {
+        $("input[id^='wrkspc-cmmn-'").each(function (i, element) {
           workArea += parseFloat(element.value);
         });
-      } 
+      }
       if (!$("#wrkspc").hasClass("hidden")) {
         workArea += parseFloat($("#wrkspc").val());
       }
