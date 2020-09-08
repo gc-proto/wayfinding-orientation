@@ -1005,7 +1005,7 @@
                             <div class="panel-body">
 			<div class="form-group">
                                 <label for="ee-name-1">Employee name or alias<span class="wb-inv"> (use a first name or nickname)</span></label>
-					<input type="number" class="form-control input-lg text-right currency" id="ee-name-1" data-updates="">
+					<input type="text" class="form-control input-lg text-right" id="ee-name-1">
 					<p class="small text-muted" aria-hidden="true">Use a first name or nickname</p>
                               </div>	    
                               <div class="form-group">
@@ -1104,7 +1104,7 @@
                             </div>
                             <footer class="panel-footer">
                               <details open>
-                                <summary>Calculation summary for employee <span class="employeeNumber">1</span>
+                                <summary>Calculation summary for <span class="ee-name-1">employee <span class="employeeNumber">1</span></span>
                                 </summary>
                                 <table class="table table-condensed small text-muted" id="emp-smry-1">
                                   <caption class="wb-inv">
@@ -1204,7 +1204,9 @@
                             </thead>
                             <tbody>
                               <tr id="emp1">
-                                <td>Employee 1</td>
+                                <td>
+                                  <span class="ee-name-1">Employee 1</span>
+                                </td>
                                 <td id="emp-arms-1"></td>
                                 <td id="emp-base-1"></td>
                                 <td data-updated-by="wkone-1"></td>
@@ -3364,6 +3366,13 @@
       })(jQuery, wb);
     }
 
+    $(document).on("blur", "input[id^='ee-name-']", function(event) {
+      var className = $(event.target).prop("id");
+      var displays = $("span." + className);
+      $(displays).each(function(i, element) {
+        $(element).text(event.target.value);
+      });
+    });
   </script>
   <script>
 
