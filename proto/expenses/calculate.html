@@ -1171,8 +1171,9 @@ Expenses breakdown
       if (!$("#wrkspc").hasClass("hidden")) {
         workArea += parseFloat($("#wrkspc").val());
       }
-      if ((workArea / totalArea) !== Infinity || totalArea !== "") {
-        $(".perspc-percent-sum").text(workArea / totalArea * 100);
+      var spaceUsed = calculateSpaceUsed(workArea, totalArea);
+      if (spaceUsed !== Infinity) {
+        $(".perspc-percent-sum").text(spaceUsed * 100);
       } else {
         $(".perspc-percent-sum").text("0");
       }
