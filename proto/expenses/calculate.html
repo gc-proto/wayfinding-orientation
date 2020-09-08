@@ -554,7 +554,7 @@
                     <div class="form-group">
                       <label for="box14">Employment income<span class="wb-inv"> in dollars and cents</span></label>
                       <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                        <input class="form-control input-lg" id="box14" name="box14" type="number"
+                        <input class="form-control input-lg currency" id="box14" name="box14" type="text"
                           aria-describedby="box14-def">
                       </div>
                       <p class="text-muted small" id="box14-def">Box 14 of T4 slip</p>
@@ -563,7 +563,7 @@
                       <label for="box20">Registered pension plan (RPP) deduction<span class="wb-inv"> in dollars and
                           cents</span></label>
                       <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                        <input class="form-control input-lg" id="box20" name="box20" type="number"
+                        <input class="form-control input-lg currency" id="box20" name="box20" type="text"
                           aria-describedby="box20-def">
                       </div>
                       <p class="text-muted small" id="box20-def">Box 20 of T4 slip</p>
@@ -572,7 +572,7 @@
                     <div class="form-group cmmssn-only hidden">
                       <label for="box42">Commision income<span class="wb-inv"> in dollars and cents</span></label>
                       <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                        <input class="form-control input-lg" id="box42" name="box42" type="number"
+                        <input class="form-control input-lg currency" id="box42" name="box42" type="text"
                           aria-describedby="box42-def">
                       </div>
                       <p class="text-muted small" id="box42-def">Box 42 of T4 slip</p>
@@ -581,7 +581,7 @@
                       <label for="box44">Annual union, professional, or like dues<span class="wb-inv"> in dollars and
                           cents</span></label>
                       <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                        <input class="form-control input-lg" id="box44" name="box44" type="number"
+                        <input class="form-control input-lg currency" id="box44" name="box44" type="text"
                           aria-describedby="box44-def">
                       </div>
                       <p class="text-muted small" id="box44-def">Box 44 of T4 slip</p>
@@ -590,7 +590,7 @@
                       <label for="carry-fwd">Expense amount carried forward from previous year<span class="wb-inv"> in
                           dollars and cents</span></label>
                       <div class="input-group col-sm-4 col-md-3"> <span class="input-group-addon">$</span>
-                        <input class="form-control input-lg" id="carry-fwd" name="carry-fwd" type="number"
+                        <input class="form-control input-lg currency" id="carry-fwd" name="carry-fwd" type="text"
                           aria-describedby="carry-fwd-def">
                       </div>
                       <p class="text-muted small" id="carry-fwd-def">Bottom of form T777 or line 16 of form T777c</p>
@@ -1114,6 +1114,69 @@ Expenses breakdown
         ]);
       });
     })(jQuery, wb);
+
+    /**
+     * isEnglishNumber
+     *
+     * determine if the given formatted number is in the English format
+     *
+     * @param {string} formattedNumber the formatted number
+     *
+     * @return {boolean} whether the number matches the English currency regex
+     */
+    function isEnglishNumber(formattedNumber) {
+      return formattedNumber.match(/^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/g);
+    }
+
+    /**
+     * isFrenchNumber
+     *
+     * determine if the given formatted number is in the French format
+     *
+     * @param {string} formattedNumber the formatted number
+     *
+     * @return {boolean} whether the number matches the French currency regex
+     */
+    function isFrenchNumber(formattedNumber) {
+      return formattedNumber.match(/^(\d{1,3}(\ \d{3})*|(\d+))(\,\d{2})?$/g);
+    }
+
+    /**
+     * When the user enters a value in a currecy field
+     */
+    $(document).on('change', ".currency", function(event) {
+      if (isEnglishNumber(event.target.value) || isFrenchNumber(event.target.value)) {
+        alert("formatted number: " + event.target.value);
+      } else {
+        alert("NaN");
+      }
+    });
+
+    /**
+     * calculateSpaceUsed
+     */
+    function calculateSpaceUsed(workArea, totalArea) {
+      return workArea / totalArea;
+    }
+
+    //when the total area input is updated
+    $(document).on("keyup", "#hmspc", function(event) {
+      var totalArea = parseFloat($("#hmspc").val());
+      var workArea = 0;
+      if (!$("div.cmmnrm").hasClass("hidden")) {
+        $("input[id^='wrkspc-cmmn-'").each(function(i, element) {
+          workArea += parseFloat(element.value);
+        });
+      } 
+      if (!$("#wrkspc").hasClass("hidden")) {
+        workArea += parseFloat($("#wrkspc").val());
+      }
+      if ((workArea / totalArea) !== Infinity || totalArea !== "") {
+        $(".perspc-percent-sum").text(workArea / totalArea * 100);
+      } else {
+        $(".perspc-percent-sum").text("0");
+      }
+    });
   </script>
 </body>
 

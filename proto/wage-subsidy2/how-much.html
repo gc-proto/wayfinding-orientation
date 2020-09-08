@@ -1948,6 +1948,7 @@
         this.updateInputs(frag);
         this.updateTableIds(frag);
         this.openAccordion(frag);
+        this.updateSummaryHeading(frag);
         return frag;
       }
 
@@ -2068,8 +2069,7 @@
         );
         $(totalCell).text(currencyPlaceholderValue);
         $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
-        $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees)
-
+        $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
 
       /**
@@ -2083,6 +2083,13 @@
         var accordion = $(frag).find("details").each(function (i, element) {
           $(element).attr("open", "open");
         });
+      }
+
+      EmployeeFormGenerator.prototype.updateSummaryHeading = function (frag) {
+        var heading = $(frag).find('.ee-name-1');
+        $(heading).removeClass("ee-name-1");
+        $(heading).addClass("ee-name-" + this.numberOfEmployees);
+        $(heading).text("Employee " + this.numberOfEmployees);
       }
 
       return EmployeeFormGenerator;
@@ -2751,7 +2758,10 @@
         row.id = "emp" + numEmployeePanels;
         //create the employee 'name' cell
         var eligibleEmployeeCell = document.createElement("td");
-        eligibleEmployeeCell.innerHTML = "Employee " + numEmployeePanels;
+        var eeSpan = document.createElement("span");
+        $(eeSpan).addClass("ee-name-" + numEmployeePanels);
+        eeSpan.innerHTML = "Employee " + numEmployeePanels;
+        eligibleEmployeeCell.appendChild(eeSpan);
         // create the arms length cell 
         var armsLengthCell = document.createElement("td");
         armsLengthCell.id = "emp-arms-" + numEmployeePanels;
