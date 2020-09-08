@@ -1154,9 +1154,16 @@ Expenses breakdown
 
     /**
      * calculateSpaceUsed
+     * 
+     * calculate the space used as workspace
+     * 
+     * @param {Float} workArea the total area used for work purposes
+     * @param {Float} totalArea the total area of the home
+     * 
+     * @return {Float} the percentage of space used for work
      */
     function calculateSpaceUsed(workArea, totalArea) {
-      return workArea / totalArea;
+      return workArea / totalArea  * 100;
     }
 
     //when the total area input is updated
@@ -1173,7 +1180,7 @@ Expenses breakdown
       }
       var spaceUsed = calculateSpaceUsed(workArea, totalArea);
       if (spaceUsed !== Infinity) {
-        $(".perspc-percent-sum").text(spaceUsed * 100);
+        $(".perspc-percent-sum").text(spaceUsed);
       } else {
         $(".perspc-percent-sum").text("0");
       }
