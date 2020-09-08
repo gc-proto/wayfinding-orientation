@@ -3410,9 +3410,16 @@
 
     $(document).on("blur", "input[id^='ee-name-']", function(event) {
       var className = $(event.target).prop("id");
+      var empNumber = $(event.target).prop('id').split("-")[2];
       var displays = $("span." + className);
+      var displayValue = "";
+      if (empNumber > 0 && event.target.value == "") {
+        displayValue = "Employee " + empNumber;
+      } else {
+        displayValue = event.target.value;
+      }
       $(displays).each(function(i, element) {
-        $(element).text(event.target.value);
+        $(element).text(displayValue);
       });
     });
   </script>
