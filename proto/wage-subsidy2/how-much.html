@@ -1550,55 +1550,55 @@
               <li class="p14"> Line A: Number of eligible employees: <strong>
                   <output class="h3 wb-calc nowrap" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
                 </strong> </li>
-              <li id="sum-ee-active2" class="hidden p59"> Line A: Number of eligible active employees:
+		    <li id="sum-ee-active2" class="hidden p59"><strong>Line A:</strong> Number of eligible active employees:
                 <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
                   data-wb-calc='{"expr": "#p2c-ee-alt1 * 1"}'></output>
               </li>
-              <li id="sum-ee-lwp2" class="hidden p59"> Line AA: Number of eligible employees on leave with pay:
+		    <li id="sum-ee-lwp2" class="hidden p59"><strong>Line AA:</strong> Number of eligible employees on leave with pay:
                 <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
                   data-wb-calc='{"expr": "#p2c-ee-alt1 * 2"}'></output>
               </li>
-              <li> Line B: Total eligible remuneration paid: <strong>
+		    <li><strong>Line B:</strong> Total eligible remuneration paid: <strong>
                   <output class="h3 wb-calc nowrap" for="p2c-pyrl"
                     data-wb-calc='{"expr": "#p2b-pyrl * 1", "format": "currency"}'></output>
                 </strong> </li>
               <li id="sum-rev2" class="hidden p59">Revenue drop and subsidy rate
                 <ul class="list-unstyled mrgn-lft-md">
-                  <li>Line c1:
+			<li><strong>Line c1:</strong>
                     Revenue drop for the current period:
                     <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
                   </li>
-                  <li>Line c2:
+			<li><strong>Line c2:</strong>
                     Average revenue drop for the previous three months:
                     <output class="h3 wb-calc nowrap" for="p2b-c2"></output>
                   </li>
-                  <li>Line c3:
+			<li><strong>Line c3:</strong>
                     Subsidy rate used for active employees in the calculation of Line C:
                     <output class="h3 wb-calc nowrap" for="p2b-c3"></output>
                   </li>
                 </ul>
               </li>
-              <li> Line C: Basic CEWS (including top-up, if applicable): <strong>
+		    <li><strong>Line C:</strong> Basic CEWS (including top-up, if applicable): <strong>
                   <output class="h3 wb-calc nowrap" for="p2c-cews"
                     data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output>
                 </strong> </li>
-              <li> Line D: Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay
+		    <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay
                 <small>(for
                   the claim period)</small>: <strong>
                   <output class="h3 wb-calc nowrap" for="p3-ei"
                     data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output>
                 </strong> </li>
-              <li> Line E: Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay
+		    <li><strong>Line E:</strong> Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay
                 <small>(for the claim period)</small>: <strong>
                   <output class="h3 wb-calc nowrap" for="p3-cpp"
                     data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output>
                 </strong> </li>
-              <li> Line F: 10% Temporary Wage Subsidy for Employers reduction <small>(for the claim
+		    <li><strong>Line F:</strong> 10% Temporary Wage Subsidy for Employers reduction <small>(for the claim
                   period)</small>: <strong>
                   <output class="h3 wb-calc nowrap" for="p4-tws"
                     data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output>
                 </strong> </li>
-              <li> Line G: Amounts received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
+		    <li><strong>Line G:</strong> Amounts received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
                   the claim period)</small>: <strong>
                   <output class="h3 wb-calc nowrap" for="p4-wsb"
                     data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output>
@@ -1610,7 +1610,7 @@
                   <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output>
                 </strong> This amount is subject to verification. </p>
-              <p>You are now ready to use these amounts to <a href="how-apply.html">apply for the wage subsidy</a>.</p>
+            <!--  <p>You are now ready to use these amounts to <a href="how-apply.html">apply for the wage subsidy</a>.</p>//-->
             </div>
           </div>
 	<p class="text-center hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg"
@@ -1618,50 +1618,50 @@
 		statement</span></span></a></p>	
         </div>
         <table class="table" id="cews-statement-table">
-          <caption>
+          <caption class="h5 mrgn-bttm-0">
             Summary of CEWS claim
           </caption>
           <tbody>
             <tr>
-              <th scope="row">Basic CEWS <small class="nowrap">(Line C)</small></th>
-              <td class="text-right nowrap"><output class="h3 wb-calc nowrap" for="p2c-cews"
+              <th scope="row" class="h6">Basic CEWS <small class="nowrap">(Line C)</small></th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews"
                   data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output></td>
             </tr>
             <tr>
-              <th scope="row">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+              <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
               <td class="text-right nowrap">+
-                <output class="h3 wb-calc nowrap" for="p3-ei"
+                <output class="h6 wb-calc nowrap" for="p3-ei"
                   data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
             </tr>
             <tr>
-              <th scope="row">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+              <th scope="row" class="h6">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
               <td class="text-right nowrap">+
-                <output class="h3 wb-calc nowrap" for="p3-cpp"
+                <output class="h6 wb-calc nowrap" for="p3-cpp"
                   data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output></td>
             </tr>
             <tr>
-              <th scope="row">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
+              <th scope="row" class="h6">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
                   F)</small></th>
               <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                <output class="h3 wb-calc nowrap" for="p4-tws"
+                <output class="h6 wb-calc nowrap" for="p4-tws"
                   data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output></td>
             </tr>
             <tr>
-              <th scope="row">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
+              <th scope="row" class="h6">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
               <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                <output class="h3 wb-calc nowrap" for="p4-wsb"
+                <output class="h6 wb-calc nowrap" for="p4-wsb"
                   data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output></td>
             </tr>
             <tr class="success">
-              <th scope="row">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-              <td class="text-right nowrap"><output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+              <th scope="row" class="h6">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                   data-wb-calc='{"expr": "#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output>
               </td>
             </tr>
           </tbody>
         </table>
         <div class="panel-footer">
-          <p>You are now ready to use these amounts to <a href="how-apply.html">apply for the wage subsidy</a>.</p>
+          <p>You are now ready to use these amounts to apply for the wage subsidy.</p>
         </div>
       </div>
       <nav class="mrgn-bttm-lg mrgn-tp-lg">
