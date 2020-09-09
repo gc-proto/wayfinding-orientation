@@ -348,10 +348,10 @@
               </div>
               <div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
-                  <p class="wb-fieldflow-label">Do you use a designated room or a common area to work from your home?
+                  <p class="wb-fieldflow-label">Do you use a designated room or a common space to work from your home?
                   </p>
                   <p><a href="#rooms-lbx" class="wb-lbx">Difference between a designated room and a common
-                      area&nbsp;<span class="far fa-question-circle"></span></a></p>
+                      space&nbsp;<span class="far fa-question-circle"></span></a></p>
                 </div>
                 <ul>
                   <li
@@ -360,9 +360,9 @@
                   <li
                     data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
                     Common space</li>
-                  <li
+                  <!--<li
                     data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm, .dsgntdrm, .rmbth", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
-                    Both</li>
+                    Both</li>-->
                 </ul>
               </div>
               <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
@@ -416,7 +416,7 @@
                                 <div class="row">
                                   <div class="col-xs-9">
                                     <div class="form-group">
-                                      <label for="wrkspc-cmmn-1">Common space 1 <span class="wb-inv"> in square <span
+                                      <label for="wrkspc-cmmn-1">Common space  <span class="wb-inv"> in square <span
                                             class="exp-m-sq hidden">meters</span><span
                                             class="exp-ft-sq hidden">feet</span></span></label>
                                       <div class="input-group col-sm-5 col-md-4">
@@ -426,7 +426,7 @@
                                           class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                                     </div>
                                     <div class="form-group">
-                                      <label for="cmmnrm-hrs-1">Hours a week worked in common space 1</label>
+                                      <label for="cmmnrm-hrs-1">Hours a week worked in common space </label>
                                       <div class="input-group col-sm-5 col-md-4">
                                         <input class="form-control input-lg" id="cmmnrm-hrs-1" name="cmmnrm-hrs-1"
                                           type="number">
@@ -445,7 +445,7 @@
                             </div>
                           </div>
                         </div>
-                        <div id="cmmnrm-2">
+                        <!--<div id="cmmnrm-2">
                           <div class="row">
                             <div class="col-xs-12">
                               <div class="panel panel-default panel-body">
@@ -473,19 +473,19 @@
                                         class="fas fa-plus-circle"></span>&nbsp;Add room</button>
                                   </div>
                                   <div class="col-sm-3">
-                                    <!--Only appears on additional rooms, here for layout purposes only //-->
+                                    Only appears on additional rooms, here for layout purposes only //
                                     <button id="addroom" class="btn btn-default btn-xs mrgn-bttm-tp"><span
                                         class="fas fa-minus-circle"></span>&nbsp;Remove</button>
                                   </div>
                                 </div>
                                 <p>
-                                  <!--Hides when a new room is added, appears if no rooms below it //-->
+                                  Hides when a new room is added, appears if no rooms below it //
 
                                 </p>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div>-->
                       </div>
                       <div class="form-group mrgn-tp-md">
                         <label for="hmspc">Total finished area of your home<span class="wb-inv"> in square <span
@@ -528,9 +528,9 @@
                             <div class="row">
                               <div class="col-sm-6 brdr-rght"><span class="h4"><span
                                     class="perhr-percent-sum">0</span>%</span> of hours of personal-use in common space
-                                (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div>
+                                (<span id="per-cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div>
                               <div class="col-sm-6"><span class="h4"><span class="wrkhr-percent-sum">0</span>%</span>
-                                of hours of business use in common space (<span id="cmmn-rm-sum">0</span> hours divided
+                                of hours of business use in common space (<span id="wrk-cmmn-rm-sum">0</span> hours divided
                                 into 168 total hours a week)</div>
                             </div>
                           </li>
@@ -1203,7 +1203,7 @@ Expenses breakdown
           }
         });
       }
-      return workHours / 168 * 100;
+      return {rawHours: workHours, percentage: workHours / 168 * 100};
     }
 
     /**
@@ -1270,12 +1270,16 @@ Expenses breakdown
     //when a user updates the hours a common space is used
     $(document).on("change keyup", "input[id^='cmmnrm-hrs-']", function (event) {
       var hours = getCommonWorkSpaceHours();
-      if (!isNaN(hours)) {
-        $(".perhr-percent-sum").text(100 - hours);
-        $(".wrkhr-percent-sum").text(hours);
+      if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
+        $(".perhr-percent-sum").text(100 - hours.percentage);
+        $(".wrkhr-percent-sum").text(hours.percentage);
+        $("#wrk-cmmn-rm-sum").text(hours.rawHours);
+        $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
       } else {
         $(".perhr-percent-sum").text("0");
         $(".perhr-percent-sum").text("0");
+        $("#wrk-cmmn-rm-sum").text("0");
+        $("#per-cmmn-rm-sum").text("0");
       }
     });
 
