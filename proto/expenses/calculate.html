@@ -1170,11 +1170,13 @@ Expenses breakdown
     $(document).on("keyup", "#hmspc", function (event) {
       var totalArea = parseFloat($("#hmspc").val());
       var workArea = 0;
+      //if common room panel is visible, add each common room to the work space
       if (!$("div.cmmnrm").hasClass("hidden")) {
         $("input[id^='wrkspc-cmmn-'").each(function (i, element) {
           workArea += parseFloat(element.value);
         });
       }
+      //if the designated work space input is visible, add it to the work space
       if (!$("#wrkspc").hasClass("hidden")) {
         workArea += parseFloat($("#wrkspc").val());
       }
