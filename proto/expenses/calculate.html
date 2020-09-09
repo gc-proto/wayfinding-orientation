@@ -527,9 +527,9 @@
                                 class="wb-inv">multiplied by </span></span>
                             <div class="row">
                               <div class="col-sm-6 brdr-rght"><span class="h4"><span
-                                    class="perspc-percent-sum">0</span>%</span> of hours of personal-use in common space
+                                    class="perhr-percent-sum">0</span>%</span> of hours of personal-use in common space
                                 (<span id="cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div>
-                              <div class="col-sm-6"><span class="h4"><span class="wrkspc-percent-sum">0</span>%</span>
+                              <div class="col-sm-6"><span class="h4"><span class="wrkhr-percent-sum">0</span>%</span>
                                 of hours of business use in common space (<span id="cmmn-rm-sum">0</span> hours divided
                                 into 168 total hours a week)</div>
                             </div>
@@ -1166,26 +1166,91 @@ Expenses breakdown
       return workArea / totalArea * 100;
     }
 
-    //when the total area input is updated
-    $(document).on("keyup", "#hmspc", function (event) {
-      var totalArea = parseFloat($("#hmspc").val());
+
+    function getCommonWorkSpace() {
       var workArea = 0;
       //if common room panel is visible, add each common room to the work space
       if (!$("div.cmmnrm").hasClass("hidden")) {
         $("input[id^='wrkspc-cmmn-'").each(function (i, element) {
-          workArea += parseFloat(element.value);
+          if (element.value !== "") {
+            workArea += parseFloat(element.value);
+          }
         });
       }
+      return workArea  || 0;
+    }
+
+    function getCommonWorkSpaceHours() {
+      var workHours = 0;
+      if (!$("div.cmmnrm").hasClass("hidden")) {
+        $("input[id^='cmmnrm-hrs-'").each(function (i, element) {
+          if (element.value !== "") {
+            workHours += parseFloat(element.value);
+          }
+        });
+      }
+      return workHours / 168 * 100;
+    }
+
+    function getDesignatedWorkSpace() {
+      var workArea = 0;
       //if the designated work space input is visible, add it to the work space
       if (!$("#wrkspc").hasClass("hidden")) {
-        workArea += parseFloat($("#wrkspc").val());
+        if ($("#wrkspc").val() !== "") {
+          workArea += parseFloat($("#wrkspc").val());
+        }
       }
-      var spaceUsed = calculateSpaceUsed(workArea, totalArea);
-      if (spaceUsed !== Infinity) {
-        $(".perspc-percent-sum").text(spaceUsed);
+      return workArea;
+    }
+
+    //when the total area input is updated
+    $(document).on("change keyup", "#hmspc", function (event) {
+      var totalArea = parseFloat(event.target.value);
+      if (!isNaN(totalArea)) {
+        $(".hmspc-sum").text(totalArea);
       } else {
+        $(".hmspc-sum").text("0");
+      }
+      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
+      var spaceUsed = calculateSpaceUsed(workArea, totalArea);
+      if (!isNaN(spaceUsed)) {
+        $(".perspc-percent-sum").text(100 - spaceUsed);
+        $(".wrkspc-percent-sum").text(spaceUsed);
+      } else {
+        $(".wrkspc-percent-sum").text("0");
         $(".perspc-percent-sum").text("0");
       }
+    });
+
+    //trigger the summary to update when any common workspace input is updated
+    $(document).on("change keyup", "input[id^='wrkspc-cmmn-']", function (event) {
+      $("#wrkspc").trigger("change");
+    });
+    //when designated work space input is changed
+    $(document).on("change keyup", "#wrkspc", function (event) {
+      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
+      if (!isNaN(workArea)) {
+        $(".wrkspc-sum").text(workArea);
+      } else {
+        $(".wrkspc-sum").text("0");
+      }
+    });
+
+
+    $(document).on("change keyup", "input[id^='cmmnrm-hrs-']", function (event) {
+      var hours = getCommonWorkSpaceHours();
+      if (!isNaN(hours)) {
+        $(".perhr-percent-sum").text(100 - hours);
+        $(".wrkhr-percent-sum").text(hours);
+      } else {
+        $(".perhr-percent-sum").text("0");
+        $(".perhr-percent-sum").text("0");
+      }
+    });
+
+    //submit button was clicked
+    $(document).on("click", "#exp-cal", function (event) {
+      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
     });
   </script>
 </body>
