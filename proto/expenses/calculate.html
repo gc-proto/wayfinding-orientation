@@ -1166,7 +1166,13 @@ Expenses breakdown
       return workArea / totalArea * 100;
     }
 
-
+    /**
+     * getCommonWorkSpace
+     * 
+     * determine the total common space used for work
+     *
+     * @return {Float} the total common space used for work
+     */
     function getCommonWorkSpace() {
       var workArea = 0;
       //if common room panel is visible, add each common room to the work space
@@ -1177,9 +1183,17 @@ Expenses breakdown
           }
         });
       }
-      return workArea  || 0;
+      return workArea;
     }
 
+    /**
+     * getCommonWorkSpaceHours
+     * 
+     * determine the percentage of the week that the common space used for work
+     *
+     * @return {Float} the percentage of the week that the common space used 
+     * for work
+     */
     function getCommonWorkSpaceHours() {
       var workHours = 0;
       if (!$("div.cmmnrm").hasClass("hidden")) {
@@ -1192,6 +1206,13 @@ Expenses breakdown
       return workHours / 168 * 100;
     }
 
+    /**
+     * getDesignatedWorkSpace
+     * 
+     * determine the total designated space used for work
+     *
+     * @return {Float} the designated space used for work
+     */
     function getDesignatedWorkSpace() {
       var workArea = 0;
       //if the designated work space input is visible, add it to the work space
@@ -1205,14 +1226,17 @@ Expenses breakdown
 
     //when the total area input is updated
     $(document).on("change keyup", "#hmspc", function (event) {
+      //update the total finished area summary 
       var totalArea = parseFloat(event.target.value);
       if (!isNaN(totalArea)) {
         $(".hmspc-sum").text(totalArea);
       } else {
         $(".hmspc-sum").text("0");
       }
+      //calculate the total area used as a percentage of the total finished area
       var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
       var spaceUsed = calculateSpaceUsed(workArea, totalArea);
+      //update display
       if (!isNaN(spaceUsed)) {
         $(".perspc-percent-sum").text(100 - spaceUsed);
         $(".wrkspc-percent-sum").text(spaceUsed);
@@ -1243,7 +1267,7 @@ Expenses breakdown
       $("#hmspc").trigger("change");
     });
 
-
+    //when a user updates the hours a common space is used
     $(document).on("change keyup", "input[id^='cmmnrm-hrs-']", function (event) {
       var hours = getCommonWorkSpaceHours();
       if (!isNaN(hours)) {
