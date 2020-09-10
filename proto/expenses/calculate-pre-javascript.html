@@ -348,7 +348,7 @@
               </div>
               <div id="rooms" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
-                  <p class="wb-fieldflow-label">What type of room do you work in from home?
+                  <p class="wb-fieldflow-label">Do you use a designated room or a common space to work from your home?
                   </p>
                   <p><a href="#rooms-lbx" class="wb-lbx">Difference between a designated room and a common
                       space&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -360,7 +360,9 @@
                   <li
                     data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
                     Common space</li>
-                
+                  <!--<li
+                    data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm, .dsgntdrm, .rmbth", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
+                    Both</li>-->
                 </ul>
               </div>
               <div id="measurements" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
@@ -406,20 +408,85 @@
                           <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span
                             class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                       </div>
-                     <div class="cmmnrm hidden">
-  <div class="form-group">
-    <label for="wrkspc-cmmn">Common space <span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
-    <div class="input-group col-sm-5 col-md-4">
-      <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number">
-      <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
-  </div>
-  <div class="form-group">
-    <label for="cmmnrm-hrs">Hours a week worked in the common space</label>
-    <div class="input-group col-sm-5 col-md-4">
-      <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number">
-      <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
-  </div>
-</div>
+                      <div class="cmmnrm hidden">
+                        <div id="cmmnrm-1">
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <div class="panel panel-default panel-body">
+                                <div class="row">
+                                  <div class="col-xs-9">
+                                    <div class="form-group">
+                                      <label for="wrkspc-cmmn-1">Common space  <span class="wb-inv"> in square <span
+                                            class="exp-m-sq hidden">meters</span><span
+                                            class="exp-ft-sq hidden">feet</span></span></label>
+                                      <div class="input-group col-sm-5 col-md-4">
+                                        <input class="form-control input-lg" id="wrkspc-cmmn-1" name="wrkspc-cmmn-1"
+                                          type="number">
+                                        <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span
+                                          class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="cmmnrm-hrs-1">Hours a week worked in common space </label>
+                                      <div class="input-group col-sm-5 col-md-4">
+                                        <input class="form-control input-lg" id="cmmnrm-hrs-1" name="cmmnrm-hrs-1"
+                                          type="number">
+                                        <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                                <p>
+
+                                  <button id="addroom" class="btn btn-default hidden"><span
+                                      class="fas fa-plus-circle"></span>&nbsp;Add room</button>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--<div id="cmmnrm-2">
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <div class="panel panel-default panel-body">
+                                <div class="row">
+                                  <div class="col-sm-9">
+                                    <div class="form-group">
+                                      <label for="wrkspc-cmmn-2">Common space 2<span class="wb-inv"> in square <span
+                                            class="exp-m-sq hidden">meters</span><span
+                                            class="exp-ft-sq hidden">feet</span></span></label>
+                                      <div class="input-group col-sm-5 col-md-4">
+                                        <input class="form-control input-lg" id="wrkspc-cmmn-2" name="wrkspc-cmmn-2"
+                                          type="number">
+                                        <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span
+                                          class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="cmmnrm-hrs-2">Hours a week worked in common space 2</label>
+                                      <div class="input-group col-sm-5 col-md-4">
+                                        <input class="form-control input-lg" id="cmmnrm-hrs-2" name="cmmnrm-hrs-2"
+                                          type="number">
+                                        <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
+                                      </div>
+                                    </div>
+                                    <button id="addroom" class="btn btn-default"><span
+                                        class="fas fa-plus-circle"></span>&nbsp;Add room</button>
+                                  </div>
+                                  <div class="col-sm-3">
+                                    Only appears on additional rooms, here for layout purposes only //
+                                    <button id="addroom" class="btn btn-default btn-xs mrgn-bttm-tp"><span
+                                        class="fas fa-minus-circle"></span>&nbsp;Remove</button>
+                                  </div>
+                                </div>
+                                <p>
+                                  Hides when a new room is added, appears if no rooms below it //
+
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>-->
+                      </div>
                       <div class="form-group mrgn-tp-md">
                         <label for="hmspc">Total finished area of your home<span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span
@@ -459,10 +526,10 @@
                           <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span
                                 class="wb-inv">multiplied by </span></span>
                             <div class="row">
-                              <div class="col-sm-6 brdr-rght mrgn-bttm-sm"><span class="h4"><span
+                              <div class="col-sm-6 brdr-rght"><span class="h4"><span
                                     class="perhr-percent-sum">0</span>%</span> of hours of personal-use in common space
                                 (<span id="per-cmmn-rm-sum">0</span> hours divided into 168 total hours a week)</div>
-                              <div class="col-sm-6 mrgn-bttm-sm"><span class="h4"><span class="wrkhr-percent-sum">0</span>%</span>
+                              <div class="col-sm-6"><span class="h4"><span class="wrkhr-percent-sum">0</span>%</span>
                                 of hours of business use in common space (<span id="wrk-cmmn-rm-sum">0</span> hours divided
                                 into 168 total hours a week)</div>
                             </div>
@@ -804,7 +871,7 @@ Expenses breakdown
                       </tr>
                     </tbody>
                   </table>
-                <!--  <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>//-->
+                  <div class="panel-footer"> Remember to <a href="what-claim.html#h-3">keep your records</a> </div>
                 </div>
               </div>
             </div>
@@ -930,7 +997,11 @@ Expenses breakdown
         </div>
        
       </details>
-    
+      <details>
+        <summary>If you work in multiple rooms</summary>
+        <p>Content goes here.</p>
+      </details>
+
       <!--Overlays //-->
       <section id="commissions-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
