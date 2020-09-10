@@ -543,7 +543,7 @@
                             <label for="mntnc">Maintenance <br><span class="text-muted">on home including work
                                 space<span class="wb-inv"> in dollars and cents</span></span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+                              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text">
                             </div>
                           </div>
 
@@ -551,27 +551,27 @@
                             <label for="othrex">Other expenses (e.g. Rent)<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="othrex" name="othrex" type="number">
+                              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+                              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text">
                             </div>
                           </div>
 
                           <div class="form-group cmmssn-only hidden">
                             <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+                              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text">
                             </div>
                           </div>
                           <div class="form-group cmmssn-only hidden">
                             <label for="prprt">Property taxes<span class="wb-inv"> in dollars and cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text">
                             </div>
                           </div>
                         </fieldset>
@@ -584,14 +584,14 @@
                             <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span
                                   class="wb-inv"> in dollars and cents</span></span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="mntnc-excl" name="mntnc-excl" type="number">
+                              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="sppls-excl">Office supplies<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="sppls-excl" name="sppls-excl" type="number">
+                              <input class="form-control input-lg currency" id="sppls-excl" name="sppls-excl" type="text">
                             </div>
                           </div>
                           <!--<div class="form-group">
@@ -1028,6 +1028,15 @@ Expenses breakdown
         ]);
       });
     })(jQuery, wb);
+    const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+      style: "currency",
+      currency: "CAD",
+      minimumFractionDigits: 2
+    });
+
+    //setup before functions
+    var typingTimer;                //timer identifier
+    var doneTypingInterval = 1500;  //time in ms 
 
     /**
      * calculateCommonRoomClaimRate
@@ -1060,7 +1069,7 @@ Expenses breakdown
      * @return {boolean} whether the number matches the English currency regex
      */
     function isEnglishNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/g);
+      return formattedNumber.match(/^(\d{1,3}(\,\d{3})*)(\.\d{2})?$/g);
     }
 
     /**
@@ -1073,19 +1082,24 @@ Expenses breakdown
      * @return {boolean} whether the number matches the French currency regex
      */
     function isFrenchNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\ \d{3})*|(\d+))(\,\d{2})?$/g);
+      return formattedNumber.match(/^(\d{1,3}(\ \d{3})*)(\,\d{2})?$/g);
     }
 
     /**
      * When the user enters a value in a currecy field
      */
-    $(document).on('change', ".currency", function (event) {
-      if (isEnglishNumber(event.target.value) || isFrenchNumber(event.target.value)) {
-        //alert("formatted number: " + event.target.value);
-      } else {
-        //alert("NaN");
+    $(document).on('input', ".currency", function (event) {
+      clearTimeout(typingTimer);
+      if (event.target.value) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval, event);
       }
     });
+    $(document).on("blur", ".currency", doneTyping);
+    function doneTyping (event) {
+      event.target.value = event.target.value.replace(/,/g, "");
+      event.target.value = toMoney.format(event.target.value)
+        .replace("$", "");
+    }
 
     /**
      * calculateSpaceUsed
