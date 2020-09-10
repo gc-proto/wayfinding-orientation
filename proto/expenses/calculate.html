@@ -1035,7 +1035,7 @@ Expenses breakdown
       });
       var typingTimer;                //timer identifier
       var doneTypingInterval = 1500;  //time in ms 
-
+      const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
       /**
        * calculateCommonRoomClaimRate
        * 
@@ -1067,6 +1067,9 @@ Expenses breakdown
         }
       });
       function reformatNumber(event) {
+        if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
+          event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
+        }
         event.target.value = toUnformattedNumber(event.target.value);
         event.target.value = toMoney.format(event.target.value)
           .replace("$", "");
@@ -1184,7 +1187,7 @@ Expenses breakdown
         $(".wrkspc-percent-sum-alt").text(claimRate);
       });
 
-      //trigger the summary to update when any common workspace input is updated
+      //trigger the summary to update when common workspace input is updated
       $(document).on("change keyup", "#wrkspc-cmmn", function (event) {
         var workArea = getCommonWorkSpace();
         if (!isNaN(workArea)) {
@@ -1211,7 +1214,7 @@ Expenses breakdown
         $("#hmspc").trigger("change");
       });
 
-      //when a user updates the hours a common space is used
+      //when a user updates the common space hours
       $(document).on("change keyup", "#cmmnrm-hrs", function (event) {
         var hours = getCommonWorkSpaceHours();
         if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
