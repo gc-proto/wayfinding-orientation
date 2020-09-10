@@ -1091,11 +1091,9 @@ Expenses breakdown
       var workArea = 0;
       //if common room panel is visible, add each common room to the work space
       if (!$("div.cmmnrm").hasClass("hidden")) {
-        $("input[id^='wrkspc-cmmn-'").each(function (i, element) {
-          if (element.value !== "") {
-            workArea += parseFloat(element.value);
-          }
-        });
+        if ($("#wrkspc-cmmn").val() !== "") {
+          workArea += parseFloat($("#wrkspc-cmmn").val());
+        }
       }
       return workArea;
     }
@@ -1105,17 +1103,15 @@ Expenses breakdown
      * 
      * determine the percentage of the week that the common space used for work
      *
-     * @return {Float} the percentage of the week that the common space used 
-     * for work
+     * @return {object} with property for raw hours and property representing 
+     * the percentage of hours the room is used during the week
      */
     function getCommonWorkSpaceHours() {
       var workHours = 0;
       if (!$("div.cmmnrm").hasClass("hidden")) {
-        $("input[id^='cmmnrm-hrs-'").each(function (i, element) {
-          if (element.value !== "") {
-            workHours += parseFloat(element.value);
-          }
-        });
+        if ($("#cmmnrm-hrs").val() !== "") {
+          workHours += parseFloat($("#cmmnrm-hrs").val());
+        }
       }
       return {rawHours: workHours, percentage: workHours / 168 * 100};
     }
@@ -1161,7 +1157,7 @@ Expenses breakdown
     });
 
     //trigger the summary to update when any common workspace input is updated
-    $(document).on("change keyup", "input[id^='wrkspc-cmmn-']", function (event) {
+    $(document).on("change keyup", "#wrkspc-cmmn", function (event) {
       var workArea = getCommonWorkSpace();
       if (!isNaN(workArea)) {
         $(".cmn-wrkspc-sum").text(workArea);
@@ -1174,15 +1170,15 @@ Expenses breakdown
     $(document).on("change keyup", "#wrkspc", function (event) {
       var workArea = getDesignatedWorkSpace();
       if (!isNaN(workArea)) {
-        $(".ded-wrkspc-sum").text(workArea);
+        $(".cmn-wrkspc-sum").text(workArea);
       } else {
-        $(".ded-wrkspc-sum").text("0");
+        $(".cmn-wrkspc-sum").text("0");
       }
       $("#hmspc").trigger("change");
     });
 
     //when a user updates the hours a common space is used
-    $(document).on("change keyup", "input[id^='cmmnrm-hrs-']", function (event) {
+    $(document).on("change keyup", "#cmmnrm-hrs", function (event) {
       var hours = getCommonWorkSpaceHours();
       if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
         $(".perhr-percent-sum").text(100 - hours.percentage);
