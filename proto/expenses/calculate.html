@@ -1060,45 +1060,38 @@ Expenses breakdown
     }
 
     /**
-     * isEnglishNumber
-     *
-     * determine if the given formatted number is in the English format
-     *
-     * @param {string} formattedNumber the formatted number
-     *
-     * @return {boolean} whether the number matches the English currency regex
+     * reformat the currency values after a short delay
      */
-    function isEnglishNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\,\d{3})*)(\.\d{2})?$/g);
-    }
-
-    /**
-     * isFrenchNumber
-     *
-     * determine if the given formatted number is in the French format
-     *
-     * @param {string} formattedNumber the formatted number
-     *
-     * @return {boolean} whether the number matches the French currency regex
-     */
-    function isFrenchNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\ \d{3})*)(\,\d{2})?$/g);
-    }
-
-    /**
-     * When the user enters a value in a currecy field
-     */
+    $(document).on("blur", ".currency", reformatNumber);
     $(document).on('input', ".currency", function (event) {
       clearTimeout(typingTimer);
       if (event.target.value) {
-        typingTimer = setTimeout(doneTyping, doneTypingInterval, event);
+        typingTimer = setTimeout(reformatNumber, doneTypingInterval, event);
       }
     });
-    $(document).on("blur", ".currency", doneTyping);
-    function doneTyping (event) {
-      event.target.value = event.target.value.replace(/,/g, "");
+    function reformatNumber (event) {
+      event.target.value = toUnformattedNumber(event.target.value);
       event.target.value = toMoney.format(event.target.value)
         .replace("$", "");
+    }
+
+    /**
+     * toUnformattedNumber
+     *
+     * remove language based formatting
+     *
+     * @param {String} formattedNumber the formatted number
+     *
+     * @return {String} the unformatted number
+     */
+    function toUnformattedNumber(formattedNumber) {
+      if (document.documentElement.lang == "fr") {
+        formattedNumber = formattedNumber.replace(/,/g, ".");
+        formattedNumber = formattedNumber.replace(/\s/g, "");
+      } else {
+        formattedNumber = formattedNumber.replace(/,/g, "");
+      }
+      return formattedNumber;
     }
 
     /**
