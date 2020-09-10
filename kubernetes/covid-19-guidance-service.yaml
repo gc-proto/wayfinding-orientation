@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: covid-19-guidance
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: covid-19-guidance
+  sessionAffinity: None
+  type: ClusterIP
+      

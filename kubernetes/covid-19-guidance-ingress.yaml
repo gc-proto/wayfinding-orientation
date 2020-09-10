@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: covid-19-guidance-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - covid-19-guidance.tbs.alpha.canada.ca
+    secretName: covid-19-guidance-tls-secret-prod
+  rules:
+  - host: covid-19-guidance.tbs.alpha.canada.ca
+    http:
+      paths:
+      - backend:
+          serviceName: covid-19-guidance
+          servicePort: 5000
+        path: /
+      
