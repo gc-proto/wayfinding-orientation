@@ -2,34 +2,30 @@ name: Preview HTML on Pull Requests
 on:
   pull_request:
     branches:
-    - master
+    - feature/workflow
+    paths:
+    - '**.html'
+  push:
+    branches:
+    - feature/workflow
+    paths:
+    - '**.html'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Decrypt large secret
-      run: ./scripts/decrypt.sh
-      env:
-        SECRETS_PASSPHRASE: ${{ secrets.SECRETS_PASSPHRASE }}
-    
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - uses: actions/checkout@v2
       with:
-        java-version: 1.8
-    
-    - name: Build with Maven
-      run: mvn install --file pom.xml
-
+        ref: 'feature/workflow'
     - uses: Azure/docker-login@v1
       with:
         login-server: tbsacr.azurecr.io
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-    
+
     - run: |
-        docker build -f ./docker/Dockerfile . -t tbsacr.azurecr.io/covidinventorycreator:${{ github.sha }}
-        docker push tbsacr.azurecr.io/covidinventorycreator:${{ github.sha }}
+        docker build -f ./docker/Dockerfile . -t tbsacr.azurecr.io/covid-19-guidance:${{ github.sha }}
+        docker push tbsacr.azurecr.io/covid-19-guidance:${{ github.sha }}
       
     # Set the target AKS cluster.
     - uses: Azure/aks-set-context@v1
@@ -41,8 +37,40 @@ jobs:
     - uses: Azure/k8s-deploy@v1
       with:
         manifests: |
-          kubernetes/covid19inv-cj.yml
+          kubernetes/covid-19-guidance-deployment.yaml
+          kubernetes/covid-19-guidance-service.yaml
         images: |
-          tbsacr.azurecr.io/covidinventorycreator:${{ github.sha }}
+          tbsacr.azurecr.io/covid-19-guidance:${{ github.sha }}
         namespace: |
-          covid19inv
+          covid-19-guidance
+
+    # Grab a list of changed files to preview (HTML)
+    - uses: lots0logs/gh-action-get-changed-files@2.1.4
+      id: printing
+      with:
+        token: '${{ secrets.GITHUB_TOKEN }}'
+        paths: '*.html'
+        format: space-delimited
+    - name: Printing
+      run: |
+        export msg=./.github/workflows/parse-file-array.sh
+
+    # Create comment in the PR with the urls of the changed files
+    - name: Comment in PR
+      uses: unsplash/comment-on-pr@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          msg: ${{ msg }}
+          check_for_duplicate_msg: true  # OPTIONAL
+    # - name: Update status to pending
+    #   uses: geekodour/gh-actions-custom-status@v0.0.4
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     LAST_COMMIT_SHA: ${{ github.event.client_payload.LAST_COMMIT_SHA }}
+    #   with:
+    #     args: >-
+    #       --state=pending
+    #       --context=foo-status-update
+    #       --target_url=https://github.com/${{ github.repository }}/actions
+    # Need to filter only HTML files too

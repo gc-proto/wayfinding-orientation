@@ -1,0 +1,48 @@
+name: 'HTML Preview on PR'
+author: 'David Elisma'
+description: 'Deploy in staging area and generate preview links for review and approval'
+
+inputs:
+  AZURE_CREDENTIALS:
+    description: 'Auth token to use with Azure'
+    required: true
+    default: '${{ secrets.AZURE_CREDENTIALS }}'
+
+  PREVIEW_DEPLOY_TO_PROD:
+    description: 'Should the site be deployed to production?'
+    required: false
+    default: false
+
+  PREVIEW_DEPLOY_MESSAGE:
+    description: 'A deploy message'
+    required: false
+    default: ''
+
+  build_directory:
+    description: 'Directory where built files are stored'
+    required: true
+    default: 'build'
+
+  install_command:
+    description: 'Command to install dependencies'
+    required: false
+    default: 'npm i'
+
+  build_command:
+    description: 'Command to build static website'
+    required: false
+    default: 'npm run build'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.AZURE_CREDENTIALS }}
+    - ${{ inputs.PREVIEW_DEPLOY_TO_PROD }}
+    - ${{ inputs.build_directory }}
+    - ${{ inputs.install_command }}
+    - ${{ inputs.build_command }}
+
+branding:
+  icon: activity
+  color: red

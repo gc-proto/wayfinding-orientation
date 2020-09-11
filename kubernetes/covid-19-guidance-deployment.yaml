@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: covid-19-guidance
+  name: covid-19-guidance
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: covid-19-guidance
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: covid-19-guidance
+    spec:
+      containers:
+      - image: tbsacr.azurecr.io/covid-19-guidance:latest
+        imagePullPolicy: Always
+        name: covid-19-guidance
+        resources: 
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 250m
+            memory: 256Mi
+
