@@ -543,7 +543,7 @@
                             <label for="mntnc">Maintenance <br><span class="text-muted">on home including work
                                 space<span class="wb-inv"> in dollars and cents</span></span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="mntnc" name="mntnc" type="number">
+                              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text">
                             </div>
                           </div>
 
@@ -551,27 +551,27 @@
                             <label for="othrex">Other expenses (e.g. Rent)<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="othrex" name="othrex" type="number">
+                              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="utlts" name="utlts" type="number">
+                              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text">
                             </div>
                           </div>
 
                           <div class="form-group cmmssn-only hidden">
                             <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="insrnc" name="insrnc" type="number">
+                              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text">
                             </div>
                           </div>
                           <div class="form-group cmmssn-only hidden">
                             <label for="prprt">Property taxes<span class="wb-inv"> in dollars and cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="prprt" name="prprt" type="number">
+                              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text">
                             </div>
                           </div>
                         </fieldset>
@@ -584,14 +584,14 @@
                             <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span
                                   class="wb-inv"> in dollars and cents</span></span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="mntnc-excl" name="mntnc-excl" type="number">
+                              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text">
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="sppls-excl">Office supplies<span class="wb-inv"> in dollars and
                                 cents</span></label>
                             <div class="input-group col-sm-8 col-md-6"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg" id="sppls-excl" name="sppls-excl" type="number">
+                              <input class="form-control input-lg currency" id="sppls-excl" name="sppls-excl" type="text">
                             </div>
                           </div>
                           <!--<div class="form-group">
@@ -1014,226 +1014,233 @@ Expenses breakdown
   <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
   <script>
     (function ($, wb) {
-      "use strict";
-      var $document = wb.doc;
-      $document.on("click vclick", ".wb-lbx", function (event) {
-        var value = $(this).attr('href');
-        $document.trigger("open.wb-lbx", [
-          [
-            {
-              src: value,
-              type: "inline"
-            }
-          ]
-        ]);
+        "use strict";
+        var $document = wb.doc;
+        $document.on("click vclick", ".wb-lbx", function (event) {
+          var value = $(this).attr('href');
+          $document.trigger("open.wb-lbx", [
+            [
+              {
+                src: value,
+                type: "inline"
+              }
+            ]
+          ]);
+        });
+      })(jQuery, wb);
+      const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+        style: "currency",
+        currency: "CAD",
+        minimumFractionDigits: 2
       });
-    })(jQuery, wb);
-
-    /**
-     * calculateCommonRoomClaimRate
-     * 
-     * calculate the percentage of bills that can be claimed when using a 
-     * common room
-     * 
-     * @param {Float} percSpaceUsed the percentage of the total finished area 
-     * that is used for work
-     * @param {Float} percHour the percentage of the week that the space is 
-     * used for work purposes
-     * 
-     * @return the percentage of bills that can be claimed; 0 if params fail 
-     * validation
-     */
-    function calculateCommonRoomClaimRate(percSpaceUsed, percHour) {
-      if (parseFloat(percSpaceUsed) && parseFloat(percHour)) {
-        return percSpaceUsed * percHour / 100;
-      }
-      return 0;
-    }
-
-    /**
-     * isEnglishNumber
-     *
-     * determine if the given formatted number is in the English format
-     *
-     * @param {string} formattedNumber the formatted number
-     *
-     * @return {boolean} whether the number matches the English currency regex
-     */
-    function isEnglishNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/g);
-    }
-
-    /**
-     * isFrenchNumber
-     *
-     * determine if the given formatted number is in the French format
-     *
-     * @param {string} formattedNumber the formatted number
-     *
-     * @return {boolean} whether the number matches the French currency regex
-     */
-    function isFrenchNumber(formattedNumber) {
-      return formattedNumber.match(/^(\d{1,3}(\ \d{3})*|(\d+))(\,\d{2})?$/g);
-    }
-
-    /**
-     * When the user enters a value in a currecy field
-     */
-    $(document).on('change', ".currency", function (event) {
-      if (isEnglishNumber(event.target.value) || isFrenchNumber(event.target.value)) {
-        //alert("formatted number: " + event.target.value);
-      } else {
-        //alert("NaN");
-      }
-    });
-
-    /**
-     * calculateSpaceUsed
-     * 
-     * calculate the space used as workspace
-     * 
-     * @param {Float} workArea the total area used for work purposes
-     * @param {Float} totalArea the total area of the home
-     * 
-     * @return {Float} the percentage of space used for work
-     */
-    function calculateSpaceUsed(workArea, totalArea) {
-      return workArea / totalArea * 100;
-    }
-
-    /**
-     * getCommonWorkSpace
-     * 
-     * determine the total common space used for work
-     *
-     * @return {Float} the total common space used for work
-     */
-    function getCommonWorkSpace() {
-      var workArea = 0;
-      //if common room panel is visible, add each common room to the work space
-      if (!$("div.cmmnrm").hasClass("hidden")) {
-        if ($("#wrkspc-cmmn").val() !== "") {
-          workArea += parseFloat($("#wrkspc-cmmn").val());
+      var typingTimer;                //timer identifier
+      var doneTypingInterval = 1500;  //time in ms 
+      const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
+      /**
+       * calculateCommonRoomClaimRate
+       * 
+       * calculate the percentage of bills that can be claimed when using a 
+       * common room
+       * 
+       * @param {Float} percSpaceUsed the percentage of the total finished area 
+       * that is used for work
+       * @param {Float} percHour the percentage of the week that the space is 
+       * used for work purposes
+       * 
+       * @return {Float} the percentage of bills that can be claimed; 0 if params * fail validation
+       */
+      function calculateCommonRoomClaimRate(percSpaceUsed, percHour) {
+        if (parseFloat(percSpaceUsed) && parseFloat(percHour)) {
+          return percSpaceUsed * percHour / 100;
         }
+        return 0;
       }
-      return workArea;
-    }
 
-    /**
-     * getCommonWorkSpaceHours
-     * 
-     * determine the percentage of the week that the common space used for work
-     *
-     * @return {object} with property for raw hours and property representing 
-     * the percentage of hours the room is used during the week
-     */
-    function getCommonWorkSpaceHours() {
-      var workHours = 0;
-      if (!$("div.cmmnrm").hasClass("hidden")) {
-        if ($("#cmmnrm-hrs").val() !== "") {
-          workHours += parseFloat($("#cmmnrm-hrs").val());
+      /**
+       * reformat the currency values after a short delay
+       */
+      $(document).on("blur", ".currency", reformatNumber);
+      $(document).on('input', ".currency", function (event) {
+        clearTimeout(typingTimer);
+        if (event.target.value) {
+          typingTimer = setTimeout(reformatNumber, doneTypingInterval, event);
         }
-      }
-      return {rawHours: workHours, percentage: workHours / 168 * 100};
-    }
-
-    /**
-     * getDesignatedWorkSpace
-     * 
-     * determine the total designated space used for work
-     *
-     * @return {Float} the designated space used for work
-     */
-    function getDesignatedWorkSpace() {
-      var workArea = 0;
-      //if the designated work space input is visible, add it to the work space
-      if (!$("#wrkspc").hasClass("hidden")) {
-        if ($("#wrkspc").val() !== "") {
-          workArea += parseFloat($("#wrkspc").val());
+      });
+      function reformatNumber(event) {
+        if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
+          event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
         }
+        event.target.value = toUnformattedNumber(event.target.value);
+        event.target.value = toMoney.format(event.target.value)
+          .replace("$", "");
       }
-      return workArea;
-    }
 
-    //when the total area input is updated
-    $(document).on("change keyup", "#hmspc", function (event) {
-      //update the total finished area summary 
-      var totalArea = parseFloat(event.target.value);
-      if (!isNaN(totalArea)) {
-        $(".hmspc-sum").text(totalArea);
-      } else {
-        $(".hmspc-sum").text("0");
+      /**
+       * toUnformattedNumber
+       *
+       * remove language based formatting
+       *
+       * @param {String} formattedNumber the formatted number
+       *
+       * @return {String} the unformatted number
+       */
+      function toUnformattedNumber(formattedNumber) {
+        if (document.documentElement.lang == "fr") {
+          formattedNumber = formattedNumber.replace(/,/g, ".");
+          formattedNumber = formattedNumber.replace(/\s/g, "");
+        } else {
+          formattedNumber = formattedNumber.replace(/,/g, "");
+        }
+        return formattedNumber;
       }
-      //calculate the total area used as a percentage of the total finished area
-      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-      var spaceUsed = calculateSpaceUsed(workArea, totalArea);
-      //update display
-      if (!isNaN(spaceUsed)) {
-        $(".perspc-percent-sum").text(100 - spaceUsed);
-        $(".wrkspc-percent-sum").text(spaceUsed);
-      } else {
-        $(".wrkspc-percent-sum").text("0");
-        $(".perspc-percent-sum").text("0");
-      }
-      var claimRate = calculateCommonRoomClaimRate(spaceUsed, getCommonWorkSpaceHours().percentage);
-      $(".perspc-percent-sum-alt").text(100 - claimRate);
-      $(".wrkspc-percent-sum-alt").text(claimRate);
-    });
 
-    //trigger the summary to update when any common workspace input is updated
-    $(document).on("change keyup", "#wrkspc-cmmn", function (event) {
-      var workArea = getCommonWorkSpace();
-      if (!isNaN(workArea)) {
-        $(".cmn-wrkspc-sum").text(workArea);
-      } else {
-        $(".cmn-wrkspc-sum").text("0");
+      /**
+       * calculateSpaceUsed
+       * 
+       * calculate the space used as workspace
+       * 
+       * @param {Float} workArea the total area used for work purposes
+       * @param {Float} totalArea the total area of the home
+       * 
+       * @return {Float} the percentage of space used for work
+       */
+      function calculateSpaceUsed(workArea, totalArea) {
+        return workArea / totalArea * 100;
       }
-      $("#hmspc").trigger("change");
-      var claimRate = calculateCommonRoomClaimRate(
-        calculateSpaceUsed(workArea, $("#hmspc").val()), 
-        getCommonWorkSpaceHours().percentage
-      );
-      $(".perspc-percent-sum-alt").text(100 - claimRate);
-      $(".wrkspc-percent-sum-alt").text(claimRate);
-    });
-    //when designated work space input is changed
-    $(document).on("change keyup", "#wrkspc", function (event) {
-      var workArea = getDesignatedWorkSpace();
-      if (!isNaN(workArea)) {
-        $(".cmn-wrkspc-sum").text(workArea);
-      } else {
-        $(".cmn-wrkspc-sum").text("0");
-      }
-      $("#hmspc").trigger("change");
-    });
 
-    //when a user updates the hours a common space is used
-    $(document).on("change keyup", "#cmmnrm-hrs", function (event) {
-      var hours = getCommonWorkSpaceHours();
-      if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
-        $(".perhr-percent-sum").text(100 - hours.percentage);
-        $(".wrkhr-percent-sum").text(hours.percentage);
-        $("#wrk-cmmn-rm-sum").text(hours.rawHours);
-        $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
-      } else {
-        $(".perhr-percent-sum").text("0");
-        $(".perhr-percent-sum").text("0");
-        $("#wrk-cmmn-rm-sum").text("0");
-        $("#per-cmmn-rm-sum").text("0");
+      /**
+       * getCommonWorkSpace
+       * 
+       * determine the total common space used for work
+       *
+       * @return {Float} the total common space used for work
+       */
+      function getCommonWorkSpace() {
+        var workArea = 0;
+        //if common room panel is visible, add each common room to the work space
+        if (!$("div.cmmnrm").hasClass("hidden")) {
+          if ($("#wrkspc-cmmn").val() !== "") {
+            workArea += parseFloat($("#wrkspc-cmmn").val());
+          }
+        }
+        return workArea;
       }
-      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-      var claimRate = calculateCommonRoomClaimRate(
-        calculateSpaceUsed(workArea, $("#hmspc").val()),
-        hours.percentage
-      );
-      $(".perspc-percent-sum-alt").text(100 - claimRate);
-      $(".wrkspc-percent-sum-alt").text(claimRate);
-    });
 
-    //submit button was clicked
-    $(document).on("click", "#exp-cal", function (event) {
-      var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-    });
+      /**
+       * getCommonWorkSpaceHours
+       * 
+       * determine the percentage of the week that the common space used for work
+       *
+       * @return {object} with property for raw hours and property representing 
+       * the percentage of hours the room is used during the week
+       */
+      function getCommonWorkSpaceHours() {
+        var workHours = 0;
+        if (!$("div.cmmnrm").hasClass("hidden")) {
+          if ($("#cmmnrm-hrs").val() !== "") {
+            workHours += parseFloat($("#cmmnrm-hrs").val());
+          }
+        }
+        return { rawHours: workHours, percentage: workHours / 168 * 100 };
+      }
+
+      /**
+       * getDesignatedWorkSpace
+       * 
+       * determine the total designated space used for work
+       *
+       * @return {Float} the designated space used for work
+       */
+      function getDesignatedWorkSpace() {
+        var workArea = 0;
+        //if the designated work space input is visible, add it to the work space
+        if (!$("#wrkspc").hasClass("hidden")) {
+          if ($("#wrkspc").val() !== "") {
+            workArea += parseFloat($("#wrkspc").val());
+          }
+        }
+        return workArea;
+      }
+
+      //when the total area input is updated
+      $(document).on("change keyup", "#hmspc", function (event) {
+        //update the total finished area summary 
+        var totalArea = parseFloat(event.target.value);
+        if (!isNaN(totalArea)) {
+          $(".hmspc-sum").text(totalArea);
+        } else {
+          $(".hmspc-sum").text("0");
+        }
+        //calculate the total area used as a percentage of the total finished area
+        var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
+        var spaceUsed = calculateSpaceUsed(workArea, totalArea);
+        //update display
+        if (!isNaN(spaceUsed)) {
+          $(".perspc-percent-sum").text(100 - spaceUsed);
+          $(".wrkspc-percent-sum").text(spaceUsed);
+        } else {
+          $(".wrkspc-percent-sum").text("0");
+          $(".perspc-percent-sum").text("0");
+        }
+        var claimRate = calculateCommonRoomClaimRate(spaceUsed, getCommonWorkSpaceHours().percentage);
+        $(".perspc-percent-sum-alt").text(100 - claimRate);
+        $(".wrkspc-percent-sum-alt").text(claimRate);
+      });
+
+      //trigger the summary to update when common workspace input is updated
+      $(document).on("change keyup", "#wrkspc-cmmn", function (event) {
+        var workArea = getCommonWorkSpace();
+        if (!isNaN(workArea)) {
+          $(".cmn-wrkspc-sum").text(workArea);
+        } else {
+          $(".cmn-wrkspc-sum").text("0");
+        }
+        $("#hmspc").trigger("change");
+        var claimRate = calculateCommonRoomClaimRate(
+          calculateSpaceUsed(workArea, $("#hmspc").val()),
+          getCommonWorkSpaceHours().percentage
+        );
+        $(".perspc-percent-sum-alt").text(100 - claimRate);
+        $(".wrkspc-percent-sum-alt").text(claimRate);
+      });
+      //when designated work space input is changed
+      $(document).on("change keyup", "#wrkspc", function (event) {
+        var workArea = getDesignatedWorkSpace();
+        if (!isNaN(workArea)) {
+          $(".cmn-wrkspc-sum").text(workArea);
+        } else {
+          $(".cmn-wrkspc-sum").text("0");
+        }
+        $("#hmspc").trigger("change");
+      });
+
+      //when a user updates the common space hours
+      $(document).on("change keyup", "#cmmnrm-hrs", function (event) {
+        var hours = getCommonWorkSpaceHours();
+        if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
+          $(".perhr-percent-sum").text(100 - hours.percentage);
+          $(".wrkhr-percent-sum").text(hours.percentage);
+          $("#wrk-cmmn-rm-sum").text(hours.rawHours);
+          $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
+        } else {
+          $(".perhr-percent-sum").text("0");
+          $(".perhr-percent-sum").text("0");
+          $("#wrk-cmmn-rm-sum").text("0");
+          $("#per-cmmn-rm-sum").text("0");
+        }
+        var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
+        var claimRate = calculateCommonRoomClaimRate(
+          calculateSpaceUsed(workArea, $("#hmspc").val()),
+          hours.percentage
+        );
+        $(".perspc-percent-sum-alt").text(100 - claimRate);
+        $(".wrkspc-percent-sum-alt").text(claimRate);
+      });
+
+      //submit button was clicked
+      $(document).on("click", "#exp-cal", function (event) {
+        var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
+      });
   </script>
 </body>
 
