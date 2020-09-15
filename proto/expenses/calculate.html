@@ -410,7 +410,7 @@
 <li><span class="h4"><span class="cmn-wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square feet</span></span> of <span class="dsgntdrm hidden">designated </span><span class="cmmnrm hidden">common </span>work space </li>
 <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square
       feet</span></span> of total finished area</li>
-<li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space </li>
+<li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space <p class="mrgn-tp-md">Therefore, <span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum">0</span>%</span> of your home is used for personal space  and non-employment purposes which will calculate your personal-use portion. </p> </li>
 <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkhr-percent-sum">0</span>%</span> of hours of employment use in common space (<span id="wrk-cmmn-rm-sum">0</span> hours divided into 168 total hours a week) </li>
 <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt">0</span>%</span> of your home used for work space and employment purposes
 <p class="mrgn-tp-md">Therefore, <span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum-alt">0</span>%</span> of your home is used for personal space  and non-employment purposes which will calculate your personal-use portion. </p>
@@ -727,8 +727,6 @@ Expenses breakdown
         currency: "CAD",
         minimumFractionDigits: 2
       });
-      var typingTimer;                //timer identifier
-      var doneTypingInterval = 1500;  //time in ms 
       const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
       /**
        * calculateCommonRoomClaimRate
@@ -754,12 +752,6 @@ Expenses breakdown
        * reformat the currency values after a short delay
        */
       $(document).on("blur", ".currency", reformatNumber);
-      $(document).on('input', ".currency", function (event) {
-        clearTimeout(typingTimer);
-        if (event.target.value) {
-          typingTimer = setTimeout(reformatNumber, doneTypingInterval, event);
-        }
-      });
       function reformatNumber(event) {
         if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
           event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
@@ -867,7 +859,7 @@ Expenses breakdown
         }
         //calculate the total area used as a percentage of the total finished area
         var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-        var spaceUsed = calculateSpaceUsed(workArea, totalArea);
+        var spaceUsed = calculateSpaceUsed(workArea, totalArea).toFixed(1);
         //update display
         if (!isNaN(spaceUsed)) {
           $(".perspc-percent-sum").text(100 - spaceUsed);
@@ -876,7 +868,7 @@ Expenses breakdown
           $(".wrkspc-percent-sum").text("0");
           $(".perspc-percent-sum").text("0");
         }
-        var claimRate = calculateCommonRoomClaimRate(spaceUsed, getCommonWorkSpaceHours().percentage);
+        var claimRate = calculateCommonRoomClaimRate(spaceUsed, getCommonWorkSpaceHours().percentage).toFixed(1);
         $(".perspc-percent-sum-alt").text(100 - claimRate);
         $(".wrkspc-percent-sum-alt").text(claimRate);
       });
@@ -893,7 +885,7 @@ Expenses breakdown
         var claimRate = calculateCommonRoomClaimRate(
           calculateSpaceUsed(workArea, $("#hmspc").val()),
           getCommonWorkSpaceHours().percentage
-        );
+        ).toFixed(1);
         $(".perspc-percent-sum-alt").text(100 - claimRate);
         $(".wrkspc-percent-sum-alt").text(claimRate);
       });
@@ -926,7 +918,7 @@ Expenses breakdown
         var claimRate = calculateCommonRoomClaimRate(
           calculateSpaceUsed(workArea, $("#hmspc").val()),
           hours.percentage
-        );
+        ).toFixed(1);
         $(".perspc-percent-sum-alt").text(100 - claimRate);
         $(".wrkspc-percent-sum-alt").text(claimRate);
       });
