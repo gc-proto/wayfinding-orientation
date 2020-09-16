@@ -469,7 +469,7 @@
                     
                    
                     <p>
-                      <button class="btn btn-call-to-action btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal">Calculate your
+                      <button class="btn btn-call-to-action btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal" type="button">Calculate your
                         expenses</button>
                     </p>
                 </form>
@@ -516,8 +516,8 @@ Expenses breakdown
                   </div>
                   <table class="table table-bordered">
                     <caption>
-                      Amounts to claim <br>From: <span class="">20XX-XX-XX</span> to <span
-                        class="">20XX-XX-XX</span>
+                      Amounts to claim <br>From: <span class="" id="startDate">20XX-XX-XX</span> to <span
+                        class="" id="endDate">20XX-XX-XX</span>
                     </caption>
                     <thead>
                       <tr>
@@ -531,19 +531,19 @@ Expenses breakdown
                     
                       <tr>
                         <td>Electricity, heat and water </td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="electricity">[$0.00]</td>
                         <td>Line 5</td>
                         <td>Line 17</td>
                       </tr>
                       <tr>
                         <td>Maintenance (home + work spaces) </td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="maintenance">[$0.00]</td>
                         <td>Line 6</td>
                         <td>Line 18</td>
                       </tr>
                       <tr>
                         <td>Other expenses</td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="other">[$0.00]</td>
                         <td>Line 9</td>
                         <td>Field 8810</td>
                       </tr>
@@ -551,7 +551,7 @@ Expenses breakdown
                       <tr class="cmmssn-only hidden">
                         <td>Insurance amount <small>(commission employees only)</br>
                           </small></td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="insurance">[$0.00]</td>
                         <td>Line 7</td>
                         <td>Line 19</td>
                       </tr>
@@ -559,13 +559,13 @@ Expenses breakdown
                         <td>Property taxes</br>
                           <small>(commission employees only)</br>
                           </small></td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="property">[$0.00]</td>
                         <td>Line 8</td>
                         <td>Line 20</td>
                       </tr>
 		 <tr>
                         <td>Personal-use portion</td>
-                        <td class="active">[$0.00]</td>
+                        <td class="active" id="office">[$0.00]</td>
                         <td>Line 11</td>
                         <td>Line 23</td>
                       </tr>
@@ -575,8 +575,8 @@ Expenses breakdown
                     <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                       <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
                       <ul class="list-unstyled lst-spcd">
-                        <li><span class="h4">$<span class="">0.00</span></span> of the personal-use portion is the amount of expenses based on
-                          <span class="h4"><span class="">0</span>%</span> of the non-employement (personal) use of your home which is taken off of your total expenses
+                        <li><span class="h4">$<span class="personalClaim">0.00</span></span> of the personal-use portion is the amount of expenses based on
+                          <span class="h4"><span class="personalRate">0</span>%</span> of the non-employement (personal) use of your home which is taken off of your total expenses
                         </li>
                        
                       </ul>
@@ -584,9 +584,9 @@ Expenses breakdown
 				    <mark>Need CVB/CPB to confirm if needed</mark>
 			    <p>The employment portion of</p>
 			   <ul class="fa-ul list-unstyled lst-spcd">
-				    <li><span class="h4">$<span class="">0.00</span></span> insurance amount</li>
-				    <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus </span></span> <span class="h4">$<span class="">0.00</span></span> property taxes</li> 
-				   <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4">$<span class="">0.00</span></span> of commission only expenses that cannot exceed the amount of commissions you earned for the period
+				    <li><span class="h4">$<span class="ins">0.00</span></span> insurance amount</li>
+				    <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus </span></span> <span class="h4">$<span class="pro">0.00</span></span> property taxes</li> 
+				   <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4">$<span class="com">0.00</span></span> of commission only expenses that cannot exceed the amount of commissions you earned for the period
 			    </ul>
 			    </div>
 			    
@@ -600,22 +600,19 @@ Expenses breakdown
                       <tr>
                         <th scope="row">Size of work spaces in your home</th>
                         <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="p4-tws"
-                            data-wb-calc="{&quot;expr&quot;: &quot;#p4-tws * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"
+                            for="hmspc"
                             id="wb-auto-56">[answer]</output></td>
                       </tr>
                       <tr class="cmmnrm hidden">
                         <th scope="row">Hours a week in work space</th>
                         <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="p4-wsb"
-                            data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"
+                            for="hmspc"
                             id="wb-auto-57">[answer]</output></td>
                       </tr>
                       <tr>
                         <th scope="row">Total finished area of your home</th>
                         <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="p4-wsb"
-                            data-wb-calc="{&quot;expr&quot;: &quot;#p4-wsb * 1&quot;, &quot;format&quot;: &quot;currency&quot;}"
+                            for="wrkspc"
                             id="wb-auto-57">[answer]</output></td>
                       </tr>
                     
@@ -934,7 +931,196 @@ Expenses breakdown
       //submit button was clicked
       $(document).on("click", "#exp-cal", function (event) {
         var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-      });
+
+        //designated Room
+        if (document.getElementById("wb-auto-23").checked == true) {
+          var fromDate = $("#work-home-start").val();
+          var toDate = $("#work-home-end").val();
+
+          //Start Date
+          if (fromDate) {
+            document.getElementById('startDate').innerHTML = $("#work-home-start").val();
+          }
+
+          //End Date
+          if (toDate) {
+            document.getElementById('endDate').innerHTML = $("#work-home-end").val();
+          }
+
+          var TotalArea = $("#hmspc").val();
+
+          var rate = calculateSpaceUsed(workArea, TotalArea);
+
+          //Bills
+          var maintenanceBill = $("#mntnc").val();
+          var otherMaintenanceBill = $("#mntnc-excl").val();
+          var otherExpensesBill = $("#othrex").val();
+          var electricityBill = $("#utlts").val();
+          var insuranceBill = $("#insrnc").val();
+          var propertyTaxesBill = $("#prprt").val();
+
+          //Rebates
+          var maintenanceRebate = (rate / 100) * maintenanceBill;
+          var otherExpensesRebate = (rate / 100) * otherExpensesBill;
+          var electricityRebate = (rate / 100) * electricityBill;
+          var insuranceRebate = (rate / 100) * insuranceBill;
+          var propertyRebate = (rate / 100) * propertyTaxesBill;
+          var otherMaintenanceRebate = (rate / 100) * otherMaintenanceBill;
+          var maintenanceRebates = maintenanceRebate + otherMaintenanceRebate;
+
+          //Fill out Amounts to claim 
+          document.getElementById('electricity').innerHTML = electricityRebate.toFixed(2);
+          document.getElementById('maintenance').innerHTML = maintenanceRebates.toFixed(2);
+          document.getElementById('other').innerHTML = otherExpensesRebate.toFixed(2);
+          document.getElementById('insurance').innerHTML = insuranceRebate.toFixed(2);
+          document.getElementById('property').innerHTML = propertyRebate.toFixed(2);
+
+          //Personal-use portion claim
+          personalRate = 100 - rate;
+          personalRebate = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
+          document.getElementById('office').innerHTML = personalRebate.toFixed(2);
+
+          //Personal Clain
+          if (!isNaN(personalRebate)) {
+            $(".personalClaim").text(personalRebate.toFixed(2));
+          } else {
+            $(".personalClaim").text("0.00");
+          }
+
+          //Personal Rate
+          if (!isNaN(personalRate)) {
+            $(".personalRate").text(personalRate.toFixed(2));
+          } else {
+            $(".personalRate").text("0");
+          }
+
+          //Insurance - Summary Page
+          if (!isNaN(insuranceRebate)) {
+            $(".ins").text(insuranceRebate.toFixed(2));
+          } else {
+            $(".ins").text("0");
+          }
+
+          //Property Taxes amount - Summary Page
+          if (!isNaN(propertyRebate)) {
+            $(".pro").text(propertyRebate.toFixed(2));
+          } else {
+            $(".pro").text("0");
+          }
+
+          //Commission Amount - Summary Page
+          if (!isNaN(propertyRebate) || !isNaN(insuranceRebate)) {
+            var commission = propertyRebate + insuranceRebate
+            $(".com").text(commission.toFixed(2));
+          } else {
+            $(".pro").text("0");
+          }
+
+          if (document.getElementById("wb-auto-26").checked == true) {
+            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc").val() + " m²";
+            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " m²";
+          } else {
+            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc").val() + " ft²";
+            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " ft²";
+          }
+        }
+
+        //Common Area Room
+        if (document.getElementById("wb-auto-24").checked == true) {
+          var fromDate = $("#work-home-start").val();
+          var toDate = $("#work-home-end").val();
+
+          //Start Date
+          if (fromDate) {
+            document.getElementById('startDate').innerHTML = $("#work-home-start").val();
+          }
+
+          //End Date
+          if (toDate) {
+            document.getElementById('endDate').innerHTML = $("#work-home-end").val();
+          }
+
+          var TotalArea = $("#hmspc").val();
+
+          var rate = document.getElementById("wrk").innerText;
+
+          //Bills
+          var maintenanceBill = $("#mntnc").val();
+          var otherMaintenanceBill = $("#mntnc-excl").val();
+          var otherExpensesBill = $("#othrex").val();
+          var electricityBill = $("#utlts").val();
+          var insuranceBill = $("#insrnc").val();
+          var propertyTaxesBill = $("#prprt").val();
+
+          //Rebates
+          var maintenanceRebate = (rate / 100) * maintenanceBill;
+          var otherExpensesRebate = (rate / 100) * otherExpensesBill;
+          var electricityRebate = (rate / 100) * electricityBill;
+          var insuranceRebate = (rate / 100) * insuranceBill;
+          var propertyRebate = (rate / 100) * propertyTaxesBill;
+          var otherMaintenanceRebate = (rate / 100) * otherMaintenanceBill;
+          var maintenanceRebates = maintenanceRebate + otherMaintenanceRebate;
+
+          //Fill out Amounts to claim 
+          document.getElementById('electricity').innerHTML = electricityRebate.toFixed(2);
+          document.getElementById('maintenance').innerHTML = maintenanceRebates.toFixed(2);
+          document.getElementById('other').innerHTML = otherExpensesRebate.toFixed(2);
+          document.getElementById('insurance').innerHTML = insuranceRebate.toFixed(2);
+          document.getElementById('property').innerHTML = propertyRebate.toFixed(2);
+
+          //Personal-use portion claim
+          var personalRate = document.getElementById("perRate").innerText;
+          personalRate = parseInt(personalRate);
+          personalRebate = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
+          document.getElementById('office').innerHTML = personalRebate.toFixed(2);
+
+          //Personal Clain
+          if (!isNaN(personalRebate)) {
+            $(".personalClaim").text(personalRebate.toFixed(2));
+          } else {
+            $(".personalClaim").text("0.00");
+          }
+
+          //Personal Rate
+          if (!isNaN(personalRate)) {
+            $(".personalRate").text(personalRate.toFixed(2));
+          } else {
+            $(".personalRate").text("0");
+          }
+
+          //Insurance - Summary Page
+          if (!isNaN(insuranceRebate)) {
+            $(".ins").text(insuranceRebate.toFixed(2));
+          } else {
+            $(".ins").text("0");
+          }
+
+          //Property Taxes amount - Summary Page
+          if (!isNaN(propertyRebate)) {
+            $(".pro").text(propertyRebate.toFixed(2));
+          } else {
+            $(".pro").text("0");
+          }
+
+          //Commission Amount - Summary Page
+          if (!isNaN(propertyRebate) || !isNaN(insuranceRebate)) {
+            var commission = propertyRebate + insuranceRebate
+            $(".com").text(commission.toFixed(2));
+          } else {
+            $(".pro").text("0");
+          }
+
+          if (document.getElementById("wb-auto-29").checked == true) {
+            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc-cmmn").val() + " m²";
+            document.getElementById('wb-auto-57').innerHTML = $("#cmmnrm-hrs").val();
+            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " m²";
+          } else {
+            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc-cmmn").val() + " ft²";
+            document.getElementById('wb-auto-57').innerHTML = $("#cmmnrm-hrs").val();
+            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " ft²";
+          }
+        }
+          });
   </script>
 </body>
 
