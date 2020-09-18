@@ -493,12 +493,13 @@
             <div class="col-sm-7 col-lg-6">
                 <section class="gc-pg-hlpfl provisional">
                     <div class="well mrgn-bttm-0">
-                        <form id="gc-pg-hlpfl-frm" action="https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm" method="post" autocomplete="off">
+                        <form id="gc-pg-hlpfl-frm" action="#" method="post" autocomplete="off">
                             <input type="hidden" name="institutionopt" value="TEST">
                             <input type="hidden" name="themeopt" value="TEST">
                             <input type="hidden" name="sectionopt" value="TEST">
                             <input type="hidden" name="pageTitle" value="COVID EXPOSURE 3">
                             <input type="hidden" name="submissionPage" value="TEST.html">
+                            <input type="hidden" name="helpful" value="Yes">
 
                             <div class="gc-pg-hlpfl-btn">
                                 <div class="row row-no-gutters">
@@ -506,7 +507,7 @@
                                         <h2 class="mrgn-tp-sm h5">Did you find what you were looking for?</h2>
                                     </div>
                                     <div class="col-xs-8 col-sm-5 text-right">
-                                        <button id="btnyes" type="submit" name="helpful" value="Yes" class="btn btn-primary">Yes</button>
+                                        <button id="btnyes" type="submit" value="Yes" class="btn btn-primary">Yes</button>
                                         <button id="btnno" type="button" class="btn btn-primary mrgn-lft-sm nojs-hide">No</button>
                                     </div>
                                 </div>
@@ -553,7 +554,7 @@
                                     <span class="small">Maximum 300 characters</span>
                                 </p>
                                 <textarea id="problem6" name="details" class="full-width" maxlength="300"></textarea>
-                                <button type="submit" name="helpful" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm" data-gc-analytics-wtph-submit>Submit</button>
+                                <button type="submit" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">Submit</button>
                             </div>
                         </form>
                         <div class="gc-pg-hlpfl-thnk hide">
@@ -670,8 +671,6 @@
         </div>
     </div>
     <script type="text/javascript" src="https://www.canada.ca/etc/clientlibs/granite/jquery.min.js"></script>
-    <script type="text/javascript" src="https://www.canada.ca/etc/clientlibs/granite/utils.min.js"></script>
-    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/clientlib-publish.min.js"></script>
     <!--[if gte IE 9 | !IE ]><!-->
     <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script><span id="wb-rsz" class="wb-init">&nbsp;</span>
     <!--<![endif]-->
@@ -684,12 +683,22 @@
             $("#btnno").click(function(e) {
                 $(".gc-pg-hlpfl-no").removeClass("nojs-show");
                 $(".gc-pg-hlpfl-btn").addClass("hide");
+                $("#helpful").val("No");
             });
             $("#gc-pg-hlpfl-frm").submit(function(e) {
                 e.preventDefault();
                 $(".gc-pg-hlpfl-thnk").removeClass("hide");
                 $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
-                $("#gc-pg-hlpfl-frm").submit();
+                $.ajax({
+                    url: 'https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: $('form#gc-pg-hlpfl-frm').serialize(),
+                    success: function(data) {},
+                    error: function(xhr, status, err) {
+                        console.log(xhr.responseText);
+                    }
+                });
             });
         });
     </script>
