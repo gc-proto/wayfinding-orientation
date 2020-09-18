@@ -472,7 +472,7 @@
                     </p>
                 </form>
 														     
-                <div class="panel panel-primary">
+                <div class="panel panel-primary hidden" id="results">
                   <div class="panel-heading">
                     <h4 class="panel-title">Your employee home work space expenses results</h4>
                   </div>
@@ -893,7 +893,7 @@ Expenses breakdown
         var hours = getCommonWorkSpaceHours();
         if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
           $(".perhr-percent-sum").text(100 - hours.percentage);
-          $(".wrkhr-percent-sum").text(hours.percentage);
+          $(".wrkhr-percent-sum").text(hours.percentage.toFixed(1));
           $("#wrk-cmmn-rm-sum").text(hours.rawHours);
           $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
         } else {
@@ -921,6 +921,11 @@ Expenses breakdown
 
       //submit button was clicked
       $(document).on("click", "#exp-cal", function (event) {
+        event.preventDefault();
+        if (!validateRequiredFields()) {
+          return;
+        }
+        $("#results").removeClass("hidden");
         var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
 
         //designated Room
@@ -1112,6 +1117,36 @@ Expenses breakdown
           }
         }
           });
+
+
+    function validateRequiredFields() {
+      //remove the required attribute in all hidden elements
+      $("[required]:hidden").each(function (i, element) {
+        $(element).removeAttr("required");
+      });
+      var count = 0,
+        $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+        $emptyElms = [];
+      //find all required fields that were left empty
+      for (let i = 0; i < $($elms).length; i++) {
+        var $elm = $($elms).eq(i);
+        if ($elm.val() == "") {
+          $emptyElms.push($elm);
+          count++;
+        }
+      }
+      //if WET4 already has errors, scroll to those
+      if ($("#errors-default")[0]) {
+        $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+        //scroll to the FIRST element that failed custom validation
+      } else if ($emptyElms[0]) {
+        $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+        //validation passed, show the results
+      } else {
+        return true;
+      }
+      return false;
+    }
   </script>
 </body>
 
