@@ -350,14 +350,15 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="work-home-start" class="control-label">Start of work at home</label>
-                          <input class="form-control" id="work-home-start" name="work-home-start" type="date" />
+                          <label for="work-home-start" class="control-label required"><span class="field-name">Start of work at home</span> <strong class="required">(required)</strong>
+</label>
+                          <input class="form-control" id="work-home-start" name="work-home-start" type="date" required="required" />
                         </div>
                       </div>
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label for="work-home-start" class="control-label">End of work at home</label>
-                          <input class="form-control" id="work-home-end" name="work-home-end" type="date" />
+                          <label for="work-home-start" class="control-label required"><span class="field-name">End of work at home</span> <strong class="required">(required)</strong></label>
+                          <input class="form-control" id="work-home-end" name="work-home-end" type="date" required="required"/>
                         </div>
                       </div>
                     </div>
@@ -366,37 +367,37 @@
                     <legend class="brdr-tp">Size of work space and home</legend>
                     <div>
                       <div class="form-group dsgntdrm">
-                        <label for="wrkspc">Designated work space in your home<span class="wb-inv"> in square <span
+                        <label for="wrkspc" class="required"><span class="field-name">Designated work space in your home</span><span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span
-                              class="exp-ft-sq hidden">feet</span></span></label>
+                              class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong>
+</label>
                         <div class="input-group col-sm-5 col-md-4">
-                          <input class="form-control input-lg" id="wrkspc" name="wrkspc" type="number">
+                          <input class="form-control input-lg" id="wrkspc" name="wrkspc" type="number" required="required">
                           <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span
                             class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                       </div>
                      <div class="cmmnrm hidden">
   <div class="form-group">
-    <label for="wrkspc-cmmn">Common space <span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span></label>
+			 <label for="wrkspc-cmmn" class="required"><span class="field-name">Common space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
     <div class="input-group col-sm-5 col-md-4">
-      <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number">
+      <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number" required="required">
       <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
   </div>
   <div class="form-group">
-    <label for="cmmnrm-hrs">Hours a week you worked in the common space</label>
+    <label for="cmmnrm-hrs" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
     <div class="input-group col-sm-5 col-md-4">
-      <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number">
+      <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number" required="required">
       <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span> </div>
   </div>
 </div>
                       <div class="form-group mrgn-tp-md">
-                        <label for="hmspc">Total finished area of your home<span class="wb-inv"> in square <span
-                              class="exp-m-sq hidden">meters</span><span
-                              class="exp-ft-sq hidden">feet</span></span></label>
+                        <label for="hmspc" class="required"><span class="field-name">Total finished area of your home</span><span class="wb-inv"> in square <span
+                              class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
                         <p id="finished-def"><a href="#finished-area" class="wb-lbx">What is included in the total
                             finished area&nbsp;<span class="far fa-question-circle"></span></a></p>
                         <div class="input-group col-sm-5 col-md-4">
                           <input class="form-control input-lg" id="hmspc" name="hmspc" type="number"
-                            aria-describedby="finished-def">
+                            aria-describedby="finished-def" required="required">
                           <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span
                             class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                       </div>
@@ -424,44 +425,42 @@
                    
 
                           <div class="form-group">
-                            <label for="mntnc">Maintenance <br><span class="text-muted">on home including work
-                                space<span class="wb-inv"> in dollars and cents</span></span></label>
+                            <label for="mntnc" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on home including work space</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text">
+                              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required">
                             </div>
                           </div>
  <div class="form-group dsgntdrm">
-                            <label for="mntnc-excl">Maintenance <br><span class="text-muted">on work space only<span
-                                  class="wb-inv"> in dollars and cents</span></span></label>
+                            <label for="mntnc-excl" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on work space only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text">
+                              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text" required="required">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="othrex">Other expenses (e.g. rent)<span class="wb-inv"> in dollars and
-                                cents</span></label>
+                            <label for="othrex" class="required"><span class="field-name">Other expenses (e.g. rent)</span><span class="wb-inv"> in dollars and
+                                cents</span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text">
+                              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text" required="required">
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="utlts">Electricity, heat and water<span class="wb-inv"> in dollars and
-                                cents</span></label>
+                            <label for="utlts" class="required"><span class="field-name">Electricity, heat and water</span><span class="wb-inv"> in dollars and
+                                cents</span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text">
+                              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text" required="required">
                             </div>
                           </div>
 
                           <div class="form-group cmmssn-only hidden">
-                            <label for="insrnc">Insurance<span class="wb-inv"> in dollars and cents</span></label>
+                            <label for="insrnc" class="required"><span class="field-name">Insurance</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text">
+                              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text" required="required">
                             </div>
                           </div>
                           <div class="form-group cmmssn-only hidden">
-                            <label for="prprt">Property taxes<span class="wb-inv"> in dollars and cents</span></label>
+		 <label for="prprt" class="required"><span class="field-name">Property taxes</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text">
+                              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text" required="required">
                             </div>
                           </div>
                         </fieldset>
@@ -472,7 +471,8 @@
                         expenses</button>
                     </p>
                 </form>
-                <div class="panel panel-primary">
+														     
+                <div class="panel panel-primary" id="results">
                   <div class="panel-heading">
                     <h4 class="panel-title">Your employee home work space expenses results</h4>
                   </div>
@@ -522,8 +522,8 @@ Expenses breakdown
                       <tr>
                         <th scope="col">Expense</th>
                         <th scope="col" class="active">Amount to claim</th>
-                        <th scope="col">T777c (short) form</th>
-                        <th scope="col">T777 form</th>
+                     <!--   <th scope="col">T777c (short) form</th>
+                        <th scope="col">T777 form</th> //-->
                       </tr>
                     </thead>
                     <tbody>
@@ -531,42 +531,42 @@ Expenses breakdown
                       <tr>
                         <td>Electricity, heat and water </td>
                         <td class="active" id="electricity">[$0.00]</td>
-                        <td>Line 5</td>
-                        <td>Line 17</td>
+                       <!--   <td>Line 5</td>
+                        <td>Line 17</td>//-->
                       </tr>
                       <tr>
                         <td>Maintenance (home + work spaces) </td>
                         <td class="active" id="maintenance">[$0.00]</td>
-                        <td>Line 6</td>
-                        <td>Line 18</td>
+                        <!--  <td>Line 6</td>
+                        <td>Line 18</td>//-->
                       </tr>
                       <tr>
                         <td>Other expenses</td>
                         <td class="active" id="other">[$0.00]</td>
-                        <td>Line 9</td>
-                        <td>Field 8810</td>
+                      <!--    <td>Line 9</td>
+                        <td>Field 8810</td>//-->
                       </tr>
                      
                       <tr class="cmmssn-only hidden">
                         <td>Insurance amount <small>(commission employees only)</br>
                           </small></td>
                         <td class="active" id="insurance">[$0.00]</td>
-                        <td>Line 7</td>
-                        <td>Line 19</td>
+                       <!--   <td>Line 7</td>
+                        <td>Line 19</td>//-->
                       </tr>
                       <tr class="cmmssn-only hidden">
                         <td>Property taxes</br>
                           <small>(commission employees only)</br>
                           </small></td>
                         <td class="active" id="property">[$0.00]</td>
-                        <td>Line 8</td>
-                        <td>Line 20</td>
+                     <!--     <td>Line 8</td>
+                        <td>Line 20</td>//-->
                       </tr>
 		 <tr>
                         <td>Personal-use portion</td>
                         <td class="active" id="office">[$0.00]</td>
-                        <td>Line 11</td>
-                        <td>Line 23</td>
+                      <!--    <td>Line 11</td>
+                        <td>Line 23</td>//-->
                       </tr>
                     </tbody>
                   </table>
@@ -893,7 +893,7 @@ Expenses breakdown
         var hours = getCommonWorkSpaceHours();
         if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
           $(".perhr-percent-sum").text(100 - hours.percentage);
-          $(".wrkhr-percent-sum").text(hours.percentage);
+          $(".wrkhr-percent-sum").text(hours.percentage.toFixed(1));
           $("#wrk-cmmn-rm-sum").text(hours.rawHours);
           $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
         } else {
@@ -1112,6 +1112,7 @@ Expenses breakdown
           }
         }
           });
+
   </script>
 </body>
 
