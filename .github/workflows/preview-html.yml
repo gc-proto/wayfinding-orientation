@@ -10,6 +10,8 @@ on:
     - feature/workflow
     paths:
     - '**.html'
+env:
+  LINKS: nothing
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,24 +55,20 @@ jobs:
         format: space-delimited
     - name: Printing
       run: |
-        export msg=./.github/workflows/parse-file-array.sh
+        ./.github/workflows/parse-file-array.sh
 
+    #- name: Test
+    #  run: |
+    #    echo ${{ env.LINKS }}
+    
     # Create comment in the PR with the urls of the changed files
-    - name: Comment in PR
-      uses: unsplash/comment-on-pr@master
+    - name: Update status to Waiting for approval
+      uses: geekodour/gh-actions-custom-status@v0.0.4
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        LAST_COMMIT_SHA: ${{ github.event.client_payload.LAST_COMMIT_SHA }}
       with:
-          msg: ${{ msg }}
-          check_for_duplicate_msg: true  # OPTIONAL
-    # - name: Update status to pending
-    #   uses: geekodour/gh-actions-custom-status@v0.0.4
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     LAST_COMMIT_SHA: ${{ github.event.client_payload.LAST_COMMIT_SHA }}
-    #   with:
-    #     args: >-
-    #       --state=pending
-    #       --context=foo-status-update
-    #       --target_url=https://github.com/${{ github.repository }}/actions
-    # Need to filter only HTML files too
+        args:
+          --state=pending
+          --context=preview-links
+          --description=${{ env.LINKS }}
