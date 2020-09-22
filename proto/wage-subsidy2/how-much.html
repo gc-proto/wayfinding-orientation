@@ -3205,12 +3205,13 @@
         calculateTotals();
         if ($("#claim-period option:selected").data("claim-period") >= 5) {
           var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
-          var eligibleEmps = numEmployeePanels - (0.25 * numWeeksLeaveWPay);
+          var totalEmps = $("fieldset[id^='emp-']").length;
+          var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
           //eligible active employees
-          $("#p2c-ee-alt1").val(Math.ceil(eligibleEmps));
+          $("#p2c-ee-alt1").val(Math.ceil(totalEmps));
           $("#p2c-ee-alt1").trigger("change");
           //get eligible furloughed employees
-          $("#p2c-ee-alt2").val(Math.ceil(numEmployeePanels - eligibleEmps));
+          $("#p2c-ee-alt2").val(Math.ceil(totalEmps - eligibleEmps));
           $("#p2c-ee-alt2").trigger("change");
           if ($("#p2c-ee-alt2").val() == 0) {
             $("#p3-ei").prop("readonly", true);
