@@ -710,6 +710,8 @@ Expenses breakdown
         minimumFractionDigits: 2
       });
       const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
+      const FRENCH_CURRENCY_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{2})?$/gm;
+      const ENGLISH_CURRENCY_FORMAT = /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/gm;
       /**
        * calculateCommonRoomClaimRate
        * 
@@ -1133,15 +1135,15 @@ Expenses breakdown
        * return {Float} the JS compliant float equiv
        */
       function toFloat(number) {
-        if (number.match(/^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{2})?$/gm)) {
-          var reformattedNumber = number.replace(/\s/g, "");
+        var reformattedNumber = 0;
+        if (number.match(FRENCH_CURRENCY_FORMAT)) {
+          reformattedNumber = number.replace(/\s/g, "");
           reformattedNumber = reformattedNumber.replace(/\,/g, ".");
           return parseFloat(reformattedNumber);
-        } else if (parseFloat(number)) {
-          return parseFloat(number);
-        } else {
-          return 0;
+        } else if (number.match(ENGLISH_CURRENCY_FORMAT)) {
+          reformattedNumber = number.replace(/\,/g, "");
         }
+        return parseFloat(reformattedNumber);
       }
   </script>
 </body>
