@@ -604,15 +604,11 @@ Expenses breakdown
                       </tr>
                       <tr class="cmmnrm hidden">
                         <th scope="row">Hours a week in work space</th>
-                        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="hmspc"
-                            id="wb-auto-57">[answer]</output></td>
+                        <td class="text-right nowrap"><span id="hoursWorked">[answer]</span></td>
                       </tr>
                       <tr>
                         <th scope="row">Total finished area of your home</th>
-                        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="wrkspc"
-                            id="wb-auto-57">[answer]</output></td>
+                        <td class="text-right nowrap"><span id="homeSize">[answer]</span><span class="hidden exp-m-sq">m²</span><span class="hidden exp-ft-sq">ft²</span></td>
                       </tr>
                     
                     </tbody>
@@ -924,18 +920,18 @@ Expenses breakdown
         var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
 
         //designated Room
-        if (document.getElementById("wb-auto-23").checked == true) {
+        if ($(".cmmnrm").hasClass("hidden")) {
           var fromDate = $("#work-home-start").val();
           var toDate = $("#work-home-end").val();
 
           //Start Date
           if (fromDate) {
-            document.getElementById('startDate').innerHTML = $("#work-home-start").val();
+            $("#startDate").text(fromDate);
           }
 
           //End Date
           if (toDate) {
-            document.getElementById('endDate').innerHTML = $("#work-home-end").val();
+            $("#endDate").text(toDate);
           }
 
           var TotalArea = $("#hmspc").val();
@@ -952,88 +948,95 @@ Expenses breakdown
 
           //Rebates
           var maintenanceRebate = (rate / 100) * maintenanceBill;
-          var otherExpensesRebate = (rate / 100) * otherExpensesBill;
-          var electricityRebate = (rate / 100) * electricityBill;
-          var insuranceRebate = (rate / 100) * insuranceBill;
-          var propertyRebate = (rate / 100) * propertyTaxesBill;
           var otherMaintenanceRebate = (rate / 100) * otherMaintenanceBill;
-          var maintenanceRebates = maintenanceRebate + otherMaintenanceRebate;
+          var otherExpensesRebate = toMoney.format((rate / 100) * otherExpensesBill);
+          var electricityRebate = toMoney.format((rate / 100) * electricityBill);
+
+          var insuranceRebate = toMoney.format((rate / 100) * insuranceBill);
+          var insuranceRebateNumber = (rate / 100) * insuranceBill;
+
+          var propertyRebate = toMoney.format((rate / 100) * propertyTaxesBill);
+          var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
+
+          var maintenanceRebates = toMoney.format(maintenanceRebate + otherMaintenanceRebate);
 
           //Fill out Amounts to claim 
-          document.getElementById('electricity').innerHTML = electricityRebate.toFixed(2);
-          document.getElementById('maintenance').innerHTML = maintenanceRebates.toFixed(2);
-          document.getElementById('other').innerHTML = otherExpensesRebate.toFixed(2);
-          document.getElementById('insurance').innerHTML = insuranceRebate.toFixed(2);
-          document.getElementById('property').innerHTML = propertyRebate.toFixed(2);
+          $("#electricity").text(electricityRebate);
+          $("#maintenance").text(maintenanceRebates);
+          $("#other").text(otherExpensesRebate);
+          $("#insurance").text(insuranceRebate);
+          $("#property").text(propertyRebate);
 
           //Personal-use portion claim
-          personalRate = 100 - rate;
-          personalRebate = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
-          document.getElementById('office').innerHTML = personalRebate.toFixed(2);
+          var personalRate = 100 - rate;
+          personalRebate = toMoney.format(((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill));
+          personalRebateNumber = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
+          $("#office").text(personalRebate);
 
-          //Personal Clain
-          if (!isNaN(personalRebate)) {
-            $(".personalClaim").text(personalRebate.toFixed(2));
+          //Personal Claim
+          if (personalRebateNumber) {
+            $(".personalClaim").text(personalRebateNumber.toFixed(2));
           } else {
             $(".personalClaim").text("0.00");
           }
 
           //Personal Rate
           if (!isNaN(personalRate)) {
-            $(".personalRate").text(personalRate.toFixed(2));
+            $(".personalRate").text(personalRate);
           } else {
             $(".personalRate").text("0");
           }
 
           //Insurance - Summary Page
-          if (!isNaN(insuranceRebate)) {
-            $(".ins").text(insuranceRebate.toFixed(2));
+          if (insuranceRebateNumber) {
+            $(".ins").text(insuranceRebateNumber.toFixed(2));
           } else {
             $(".ins").text("0");
           }
 
           //Property Taxes amount - Summary Page
-          if (!isNaN(propertyRebate)) {
-            $(".pro").text(propertyRebate.toFixed(2));
+          if (propertyRebateNumber) {
+            $(".pro").text(propertyRebateNumber.toFixed(2));
           } else {
             $(".pro").text("0");
           }
 
           //Commission Amount - Summary Page
-          if (!isNaN(propertyRebate) || !isNaN(insuranceRebate)) {
-            var commission = propertyRebate + insuranceRebate
+          if (propertyRebate || insuranceRebate) {
+            var commission = propertyRebateNumber + insuranceRebateNumber;
             $(".com").text(commission.toFixed(2));
           } else {
-            $(".pro").text("0");
+            $(".com").text("0");
           }
 
-          if (document.getElementById("wb-auto-26").checked == true) {
-            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc").val() + " m²";
-            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " m²";
+          if ($(".exp-ft-sq").hasClass("hidden")) {
+            $("#workSize").text($("#wrkspc").val());
+            $("#homeSize").text($("#hmspc").val());
           } else {
-            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc").val() + " ft²";
-            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " ft²";
+            $("#workSize").text($("#wrkspc").val());
+            $("#homeSize").text($("#hmspc").val());
           }
         }
 
         //Common Area Room
-        if (document.getElementById("wb-auto-24").checked == true) {
+        if ($(".dsgntdrm").hasClass("hidden")) {
           var fromDate = $("#work-home-start").val();
           var toDate = $("#work-home-end").val();
 
           //Start Date
           if (fromDate) {
-            document.getElementById('startDate').innerHTML = $("#work-home-start").val();
+            $("#startDate").text(fromDate);
           }
 
           //End Date
           if (toDate) {
-            document.getElementById('endDate').innerHTML = $("#work-home-end").val();
+            $("#endDate").text(toDate);
           }
 
           var TotalArea = $("#hmspc").val();
 
-          var rate = document.getElementById("wrk").innerText;
+          var rate = $("#workRate").text();
+          rate = parseFloat(rate);
 
           //Bills
           var maintenanceBill = $("#mntnc").val();
@@ -1045,70 +1048,76 @@ Expenses breakdown
 
           //Rebates
           var maintenanceRebate = (rate / 100) * maintenanceBill;
-          var otherExpensesRebate = (rate / 100) * otherExpensesBill;
-          var electricityRebate = (rate / 100) * electricityBill;
-          var insuranceRebate = (rate / 100) * insuranceBill;
-          var propertyRebate = (rate / 100) * propertyTaxesBill;
           var otherMaintenanceRebate = (rate / 100) * otherMaintenanceBill;
-          var maintenanceRebates = maintenanceRebate + otherMaintenanceRebate;
+          var otherExpensesRebate = toMoney.format((rate / 100) * otherExpensesBill);
+          var electricityRebate = toMoney.format((rate / 100) * electricityBill);
+
+          var insuranceRebate = toMoney.format((rate / 100) * insuranceBill);
+          var insuranceRebateNumber = (rate / 100) * insuranceBill;
+
+          var propertyRebate = toMoney.format((rate / 100) * propertyTaxesBill);
+          var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
+
+          var maintenanceRebates = toMoney.format(maintenanceRebate + otherMaintenanceRebate);
 
           //Fill out Amounts to claim 
-          document.getElementById('electricity').innerHTML = electricityRebate.toFixed(2);
-          document.getElementById('maintenance').innerHTML = maintenanceRebates.toFixed(2);
-          document.getElementById('other').innerHTML = otherExpensesRebate.toFixed(2);
-          document.getElementById('insurance').innerHTML = insuranceRebate.toFixed(2);
-          document.getElementById('property').innerHTML = propertyRebate.toFixed(2);
+          $("#electricity").text(electricityRebate);
+          $("#maintenance").text(maintenanceRebates);
+          $("#other").text(otherExpensesRebate);
+          $("#insurance").text(insuranceRebate);
+          $("#property").text(propertyRebate);
 
           //Personal-use portion claim
-          var personalRate = document.getElementById("perRate").innerText;
-          personalRate = parseInt(personalRate);
-          personalRebate = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
-          document.getElementById('office').innerHTML = personalRebate.toFixed(2);
+          var personalRate = $("#perRate").text();
+          personalRate = parseFloat(personalRate);
+          personalRebate = toMoney.format(((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill));
+          personalRebateNumber = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
+          $("#office").text(personalRebate);
 
-          //Personal Clain
-          if (!isNaN(personalRebate)) {
-            $(".personalClaim").text(personalRebate.toFixed(2));
+          //Personal Claim
+          if (personalRebateNumber) {
+            $(".personalClaim").text(personalRebateNumber.toFixed(2));
           } else {
             $(".personalClaim").text("0.00");
           }
 
           //Personal Rate
           if (!isNaN(personalRate)) {
-            $(".personalRate").text(personalRate.toFixed(2));
+            $(".personalRate").text(personalRate);
           } else {
             $(".personalRate").text("0");
           }
 
           //Insurance - Summary Page
-          if (!isNaN(insuranceRebate)) {
-            $(".ins").text(insuranceRebate.toFixed(2));
+          if (insuranceRebateNumber) {
+            $(".ins").text(insuranceRebateNumber.toFixed(2));
           } else {
             $(".ins").text("0");
           }
 
           //Property Taxes amount - Summary Page
-          if (!isNaN(propertyRebate)) {
-            $(".pro").text(propertyRebate.toFixed(2));
+          if (propertyRebateNumber) {
+            $(".pro").text(propertyRebateNumber.toFixed(2));
           } else {
             $(".pro").text("0");
           }
 
           //Commission Amount - Summary Page
-          if (!isNaN(propertyRebate) || !isNaN(insuranceRebate)) {
-            var commission = propertyRebate + insuranceRebate
+          if (propertyRebate || insuranceRebate) {
+            var commission = propertyRebateNumber + insuranceRebateNumber;
             $(".com").text(commission.toFixed(2));
           } else {
-            $(".pro").text("0");
+            $(".com").text("0");
           }
 
-          if (document.getElementById("wb-auto-29").checked == true) {
-            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc-cmmn").val() + " m²";
-            document.getElementById('wb-auto-57').innerHTML = $("#cmmnrm-hrs").val();
-            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " m²";
+          if ($(".exp-ft-sq").hasClass("hidden")) {
+            $("#workSize").text($("#wrkspc-cmmn").val());
+            $("#hoursWorked").text($("#cmmnrm-hrs").val());
+            $("#homeSize").text($("#hmspc").val());
           } else {
-            document.getElementById('wb-auto-56').innerHTML = $("#wrkspc-cmmn").val() + " ft²";
-            document.getElementById('wb-auto-57').innerHTML = $("#cmmnrm-hrs").val();
-            document.getElementById('wb-auto-58').innerHTML = $("#hmspc").val() + " ft²";
+            $("#workSize").text($("#wrkspc-cmmn").val());
+            $("#hoursWorked").text($("#cmmnrm-hrs").val());
+            $("#homeSize").text($("#hmspc").val());
           }
         }
           });
