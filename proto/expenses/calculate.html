@@ -472,7 +472,7 @@
                     </p>
                 </form>
 														     
-                <div class="panel panel-primary" id="results">
+                <div class="panel panel-primary hidden" id="results">
                   <div class="panel-heading">
                     <h4 class="panel-title">Your employee home work space expenses results</h4>
                   </div>
@@ -598,9 +598,7 @@ Expenses breakdown
                     <tbody>
                       <tr>
                         <th scope="row">Size of work spaces in your home</th>
-                        <td class="text-right nowrap"><output class="h3 wb-calc nowrap wb-init wb-calc-inited"
-                            for="hmspc"
-                            id="wb-auto-56">[answer]</output></td>
+                        <td class="text-right nowrap"><span id="workSize">[answer]</span><span class="hidden exp-m-sq">m²</span><span class="hidden exp-ft-sq">ft²</span></td>
                       </tr>
                       <tr class="cmmnrm hidden">
                         <th scope="row">Hours a week in work space</th>
@@ -913,10 +911,12 @@ Expenses breakdown
           $(element).val("");
           $(element).trigger("change");
         });
+        $("#results").addClass("hidden");
       });
 
       //submit button was clicked
       $(document).on("click", "#exp-cal", function (event) {
+        event.preventDefault();
         var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
 
         //designated Room
@@ -939,7 +939,7 @@ Expenses breakdown
           var rate = calculateSpaceUsed(workArea, TotalArea);
 
           //Bills
-          var maintenanceBill = $("#mntnc").val();
+          var maintenanceBill = toFloat($("#mntnc").val());
           var otherMaintenanceBill = $("#mntnc-excl").val();
           var otherExpensesBill = $("#othrex").val();
           var electricityBill = $("#utlts").val();
@@ -1120,7 +1120,8 @@ Expenses breakdown
             $("#homeSize").text($("#hmspc").val());
           }
         }
-          });
+        $("#results").removeClass("hidden");
+      });
 
   </script>
 </body>
