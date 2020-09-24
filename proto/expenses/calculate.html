@@ -733,6 +733,9 @@ Expenses breakdown
         $(document).on("blur", ".currency", reformatNumber);
 
         function reformatNumber(event) {
+            if (event.target.value == "") {
+              return;
+            }
             if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
                 event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
             }
@@ -899,6 +902,32 @@ Expenses breakdown
         //submit button was clicked
         $(document).on("click", "#exp-cal", function(event) {
             event.preventDefault();
+            //remove the required attribute in all hidden elements
+            $("[required]:hidden").each(function (i, element) {
+              $(element).removeAttr("required");
+            });
+            var count = 0,
+              $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+              $emptyElms = [];
+            //find all required fields that were left empty
+            for (let i = 0; i < $($elms).length; i++) {
+              var $elm = $($elms).eq(i);
+              if ($elm.val() == "") {
+                $emptyElms.push($elm);
+                count++;
+              }
+            }
+            //if WET4 already has errors, scroll to those
+            if ($("#errors-default")[0]) {
+              $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+              //scroll to the FIRST element that failed custom validation
+            } else if ($emptyElms[0]) {
+              $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+              console.debug($emptyElms);
+              //validation passed, show the results
+            } else {
+              $("#results").removeClass("hidden");
+            }
             var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
 
             //designated Room
@@ -1104,7 +1133,6 @@ Expenses breakdown
                     $("#homeSize").text($("#hmspc").val());
                 }
             }
-            $("#results").removeClass("hidden");
         });
 
         /**
