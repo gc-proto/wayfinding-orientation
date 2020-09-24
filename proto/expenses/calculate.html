@@ -736,29 +736,9 @@ Expenses breakdown
             if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
                 event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
             }
-            event.target.value = toUnformattedNumber(event.target.value);
+            event.target.value = toFloat(event.target.value);
             event.target.value = toMoney.format(event.target.value)
                 .replace("$", "");
-        }
-
-        /**
-         * toUnformattedNumber
-         *
-         * remove language based formatting
-         *
-         * @param {String} formattedNumber the formatted number
-         *
-         * @return {String} the unformatted number
-         */
-        function toUnformattedNumber(formattedNumber) {
-            return toFloat(formattedNumber);
-            //if (document.documentElement.lang == "fr") {
-            //formattedNumber = formattedNumber.replace(/,/g, ".");
-            //formattedNumber = formattedNumber.replace(/\s/g, "");
-            //} else {
-            //formattedNumber = formattedNumber.replace(/,/g, "");
-            //}
-            // return formattedNumber;
         }
 
         /**
