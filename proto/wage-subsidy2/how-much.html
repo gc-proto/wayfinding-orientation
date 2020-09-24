@@ -3057,9 +3057,7 @@
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
-          var claimMonth = new Date(
-            "2020-" + getClaimMonth($("#claim-period").val()) + '-01'
-          ).getUTCMonth();
+          
           if (claimPeriod < 8) {
             claimMonthPrefix = "0";
           }
@@ -3072,6 +3070,9 @@
           if (claimPeriod < 11) {
             prev3MonthPrefix = "0";
           }
+          var claimMonth = new Date(
+            "2020-" + claimMonthPrefix + getClaimMonth($("#claim-period").val()) + '-01'
+          ).getUTCMonth();
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-yes").val());
           //get the previous month from the claim month
