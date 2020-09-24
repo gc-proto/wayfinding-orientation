@@ -2934,9 +2934,6 @@
       var threeMonthReduction = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-        if (claimPeriod < 8) {
-          claimMonthPrefix = "0";
-        }
         if (claimPeriod < 9) {
           prevMonthPrefix = "0";
         }
@@ -2947,10 +2944,14 @@
           prev3MonthPrefix = "0";
         }
         var cewsRateElements = $('.cews-rate-calc');
-        var month = getClaimMonth($("#claim-period").val());
-        //find the claim month based on the chosen claim period
-        var claimMonth = new Date(
-          "2020-" + claimMonthPrefix + month + '-01'
+        var claimMonth = getClaimMonth($("#claim-period").val());
+        if (claimMonth.toString().match(/\d{2}/g)) {
+          claimMonthPrefix = "";
+        } else {
+          claimMonthPrefix = "0";
+        }
+        claimMonth = new Date(
+          "2020-" + claimMonthPrefix + claimMonth + '-01'
         ).getUTCMonth();
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
@@ -3057,10 +3058,6 @@
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
           //find the claim month based on the chosen claim period 
-          
-          if (claimPeriod < 8) {
-            claimMonthPrefix = "0";
-          }
           if (claimPeriod < 9) {
             prevMonthPrefix = "0";
           }
@@ -3070,8 +3067,12 @@
           if (claimPeriod < 11) {
             prev3MonthPrefix = "0";
           }
-          var claimMonth = new Date(
-            "2020-" + claimMonthPrefix + getClaimMonth($("#claim-period").val()) + '-01'
+          var claimMonth = getClaimMonth($("#claim-period").val());
+          if (!claimMonth.toString().match(/\d{2}/g)) {
+            claimMonthPrefix = "0";
+          }
+          claimMonth = new Date(
+            "2020-" + claimMonthPrefix + claimMonth + '-01'
           ).getUTCMonth();
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-yes").val());
