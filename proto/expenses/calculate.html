@@ -964,14 +964,8 @@ Expenses breakdown
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
-
                 var insuranceRebate = toMoney.format(insuranceBill);
-                //var insuranceRebateNumber = (rate / 100) * insuranceBill;
-
                 var propertyRebate = toMoney.format(propertyTaxesBill);
-                //var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
-
-                //var maintenanceRebates = toMoney.format(maintenanceBill + otherMaintenanceBill);
 
                 //Fill out Amounts to claim 
                 $("#electricity").text(electricityRebate);
@@ -985,13 +979,11 @@ Expenses breakdown
                 var personalRate = 100 - rate;
                 personalRebate = toMoney.format(otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
                 personalRebateNumber = otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
-                //personalRebate = toMoney.format(((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill));
-                //personalRebateNumber = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
                 $("#office").text(personalRebate);
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    $(".personalClaim").text(personalRebateNumber.toFixed(2));
+                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
                 }
@@ -1005,14 +997,14 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
-                    $(".ins").text(insuranceBill.toFixed(2));
+                    $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
                 }
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
-                    $(".pro").text(propertyTaxesBill.toFixed(2));
+                    $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
                 }
@@ -1020,7 +1012,7 @@ Expenses breakdown
                 //Commission Amount - Summary Page
                 if (propertyTaxesBill || insuranceBill) {
                     var commission = propertyTaxesBill + insuranceBill;
-                    $(".com-total").text(commission.toFixed(2));
+                    $(".com-total").text(commission.toLocaleString());
                 } else {
                     $(".com-total").text("0");
                 }
@@ -1067,14 +1059,8 @@ Expenses breakdown
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
-
                 var insuranceRebate = toMoney.format(insuranceBill);
-                //var insuranceRebateNumber = (rate / 100) * insuranceBill;
-
                 var propertyRebate = toMoney.format(propertyTaxesBill);
-                //var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
-
-                //var maintenanceRebates = toMoney.format(maintenanceBill + otherMaintenanceBill);
 
                 //Fill out Amounts to claim 
                 $("#electricity").text(electricityRebate);
@@ -1093,7 +1079,7 @@ Expenses breakdown
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    $(".personalClaim").text(personalRebateNumber.toFixed(2));
+                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
                 }
@@ -1107,14 +1093,14 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
-                    $(".ins").text(insuranceBill.toFixed(2));
+                    $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
                 }
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
-                    $(".pro").text(propertyTaxesBill.toFixed(2));
+                    $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
                 }
@@ -1122,7 +1108,7 @@ Expenses breakdown
                 //Commission Amount - Summary Page
                 if (propertyTaxesBill || insuranceBill) {
                     var commission = propertyTaxesBill + insuranceBill;
-                    $(".com-total").text(commission.toFixed(2));
+                    $(".com-total").text(commission.toLocaleString());
                 } else {
                     $(".com-total").text("0");
                 }
