@@ -333,10 +333,10 @@
                       <p>
                         <label for="eg13">You were not working for reasons related to COVID-19</label>
                       </p>
-                      <ul class="list-unstyled mrgn-lft-lg">
+                      <!--ul class="list-unstyled mrgn-lft-lg">
                         <li><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on
                           leave with pay&nbsp;<span class="far fa-question-circle"></span></a></li>
-                      </ul>
+                      </ul-->
                       <div class="row mrgn-tp-sm mrgn-bttm-sm">
                         <div class="col-xs-3 col-sm-2">
                           <p class="col-xs-12 pstn-tp-xs pstn-lft-xs text-center"><span class="fa-stack fa-fw text-muted text-center"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse small">or</span></span></p>
@@ -345,24 +345,49 @@
                       </div>
                       <p>
                         <label for="eg13">You have a 50% reduction in your income during the CRB period</label>
-                      </p>
+                      
 			     <h3>Calculate whether you had a 50% reduction in income</h3>
-			     <p>Did you have a <strong>higher income</strong> in 2019 or over the last 12 months?</p>
-                      	<details class="mrgn-lft-lg">
+			     <p class="h5">Did you have a <strong>higher income</strong> in 2019 or over the last 12 months?</p>
+                      	<details>
                         	<summary>Calendar year 2019</summary>
+				
+				
+				
 				<p>Blah blah, / 52 compared to your average of 2 weeks during the CRB period applying for</p>
 				
 				
-				<p>Make sure that your income used to calculate this is no higher than line 15000 (gross income) on your 2019 tax return</p>
+				
 			      
 			      
-			      
+			      <div class="row">
+				<div class="col-md-12">
+					<div class="form-group row">
+						<label class="col-sm-6 control-label" for="2019-income">Year 2019 income<span class="wb-inv"> (do not include a
+							dollar sign, spaces or commas)</span></label>
+						<div class="col-sm-6">
+							<div class="input-group"> <span class="input-group-addon input-sm">$</span>
+								<input type="number" class="form-control text-right cews-rate-calc-alt currency" name="2019-income" id="2019-income" size="10" placeholder="0.00">
+							</div>
+						</div>
+					</div>
+					<p>Make sure that your income used to calculate this is no higher than line 15000 (gross income) on your 2019 tax return</p>
+					<div class="form-group row">
+						<label class="col-sm-6 control-label" for="2019-income"><span class="wb-inv"> (do not include a
+							dollar sign, spaces or commas)</span></label>
+						<div class="col-sm-6">
+							<div class="input-group"> <span class="input-group-addon input-sm">$</span>
+								<input type="number" class="form-control text-right cews-rate-calc-alt currency" name="2019-income" id="2019-income" size="10" placeholder="0.00">
+							</div>
+						</div>
+					</div>
+					
+				      </div>
 			      
 			      
                          <p>The 50% is based on your average weekly employment or self-employment earnings from either 2019 or the previous 12 months, whichever you used to calculate your $5,000 (before deductions) income.</p>
 				                 <!--insert new ex hide here-->
                        </details>
-		     <details class="mrgn-lft-lg">
+		     <details>
 			<summary>12 months up to the CRB period you're applying for</summary>
 
 
@@ -373,6 +398,7 @@
 		 	<p>The 50% is based on your average weekly employment or self-employment earnings from either 2019 or the previous 12 months, whichever you used to calculate your $5,000 (before deductions) income.</p>
 				                 <!--insert new ex hide here-->
                        </details>
+			     </p>
                     </li>
                   </ul>
                   <div class="alert alert-warning provisional" id="action-no-msg">
