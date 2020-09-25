@@ -411,12 +411,12 @@
                             </div>
                     </fieldset>
 
-                  <fieldset>
-                    <legend class="mrgn-bttm-0">Expenses to claim</legend>
-                    <p>Determine your expenses to the beginning and end of your work period. Enter $0 if you are not claiming the expense.</p>
-                   
+                    <fieldset>
+                        <legend class="mrgn-bttm-0">Expenses to claim</legend>
+                        <p>Determine your expenses to the beginning and end of your work period. Enter $0 if you are not claiming the expense.</p>
 
-                          <div class="form-group">
+
+                        <div class="form-group">
                             <label for="mntnc" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on home including work space</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required">
@@ -475,7 +475,6 @@
                         <!--	<table class="wb-charts wb-charts-pie table" data-flot='{"series": {
 		"pie": { "radius": 1,
 			"label": {
-
 				"threshold": 0.001
 														
 			},
@@ -500,7 +499,6 @@ Expenses breakdown
 <td>1342.54</td>
 <td>5622.89</td>
 <td>200.01</td>
-
 </tr>
 </table>//-->
 
@@ -531,12 +529,12 @@ Expenses breakdown
                                 <!--  <td>Line 6</td>
                         <td>Line 18</td>//-->
                             </tr>
-			 <tr class="dsgntdrm">
+                            <tr class="dsgntdrm">
                                 <td>Maintenance (work space only) </td>
                                 <td class="active" id="maintenance-alt">[$0.00]</td>
                                 <!--  <td></td>
                         <td></td>//-->
-                            </tr>	
+                            </tr>
                             <tr>
                                 <td>Other expenses</td>
                                 <td class="active" id="other">[$0.00]</td>
@@ -582,8 +580,8 @@ Expenses breakdown
                                 <ul class="fa-ul list-unstyled lst-spcd">
                                     <li><span class="h4">$<span class="ins">0.00</span></span> insurance amount</li>
                                     <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus </span></span> <span class="h4">$<span class="pro">0.00</span></span> property taxes</li>
-                                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4">$<span class="com-total">0.00</span></span> of commission only expenses that cannot exceed the amount of commissions you earned
-                                        for the period
+                                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4">$<span class="com-total">0.00</span></span> of commission only expenses that cannot exceed the amount of commissions you
+                                        earned for the period
                                 </ul>
                             </div>
 
@@ -734,7 +732,7 @@ Expenses breakdown
 
         function reformatNumber(event) {
             if (event.target.value == "") {
-              return;
+                return;
             }
             if (event.target.value.match(NON_CURRENCY_CHARACTER)) {
                 event.target.value = event.target.value.replace(NON_CURRENCY_CHARACTER, "");
@@ -903,30 +901,34 @@ Expenses breakdown
         $(document).on("click", "#exp-cal", function(event) {
             event.preventDefault();
             //remove the required attribute in all hidden elements
-            $("[required]:hidden").each(function (i, element) {
-              $(element).removeAttr("required");
+            $("[required]:hidden").each(function(i, element) {
+                $(element).removeAttr("required");
             });
             var count = 0,
-              $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
-              $emptyElms = [];
+                $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+                $emptyElms = [];
             //find all required fields that were left empty
             for (let i = 0; i < $($elms).length; i++) {
-              var $elm = $($elms).eq(i);
-              if ($elm.val() == "") {
-                $emptyElms.push($elm);
-                count++;
-              }
+                var $elm = $($elms).eq(i);
+                if ($elm.val() == "") {
+                    $emptyElms.push($elm);
+                    count++;
+                }
             }
             //if WET4 already has errors, scroll to those
             if ($("#errors-default")[0]) {
-              $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
-              //scroll to the FIRST element that failed custom validation
+                $('html, body').animate({
+                    scrollTop: $("#errors-default").offset().top
+                }, 'slow');
+                //scroll to the FIRST element that failed custom validation
             } else if ($emptyElms[0]) {
-              $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
-              console.debug($emptyElms);
-              //validation passed, show the results
+                $('html, body').animate({
+                    scrollTop: $($emptyElms[0]).offset().top
+                }, 'slow');
+                console.debug($emptyElms);
+                //validation passed, show the results
             } else {
-              $("#results").removeClass("hidden");
+                $("#results").removeClass("hidden");
             }
             var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
 
@@ -962,14 +964,8 @@ Expenses breakdown
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
-
                 var insuranceRebate = toMoney.format(insuranceBill);
-                //var insuranceRebateNumber = (rate / 100) * insuranceBill;
-
                 var propertyRebate = toMoney.format(propertyTaxesBill);
-                //var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
-
-                //var maintenanceRebates = toMoney.format(maintenanceBill + otherMaintenanceBill);
 
                 //Fill out Amounts to claim 
                 $("#electricity").text(electricityRebate);
@@ -977,18 +973,17 @@ Expenses breakdown
                 $("#other").text(otherExpensesRebate);
                 $("#insurance").text(insuranceRebate);
                 $("#property").text(propertyRebate);
+                $("#maintenance-alt").text(otherMaintenanceRebate);
 
                 //Personal-use portion claim
                 var personalRate = 100 - rate;
                 personalRebate = toMoney.format(otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
                 personalRebateNumber = otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
-                //personalRebate = toMoney.format(((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill));
-                //personalRebateNumber = ((personalRate / 100) * maintenanceBill) + ((personalRate / 100) * otherExpensesBill) + ((personalRate / 100) * electricityBill) + ((personalRate / 100) * insuranceBill) + ((personalRate / 100) * propertyTaxesBill) + ((personalRate / 100) * otherMaintenanceBill);
                 $("#office").text(personalRebate);
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    $(".personalClaim").text(personalRebateNumber.toFixed(2));
+                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
                 }
@@ -1002,14 +997,14 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
-                    $(".ins").text(insuranceBill.toFixed(2));
+                    $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
                 }
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
-                    $(".pro").text(propertyTaxesBill.toFixed(2));
+                    $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
                 }
@@ -1017,7 +1012,7 @@ Expenses breakdown
                 //Commission Amount - Summary Page
                 if (propertyTaxesBill || insuranceBill) {
                     var commission = propertyTaxesBill + insuranceBill;
-                    $(".com-total").text(commission.toFixed(2));
+                    $(".com-total").text(commission.toLocaleString());
                 } else {
                     $(".com-total").text("0");
                 }
@@ -1064,14 +1059,8 @@ Expenses breakdown
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
-
                 var insuranceRebate = toMoney.format(insuranceBill);
-                //var insuranceRebateNumber = (rate / 100) * insuranceBill;
-
                 var propertyRebate = toMoney.format(propertyTaxesBill);
-                //var propertyRebateNumber = (rate / 100) * propertyTaxesBill;
-
-                //var maintenanceRebates = toMoney.format(maintenanceBill + otherMaintenanceBill);
 
                 //Fill out Amounts to claim 
                 $("#electricity").text(electricityRebate);
@@ -1079,6 +1068,7 @@ Expenses breakdown
                 $("#other").text(otherExpensesRebate);
                 $("#insurance").text(insuranceRebate);
                 $("#property").text(propertyRebate);
+                $("#maintenance-alt").text(otherMaintenanceRebate);
 
                 //Personal-use portion claim
                 var personalRate = $("#perRate").text();
@@ -1089,7 +1079,7 @@ Expenses breakdown
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    $(".personalClaim").text(personalRebateNumber.toFixed(2));
+                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
                 }
@@ -1103,14 +1093,14 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
-                    $(".ins").text(insuranceBill.toFixed(2));
+                    $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
                 }
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
-                    $(".pro").text(propertyTaxesBill.toFixed(2));
+                    $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
                 }
@@ -1118,7 +1108,7 @@ Expenses breakdown
                 //Commission Amount - Summary Page
                 if (propertyTaxesBill || insuranceBill) {
                     var commission = propertyTaxesBill + insuranceBill;
-                    $(".com-total").text(commission.toFixed(2));
+                    $(".com-total").text(commission.toLocaleString());
                 } else {
                     $(".com-total").text("0");
                 }
