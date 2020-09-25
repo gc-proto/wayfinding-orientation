@@ -2945,14 +2945,9 @@
         }
         var cewsRateElements = $('.cews-rate-calc');
         var claimMonth = getClaimMonth($("#claim-period").val());
-        if (claimMonth.toString().match(/\d{2}/g)) {
-          claimMonthPrefix = "";
-        } else {
+        if (!claimMonth.toString().match(/\d{2}/g)) {
           claimMonthPrefix = "0";
         }
-        claimMonth = new Date(
-          "2020-" + claimMonthPrefix + claimMonth + '-01'
-        ).getUTCMonth();
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -3068,12 +3063,10 @@
             prev3MonthPrefix = "0";
           }
           var claimMonth = getClaimMonth($("#claim-period").val());
-          if (!claimMonth.toString().match(/\d{2}/g)) {
+          var claimMonthStr = claimMonth.toString();
+          if (!claimMonthStr.match(/\d{2}/g)) {
             claimMonthPrefix = "0";
           }
-          claimMonth = new Date(
-            "2020-" + claimMonthPrefix + claimMonth + '-01'
-          ).getUTCMonth();
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-yes").val());
           //get the previous month from the claim month
@@ -3081,7 +3074,10 @@
           //get the value of the previous month
           var prevClaimValue = zeroIfEmpty($("#2020-" + prevMonthPrefix + prevClaimMonth + "-yes").val());
           //get the avg of the revenue from the last three months
-          var threeMonthAvg = (zeroIfEmpty($("#2020-" + prev3MonthPrefix + (claimMonth - 3) + "-yes").val()) + zeroIfEmpty($("#2020-" + prev2MonthPrefix + (claimMonth - 2) + "-yes").val()) + zeroIfEmpty($("#2020-" + prevMonthPrefix + (claimMonth - 1) + "-yes").val())) / 3;
+          var threeMoAgo = zeroIfEmpty($("#2020-" + prev3MonthPrefix + (claimMonth - 3) + "-yes").val());
+          var twoMoAgo = zeroIfEmpty($("#2020-" + prev2MonthPrefix + (claimMonth - 2) + "-yes").val());
+          var lastMo = zeroIfEmpty($("#2020-" + prevMonthPrefix + (claimMonth - 1) + "-yes").val());
+          var threeMonthAvg = (threeMoAgo + twoMoAgo + lastMo) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
@@ -3319,7 +3315,7 @@
         var date2Counter = 0;
         var date2Month = date2.getUTCMonth();
         if (date1Month == date2Month) {
-          return date1Month + 1;
+          return date1Month;
         }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;
@@ -3330,9 +3326,9 @@
           date2.setUTCDate(date2.getUTCDate() - 1);
         }
         if (parseInt(date1Counter) < parseInt(date2Counter)) {
-          return date2Month + 1;
+          return date2Month;
         } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
-          return date1Month + 1;
+          return date1Month;
         } else {
           return null;
         }
