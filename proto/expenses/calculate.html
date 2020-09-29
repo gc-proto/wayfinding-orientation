@@ -827,8 +827,8 @@ Expenses breakdown
             var spaceUsed = calculateSpaceUsed(workArea, totalArea).toFixed(1);
             //update display
             if (!isNaN(spaceUsed)) {
-                $(".perspc-percent-sum").text(100 - spaceUsed);
-                $(".wrkspc-percent-sum").text(spaceUsed);
+                $(".perspc-percent-sum").text((100 - spaceUsed).toFixed(1));
+                $(".wrkspc-percent-sum").text(100 - spaceUsed);
             } else {
                 $(".wrkspc-percent-sum").text("0");
                 $(".perspc-percent-sum").text("0");
@@ -902,7 +902,7 @@ Expenses breakdown
             event.preventDefault();
             var form = $("#designated-room-form");
             form.validate()
-            //if WET4 already has errors, return
+                //if WET4 already has errors, return
             if (!form.valid()) {
                 return;
             } else {
@@ -954,13 +954,14 @@ Expenses breakdown
                 $("#maintenance-alt").text(otherMaintenanceRebate);
 
                 //Personal-use portion claim
-                var personalRate = 100 - rate;
+                var personalRate = (100 - rate).toFixed(1);
                 personalRebate = toMoney.format(otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
                 personalRebateNumber = otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
                 $("#office").text(personalRebate);
 
                 //Personal Claim
                 if (personalRebateNumber) {
+                    personalRebateNumber = parseFloat(personalRebateNumber);
                     $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
@@ -975,6 +976,7 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
+                    insuranceBill = parseFloat(insuranceBill);
                     $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
@@ -982,6 +984,7 @@ Expenses breakdown
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
+                    propertyTaxesBill = parseFloat(propertyTaxesBill);
                     $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
@@ -1057,6 +1060,7 @@ Expenses breakdown
 
                 //Personal Claim
                 if (personalRebateNumber) {
+                    personalRebateNumber = parseFloat(personalRebateNumber);
                     $(".personalClaim").text(personalRebateNumber.toLocaleString());
                 } else {
                     $(".personalClaim").text("0.00");
@@ -1071,6 +1075,7 @@ Expenses breakdown
 
                 //Insurance - Summary Page
                 if (insuranceBill) {
+                    insuranceBill = parseFloat(insuranceBill);
                     $(".ins").text(insuranceBill.toLocaleString());
                 } else {
                     $(".ins").text("0");
@@ -1078,6 +1083,7 @@ Expenses breakdown
 
                 //Property Taxes amount - Summary Page
                 if (propertyTaxesBill) {
+                    propertyTaxesBill = parseFloat(propertyTaxesBill);
                     $(".pro").text(propertyTaxesBill.toLocaleString());
                 } else {
                     $(".pro").text("0");
