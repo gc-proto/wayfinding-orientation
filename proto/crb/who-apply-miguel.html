@@ -364,7 +364,7 @@
                            <p>Enter your 2019 gross income and claim period income to see if you had the required decrease.</p>
                            
                            <div class="form-group row">
-                              <label class="col-sm-12 control-label" for="2019-income">Year 2019 gross income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <label class="col-sm-12 control-label" for="2019-income">Gross income in calendar the year 2019<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
                               (line 15000 on your 2019 tax return)
                               <div class="col-sm-4">
                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
@@ -386,7 +386,7 @@
                               </section>
                            </div>
                            <div class="form-group row">
-                              <label class="col-sm-12 control-label" for="claim-period-income">Claim period gross income<span class="wb-inv"> (do not include a
+                              <label class="col-sm-12 control-label" for="claim-period-income">Gross income over the 2-weeks of the CRB period<span class="wb-inv"> (do not include a
                                  dollar sign, spaces or commas)</span></label>
                                  <a href="#claim-periods" aria-controls="lwp" class="wb-lbx" role="button">See CRB claim period dates&nbsp;<span class="far fa-question-circle"></span></a>
                               <div class="col-sm-4">
@@ -396,24 +396,22 @@
                               </div>
                            </div>
                            <button type="button" id="calculate-reduction-2019" class="btn btn-primary">Calculate your reduction in earnings</button>
-                           <div id="calculate-reduction-2019-results" class="well mrgn-tp-md">
+                           <div id="calculate-reduction-2019-results" class="well mrgn-tp-md hidden">
                               <h3 class="mrgn-tp-0"><span class="fas fa-calculator text-muted"></span> Reduction of income compared to 2019</h3>
                               <ul class="fa-ul lst-spcd">
-                                 <li><span class="mrgn-tp-0 h5"><span id="stuff">0</span><span class="text-muted"> (weekly income in 2019)</span></span></li>
-                                 <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> <span class="h5">0<span class="text-muted"> (weekly income during the claim period)</span></li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span id="">0</span><span class="text-muted"> (reduction in income)</span></span></li>
+                                 <li><span class="mrgn-tp-0 h5">$<span class="weekly-2019">0</span><span class="text-muted"> (per week in 2019)</span></span></li>
+                                 <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> $<span class="h5"><span class="weekly-claim">0</span><span class="text-muted"> (per week during the claim period)</span></li>
+                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5">$<span id="income-reduction-2019">0</span><span class="text-muted"> (reduction in income)</span></span></li>
 
 
-                                 <li class="brdr-bttm mrgn-tp-lg"><span class="fas fa-divide fa-li"><span class="wb-inv">divide</span></span> <span class="h5">0<span class="text-muted"> (weekly income in 2019)</span></li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span id="">0</span><span class="text-muted"> (percentage reduction compared to 2019)</span></span></li>
+                                 <li class="brdr-bttm mrgn-tp-lg"><span class="fas fa-divide fa-li"><span class="wb-inv">divide</span></span> <span class="h5">$<span class="weekly-2019">0</span><span class="text-muted"> (per week in 2019)</span></li>
+                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span id="income-reduction-2019-percent">0</span><span class="text-muted"> (percentage reduction compared to 2019)</span></span></li>
                                  
-                                 <li class="mrgn-tp-lg"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction.</span></li>
-                                 <li class="mrgn-tp-lg"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction. Try method 2 to see if you qualify under your previous 12 months' income.</span></li>
+                                 <li id="qualify-2019" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction under method 1.</span></li>
+                                 <li id="doesnt-qualify-2019" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction under method 1. Try method 2 to see if you qualify under your previous 12 months' income.</span></li>
                               </ul>
                            </div>
                         </details>
-
-
 
                         <details>  
                            <summary>Method 2: Calculate 50% income decrease compared to previous 12 months</summary> 
@@ -423,7 +421,7 @@
 
 
                            <div class="form-group row">
-                              <label class="col-sm-12 control-label" for="prev-12-month-income">Gross income for 12 months before the CRB period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <label class="col-sm-12 control-label" for="prev-12-month-income">Gross income over the 12 months before the CRB period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
                               <a href="#claim-periods" aria-controls="lwp" class="wb-lbx" role="button">See CRB claim period dates&nbsp;<span class="far fa-question-circle"></span></a>
                               <div class="col-sm-4">
                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
@@ -432,32 +430,29 @@
                               </div>
                            </div>
                            <div class="form-group row">
-                              <label class="col-sm-12 control-label" for="claim-period-income-2">Claim period gross income<span class="wb-inv"> (do not include a
+                              <label class="col-sm-12 control-label" for="claim-period-income-2">Gross income over the 2-weeks of the CRB period<span class="wb-inv"> (do not include a
                                  dollar sign, spaces or commas)</span></label>
                               <div class="col-sm-4">
                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                    <input type="number" class="form-control text-right cews-rate-calc-alt currency" name="claim-period-income-2" id="claim-period-income" size="10" placeholder="0.00">
+                                    <input type="number" class="form-control text-right cews-rate-calc-alt currency" name="claim-period-income-2" id="claim-period-income-2" size="10" placeholder="0.00">
                                  </div>
                               </div>
                            </div>
                            <button type="button" id="calculate-reduction-prev-12-months" class="btn btn-primary">Calculate your reduction in earnings</button>
-                           <div id="calculate-reduction-prev-12-month-results" class="well mrgn-tp-md">
+                           <div id="calculate-reduction-prev-12-months-results" class="well mrgn-tp-md">
                               <h3 class="mrgn-tp-0"><span class="fas fa-calculator text-muted"></span> Reduction of income compared to the previous 12 months</h3>
                               <ul class="fa-ul lst-spcd">
-                                 <li><span class="mrgn-tp-0 h5"><span id="stuff">0</span><span class="text-muted"> (weekly income during previous 12 months)</span></span></li>
-                                 <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> <span class="h5">0<span class="text-muted"> (weekly income during the claim period)</span></li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span id="">0</span><span class="text-muted"> (reduction of your income)</span></span></li>
+                                 <li><span class="mrgn-tp-0 h5">$<span class="weekly-prev-12-months">0</span><span class="text-muted"> (per week in 2019)</span></span></li>
+                                 <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> $<span class="h5"><span class="weekly-claim-prev-12-months">0</span><span class="text-muted"> (per week during the claim period)</span></li>
+                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5">$<span id="income-reduction-prev-12-months">0</span><span class="text-muted"> (reduction in income)</span></span></li>
 
 
-                                 <li class="brdr-bttm mrgn-tp-lg"><span class="fas fa-divide fa-li"><span class="wb-inv">divide</span></span> <span class="h5">0<span class="text-muted"> (weekly income during previous 12 months)</span></li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span id="">0</span><span class="text-muted"> (percentage reduction compared to previous 12 months)</span></span></li>
-                              
-                                 <li class="mrgn-tp-lg"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction.</span></li>
-                                 <li class="mrgn-tp-lg"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction.</span></li>
-
+                                 <li class="brdr-bttm mrgn-tp-lg"><span class="fas fa-divide fa-li"><span class="wb-inv">divide</span></span> <span class="h5">$<span class="weekly-prev-12-months">0</span><span class="text-muted"> (per week in 2019)</span></li>
+                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5">$<span id="income-reduction-prev-12-months-percent">0</span><span class="text-muted"> (percentage reduction compared to 2019)</span></span></li>
+                                 
+                                 <li id="qualify-prev-12-months" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction under method 1.</span></li>
+                                 <li id="doesnt-qualify-prev-12-months" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction under method 1. Try method 2 to see if you qualify under your previous 12 months' income.</span></li>
                               </ul>
-
-
                            </div>
                         </details>
 
@@ -596,7 +591,12 @@
                   </div>
                </section>
                <div class="clearfix"></div>
-			   
+            
+            <section>
+               <h2>Make sure you are eligible for a period</h2>
+            </section>
+
+
 
             </section>
             <h2 id="h-2">Verifying your eligibility</h2>
@@ -652,6 +652,94 @@
          }
          })
          
+      </script>
+      <script>
+
+         //on blur placeholder??
+         //maybe we want to hide the results box if they go back to change their amounts?
+
+      /**
+      * calculate-reduction-2019
+      * Calculate the reduction in income based on the input amounts for year 2019 when the submit button is clicked
+      */
+
+      $("#calculate-reduction-2019").on("click", function(){
+         var rev2019 = zeroIfEmpty($("#2019-income").val());
+         var revClaim = zeroIfEmpty($("#claim-period-income").val());
+         var weeklyRev2019 = rev2019 / 52;
+         var weeklyRevClaim = revClaim / 2;
+         var weeklyAvgReduction2019 = weeklyRev2019 - weeklyRevClaim;
+         var weeklyAvgReduction2019Perc = roundPercDown(weeklyAvgReduction2019 / weeklyRev2019);
+         $(".weekly-2019").text(Math.round(weeklyRev2019 * 100) / 100);
+         $(".weekly-claim").text(Math.round(weeklyRevClaim * 100) / 100);
+         $("#income-reduction-2019").text(Math.round(weeklyAvgReduction2019 * 100) / 100);
+         $("#income-reduction-2019-percent").text(weeklyAvgReduction2019Perc + "%");
+         //Once calculation is done, unhide the qualification and statement whether they are eligible or not
+         $("#calculate-reduction-2019-results").removeClass("hidden");
+         if (weeklyAvgReduction2019Perc >= 50) //has a qualifying reduction
+         {
+            $("#qualify-2019").removeClass("hidden");
+            $("#doesnt-qualify-2019").addClass("hidden");
+         }
+         else
+         {
+            $("#qualify-2019").addClass("hidden");
+            $("#doesnt-qualify-2019").removeClass("hidden");
+         }
+      });
+
+
+      /**
+      * calculate-reduction-prev-12-months
+      * Calculate the reduction in income based on the input amounts for year 2019 when the submit button is clicked
+      */
+      $("#calculate-reduction-prev-12-months").on("click", function(){
+         var revPrev12 = zeroIfEmpty($("#prev-12-month-income").val());
+         var revClaimPrev12 = zeroIfEmpty($("#claim-period-income-2").val());
+         var weeklyRevPrev12 = revPrev12 / 52;
+         var weeklyRevClaimPrev12 = revClaimPrev12 / 2;
+         var weeklyAvgReductionPrev12 = weeklyRevPrev12 - weeklyRevClaimPrev12;
+         var weeklyAvgReductionPrev12Perc = roundPercDown(weeklyAvgReductionPrev12 / weeklyRevPrev12);
+         $(".weekly-prev-12-months").text(Math.round(weeklyRevPrev12 * 100) / 100);
+         $(".weekly-claim-prev-12-months").text(Math.round(weeklyRevClaimPrev12 * 100) / 100);
+         $("#income-reduction-prev-12-months").text(Math.round(weeklyAvgReductionPrev12 * 100) / 100);
+         $("#income-reduction-prev-12-months-percent").text(weeklyAvgReductionPrev12Perc + "%");
+         //Once calculation is done, unhide the qualification and statement whether they are eligible or not
+         $("#calculate-reduction-prev-12-months-results").removeClass("hidden");
+         if (weeklyAvgReductionPrev12Perc >= 50) //has a qualifying reduction
+         {
+            $("#qualify-prev-12-months").removeClass("hidden");
+            $("#doesnt-qualify-prev-12-months").addClass("hidden");
+         }
+         else
+         {
+            $("#qualify-prev-12-months").addClass("hidden");
+            $("#doesnt-qualify-prev-12-months").removeClass("hidden");
+         }
+      });
+
+      /**
+      * roundPercDown()
+      * round the given percent value to two decimal places
+      */
+      function roundPercDown(perc) {
+         perc = perc * 10000;
+         perc = Math.floor(perc);
+         perc = perc / 100;
+         return perc;
+      }
+
+      /**
+      * zeroIfEmpty()
+      * return 0 if the number cannot be parsed into a float; does not account * for letter values.
+      */
+      function zeroIfEmpty(fieldVal) {
+         if (fieldVal != null && fieldVal != "") {
+            return parseFloat(fieldVal);
+         } else {
+            return 0;
+         }
+      }
       </script>
    </body>
 </html>
