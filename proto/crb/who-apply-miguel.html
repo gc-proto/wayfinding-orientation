@@ -269,7 +269,8 @@
                                    
                                    <li id="qualify-2019" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction from your 2019 earnings.</span></li>
                                    <li id="doesnt-qualify-2019" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction from your 2019 earnings.</span></li>
-                                </ul>
+                                   <p class="h5 text-info">You will need to repeat this calculation for every CRB period you apply for.</p>
+                                 </ul>
                              </div>
                           </details>
   
@@ -715,7 +716,7 @@
          var weeklyAvgReductionPrev12Perc = roundPercDown(weeklyAvgReductionPrev12 / weeklyRevPrev12);
          if (weeklyRevPrev12 == 0)
          {
-            var weeklyAvgReduction2019Perc = 0;
+            var weeklyAvgReductionPrev12Perc = 0;
          }
          $(".weekly-prev-12-months").text(Math.round(weeklyRevPrev12 * 100) / 100);
          $(".weekly-claim-prev-12-months").text(Math.round(weeklyRevClaimPrev12 * 100) / 100);
