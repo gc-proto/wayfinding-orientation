@@ -2934,37 +2934,38 @@
 
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
+        var months2019Array = getClaimMonths2019(claimMonth);
 
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
           (
-            parseFloat(zeroIfEmpty($("#2019-" + monthsArray[0] + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-" + monthsArray[1] + "-no").val())) > 0
+            parseFloat(zeroIfEmpty($("#" + months2019Array[0] + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#" + months2019Array[1] + "-no").val())) > 0
           ) &&
           (
-            parseFloat(zeroIfEmpty($("#2019-" + monthsArray[3] + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-" + monthsArray[2] + "-no").val())) > 0
+            parseFloat(zeroIfEmpty($("#" + months2019Array[3] + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#" + months2019Array[2] + "-no").val())) > 0
           )
         ) {
           //get the value of the claim month
-          var claimMonth2020Value = zeroIfEmpty($("#2020-" + monthsArray[0] + "-no").val());
-          var claimMonth2019Value = zeroIfEmpty($("#2019-" + monthsArray[0] + "-no").val());
+          var claimMonth2020Value = zeroIfEmpty($("#" + monthsArray[0] + "-no").val());
+          var claimMonth2019Value = zeroIfEmpty($("#" + months2019Array[0] + "-no").val());
           //get the value of the previous month
-          var prevClaim2020Value = zeroIfEmpty($("#2020-" + monthsArray[1] + "-no").val());
-          var prevClaim2019Value = zeroIfEmpty($("#2019-" + monthsArray[1] + "-no").val());
+          var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
+          var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
           //get the avg of the revenue from the previous three motnhs (2020)
           var threeMonthRev2020 = [
-            zeroIfEmpty($("#2020-" + monthsArray[3] + "-no").val()),
-            zeroIfEmpty($("#2020-" + monthsArray[2] + "-no").val()),
-            zeroIfEmpty($("#2020-" + monthsArray[1] + "-no").val())
+            zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
+            zeroIfEmpty($("#" + monthsArray[2] + "-no").val()),
+            zeroIfEmpty($("#" + monthsArray[1] + "-no").val())
           ];
           var threeMonthAvg2020 = (threeMonthRev2020[0] + threeMonthRev2020[1] + threeMonthRev2020[2]) / 3;
           //get the avg of the revenue from the previous three months (2019)
           var threeMonthRev2019 = [
-            zeroIfEmpty($("#2019-" + monthsArray[3] + "-no").val()),
-            zeroIfEmpty($("#2019-" + monthsArray[2] + "-no").val()),
-            zeroIfEmpty($("#2019-" + monthsArray[1] + "-no").val())
+            zeroIfEmpty($("#" + months2019Array[3] + "-no").val()),
+            zeroIfEmpty($("#" + months2019Array[2] + "-no").val()),
+            zeroIfEmpty($("#" + months2019Array[1] + "-no").val())
           ];
           var threeMonthAvg2019 = (threeMonthRev2019[0] + threeMonthRev2019[1] + threeMonthRev2019[2]) / 3;
           //get the rate reduction from the three month average
@@ -3113,7 +3114,6 @@
         
         //Adding a 0 in front of a month in case it was single digit
         for (var i = 0; i < monthsArray.length; i++) {
-          console.log(monthsArray);
           if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
             monthsArray[i] = "0" + monthsArray[i];
           }
@@ -3130,7 +3130,22 @@
             monthsArray[i] = "2021-" + monthsArray[i];
           }
         }
-        console.log(monthsArray);
+        return monthsArray;
+      }
+       /**
+       * getClaimMonths2019()
+       * returns an array of the 4 months adjusted for year 2019
+       */
+       function getClaimMonths2019(claimMonth, claimPeriod) {
+        var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
+        
+        //Adding a 0 in front of a month in case it was single digit
+        for (var i = 0; i < monthsArray.length; i++) {
+          if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
+            monthsArray[i] = "0" + monthsArray[i];
+          }
+          monthsArray[i] = "2019-" + monthsArray[i];
+        }
         return monthsArray;
       }
       /**
