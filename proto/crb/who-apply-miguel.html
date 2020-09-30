@@ -316,6 +316,7 @@
                                    
                                    <li id="qualify-prev-12-months" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% reduction from your earnings over the last 12 months.</span></li>
                                    <li id="doesnt-qualify-prev-12-months" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% reduction from your earnings over the last 12 months.</span></li>
+                                   <p class="h5 text-info">You will need to repeat this calculation for every CRB period you apply for.</p>
                                 </ul>
                              </div>
                           </details>
@@ -678,6 +679,10 @@
          var weeklyRevClaim = revClaim / 2;
          var weeklyAvgReduction2019 = weeklyRev2019 - weeklyRevClaim;
          var weeklyAvgReduction2019Perc = roundPercDown(weeklyAvgReduction2019 / weeklyRev2019);
+         if (weeklyRev2019 == 0)
+         {
+            var weeklyAvgReduction2019Perc = 0;
+         }
          $(".weekly-2019").text(Math.round(weeklyRev2019 * 100) / 100);
          $(".weekly-claim").text(Math.round(weeklyRevClaim * 100) / 100);
          $("#income-reduction-2019").text(Math.round(weeklyAvgReduction2019 * 100) / 100);
@@ -708,6 +713,10 @@
          var weeklyRevClaimPrev12 = revClaimPrev12 / 2;
          var weeklyAvgReductionPrev12 = weeklyRevPrev12 - weeklyRevClaimPrev12;
          var weeklyAvgReductionPrev12Perc = roundPercDown(weeklyAvgReductionPrev12 / weeklyRevPrev12);
+         if (weeklyRevPrev12 == 0)
+         {
+            var weeklyAvgReduction2019Perc = 0;
+         }
          $(".weekly-prev-12-months").text(Math.round(weeklyRevPrev12 * 100) / 100);
          $(".weekly-claim-prev-12-months").text(Math.round(weeklyRevClaimPrev12 * 100) / 100);
          $("#income-reduction-prev-12-months").text(Math.round(weeklyAvgReductionPrev12 * 100) / 100);
