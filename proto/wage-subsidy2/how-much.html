@@ -2925,58 +2925,47 @@
       var topUpRate = 0;
       var cewsRate = 0;
       var baseRate = 0;
-      var claimMonthPrefix = "";
-      var prevMonthPrefix = "";
-      var prev2MonthPrefix = "";
-      var prev3MonthPrefix = "";
       var threeMonthReduction = 0;
       $document.on("blur", ".cews-rate-calc", function (event) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-        if (claimPeriod < 9) {
-          prevMonthPrefix = "0";
-        }
-        if (claimPeriod < 10) {
-          prev2MonthPrefix = "0";
-        }
-        if (claimPeriod < 11) {
-          prev3MonthPrefix = "0";
-        }
         var cewsRateElements = $('.cews-rate-calc');
+        //find the claim month based on the chosen claim period 
         var claimMonth = getClaimMonth($("#claim-period").val());
-        if (!claimMonth.toString().match(/\d{2}/g)) {
-          claimMonthPrefix = "0";
-        }
+
+        //Get claim months function??
+        var monthsArray = getClaimMonths(claimMonth, claimPeriod);
+        var months2019Array = getClaimMonths2019(claimMonth);
+
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
           (
-            parseFloat(zeroIfEmpty($("#2019-" + claimMonthPrefix + claimMonth + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-" + prevMonthPrefix + prevClaimMonth + "-no").val())) > 0
+            parseFloat(zeroIfEmpty($("#" + months2019Array[0] + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#" + months2019Array[1] + "-no").val())) > 0
           ) &&
           (
-            parseFloat(zeroIfEmpty($("#2019-" + prev3MonthPrefix + (claimMonth - 3) + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-" + prev2MonthPrefix + (claimMonth - 2) + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#2019-" + prevMonthPrefix + (claimMonth - 1) + "-no").val())) > 0
+            parseFloat(zeroIfEmpty($("#" + months2019Array[3] + "-no").val())) > 0 ||
+            parseFloat(zeroIfEmpty($("#" + months2019Array[2] + "-no").val())) > 0
           )
         ) {
           //get the value of the claim month
-          var claimMonth2020Value = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-no").val());
-          var claimMonth2019Value = zeroIfEmpty($("#2019-" + claimMonthPrefix + claimMonth + "-no").val());
+          var claimMonth2020Value = zeroIfEmpty($("#" + monthsArray[0] + "-no").val());
+          var claimMonth2019Value = zeroIfEmpty($("#" + months2019Array[0] + "-no").val());
           //get the value of the previous month
-          var prevClaim2020Value = zeroIfEmpty($("#2020-" + prevMonthPrefix + prevClaimMonth + "-no").val());
-          var prevClaim2019Value = zeroIfEmpty($("#2019-" + prevMonthPrefix + prevClaimMonth + "-no").val());
+          var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
+          var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
           //get the avg of the revenue from the previous three motnhs (2020)
           var threeMonthRev2020 = [
-            zeroIfEmpty($("#2020-" + prev3MonthPrefix + (claimMonth - 3) + "-no").val()),
-            zeroIfEmpty($("#2020-" + prev2MonthPrefix + (claimMonth - 2) + "-no").val()),
-            zeroIfEmpty($("#2020-" + prevMonthPrefix + prevClaimMonth + "-no").val())
+            zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
+            zeroIfEmpty($("#" + monthsArray[2] + "-no").val()),
+            zeroIfEmpty($("#" + monthsArray[1] + "-no").val())
           ];
           var threeMonthAvg2020 = (threeMonthRev2020[0] + threeMonthRev2020[1] + threeMonthRev2020[2]) / 3;
           //get the avg of the revenue from the previous three months (2019)
           var threeMonthRev2019 = [
-            zeroIfEmpty($("#2019-" + prev3MonthPrefix + (claimMonth - 3) + "-no").val()),
-            zeroIfEmpty($("#2019-" + prev2MonthPrefix + (claimMonth - 2) + "-no").val()),
-            zeroIfEmpty($("#2019-" + prevMonthPrefix + prevClaimMonth + "-no").val())
+            zeroIfEmpty($("#" + months2019Array[3] + "-no").val()),
+            zeroIfEmpty($("#" + months2019Array[2] + "-no").val()),
+            zeroIfEmpty($("#" + months2019Array[1] + "-no").val())
           ];
           var threeMonthAvg2019 = (threeMonthRev2019[0] + threeMonthRev2019[1] + threeMonthRev2019[2]) / 3;
           //get the rate reduction from the three month average
@@ -3050,32 +3039,18 @@
         var febRev = zeroIfEmpty($("#2020-02-yes").val());
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
+          
           //find the claim month based on the chosen claim period 
-          if (claimPeriod < 9) {
-            prevMonthPrefix = "0";
-          }
-          if (claimPeriod < 10) {
-            prev2MonthPrefix = "0";
-          }
-          if (claimPeriod < 11) {
-            prev3MonthPrefix = "0";
-          }
           var claimMonth = getClaimMonth($("#claim-period").val());
-          var claimMonthStr = claimMonth.toString();
-          if (!claimMonthStr.match(/\d{2}/g)) {
-            claimMonthPrefix = "0";
-          }
+          var monthsArray = getClaimMonths(claimMonth, claimPeriod);
           //get the value of the claim month
-          var claimMonthValue = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-yes").val());
-          //get the previous month from the claim month
-          var prevClaimMonth = claimMonth - 1;
+          var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
           //get the value of the previous month
-          var prevClaimValue = zeroIfEmpty($("#2020-" + prevMonthPrefix + prevClaimMonth + "-yes").val());
+          var prevClaimValue = zeroIfEmpty($("#" + monthsArray[1] + "-yes").val());
           //get the avg of the revenue from the last three months
-          var threeMoAgo = zeroIfEmpty($("#2020-" + prev3MonthPrefix + (claimMonth - 3) + "-yes").val());
-          var twoMoAgo = zeroIfEmpty($("#2020-" + prev2MonthPrefix + (claimMonth - 2) + "-yes").val());
-          var lastMo = zeroIfEmpty($("#2020-" + prevMonthPrefix + (claimMonth - 1) + "-yes").val());
-          var threeMonthAvg = (threeMoAgo + twoMoAgo + lastMo) / 3;
+          var threeMoAgo = zeroIfEmpty($("#" + monthsArray[3] + "-yes").val());
+          var twoMoAgo = zeroIfEmpty($("#" + monthsArray[2] + "-yes").val());
+          var threeMonthAvg = (threeMoAgo + twoMoAgo + prevClaimValue) / 3;
           //get the rate reduction from the three month average
           threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
           claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
@@ -3129,6 +3104,50 @@
         }
       });
 
+
+      /**
+       * getClaimMonths()
+       * returns an array of the 4 months with year and prefix based on the claim month
+       */
+      function getClaimMonths(claimMonth, claimPeriod) {
+        var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
+        
+        //Adding a 0 in front of a month in case it was single digit
+        for (var i = 0; i < monthsArray.length; i++) {
+          if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
+            monthsArray[i] = "0" + monthsArray[i];
+          }
+          //get the year for the month based on period
+          if (claimPeriod < 11) {
+            monthsArray[i] = "2020-" + monthsArray[i];
+          } else if (claimPeriod < 15) {
+            if (parseInt(monthsArray[i]) > 5) {
+              monthsArray[i] = "2020-" + monthsArray[i];
+            } else {
+              monthsArray[i] = "2021-" + monthsArray[i];
+            }
+          } else {
+            monthsArray[i] = "2021-" + monthsArray[i];
+          }
+        }
+        return monthsArray;
+      }
+       /**
+       * getClaimMonths2019()
+       * returns an array of the 4 months adjusted for year 2019
+       */
+       function getClaimMonths2019(claimMonth, claimPeriod) {
+        var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
+        
+        //Adding a 0 in front of a month in case it was single digit
+        for (var i = 0; i < monthsArray.length; i++) {
+          if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
+            monthsArray[i] = "0" + monthsArray[i];
+          }
+          monthsArray[i] = "2019-" + monthsArray[i];
+        }
+        return monthsArray;
+      }
       /**
        * roundPercDown()
        * round the given percent value to two decimal places
