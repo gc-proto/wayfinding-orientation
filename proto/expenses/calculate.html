@@ -558,7 +558,7 @@ Expenses breakdown
                         <td>Line 20</td>//-->
                             </tr>
                             <tr>
-                                <td>Personal-use portion (<span class="wrkspc-percent-sum">0</span>% of your total finished area)</td>
+                                <td>Personal-use portion (<span class="perspc-percent-sum">0</span>% of your total finished area)</td>
                                 <td class="active" id="office">[$0.00]</td>
                                 <!--    <td>Line 11</td>
                         <td>Line 23</td>//-->
@@ -828,7 +828,7 @@ Expenses breakdown
             //update display
             if (!isNaN(spaceUsed)) {
                 $(".perspc-percent-sum").text((100 - spaceUsed).toFixed(1));
-                $(".wrkspc-percent-sum").text(100 - spaceUsed);
+                $(".wrkspc-percent-sum").text(spaceUsed);
             } else {
                 $(".wrkspc-percent-sum").text("0");
                 $(".perspc-percent-sum").text("0");
@@ -1054,8 +1054,8 @@ Expenses breakdown
                 //Personal-use portion claim
                 var personalRate = $("#perRate").text();
                 personalRate = parseFloat(personalRate);
-                personalRebate = toMoney.format(otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
-                personalRebateNumber = otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
+                personalRebate = toMoney.format((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
+                personalRebateNumber = ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
                 $("#office").text(personalRebate);
 
                 //Personal Claim
