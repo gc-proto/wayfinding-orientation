@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Canada Emergency Response Benefit (CERB) - Canada.ca</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_32/cdts/compiled/soyutils.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_32/cdts/compiled/wet-en.js"></script>
+		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/provisional-alerts.css" rel="stylesheet">
+
+                  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+
+<style type="text/css">
+/*h1 underline re-design*/ h1#wb-cont {
+border-bottom: none;
+}
+h1#wb-cont::after {
+	content: "";
+	display: block;
+	width: 70px;
+	padding-bottom: 8px;
+	border-bottom: .18em solid #af3c43;
+}/*Section menu steps design*/
+ul.gcnav-steps {
+	list-style: none;
+	padding-left: 0.57em;
+	position: relative;
+}
+li ul.gcnav-steps {
+	margin-top: 20px;
+	padding-left: 0.55em;
+}
+ul.gcnav-steps>li {
+	border-left: 4px solid #26374a;
+	padding: 0px 20px 30px 1em;
+}
+ul.gcnav-steps.noline>li {
+	border-left: 4px solid transparent;
+}
+ul.gcnav-steps>li::first-line {
+	line-height: 1!important;
+}
+ul.gcnav-steps>li:last-child, ul.gcnav-steps>li.gcnav-steps-end {
+	border-left: 4px solid transparent;
+}
+li ul.gcnav-steps>li:last-child {
+	padding-bottom: 0px;
+}
+ul.gcnav-steps>li>:first-child::before {
+	border-radius: 50%;
+	border: 3px solid #26374a;
+	background-color: #fff;
+	position: absolute;
+	left: 0.05em;
+	content: "";
+	width: 1.2em;
+	height: 1.2em;
+	transition: width 0.2s, height 0.2s, left 0.2s, margin-top 0.2s;
+}
+ul.gcnav-steps>li.active>:first-child::before {
+	background-color: #26374a;
+}
+ul.gcnav-steps>li>a[href]:hover::before, .gcnav-steps>li>a[href]:focus::before {
+	width: 1.4em;
+	height: 1.4em;
+	left: -0.05em;
+	margin-top: -0.1em;
+}/*Section menu mobile*/
+.gcnav h1#wb-cont-parent {
+	border-bottom-width: 0px;
+	padding: 0px 20px 10px 12px;
+	background-color: #fff;
+	display: inline-block;
+	font-size: 1.3em;
+	color: #555;
+	margin-top: -19px;
+	float: left;
+	margin-right: 20px;
+}
+.gcnav-menu {
+	border-top: 4px solid #26374a;
+	border-right: 4px solid #26374a;
+	border-radius: 0px 6px 6px 0px;
+	margin-top: 38px;
+}
+.gcnav-menu .gcnav-steps {
+	padding-top: 10px;
+	clear: both;
+}
+.gcnav ul.gcnav-steps>li:last-child {
+	border-left: 4px solid #26374a;
+	border-bottom: 4px solid #26374a;
+	border-bottom-left-radius: 6px;
+}
+#gcnav-menu-header, .gcnav-menu-pager {
+	display: none;
+}/* Section menu desktop*/
+
+@media all and (min-width:992px) {
+.gcnav {
+	margin: 0px -15px 0px -15px;
+}
+.gcnav::after {
+	clear: both;
+}
+.gcnav::after, .gcnav::before {
+	content: " ";
+	display: table;
+}
+.gcnav-menu h1#wb-cont-parent {
+	font-weight: inherit;
+	padding-bottom: 0px!important;
+	margin-bottom: 0px;
+}
+.gcnav-section h1#wb-cont {
+	margin-top: 0px;
+}
+.gcnav-menu h1#wb-cont-parent, .gcnav-menu ul.gcnav-menu-pager, .gcnav-section {
+	width: 66.66%;
+}
+.gcnav-menu nav, .gcnav aside.gcnav-side {
+	width: 33.33%;
+	float: right;
+}
+.gcnav-section {
+	display: inline-block;
+}
+.gcnav-menu nav {
+	margin-top: -20px;
+}
+.gcnav-menu h1#wb-cont-parent, .gcnav-menu ul.gcnav-menu-pager, .gcnav-section, .gcnav-menu nav, .gcnav aside.gcnav-side {
+	position: relative;
+	min-height: 1px;
+	padding: 0px 15px 0px 15px;
+}
+.gcnav-menu h1#wb-cont-parent, .gcnav-menu ul.gcnav-menu-pager {
+	float: left;
+}
+.gcnav aside.gcnav-side {
+	clear: right;
+}
+#gcnav-menu-header, .gcnav-menu-pager {
+	display: inherit;
+	margin-top: 0px;
+}
+.gcnav-menu #gcnav-menu-header {
+	font-size: 1.2em;
+}
+.gcnav-menu {
+	border-top: 0px;
+	border-right: 0px;
+}
+.gcnav ul.gcnav-steps > li:last-child {
+	border-left: 4px solid transparent;
+	border-bottom: 0px;
+}/*Section menu nav buttons*/
+ul.gcnav-menu-pager>li>a:hover, ul.gcnav-menu-pager>li>a:focus, ul.gcnav-menu-pager>li>a:visited {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	padding: 5px;
+}
+ul.gcnav-menu-pager>li>a {
+	background-color: #26374a;
+}
+ul.gcnav-menu-pager>li>a:hover {
+	background-color: #444;
+}
+ul.gcnav-menu-pager>li>a:not(:focus) {
+	clip: rect(1px,1px,1px,1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+ul.gcnav-menu-pager>li>a:focus {
+	position: relative;
+}
+ul.gcnav-menu-pager {
+	display: flex;
+	margin-bottom: 0;
+	list-style: none;
+	padding-left: 0;
+}
+}
+@-moz-document url-prefix() {
+ul.gc-navseq>li>:first-child::before {
+margin-left: -2.0em;
+}
+}/*Checkbox/Fieldflow radio input sizing,positioning*/
+.checkbox-lg > li.checkbox {
+	margin-top: 0px;
+}
+.checkbox-lg > li {
+	margin-left: -40px;
+	padding-left: 40px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+	padding-right: 15px;
+}
+.checkbox-zebra > li:nth-child(2n+1) {
+	background-color: #f5f5f5;
+	padding-top: 10px;
+	padding-bottom: 15px;
+}
+.checkbox-lg > li.checkbox input[type=checkbox], .fieldflow-lg .radio input[type=radio] {
+	margin-top: 12px;
+	transform: scale(2);
+}
+.checkbox-lg label, .fieldflow-lg, .fieldflow-lg label, .fieldflow-lg div, .fieldflow-lg select, .std-blt {
+	font-size: 20px;
+	line-height: 1.65em;
+}
+.std-blt {
+	list-style-type: disc;
+}
+.std-blt li label {
+	display: block;
+	padding-left: 0px;
+}
+.fieldflow-lg .radio label {
+	margin-left: 40px;
+}
+.fieldflow-lg .radio input[type=radio] {
+	margin-left: -40px;
+}
+.fieldflow-lg fieldset legend {
+	font-size: 22px;
+	margin-top: 0px;
+}
+</style>
+
+
+       <style type="text/css">
+            div.hidden-action {
+            transform: scaleX(0);
+            overflow: hidden;
+			display:none;
+            }
+            div.visible-action {
+            transform: scaleX(1);
+            display:visible;
+            }
+            .checkbox-lg label {font-size: 1em;}
+            .checkbox input[type=checkbox] {margin-top:13px;transform: scale(2);}
+			.checkbox-lg > li:nth-child(2n) {
+
+    background-color: #f5f5f5;
+
+    margin-left: -40px;
+
+    padding-left: 40px;
+
+    padding-top: 5px;
+
+    padding-bottom: 5px;
+
+}
+
+
+         </style>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			document.write(wet.builder.refTop({
+			}));
+		</script>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="def-top">
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				lngLinks: [{
+					lang: "fr",
+					href: "landing-fr.html",
+					text: "Français"
+                }],
+			breadcrumbs: [{
+					title: "Canada.ca",
+					href: "https://www.canada.ca/en.html"
+				},{
+					title: "Benefits",
+            		href: "http://test.canada.ca/covid-19-guidance/proto/benefits-theme/benefits-theme-index-sept27.html"
+            	},{
+            		title: "COVID-19 benefits",
+            		href: "http://test.canada.ca/covid-19-guidance/proto/benefits-theme/covid19-benefits-sept27.html"
+				},{
+            		title: "Canada Emergency Response Benefit (CERB): Closed",
+            		href: "http://test.canada.ca/covid-19-guidance/proto/cerb/ei-cerb-application-sept27.html"
+				}],
+				search: true,
+				siteMenu: true,
+				showPreContent: true
+			});
+</script>
+
+<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement" class="container">
+  <div class="mwstitle section">
+
+<h1 property="name" id="wb-cont" dir="ltr">
+After CERB ends: Transition to new COVID-19 benefits<strong><span class="nowrap"></span></strong><br> </h1>
+
+
+
+</div>
+<div class="mwsgeneric-base-html parbase section">
+
+<p><strong><abbr>CERB</abbr> ended on September 26, 2020.</strong> If you still need income support after <abbr>CERB</abbr> ends, you may be eligible for the simplified <abbr>EI</abbr> program, or new temporary and taxable recovery benefits.</li>
+</ul>
+
+
+<h2>On this page</h2>
+<ul>
+<li><a href="#EI">Transition from <abbr>CERB</abbr> to <abbr>EI</abbr></a></li>
+<li><a href="#CRB">Canada Recovery Benefits</a></li>
+
+</ul>
+
+<h2 id="EI">Transition from <abbr>CERB</abbr> to Employment Insurance (EI)</h2>
+<p>After CERB ends, Employment Insurance (EI) has changed to help more Canadians access financial support.  These changes will be in effect for 1 year.</p>
+
+<h3>New EI rules to help more Canadians </h3>
+	 <p>You may get a minimum rate of $500 per week for up to 26 weeks.</p>
+	 <h3>Determine if you qualify for transition to Employment Insurance (EI)</h3>
+
+
+    <details><summary>If you received the CERB through Service Canada</summary>
+        <p>In most cases, you <strong>do not need to apply</strong> for EI benefits. After you receive your last CERB payment, continue <a href="/en/services/benefits/ei/ei-internet-reporting.html">completing reports</a>. We'll automatically review your file and your ROE, then start a claim for EI regular benefits if you qualify. If you don’t qualify, you’ll be notified by mail.</p>
+      <p><strong>You will need to apply</strong> for EI after your CERB ends if:</p>
+      <ul>
+        <li>you have a SIN that starts with a 9</li>
+        <li>you’re self-employed, or</li>
+        <li>you declared that you returned to work full-time on your CERB report</li>
+      </ul>
+      <details>
+        <summary>If you need sickness benefits instead of regular benefits</summary>
+        <p>You can declare on your reports that you’re unable to work for medical reasons and you could receive up to 15 weeks of sickness benefits.</p>
+      </details>
+    </details>
+
+  <details><summary>If you received the CERB through CRA</summary>
+  <ul>
+    <li>Check if you are eligible for simplified EI:</li>
+    <section>
+      <ul class="checkbox-lg">
+        <li class="checkbox">
+          <input type="checkbox" id="eg2" class="action-checkbox">
+          <label for="eg2">You were employed for at least 120 insurable hours (EI was deducted from your pay) in the past 52 weeks</label>
+        <ul>
+        <li>If you received the CERB, the 52 week period is extended to include your weeks on CERB</li>
+        <li>For example, if you received the CERB for 20 weeks, you need at least 120 insurable hours in the past 72 weeks</li>
+      </ul>
+      </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg4" class="action-checkbox">
+          <label for="eg4"> You stopped working through no fault of your own </label>
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg5" class="action-checkbox">
+          <label for="eg5"> You have not quit your job voluntarily </label>
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" id="eg6" class="action-checkbox">
+          <label for="eg6"> You are ready, willing and capable of working each day (for EI regular benefits) </label>
+        </li>
+
+       <li class="checkbox">
+          <input type="checkbox" id="eg7" class="action-checkbox">
+          <label for="eg7"> You are temporarily unable to work while you care for yourself or for someone else who is critically ill or injured (for EI maternity, parental, sickness, compassionate care, and family caregiver benefits) </label>
+        </li>
+
+        <li class="checkbox">
+          <input type="checkbox" id="eg8" class="action-checkbox">
+          <label for="eg8"> You can still work, but your benefit will reduce by $0.50 for every dollar you earn (up to
+          90% of previous weekly earning) </label>
+        </li>
+          </ul>
+
+      </section>
+  <li>If you qualify, <a href="../ei/ei-regular-benefit.html">apply for simplified EI </a></li>
+</ul>
+</details>
+
+<h2 id="CRB">Canada Recovery Benefits</h2>
+
+<p>If you are not eligible for EI benefits, you may be eligible for one of the proposed new benefits.</p>
+
+<h3>Canada Recovery Benefit (CRB)</h3>
+<p>The CRB will provide income support to employed and self-employed individuals whose income is directly affected by COVID-19.  This benefit is for people who are ready to work and looking for work, but who do not qualify for the simplified Employment insurance (EI) benefits.</p>
+
+<p class="mrgn-tp-md">Go to the <strong><a href="../crb/onepager.html">Canada Recovery Benefit</a></strong></p>
+
+
+<h3 class="mrgn-tp-xl">Canada Recovery Caregiving Benefit (CRCB)</h3>
+<p>The CRCB will provide income support ($500 per week, for up to 26 weeks per household) to employed and self-employed individuals who are not able to work because they are caring for a young child or family member who requires supervised care.  This only applies if their regular school, facility, or program is closed due to COVID-19.</p>
+
+<p class="mrgn-tp-md">Go to the <strong><a href="../crcb/onepager.html">Canada Recovery Caregiving Benefit</a></strong></p>
+
+
+<h3 class="mrgn-tp-xl">Canada Recovery Sickness Benefit (CRSB)</h3>
+<p>The CRSB will provide $500 per week for up to 2 weeks, for employed and self-employed individuals who are not able to work because they're sick or need to self-isolate due to COVID-19.</p>
+
+
+<p class="mrgn-tp-md">Go to the <strong><a href="../crsb/onepager.html">Canada Recovery Sickness Benefit</a</strong></p>
+
+
+
+
+
+
+
+
+</div>
+
+
+<div id="def-preFooter">
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+	var defPreFooter = document.getElementById("def-preFooter");
+	defPreFooter.outerHTML = wet.builder.preFooter({
+		dateModified: "2020-05-19",
+		showPostContent: true,
+		showFeedback: true,
+		showShare: true
+	});
+</script>
+		</main>
+		<div id="def-footer">
+
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				showFooter: true,
+				showFeatures: true
+			});
+		</script>
+		<!-- Write closure template -->
+				<script type="text/javascript">
+			document.write(wet.builder.refFooter({
+			}));
+		</script>
+		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script>
+			$(document).ready(function () {
+				console.log("ready!");
+
+				var linkSwap = document.querySelector('a[href="https://www.canada.ca/en/contact.html"]');
+				if (linkSwap) {
+					linkSwap.setAttribute('href', 'https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/contact.html')
+				}
+				console.log("run");
+
+			});
+		</script>
+
+	</body>
+
+</html>
