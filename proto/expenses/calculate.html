@@ -961,8 +961,8 @@ Expenses breakdown
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    personalRebateNumber = parseFloat(personalRebateNumber);
-                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
+                    var price = $("#office").text().replace("$", "");
+                    $(".personalClaim").text(price);
                 } else {
                     $(".personalClaim").text("0.00");
                 }
@@ -1060,8 +1060,8 @@ Expenses breakdown
 
                 //Personal Claim
                 if (personalRebateNumber) {
-                    personalRebateNumber = parseFloat(personalRebateNumber);
-                    $(".personalClaim").text(personalRebateNumber.toLocaleString());
+                    var price = $("#office").text().replace("$", "");
+                    $(".personalClaim").text(price);
                 } else {
                     $(".personalClaim").text("0.00");
                 }
