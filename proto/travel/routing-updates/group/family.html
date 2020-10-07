@@ -8,7 +8,7 @@
 		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
 		<link rel="stylesheet" href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css">
-		<link href="../../css/cews.css" rel="stylesheet">
+		<link href="../../../css/cews.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 		<!-- Write closure template -->
 		<script>
@@ -66,7 +66,7 @@
 						<li><a href="wizard-start.html">Find out if you can travel to Canada</a></li>
 						<li><a href="isolation.html">Mandatory isolation or quarantine</a></li>
 						<li> <a href="visitors-workers-students.html">Visitors, foreign workers and students</a></li>
-						<li class="active"><a aria-current="page">Foreign nationals reuniting with immediate family</a></li>
+						<li class="active"><a aria-current="page">Foreign nationals reuniting with family</a></li>
 						<li><a href="compassion.html">Caring for others, funerals and family support</a></li>
 						<li><a href="provinces.html">Provincial and territorial restrictions</a></li>
 						<li><a href="flying.html">Flying in Canada</a></li>
@@ -75,38 +75,109 @@
 				</nav>
 			</section>
 			<section class="gc-nav-section experimental">
-				<h1 property="name" id="wb-cont">Foreign nationals reuniting with immediate family</h1>
+				<h1 property="name" id="wb-cont">Foreign nationals reuniting with family</h1>
+
+		<p>In most circumstances, your family member must be a Canadian citizen, a permanent resident of Canada, or a temporary
+			resident in order to enter Canada for the purpose of reuniting.</p>
+<div class="wb-frmvld">
+	<form method="get">
+
+		<!--Question 1-->
+		<div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
+			"renderas":"radio",
+			"noForm": true,
+			"base": { "live": true },
+			"default": { "action": "addClass", "source":"#question1,#question2,#question3,#immediate,#no-entry,#no-entry-extended,#extended", "class": "hidden" }
+			}'>
+			<p>What is your relationship with the person you want to reunite with?</p>
+			<ul>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the spouse or
+				common law partner of the person</a></li>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the dependent
+					child of the person</li>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the dependent child
+					of a dependent child of the person</li>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the parent or
+					step-parent of the person</li>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the guardian or
+					tutor of the person</li>
+				<!--result-->
+				<li data-wb-fieldflow='{ "action": "append", "source":"#question2" }'>none of the above (you are a child who is no longer dependent, brother, aunt, etc.)</li>
+
+			</ul>
+		</div>
+
+		<!--Question 2-->
+		<div id="question2" class="wb-fieldflow-sub hidden"
+			data-wb-fieldflow='{"renderas":"radio", "reset": { "action": "addClass", "source":".toggle1,.toggle2", "class": "hidden" }}'>
+			<div class="wb-fieldflow-header">
+				<p class="wb-fieldflow-label">Are you reuniting with a Canadian citizen or permanent resident of Canada?</p>
+			</div>
+			<ul>
+				<li data-wb-fieldflow='{ "action": "append", "source":"#question3" }'>Yes</li>
+				<li data-wb-fieldflow='{ "action": "removeClass", "source":"#no-entry", "class": "hidden" }'>No, I am reuniting with a temporary resident</li>
+			</ul>
+
+		</div>
+
+		<div id="question3" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"renderas":"radio"}'>
+			<p>You may be able to reunite as an extended family member. Are you in any of the following relationships with the person?</p>
+			<ul>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are in an exclusive dating relationship with the person (for at least one year, and have spent physical time together)</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are the dependent child of someone in an exclusive dating relationship with the person</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are the child of the person (or the person's spouse, common-law partner or someone they have been in an exclusive dating relationship with)</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are the dependent child of a child of the person (grandchild)</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are the sibling, half-sibling or step sibling of the person (or of the person's spouse or common-law partner)</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are the grandparent of the person (or of the person's spouse or common-law partner)</li>
+					<li data-wb-fieldflow='{ "action": "removeClass", "source":"#no-entry-extended", "class": "hidden" }'>none of the above (an aunt or uncle, cousin, niece or nephew, etc.)</li>
+			</ul>
+		</div>
+
+
+	</form>
+
+
+
+</div>
+
+
 				<div>
-					<p>In most circumstances, your family member must be a Canadian citizen, a permanent resident of Canada, or a temporary resident in order to enter Canada for the purpose of reuniting.</p>
-					<div data-wb-urlmapping='{
-							"p=immediate": { "action": "addClass", "class": "hidden" },
-							"p=not-immediate": { "action": "addClass", "class": "hidden" },
-							}' class="wb-frmvld">
-						<div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
-									"noForm":false,
-										"renderas":"radio",
-										"base": { "live": false },
-										"noreqlabel": true,
-										"default": { "action": "addClass", "source":"#immediate,#not-immediate", "class": "hidden" }
-								}'>
-							<p>What is your relationship with the person you want to reunite with?</p>
-							<ul>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the spouse or common law partner of the person</li>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#immediate", "class": "hidden" }'>you are the dependent child of the person</li>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the dependent child of a dependent child of the person</li>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the parent or step-parent of the person</li>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the guardian or tutor of the person</li>
-								<li data-wb-fieldflow='{ "action": "removeClass", "source":"#not-immediate", "class": "hidden"}'>none of the above (you are a child who is no longer dependent, brother, aunt, etc.)</li>
-							</ul>
-						</div>
-					</div>
-					<div data-wb-urlmapping='{ "p=not-immediate": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="not-immediate" role="status" aria-controls="question1">
+		
+					
+					<div data-wb-urlmapping='{ "p=no-entry": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="no-entry" role="status" aria-controls="question2">
+		
 						<h2 class="mrgn-tp-sm">You do not qualify for entry</h2>
-						<p>For foreign nationals, <strong>only these relationships</strong> are considered immediate family. Any other relationship (like brother, sister, aunt, adult child who is no longer dependant, etc.) will not be allowed entry for the purpose of reuniting with family.</p>
-						<p>If you are trying to enter Canada for a different family related reason, see <a href="compassion.html">Caring for others, funerals and family support</a>.</p>
-						<p>You can also answer a few questions to see if you may be allowed to enter Canada for a different <strong>essential or not optional</strong> reason.</p>
+
+					
+						<p>For foreign nationals, only immediate family members can reunite with a temporary resident of Canada. <strong>Only these relationships</strong> are considered immediate family. Any other
+							relationship (like brother, sister, aunt, adult child who is no longer dependant, etc.) will not be allowed entry
+							for the purpose of reuniting with family.</p>
+						<p>If you are trying to enter Canada for a different family related reason, see <a href="compassion.html">Caring for
+								others, funerals and family support</a>.</p>
+						<p>You can also answer a few questions to see if you may be allowed to enter Canada for a different <strong>essential
+								or not optional</strong> reason.</p>
 						<a href="./wizard-start.html" class="btn btn-call-to-action">Find out if you can travel to Canada</a>
 					</div>
+
+
+						<div data-wb-urlmapping='{ "p=no-entry-extended": { "action": "removeClass", "class": "hidden" } }'
+							class="hidden mrgn-bttm-lg mrgn-tp-sm" id="no-entry-extended" role="status" aria-controls="question3">
+						
+							<h2 class="mrgn-tp-sm">You do not qualify for entry</h2>
+						
+						
+							
+            <p><strong>Only these relationships</strong> are considered immediate or extended family. Any other relationships (like aunt or uncle,
+               cousins, niece or nephew, etc.) will not be allowed entry for the purpose of reuniting with family.</p>
+							<p>If you are trying to enter Canada for a different family related reason, see <a href="compassion.html">Caring for
+									others, funerals and family support</a>.</p>
+							<p>You can also answer a few questions to see if you may be allowed to enter Canada for a different <strong>essential
+									or not optional</strong> reason.</p>
+							<a href="./wizard-start.html" class="btn btn-call-to-action">Find out if you can travel to Canada</a>
+						</div>
+
+
+
 					<div data-wb-urlmapping='{ "p=immediate": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="immediate" role="status" aria-controls="question1">
 						<h2 class="mrgn-tp-sm">Your relationship qualifies for entry</h2>
 						<p>The steps you must follow depend on if your family member is a Canadian citizen, permanent resident, or a temporary resident.</p>
@@ -240,10 +311,102 @@
 						</details>
 					</div>
 				</div>
+
+					<div data-wb-urlmapping='{ "p=extended": { "action": "removeClass", "class": "hidden" } }'
+						class="hidden mrgn-bttm-lg mrgn-tp-sm" id="extended" role="status" aria-controls="question3">
+						<h2 class="mrgn-tp-sm">Your relationship qualifies for entry</h2>
+			<mark>specific steps for extended family members - unless it is the same as immediate family, then reuse same answer</mark>
+						
+						<mark>update content for extended family</mark>
+						<h2 id="unite-citizen-pr-extended">Extended family reuniting with a Canadian citizen or permanent resident</h2>
+						<p>As a foreign national, you <strong>do not</strong> need a written authorization from Immigration, Refugees and
+							Citizenship Canada (IRCC) confirming that you are exempt from the travel restrictions to reunite with an
+							<strong>extended family member</strong> who is a Canadian citizen or permanent resident.</p>
+						<p>You must comply with:</p>
+						<ul>
+							<li><a href="./isolation.html#quarantine">mandatory quarantine requirements</a></li>
+							<li><a href="./provinces.html">provincial and territorial travel restrictions</a></li>
+						</ul>
+						<p>You must demonstrate that you plan to stay in Canada for <strong>15 days or more</strong>, and you will need to:
+						</p>
+						<ul>
+							<li>bring <a href="#proof-extended">documents to prove</a> your family member's status and your family relationship with them
+							</li>
+						</ul>
+					
+						<p>If you must leave Canada during the 14-day quarantine period, you must <a
+								href="./isolation.html#leave-canada">comply with departure instructions</a>.</p>
+					
+					
+						<details>
+							<summary>If you're flying to Canada as a foreign national</summary>
+							<p>To board your flight to Canada, you must also:</p>
+							<ul class="lst-spcd">
+								<li>follow all <a href="./flying.html#health-check">flight requirements</a></li>
+								<li>tell the airline that you’re exempt from the travel restrictions</li>
+								<li><a href="./visitors-workers-students.html#visit">make sure you have a valid travel document</a> (visitor visa
+									or eTA) and a passport that is valid to come to Canada</li>
+							</ul>
+						</details>
+				
+						<h2 id="proof-extended">Documents to prove extended family status and your relationship</h2>
+						<p>You must have 2 types of documents:</p>
+						<ul class="lst-spcd">
+							<li>one that shows your extended family member’s status as a Canadian citizen or permanent resident</li>
+							<li>one that shows your relationship to that family member</li>
+						</ul>
+						<details>
+							<summary>Proof of your extended family member’s status in Canada</summary>
+							<p>The following are examples of documents you can provide. Paper and electronic copies of these documents are
+								accepted. Please note that these are examples only. An officer may request or accept other documents as needed.
+							</p>
+							<ul class="lst-spcd">
+								<li>a Canadian passport</li>
+								<li><a
+										href="https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship/documents.html">proof
+										of Canadian citizenship</a>, such as a citizenship certificate, citizenship card, or provincial or territorial
+									birth certificate</li>
+								<li>a Canadian permanent resident card</li>
+								<li>a Canadian permanent resident travel document</li>
+							</ul>
+						</details>
+						<details>
+							<summary>Proof of your relationship to that family member</summary>
+							<p>The following are examples of documents you can provide. Paper and electronic copies of these documents are
+								accepted. Please note that these are examples only. An officer may request or accept other documents as needed.
+							</p>
+							<ul class="lst-spcd">
+								<li>a birth certificate</li>
+								<li>a Confirmation of Permanent Residence (COPR) for one of the following:
+									<ul>
+										<li>the family class (the COPR category under Application Details will be FC)</li>
+										<li>the one-year window of opportunity provision (coded OYW under Special Program)</li>
+									</ul>
+								</li>
+								<li>other documents that show an extended family connection, for example:
+									<ul>
+										<li>correspondence from us showing a spousal sponsorship application in progress</li>
+										<li>documents that show a shared home address</li>
+									</ul>
+								</li>
+							</ul>
+						</details>
+					</div>
+					</div>
+
 				<div class="mrgn-bttm-lg" id="definitions">
 					<h2 class="h3">Definitions of these relationships</h2>
 
 					<p>Note: These are not legal definitions.</p>
+					<div class="row brdr-bttm mrgn-bttm-md mrgn-tp-lg" id="exclusive-dating">
+						<dt class="col-md-3">Exclusive dating relationship
+					
+						</dt>
+						<dd class="col-md-9">
+							<p>A person who has been in an exclusive relationship for at least one year, and have spent physical time together.
+							</p>		
+						</dd>
+					</div>
 					<div class="row brdr-bttm mrgn-bttm-md mrgn-tp-lg" id="common_law_partner">
 						<dl>
 							<dt class="col-md-3">Common-law partner
