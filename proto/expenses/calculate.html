@@ -902,7 +902,7 @@ Expenses breakdown
             event.preventDefault();
             var form = $("#designated-room-form");
             form.validate()
-                //if WET4 already has errors, return
+            //if WET4 already has errors, return
             if (!form.valid()) {
                 return;
             } else {
@@ -1119,6 +1119,9 @@ Expenses breakdown
          * return {Float} the JS compliant float equiv
          */
         function toFloat(number) {
+            if (number == "") {
+                return parseFloat(0);
+            }
             var reformattedNumber = 0;
             if (number.match(FRENCH_CURRENCY_FORMAT)) {
                 reformattedNumber = number.replace(/\s/g, "");
