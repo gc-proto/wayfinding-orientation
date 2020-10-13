@@ -503,71 +503,70 @@ Expenses breakdown
 </table>//-->
 
                     </div>
-			<div class="table-responsive">
-                    <table class="table table-bordered">
-                        <caption>
-                            Amounts to report <br>From: <span class="" id="startDate">20XX-XX-XX</span> to <span class="" id="endDate">20XX-XX-XX</span>
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Expense</th>
-                                <th scope="col" class="active">Amount to report</th>
-                             <th scope="col">T777c (short) form</th>
-                        <th scope="col">T777 form</th> 
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <caption>
+                                Amounts to report <br>From: <span class="" id="startDate">20XX-XX-XX</span> to <span class="" id="endDate">20XX-XX-XX</span>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Expense</th>
+                                    <th scope="col" class="active">Amount to report</th>
+                                    <th scope="col">T777c (short) form</th>
+                                    <th scope="col">T777 form</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            <tr>
-                                <td>Electricity, heat and water </td>
-                                <td class="active" id="electricity">[$0.00]</td>
-                               <td>Line X</td>
-                        <td>Line X</td>
-                            </tr>
-                            <tr>
-                                <td>Maintenance<br>
-					Total finished area = <span id="maintenance">[$0.00]</span><br>
-				    Work area only = <span id="maintenance-alt">[$0.00]</span></td>
-                                <td class="active" id="maintenance-total">[$0.00]</td>
-                                 <td>Line X</td>
-                        <td>Line X</td>
-                            </tr>
-                            <!--<tr class="dsgntdrm">
+                                <tr>
+                                    <td>Electricity, heat and water </td>
+                                    <td class="active" id="electricity">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line X</td>
+                                </tr>
+                                <tr>
+                                    <td>Maintenance<br> Total finished area = <span id="maintenance">[$0.00]</span><br> Work area only = <span id="maintenance-alt">[$0.00]</span></td>
+                                    <td class="active" id="maintenance-total">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line X</td>
+                                </tr>
+                                <!--<tr class="dsgntdrm">
                                 <td>Maintenance (work space only) </td>
                                 <td class="active" id="maintenance-alt">[$0.00]</td>
                               <td></td>
                         <td></td>
                             </tr>//-->
-                            <tr>
-                                <td>Other expenses</td>
-                                <td class="active" id="other">[$0.00]</td>
-                                   <td>Line X</td>
-                        <td>Line X</td>
-                            </tr>
+                                <tr>
+                                    <td>Other expenses</td>
+                                    <td class="active" id="other">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line X</td>
+                                </tr>
 
-                            <tr class="cmmssn-only hidden">
-                                <td>Insurance amount <small>(commission employees only)</br>
+                                <tr class="cmmssn-only hidden">
+                                    <td>Insurance amount <small>(commission employees only)</br>
                           </small></td>
-                                <td class="active" id="insurance">[$0.00]</td>
-                               <td>Line X</td>
-                        <td>Line 19</td>
-                            </tr>
-                            <tr class="cmmssn-only hidden">
-                                <td>Property taxes</br>
-                                    <small>(commission employees only)</br>
+                                    <td class="active" id="insurance">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line 19</td>
+                                </tr>
+                                <tr class="cmmssn-only hidden">
+                                    <td>Property taxes</br>
+                                        <small>(commission employees only)</br>
                           </small></td>
-                                <td class="active" id="property">[$0.00]</td>
-                            <td>Line X</td>
-                        <td>Line X</td>
-                            </tr>
-                            <tr>
-                                <td>Personal-use portion (<span class="perspc-percent-sum">0</span>% of your total finished area)</td>
-                                <td class="active" id="office">[$0.00]</td>
-                                <td>Line X</td>
-                        <td>Line X</td>
-                            </tr>
-                        </tbody>
-	    </table></div>
+                                    <td class="active" id="property">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line X</td>
+                                </tr>
+                                <tr>
+                                    <td>Personal-use portion (<span class="perspc-percent-sum">0</span>% of your total finished area)</td>
+                                    <td class="active" id="office">[$0.00]</td>
+                                    <td>Line X</td>
+                                    <td>Line X</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="panel-body">
                         <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                             <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
@@ -905,7 +904,7 @@ Expenses breakdown
             event.preventDefault();
             var form = $("#designated-room-form");
             form.validate()
-            //if WET4 already has errors, return
+                //if WET4 already has errors, return
             if (!form.valid()) {
                 return;
             } else {
@@ -935,6 +934,7 @@ Expenses breakdown
                 //Bills
                 var maintenanceBill = toFloat($("#mntnc").val());
                 var otherMaintenanceBill = toFloat($("#mntnc-excl").val());
+                var totalMaintenanceBill = maintenanceBill + otherMaintenanceBill;
                 var otherExpensesBill = toFloat($("#othrex").val());
                 var electricityBill = toFloat($("#utlts").val());
                 var insuranceBill = toFloat($("#insrnc").val());
@@ -943,6 +943,7 @@ Expenses breakdown
                 //Rebates
                 var maintenanceRebate = toMoney.format(maintenanceBill);
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
+                var totalMaintenanceRebate = toMoney.format(totalMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
                 var insuranceRebate = toMoney.format(insuranceBill);
@@ -955,11 +956,12 @@ Expenses breakdown
                 $("#insurance").text(insuranceRebate);
                 $("#property").text(propertyRebate);
                 $("#maintenance-alt").text(otherMaintenanceRebate);
+                $("#maintenance-total").text(totalMaintenanceRebate);
 
                 //Personal-use portion claim
                 var personalRate = (100 - rate).toFixed(1);
-                personalRebate = toMoney.format(otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
-                personalRebateNumber = otherMaintenanceBill + ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
+                personalRebate = toMoney.format(((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100)));
+                personalRebateNumber = ((maintenanceBill + otherExpensesBill + electricityBill + insuranceBill + propertyTaxesBill) * (personalRate / 100));
                 $("#office").text(personalRebate);
 
                 //Personal Claim
@@ -1033,6 +1035,7 @@ Expenses breakdown
                 //Bills
                 var maintenanceBill = toFloat($("#mntnc").val());
                 var otherMaintenanceBill = toFloat($("#mntnc-excl").val());
+                var totalMaintenanceBill = maintenanceBill + otherMaintenanceBill;
                 var otherExpensesBill = toFloat($("#othrex").val());
                 var electricityBill = toFloat($("#utlts").val());
                 var insuranceBill = toFloat($("#insrnc").val());
@@ -1041,6 +1044,7 @@ Expenses breakdown
                 //Rebates
                 var maintenanceRebate = toMoney.format(maintenanceBill);
                 var otherMaintenanceRebate = toMoney.format(otherMaintenanceBill);
+                var totalMaintenanceRebate = toMoney.format(totalMaintenanceBill);
                 var otherExpensesRebate = toMoney.format(otherExpensesBill);
                 var electricityRebate = toMoney.format(electricityBill);
                 var insuranceRebate = toMoney.format(insuranceBill);
@@ -1053,6 +1057,7 @@ Expenses breakdown
                 $("#insurance").text(insuranceRebate);
                 $("#property").text(propertyRebate);
                 $("#maintenance-alt").text(otherMaintenanceRebate);
+                $("#maintenance-total").text(totalMaintenanceRebate);
 
                 //Personal-use portion claim
                 var personalRate = $("#perRate").text();
