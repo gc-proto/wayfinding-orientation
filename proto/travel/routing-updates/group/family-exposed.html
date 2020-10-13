@@ -87,18 +87,18 @@
 			"renderas":"radio",
 			"noForm": true,
 			"base": { "live": true },
-			"default": { "action": "addClass", "source":"#question1,#question2,#question3,#immediate,#no-entry,#no-entry-extended,#extended", "class": "hidden" }
+			"default": { "action": "addClass", "source":"#question1,#question2,#question3,#immediate,#no-entry,#no-entry-extended,#extended", "class": "" }
 			}'>
 			<p>What is your relationship with the person you want to reunite with?</p>
 			<ul>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the spouse or
 				common law partner of the person</a></li>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the dependent
-					child of the person, or of the person’s spouse or common-law partner</li>
+					child of the person or of the person’s spouse or common-law partner</li>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the dependent child
 					of a dependent child of the person</li>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the parent or
-					step-parent of the person, or of the person’s spouse or common-law partner</li>
+					step-parent of the person or of the person’s spouse or common-law partner</li>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you are the guardian or
 					tutor of the person</li>
 				<!--result-->
@@ -108,7 +108,7 @@
 		</div>
 
 		<!--Question 2-->
-		<div id="question2" class="wb-fieldflow-sub hidden"
+		<div id="question2" class="hidden wb-fieldflow-sub"
 			data-wb-fieldflow='{"renderas":"radio", "reset": { "action": "addClass", "source":".toggle1,.toggle2", "class": "hidden" }}'>
 			<div class="wb-fieldflow-header">
 				<p class="wb-fieldflow-label">Are you reuniting with a Canadian citizen or permanent resident of Canada?</p>
@@ -120,7 +120,7 @@
 
 		</div>
 
-		<div id="question3" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{"renderas":"radio"}'>
+		<div id="question3" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"renderas":"radio"}'>
 			<p>You may be able to reunite as an extended family member. Are you in any of the following relationships with the person?</p>
 			<ul>
 					<li data-wb-fieldflow='{"action": "removeClass", "source":"#extended", "class": "hidden"}'>you are in an exclusive dating relationship with the person for at least one year, and have spent physical time together</li>
@@ -144,7 +144,7 @@
 				<div>
 		
 					
-					<div data-wb-urlmapping='{ "p=no-entry": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="no-entry" role="status" aria-controls="question2">
+					<div data-wb-urlmapping='{ "p=no-entry": { "action": "removeClass", "class": "hidden" } }' class="mrgn-bttm-lg mrgn-tp-sm" id="no-entry" role="status" aria-controls="question2">
 		
 						<h2 class="mrgn-tp-sm">You do not qualify for entry</h2>
 
@@ -161,14 +161,14 @@
 
 
 						<div data-wb-urlmapping='{ "p=no-entry-extended": { "action": "removeClass", "class": "hidden" } }'
-							class="hidden mrgn-bttm-lg mrgn-tp-sm" id="no-entry-extended" role="status" aria-controls="question3">
+							class="mrgn-bttm-lg mrgn-tp-sm" id="no-entry-extended" role="status" aria-controls="question3">
 						
 							<h2 class="mrgn-tp-sm">You do not qualify for entry</h2>
 						
 						
-							
-            <p>For foreign nationals, only immediate and extended family members can reunite with a Canadian citizen or a permanent resident of Canada. <strong>Only these relationships</strong> are considered immediate or extended family. Any other relationships (like aunt or uncle,
-               cousins, niece or nephew, etc.) will not be allowed entry for the purpose of reuniting with family.</p>
+							<p>For foreign nationals, only immediate and extended family members can reunite with a Canadian citizen or a permanent
+								resident of Canada. <strong>Only these relationships</strong> are considered immediate or extended family. Any other
+								relationships (like aunt or uncle, cousins, niece or nephew, etc.) will not be allowed entry for the purpose of reuniting with family.</p>
 							<p>If you are trying to enter Canada for a different family related reason, see <a href="compassion.html">Caring for
 									others, funerals and support</a>.</p>
 							<p>You can also answer a few questions to see if you may be allowed to enter Canada for a different <strong>essential
@@ -178,7 +178,7 @@
 
 
 
-					<div data-wb-urlmapping='{ "p=immediate": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="immediate" role="status" aria-controls="question1">
+					<div data-wb-urlmapping='{ "p=immediate": { "action": "removeClass", "class": "hidden" } }' class="mrgn-bttm-lg mrgn-tp-sm" id="immediate" role="status" aria-controls="question1">
 						<h2 class="mrgn-tp-sm">You are considered an immediate family member</h2>
 						<p>The steps you must follow depend on if your family member is a Canadian citizen, permanent resident, or a temporary resident.</p>
 						<h2 class="h3">On this page</h2>
@@ -313,7 +313,7 @@
 				</div>
 
 					<div data-wb-urlmapping='{ "p=extended": { "action": "removeClass", "class": "hidden" } }'
-						class="hidden mrgn-bttm-lg mrgn-tp-sm" id="extended" role="status" aria-controls="question3">
+						class="mrgn-bttm-lg mrgn-tp-sm" id="extended" role="status" aria-controls="question3">
 						<h2 id="unite-citizen-pr-extended">Extended family reuniting with a Canadian citizen or permanent resident</h2>
 												
 						<p>As a foreign national, you <strong>do not</strong> need a written authorization from Immigration, Refugees and
