@@ -318,7 +318,7 @@
                     <li data-wb-fieldflow='[{"action": "addClass", "source": "#designated-room, .cmmnrm", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
                         Designated room</li>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmnrm", "class": "hidden", "live": true}, {"action": "addClass", "source": "#designated-room, .dsgntdrm", "class": "hidden", "live": true}, {"action": "append", "source": "#measurements", "renderas": "radio"}]'>
-                        Common space</li>
+                        Common/shared space</li>
 
                 </ul>
             </div>
@@ -356,7 +356,7 @@
                         <legend class="brdr-tp">Size of work space and home</legend>
                         <div>
                             <div class="form-group dsgntdrm">
-                                <label for="wrkspc" class="required"><span class="field-name">Designated work space in your home</span><span class="wb-inv"> in square <span
+                                <label for="wrkspc" class="required"><span class="field-name">Designated work (room) area in your home</span><span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span
                               class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong>
 </label>
@@ -366,7 +366,7 @@
                             </div>
                             <div class="cmmnrm hidden">
                                 <div class="form-group">
-                                    <label for="wrkspc-cmmn" class="required"><span class="field-name">Common space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
+                                    <label for="wrkspc-cmmn" class="required"><span class="field-name">Common/shared space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
                                     <div class="input-group col-sm-5 col-md-4">
                                         <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number" required="required">
                                         <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
@@ -417,13 +417,13 @@
 
 
                         <div class="form-group">
-                            <label for="mntnc" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on home including work space</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
+                            <label for="mntnc" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on home including work area</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required">
                             </div>
                         </div>
                         <div class="form-group dsgntdrm">
-                            <label for="mntnc-excl" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on work space only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
+                            <label for="mntnc-excl" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on designated room only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text" required="required">
                             </div>
@@ -503,16 +503,17 @@ Expenses breakdown
 </table>//-->
 
                     </div>
+			<div class="table-responsive">
                     <table class="table table-bordered">
                         <caption>
-                            Amounts to claim <br>From: <span class="" id="startDate">20XX-XX-XX</span> to <span class="" id="endDate">20XX-XX-XX</span>
+                            Amounts to report <br>From: <span class="" id="startDate">20XX-XX-XX</span> to <span class="" id="endDate">20XX-XX-XX</span>
                         </caption>
                         <thead>
                             <tr>
                                 <th scope="col">Expense</th>
-                                <th scope="col" class="active">Amount to claim</th>
-                                <!--   <th scope="col">T777c (short) form</th>
-                        <th scope="col">T777 form</th> //-->
+                                <th scope="col" class="active">Amount to report</th>
+                             <th scope="col">T777c (short) form</th>
+                        <th scope="col">T777 form</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -520,51 +521,53 @@ Expenses breakdown
                             <tr>
                                 <td>Electricity, heat and water </td>
                                 <td class="active" id="electricity">[$0.00]</td>
-                                <!--   <td>Line 5</td>
-                        <td>Line 17</td>//-->
+                               <td>Line X</td>
+                        <td>Line X</td>
                             </tr>
                             <tr>
-                                <td>Maintenance (home + work spaces) </td>
-                                <td class="active" id="maintenance">[$0.00]</td>
-                                <!--  <td>Line 6</td>
-                        <td>Line 18</td>//-->
+                                <td>Maintenance<br>
+					Total finished area = <span id="maintenance">[$0.00]</span><br>
+				    Work area only = <span id="maintenance-alt">[$0.00]</span></td>
+                                <td class="active" id="maintenance-total">[$0.00]</td>
+                                 <td>Line X</td>
+                        <td>Line X</td>
                             </tr>
-                            <tr class="dsgntdrm">
+                            <!--<tr class="dsgntdrm">
                                 <td>Maintenance (work space only) </td>
                                 <td class="active" id="maintenance-alt">[$0.00]</td>
-                                <!--  <td></td>
-                        <td></td>//-->
-                            </tr>
+                              <td></td>
+                        <td></td>
+                            </tr>//-->
                             <tr>
                                 <td>Other expenses</td>
                                 <td class="active" id="other">[$0.00]</td>
-                                <!--    <td>Line 9</td>
-                        <td>Field 8810</td>//-->
+                                   <td>Line X</td>
+                        <td>Line X</td>
                             </tr>
 
                             <tr class="cmmssn-only hidden">
                                 <td>Insurance amount <small>(commission employees only)</br>
                           </small></td>
                                 <td class="active" id="insurance">[$0.00]</td>
-                                <!--   <td>Line 7</td>
-                        <td>Line 19</td>//-->
+                               <td>Line X</td>
+                        <td>Line 19</td>
                             </tr>
                             <tr class="cmmssn-only hidden">
                                 <td>Property taxes</br>
                                     <small>(commission employees only)</br>
                           </small></td>
                                 <td class="active" id="property">[$0.00]</td>
-                                <!--     <td>Line 8</td>
-                        <td>Line 20</td>//-->
+                            <td>Line X</td>
+                        <td>Line X</td>
                             </tr>
                             <tr>
                                 <td>Personal-use portion (<span class="perspc-percent-sum">0</span>% of your total finished area)</td>
                                 <td class="active" id="office">[$0.00]</td>
-                                <!--    <td>Line 11</td>
-                        <td>Line 23</td>//-->
+                                <td>Line X</td>
+                        <td>Line X</td>
                             </tr>
                         </tbody>
-                    </table>
+	    </table></div>
                     <div class="panel-body">
                         <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                             <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
