@@ -2960,8 +2960,8 @@
             break;
           case (period > 8): //paid leave changes
             if (paidLeave) {
-              if (armsLength || baselineAmount > 0) {
-                return min(573, max(500, 0.55 * weeklyAmount));
+              if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
+                return min(weeklyAmount, 573, max(500, 0.55 * weeklyAmount));
               }
               else
               {
