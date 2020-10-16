@@ -356,7 +356,7 @@
                         <legend class="brdr-tp">Size of work space and home</legend>
 
                         <div class="form-group dsgntdrm">
-                            <label for="wrkspc" class="required"><span class="field-name">Designated work space (room) area in your home</span><span class="wb-inv"> in square <span
+                            <label for="wrkspc" class="required"><span class="field-name">Designated work (room) space in your home</span><span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span
                               class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong>
 </label>
@@ -366,7 +366,7 @@
                         </div>
                         <div class="cmmnrm hidden">
                             <div class="form-group">
-                                <label for="wrkspc-cmmn" class="required"><span class="field-name">Common (shared) space area in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
+                                <label for="wrkspc-cmmn" class="required"><span class="field-name">Common (shared) space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
                                 <div class="input-group col-sm-5 col-md-4">
                                     <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number" required="required">
                                     <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
@@ -402,12 +402,12 @@
                                     <p class="mrgn-tp-md"><span class="h4 badge mrgn-tp-0 dsgntdrm"><span class="perspc-percent-sum">0</span>%</span><span class="cmmnrm hidden"><span class="perspc-percent-sum">0</span>%</span> of your home is used for personal space<span class="dsgntdrm"> and <span class="nowrap">non-employment</span> purposes which will calculate your personal-use portion</span>. </p>
                                 </li>
                                 <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkhr-percent-sum">0</span>%</span> of hours of employment use in common space (<span id="wrk-cmmn-rm-sum">0</span>                                    hours divided into 168 total hours a week) </li>
-                                <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt" id="workRate">0</span>%</span> of your home used for work space and employment purposes
+                                <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt" id="workRate">0</span>%</span> of your home used for work space and employment purposes</li></ul>
                                     <p class="mrgn-tp-md"><span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum-alt" id="perRate">0</span>%</span> of your home is used for personal space and <span class="nowrap">non-employment</span> purposes which will calculate your personal-use
                                         portion.
                                     </p>
-                                </li>
-                            </ul>
+                              <p class="dsgntdrm"><span class="h4 badge mrgn-tp-0">0%</span> is the amount of the personal-use calculated for the expenses of the dedicated work space (room) only.</p>
+				<p class="cmmnrm hidden"><span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum-comm" id="perCommRate">0</span>%</span> is the amount of the personal-use calculated for the expenses of the common (shared) space only based on the amount of hours worked in the space.</p>
                         </div>
                     </fieldset>
 
@@ -435,6 +435,13 @@
                                 <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text" required="required">
                             </div>
                         </div>
+			    <div class="form-group cmmnrm hidden">
+                            <label for="mntnc-cmmn" class="required"><span class="field-name">Maintenance <br><span class="text-muted">on common (shared) space only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
+                            <p id="maintenance-def"><a href="#maintenance-lbx" class="wb-lbx">What is considered reasonable expenses for work area&nbsp;<span class="far fa-question-circle"></span></a></p>
+                            <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
+                                <input class="form-control input-lg currency" id="mntnc-cmmn" name="mntnc-excl" type="text" required="required">
+                            </div>
+                        </div>  
                         <div class="form-group cmmssn-only hidden">
                             <label for="insrnc" class="required"><span class="field-name">Insurance</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
@@ -529,9 +536,10 @@ Expenses breakdown
                                 <tr>
                                     <td>Maintenance
                                         <ul>
-                                            <li>Work space and other <span class="nowrap">areas = <span id="maintenance">[$0.00]</span></span>
+                                            <li>Maintenance of entire home (including work <span class="nowrap">space) = <span id="maintenance">[$0.00]</span></span>
                                             </li>
-                                            <li class="dsgntdrm">Work space <span class="nowrap">only = <span id="maintenance-alt">[$0.00]</span></span>
+                                            <li class="dsgntdrm">Dedicated work space (room) <span class="nowrap">only = <span id="maintenance-alt">[$0.00]</span></span>
+						<li class="cmmnrm hidden">Common (shared) work space <span class="nowrap">only = <span id="maintenance-alt2">[$0.00]</span></span>    
                                             </li>
                                         </ul>
                                     </td>
@@ -570,7 +578,7 @@ Expenses breakdown
                                 </tr>
 
                                 <tr>
-                                    <td>Personal-use portion (<span class="perspc-percent-sum">0</span>% of your total finished area)</td>
+                                    <td>Personal-use portion</td>
                                     <td class="active" id="office">[$0.00]</td>
                                     <!--   <td>Line X</td>//-->
                                     <td>Line 23</td>
@@ -581,10 +589,12 @@ Expenses breakdown
                     <div class="panel-body">
                         <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                             <h3 class="mrgn-tp-0">Summary of personal-use expenses to report</h3>
-                            <ul class="list-unstyled lst-spcd">
-                                <li><span class="h4">$<span class="personalClaim">0.00</span></span> of the personal-use portion is the amount of expenses based on
-                                    <span class="h4"><span class="personalRate">0</span>%</span> of the non-employement (personal) use of your home which is taken off of your total expenses
-                                </li>
+                            <p><span class="h4">$<span class="personalClaim">0.00</span></span> of the personal-use portion is the amount of expenses based on:</p>
+                                <ul>
+					<li><span class="h5">$<span class="personalClaimHome">0.00</span></span> expenses paid for the entire home including work space<br><span class="mrgn-lft-lg">$<span class="personalClaimSum">0.00</span> &times; <span class="personalRate">0</span>%</li>
+				<li><span class="h5">$<span class="personalClaimWS">0.00</span></span> expenses paid for the work space only<br><span class="mrgn-lft-lg">$<span class="workspaceClaimSum">0.00</span> &times; <span class="personalRateWS">0</span>%</li>
+				</ul>
+                                </p>
 
                             </ul>
                             <div class="cmmssn-only hidden">
@@ -595,7 +605,11 @@ Expenses breakdown
                                     <li>carry forward the extra amount to the next year, or</li>
                                     <li>if you also have a salary that is larger than your commission income, you can claim you expenses, minus any insurance or property taxes</li>
                                 </ul>
-                                <p>Using your salary, the Personal-use portion would be <span id="office-comm-alt">[$0.00]</span>.</p>
+                                <p>Using your salary, the Personal-use portion would be <span id="office-comm-alt">[$0.00]</span> based on:</p>
+  <ul>
+					<li><span class="h5">$<span class="personalClaimHome-alt">0.00</span></span> expenses paid for the entire home including work space<br><span class="mrgn-lft-lg">$<span class="personalClaimSum-alt">0.00</span> &times; <span class="personalRate-alt">0</span>%</li>
+				<li><span class="h5">$<span class="personalClaimWS-alt">0.00</span></span> expenses paid for the work space only<br><span class="mrgn-lft-lg">$<span class="workspaceClaimSum-alt">0.00</span> &times; <span class="personalRateWS-alt">0</span>%</li>
+				</ul>
                             </div>
 
                         </div>
