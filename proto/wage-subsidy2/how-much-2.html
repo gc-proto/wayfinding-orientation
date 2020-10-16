@@ -347,6 +347,8 @@
                       2020</option>
                     <option data-claim-period="9" value="2020-10-25--2020-11-21">Period 9: October 25, 2020, to November 21,
                       2020</option>
+                    <option data-claim-period="10" value="2020-11-22--2020-12-19">Period 10: November 22, 2020, to December 19,
+                      2020</option>
                   </select>
                 </div>
               </fieldset>
@@ -818,6 +820,17 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="form-group row">
+                                  <label class="col-sm-6 control-label" for="2019-11-no">December 2019<span
+                                      class="wb-inv"> (do not include a
+                                      dollar sign, spaces or commas)</span></label>
+                                  <div class="col-sm-6">
+                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                      <input type="number" class="form-control text-right cews-rate-calc currency"
+                                        name="2019-12-no" id="2019-12-no" size="10" placeholder="0.00">
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                               <div class="col-md-6">
                                 <p><strong>2020 revenue</strong></p>
@@ -909,6 +922,17 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="form-group row">
+                                  <label class="col-sm-6 control-label" for="2020-12-no">December 2020<span
+                                      class="wb-inv"> (do not include a
+                                      dollar sign, spaces or commas)</span></label>
+                                  <div class="col-sm-6">
+                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                      <input type="number" class="form-control text-right cews-rate-calc currency"
+                                        name="2020-12-no" id="2020-12-no" size="10" placeholder="0.00">
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </fieldset>
@@ -921,12 +945,13 @@
                                   class="priorRevReduction h4">0%</span></li>
                               <p class="safe-harbour-hide">Because the higher of these revenue drops is <span
                                   class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span
-                                  class="h4 mrgn-tp-0 base-rate">0%</span></p>
+                                  class="h4 mrgn-tp-0 base-rate">0%</span> <span class="p10-plus hidden"> and your top-up rate is <span
+                                  class="top-up-rate h4" class="h4">0%</span></span></p>
                               <div class="p8-plus hidden">
                                 <li>Your <strong>average revenue drop for the previous three months</strong> is <span
                                       class="rev-drop-top-up h4" class="h4">0%</span></li>
-                                <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span
-                                      class="priorRevReduction h4">0%</span></li>
+                                <li class="brdr-bttm">Your <strong>preferential base revenue drop</strong> is <span
+                                      class="rev-reduc-base h4">0%</span></li>
                                 <p>Because the higher of these revenue drops is <span
                                   class="h4 rev-drop-top-up-higher">0%</span>, your top-up rate is <span
                                   class="h4 mrgn-tp-0 top-up-rate">0%</span></p>
@@ -1072,6 +1097,17 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="form-group row">
+                                  <label class="col-sm-6 control-label" for="2020-12-yes">December 2020<span
+                                      class="wb-inv"> (do not include a
+                                      dollar sign, spaces or commas)</span></label>
+                                  <div class="col-sm-6">
+                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                      <input type="number" class="form-control text-right cews-rate-calc-alt currency"
+                                        name="2020-12-yes" id="2020-12-yes" size="10" placeholder="0.00">
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </fieldset>
@@ -1084,12 +1120,13 @@
                                   class="priorRevReduction-alt h4">0%</span></li>
                               <p class="safe-harbour-hide">Because the higher of these revenue drops is <span
                                   class="h4 rev-reduc-alt-base">0%</span>, your base rate is <span
-                                  class="h4 mrgn-tp-0  base-rate-alt">0%</span></p>
+                                  class="h4 mrgn-tp-0  base-rate-alt">0%</span><span class="p10-plus hidden"> and your top-up rate is <span
+                                    class="top-up-rate-alt h4" class="h4">0%</span></span></p>
                               <div class="p8-plus hidden">
                                 <li>Your <strong>average revenue drop for the previous three months</strong> is <span
                                       class="rev-drop-top-up-alt h4" class="h4">0%</span></li>
-                                <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span
-                                      class="priorRevReduction-alt h4">0%</span></li>
+                                <li class="brdr-bttm">Your <strong>preferential base revenue drop</strong> is <span
+                                      class="rev-reduc-alt-base h4">0%</span></li>
                                 <p>Because the higher of these revenue drops is <span
                                   class="h4 rev-drop-top-up-higher-alt">0%</span>, your top-up rate is <span
                                   class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></p>
@@ -2345,9 +2382,10 @@
         //show/hide elements based on chosen claim period
 
         switch (claimPeriod) {
-          case 9:
+          case 10:
             $(".p7-and-before").addClass("hidden");
-            $(".p8-plus").removeClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p10-plus").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
@@ -2362,6 +2400,53 @@
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
+            $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
+            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-12-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-12-no").closest("div.form-group").removeClass("hidden");
+            $("#2020-11-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-11-no").closest("div.form-group").removeClass("hidden");
+            $("#2020-10-no").closest("div.form-group").addClass("hidden");
+            $("#2019-10-no").closest("div.form-group").addClass("hidden");
+            $("#2020-09-no").closest("div.form-group").addClass("hidden");
+            $("#2019-09-no").closest("div.form-group").addClass("hidden");
+            $("#2020-08-no").closest("div.form-group").addClass("hidden");
+            $("#2019-08-no").closest("div.form-group").addClass("hidden");
+            $("#2020-07-no").closest("div.form-group").addClass("hidden");
+            $("#2019-07-no").closest("div.form-group").addClass("hidden");
+            $("#2020-06-no").closest("div.form-group").addClass("hidden");
+            $("#2019-06-no").closest("div.form-group").addClass("hidden");
+            $("#2020-05-no").closest("div.form-group").addClass("hidden");
+            $("#2019-05-no").closest("div.form-group").addClass("hidden");
+            $("#2020-04-no").closest("div.form-group").addClass("hidden");
+            $("#2019-04-no").closest("div.form-group").addClass("hidden");
+            break;
+          case 9:
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").removeClass("hidden");
+            $(".p10-plus").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprdsht-p1-4").addClass("hidden");
+            $("#cal-sprdsht-none").addClass("hidden");
+            $("#cal-sprsht-p5").addClass("hidden");
+            $("#cal-sprsht-p7").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
@@ -2370,6 +2455,8 @@
             $("#2020-06-yes").closest("div.form-group").addClass("hidden");
             $("#2020-05-yes").closest("div.form-group").addClass("hidden");
             $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-12-no").closest("div.form-group").addClass("hidden");
+            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").removeClass("hidden");
             $("#2019-11-no").closest("div.form-group").removeClass("hidden");
             $("#2020-10-no").closest("div.form-group").removeClass("hidden");
@@ -2390,6 +2477,7 @@
           case 8:
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").removeClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
@@ -2404,6 +2492,7 @@
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").addClass("hidden");
             $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
@@ -2412,6 +2501,8 @@
             $("#2020-06-yes").closest("div.form-group").addClass("hidden");
             $("#2020-05-yes").closest("div.form-group").addClass("hidden");
             $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-12-no").closest("div.form-group").addClass("hidden");
+            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").addClass("hidden");
             $("#2019-11-no").closest("div.form-group").addClass("hidden");
             $("#2020-10-no").closest("div.form-group").removeClass("hidden");
@@ -2432,6 +2523,7 @@
           case 7:
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
@@ -2446,6 +2538,7 @@
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").addClass("hidden");
             $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
@@ -2454,6 +2547,8 @@
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-05-yes").closest("div.form-group").addClass("hidden");
             $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-12-no").closest("div.form-group").addClass("hidden");
+            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").addClass("hidden");
             $("#2019-11-no").closest("div.form-group").addClass("hidden");
             $("#2020-10-no").closest("div.form-group").addClass("hidden");
@@ -2474,6 +2569,7 @@
           case 6:
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
@@ -2488,6 +2584,7 @@
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").addClass("hidden");
             $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").addClass("hidden");
@@ -2496,6 +2593,8 @@
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-05-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+            $("#2020-12-no").closest("div.form-group").addClass("hidden");
+            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").addClass("hidden");
             $("#2019-11-no").closest("div.form-group").addClass("hidden");
             $("#2020-10-no").closest("div.form-group").addClass("hidden");
@@ -2516,6 +2615,7 @@
           case 5:
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
@@ -2530,6 +2630,7 @@
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
+            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").addClass("hidden");
             $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").addClass("hidden");
@@ -2538,6 +2639,8 @@
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-05-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-04-yes").closest("div.form-group").removeClass("hidden");
+            $("#2020-12-no").closest("div.form-group").addClass("hidden");
+            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").addClass("hidden");
             $("#2019-11-no").closest("div.form-group").addClass("hidden");
             $("#2020-10-no").closest("div.form-group").addClass("hidden");
@@ -2561,6 +2664,7 @@
           case 1:
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#cal-sprdsht-p1-4").removeClass("hidden");
             $("#cal-sprsht-p5").addClass("hidden");
             $("#cal-sprsht-p7").addClass("hidden");
@@ -2578,6 +2682,7 @@
           default:
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
+            $(".p10-plus").addClass("hidden");
             $("#rate-reduction").addClass("hidden");
             $(".emp-lv").addClass("hidden");
             $("#p4-tws").prop("readonly", false);
@@ -2972,14 +3077,8 @@
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
-          (
             parseFloat(zeroIfEmpty($("#" + months2019Array[0] + "-no").val())) > 0 ||
             parseFloat(zeroIfEmpty($("#" + months2019Array[1] + "-no").val())) > 0
-          ) &&
-          (
-            parseFloat(zeroIfEmpty($("#" + months2019Array[3] + "-no").val())) > 0 ||
-            parseFloat(zeroIfEmpty($("#" + months2019Array[2] + "-no").val())) > 0
-          )
         ) {
           //get the value of the claim month
           var claimMonth2020Value = zeroIfEmpty($("#" + monthsArray[0] + "-no").val());
@@ -2987,24 +3086,35 @@
           //get the value of the previous month
           var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
-          //get the avg of the revenue from the previous three motnhs (2020)
-          var threeMonthRev2020 = [
-            zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
-            zeroIfEmpty($("#" + monthsArray[2] + "-no").val()),
-            zeroIfEmpty($("#" + monthsArray[1] + "-no").val())
-          ];
-          var threeMonthAvg2020 = (threeMonthRev2020[0] + threeMonthRev2020[1] + threeMonthRev2020[2]) / 3;
-          //get the avg of the revenue from the previous three months (2019)
-          var threeMonthRev2019 = [
-            zeroIfEmpty($("#" + months2019Array[3] + "-no").val()),
-            zeroIfEmpty($("#" + months2019Array[2] + "-no").val()),
-            zeroIfEmpty($("#" + months2019Array[1] + "-no").val())
-          ];
-          var threeMonthAvg2019 = (threeMonthRev2019[0] + threeMonthRev2019[1] + threeMonthRev2019[2]) / 3;
-          //get the rate reduction from the three month average
-          threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
+          
+          if (claimPeriod < 10) {
+            //get the avg of the revenue from the previous three motnhs (2020)
+            var threeMonthRev2020 = [
+              zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
+              zeroIfEmpty($("#" + monthsArray[2] + "-no").val()),
+              zeroIfEmpty($("#" + monthsArray[1] + "-no").val())
+            ];
+            var threeMonthAvg2020 = (threeMonthRev2020[0] + threeMonthRev2020[1] + threeMonthRev2020[2]) / 3;
+            //get the avg of the revenue from the previous three months (2019)
+            var threeMonthRev2019 = [
+              zeroIfEmpty($("#" + months2019Array[3] + "-no").val()),
+              zeroIfEmpty($("#" + months2019Array[2] + "-no").val()),
+              zeroIfEmpty($("#" + months2019Array[1] + "-no").val())
+            ];
+            var threeMonthAvg2019 = (threeMonthRev2019[0] + threeMonthRev2019[1] + threeMonthRev2019[2]) / 3;
+            //get the rate reduction from the three month average
+            if (threeMonthAvg2019 == 0) {
+              threeMonthReduction = 0;
+            } else {
+              threeMonthReduction = (threeMonthAvg2019 - threeMonthAvg2020) / threeMonthAvg2019;
+            }
+          }
           //get the revenue reduction from claim/prev claim months from 2020 and 2019
-          claimPeriodRevReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+          if (claimMonth2019Value == 0) {
+            claimPeriodRevReduction = 0;
+          } else {
+            claimPeriodRevReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+          }
           if (claimMonth2019Value == 0) {
             revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
             priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
@@ -3024,9 +3134,11 @@
           //get the base rate
           baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
           //get the top-up rate
-          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
-          if (claimPeriod > 7 && priorRevReduc > threeMonthReduction) {
-            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(priorRevReduc), 0));
+          if (claimPeriod < 10) {
+            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+          }
+          if (claimPeriod > 9 || (claimPeriod > 7 && revReduction > threeMonthReduction)) {
+            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(revReduction), 0));
           }
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
@@ -3049,10 +3161,12 @@
           }
           $("#currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
           $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
-          $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
-          if (claimPeriod > 7) {
-            if (priorRevReduc > threeMonthReduction) {
-              $(".rev-drop-top-up-higher").text(roundPercDown(priorRevReduc) + "%");
+          if (claimPeriod < 10) {
+            $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
+          }
+          if (claimPeriod > 7 && claimPeriod < 10) {
+            if (revReduction > threeMonthReduction) {
+              $(".rev-drop-top-up-higher").text(roundPercDown(revReduction) + "%");
             } else {
               $(".rev-drop-top-up-higher").text(roundPercDown(threeMonthReduction) + "%");
             }
@@ -3085,17 +3199,20 @@
           
           //find the claim month based on the chosen claim period 
           var claimMonth = getClaimMonth($("#claim-period").val());
+
           var monthsArray = getClaimMonths(claimMonth, claimPeriod);
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
           //get the value of the previous month
           var prevClaimValue = zeroIfEmpty($("#" + monthsArray[1] + "-yes").val());
           //get the avg of the revenue from the last three months
-          var threeMoAgo = zeroIfEmpty($("#" + monthsArray[3] + "-yes").val());
-          var twoMoAgo = zeroIfEmpty($("#" + monthsArray[2] + "-yes").val());
-          var threeMonthAvg = (threeMoAgo + twoMoAgo + prevClaimValue) / 3;
-          //get the rate reduction from the three month average
-          threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+          if (claimPeriod < 10) {
+            var threeMoAgo = zeroIfEmpty($("#" + monthsArray[3] + "-yes").val());
+            var twoMoAgo = zeroIfEmpty($("#" + monthsArray[2] + "-yes").val());
+            var threeMonthAvg = (threeMoAgo + twoMoAgo + prevClaimValue) / 3;
+            //get the rate reduction from the three month average
+            threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+          }
           claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
           //get the revenue reduction
           revReduction = Math.max(
@@ -3109,9 +3226,11 @@
             Math.max(getP5PlusBaseRate(revReduction), 0)
           );
           //get the top-up rate
-          topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
-          if (claimPeriod > 7 && priorRevReduc > threeMonthReduction) {
-            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(priorRevReduc), 0));
+          if (claimPeriod < 10) {
+            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+          }
+          if (claimPeriod > 9 || (claimPeriod > 7 && revReduction > threeMonthReduction)) {
+            topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(revReduction), 0));
           }
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
@@ -3132,16 +3251,18 @@
             $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
             $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
           }
-          if (claimPeriod > 7) {
-            if (priorRevReduc > threeMonthReduction) {
-              $(".rev-drop-top-up-higher-alt").text(roundPercDown(priorRevReduc) + "%");
+          if (claimPeriod > 7 && claimPeriod < 10) {
+            if (revReduction > threeMonthReduction) {
+              $(".rev-drop-top-up-higher-alt").text(roundPercDown(revReduction) + "%");
             } else {
               $(".rev-drop-top-up-higher-alt").text(roundPercDown(threeMonthReduction) + "%");
             }
           }
           $("#currentRevReduction-alt").text(roundPercDown(currentRevReduc) + "%");
           $(".priorRevReduction-alt").text(roundPercDown(priorRevReduc) + "%");
-          $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+          if (claimPeriod < 10) {
+            $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+          }
           $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
           $("#cews-rate-alt").text(Math.floor(cewsRate * 10000) / 100 + "%");
           $("#employees").removeClass("hidden");
@@ -3378,6 +3499,8 @@
         var dates = dateRange.split('--');
         var date1Arr = dates[0].split("-");
         var date2Arr = dates[1].split("-");
+        date1Arr[1] = date1Arr[1] - 1;
+        date2Arr[1] = date2Arr[1] - 1;
         var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1], date1Arr[2]));
         var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1], date2Arr[2]));
         var date1Counter = 0;
@@ -3396,9 +3519,9 @@
           date2.setUTCDate(date2.getUTCDate() - 1);
         }
         if (parseInt(date1Counter) < parseInt(date2Counter)) {
-          return date2Month;
+          return date2Month + 1;
         } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
-          return date1Month;
+          return date1Month + 1;
         } else {
           return null;
         }
@@ -3429,8 +3552,8 @@
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.2];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.4];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8];
         var period = $("#claim-period option:selected").data("claim-period");
         if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
           return maxBase[period - 5];
