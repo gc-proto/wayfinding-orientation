@@ -2958,6 +2958,23 @@
               }
             }
             break;
+          case (period > 8): //paid leave changes
+            if (paidLeave) {
+              if (armsLength || baselineAmount > 0) {
+                return min(573, max(500, 0.55 * weeklyAmount));
+              }
+              else
+              {
+                return 0;
+              }
+            } else {
+              if (cewsRate == 0) {
+                return 0;
+              } else {
+                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+              }
+            }
+            break;
           default:
             return 0;
         }
