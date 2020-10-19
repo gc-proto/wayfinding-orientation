@@ -913,6 +913,9 @@ Expenses breakdown
             if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
                 $(".perhr-percent-sum").text(100 - hours.percentage);
                 $(".wrkhr-percent-sum").text(hours.percentage.toFixed(2));
+                $(".perspc-percent-sum-comm").text(
+                    100 - hours.percentage.toFixed(2)
+                );
                 $("#wrk-cmmn-rm-sum").text(hours.rawHours);
                 $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
             } else {
