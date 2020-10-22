@@ -294,9 +294,9 @@
 
                                         </div>
                                         <ul>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>
+                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "addClass", "source": ".non-cmmssn", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>
                                                 Yes </li>
-                                            <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>
+                                            <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".non-cmmssn", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>
                                                 No </li>
                                         </ul>
                                     </div>
@@ -366,19 +366,12 @@
                         </div>
                         <div class="cmmnrm hidden">
                             <div class="form-group">
-                                <label for="wrkspc-cmmn" class="required"><span class="field-name">Common (shared) space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span><strong class="required">(required)</strong></label>
+                                <label for="wrkspc-cmmn" class="required"><span class="field-name">Common (shared) space in your home</span><span class="wb-inv"> in square <span class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong></label>
                                 <div class="input-group col-sm-5 col-md-4">
                                     <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number" required="required">
                                     <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                             </div>
-                            <div class="form-group">
-                                <label for="cmmnrm-hrs" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
-                                <div class="input-group col-sm-5 col-md-4">
-                                    <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number" required="required">
-                                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
-                                </div>
-                            </div>
-                        </div>
+     </div>
                         <div class="form-group mrgn-tp-md">
                             <label for="hmspc" class="required"><span class="field-name">Total finished area of your home</span><span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong></label>
@@ -388,8 +381,17 @@
                                 <input class="form-control input-lg" id="hmspc" name="hmspc" type="number" aria-describedby="finished-def" required="required">
                                 <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                         </div>
-
-                        <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+<div class="cmmnrm hidden">
+	 <div class="form-group">
+                                <label for="cmmnrm-hrs" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
+                                <div class="input-group col-sm-5 col-md-4">
+                                    <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number" required="required">
+                                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
+                                </div>
+                            </div>
+			    </div>
+	
+                  <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                             <h3 class="mrgn-tp-0">Summary of calculated space</h3>
                             <ul class="fa-ul list-unstyled lst-spcd">
                                 <!--<li class="rmbth hidden"><span class="h4"><span class="ded-wrkspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square
@@ -398,18 +400,22 @@
                                     <span class="cmmnrm hidden">common </span>work space </li>
                                 <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by </span></span> <span class="h4"><span class="hmspc-sum">0</span> <span class="exp-m-sq hidden">square meters</span><span class="exp-ft-sq hidden">square
       feet</span></span> of total finished area</li>
-                                <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space
-                                    <p class="mrgn-tp-md"><span class="h4 badge mrgn-tp-0 dsgntdrm"><span class="perspc-percent-sum">0</span>%</span><span class="cmmnrm hidden"><span class="perspc-percent-sum">0</span>%</span> of your home is used for personal space<span class="dsgntdrm"> and <span class="nowrap">non-employment</span>                                        purposes which will calculate your personal-use portion</span>. </p>
+                                <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum">0</span>%</span> of your home used for work space<br>
+                                    <div class="mrgn-tp-md">The percentage of your home that used for personal space<span class="dsgntdrm"> and <span class="nowrap">non-employment purposes</span></span> is <span class="h4 badge mrgn-tp-0 mrgn-bttm-0 dsgntdrm"><span class="perspc-percent-sum">0</span>%</span><span class="cmmnrm hidden"><span class="perspc-percent-sum">0</span>%</span><span class="dsgntdrm">, which will calculate your personal-use portion</span>.</div>
                                 </li>
-                                <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkhr-percent-sum">0</span>%</span> of hours of employment use in common space (<span id="wrk-cmmn-rm-sum">0</span>                                    hours divided into 168 total hours a week) </li>
+                                <li class="cmmnrm hidden brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">multiplied by </span></span> <span class="h4"><span class="wrkhr-percent-sum">0</span>%</span> of hours of employment use in common space (<span id="wrk-cmmn-rm-sum">0</span> hours divided into 168 total hours a week) </li>
                                 <li class="cmmnrm hidden"><span class="fas fa-equals fa-li"><span class="wb-inv">equals </span></span> <span class="h4"><span class="wrkspc-percent-sum-alt" id="workRate">0</span>%</span> of your home used for work space and employment purposes</li>
                             </ul>
-                            <p class="mrgn-tp-md"><span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum-alt" id="perRate">0</span>%</span> of your home is used for personal space and <span class="nowrap">non-employment</span> purposes which will calculate your personal-use
-                                portion.
+			  <div class="mrgn-tp-md mrgn-lft-xl">
+                            <p class="cmmnrm hidden">The percentage of your home that used for personal space and <span class="nowrap">non-employment</span> purposes is <span class="h4 badge mrgn-tp-0 mrgn-bttm-0"><span class="perspc-percent-sum-alt" id="perRate">0</span>%</span>, which will be used to calculate your personal-use portion of expenses claimed for your home and the work space.
                             </p>
-                            <p class="dsgntdrm"><span class="h4 badge mrgn-tp-0">0%</span> is the amount of the personal-use calculated for the expenses of the dedicated work space (room) only.</p>
-                            <p class="cmmnrm hidden"><span class="h4 badge mrgn-tp-0"><span class="perspc-percent-sum-comm" id="perCommRate">0</span>%</span> is the amount of the personal-use calculated for the expenses of the common (shared) space only based on the amount of
-                                hours worked in the space.</p>
+				  <div class="mrgn-lft-sm">
+                            <p class="dsgntdrm">The percentage of your dedicated work space (room) used for personal-use is <span class="h4 badge mrgn-tp-0 mrgn-bttm-0">0%</span>.</p>
+			  
+			  
+                            <p class="cmmnrm hidden">The percentage of your common (shared) work space used for personal-use is <span class="h4 badge mrgn-tp-0 mrgn-bttm-0"><span class="perspc-percent-sum-comm" id="perCommRate">0</span>%</span>.</p>
+				  </div>
+				  </div>
                         </div>
                     </fieldset>
 
@@ -523,16 +529,16 @@ Expenses breakdown
                                 <tr>
                                     <th scope="col">Expense</th>
                                     <th scope="col" class="active">Amount to claim</th>
-                                    <!--  <th scope="col">T777c (short) form</th>//-->
+                                   <th scope="col">T777c (short) form</th>
                                     <th scope="col">T777 form</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+  
                                 <tr>
                                     <td>Electricity, heat and water </td>
                                     <td class="active" id="electricity">[$0.00]</td>
-                                    <!--   <td>Line X</td>//-->
+                                  <td>Line X</td>
                                     <td>Line 17</td>
                                 </tr>
                                 <tr>
@@ -546,22 +552,17 @@ Expenses breakdown
                                         </ul>
                                     </td>
                                     <td class="active" id="maintenance-total">[$0.00]</td>
-                                    <!--  <td>Line X</td>//-->
+                                  <td>Line X</td>
                                     <td>Line 18</td>
                                 </tr>
-                                <!--<tr class="dsgntdrm">
-                                <td>Maintenance (work space only) </td>
-                                <td class="active" id="maintenance-alt">[$0.00]</td>
-                              <td></td>
-                        <td></td>
-                            </tr>//-->
+                               
 
 
                                 <tr class="cmmssn-only hidden">
                                     <td>Insurance amount <small>(commission employees only)</br>
                           </small></td>
                                     <td class="active" id="insurance">[$0.00]</td>
-                                    <!--   <td>Line X</td> //-->
+                                  <td>Line X</td> 
                                     <td>Line 19</td>
                                 </tr>
                                 <tr class="cmmssn-only hidden">
@@ -569,20 +570,20 @@ Expenses breakdown
                                         <small>(commission employees only)</br>
                           </small></td>
                                     <td class="active" id="property">[$0.00]</td>
-                                    <!--   <td>Line X</td> //-->
+                                    <td>Line X</td>
                                     <td>Line 20</td>
                                 </tr>
                                 <tr>
                                     <td>Other expenses</td>
                                     <td class="active" id="other">[$0.00]</td>
-                                    <!--  <td>Line X</td> //-->
+                                   <td>Line X</td>
                                     <td>Line 21</td>
                                 </tr>
 
                                 <tr>
                                     <td>Personal-use portion</td>
                                     <td class="active" id="office">[$0.00]</td>
-                                    <!--   <td>Line X</td>//-->
+                                   <td>Line X</td>
                                     <td>Line 23</td>
                                 </tr>
                             </tbody>
@@ -616,6 +617,11 @@ Expenses breakdown
                             </div>
 
                         </div>
+<div class="hidden-print">
+<p><strong>Remember:</strong> There are supplies you can, and cannot claim for employment expenses. <br>
+<p><span class="non-cmmssn"><a href="#supplies-salary-lbx" class="wb-lbx">Which types of supplies can and cannot be claimed as a salaried employee</a></span>
+	   <span class="cmmssn-only hidden"><a href="#supplies-comm-lbx" class="wb-lbx">Which types of supplies can and cannot be claimed as an employee who makes commissions</a></span></p>
+</div>
                     </div>
                     <table class="table" id="cews-statement-table">
                         <caption>
@@ -673,6 +679,67 @@ Expenses breakdown
                     <p>text here</p>
                 </div>
             </section>
+<section id="supplies-salary-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+                <header class="modal-header">
+                    <h2 class="modal-title">Work space supplies and if they can be claimed for an employee</h2>
+                </header>
+                <div class="modal-body">
+                 <table class="table wb-tables">
+  <caption>Common supplies for employment</caption>
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Can it be claimed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postage</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+     <tr>
+      <td>Stationary (e.g. examples)</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+    <tr>
+      <td>Plants</td>
+      <td><span class="text-danger fas fa-times"></span> No</td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </section>
+<section id="supplies-comm-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+                <header class="modal-header">
+                    <h2 class="modal-title">Work space supplies and if they can be claimed for an employee that makes commissions</h2>
+                </header>
+                <div class="modal-body">
+                 <table class="table wb-tables">
+  <caption>Common supplies for employment</caption>
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Can it be claimed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postage</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+     <tr>
+      <td>Stationary (e.g. examples)</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+    <tr>
+      <td>Plants</td>
+      <td><span class="text-danger fas fa-times"></span> No</td>
+    </tr>
+  </tbody>
+</table>
+                </div>
+            </section>
+
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                 <h3 class="wb-inv">Document navigation</h3>
                 <ul class="pager">
@@ -912,6 +979,9 @@ Expenses breakdown
 
         //when a user updates the common space hours
         $(document).on("change keyup", "#cmmnrm-hrs", function(event) {
+            if ($("#wrkspc-cmmn").val() == "" && $("#hmspc").val() == "") {
+                return;
+            }   
             var hours = getCommonWorkSpaceHours();
             if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
                 $(".perhr-percent-sum").text(100 - hours.percentage);
