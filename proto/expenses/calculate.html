@@ -371,14 +371,7 @@
                                     <input class="form-control input-lg" id="wrkspc-cmmn" name="wrkspc-cmmn" type="number" required="required">
                                     <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                             </div>
-                            <div class="form-group">
-                                <label for="cmmnrm-hrs" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
-                                <div class="input-group col-sm-5 col-md-4">
-                                    <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number" required="required">
-                                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
-                                </div>
-                            </div>
-                        </div>
+     </div>
                         <div class="form-group mrgn-tp-md">
                             <label for="hmspc" class="required"><span class="field-name">Total finished area of your home</span><span class="wb-inv"> in square <span
                               class="exp-m-sq hidden">meters</span><span class="exp-ft-sq hidden">feet</span></span> <strong class="required">(required)</strong></label>
@@ -388,7 +381,16 @@
                                 <input class="form-control input-lg" id="hmspc" name="hmspc" type="number" aria-describedby="finished-def" required="required">
                                 <span class="input-group-addon exp-m-sq hidden">m&#178;</span><span class="input-group-addon exp-ft-sq hidden">ft&#178;</span> </div>
                         </div>
-
+<div class="cmmnrm hidden">
+	 <div class="form-group">
+                                <label for="cmmnrm-hrs" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
+                                <div class="input-group col-sm-5 col-md-4">
+                                    <input class="form-control input-lg" id="cmmnrm-hrs" name="cmmnrm-hrs" type="number" required="required">
+                                    <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
+                                </div>
+                            </div>
+			    </div>
+	
                   <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
                             <h3 class="mrgn-tp-0">Summary of calculated space</h3>
                             <ul class="fa-ul list-unstyled lst-spcd">
@@ -682,7 +684,29 @@ Expenses breakdown
                     <h2 class="modal-title">Work space supplies and if they can be claimed for an employee</h2>
                 </header>
                 <div class="modal-body">
-                   <p>Table here</p>
+                 <table class="table wb-tables">
+  <caption>Common supplies for employment</caption>
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Can it be claimed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postage</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+     <tr>
+      <td>Stationary (e.g. examples)</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+    <tr>
+      <td>Plants</td>
+      <td><span class="text-danger fas fa-times"></span> No</td>
+    </tr>
+  </tbody>
+</table>
                 </div>
             </section>
 <section id="supplies-comm-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -690,7 +714,29 @@ Expenses breakdown
                     <h2 class="modal-title">Work space supplies and if they can be claimed for an employee that makes commissions</h2>
                 </header>
                 <div class="modal-body">
-                    <p>Table here</p>
+                 <table class="table wb-tables">
+  <caption>Common supplies for employment</caption>
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Can it be claimed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Postage</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+     <tr>
+      <td>Stationary (e.g. examples)</td>
+      <td><span class="text-success fas fa-check"></span> Yes</td>
+    </tr>
+    <tr>
+      <td>Plants</td>
+      <td><span class="text-danger fas fa-times"></span> No</td>
+    </tr>
+  </tbody>
+</table>
                 </div>
             </section>
 
