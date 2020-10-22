@@ -912,6 +912,9 @@ Expenses breakdown
 
         //when a user updates the common space hours
         $(document).on("change keyup", "#cmmnrm-hrs", function(event) {
+            if ($("#wrkspc-cmmn").val() == "" && $("#hmspc").val() == "") {
+                return;
+            }   
             var hours = getCommonWorkSpaceHours();
             if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
                 $(".perhr-percent-sum").text(100 - hours.percentage);
