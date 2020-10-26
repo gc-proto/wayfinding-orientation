@@ -426,8 +426,8 @@ main form :not(.btn-call-to-action).btn {
               <span class="text-muted">on work space and other areas of the home</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
               <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required" aria-describedby="otherex-date">
-		    <p id="mntnc-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p>  
-            </div>
+		 </div>
+		    <p id="mntnc-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 
           </div>
           <div class="form-group dsgntdrm">
             <label for="mntnc-excl" class="required"><span class="field-name">Maintenance <br>
@@ -543,12 +543,24 @@ main form :not(.btn-call-to-action).btn {
               <tr>
                 <th scope="col">Expense</th>
                 <th scope="col" class="active">Amount to claim</th>
+		     <th scope="col">T777<span class="ws-only hidden"> short</span> form</th>   
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td class="ws-only hidden">Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
+                <td class="active" id="supplies">[$0.00]</td>
+                <td>Line 1</td>
+              </tr>
+              <tr class="ws-only hidden">
+                <td>Other expenses (employment use of a cell phone, employment use of monthly internet access fees, long distance calls for employment purposes, etc.)</td>
+                <td class="active" id="other-emp">[$0.00]</td>
+                <td>Line 2</td>
+              </tr>
+              <tr>
                 <td>Electricity, heat and water </td>
                 <td class="active" id="electricity">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">6</span><span class="ws-ext hidden">17</span></td>
               </tr>
               <tr>
                 <td>Maintenance
@@ -558,37 +570,45 @@ main form :not(.btn-call-to-action).btn {
                     <li class="cmmnrm hidden">Common (shared) work space <span class="nowrap">only = <span id="maintenance-alt2">[$0.00]</span></span> </li>
                   </ul></td>
                 <td class="active" id="maintenance-total">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">7</span><span class="ws-ext hidden">18</span></td>
               </tr>
               <tr class="cmmssn-only hidden">
                 <td>Home insurance  <small>(commission employees only)</br>
                   </small></td>
                 <td class="active" id="insurance">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">8</span><span class="ws-ext hidden">19</span></td>
               </tr>
               <tr class="cmmssn-only hidden">
                 <td>Property taxes</br>
                   <small>(commission employees only)</br>
                   </small></td>
                 <td class="active" id="property">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">9</span><span class="ws-ext hidden">20</span></td>
               </tr>
               <tr>
                 <td>Other expenses (rent, etc.)</td>
                 <td class="active" id="other">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">10</span><span class="ws-ext hidden">21</span></td>
               </tr>
               <tr class="ws-ext hidden">
                 <td>Personal-use portion</td>
                 <td class="active" id="office">[$0.00]</td>
+                <td>Line 23</td>
               </tr>
 	  <tr class="ws-only hidden">
                 <td>Employment-use amount</td>
                 <td class="active" id="office-emp">[$0.00]</td>
+                <td>Line 12</td>
               </tr>
 	 <tr class="ws-only hidden">
                 <td>Employment income</td>
                 <td class="active" id="income-amt">[$0.00]</td>
+                <td>Line 13</td>
               </tr>
 	<tr class="ws-only hidden">
                 <td>Dues (line 20700) and RPP deductions (line 21200) </td>
                 <td class="active" id="dues-amt">[$0.00]</td>
+                <td>Line 14</td>
               </tr>
             </tbody>
           </table>
