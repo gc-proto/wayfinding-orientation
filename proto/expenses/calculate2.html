@@ -267,7 +267,7 @@ main form :not(.btn-call-to-action).btn {
                 <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#designated-room", "class": "hidden"}}'>
                   <p>My claim is related to</p>
                   <ul>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-only", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-ext", "class": "hidden", "live": true}, {"action": "append", "source": "#commission-income", "renderas": "radio"}]'> Work space expenses that may also include office supplies and communication expenses (with no losses from a previous year to report)</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-only", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-ext", "class": "hidden", "live": true}, {"action": "append", "source": "#commission-income", "renderas": "radio"}]'> Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses (with no losses from a previous year to report)</li>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-ext", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-only", "class": "hidden", "live": true}, {"action": "append", "source": "#commission-income", "renderas": "radio"}]'> Work space expenses, and other expenses such as vehicle costs, equipment, and fees</li>
                   </ul>
                 </div>
@@ -278,7 +278,17 @@ main form :not(.btn-call-to-action).btn {
       </div>
     </div>
     <div id="commission-income" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
-      <p>Did you earn commision income (Box 42 on T4 slip)?</p>
+    <div class="wb-fieldflow-header">
+	<div class="alert alert-info provisional ws-ext hidden"> 
+	<div class="row">
+	<div class="col-md-6">
+	<p><strong>Note:</strong> Given your various types of employment expenses, the calculator below can only help you determine the personal-use portion of your work space. The calculator will provide you with the values for lines 17-23 of the T777.  You will still need complete the remainder of the  T777 to determine the final amount you can claim on your taxes.</p></div>
+<div class="col-md-6">		<a class="wb-lbx" href="t777-e.png" title="Screenshot of T777 with lines 17-23 highlighted">
+			<img src="t777-e.png" alt="Screenshot of T777 with lines 17-23 highlighted" class="img-responsive img-thumbnail" />
+		</a> </div>
+	</div></div>
+      <p class="wb-fieldflow-label">Did you earn commision income (Box 42 on T4 slip)?</p>
+		</div>
       <ul>
         <li data-wb-fieldflow='[{"action": "removeClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "addClass", "source": ".non-cmmssn", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>Yes </li>
         <li data-wb-fieldflow='[{"action": "addClass", "source": ".cmmssn-only", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".non-cmmssn", "class": "hidden", "live": true}, {"action": "append", "source": "#rooms", "renderas": "radio"}]'>No </li>
@@ -390,65 +400,74 @@ main form :not(.btn-call-to-action).btn {
             <label for="sppls" class="required"><span class="field-name">Supplies <br><span class="text-muted">such as postage, stationary, ink cartridges, other office supplies, etc.</span></span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="sppls" name="sppls" type="text" required="required">
+              <input class="form-control input-lg currency" id="sppls" name="sppls" type="text" required="required" aria-describedby="sppls-date">
             </div>
+	 <p id="sppls-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 	  
           </div>
           <div class="form-group ws-only hidden">
-            <label for="otherex" class="required"><span class="field-name">Other expenses <br><span class="text-muted">such as employment use of a cell phone, employment use of monthly internet
+            <label for="otherex-ws" class="required"><span class="field-name">Other expenses fully related to working from home <br><span class="text-muted">such as employment use of a cell phone, employment use of monthly internet
 		    access fees, long distance calls for employment purposes, etc.</span></span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="otherex" name="otherex" type="text" required="required">
+              <input class="form-control input-lg currency" id="otherex-ws" name="otherex-ws" type="text" required="required" aria-describedby="otherex-ws-date">
             </div>
+		 <p id="otherex-ws-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p>  
           </div>
           <div class="form-group">
             <label for="utlts" class="required"><span class="field-name">Electricity, heat and water</span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text" required="required">
+              <input class="form-control input-lg currency" id="utlts" name="utlts" type="text" required="required" aria-describedby="utlts-date">
             </div>
+		      <p id="utlts-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p>  
           </div>
           <div class="form-group">
             <label for="mntnc" class="required"><span class="field-name">Maintenance <br>
               <span class="text-muted">on work space and other areas of the home</span><span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required">
-            </div>
+              <input class="form-control input-lg currency" id="mntnc" name="mntnc" type="text" required="required" aria-describedby="otherex-date">
+		 </div>
+		    <p id="mntnc-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 
           </div>
           <div class="form-group dsgntdrm">
             <label for="mntnc-excl" class="required"><span class="field-name">Maintenance <br>
               <span class="text-muted">on designated work space (room) only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
             <p id="maintenance-def"><a href="#maintenance-lbx" class="wb-lbx">What is considered reasonable expenses for work area&nbsp;<span class="far fa-question-circle"></span></a></p>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text" required="required">
+              <input class="form-control input-lg currency" id="mntnc-excl" name="mntnc-excl" type="text" required="required" aria-describedby="mntnc-excl-date">
             </div>
+	   <p id="mntnc-excl-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p>  	  
           </div>
           <div class="form-group cmmnrm hidden">
             <label for="mntnc-cmmn" class="required"><span class="field-name">Maintenance <br>
               <span class="text-muted">on common (shared) space only</span> <span class="wb-inv"> in dollars and cents</span></span> <strong class="required">(required)</strong></label>
             <p id="maintenance-def"><a href="#maintenance-lbx" class="wb-lbx">What is considered reasonable expenses for work area&nbsp;<span class="far fa-question-circle"></span></a></p>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="mntnc-cmmn" name="mntnc-cmmn" type="text" required="required">
+              <input class="form-control input-lg currency" id="mntnc-cmmn" name="mntnc-cmmn" type="text" required="required" aria-describedby="mntnc-cmmn-date">
             </div>
+	 <p id="mntnc-cmmn-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 	  
           </div>
           <div class="form-group cmmssn-only hidden">
             <label for="insrnc" class="required"><span class="field-name">Insurance</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text" required="required">
+              <input class="form-control input-lg currency" id="insrnc" name="insrnc" type="text" required="required" aria-describedby="insrnc-date">
             </div>
+		 <p id="insrnc-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 	  
           </div>
           <div class="form-group cmmssn-only hidden">
             <label for="prprt" class="required"><span class="field-name">Property taxes</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text" required="required">
+              <input class="form-control input-lg currency" id="prprt" name="prprt" type="text" required="required" aria-describedby="insrnc-date">
             </div>
+	 <p id="prprt-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 	  
           </div>
           <div class="form-group">
-            <label for="othrex" class="required"><span class="field-name">Other expenses <br><span class="text-muted">such as rent</span></span><span class="wb-inv"> in dollars and
+            <label for="othrex" class="required"><span class="field-name">Other expenses that include your work space <br><span class="text-muted">such as rent</span></span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text" required="required">
+              <input class="form-control input-lg currency" id="othrex" name="othrex" type="text" required="required" aria-describedby="othrex-date">
             </div>
+	 <p id="othrex-date" class="text-muted small">from <span class="startDate">start</span> to <span class="endDate">end</span></p> 	 	  
           </div>
         </fieldset>
         <fieldset class="ws-only hidden">
@@ -518,18 +537,30 @@ main form :not(.btn-call-to-action).btn {
           <table class="table table-bordered">
             <caption>
             Amounts provided<br>
-            From: <span class="" id="startDate">20XX-XX-XX</span> to <span class="" id="endDate">20XX-XX-XX</span>
+            From: <span class="startDate">start</span> to <span class="endDate">end</span>
             </caption>
             <thead>
               <tr>
                 <th scope="col">Expense</th>
                 <th scope="col" class="active">Amount to claim</th>
+		     <th scope="col">T777<span class="ws-only hidden"> short</span> form</th>   
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td class="ws-only hidden">Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
+                <td class="active" id="supplies">[$0.00]</td>
+                <td>Line 1</td>
+              </tr>
+              <tr class="ws-only hidden">
+                <td>Other expenses (employment use of a cell phone, employment use of monthly internet access fees, long distance calls for employment purposes, etc.)</td>
+                <td class="active" id="other-emp">[$0.00]</td>
+                <td>Line 2</td>
+              </tr>
+              <tr>
                 <td>Electricity, heat and water </td>
                 <td class="active" id="electricity">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">6</span><span class="ws-ext hidden">17</span></td>
               </tr>
               <tr>
                 <td>Maintenance
@@ -539,37 +570,45 @@ main form :not(.btn-call-to-action).btn {
                     <li class="cmmnrm hidden">Common (shared) work space <span class="nowrap">only = <span id="maintenance-alt2">[$0.00]</span></span> </li>
                   </ul></td>
                 <td class="active" id="maintenance-total">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">7</span><span class="ws-ext hidden">18</span></td>
               </tr>
               <tr class="cmmssn-only hidden">
                 <td>Home insurance  <small>(commission employees only)</br>
                   </small></td>
                 <td class="active" id="insurance">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">8</span><span class="ws-ext hidden">19</span></td>
               </tr>
               <tr class="cmmssn-only hidden">
                 <td>Property taxes</br>
                   <small>(commission employees only)</br>
                   </small></td>
                 <td class="active" id="property">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">9</span><span class="ws-ext hidden">20</span></td>
               </tr>
               <tr>
                 <td>Other expenses (rent, etc.)</td>
                 <td class="active" id="other">[$0.00]</td>
+                <td>Line <span class="ws-only hidden">10</span><span class="ws-ext hidden">21</span></td>
               </tr>
               <tr class="ws-ext hidden">
                 <td>Personal-use portion</td>
                 <td class="active" id="office">[$0.00]</td>
+                <td>Line 23</td>
               </tr>
 	  <tr class="ws-only hidden">
                 <td>Employment-use amount</td>
                 <td class="active" id="office-emp">[$0.00]</td>
+                <td>Line 12</td>
               </tr>
 	 <tr class="ws-only hidden">
                 <td>Employment income</td>
                 <td class="active" id="income-amt">[$0.00]</td>
+                <td>Line 13</td>
               </tr>
 	<tr class="ws-only hidden">
                 <td>Dues (line 20700) and RPP deductions (line 21200) </td>
                 <td class="active" id="dues-amt">[$0.00]</td>
+                <td>Line 14</td>
               </tr>
             </tbody>
           </table>
@@ -1035,12 +1074,12 @@ main form :not(.btn-call-to-action).btn {
 
                 //Start Date
                 if (fromDate) {
-                    $("#startDate").text(fromDate);
+                    $(".startDate").text(fromDate);
                 }
 
                 //End Date
                 if (toDate) {
-                    $("#endDate").text(toDate);
+                    $(".endDate").text(toDate);
                 }
 
                 var TotalArea = $("#hmspc").val();
@@ -1115,12 +1154,12 @@ main form :not(.btn-call-to-action).btn {
 
                 //Start Date
                 if (fromDate) {
-                    $("#startDate").text(fromDate);
+                    $(".startDate").text(fromDate);
                 }
 
                 //End Date
                 if (toDate) {
-                    $("#endDate").text(toDate);
+                    $(".endDate").text(toDate);
                 }
 
                 var TotalArea = $("#hmspc").val();
