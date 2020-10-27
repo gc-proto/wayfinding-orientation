@@ -268,8 +268,8 @@ main form :not(.btn-call-to-action).btn {
                 <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
                   <p>My claim is related to</p>
                   <ul>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'> Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses</li>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'> Work space expenses, and other expenses such as vehicle costs, equipment, and fees</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'> Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'> Work space expenses, and other expenses such as vehicle costs, equipment, and fees</li>
                   </ul>
                 </div>
               </form>
@@ -278,6 +278,15 @@ main form :not(.btn-call-to-action).btn {
         </div>
       </div>
     </div>
+	   <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+      <p>Your work space is in a home that you&hellip;</p>
+      <ul>
+        <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Rent</li>
+        <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
+      </ul>
+    </div>
+	  
+	  
     <div id="ff-commission" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
       <div class="wb-fieldflow-header">
         <div class="alert alert-info provisional ws-t777reg hidden">
@@ -317,6 +326,7 @@ main form :not(.btn-call-to-action).btn {
       <form method="get" id="wsih-calculator-form">
         <fieldset id="workspace-calculation">
           <legend>Length of time worked at home within the year</legend>
+		 <p class="ws-t777short hidden" id="start-end-def"><a href="#start-end-lbx" class="wb-lbx">What if you worked from home on a non-continuous time period (e.g. sent back home a second time)&nbsp;<span class="far fa-question-circle"></span></a></p>	
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
@@ -449,6 +459,7 @@ main form :not(.btn-call-to-action).btn {
             </div>
             <p id="shared-room-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span></p>
           </div>
+			<div class="home-own">
           <div class="form-group commission-income hidden">
             <label for="insurance-commission-input" class="required"><span class="field-name">Insurance (for commission income only)</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
@@ -463,11 +474,21 @@ main form :not(.btn-call-to-action).btn {
             </div>
             <p id="property-taxes-commission-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span></p>
           </div>
-          <div class="form-group">
-            <label for="home-expenses-input" class="required"><span class="field-name">Other home expenses that include your work space <br>
-              <span class="text-muted">such as rent</span></span><span class="wb-inv"> in dollars and
+				</div>
+			<div class="form-group home-rent hidden">
+            <label for="home-rent-input" class="required"><span class="field-name">Rent</span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
-            <p id="home-expenses-def"><a href="#home-expenses-lbx" class="wb-lbx">What are expenses you can claim for home and work space&nbsp;<span class="far fa-question-circle"></span></a></p>
+           
+            <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
+              <input class="form-control input-lg currency" id="home-rent-input" name="home-rent-input" type="text" required="required" aria-describedby="home-rent-date">
+            </div>
+            <p id="home-rent-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span></p>
+          </div>
+			
+          <div class="form-group">
+            <label for="home-expenses-input" class="required"><span class="field-name">Other home expenses that include your work space</span><span class="wb-inv"> in dollars and
+              cents</span> <strong class="required">(required)</strong></label>
+           
             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
               <input class="form-control input-lg currency" id="home-expenses-input" name="home-expenses-input" type="text" required="required" aria-describedby="home-expenses-date">
             </div>
@@ -551,6 +572,11 @@ main form :not(.btn-call-to-action).btn {
                 <td>Other expenses (employment use of a cell phone, employment use of monthly internet access fees, long distance calls for employment purposes, etc.)</td>
                 <td class="active" id="ws-expenses-output">[$0.00]</td>
                 <td>Line 2</td>
+              </tr>
+				<tr class="ws-t777short hidden">
+                <td>Total amount you can claim </td>
+                <td class="active" id="ws-total-claim-output">[$0.00]</td>
+                <td>Line 5</td>
               </tr>
               <tr>
                 <td>Electricity, heat and water </td>
@@ -703,6 +729,15 @@ main form :not(.btn-call-to-action).btn {
       </header>
       <div class="modal-body" data-ajax-replace="how-much.html #sz-hm>"> </div>
     </section>
+<section id="start-end-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Working from home for non-continuous time periods</h2>
+      </header>
+      <div class="modal-body" >
+	<p>text here</p>
+	</div>
+    </section>
+
     <section id="home-maintenance-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
         <h2 class="modal-title">Reasonable maintenance expenses for a home and work area</h2>
