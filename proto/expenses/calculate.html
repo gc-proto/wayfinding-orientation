@@ -571,6 +571,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Your employee home work space expenses results</h3>
                     </div>
+			<div id="wsih-total-expenses">
                     <div class="panel-body">
                         <p><strong>Print and keep this record using the print preview button below</strong>. You will need the amounts below when filling out the <strong class="ws-t777reg hidden">T777</strong><strong class="ws-t777short hidden">T777 short</strong>                            form.</p>
                         <div class="ws-t777short hidden provisional outset">
@@ -753,6 +754,7 @@
                             </tr>
                         </tbody>
                     </table>
+	</div>
                     <div class="panel-body">
                         <p>You are now ready to <strong>print these amounts</strong> so you can enter them into the form. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
                         <p class="hidden-print"><a class="wb-lbx btn btn-default btn-lg wb-init wb-lbx-inited" id="wb-auto-62" role="button" href="#pp-statement"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
@@ -1010,6 +1012,27 @@
                     </table>
                 </div>
             </section>
+<!--Overlay for print preview //-->		    
+<section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def provisional">
+      <header class="modal-header">
+        <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
+      </header>
+      <div class="modal-body">
+        <div data-ajax-replace=" #wsih-total-expenses"></div>
+       
+        <ul class="list-inline">
+          <li>
+            <button onclick="window.print()" class="btn btn-success btn-lg"><span
+                class="glyphicon glyphicon-print"></span> Print this statement</button>
+          </li>
+          <li class="pull-right">
+            <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
+              type="button">Close<span class="wb-inv"> overlay</span></button>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer hidden"> </div>
+    </section>
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                 <h3 class="wb-inv">Document navigation</h3>
                 <ul class="pager">
@@ -1018,6 +1041,7 @@
             </nav>
             <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
         </section>
+
         <div id="def-preFooter"> </div>
         <!-- Write closure template -->
         <script type="text/javascript">
