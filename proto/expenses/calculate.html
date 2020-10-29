@@ -270,8 +270,8 @@
         <section class="gc-nav-section experimental">
             <h1 property="name" id="wb-cont">Calculate your expenses</h1>
             <details class="mrgn-bttm-lg">
-                <summary>Privacy statement: This calculator does not collect or store your information</summary>
-                <p>The CRA is not collecting or retaining any of the information you enter on this page.</p>
+                <summary>Note: This calculator does not collect or store your information</summary>
+                 <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of work space expenses you may be eligible to claim.</p>
                 <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
             </details>
             <div class="row mrgn-bttm-md">
@@ -302,7 +302,7 @@
                 </div>
             </div>
             <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
-                <p>Your work space is in a home that you:</p>
+                <p>Your work space is in a home that you</p>
                 <ul>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
                     <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
@@ -332,7 +332,7 @@
             </div>
             <div id="ff-ws-type" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
-                    <p class="wb-fieldflow-label">What type of area do you work from at home? </p>
+                    <p class="wb-fieldflow-label">What type of space do you work from at home? </p>
                     <p><a href="#ff-ws-type-lbx" class="wb-lbx">Difference between a designated work space (room) and a common (shared) 
           space&nbsp;<span class="far fa-question-circle"></span></a></p>
                 </div>
@@ -498,7 +498,7 @@
                         </div>
                         <div class="home-own">
                             <div class="form-group commission-income hidden">
-                                <label for="insurance-commission-input" class="required"><span class="field-name">Insurance (for commission income only)</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
+                                <label for="insurance-commission-input" class="required"><span class="field-name">Home insurance (for commission income only)</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
                                 <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                     <input class="form-control input-lg currency" id="insurance-commission-input" name="insurance-commission-input" type="text" required="required" aria-describedby="insurance-commission-date">
                                 </div>
@@ -571,15 +571,20 @@
                     </div>
                     <div class="panel-body">
                         <p><strong>Print and keep this record using the print preview button below</strong>. You will need the amounts below when filling out the <strong class="ws-t777reg hidden">T777</strong><strong class="ws-t777short hidden">T777 short</strong>                            form.</p>
-                        <div class="ws-t777short hidden">
+                        <div class="ws-t777short hidden provisional outset">
                             <h4 class="mrgn-tp-sm">Summary of expenses</h4>
-                            <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim. This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your
+                            <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
+				<p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your
                                 return.
                             </p>
                         </div>
-                        <div class="ws-t777reg hidden">
+                        <div class="ws-t777reg hidden provisional outset">
+			
                             <h4 class="mrgn-tp-sm">Summary of the personal-use portion</h4>
-                            <p><span class="h4">$<span class="personal-use-total-amount">0.00</span></span> of the personal-use portion to claim on <strong>line 23</strong> of the form T777 is the amount of expenses based on:</p>
+                            <p><span class="h4">$<span class="personal-use-total-amount">0.00</span></span> of the personal-use portion.</p>
+					
+				<p>This amount will go on <strong>line 23</strong> of the form T777.</p>
+				<p>The total amount of personal-use portion is based on:</p>
                             <ul>
                                 <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
                                     <span class="mrgn-lft-lg">$<span class="personal-use-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</li>
@@ -587,7 +592,7 @@
                                     <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
                             </ul>
                         </div>
-                    </div>
+			</div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <caption>
@@ -601,8 +606,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="ws-t777short hidden">Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
+                                <tr class="ws-t777short hidden">
+                                    <td>Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
                                     <td class="active" id="supplies-output">[$0.00]</td>
                                     <td>Line 1</td>
                                 </tr>
@@ -612,7 +617,7 @@
                                     <td>Line 2</td>
                                 </tr>
                                 <tr class="ws-t777short hidden">
-                                    <td>Total amount you can claim </td>
+                                    <td>Total expenses (you can claim)</td>
                                     <td class="active" id="ws-total-claim-output">[$0.00]</td>
                                     <td>Line 5</td>
                                 </tr>
@@ -681,10 +686,12 @@
                                 <mark>will be hidden by default and only appear for T777 short</mark> The income you reported is less than the expenses claimed for employment-use. You can carry forward <strong class="carry-fwd-output">[$0.00]</strong>                                to be claimed in future years.</p>
                             <p>This amount will go on <strong>line 17</strong> of the T777 short form.</p>
                         </div>
-                        <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
-                            <div class="ws-t777short hidden">
+                      
+                            <div class="ws-t777short hidden provisional outset mrgn-tp-md mrgn-bttm-lg">
                                 <h4 class="mrgn-tp-0">Summary of the employment-use amount</h4>
-                                <p><span class="h4">$<span class="employment-use-total-amount">0.00</span></span> of the employment-use portion to claim on <strong>line 12</strong> of the T777 short form is the amount of expenses based on:</p>
+                                <p><span class="h4">$<span class="employment-use-total-amount">0.00</span></span> of the employment-use portion.</p>
+				    <p>This amount will go on <strong>line 12</strong> of the T777 short form.</p>
+				    <p>The total amount of the employment-use portion is based on:</p>
                                 <ul>
                                     <li><span class="h5">$<span class="employment-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
                                         <span class="mrgn-lft-lg">$<span class="employment-use-home-claim">0.00</span> &times; <span class="employment-use-home-rate">0</span>%</li>
@@ -692,7 +699,7 @@
                                         <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
                                 </ul>
                             </div>
-                        </div>
+                      
                         <div class="commission-income hidden">
                             <p> If your commission income is <strong>less</strong> than the total expenses you have claimed, you can either: </p>
                             <ul>
@@ -749,7 +756,7 @@
             statement</span></span></a></p>
                     </div>
                 </div>
-            </div>
+        
 
             <!--Overlays //-->
             <section id="ff-ws-type-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
