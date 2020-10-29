@@ -286,14 +286,13 @@
                             <p><strong>Reminder:</strong> You must meet the <a href="who-apply.html#h-1">eligibility criteria</a> to claim your expenses.</p>
                             <div class="wb-frmvld fieldflow-lg">
                                 <form>
-                                    <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
-                                        <p>My claim is related to</p>
-                                        <ul>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
-                                                (Simplified) Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses</li>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
-                                                (Standard) Work space expenses, and other expenses such as vehicle costs, equipment, and fees</li>
-                                        </ul>
+                                  <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
+                                    <p>My claim is related to</p>
+                                      <ul>
+                                          <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses  (Simplified claim)</li>
+                                          <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses, and other expenses such as vehicle costs, equipment, and fees
+                                          (Standard claim)</li>
+                                      </ul>
                                     </div>
                                 </form>
                             </div>
@@ -302,17 +301,8 @@
                 </div>
             </div>
             <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
-                <p>Your work space is in a home that you</p>
-                <ul>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
-                    <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
-                </ul>
-            </div>
-
-
-            <div id="ff-commission" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
-                <div class="wb-fieldflow-header">
-                    <div class="alert alert-info provisional ws-t777reg hidden">
+				 <div class="wb-fieldflow-header">
+               <div class="alert alert-info provisional ws-t777reg hidden">
                         <div class="row">
                             <div class="col-md-6 pull-right mrgn-bttm-md">
                                 <a href="t777-e.png" target="_blank"> <img src="t777-e.png" alt="Screenshot of T777 with lines 17-23 highlighted" class="img-responsive img-thumbnail" /> </a>
@@ -323,8 +313,19 @@
                             </div>
                         </div>
                     </div>
-                    <p class="wb-fieldflow-label">Did you earn commission income (Box 42 on T4 slip)?</p>
-                </div>
+                    <p class="wb-fieldflow-label">Your work space is in a home that you</p>
+				
+			</div>
+                <ul>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
+                    <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
+                </ul>
+            </div>
+
+
+            <div id="ff-commission" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+               <p>Did you earn commission income (Box 42 on T4 slip)?</p>
+              
                 <ul>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".commission-income", "class": "hidden", "live": true}, {"action": "addClass", "source": ".salary-income", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Yes </li>
                     <li data-wb-fieldflow='[{"action": "addClass", "source": ".commission-income", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".salary-income", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>No </li>
@@ -332,6 +333,7 @@
             </div>
             <div id="ff-ws-type" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
+		
                     <p class="wb-fieldflow-label">What type of space do you work from at home? </p>
                     <p><a href="#ff-ws-type-lbx" class="wb-lbx">Difference between a designated work space (room) and a common (shared) 
           space&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -658,6 +660,7 @@
                                     <td>Line <span class="ws-t777short hidden">10</span><span class="ws-t777reg hidden">21</span></td>
                                 </tr>
                                 <tr class="ws-t777reg hidden">
+
                                     <td>Personal-use portion</td>
                                     <td class="active" id="personal-use-output">[$0.00]</td>
                                     <td>Line 23</td>
