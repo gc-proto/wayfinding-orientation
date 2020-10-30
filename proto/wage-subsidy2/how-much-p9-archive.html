@@ -2915,10 +2915,10 @@
         $("#emp-smry-" + numEmployeePanels).removeClass("hidden");
       }
 
-      /**
+     /**
        * calculate the cews rate reductions
        */
-      var currentRevReduc = 0;
+       var currentRevReduc = 0;
       var priorRevReduc = 0;
       var revReduction = 0;
       var claimPeriodRevReduction = 0;
@@ -2941,11 +2941,20 @@
         if (claimPeriod < 11) {
           prev3MonthPrefix = "0";
         }
+        //find the claim month based on the chosen claim period 
+        var claimMonth = getClaimMonth($("#claim-period").val());
+        var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
+
         var cewsRateElements = $('.cews-rate-calc');
         var claimMonth = getClaimMonth($("#claim-period").val());
         if (!claimMonth.toString().match(/\d{2}/g)) {
           claimMonthPrefix = "0";
         }
+
+
+        //Get claim months function??
+
+
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -3003,6 +3012,14 @@
           baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
           //get the top-up rate
           topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+          
+          //alert banner saying the announced changes would benefit them
+          if (revReduction > threeMonthReduction && claimPeriod == 8) {
+            $("#announced-changes").removeClass("hidden");
+          } else {
+            $("#announced-changes").addClass("hidden");
+          }
+
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.1) {
@@ -3050,6 +3067,7 @@
         var febRev = zeroIfEmpty($("#2020-02-yes").val());
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
           var baseRev = (janRev + febRev) / 2;
+          
           //find the claim month based on the chosen claim period 
           if (claimPeriod < 9) {
             prevMonthPrefix = "0";
@@ -3060,11 +3078,11 @@
           if (claimPeriod < 11) {
             prev3MonthPrefix = "0";
           }
-          var claimMonth = getClaimMonth($("#claim-period").val());
+          var claimMonth = getClaimMonth($("#claim-period").val()); 
           var claimMonthStr = claimMonth.toString();
           if (!claimMonthStr.match(/\d{2}/g)) {
-            claimMonthPrefix = "0";
-          }
+            claimMonthPrefix = "0"; 
+          } 
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#2020-" + claimMonthPrefix + claimMonth + "-yes").val());
           //get the previous month from the claim month
@@ -3092,6 +3110,14 @@
           );
           //get the top-up rate
           topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
+
+          //alert banner saying the announced changes would benefit them
+          if (revReduction > threeMonthReduction && claimPeriod == 8) {
+            $("#announced-changes-alt").removeClass("hidden");
+          } else {
+            $("#announced-changes-alt").addClass("hidden");
+          }
+
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
           if (cewsRate < 0.1) {
@@ -3128,6 +3154,10 @@
           $("#cews-rate-alt").text("0%");
         }
       });
+
+
+      /**
+
 
       /**
        * roundPercDown()

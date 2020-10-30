@@ -29,6 +29,10 @@
 	border-image: linear-gradient(to bottom, #ccc 0.3em, #ccc 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.4em, #ccc 2.4em, #ccc 2.4em) 1 100% !important;
 	border-color: #ccc !important;
 }
+[tabindex] .modal-content .cnjnctn-grd .cnjnctn-and:after, [tabindex] .modal-content .cnjnctn-grd .cnjnctn-or:after {
+	top: 1px;
+	bottom: -1px;	
+}
 .cnjnctn-grd .cnjnctn-and:before, .cnjnctn-grd .cnjnctn-or:before {
 	float: left;
 	box-sizing: content-box;
@@ -39,6 +43,11 @@
 	width: 2em;
 	font-weight: 600;
 	font-size: 16px;
+}
+[tabindex] .modal-content .cnjnctn-grd .cnjnctn-and:before, [tabindex] .modal-content .cnjnctn-grd .cnjnctn-or:before {
+	line-height: 1.4em;
+	height: 1.4em;
+	width: 1.4em;
 }
 .cnjnctn-grd .cnjnctn-and:before {
 	border-width: 2px 0px 2px 0px;
@@ -79,6 +88,9 @@ html:lang(fr) .cnjnctn-or:before {
 .flex-fw-xs .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
+.flex-fw-xs .cnjnctn-col-sm	{
+	width: 100%;	
+}
 }
 
 @media all and (max-width: 991px) {
@@ -98,6 +110,9 @@ html:lang(fr) .cnjnctn-or:before {
 .flex-fw-sm .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
+.flex-fw-sm .cnjnctn-col-sm	{
+	width: 100%;	
+}	
 }
 
 @media all and (max-width: 1169px) {
@@ -117,6 +132,9 @@ html:lang(fr) .cnjnctn-or:before {
 .flex-fw-md .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
+.flex-fw-md .cnjnctn-col-sm	{
+	width: 100%;	
+}	
 }
 
 
@@ -153,7 +171,9 @@ border-left: 0px solid transparent;
 border-width: 0px 2px 0px 2px;
 
 }
-
+.flex-fw-lg .cnjnctn-col-sm	{
+	width: 100%;	
+}
 }
 
 .dcsn-details  details + .cnjnctn-or:before {
