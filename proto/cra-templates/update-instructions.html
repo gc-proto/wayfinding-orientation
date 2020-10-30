@@ -127,16 +127,16 @@
 	<li>
 		In the calendar section the alert needs to be updated to show the messaging for when the period is open versus what it shows when closed. This can be done by commenting out "Period 1 is closed" and uncomment the "Period 1 is open" section.
 <pre class="prettyprint small">
-<span class="bg-success">&lt;!--START: Period 1 is open</span>
+&lt;!--START: Period 1 is open <span class="bg-success">--&gt;</span>
 &lt;div class=&quot;alert alert-success provisional&quot;&gt;
 	&lt;p&gt;If you are &lt;a href=&quot;who-apply.html#h-1&quot;&gt;eligible&lt;/a&gt;, this period is &lt;strong&gt;open for application&lt;/strong&gt;&lt;/p&gt;
-	&lt;p&gt;&lt;span data-ajax-replace=&quot;how-apply.html .deadline-inner&quot;&gt;&lt;a href=&quot;how-apply.html#deadline&quot;&gt;Application deadline&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+	&lt;p&gt;The earliest you can apply is&nbsp;&lt;strong&gt;Monday,&nbsp;October&nbsp;12&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
-<span class="bg-success">END: Period 1 is open --&gt;</span>
+<span class="bg-success">&lt;!--</span>END: Period 1 is open --&gt;
 &lt;!--START: Period 1 is closed <span class="bg-danger">--&gt;</span>
 &lt;div class=&quot;alert alert-warning provisional&quot;&gt;
 	&lt;p&gt;The period is not yet open for application.&lt;/p&gt;
-	&lt;p&gt;The earliest you can apply for this period is: &lt;strong&gt;Monday&nbsp;October&nbsp;12&lt;/strong&gt;&lt;/p&gt;
+	&lt;p&gt;The earliest you can apply is &lt;strong&gt;Monday&nbsp;October&nbsp;12&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
 <span class="bg-danger">&lt;!--</span>END: Period 1 is closed --&gt; 	
 </pre>		
