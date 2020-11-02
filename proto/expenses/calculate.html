@@ -1260,7 +1260,7 @@
                 getCommonWorkSpaceHours().percentage
             ).toFixed(1);
             $(".shared-room-personal-percent-output").text((100 - claimRate).toFixed(2));
-            $(".shared-room-employment-percent-output").text((claimRate).toFixed(2));
+            $(".shared-room-employment-percent-output").text(parseFloat(claimRate).toFixed(2));
         });
         //when designated work space input is changed
         $(document).on("change keyup", "#designated-room-area-input", function(event) {
@@ -1313,7 +1313,7 @@
                 hours.percentage
             ).toFixed(1);
             $(".shared-room-personal-percent-output").text((100 - claimRate).toFixed(2));
-            $(".shared-room-employment-percent-output").text((claimRate).toFixed(2));
+            $(".shared-room-employment-percent-output").text(parseFloat(claimRate).toFixed(2));
         });
 
         //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with
