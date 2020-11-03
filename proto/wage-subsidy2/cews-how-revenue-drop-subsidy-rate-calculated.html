@@ -136,7 +136,7 @@
 			   <ul class="fa-ul lst-spcd">
 				<li><span class="mrgn-tp-0 text-muted h5">Base rate</span><br>The <a href="#baserate">base rate</a> uses your base revenue drop
 								 </li>
-								 <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> <span class="text-muted h5">Top-up rate</span><br> The <a href="#topuprate">top-up rate</a> is available to employers that have experienced a 3-month average revenue drop of more than 50%
+								 <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> <span class="text-muted h5">Top-up rate</span><br> The <a href="#topuprate">top-up rate</a> is available to employers that have experienced a base revenue drop of more than 50%
 								 </li>
 							
 								 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Overall CEWS rate</span></li>
@@ -167,7 +167,7 @@
             </div>
                         <p>You can learn how the subsidy rate is used when calculating your CEWS amount by reading more about <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-how-subsidy-calculated.html">how the overall subsidy amount is calculated</a>.</p>
 		    <details>
-		    <summary>Alternative calculation for periods 5 and 6</summary>
+		    <summary>Alternative "safe harbour" calculation for periods 5 and 6</summary>
 		    <p><strong>For periods 5 and 6 only</strong>, if your:</p>
             <ul>
                <li>base revenue drop is at least 30%, and</li>
@@ -176,7 +176,7 @@
            <p>This is referred to as a “<a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-how-subsidy-calculated.html#safeharbour">safe harbour</a>” rule. If you use the <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-calculate-subsidy-amount.html#h-3">online calculator or spreadsheet</a> to calculate your subsidy amount, the safe harbour rule is automatically applied if you qualify and it is to your benefit.</p>
 		    </details>
 		    <details>
-				<summary><h4 id="rounding">Rounding your rates</h4></summary>
+				<summary><span id="rounding">Rounding your rates</span></summary>
 			<div id="rounding-inner">
 			
 <p>The CEWS application accepts rates up to two decimal places. If the rate you calculated has more than two decimal places, you can round up or down to the nearest hundredth (second decimal place). However, you <strong>cannot round a rate up to reach a threshold</strong>.</p>
@@ -645,7 +645,7 @@
             </div>
             <p>You must use the same prior reference period comparison option for the top-up revenue drop that you chose for the base rate revenue drop.</p>
             <ul>
-               <li>if you chose the general prior reference period for the base rate (same month in 2019), you must use the  general prior reference period when calculating your top-up revenue drop</li>
+               <li>if you chose the general prior reference period for the base rate (same month in the previous year), you must use the  general prior reference period when calculating your top-up revenue drop</li>
                <li>if you chose the alternative prior reference period when calculating your base rate (average of January and February, 2020), you must use the alternative prior reference period when calculating your top-up revenue drop</li>
             </ul>
           <details>
@@ -756,9 +756,32 @@
             </table>
 			<p><strong>Note:</strong> You <a href="#rounding">cannot round your rate</a> to reach the 70% maximum top-up.</p>
             <h3 id="examples5">Example of overall subsidy rate calculation for claim periods 5 and later</h3>
+		<details>
+			<summary>Example: Calculating the top-up rate in period 8</summary>
+					    <p>Let’s say you are calculating the period 8 wage subsidy for your employees Bess and Jer, who have been working throughout the claim period (active employees) and are not related to you (arm’s-length employees).</p>
 
+		    <h4>Step 1: Determine your revenue drop</h4>
+<p>For this example, you’ve been using the general method to calculate your drop in eligible revenue since period 5 and have already figured out all the revenue drops you’ll need for this period:</p>
+<ul>
+	<li>Claim period month: October 2019 compared to October 2020: 60% drop</li>
+	<li>Previous period month: September 2019 compared to September 2020: 58% drop</li>
+<li>Average of July, August, and September, 2019, compared to the average of July, August, and September, 2020: 66% drop</li>
+		    </ul>
+		    <h4>Step 2: Calculate the subsidy rate</h4>
+
+<p>For the base rate, compare the claim period month revenue drop to the previous month's revenue drop, and use the higher amount. In this example, you’ll use the October revenue drop of 60% because it is higher than the previous month’s revenue drop of 58%.</p>
+
+		    <p class="indent-md">Revenue drop of 60% = maximum <strong>base rate of 40%</strong></p>
+
+<p>For the top-up rate, compare the revenue drop you used when calculating your base rate (the higher of either the claim period month or the previous month) with the average revenue drop over the three months prior to the claim period. In this example, you’ll use the three-month average drop (July, August, and September) of 66% because it is higher than the base revenue drop of 60%.
+
+		    <p class="indent-md">Top-up revenue drop of 66% = 1.25 x (66%-50%) = <strong>top-up rate of 20%</strong></p>
+
+		    <p>Base rate of 40% + top-up rate of 20% = <strong>overall rate of 60%</strong></p>
+
+            </details>
             <details>
-               <summary>Example: Qualifying for CEWS with a partial top-up</summary>
+               <summary>Example: Qualifying for a partial top-up in period 6</summary>
 		    
 			
 			<p>Chez Riendeau is a cooking school who saw a significant drop in business as the pandemic began. Although their in-person classes have been cancelled since mid-March, they have managed to continue earning through their popular online courses.</p>
@@ -1048,7 +1071,7 @@ Joanne and Hal are preparing to claim the subsidy for period 6. They use the gen
         <div class="panel-body">
           <div class="alert alert-success">
             <p><strong>CEWS eligibility</strong>: Qualifies for period 1</p>
-            <p>Baseline chosen: Corresponding month in 2019</p>
+            <p>Baseline chosen: Corresponding month in the previous year</p>
             <p class="small"><strong>Note:</strong> Whatever baseline you initially choose, it must remain the same for claim periods 1 to 4</p>
           </div>
         </div>
@@ -1373,42 +1396,7 @@ Joanne and Hal are preparing to claim the subsidy for period 6. They use the gen
             
             <!-- End ajax section -->
             <!--end copied content-->
-		    <!--begin partly-completed example from what the changes are-->
-            <h3>Examples of how much you may qualify for</h3>
-            <details>
-            <summary>Your revenue drop is 60% in period 8, 9, or 10</summary>
-		    <p>Let’s say you are calculating the period 8 wage subsidy for your employees Bess and Jer, who have been working throughout the claim period (active employees) and are not related to you (arm’s-length employees).</p>
 
-		    <h4>Step 1: Determine your revenue drop</h4>
-<p>For this example, you’ve been using the general method to calculate your drop in eligible revenue since period 5 and have already figured out all the revenue drops you’ll need for this period:</p>
-<ul>
-	<li>Claim period month: October 2019 compared to October 2020: 60% drop</li>
-	<li>Previous month: September 2019 compared to September 2020: 58% drop</li>
-<li>Average of July, August, and September, 2019, compared to the average of July, August, and September, 2020: 66% drop</li>
-		    </ul>
-		    <h4>Step 2: Calculate the subsidy rate</h4>
-
-<p>For the base rate, compare the claim period month revenue drop to the previous month's revenue drop, and use the higher amount. In this example, you’ll use the October revenue drop of 60% because it is higher than the previous month’s revenue drop of 58%.</p>
-
-		    <p class="indent-md">Revenue drop of 60% = maximum <strong>base rate of 40%</strong></p>
-
-<p>For the top-up rate, compare the revenue drop you used when calculating your base rate (the higher of either the claim period month or the previous month) with the average revenue drop over the three months prior to the claim period. In this example, you’ll use the three-month average drop (July, August, and September) of 66% because it is higher than the base revenue drop of 60%.
-
-		    <p class="indent-md">Top-up revenue drop of 66% = 1.25 x (66%-50%) = <strong>top-up rate of 20%</strong></p>
-
-		    <p>Base rate of 40% + top-up rate of 20% = <strong>overall rate of 60%</strong></p>
-
-		    <h4>Step 3: Calculate the amount of subsidy for your employee</h4>
-
-		    <p>Let’s say Bess made $1500 during the claim period. </p>
-
-		    <p>[employee calculation here]</p>
-
-		    <p>Let’s say Jer made $500 during the claim period.</p>
-
-		    <p>[employee calculation here]</p>
-
-            </details>
 
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                <h3 class="wb-inv">Document navigation</h3>
