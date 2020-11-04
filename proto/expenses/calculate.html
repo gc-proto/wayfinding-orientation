@@ -269,6 +269,11 @@
         </section>
         <section class="gc-nav-section experimental">
             <h1 property="name" id="wb-cont">Calculate your expenses</h1>
+		  <div class="alert alert-info"><h2 class="mrgn-tp-0 h3">Simplified option</h2>
+			   <p>To simplify the claim for your work space and office supply expenses, you can  <a href="how-apply.html#h-1">claim a flat rate of $x</a></p>
+		   
+			   </div>
+
             <details class="mrgn-bttm-lg">
                 <summary>Note: This calculator does not collect or store your information</summary>
                  <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of work space expenses you may be eligible to claim.</p>
@@ -360,21 +365,25 @@
                     <fieldset id="workspace-calculation">
                         <legend class="mrgn-bttm-sm">Period of time worked at home within the year</legend>
                       <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from home for the full year&nbsp;<span class="far fa-question-circle"></span></a></p>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group">
+                        <div class="row form-group">
+                            <div class="col-sm-5 form-group">
+                              
                                     <label for="work-home-start" class="control-label required"><span class="field-name">Start of period<span class="wb-inv" id="startCount"> 1</span></span> <strong class="required">(required)</strong> </label>
                                     <input class="form-control input-lg" id="work-home-start" name="work-home-start" type="date" required="required" />
-                                </div>
+                           
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
+                            <div class="col-sm-7 form-group">
+			
+                            
                                     <label for="work-home-end" class="control-label required"><span class="field-name">End of period<span class="wb-inv" id="endCount"> 1</span></span> <strong class="required">(required)</strong></label>
-                                    <input class="form-control input-lg" id="work-home-end" name="work-home-end" type="date" required="required" max="" />
+                                    <div class="row">
+					    <div class="col-sm-8">
+				    <input class="form-control input-lg" id="work-home-end" name="work-home-end" type="date" required="required" max="" />
                                 </div>
-                            </div>
-				<div class="col-md-2 mrgn-tp-lg">
+				   <div class="col-sm-4">
 					<button class="copyDate btn btn-default  mrgn-rght-sm" title="Add period"><span class="fas fa-plus"></span><span class="wb-inv"> Add period</span></button> <button class="removeDate btn btn-warning" title="Remove period"><span class="fas fa-trash-alt"></span><span class="wb-inv"> Remove period</span></button>	
+				</div> 
+                            </div>
 				</div>
                         </div>
 			   
@@ -587,6 +596,11 @@
 				<p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your
                                 return.
                             </p>
+			<div id="flat-rate-info" class="hidden">
+				<p>CRA is allowing you to claim a flat rate of <strong>$300.00</strong> for your expenses for this year.</p>
+				<p>Your employer is not required to complete a <strong>T2200 short</strong> and you do not need to fill out the <strong>T777 short</strong> form.</p>
+				<p>You will simply enter $300.00 on <strong>line 22900</strong> on your return.</p>
+				</div>	
                         </div>
                         <div class="ws-t777reg hidden provisional outset">
 			
