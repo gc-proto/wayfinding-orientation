@@ -593,7 +593,7 @@
                                                 <div class="col-md-6 col-sm-12">
                                                   <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                    <input type="number" class="form-control text-right rent-expense-1 currency" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
+                                                    <input type="number" class="form-control text-right currency rent-expense-1" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
                                                   </div>
                                                   <p id="rent-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
                                                 </div>
@@ -603,7 +603,7 @@
                                                 <div class="col-md-6 col-sm-12">
                                                   <label for="lease-one-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                    <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
+                                                    <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
                                                   </div>
                                                   <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
                                                 </div>
@@ -663,7 +663,10 @@
                                             <!-- This is where the Owned location inputs start -->
                                             <div class="own-location-1 hidden">
                 
-                                              <div class="col-md-12">
+                                              <legend class="mrgn-bttm-0 month-one-1">Eligible expenses for the claim period</legend>
+                                              <div class="clearfix"></div>
+
+                                              <div class="col-md-12 mrgn-tp-md">
                                                 <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                 <div class="row">
                                                   <div class="col-md-7">
@@ -840,7 +843,7 @@
                                        </footer>
                                     </fieldset>
                                     <p class="mrgn-bttm-sm">
-                                       <button class="btn btn-default" type="button" id="addloc"><span
+                                       <button class="btn btn-default" type="button" id="addLoc"><span
                                           class="fas fa-plus-circle"></span> Add
                                        another location</button>
                                     </p>
@@ -877,13 +880,13 @@
                                           <tr>
                                             <th>Business location(s)</th>
                                             <th>Closed due to PHR (days)</th>
-                                            <th class="rent-location-1 hidden">Rent</th>
-                                            <th class="own-location-1">Property tax</th>
-                                            <th class="own-location-1">Property insurance</th>
-                                            <th class="own-location-1">Interest on commercial mortgages</th>
+                                            <th>Rent</th>
+                                            <th>Property tax</th>
+                                            <th>Property insurance</th>
+                                            <th>Interest on commercial mortgages</th>
                                             <th>Subletting revenue</th>
-                                            <th><span class="loc-staddress-1">location 1</span> qualifying expenses</th>
-                                            <th><span class="loc-staddress-1">location 1</span> top-up amount</th>
+                                            <th>Qualifying expenses</th>
+                                            <th>Top-up amount</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -891,16 +894,14 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-
-                                             <td data-updated-by="?????"></td> 
-                                              <!-- lockdown days -->
-                
-                                              <td class="rent-location-1 hidden" data-updated-by="rent-ttl-1"></td>
-                                              <td class="own-location-1" data-updated-by="tax-ttl-1"></td>
-                                              <td class="own-location-1" data-updated-by="insurance-ttl-1"></td>
-                                              <td class="own-location-1" data-updated-by="interest-ttl-1"></td>
-                                              <td data-updated-by="lease-ttl-1"></td>
-                                              <td id="loc-total-1"></td>
+                                              <td data-updated-by="top-up-days-1"></td> 
+                                              <td data-updated-by="rent-amt-1"></td>
+                                              <td data-updated-by="tax-amt-1"></td>
+                                              <td data-updated-by="insurance-amt-1"></td>
+                                              <td data-updated-by="interest-amt-1"></td>
+                                              <td data-updated-by="lease-amt-1"></td>
+                                              <td data-updated-by="amt-total-1"></td>
+                                              <td data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
                                        <tfoot>
@@ -912,7 +913,7 @@
                                              <td><span class="wb-inv">-</span></td>
                                              <td><span class="wb-inv">-</span></td>
                                              <td><span class="wb-inv">-</span></td>
-                                             <td><span>All locations total: <span class="total"></span></span></td>
+                                             <td><span class="total"></span></td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -1273,27 +1274,49 @@
             this.prefix = "";
             this.numberOfLocations = 1;
             this.templateId = "loc-1";
-            this.topUpRateClass = "top-up-rate-";
-            this.month1Class = "month-one-";
-            this.month2Class = "month-two-";
-            this.cersPeriodClass = "cers-period-";
-            this.rentExpenseClass = "rent-expense-";
-            this.rentLocationClass = "rent-location-";
-            this.ownLocationClass = "own-location-";
-            this.lockDownIneligibleId = "lock-down-ineligible-";
-            this.lockDownEligibleId = "lock-down-eligible-";
-            this.topUpDaysId = "top-up-days-";
-            this.ownOrRentMsgId = "choose-own-or-rent-message-";
-            this.lockDownPeriodId = "lock-down-period-";
-            this.rentAmountId = "rent-amt-";
-            this.taxAmountId = "tax-amt-";
-            this.insuranceAmountId = "insurance-amt-";
-            this.interestAmountId = "interest-amt-";
-            this.leaseAmountId = "lease-amt-";
-            this.ttlAmountId = "amt-ttl-";
-            this.topUpAmountId = "amt-top-up-";
-    
-            this.locationIndexRegex = /-1$/g;
+            this.classUpdates = [ //any classes that get updated
+              "loc-staddress-",
+              "top-up-rate-",
+              "month-one-",
+              "month-two-",
+              "cers-period-",
+              "rent-expense-",
+              "rent-location-",
+              "own-location-",
+              "date-tax-start-",
+              "date-insurance-start-",
+              "date-interest-start-",
+              "date-lease-start-",
+              "date-tax-end-",
+              "date-insurance-end-",
+              "date-interest-end-",
+              "date-lease-end-"
+            ];
+            this.idUpdates = [ //any ids or aria-describedby that get updated
+              "lock-down-ineligible-",
+              "lock-down-eligible-",
+              "top-up-days-",
+              "choose-own-or-rent-message-",
+              "lock-down-period-",
+              "rent-amt-",
+              "tax-amt-",
+              "insurance-amt-",
+              "interest-amt-",
+              "lease-amt-",
+              "amt-ttl-",
+              "amt-top-up-",
+              "rent-one-date-",
+              "lease-one-date-",
+              "rent-two-date-",
+              "lease-two-date-",
+              "rent-cers-period-date-",
+              "lease-cers-period-date-",
+              "tax-date-",
+              "insurance-date-",
+              "interest-date-",
+              "lease-date-"
+            ];
+            this.locationIndexRegex = /-1\b/g;
     
             //CEWS legacy for reference
             // this.armsLengthId = "arms-";
@@ -1367,29 +1390,10 @@
             this.updateLocationNames(frag);
             this.updateLocNumbers(frag);
             this.updateSelectDropdown(frag);
-            this.updateClass(frag, this.topUpRateClass);
-            this.updateClass(frag, this.month1Class);
-            this.updateClass(frag, this.month2Class);
-            this.updateClass(frag, this.cersPeriodClass);
-            this.updateClass(frag, this.rentExpenseClass);
-            this.updateClass(frag, this.rentLocationClass);
-            this.updateClass(frag, this.ownLocationClass);
-            this.updateIds(frag, this.lockDownIneligibleId);
-            this.updateIds(frag, this.lockDownEligibleId);
-            this.updateIds(frag, this.topUpDaysId);
-            this.updateIds(frag, this.ownOrRentMsgId);
-            this.updateIds(frag, this.lockDownPeriodId);
-            this.updateIds(frag, this.rentAmountId);
-            this.updateIds(frag, this.taxAmountId);
-            this.updateIds(frag, this.insuranceAmountId);
-            this.updateIds(frag, this.interestAmountId);
-            this.updateIds(frag, this.leaseAmountId);
-            this.updateIds(frag, this.ttlAmountId);
-            this.updateIds(frag, this.topUpAmountId);
+            this.updateClass(frag);
+            this.updateIds(frag);
             this.setUpdatesAndUpdatedByData(frag);
-            //this.updateTableIds(frag);
             this.openAccordion(frag);
-            this.updateSummaryHeading(frag);
             return frag;
           }
     
@@ -1433,18 +1437,18 @@
                 );
                 //update the date range to the defaults
                 var rangeISO = $('#claim-period').find('option:selected').val(),
-                  startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
-                  endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
+                  startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+                  endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
                   rangeClaim = $('#claim-period').find("option:selected").text(),
                   rangeClaimNo = rangeClaim.substring(7, 8),
-                  startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
-                  endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
-                $('#lockdown-start-' + locationNumber).attr({
+                  startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
+                  endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
+                $('#lockdown-start-' + numLocs).attr({
                   "min": startDateISO,
                   "max": endDateISO,
                   "value": startDateISO
                 });
-                $('#lockdown-end-' + locationNumber).attr({
+                $('#lockdown-end-' + numLocs).attr({
                   "min": startDateISO,
                   "max": endDateISO,
                   "value": endDateISO
@@ -1489,8 +1493,7 @@
               );
             });
           }
-    
-    
+
           /**
            * updateClass
            * 
@@ -1499,15 +1502,20 @@
            * @param {DOMDocumentFragment} frag the cloned templateId
            * @param {string} className the className to update in the cloned template
            */
-          LocationFormGenerator.prototype.updateClass = function (frag, className) {
-            var classUpdateElement = $(frag).find(
-              "." + className + "1"
-            );
-            $(classUpdateElement).attr("class", $(classUpdateElement).attr("class").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
+          LocationFormGenerator.prototype.updateClass = function (frag) {
+            for (let i = 0; i < this.classUpdates.length; ++i) {
+              var classUpdateElement = $(frag).find(
+                "." + this.classUpdates[i] + "1"
+              );
+              //loop through the different elements with the class
+              for (let q = 0; q < classUpdateElement.length; ++q) {
+                $(classUpdateElement[q]).attr("class", $(classUpdateElement[q]).attr("class").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
+              }
+            }
           }
     
           /**
-           * updateIds
+           * updateIds 613-523-8145
            * 
            * update the id based on the parametrs
            * 
@@ -1515,10 +1523,19 @@
            * @param {string} idName the idName to update in the cloned template
           */
           LocationFormGenerator.prototype.updateIds = function (frag, idName) {
-            var idUpdateElement = $(frag).find(
-              "#" + idName + "1"
-            );
-            $(idUpdateElement).attr("id", $(idUpdateElement).attr("id").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
+            for (let i = 0; i < this.idUpdates.length; ++i) {
+              var idUpdateElement = $(frag).find(
+                "#" + this.idUpdates[i] + "1"
+              );
+              $(idUpdateElement).attr("id", $(idUpdateElement).attr("id").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
+              // if there is also an associated ariadescribedby, update that too
+              var ariaUpdateElement = $(frag).find(
+                "[aria-describedby='" + this.idUpdates[i] + "1']"
+              );
+              if (ariaUpdateElement.length > 0) {
+                $(ariaUpdateElement).attr("aria-describedby", $(ariaUpdateElement).attr("aria-describedby").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
+              }
+            }
           }
     
           /**
@@ -1544,35 +1561,6 @@
             });
           }
     
-          // /**
-          //  * updateTableIds
-          //  * 
-          //  * update table cell id and values required for location wage summary
-          //  * 
-          //  * @param {DOMDocumentFragment} frag the cloned tloclate
-          //  */
-          // LocationFormGenerator.prototype.updateTableIds = function (frag) {
-          //   var tds = $(frag).find("td[id$='-amt-1']");
-          //   var totalCell = $(frag).find("td[id$='ttl-1']");
-          //   var numLocs = this.numberOfLocations;
-          //   var currencyPlaceholderValue = this.currencyPlaceholderValue;
-          //   var indexRegex = this.locationIndexRegex;
-          //   $(tds).each(function (i, element) {
-          //     $(element).attr(
-          //       "id",
-          //       $(element).attr("id").replace(indexRegex, "-" + numLocs)
-          //     );
-          //     $(element).text(currencyPlaceholderValue);
-          //   });
-          //   $(totalCell).attr(
-          //     "id",
-          //     $(totalCell).attr("id").replace(indexRegex, "-" + numLocs)
-          //   );
-          //   $(totalCell).text(currencyPlaceholderValue);
-          //   $(frag).find("#loc-no-elgbl-1").attr("id", "loc-no-elgbl-" + this.numberOfLocations);
-          //   $(frag).find("#loc-smry-1").attr("id", "loc-smry-" + this.numberOfLocations);
-          // }
-    
           /**
            * openAccordion
            *
@@ -1584,13 +1572,6 @@
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
-          }
-    
-          LocationFormGenerator.prototype.updateSummaryHeading = function (frag) {
-            var heading = $(frag).find('.loc-staddress-1');
-            $(heading).removeClass("loc-staddress-1");
-            $(heading).addClass("loc-name-" + this.numberOfLocations);
-            $(heading).text("Location " + this.numberOfLocations);
           }
     
           return LocationFormGenerator;
@@ -1989,11 +1970,17 @@
               var calculatedExpense = [0, 0, 0, 0, 0];
             }
             
-            var summaryLines = ["#rent-amt-" + locationNumber, "#tax-amt-" + locationNumber, "#insurance-amt-" + locationNumber, "#interest-amt-" + locationNumber, "#lease-amt-" + locationNumber]
+            var summaryLines = ["rent-amt-" + locationNumber, "tax-amt-" + locationNumber, "insurance-amt-" + locationNumber, "interest-amt-" + locationNumber, "lease-amt-" + locationNumber];
             var formattedVal = 0;
+            var updatedByElements = [];
+            console.log(summaryLines);
             for (let i = 0; i < calculatedExpense.length; ++i) {
               formattedVal = toMoney.format(calculatedExpense[i]);
-              $(summaryLines[i]).text(formattedVal);
+              $('#' + summaryLines[i]).text(formattedVal);
+              updatedByElements = $('*[data-updated-by="' + summaryLines[i] + '"]'); //also update the relevant summary table lines
+              $(updatedByElements).each(function (i, element) {
+                $(element).text(formattedVal);
+              });
             }
             //calculate and update the total
             var qualifyingExpenses = calculatedExpense[0] + calculatedExpense[1] + calculatedExpense[2] + calculatedExpense[3];
@@ -2002,6 +1989,11 @@
             qualifyingExpenses = Math.max(0, qualifyingExpenses); //values don't go negative for a location
             formattedVal = toMoney.format(qualifyingExpenses);
             $('#amt-ttl-' + locationNumber).text(formattedVal);
+            updatedByElements = $('*[data-updated-by="amt-ttl-' + locationNumber + '"]'); //also update the relevant summary table lines
+            $(updatedByElements).each(function (i, element) {
+              $(element).text(formattedVal);
+            });
+
     
             //calculate the top-up amount for the location
             if ($('#lock-down-eligible-' + locationNumber).is(":visible") && $('#lock-down-ineligible-' + locationNumber).is(":hidden")) {
@@ -2012,7 +2004,16 @@
             var topUpAmount = qualifyingExpenses * topUpRate;
             formattedVal = toMoney.format(topUpAmount);
             $('#amt-top-up-' + locationNumber).text(formattedVal);
-    
+            updatedByElements = $('*[data-updated-by="amt-top-up-' + locationNumber + '"]'); //also update the relevant summary table lines
+            $(updatedByElements).each(function (i, element) {
+              $(element).text(formattedVal);
+            });
+
+
+
+            
+
+
             //**********
             //Need to also update the summary table with these values...
             //**********
@@ -2252,6 +2253,10 @@
             var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
             if (datediff >= 7) { //at least 7 days in the 
               $('#top-up-days-'+locationNumber).text(datediff);
+              var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
+              $(updatedByElements).each(function (i, element) {
+                $(element).text(datediff);
+              });
               var topUpRate = datediff * 25 / 28;
               topUpRate = topUpRate.toFixed(2);
               $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
@@ -2571,7 +2576,7 @@
               $(".currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
               $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
               $(".preferentialRevReduction").text(roundPercDown(revReduction) + "%");
-              $(".base-rate").text(Math.floor(cersRate * 10000) / 100 + "%");
+              $(".base-rate").text(cersRate * 100 + "%");
             } else {
               NoCERSRate();
             }

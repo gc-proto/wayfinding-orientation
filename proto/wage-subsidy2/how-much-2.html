@@ -329,26 +329,16 @@
                       you are claiming for</span> <strong class="required">(required)</strong></label>
                   <select required id="claim-period" class="form-control input-lg">
                     <option value=""> Select a claim period</option>
-                    <option data-claim-period="1" value="2020-03-15--2020-04-11">Period 1: March 15, 2020, to April 11,
-                      2020</option>
-                    <option data-claim-period="2" value="2020-04-12--2020-05-09">Period 2: April 12, 2020, to May 9, 2020
-                    </option>
-                    <option data-claim-period="3" value="2020-05-10--2020-06-06">Period 3: May 10, 2020, to June 6, 2020
-                    </option>
-                    <option data-claim-period="4" value="2020-06-07--2020-07-04">Period 4: June 7, 2020, to July 4, 2020
-                    </option>
-                    <option data-claim-period="5" value="2020-07-05--2020-08-01">Period 5: July 5, 2020, to August 1,
-                      2020</option>
-                    <option data-claim-period="6" value="2020-08-02--2020-08-29">Period 6: August 2, 2020, to August 29,
-                      2020</option>
-                    <option data-claim-period="7" value="2020-08-30--2020-09-26">Period 7: August 30, 2020, to September 26,
-                      2020</option>
-                    <option data-claim-period="8" value="2020-09-27--2020-10-24">Period 8: September 27, 2020, to October 24,
-                      2020</option>
-                    <option data-claim-period="9" value="2020-10-25--2020-11-21">Period 9: October 25, 2020, to November 21,
-                      2020</option>
-                    <option data-claim-period="10" value="2020-11-22--2020-12-19">Period 10: November 22, 2020, to December 19,
-                      2020</option>
+                    <option data-claim-period="1" value="2020-03-15--2020-04-11">Period 1: March 15, 2020, to April 11, 2020</option>
+                    <option data-claim-period="2" value="2020-04-12--2020-05-09">Period 2: April 12, 2020, to May 9, 2020</option>
+                    <option data-claim-period="3" value="2020-05-10--2020-06-06">Period 3: May 10, 2020, to June 6, 2020</option>
+                    <option data-claim-period="4" value="2020-06-07--2020-07-04">Period 4: June 7, 2020, to July 4, 2020</option>
+                    <option data-claim-period="5" value="2020-07-05--2020-08-01">Period 5: July 5, 2020, to August 1, 2020</option>
+                    <option data-claim-period="6" value="2020-08-02--2020-08-29">Period 6: August 2, 2020, to August 29, 2020</option>
+                    <option data-claim-period="7" value="2020-08-30--2020-09-26">Period 7: August 30, 2020, to September 26, 2020</option>
+                    <option data-claim-period="8" value="2020-09-27--2020-10-24">Period 8: September 27, 2020, to October 24, 2020</option>
+                    <option data-claim-period="9" value="2020-10-25--2020-11-21">Period 9: October 25, 2020, to November 21, 2020</option>
+                    <option data-claim-period="10" value="2020-11-22--2020-12-19">Period 10: November 22, 2020, to December 19, 2020</option>
                   </select>
                 </div>
               </fieldset>
@@ -3157,7 +3147,6 @@
           }
           //calculate the overall rate
           cewsRate = (baseRate + topUpRate).toFixed(4);
-          console.log(cewsRate);
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           }
@@ -3188,7 +3177,7 @@
             }
           }
           $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate").text(Math.floor(cewsRate * 10000) / 100 + "%");
+          $("#cews-rate").text(cewsRate * 100 + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
@@ -3280,7 +3269,7 @@
             $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
           }
           $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate-alt").text(Math.floor(cewsRate * 10000) / 100 + "%");
+          $("#cews-rate-alt").text(cewsRate * 100 + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
