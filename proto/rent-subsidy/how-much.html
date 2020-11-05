@@ -97,7 +97,8 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore2" class="action-checkbox">
-                        <label for="bfore2"><strong>You have your monthly eligible revenue amounts from 2020 and 2019</strong></label>
+                        <label for="bfore2"><strong>You have your revenue amounts</strong></label>
+                        <label for="bfore2">You will need amounts for the months preceeding the period for 2020 and either the equivalent months from 2019 or January and February 2020</label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
@@ -240,8 +241,20 @@
                            <p>The amount of your eligible expenses you can claim is determined by your revenue drop.</p>
                            <p id="select-a-claim-period-reminder" class="text-info">You must select a Claim period in <a href="#claim-period">Step 1</a> before you can complete this step.</p>
                            <fieldset class="brdr-0 hidden" id="rate-reduction">
-                              <p><a class="wb-lbx" role="button" aria-controls="baseline-optns"
-                                 href="#baseline-optns">Why you might choose each baseline revenue <span class="nowrap">option<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+                              <details>
+                                <summary>Why you might choose each baseline revenue</summary>
+                                <h3>Compare the baseline revenue options</h3>
+                                <p>Baseline revenue and prior reference period options</p>
+                                <div data-ajax-replace="how-much-reduction.html #basebaselinecalc-cntnt">
+                                  <p><a href="how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
+                                    options</a>
+                                  </p>
+                                  <details>
+                                    <summary>Example: Choosing a revenue comparison option</summary>
+                                    <div data-ajax-replace="how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
+                                  </details>
+                                </div>
+                              </details>
                               <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                                  <p>Which baseline revenue comparison option will you use for this claim (and all CERS claims you make)?</p>
                                  <ul>
@@ -460,17 +473,13 @@
                         <fieldset class="brdr-tp">
                            <legend><span class="wb-inv">Step 4: </span>Your business locations</legend>
                            <div class="clearfix"></div>
-                           <p>The CERS amount for which you can apply is the portion of your eligible expenses for your business locations covered by your CERS rate.</p>
-                           <p>You are only eligible for up to $75,000 eligible expenses for any one location, before calculating the portion of this you can claim with your base and top-up rates.</p>
+                           <p>Each location can have up to $75,000 in eligible expenses, for which you can claim a subsidy amount based on your CERS rate (<span class="base-rate">0%</span>).</p>
                            <div class="mrgn-tp-lg">
                               <div id="cers-calculation" class=" panel panel-primary panel-body" aria-live="polite">
                                  <p class="h4 mrgn-tp-0">Top-up and eligible expenses</p>
                                  <fieldset id="locations">
                                     <legend>Calculate your top-up rates and eligible expenses</legend>
                                     <p>Include all your business locations.</p>
-                                    <p><strong>Note:</strong> If you want to change your revenue information above, do that step
-                                       before you begin calculating eligible expenses.
-                                    </p>
                                     <fieldset class="panel panel-default" id="loc-1">
                                        <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-building"></span>
                                           Business location <span class="locationNumber">1</span>
@@ -586,11 +595,13 @@
                 
                                               <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
                                               <div class="clearfix"></div>
-                
+                                              
                                               <!-- *****
                                               Month one rent starts here
                                               ***** -->
                                               <div class="form-group row mrgn-bttm-0 month-one-1">
+                                                <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+
                                                 <div class="col-md-6 col-sm-12">
                                                   <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <div class="input-group"> <span class="input-group-addon input-sm">$</span>
@@ -637,6 +648,8 @@
                                               </div>
                 
                                               <div class="cers-period-1 hidden">
+                                                <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+
                                                 <legend class="mrgn-bttm-0 mrgn-tp-lg">Monthly eligible expenses for the claim period</legend>
                                                 <div class="form-group row mrgn-bttm-0">
                                                   <div class="col-md-6 col-sm-12">
@@ -663,11 +676,13 @@
                 
                                             <!-- This is where the Owned location inputs start -->
                                             <div class="own-location-1 hidden">
-                
+                                              
                                               <legend class="mrgn-bttm-0 month-one-1">Eligible expenses for the claim period</legend>
                                               <div class="clearfix"></div>
 
                                               <div class="col-md-12 mrgn-tp-md">
+                                                <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+
                                                 <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                 <div class="row">
                                                   <div class="col-md-7">
@@ -767,8 +782,6 @@
                                               </div>
                 
                                             </div>
-                
-                                            <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                                           </fieldset>
                                         </div>
                                        <!-- Formula:
@@ -1146,23 +1159,6 @@
                </ul>
             </div>
             <div class="modal-footer hidden"> </div>
-         </section>
-         <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
-            <header class="modal-header">
-               <h2 class="modal-title">Compare the baseline revenue options</h2>
-            </header>
-            <div class="modal-body">
-               <h3 class="mrgn-tp-sm">Baseline revenue and prior reference period options</h3>
-               <div data-ajax-replace="how-much-reduction.html #basebaselinecalc-cntnt">
-                  <p><a href="how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
-                     options</a>
-                  </p>
-               </div>
-               <details>
-                  <summary>Example: Choosing a revenue comparison option</summary>
-                  <div data-ajax-replace="how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
-               </details>
-            </div>
          </section>
          <section id="baseline-rem" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
@@ -2332,51 +2328,51 @@
           //   return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
           // }
     
-          // /**
-          //  * calculate the total wages/total CERS when the summary table is opened
-          //  */
-          // $(document).on("click", "#showLocTable", function (event) {
-          //   calculateTotals();
-          // });
-          // function calculateTotals() {
-          //   var totalWagesPaid = 0;
-          //   var CERS = 0;
-          //   var eligibleLocations = 0;
-          //   $("#dataset-filter > tbody > tr").each(function (i, element) {
-          //     var id = $(element).prop("id").split("loc")[1];
-          //     var eligibility = true;
-          //     //determine the eligibility
-          //     if ($("#loc-smry-" + id).hasClass("hidden")) {
-          //       eligibility = false;
-          //     }
-          //     //show baselineWage or 0 if the baseline was left locty (protect against showing NaN)
-          //     var baselineWage = $("#baseline-" + id).val();
-          //     if (baselineWage == "") {
-          //       $("#loc-base-" + id).text(toMoney.format("0.00"));
-          //     } else {
-          //       baselineWage = parseFloat(baselineWage);
-          //     }
-          //     $("#loc-base-" + id).text(toMoney.format(baselineWage));
-          //     //show the arms length value
-          //     $("#loc-arms-" + id).text($("#arms-" + id).val());
-          //     var totalCell = $("#loc-ttl-" + id);
-          //     if (eligibility) {
-          //       eligibleLocations++;
-          //       var locationCERS = zeroIfEmpty(getLocationCERS(id, baselineWage));
-          //       CERS += locationCERS;
-          //       totalWagesPaid += zeroIfEmpty(getLocationTotalWages(id));
-          //       var formattedTotal = toMoney.format(Math.max(locationCERS, 0));
-          //       $("#loc-ttl-" + id).text(locationCERS);
-          //       $(totalCell).html(formattedTotal);
-          //     } else {
-          //       $(totalCell).html(toMoney.format(0.00));
-          //     }
-          //   });
-          //   $(".numLocs").text(eligibleLocations);
-          //   $(".total").html(toMoney.format(CERS));
-          //   $(".total").attr("data-total-CERS", cews.toFixed(2));
-          //   $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
-          // }
+          /**
+           * calculate the totals when the summary table is opened
+           */
+          $(document).on("click", "#showLocTable", function (event) {
+            calculateTotals();
+          });
+          function calculateTotals() {
+            var totalWagesPaid = 0;
+            var CERS = 0;
+            var eligibleLocations = 0;
+            $("#dataset-filter > tbody > tr").each(function (i, element) {
+              var id = $(element).prop("id").split("loc")[1];
+              var eligibility = true;
+              //determine the eligibility
+              if ($("#loc-smry-" + id).hasClass("hidden")) {
+                eligibility = false;
+              }
+              //show baselineWage or 0 if the baseline was left locty (protect against showing NaN)
+              var baselineWage = $("#baseline-" + id).val();
+              if (baselineWage == "") {
+                $("#loc-base-" + id).text(toMoney.format("0.00"));
+              } else {
+                baselineWage = parseFloat(baselineWage);
+              }
+              $("#loc-base-" + id).text(toMoney.format(baselineWage));
+              //show the arms length value
+              $("#loc-arms-" + id).text($("#arms-" + id).val());
+              var totalCell = $("#loc-ttl-" + id);
+              if (eligibility) {
+                eligibleLocations++;
+                var locationCERS = zeroIfEmpty(getLocationCERS(id, baselineWage));
+                CERS += locationCERS;
+                totalWagesPaid += zeroIfEmpty(getLocationTotalWages(id));
+                var formattedTotal = toMoney.format(Math.max(locationCERS, 0));
+                $("#loc-ttl-" + id).text(locationCERS);
+                $(totalCell).html(formattedTotal);
+              } else {
+                $(totalCell).html(toMoney.format(0.00));
+              }
+            });
+            $(".numLocs").text(eligibleLocations);
+            $(".total").html(toMoney.format(CERS));
+            $(".total").attr("data-total-CERS", cews.toFixed(2));
+            $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
+          }
     
           // /**
           //  * getWeeklyCERS
