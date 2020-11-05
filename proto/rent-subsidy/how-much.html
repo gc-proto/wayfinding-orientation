@@ -549,7 +549,7 @@
                                               </div>
                                               <div class="well text-muted mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Top-up rate summary</h3>
-                                                  <p id="lock-down-ineligible-1">You do not qualify for a top-up. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong>.</p>
+                                                  <p id="lock-down-ineligible-1">You do not qualify for a top-up. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong> and you must have a rent subsidy rate over 0%.</p>
                                                   <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
                                               </div>
 
@@ -901,7 +901,7 @@
                                               <td data-updated-by="insurance-amt-1"></td>
                                               <td data-updated-by="interest-amt-1"></td>
                                               <td data-updated-by="lease-amt-1"></td>
-                                              <td data-updated-by="amt-total-1"></td>
+                                              <td data-updated-by="amt-ttl-1"></td>
                                               <td data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
@@ -2258,14 +2258,24 @@
               $(updatedByElements).each(function (i, element) {
                 $(element).text(datediff);
               });
-              var topUpRate = datediff * 25 / 28;
-              topUpRate = topUpRate.toFixed(2);
-              $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
-              $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
-              $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
+              var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
+              console.log("baseRate: " + baseRate);
+              if (baseRate > 0) { //no rent subsidy rate, no top rate
+                var topUpRate = datediff * 25 / 28;
+                topUpRate = topUpRate.toFixed(2);
+                $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
+                $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
+                $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
+              } else {
+                $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
+                $('#lock-down-eligible-'+locationNumber).addClass("hidden");
+                $('.top-up-rate-'+locationNumber).text("0" + "%");
+              }
             } else {
+              //repeat of above...
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
+              $('.top-up-rate-'+locationNumber).text("0" + "%");
             }
             recalculateLocationAmounts(locationNumber);
           }
@@ -2424,21 +2434,13 @@
             var row = document.createElement("tr");
             row.id = "loc" + numLocationPanels;
     
-    
-    
-            //*******
-            //Also need to update the default lock down period picker dates
-            //And the range of dates that are selectable
-            //*******
-    
-    
-    
-            //create the location 'name' cell
+            //create new row in the summary table
+            //location 'name' cell
             var eligibleLocationCell = document.createElement("td");
-            var eeSpan = document.createElement("span");
-            $(eeSpan).addClass("loc-name-" + numLocationPanels);
-            eeSpan.innerHTML = "Location " + numLocationPanels;
-            eligibleLocationCell.appendChild(eeSpan);
+            var locSpan = document.createElement("span");
+            $(locSpan).addClass("loc-name-" + numLocationPanels);
+            locSpan.innerHTML = "Location " + numLocationPanels;
+            eligibleLocationCell.appendChild(locSpan);
             // create the arms length cell 
             var armsLengthCell = document.createElement("td");
             armsLengthCell.id = "loc-arms-" + numLocationPanels;
