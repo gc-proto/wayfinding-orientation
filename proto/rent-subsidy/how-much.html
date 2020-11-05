@@ -808,7 +808,7 @@
                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                  <tr class="rent-location-1 hidden">
+                                                  <tr class="rent-location-1">
                                                     <td>Rent</td>
                                                     <td data-updates="rent-ttl-1" id="rent-amt-1">$0.00</td>
                                                   </tr>
@@ -1394,7 +1394,7 @@
             this.updateClass(frag);
             this.updateIds(frag);
             this.setUpdatesAndUpdatedByData(frag);
-            this.openAccordion(frag);
+            this.visualDefaults(frag);
             return frag;
           }
     
@@ -1423,8 +1423,6 @@
             $(inputs).each(function (i, element) {
               if ($(element).is(":checkbox")) {
                 $(element).prop("checked", false);
-              } else if ($(element).is(":text")) {
-                $(element).val("");
               } else if ($(element).is(":radio")) { //adding radio button uncheck
                 //uncheck the previously selected option
                 $(element).prop("checked", false);
@@ -1456,7 +1454,9 @@
                 });
               } else if ($(element).is("select")) { //if select dropdown, then reset to default option
                 $(element).first("option").attr("selected", true);
-              }
+              } else if ($(element).val().length > 0) {
+                $(element).val("");
+              } 
               //need to get the label for each of these elements and update the 'for' attr
               var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
               $(element).attr(
@@ -1563,16 +1563,33 @@
           }
     
           /**
-           * openAccordion
+           * visualDefaults
            *
-           * open all open accordions
+           * make sure the new location form displays the correct sections (hide/shows, open accordion, etc)
            *
            * @param {DOMDocumentFragment} frag the cloned tloclate
            */
-          LocationFormGenerator.prototype.openAccordion = function (frag) {
+          LocationFormGenerator.prototype.visualDefaults = function (frag) {
+            var numLocs = this.numberOfLocations;
+            //hide the lockdown fields
+            $('#lock-down-period-' + numLocs).addClass("hidden");
+            $('#lock-down-ineligible-' + numLocs).removeClass("hidden");
+            $('#lock-down-eligible-' + numLocs).addClass("hidden");
+            $('.rent-location-' + numLocs).addClass("hidden");
+            $('.own-location-' + numLocs).addClass("hidden");
+            $('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
+            //open the accordion
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
+            //Clear the summary values
+            $('#rent-amt-' + numLocs).text("$0.00");
+            $('#tax-amt-' + numLocs).text("$0.00");
+            $('#insurance-amt-' + numLocs).text("$0.00");
+            $('#interest-amt-' + numLocs).text("$0.00");
+            $('#lease-amt-' + numLocs).text("$0.00");
+            $('#amt-ttl-' + numLocs).text("$0.00");
+            $('#amt-top-up-' + numLocs).text("$0.00");
           }
     
           return LocationFormGenerator;
@@ -2279,11 +2296,6 @@
             }
             recalculateLocationAmounts(locationNumber);
           }
-    
-
-          
-
-
 
           //when the user clicks the remove button on an location panel
           $(document).on("click", ".rm-loc", function(event) {
@@ -2438,49 +2450,53 @@
             //location 'name' cell
             var eligibleLocationCell = document.createElement("td");
             var locSpan = document.createElement("span");
-            $(locSpan).addClass("loc-name-" + numLocationPanels);
+            $(locSpan).addClass("full-address-" + numLocationPanels);
             locSpan.innerHTML = "Location " + numLocationPanels;
             eligibleLocationCell.appendChild(locSpan);
-            // create the arms length cell 
-            var armsLengthCell = document.createElement("td");
-            armsLengthCell.id = "loc-arms-" + numLocationPanels;
-            //create the cell for the baseline wage
-            var baselineCell = document.createElement("td");
-            baselineCell.id = "loc-base-" + numLocationPanels;
-            //create cells for each wage entry
-            var weeklyWageCells = [];
-            for (var i = 0; i < 4; i++) {
-              weeklyWageCells[i] = document.createElement("td");
+            //create the cells
+            var expenseCells = [];
+            for (var i = 0; i < 8; i++) {
+              expenseCells[i] = document.createElement("td");
             }
             //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
-            $(weeklyWageCells[0]).attr(
+            $(expenseCells[0]).attr(
               "data-updated-by",
-              "wkone-" + numLocationPanels
+              "top-up-days-" + numLocationPanels
             );
-            $(weeklyWageCells[1]).attr(
+            $(expenseCells[1]).attr(
               "data-updated-by",
-              "wktwo-" + numLocationPanels
+              "rent-amt-" + numLocationPanels
             );
-            $(weeklyWageCells[2]).attr(
+            $(expenseCells[2]).attr(
               "data-updated-by",
-              "wkthree-" + numLocationPanels
+              "tax-amt-" + numLocationPanels
             );
-            $(weeklyWageCells[3]).attr(
+            $(expenseCells[3]).attr(
               "data-updated-by",
-              "wkfour-" + numLocationPanels
+              "insurance-amt-" + numLocationPanels
             );
-            //create the total cell
-            var totalCell = document.createElement("td");
-            totalCell.id = "loc-ttl-" + numLocationPanels;
+            $(expenseCells[4]).attr(
+              "data-updated-by",
+              "interest-amt-" + numLocationPanels
+            );
+            $(expenseCells[5]).attr(
+              "data-updated-by",
+              "lease-amt-" + numLocationPanels
+            );
+            $(expenseCells[6]).attr(
+              "data-updated-by",
+              "amt-ttl-" + numLocationPanels
+            );
+            $(expenseCells[7]).attr(
+              "data-updated-by",
+              "amt-top-up-" + numLocationPanels
+            );
             //put the row together
             row.appendChild(eligibleLocationCell);
-            row.appendChild(armsLengthCell);
-            row.appendChild(baselineCell);
-            $(weeklyWageCells).each(function (i, element) {
-              row.appendChild(weeklyWageCells[i]);
+            $(expenseCells).each(function (i, element) {
+              row.appendChild(expenseCells[i]);
             });
             //add the row to the table
-            row.appendChild(totalCell);
             $("#dataset-filter > tbody").append(row);
             var lastLocPanel = $("fieldset[id^='loc-']").last();
             $(frag).insertAfter(lastLocPanel);
@@ -2488,8 +2504,6 @@
             document.getElementById($(frag).prop("id")).scrollIntoView({
               behavior: 'smooth'
             });
-            $("#loc-no-elgbl-" + numLocationPanels).addClass("hidden");
-            $("#loc-smry-" + numLocationPanels).removeClass("hidden");
           }
     
           /**
