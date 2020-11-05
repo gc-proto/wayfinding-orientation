@@ -684,101 +684,69 @@
                                                 <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 
                                                 <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="row">
+                                                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                
                                                   <div class="col-md-7">
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
+                                                    <div class="input-group"> 
+                                                      <label for="date-chooser-tax-1" class="wb-inv">The period for which the tax payment was made</label>
+                                                      <select class="form-control input-lg" id="date-chooser-tax-1">
+                                                        <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="year">Year 2020</option>
+                                                      </select>
+                                                      <span class="input-group-addon input-sm">$</span>
+                                                      <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
                                                     </div>
                                                     <p id="tax-date-1" class="text-muted small">from <span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </div>
-                                                  <div class="col-md-5">
-                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                      <label for="date-chooser-tax-1" class="wb-inv">The period for which the tax payment was made</label>
-                                                      <div class="col-sm-12">
-                                                        <!-- <label for="calc-method-1">Tax amount for the year?</label> -->
-                                                        <select class="form-control input-lg" id="date-chooser-tax-1">
-                                                          <option data-calc-method="period">CERS period (28 days)</option>
-                                                          <option data-calc-method="year">Year 2020</option>
-                                                        </select>
-                                                      </div>
-                                                    </fieldset>
-                                                  </div>
-                                                </div>
-                                                
+                                                </fieldset>
                                               </div>
                 
                                               <div class="col-md-12">
-                                                <!-- <br class="hidden-xs hidden-sm">
-                                                <br class="visible-md"> -->
                                                 <label for="insurance-own-1">Property insurance<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="row">
-                                                  <div class="col-md-7">
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
-                                                    </div>
-                                                    <p id="insurance-date-1" class="text-muted small">from <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                  <div class="input-group"> 
+                                                    <label for="date-chooser-insurance-1" class="wb-inv">The period for which the insurance payment was made</label>
+                                                    <select class="form-control input-lg" id="date-chooser-insurance-1">
+                                                      <option data-calc-method="period">CERS period (28 days)</option>
+                                                      <option data-calc-method="year">Year 2020</option>
+                                                    </select>
+                                                    <span class="input-group-addon input-sm">$</span>
+                                                    <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
                                                   </div>
-                                                  <div class="col-md-5">
-                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                      <label for="date-chooser-insurance-1" class="wb-inv">The period for which the insurance payment was made</label>
-                                                      <div class="col-sm-12">
-                                                        <!-- <label for="calc-method-1">Tax amount for the year?</label> -->
-                                                        <select class="form-control input-lg" id="date-chooser-insurance-1">
-                                                          <option data-calc-method="period">CERS period (28 days)</option>
-                                                          <option data-calc-method="year">Year 2020</option>
-                                                        </select>
-                                                      </div>
-                                                    </fieldset>
-                                                  </div>
-                                                </div>
+                                                  <p id="insurance-date-1" class="text-muted small">from <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                </fieldset>
                                               </div>
                 
                                               <div class="col-md-12 mrgn-tp-md">
                                                 <label for="interest-own-1">Interest on commercial mortgages<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="row">
-                                                  <div class="col-md-7">
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
-                                                    </div>
-                                                    <p id="interest-date-1" class="text-muted small">from <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                  <div class="input-group"> 
+                                                    <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
+                                                    <select class="form-control input-lg" id="date-chooser-interest-1" disabled="disabled">
+                                                      <option data-calc-method="period">CERS period (28 days)</option>
+                                                    </select>
+                                                    <span class="input-group-addon input-sm">$</span>
+                                                    <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
                                                   </div>
-                                                  <div class="col-md-5">
-                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                      <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
-                                                      <div class="col-sm-12">
-                                                        <!-- <label for="calc-method-1">Tax amount for the year?</label> -->
-                                                        <select class="form-control input-lg" id="date-chooser-interest-1" disabled="disabled">
-                                                          <option data-calc-method="period">CERS period (28 days)</option>
-                                                        </select>
-                                                      </div>
-                                                    </fieldset>
-                                                  </div>
-                                                </div>
+                                                  <p id="interest-date-1" class="text-muted small">from <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                </fieldset>
                                               </div>
                 
                 
                                               <div class="col-md-12 mrgn-tp-lg">
                                                 <label for="lease-own-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="row">
-                                                  <div class="col-md-7">
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
-                                                    </div>
-                                                    <p id="lease-date-1" class="text-muted small">from <span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp form-group">
+                                                  <div class="input-group">
+                                                    <label for="date-chooser-lease-1" class="wb-inv">The period for which the lease payment was made</label>
+                                                    <select class="form-control input-lg" id="date-chooser-lease-1">
+                                                      <option data-calc-method="period">CERS period (28 days)</option>
+                                                      <option data-calc-method="month">Per month</option>
+                                                    </select>
+                                                    <span class="input-group-addon input-sm">$</span>
+                                                    <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
                                                   </div>
-                                                  <div class="col-md-5">
-                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                      <label for="date-chooser-lease-1" class="wb-inv">The period for which the lease payment was made</label>
-                                                      <div class="col-sm-12">
-                                                        <!-- <label for="calc-method-1">Tax amount for the year?</label> -->
-                                                        <select class="form-control input-lg" id="date-chooser-lease-1">
-                                                          <option data-calc-method="period">CERS period (28 days)</option>
-                                                          <option data-calc-method="month">Per month</option>
-                                                        </select>
-                                                      </div>
-                                                    </fieldset>
-                                                  </div>
-                                                </div>
+                                                  <p id="lease-date-1" class="text-muted small">from <span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                </fieldset>
                                               </div>
                 
                                             </div>
