@@ -1067,28 +1067,28 @@
                   <tbody>
                     <tr>
                       <th scope="row" class="h6">Affiliated entity percentage</th>
-                      <td class="text-right nowrap"><span class="affiliated-entity-percentage mrgn-rght-sm">0.00%</span></td>
+                      <td class="text-right nowrap"><output class="affiliated-entity-percentage mrgn-rght-sm">0.00%</output></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
-                      <td class="text-right nowrap"><span class="qualifying-rent-expenses mrgn-rght-sm">0.00%</span></td>
+                      <td class="text-right nowrap"><output class="qualifying-rent-expenses mrgn-rght-sm">0.00%</output></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Rent Subsidy Rate</th>
-                      <td class="text-right nowrap">x<span class="mrgn-rght-sm base-rate">0.00%</span></td>
+                      <td class="text-right nowrap">x<output class="mrgn-rght-sm base-rate">0.00%</output></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Basic CERS <small class="nowrap">(Line 300)</small></th>
-                      <td class="text-right nowrap">=<span class="mrgn-rght-sm base-subsidy-amount">$0.00</span></td>
+                      <td class="text-right nowrap">=<output class="mrgn-rght-sm base-subsidy-amount">$0.00</output></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Subsidy top-up <small class="nowrap">(Line 310)</small></th>
                       <td class="text-right nowrap">+
-                        <td class="text-right nowrap"><span class="top-up-total mrgn-rght-sm">$0.00</span></td>
+                        <td class="text-right nowrap"><output class="top-up-total mrgn-rght-sm">$0.00</output></td>
                     </tr>
                     <tr class="success">
                       <th scope="row" class="h6">Total Canada Emergency Rent Subsidy <small class="nowrap">(Line 300 + Line 310)</small></th>
-                      <td class="text-right nowrap"><span class="rent-subsidy-claim-total mrgn-rght-sm h3">$0.00</span></td>
+                      <td class="text-right nowrap"><output class="rent-subsidy-claim-total mrgn-rght-sm h3">$0.00</output></td>
                     </tr>
                   </tbody>
                </table>
@@ -2306,15 +2306,15 @@
               var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
             }
             console.log(affiliatedSplit);
-            var line170Total = min(300000 * affiliatedSplit / 100, smryTotals[5]);
+            var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
             $('.qualifying-rent-expenses').html(line170Total + '%');
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
             var baseAmount = line170Total * baseRate;
-            baseAmount = baseAmount.toFixed(2);
-            $('.base-subsidy-amount').html(toMoney.format(baseAmount));
             var claimTotal = baseAmount + smryTotals[6];
+            baseAmount = baseAmount.toFixed(2);
             claimTotal = claimTotal.toFixed(2);
+            $('.base-subsidy-amount').html(toMoney.format(baseAmount));
             $('.rent-subsidy-claim-total').html(toMoney.format(claimTotal));
           }
 
