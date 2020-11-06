@@ -142,11 +142,8 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore5" class="action-checkbox">
-                        <label for="bfore5"><strong>You have already made the payment for any rent, property taxes or other eligible expenses that you will include in this application.</strong></label>
-                        <label for="bfore5">Any rent, property taxes or other eligible expenses that you will include in this application must already be paid.</label>
-                        <ul class="mrgn-lft-lg">
-                           <li>You cannot claim any amounts that you have not already paid for.</li>
-                        </ul>
+                        <label for="bfore5"><strong>You have already made your rent or other expense payments.</strong></label>
+                        <label for="bfore5">You cannot claim any amounts that you have not already paid for.</label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore6" class="action-checkbox">
@@ -223,7 +220,7 @@
                            </div>
                         </fieldset>
                         <hr class="brdr-bttm">
-                        <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+                        <div class="well mrgn-tp-md mrgn-bttm-lg">
                            <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                            <ul class="list-unstyled lst-spcd">
                               <li>Claim period is: <span class="h3 claim-period"></span></li>
@@ -301,7 +298,7 @@
                               </div>
                            </div>
                            <hr class="brdr-bttm">
-                           <div class="well mrgn-tp-md mrgn-bttm-lg text-muted">
+                           <div class="well mrgn-tp-md mrgn-bttm-lg">
                               <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                               <ul class="list-unstyled lst-spcd">
                                  <li class="affiliated-no-answer">You have indicated you do not have affiliated businesses.</li>
@@ -450,6 +447,7 @@
                                     </div>
                                  </div>
                               </fieldset>
+                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
                            </div>
                            <div class="hidden" id="alt-bl-yes">
                               <p><strong>Determine your subsidy rate for the claim period</strong></p>
@@ -533,8 +531,9 @@
                                     </div>
                                  </div>
                               </fieldset>
+                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
                            </div>
-                           <div class="well text-muted mrgn-tp-md">
+                           <div id="revenue-drop-results-summary" class="well mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of Step 3</h3>
                               <ul class="small">
                                 <li>Your <strong>current period revenue drop</strong> is <span
@@ -551,7 +550,7 @@
                         <fieldset class="brdr-tp">
                            <legend><span class="wb-inv">Step 4: </span>Your business locations</legend>
                            <div class="clearfix"></div>
-                           <p>The CERS amount you can apply for is the portion of your eligible expenses for your business locations covered by your CERS rate.</p>
+                           <p>The CERS amount you can apply for is the portion of your eligible expenses for your business locations covered by your CERS rate (<span class="base-rate">0%</span>).</p>
                            <p>Each location is eligible to claim up to $75,000 in eligible expenses.</p>
                           <!-- <p>The base subsidy amount you can get is based on your CERS rate (<span class="base-rate">0%</span>) as a portion of eligible expenses, up to a maximum amountof $300,000.</p>-->
                            <div class="mrgn-tp-lg">
@@ -568,16 +567,16 @@
                                        <div class="clearfix"></div>
                                        <div class="panel-body">
                                           <div class="form-group">
-                                             <div class="row">
+                                             <div id="loc-address-1" class="row loc-address">
                                                 <div class="col-md-12">
                                                    <label for="loc-staddress-1">Street address</label>
                                                    <input type="text" size="50" class="form-control input-lg" id="loc-staddress-1">
                                                 </div>
-                                                <div class="col-xs-5 col-sm-5">
+                                                <div class="col-xs-4">
                                                    <label for="loc-city-1">City</label>
                                                    <input type="text" class="form-control input-lg" id="loc-city-1">
                                                 </div>
-                                                <div class="col-xs-4 col-sm-2">
+                                                <div class="col-xs-5 col-sm-3">
                                                    <label for="loc-prov-1">Prov.</label>
                                                    <select class="form-control input-lg" id="loc-prov-1">
                                                       <option>--</option>
@@ -635,8 +634,9 @@
                                                       </div>
                                                    </div>
                                                 </div>
+                                                <a class="btn btn-default">Recalculate your top up</a>
                                               </div>
-                                              <div class="well text-muted mrgn-tp-md">
+                                              <div class="well mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Top-up rate summary</h3>
                                                   <p id="lock-down-ineligible-1">You do not qualify for a top-up. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong>.</p>
                                                   <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
@@ -981,7 +981,7 @@
                                  <ul class="list-inline">
                                     <li>
                                        <button onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span
-                                          class="glyphicon glyphicon-print"></span> Print this summary</button>
+                                          class="glyphicon glyphicon-print"></span> Print this summary (or save to PDF)</button>
                                     </li>
                                     <li class="pull-right">
                                        <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
@@ -1097,7 +1097,7 @@
                <div class="panel-body">
                   <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your rent subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
                   <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg"
-                     role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CERS
+                     role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview (or save to PDF) <span class="wb-inv"> CERS
                      statement</span></span></a>
                   </p>
                </div>
@@ -1372,7 +1372,8 @@
               "tax-date-",
               "insurance-date-",
               "interest-date-",
-              "lease-date-"
+              "lease-date-",
+              "loc-address-"
             ];
             this.locationIndexRegex = /-1\b/g;
 
@@ -1883,7 +1884,7 @@
               "value": endDateISO
             });
             $('.lockdown-end-date').val(endDateISO);
-            //recalculate top up for each location
+            //recalculate top up for each location 
             $(".lock-down-dates").each(function (i, element) {
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
@@ -2069,10 +2070,25 @@
             $(displays).each(function(i, element) {
               $(element).text(displayValue);
             });
+          });
 
-            //Add equivalent for the 'full-address-'
-
-
+          $document.on("blur", ".loc-address", function (event) {
+            var parts = this.id.split("-");
+            var locationNumber = parts[parts.length - 1];
+            var fullAddress = "";
+            var address = [
+              $('#loc-staddress-' + locationNumber).val(),
+              $('#loc-city-' + locationNumber).val(),
+              $('#loc-prov-' + locationNumber).val(),
+              $('#loc-postcode-' + locationNumber).val()
+            ];
+            for (let i = 0; i < address.length; ++i) {
+              if (address[i] != "" && address[i] != "--" && address[i] != null) {
+                fullAddress = fullAddress + address[i] + ", ";
+              }
+            }
+            fullAddress.substring(0, fullAddress.length - 2);
+            $('.full-address-' + locationNumber).text(fullAddress);
           });
 
           //Radio event listener
@@ -2141,7 +2157,6 @@
               } else if (calcMethod == "month") {
                 var startDateParts = startDateISO.split("-");
                 var endDateParts = endDateISO.split("-");
-
                 var startDate = startDateISO;
                 var endDate = endDateISO;
               } else if (calcMethod == "year") {
@@ -2199,12 +2214,21 @@
 
           }
 
-          $(".lock-down-dates").on('change', function(event) {
+          $document.on("blur", ".lock-down-dates", function (event) {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             topUpRateCalculation(locationNumber);
             recalculateLocationAmounts(locationNumber);
           });
+
+          // 
+          //   console.log("err....");
+          //   var parts = this.id.split("-");
+          //   var locationNumber = parts[parts.length - 1];
+            
+          //   topUpRateCalculation(locationNumber);
+          //   recalculateLocationAmounts(locationNumber);
+          // });
 
           function topUpRateCalculation(locationNumber, radioFlag = 0) {
             var startDate = $("#lockdown-start-" + locationNumber).val();
@@ -2266,7 +2290,7 @@
           $(document).on("click", "#showLocTable", function (event) {
             calculateTotals();
           });
-
+          
           function calculateTotals() {
             var smryTotals = [0, 0, 0, 0, 0, 0, 0];
             var eligibleLocations = 0;
@@ -2436,11 +2460,12 @@
               //get the base rate
               cersRate = parseFloat(Math.max(getRentSubsidyRate(revReduction), 0));
               //round to nearest
-              cersRate = cersRate.toFixed(4);
+              cersRate = cersRate * 100;
+              cersRate = cersRate.toFixed(2);
               $(".currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
               $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
               $(".preferentialRevReduction").text(roundPercDown(revReduction) + "%");
-              $(".base-rate").text(cersRate * 100 + "%");
+              $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
             }
@@ -2538,146 +2563,6 @@
               return 0;
             }
           }
-
-          // //update the location wages summary when the arms length value is changed
-          // $(document).on("change", "select[id^='arms-']", function (event) {
-          //   //get the location number
-          //   var target = event.target;
-          //   var id = target.id.split('-')[1];
-          //   //trigger the blur event on all the inputs for the locations wages to recalculate
-          //   $("#wkone-" + id).blur();
-          //   $("#wktwo-" + id).blur();
-          //   $("#wkthree-" + id).blur();
-          //   $("#wkfour-" + id).blur();
-          // });
-          // //update the location wage summary when the baseline value is changed
-          // $(document).on("blur", "input[id^='baseline-']", function (event) {
-          //   //get the location number
-          //   var target = event.target;
-          //   var id = target.id.split('-')[1];
-          //   //trigger the blur event on all the inputs for the locations wages to recalculate
-          //   $("#wkone-" + id).blur();
-          //   $("#wktwo-" + id).blur();
-          //   $("#wkthree-" + id).blur();
-          //   $("#wkfour-" + id).blur();
-          // });
-
-          // /**
-          //  * run the blur event for the wage input when the corresponding leave
-          //  * with pay option is checked
-          //  */
-          // $(document).on("click", ".loc-lv > *", function (event) {
-          //   leaveWithPayStateChanged(event);
-          // });
-          // function leaveWithPayStateChanged(event) {
-          //   var target = null;
-          //   //keypress event will send the checkbox as the event target
-          //   if (event.target.nodeName == 'INPUT') {
-          //     target = $("label[for='" + event.target.id + "']");
-          //   } else {
-          //     target = event.target;
-          //   }
-          //   var forValue = $(target).attr("for");
-          //   var parts = forValue.split('-');
-          //   var wageInputId = parts[0] + '-' + parts[2];
-          //   $("#" + wageInputId).blur();
-          // }
-
-          // //send data to fields in 2B
-          // $(document).on("click", "#transfer-data", function (event) {
-          //   calculateTotals();
-          //   if ($("#claim-period option:selected").data("claim-period") >= 5) {
-          //     var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
-          //     var totalLocs = $("fieldset[id^='loc-']").length;
-          //     var eligibleLocs = totalLocs - (0.25 * numWeeksLeaveWPay);
-          //     //eligible active locations
-          //     $("#p2c-loc-alt1").val(Math.ceil(totalLocs));
-          //     $("#p2c-loc-alt1").trigger("change");
-          //     //get eligible furloughed locations
-          //     $("#p2c-loc-alt2").val(Math.ceil(totalLocs - eligibleLocs));
-          //     $("#p2c-loc-alt2").trigger("change");
-          //     if ($("#p2c-loc-alt2").val() == 0) {
-          //       $("#p3-ei").prop("readonly", true);
-          //       $("#p3-ei").val("0.00");
-          //       $("#p3-cpp").prop("readonly", true);
-          //       $(".p3-loc-req").addClass("hidden");
-          //       $("#p3-cpp").val("0.00");
-          //       $(".no-lwp-disclaimer").removeClass("hidden");
-          //     } else {
-          //       $("#p3-ei").prop("readonly", false);
-          //       $("#p3-ei").val("");
-          //       $("#p3-cpp").prop("readonly", false);
-          //       $(".p3-loc-req").removeClass("hidden");
-          //       $("#p3-cpp").val("");
-          //       $(".no-lwp-disclaimer").addClass("hidden");
-          //     }
-          //     var totalWages = $(".total").attr("data-total-wages");
-          //     $("#p2c-pyrl").val(totalWages);
-          //     $("#p2c-pyrl").trigger("change");
-          //     var totalCERS = $(".total").attr("data-total-CERS");
-          //     $("#p2c-CERS").val(totalCERS);
-          //     $("#p2c-CERS").trigger("change");
-          //     var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
-          //     $("#p2b-c1").val(revenueDisplay);
-          //     $("output[for='p2b-c1']").text(revenueDisplay + "%");
-          //     var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
-          //     $("#p2b-c2").val(threeMonthRevenueDisplay);
-          //     $("output[for='p2b-c2']").text(threeMonthRevenueDisplay + "%");
-          //     $("#p2b-c3").val(roundPercDown(CERSRate));
-          //     $("output[for='p2b-c3']").text(roundPercDown(CERSRate) + "%");
-          //   } else {
-          //     var eligibleLocations = $("fieldset[id^='loc-']").length;
-          //     for (var i = 1; i < $("fieldset[id^='loc-']").length; i++) {
-          //       if ($("#loc-smry-" + i).hasClass("hidden")) {
-          //         eligibleLocations--;
-          //       }
-          //     }
-          //     $("#p2c-ee").val(eligibleLocations);
-          //     $("#p2c-ee").trigger("change");
-          //     var totalWages = $(".total").attr("data-total-wages");
-          //     $("#p2c-pyrl").val(totalWages);
-          //     $("#p2c-pyrl").trigger("change");
-          //     var totalCERS = $(".total").attr("data-total-CERS");
-          //     $("#p2c-CERS").val(totalCERS);
-          //     $("#p2c-CERS").trigger("change");
-          //   }
-          //   for (var i = 1; i < (numLocationPanels + 1); i++) {
-          //     $("#wkone-" + i).blur();
-          //     $("#wktwo-" + i).blur();
-          //     $("#wkthree-" + i).blur();
-          //     $("#wkfour-" + i).blur();
-          //   }
-          // });
-
-
-          // $(document).on("blur", "#p2c-loc-alt2", function(event) {
-          //   if (event.target.value == 0) {
-          //     $("#p3-ei").prop("readonly", true);
-          //     $("#p3-ei").val("0.00");
-          //     $("#p3-cpp").prop("readonly", true);
-          //     $("#p3-cpp").val("0.00");
-          //     $(".p3-loc-req").addClass("hidden");
-          //     $(".no-lwp-disclaimer").removeClass("hidden");
-          //   } else {
-          //     $("#p3-ei").prop("readonly", false);
-          //     $("#p3-ei").val("");
-          //     $("#p3-cpp").prop("readonly", false);
-          //     $("#p3-cpp").val("");
-          //     $(".no-lwp-disclaimer").addClass("hidden");
-          //     $(".p3-loc-req").removeClass("hidden");
-          //   }
-          // });
-
-          // //update percentage summary elements in 2B
-          // $(document).on("blur", "#p2b-c1", function (event) {
-          //   $("output[for='p2b-c1']").text(zeroIfEmpty(event.target.value) + "%");
-          // });
-          // $(document).on("blur", "#p2b-c2", function (event) {
-          //   $("output[for='p2b-c2']").text(zeroIfEmpty(event.target.value) + "%");
-          // });
-          // $(document).on("blur", "#p2b-c3", function (event) {
-          //   $("output[for='p2b-c3']").text(zeroIfEmpty(event.target.value) + "%");
-          // });
 
           /**
            * getMonthNamesPlusYear()
