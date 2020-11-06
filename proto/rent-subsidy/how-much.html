@@ -93,8 +93,8 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore2" class="action-checkbox">
-                        <label for="bfore2"><strong>You have your monthly eligible revenue amounts from 2020 and 2019</strong></label>
-                      <!--  <label for="bfore2">You will need revenue amounts for the past few months, as well as your comparison period option.</label>-->
+                        <label for="bfore2"><strong>You have monthly eligible revenue amounts to calculate your subisidy rate</strong></label>
+                        <label for="bfore2">You will need revenue amounts for the past few months, as well as your comparison period option.</label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
@@ -120,7 +120,7 @@
                         <ul class="mrgn-lft-lg list-unstyled">
                           <li>
                             <details>
-                            <summary>Find out if you have affiliated businesses or entities <span class="far fa-question-circle"></span></summary>
+                            <summary>Find out if you have affiliated entities <span class="far fa-question-circle"></span></summary>
                             <p>An affiliated entity is an organization that:</p>
                             <ul>
                             <li>controls another entity (directly or indirectly)</li>
@@ -200,7 +200,7 @@
                            <legend><span class="wb-inv">Step 2: </span>Affiliated businesses and entities</legend>
                            <p>Affiliated businesses and entities are only eligible for the CERS base subsidy amount up to a combined maximum of $300,000.</p>
                            <details>
-                           <summary>Find out if you have affiliated businesses or entities <span class="far fa-question-circle"></span></summary>
+                           <summary>Find out if you have affiliated entities <span class="far fa-question-circle"></span></summary>
                            <p>An affiliated entity is an organization that:</p>
                            <ul>
                            <li>controls another entity (directly or indirectly)</li>
@@ -872,19 +872,19 @@
                                        another location</button>
                                     </p>
                                  </fieldset>
+                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
+                                  <ul class="list-unstyled">
+                                      <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
+                                        class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review, download
+                                        and print location calculations</a>
+                                      </li>
+                                      <!-- <li class="mrgn-tp-md">
+                                        <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the
+                                          form below (into Step 2b)</button>
+                                        </li> -->
+                                  </ul>
                               </div>
                            </div>
-                           <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
-                           <ul class="list-unstyled">
-                              <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
-                                 class="wb-lbx lbx-modal btn btn-default" role="button" id="showLocTable">Review, download
-                                 and print location calculations</a>
-                              </li>
-                              <!-- <li class="mrgn-tp-md">
-                                 <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the
-                                   form below (into Step 2b)</button>
-                                 </li> -->
-                           </ul>
                            <section id="loc-calculation-table"
                               class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
                               <header class="modal-header">
@@ -918,26 +918,27 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-                                              <td data-updated-by="top-up-days-1"></td>
-                                              <td data-updated-by="rent-amt-1"></td>
-                                              <td data-updated-by="tax-amt-1"></td>
-                                              <td data-updated-by="insurance-amt-1"></td>
-                                              <td data-updated-by="interest-amt-1"></td>
-                                              <td data-updated-by="lease-amt-1"></td>
-                                              <td data-updated-by="amt-ttl-1"></td>
-                                              <td data-updated-by="amt-top-up-1"></td>
+                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1"></td>
+                                              <td id="rent-smry-1" data-updated-by="rent-amt-1"></td>
+                                              <td id="tax-smry-1" data-updated-by="tax-amt-1"></td>
+                                              <td id="insurance-smry-1" data-updated-by="insurance-amt-1"></td>
+                                              <td id="interest-smry-1" data-updated-by="interest-amt-1"></td>
+                                              <td id="lease-smry-1" data-updated-by="lease-amt-1"></td>
+                                              <td class="qre-smry-1" data-updated-by="amt-ttl-1"></td>
+                                              <td id="top-up-smry-1" data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
                                        <tfoot>
                                           <tr>
                                              <td class="nowrap">Total locations: <span class="numLocs"></span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="wb-inv">-</span></td>
-                                             <td><span class="total"></span></td>
+                                             <td><span>-</span></td>
+                                             <td><span class="rent-total">-</span></td>
+                                             <td><span class="tax-total">-</span></td>
+                                             <td><span class="insurance-total">-</span></td>
+                                             <td><span class="interest-total">-</span></td>
+                                             <td><span class="lease-total">-</span></td>
+                                             <td><span class="qre-total">-</span></td>
+                                             <td><span class="top-up-total"></span></td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -955,12 +956,16 @@
                               </div>
                               <div class="modal-footer hidden"> </div>
                            </section>
-                           <hr class="brdr-bttm">
-                           <p>
-                              <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent
-                              subsidy</button>
-                           </p>
                         </fieldset>
+                     </li>
+                     <li>
+                       <fieldset>
+                          <legend><span class="wb-inv">Step 5: </span>Get results</legend>
+                          <p>After completing the steps above, you can now calculate the results.</p>
+                          <p>
+                            <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent subsidy</button>
+                          </p>
+                       </fieldset>
                      </li>
                   </ol>
                </form>
@@ -977,41 +982,41 @@
                     <ul class="lst-spcd">
                       <li><strong>Line 110:</strong>
                           Number of eligible properties: <strong>
-                          <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-ee" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}" id="wb-auto-16"></output>
+                          <span class="numLocs h3">0</span>
                         </strong> </li>
                       <li><strong>Line 120:</strong>
                           Total eligible rent paid: <strong>
-                          <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-pyrl" data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-17">$NaN</output>
+                            <span class="rent-total h3">$0.00</span>
                         </strong> </li>
                             <li><strong>Line 130:</strong>
                             Total eligible property taxes paid:
-                            <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2b-c1" id="wb-auto-18"></output>
+                            <span class="tax-total h3">$0.00</span>
                           </li>
                             <li><strong>Line 140:</strong>
                             Total eligible property insurance paid:
-                            <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2b-c2" id="wb-auto-19"></output>
+                            <span class="insurance-total h3">$0.00</span>
                           </li>
                             <li><strong>Line 150:</strong>
                             Total eligible interest paid on commercial mortgages entered into for the purpose of purchasing real property:
-                            <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2b-c3" id="wb-auto-20"></output>
+                            <span class="interest-total h3">$0.00</span>
                           </li>
                       <li><strong>Line 160:</strong>
-                            Total qualifying rent expenses:
-                            <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-21">$NaN</output>
+                            Total qualifying rent expenses:<strong>
+                              <span class="qre-total h3">$0.00</span>
                             </strong>
                           </li>
                       <li><strong>Line 200:</strong>
-                            Revenue drop for the current period:
-                            <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-22">$NaN</output>
+                            Revenue drop for the current period:<strong>
+                              <span class="currentRevReduction h3">0.00%</span>
                             </strong>
                           </li>
                       <li><strong>Line 210:</strong>
-                            Revenue drop for the previous period:
-                            <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-23">$NaN</output>
+                            Revenue drop for the previous period:<strong>
+                              <span class="priorRevReduction h3">0.00%</span>
                             </strong>
                           </li>
                       <li><strong>Line 310:</strong> Subsidy top-up: <strong>
-                          <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-24">$NaN</output>
+                        <span class="top-up-total h3">$0.00</span>
                         </strong>
                       </li>
                     </ul>
@@ -1029,7 +1034,8 @@
                     <tr>
                       <th scope="row" class="h6">Maximum rent expenses that can be claimed <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 x Affiliated entity percentage, if applicable)</small></th>
                       <td class="text-right nowrap">
-                        <output class="h6 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-25">$NaN</output></td>
+                        <span class="rent-total h3">$0.00</span>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Rent Subsidy Rate</th>
@@ -1450,24 +1456,6 @@
                 $(element).attr("name",
                   $(element).attr("name").replace(indexRegex, "-" + numLocs)
                 );
-                //update the date range to the defaults
-                var rangeISO = $('#claim-period').find('option:selected').val(),
-                  startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
-                  endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
-                  rangeClaim = $('#claim-period').find("option:selected").text(),
-                  rangeClaimNo = rangeClaim.substring(7, 8),
-                  startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
-                  endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
-                $('#lockdown-start-' + numLocs).attr({
-                  "min": startDateISO,
-                  "max": endDateISO,
-                  "value": startDateISO
-                });
-                $('#lockdown-end-' + numLocs).attr({
-                  "min": startDateISO,
-                  "max": endDateISO,
-                  "value": endDateISO
-                });
               } else if ($(element).is("select")) { //if select dropdown, then reset to default option
                 $(element).first("option").attr("selected", true);
               } else if ($(element).val().length > 0) {
@@ -1606,6 +1594,27 @@
             $(frag).find('#lease-amt-' + numLocs).text("$0.00");
             $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
             $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
+            //Update the date pickers to the date range of the period
+            //update the date range to the defaults
+            var rangeISO = $('#claim-period').find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
+              rangeClaim = $('#claim-period').find("option:selected").text(),
+              rangeClaimNo = rangeClaim.substring(7, 8),
+              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
+              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
+            $(frag).find('#lockdown-start-' + numLocs).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": startDateISO
+            });
+            $(frag).find('#lockdown-start-' + numLocs).val(startDateISO);
+            $(frag).find('#lockdown-end-' + numLocs).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": endDateISO
+            });
+            $(frag).find('#lockdown-end-' + numLocs).val(endDateISO);
           }
 
           return LocationFormGenerator;
@@ -1832,10 +1841,19 @@
               "max": endDateISO,
               "value": startDateISO
             });
+            $('.lockdown-start-date').val(startDateISO);
             $('.lockdown-end-date').attr({
               "min": startDateISO,
               "max": endDateISO,
               "value": endDateISO
+            });
+            $('.lockdown-end-date').val(endDateISO);
+            //recalculate top up for each location 
+            $(".lock-down-dates").each(function (i, element) {
+              var parts = $(element).prop("id").split("-");
+              var locationNumber = parts[parts.length - 1];
+              topUpRateCalculation(locationNumber);
+              recalculateLocationAmounts(locationNumber);
             });
           });
 
@@ -1883,48 +1901,6 @@
             var parts = target.id.split("-");
             var locationNumber = parts[parts.length - 1];
             recalculateLocationAmounts(locationNumber);
-
-            //For reference - original method to update based on what was changed
-            //   var claimPeriod = $("#claim-period option:selected").data("claim-period");
-            //   //get the corresponding summary element to update
-            //   var updateTarget = $("#" + $(target).attr("data-updates"));
-            //   //check if the update occured within a month-one class div
-            //   if ($(target).parents('.month-one-' + locationNumber).length || $(target).parents('.month-two-' + locationNumber).length) { //if monthly expense
-            //     //get values for month 1 and month 2
-            //     var unformattedValueOne = $('#' + parts[0] + '-one-' + locationNumber).val().replace("$", "");
-            //     var unformattedValueTwo = $('#' + parts[0] + '-two-' + locationNumber).val().replace("$", "");
-            //     //get the number of days in each month that overlap the claim period
-            //     var monthDays = getClaimMonth($("#claim-period").val(), 1);
-            //     var monthMaxDays = getClaimMonth($("#claim-period").val(), 2);
-            //     //calculate the Rent applicable to the claim period
-            //     calculatedRent = (zeroIfEmpty(unformattedValueOne) * monthDays[0] / monthMaxDays[0]) +
-            //                     (zeroIfEmpty(unformattedValueTwo) * monthDays[1] / monthMaxDays[1]);
-            //   } else if ($(target).parents('.cers-period-' + locationNumber).length) { //value for 28 day period
-            //     var unformattedValue = target.value.replace("$", "");
-            //     calculatedRent = zeroIfEmpty(unformattedValue);
-            //   }
-            //   var formattedVal = toMoney.format(calculatedRent);
-            //   $(updateTarget).text(formattedVal);
-
-            //   //**********
-            //   //This is related to updating the summary table
-            //   //**********
-
-            //   var updatedByElements = $("*[data-updated-by='" + target.id + "']");
-            //   $(updatedByElements).each(function (i, element) {
-            //     $(element).text(toMoney.format(unformattedValue));
-            //   });
-
-            //   //update the total
-            //   if ($(updateTarget).data("updates")) {
-            //     //update the target to the total column and get all elements that make up the total
-            //     updateTarget = $("#" + $(updateTarget).attr("data-updates"));
-            //     //get the total CERS
-            //     var locationCERS = getLocationCERS(locationNumber);
-            //     var formattedTotal = toMoney.format(locationCERS);
-            //     $(updateTarget).text(formattedTotal);
-            //   }
-            // }
           });
 
           /**
@@ -2007,7 +1983,6 @@
             var summaryLines = ["rent-amt-" + locationNumber, "tax-amt-" + locationNumber, "insurance-amt-" + locationNumber, "interest-amt-" + locationNumber, "lease-amt-" + locationNumber];
             var formattedVal = 0;
             var updatedByElements = [];
-            console.log(summaryLines);
             for (let i = 0; i < calculatedExpense.length; ++i) {
               formattedVal = toMoney.format(calculatedExpense[i]);
               $('#' + summaryLines[i]).text(formattedVal);
@@ -2028,7 +2003,6 @@
               $(element).text(formattedVal);
             });
 
-
             //calculate the top-up amount for the location
             if ($('#lock-down-eligible-' + locationNumber).is(":visible") && $('#lock-down-ineligible-' + locationNumber).is(":hidden")) {
               var topUpRate = zeroIfEmpty('0.' + $('.top-up-rate-' + locationNumber).text().replace("%", "").replace(".", ""));
@@ -2042,21 +2016,6 @@
             $(updatedByElements).each(function (i, element) {
               $(element).text(formattedVal);
             });
-
-
-
-
-
-
-            //**********
-            //Need to also update the summary table with these values...
-            //**********
-
-            // var updatedByElements = $("*[data-updated-by='" + target.id + "']");
-            // $(updatedByElements).each(function (i, element) {
-            //   $(element).text(toMoney.format(unformattedValue));
-            // });
-
           }
 
 
@@ -2100,13 +2059,13 @@
               }
 
               //**********
-              //Recalculate totals??
+              //Recalculate summary totals
               //**********
 
             } else if (target.name == "lock-down-" + locationNumber) {
               if (target.id == 'lock-down-yes-' + locationNumber) {
                 $('#lock-down-period-'+locationNumber).removeClass("hidden");
-                topUpRateCalculation(locationNumber);
+                topUpRateCalculation(locationNumber, 1);
               } else if (target.id == 'lock-down-no-' + locationNumber) {
                 $('#lock-down-period-'+locationNumber).addClass("hidden");
                 $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
@@ -2160,71 +2119,6 @@
             }
           });
 
-            // //when the claim period dropdown is changed
-            // $document.on("change", "#claim-period", function (event) {
-            // var rangeISO = $(this).find('option:selected').val(),
-            //   startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
-            //   endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
-            //   rangeClaim = $(this).find("option:selected").text(),
-            //   rangeClaimNo = rangeClaim.substring(7, 8),
-            //   startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
-            //   endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
-
-            // var startDateParts = startDateISO.split("-");
-            // var endDateParts = endDateISO.split("-");
-            // // console.log('endDateISO ' + endDateISO); //2020-12-19 - full end date for p10
-            // // console.log('endDateISO[1] ' + endDateParts[1]) //should give 12
-            // var claimMonth = getClaimMonth(rangeISO);
-            // var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-            // var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
-
-
-            // //Get the priorReference period based on the claimMonth
-            // var monthsArray = getClaimMonths(claimMonth, claimPeriod);
-            // var priorReferenceMonth = monthsArray[1].split("-");
-            // var priorReferenceMonth = getMonthNamesPlusYear(priorReferenceMonth[1], claimPeriod);
-
-            // //Populate based on step 1 period selection
-            // if (!$("#claim-period option:selected:eq(0)")) {
-            //   $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>"); //Populate the step 1 summary box
-            // } else {
-            //   $('.claim-period').html($("#claim-period option:selected").text());
-            //   $(".claim-period-no").text(claimPeriod);
-            //   $('.claim-month-one').text(claimMonths[0]);
-            //   $('.claim-month-two').text(claimMonths[1]);
-            //   $('.prior-reference-month').text(priorReferenceMonth[1]); //this should give the month/year of the prior reference period
-
-            //   //date in format 2020-xx-xx
-            //   //last day of month
-            //   var lastDayMonthOne = new Date(startDateParts[0], startDateParts[1] + 1, 0).getDate();
-            //   var lastDayMonthTwo = new Date(endDateParts[0], endDateParts[1] + 1, 0).getDate();
-            //   $('.date-month-one-start').text(startDateISO.substring(0, 8) + '01');
-            //   $('.date-month-one-end').text(startDateISO.substring(0, 8) + lastDayMonthOne);
-            //   $('.date-month-two-start').text(endDateISO.substring(0, 8) + '01');
-            //   $('.date-month-two-end').text(endDateISO.substring(0, 8) + lastDayMonthTwo);
-            //   $('.date-cers-period-start').text(startDateISO);
-            //   $('.date-cers-period-end').text(endDateISO);
-            // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           function expenseFieldHideShow(locationNumber) {
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
             //unhide calc method form based on the dropdown selection
@@ -2277,7 +2171,7 @@
             recalculateLocationAmounts(locationNumber);
           });
 
-          function topUpRateCalculation(locationNumber) {
+          function topUpRateCalculation(locationNumber, radioFlag = 0) {
             var startDate = $("#lockdown-start-" + locationNumber).val();
             var endDate = $("#lockdown-end-" + locationNumber).val();
             var date1Arr = startDate.split("-");
@@ -2285,7 +2179,7 @@
             var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
             var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
             var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
-            if (datediff >= 7) { //at least 7 days in the
+            if (datediff >= 7 && ($('#lock-down-eligible-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
               var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
               $(updatedByElements).each(function (i, element) {
@@ -2306,6 +2200,7 @@
               }
             } else {
               //repeat of above...
+              $('#top-up-days-'+locationNumber).text(0);
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text("0" + "%");
@@ -2330,122 +2225,38 @@
             return Number(n) === n && n % 1 !== 0;
           }
 
-          // /**
-          //  * getLocationTotalWages
-          //  *
-          //  * get the total wages paid for the given location number
-          //  *
-          //  * @param {Int} locationNumber The location panel number
-          //  *
-          //  * @return {Float} The total wage paid for 4 weeks
-          //  */
-          // function getLocationTotalWages(locationNumber) {
-          //   var weekone = zeroIfEmpty($('#wkone-' + locationNumber).val());
-          //   var weektwo = zeroIfEmpty($('#wktwo-' + locationNumber).val());
-          //   var weekthree = zeroIfEmpty($('#wkthree-' + locationNumber).val());
-          //   var weekthree = zeroIfEmpty($('#wkthree-' + locationNumber).val());
-          //   var weekfour = zeroIfEmpty($('#wkfour-' + locationNumber).val());
-          //   return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
-          // }
-
           /**
            * calculate the totals when the summary table is opened
            */
           $(document).on("click", "#showLocTable", function (event) {
             calculateTotals();
           });
+          
           function calculateTotals() {
-            var totalWagesPaid = 0;
-            var CERS = 0;
+            var smryTotals = [0, 0, 0, 0, 0, 0, 0];
             var eligibleLocations = 0;
+            //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
-              var id = $(element).prop("id").split("loc")[1];
-              var eligibility = true;
-              //determine the eligibility
-              if ($("#loc-smry-" + id).hasClass("hidden")) {
-                eligibility = false;
-              }
-              //show baselineWage or 0 if the baseline was left locty (protect against showing NaN)
-              var baselineWage = $("#baseline-" + id).val();
-              if (baselineWage == "") {
-                $("#loc-base-" + id).text(toMoney.format("0.00"));
-              } else {
-                baselineWage = parseFloat(baselineWage);
-              }
-              $("#loc-base-" + id).text(toMoney.format(baselineWage));
-              //show the arms length value
-              $("#loc-arms-" + id).text($("#arms-" + id).val());
-              var totalCell = $("#loc-ttl-" + id);
-              if (eligibility) {
-                eligibleLocations++;
-                var locationCERS = zeroIfEmpty(getLocationCERS(id, baselineWage));
-                CERS += locationCERS;
-                totalWagesPaid += zeroIfEmpty(getLocationTotalWages(id));
-                var formattedTotal = toMoney.format(Math.max(locationCERS, 0));
-                $("#loc-ttl-" + id).text(locationCERS);
-                $(totalCell).html(formattedTotal);
-              } else {
-                $(totalCell).html(toMoney.format(0.00));
-              }
+              var locNum = $(element).prop("id").split("loc")[1];
+              eligibleLocations++;
+              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$",""));
+              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$",""));
+              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$",""));
+              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$",""));
+              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$",""));
+              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$",""));
+              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$",""));
             });
+            console.log(smryTotals);
             $(".numLocs").text(eligibleLocations);
-            $(".total").html(toMoney.format(CERS));
-            $(".total").attr("data-total-CERS", cews.toFixed(2));
-            $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
+            $(".rent-total").html(toMoney.format(smryTotals[0]));
+            $(".tax-total").html(toMoney.format(smryTotals[1]));
+            $(".insurance-total").html(toMoney.format(smryTotals[2]));
+            $(".interest-total").html(toMoney.format(smryTotals[3]));
+            $(".lease-total").html(toMoney.format(smryTotals[4]));
+            $(".qre-total").html(toMoney.format(smryTotals[5]));
+            $(".top-up-total").html(toMoney.format(smryTotals[6]));
           }
-
-          // /**
-          //  * getWeeklyCERS
-          //  *
-          //  * determine the weekly CERS amount based on claim period
-          //  *
-          //  * @param {Boolean} armsLength Whether the location is at arms length
-          //  * @param {String} baselineAmount The locations baseline pay pre-crisis
-          //  * @param {String} weeklyAmount The weekly wage value
-          //  * @param {Boolean} paidLeave Whether the location was on paid leave for
-          //  * the week being calculated
-          //  *
-          //  * @return {Int} The calculated weekly CERS amount || 0 if no claim
-          //  * period is chosen
-          //  */
-          // function getWeeklyCERS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
-          //   var period = parseInt($("#claim-period option:selected").data("claim-period"));
-          //   switch (true) {
-          //     //period 1-4
-          //     case (period < 5):
-          //       return oldFormula(armsLength, weeklyAmount, baselineAmount)
-          //       break;
-          //     // period 5-7
-          //     case (period < 7):
-          //       if (paidLeave) {
-          //         return oldFormula(armsLength, weeklyAmount, baselineAmount);
-          //       } else {
-          //         if (CERSRate == 0) {
-          //           return 0;
-          //         } else if (revReduction >= 0.3) {
-          //           return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, CERSRate));
-          //         } else {
-          //           return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, CERSRate), 0);
-          //         }
-          //       }
-          //       break;
-          //     //period 7+
-          //     case (period > 6):
-          //       if (paidLeave) {
-          //         return oldFormula(armsLength, weeklyAmount, baselineAmount);
-          //       } else {
-          //         if (CERSRate == 0) {
-          //           return 0;
-          //         } else {
-          //           return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, CERSRate), 0);
-          //         }
-          //       }
-          //       break;
-          //     default:
-          //       return 0;
-          //   }
-          // }
-
 
           /**
            * add a new location form
@@ -2475,38 +2286,23 @@
               expenseCells[i] = document.createElement("td");
             }
             //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
-            $(expenseCells[0]).attr(
-              "data-updated-by",
-              "top-up-days-" + numLocationPanels
-            );
-            $(expenseCells[1]).attr(
-              "data-updated-by",
-              "rent-amt-" + numLocationPanels
-            );
-            $(expenseCells[2]).attr(
-              "data-updated-by",
-              "tax-amt-" + numLocationPanels
-            );
-            $(expenseCells[3]).attr(
-              "data-updated-by",
-              "insurance-amt-" + numLocationPanels
-            );
-            $(expenseCells[4]).attr(
-              "data-updated-by",
-              "interest-amt-" + numLocationPanels
-            );
-            $(expenseCells[5]).attr(
-              "data-updated-by",
-              "lease-amt-" + numLocationPanels
-            );
-            $(expenseCells[6]).attr(
-              "data-updated-by",
-              "amt-ttl-" + numLocationPanels
-            );
-            $(expenseCells[7]).attr(
-              "data-updated-by",
-              "amt-top-up-" + numLocationPanels
-            );
+            $(expenseCells[0]).attr("id", "top-up-days-smry-" + numLocationPanels);
+            $(expenseCells[0]).attr("data-updated-by", "top-up-days-" + numLocationPanels);
+            $(expenseCells[0]).text("0");
+            $(expenseCells[1]).attr("id", "rent-smry-" + numLocationPanels);
+            $(expenseCells[1]).attr("data-updated-by", "rent-amt-" + numLocationPanels);
+            $(expenseCells[2]).attr("id", "tax-smry-" + numLocationPanels);
+            $(expenseCells[2]).attr("data-updated-by", "tax-amt-" + numLocationPanels);
+            $(expenseCells[3]).attr("id", "insurance-smry-" + numLocationPanels);
+            $(expenseCells[3]).attr("data-updated-by", "insurance-amt-" + numLocationPanels);
+            $(expenseCells[4]).attr("id", "interest-smry-" + numLocationPanels);
+            $(expenseCells[4]).attr("data-updated-by", "interest-amt-" + numLocationPanels);
+            $(expenseCells[5]).attr("id", "lease-smry-" + numLocationPanels);
+            $(expenseCells[5]).attr("data-updated-by", "lease-amt-" + numLocationPanels);
+            $(expenseCells[6]).attr("id", "qre-smry-" + numLocationPanels);
+            $(expenseCells[6]).attr("data-updated-by", "amt-ttl-" + numLocationPanels);
+            $(expenseCells[7]).attr("id", "top-up-smry-" + numLocationPanels);
+            $(expenseCells[7]).attr("data-updated-by", "amt-top-up-" + numLocationPanels);
             //put the row together
             row.appendChild(eligibleLocationCell);
             $(expenseCells).each(function (i, element) {
@@ -2613,6 +2409,12 @@
             } else {
               NoCERSRate();
             }
+            $(".lock-down-dates").each(function (i, element) {
+              var parts = $(element).prop("id").split("-");
+              var locationNumber = parts[parts.length - 1];
+              topUpRateCalculation(locationNumber);
+              recalculateLocationAmounts(locationNumber);
+            });
           }
 
           /**
@@ -2628,6 +2430,12 @@
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
             $("#rate-formula-0").removeClass("hidden");
+            $(".lock-down-dates").each(function (i, element) {
+              var parts = $(element).prop("id").split("-");
+              var locationNumber = parts[parts.length - 1];
+              topUpRateCalculation(locationNumber);
+              recalculateLocationAmounts(locationNumber);
+            });
           }
 
           /**
