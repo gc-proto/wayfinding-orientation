@@ -306,7 +306,7 @@
                               <ul class="list-unstyled lst-spcd">
                                  <li class="affiliated-no-answer">You have indicated you do not have affiliated businesses.</li>
                                  <li class="affiliated-yes-blank-answer hidden">Affiliated businesses must agree on how they will split the maximum rent subsidy, even if they do not reach the maximum.</li>
-                                 <li class="affiliated-yes-answer hidden">Percentage your business will claim of the base subsidy amount: <span class="h3 affiliated-entitity-amount">0%</span></li>
+                                 <li class="affiliated-yes-answer hidden">Percentage your business will claim of the base subsidy amount: <span class="h3 affiliated-entity-percentage">0%</span></li>
                                  <li class="affiliated-yes-answer hidden">Other affiliated entities will be able to claim up to <span id="affiliated-remaining">0%</span></li>
                               </ul>
                            </div>
@@ -1067,44 +1067,28 @@
                   <tbody>
                     <tr>
                       <th scope="row" class="h6">Affiliated entity percentage</th>
-                      <td class="text-right nowrap"><span class="affiliated-entitity-amount h3">0.00%</span></td>
+                      <td class="text-right nowrap"><span class="affiliated-entity-percentage mrgn-rght-sm">0.00%</span></td>
                     </tr>
                     <tr>
-                      <th scope="row" class="h6">Maximum rent expenses that can be claimed <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
-                      <td class="text-right nowrap">+
-                        <output class="h6 wb-calc nowrap" for="p3-ei"
-                          data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row" class="h6">Affiliated entity percentage</th>
-                      <td class="text-right nowrap"><output class="h6 affiliated-percentage nowrap">N/A</output></td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="h6">Maximum rent expenses that can be claimed <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 x Affiliated entity percentage, if applicable)</small></th>
-                      <td class="text-right nowrap">
-                        <span class="rent-total h3">$0.00</span>
-                      </td>
+                      <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
+                      <td class="text-right nowrap"><span class="qualifying-rent-expenses mrgn-rght-sm">0.00%</span></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Rent Subsidy Rate</th>
-                      <td class="text-right nowrap">x
-                        <output class="h6 nowrap base-rate">0.8%</output></td>
+                      <td class="text-right nowrap">x<span class="mrgn-rght-sm base-rate">0.00%</span></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Basic CERS <small class="nowrap">(Line 300)</small></th>
-                      <td class="text-right nowrap">=
-                        <output class="h6 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-26">$NaN</output></td>
+                      <td class="text-right nowrap">=<span class="mrgn-rght-sm base-subsidy-amount">$0.00</span></td>
                     </tr>
                     <tr>
                       <th scope="row" class="h6">Subsidy top-up <small class="nowrap">(Line 310)</small></th>
-                      <td class="text-right nowrap">
-                        <output class="h6 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-27">$NaN</output></td>
+                      <td class="text-right nowrap">+
+                        <td class="text-right nowrap"><span class="top-up-total mrgn-rght-sm">$0.00</span></td>
                     </tr>
                     <tr class="success">
                       <th scope="row" class="h6">Total Canada Emergency Rent Subsidy <small class="nowrap">(Line 300 + Line 310)</small></th>
-                      <td class="text-right nowrap"><output class="h6 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS p3-ei p3-cpp p4-tws p4-wsb" data-wb-calc="{&quot;expr&quot;: &quot;#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-28">$NaN</output>
-                      </td>
+                      <td class="text-right nowrap"><span class="rent-subsidy-claim-total mrgn-rght-sm h3">$0.00</span></td>
                     </tr>
                   </tbody>
                </table>
@@ -2209,9 +2193,9 @@
               $('.affiliated-yes-blank-answer').removeClass("hidden");
             } else {
               //update the amount in the summary
-              var affiliatedAmount = parseFloat($('#affiliated-split').val());
-              var affiliatedRemainder = 100 - affiliatedAmount;
-              $('.affiliated-entitity-amount').text(affiliatedAmount + '%');
+              var affiliatedPerc = parseFloat($('#affiliated-split').val());
+              var affiliatedRemainder = 100 - affiliatedPerc;
+              $('.affiliated-entity-percentage').text(affiliatedPerc + '%');
               $('#affiliated-remaining').text(affiliatedRemainder + '%');
               $('.affiliated-yes-answer').removeClass("hidden");
               $('.affiliated-yes-blank-answer').addClass("hidden");
@@ -2313,7 +2297,25 @@
             $(".interest-total").html(toMoney.format(smryTotals[3]));
             $(".lease-total").html(toMoney.format(smryTotals[4]));
             $(".qre-total").html(toMoney.format(smryTotals[5]));
-            $(".top-up-total").html(toMoney.format(smryTotals[6]));
+            $(".top-up-total").html(toMoney.format(smryTotals[6]))
+
+            //calculate step 5 totals
+            if ($("#affiliated-no-answer").is(":visible")) {
+              var affiliatedSplit = 100;
+            } else {
+              var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
+            }
+            console.log(affiliatedSplit);
+            var line170Total = min(300000 * affiliatedSplit / 100, smryTotals[5]);
+            line170Total = line170Total.toFixed(2);
+            $('.qualifying-rent-expenses').html(line170Total + '%');
+            var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
+            var baseAmount = line170Total * baseRate;
+            baseAmount = baseAmount.toFixed(2);
+            $('.base-subsidy-amount').html(toMoney.format(baseAmount));
+            var claimTotal = baseAmount + smryTotals[6];
+            claimTotal = claimTotal.toFixed(2);
+            $('.rent-subsidy-claim-total').html(toMoney.format(claimTotal));
           }
 
           /**
