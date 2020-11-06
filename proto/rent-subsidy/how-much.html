@@ -236,7 +236,7 @@
                            </section>
                          -->
                            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                              <legend>Do you have affiliated entities that are also applying for the Rent Subsidy?</legend>
+                              <legend>Do you have affiliated entities that are also applying for CERS?</legend>
                               <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
                               <ul class="list-unstyled lst-spcd-2">
                                  <li class="radio">
@@ -868,19 +868,19 @@
                                        another location</button>
                                     </p>
                                  </fieldset>
-                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
-                                  <ul class="list-unstyled">
-                                    <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
-                                      class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review, download
-                                      and print location calculations</a>
-                                    </li>
-                                    <!-- <li class="mrgn-tp-md">
-                                      <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the
-                                        form below (into Step 2b)</button>
-                                      </li> -->
-                                  </ul>
                               </div>
-                          </div>
+                           </div>
+                           <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
+                           <ul class="list-unstyled">
+                              <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
+                                 class="wb-lbx lbx-modal btn btn-default" role="button" id="showLocTable">Review, download
+                                 and print location calculations</a>
+                              </li>
+                              <!-- <li class="mrgn-tp-md">
+                                 <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the
+                                   form below (into Step 2b)</button>
+                                 </li> -->
+                           </ul>
                            <section id="loc-calculation-table"
                               class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
                               <header class="modal-header">
@@ -914,27 +914,26 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1">0</td>
-                                              <td id="rent-smry-1" data-updated-by="rent-amt-1"></td>
-                                              <td id="tax-smry-1" data-updated-by="tax-amt-1"></td>
-                                              <td id="insurance-smry-1" data-updated-by="insurance-amt-1"></td>
-                                              <td id="interset-smry-1" data-updated-by="interest-amt-1"></td>
-                                              <td id="lease-smry-1" data-updated-by="lease-amt-1"></td>
-                                              <td id="qre-smry-1" data-updated-by="amt-ttl-1"></td>
-                                              <td id="top-up-smry-1" data-updated-by="amt-top-up-1"></td>
+                                              <td data-updated-by="top-up-days-1"></td>
+                                              <td data-updated-by="rent-amt-1"></td>
+                                              <td data-updated-by="tax-amt-1"></td>
+                                              <td data-updated-by="insurance-amt-1"></td>
+                                              <td data-updated-by="interest-amt-1"></td>
+                                              <td data-updated-by="lease-amt-1"></td>
+                                              <td data-updated-by="amt-ttl-1"></td>
+                                              <td data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
                                        <tfoot>
                                           <tr>
                                              <td class="nowrap">Total locations: <span class="numLocs"></span></td>
-                                             <td><span>-</span></td>
-                                             <td><span class="rent-total">-</span></td>
-                                             <td><span class="tax-total">-</span></td>
-                                             <td><span class="insurance-total">-</span></td>
-                                             <td><span class="interest-total">-</span></td>
-                                             <td><span class="lease-total">-</span></td>
-                                             <td><span class="qre-total">-</span></td>
-                                             <td><span class="top-up-total">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="wb-inv">-</span></td>
+                                             <td><span class="total"></span></td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -952,18 +951,13 @@
                               </div>
                               <div class="modal-footer hidden"> </div>
                            </section>
-                          </fieldset>
-                        </li>
-                        <li>
-                          <fieldset>
-                            <legend><span class="wb-inv">Step 5: </span>Get results</legend>
-                            <p>After completing the four steps above, you can now calculate the results.</p>
-                              <p>
-                                <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent
-                                subsidy</button>
-                            </p>
-                          </fieldset>
-                      </li>
+                           <hr class="brdr-bttm">
+                           <p>
+                              <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent
+                              subsidy</button>
+                           </p>
+                        </fieldset>
+                     </li>
                   </ol>
                </form>
             </div>
@@ -2308,7 +2302,6 @@
               }
             } else {
               //repeat of above...
-              $('#top-up-days-'+locationNumber).text(0);
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text("0" + "%");
@@ -2357,31 +2350,44 @@
           $(document).on("click", "#showLocTable", function (event) {
             calculateTotals();
           });
-          
           function calculateTotals() {
-            var smryTotals = [0, 0, 0, 0, 0, 0, 0];
+            var totalWagesPaid = 0;
+            var CERS = 0;
             var eligibleLocations = 0;
-            //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
-              var locNum = $(element).prop("id").split("loc")[1];
-              eligibleLocations++;
-              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$",""));
-              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$",""));
-              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$",""));
-              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$",""));
-              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$",""));
-              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$",""));
-              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$",""));
+              var id = $(element).prop("id").split("loc")[1];
+              var eligibility = true;
+              //determine the eligibility
+              if ($("#loc-smry-" + id).hasClass("hidden")) {
+                eligibility = false;
+              }
+              //show baselineWage or 0 if the baseline was left locty (protect against showing NaN)
+              var baselineWage = $("#baseline-" + id).val();
+              if (baselineWage == "") {
+                $("#loc-base-" + id).text(toMoney.format("0.00"));
+              } else {
+                baselineWage = parseFloat(baselineWage);
+              }
+              $("#loc-base-" + id).text(toMoney.format(baselineWage));
+              //show the arms length value
+              $("#loc-arms-" + id).text($("#arms-" + id).val());
+              var totalCell = $("#loc-ttl-" + id);
+              if (eligibility) {
+                eligibleLocations++;
+                var locationCERS = zeroIfEmpty(getLocationCERS(id, baselineWage));
+                CERS += locationCERS;
+                totalWagesPaid += zeroIfEmpty(getLocationTotalWages(id));
+                var formattedTotal = toMoney.format(Math.max(locationCERS, 0));
+                $("#loc-ttl-" + id).text(locationCERS);
+                $(totalCell).html(formattedTotal);
+              } else {
+                $(totalCell).html(toMoney.format(0.00));
+              }
             });
-            console.log(smryTotals);
             $(".numLocs").text(eligibleLocations);
-            $(".rent-total").html(toMoney.format(smryTotals[0]));
-            $(".tax-total").html(toMoney.format(smryTotals[1]));
-            $(".insurance-total").html(toMoney.format(smryTotals[2]));
-            $(".interest-total").html(toMoney.format(smryTotals[3]));
-            $(".lease-total").html(toMoney.format(smryTotals[4]));
-            $(".qre-total").html(toMoney.format(smryTotals[5]));
-            $(".top-up-total").html(toMoney.format(smryTotals[6]));
+            $(".total").html(toMoney.format(CERS));
+            $(".total").attr("data-total-CERS", cews.toFixed(2));
+            $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
           }
 
           // /**
@@ -2465,23 +2471,38 @@
               expenseCells[i] = document.createElement("td");
             }
             //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
-            $(expenseCells[0]).attr("id", "top-up-days-smry-" + numLocationPanels);
-            $(expenseCells[0]).attr("data-updated-by", "top-up-days-" + numLocationPanels);
-            $(expenseCells[0]).text("0");
-            $(expenseCells[1]).attr("id", "rent-smry-" + numLocationPanels);
-            $(expenseCells[1]).attr("data-updated-by", "rent-amt-" + numLocationPanels);
-            $(expenseCells[2]).attr("id", "tax-smry-" + numLocationPanels);
-            $(expenseCells[2]).attr("data-updated-by", "tax-amt-" + numLocationPanels);
-            $(expenseCells[3]).attr("id", "insurance-smry-" + numLocationPanels);
-            $(expenseCells[3]).attr("data-updated-by", "insurance-amt-" + numLocationPanels);
-            $(expenseCells[4]).attr("id", "interest-smry-" + numLocationPanels);
-            $(expenseCells[4]).attr("data-updated-by", "interest-amt-" + numLocationPanels);
-            $(expenseCells[5]).attr("id", "lease-smry-" + numLocationPanels);
-            $(expenseCells[5]).attr("data-updated-by", "lease-amt-" + numLocationPanels);
-            $(expenseCells[6]).attr("id", "qre-smry-" + numLocationPanels);
-            $(expenseCells[6]).attr("data-updated-by", "amt-ttl-" + numLocationPanels);
-            $(expenseCells[7]).attr("id", "top-up-smry-" + numLocationPanels);
-            $(expenseCells[7]).attr("data-updated-by", "amt-top-up-" + numLocationPanels);
+            $(expenseCells[0]).attr(
+              "data-updated-by",
+              "top-up-days-" + numLocationPanels
+            );
+            $(expenseCells[1]).attr(
+              "data-updated-by",
+              "rent-amt-" + numLocationPanels
+            );
+            $(expenseCells[2]).attr(
+              "data-updated-by",
+              "tax-amt-" + numLocationPanels
+            );
+            $(expenseCells[3]).attr(
+              "data-updated-by",
+              "insurance-amt-" + numLocationPanels
+            );
+            $(expenseCells[4]).attr(
+              "data-updated-by",
+              "interest-amt-" + numLocationPanels
+            );
+            $(expenseCells[5]).attr(
+              "data-updated-by",
+              "lease-amt-" + numLocationPanels
+            );
+            $(expenseCells[6]).attr(
+              "data-updated-by",
+              "amt-ttl-" + numLocationPanels
+            );
+            $(expenseCells[7]).attr(
+              "data-updated-by",
+              "amt-top-up-" + numLocationPanels
+            );
             //put the row together
             row.appendChild(eligibleLocationCell);
             $(expenseCells).each(function (i, element) {
