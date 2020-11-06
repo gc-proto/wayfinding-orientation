@@ -1774,8 +1774,6 @@
 
             var startDateParts = startDateISO.split("-");
             var endDateParts = endDateISO.split("-");
-            // console.log('endDateISO ' + endDateISO); //2020-12-19 - full end date for p10
-            // console.log('endDateISO[1] ' + endDateParts[1]) //should give 12
             var claimMonth = getClaimMonth(rangeISO);
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
@@ -2002,7 +2000,6 @@
                 if (unformattedValueOne[i] == "0") {
                   calculatedExpense.push(0);
                 } else if (periodOption[i] == 'year') {
-                  console.log(zeroIfEmpty(unformattedValueOne[i]));
                   calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 365 * 28);
                 } else if (periodOption[i] == 'period' ) {
                   calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
@@ -2220,15 +2217,6 @@
             recalculateLocationAmounts(locationNumber);
           });
 
-          // 
-          //   console.log("err....");
-          //   var parts = this.id.split("-");
-          //   var locationNumber = parts[parts.length - 1];
-            
-          //   topUpRateCalculation(locationNumber);
-          //   recalculateLocationAmounts(locationNumber);
-          // });
-
           function topUpRateCalculation(locationNumber, radioFlag = 0) {
             var startDate = $("#lockdown-start-" + locationNumber).val();
             var endDate = $("#lockdown-end-" + locationNumber).val();
@@ -2244,7 +2232,6 @@
                 $(element).text(datediff);
               });
               var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
-              console.log("baseRate: " + baseRate);
               if (baseRate > 0) { //no rent subsidy rate, no top rate
                 var topUpRate = datediff * 25 / 28;
                 topUpRate = topUpRate.toFixed(2);
@@ -2305,7 +2292,6 @@
               smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$",""));
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$",""));
             });
-            console.log(smryTotals);
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
             $(".tax-total").html(toMoney.format(smryTotals[1]));
