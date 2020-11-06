@@ -31,7 +31,7 @@
          var defTop = document.getElementById("def-top");
          defTop.outerHTML = wet.builder.top({
            lngLinks: [{
-         
+
              lang: "fr",
              href: "how-much-mt-fr.html",
              text: "Français"
@@ -76,13 +76,9 @@
             <h1 property="name" id="wb-cont">Calculate your subsidy amount</h1>
             <h2 class="h3 mrgn-tp-sm">On this page</h2>
             <ul>
-               <li><a href="#h-1">Make sure to apply through your CRA online account</a></li>
                <li><a href="#h-2">Before you start the calculation</a></li>
                <li><a href="#h-3">Use the calculator</a></li>
             </ul>
-            <h2 id="h-1">Make sure to apply through your CRA online account</h2>
-            <p>Use this calculator before you apply for the subsidy to calculate the amount you can apply for.</p>
-            <p>After calculating, you will have to apply for the subsidy online through My Business Account, Represent a Client, or the Web Forms application using the information you printed</p>
             <section>
                <h2 id="h-2">Before you start the calculation</h2>
                <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
@@ -97,19 +93,23 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore2" class="action-checkbox">
-                        <label for="bfore2"><strong>You have your revenue amounts</strong></label>
-                        <label for="bfore2">You will need amounts for the months preceeding the period for 2020 and either the equivalent months from 2019 or January and February 2020</label>
+                        <label for="bfore2"><strong>You have your monthly eligible revenue amounts from 2020 and 2019</strong></label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
                         <p>
                            <label for="bfore3"><strong>You have your eligible expenses broken down by your business locations:</strong></label>
+                           <ul class="mrgn-lft-lg list-unstyled">
+                              <li><a href="expenses-to-claim.html">Expenses you can claim</a></li>
+                           </ul>
+                           <!--
                         <ul>
                            <li>Rent (including amounts in the rent agreement for property taxes, etc</li>
                            <li>Property taxes</li>
                            <li>Property insurance</li>
                            <li>Interest on commercial mortgages for the purpose of purchasing real property less any subleasing revenues</li>
                         </ul>
+                      -->
                         </p>
                      </li>
                      <!--li class="checkbox">
@@ -118,12 +118,12 @@
                         <label for="bfore4">You have done so first and have your CEWS claim total for this period to include in this calculation.</label>
                          <ul class="mrgn-lft-lg list-unstyled">
                           <li>Your CEWS claim will need to be included in your revenue calculation for CERS. Any future adjustments to your CEWS application for this period, will also require a revised application for CERS.</li>
-                        </ul> 
+                        </ul>
                         </li>-->
                      <li class="checkbox">
                         <input type="checkbox" id="bfore5" class="action-checkbox">
-                        <label for="bfore5"><strong>You already made any expense payments</strong></label>
-                        <label for="bfore5">You are only able to claim the rent subsidy based on payments that have already been made for any rent, property taxes or other eligible expenses.</label>
+                        <label for="bfore5"><strong>You have already made the payment for any rent, property taxes or other eligible expenses that you will include in this application</strong></label>
+                        <!--<label for="bfore5">You are only able to claim the rent subsidy based on payments that have already been made for any rent, property taxes or other eligible expenses.</label>-->
                         <ul class="mrgn-lft-lg">
                            <li>You cannot claim any amounts that you have not already paid for.</li>
                         </ul>
@@ -134,7 +134,7 @@
                         <label for="bfore6">You have agreed with those affiliated businesses the percentage at which you will split the Rent Subsidy.</label>
                         <ul class="mrgn-lft-lg list-unstyled">
                            <li>
-                              <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businessses or entities<span class="far fa-question-circle"></span></a></p>
+                              <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businesses or entities<span class="far fa-question-circle"></span></a></p>
                            </li>
                         </ul>
                      </li>
@@ -150,6 +150,8 @@
                </section>
             </section>
             <h2 id="h-3">Use the calculator</h2>
+            <p>Use this calculator before you apply for the subsidy to calculate the amount you can apply for.</p>
+            <p>After calculating your amounts, you will have to apply for the subsidy online through My Business Account or Represent a Client using the information you printed.</p>
             <details>
                <summary>Privacy statement: This calculator does not collect your information</summary>
                <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of CERS you may be eligible to
@@ -157,7 +159,9 @@
                   for verification after you apply.
                </p>
             </details>
+            <div class="alert alert-danger provisional" id="action-no-msg">
             <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
+          </div>
             <div class="wb-frmvld">
                <form method="get" class="mrgn-bttm-lg" id="cews-cal">
                   <ol class="lst-stps">
@@ -185,14 +189,14 @@
                      <li id="stp1">
                         <fieldset>
                            <legend><span class="wb-inv">Step 2: </span>Affiliated businesses and entities</legend>
-                           <p>Affiliated businesses and entities are only eligible for the CERS base subsidy amount up to an aggregate maximum of $300,000.</p>
-                           <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businessses or entities<span class="far fa-question-circle"></span></a></p>
+                           <p>Affiliated businesses and entities are only eligible for the CERS base subsidy amount up to a combined maximum of $300,000.</p>
+                           <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businesses or entities<span class="far fa-question-circle"></span></a></p>
                            <section id="affiliated-entities" class="mfp-hide modal-dialog modal-content overlay-def">
                               <header class="modal-header">
                                  <h2 class="modal-title">Affiliated businesses or entities</h2>
                               </header>
                               <div class="modal-body">
-                                 <p><mark>An affiliated business or entity is...</mark></p>
+                                 <p><mark>An affiliated business or entity is an organization that directly or indirectly controls another entity, or is directly or indirectly controlled by another entity, or which is under common control alongside another entity.</mark></p><p><mark>An affiliated entity could be a parent company or a subsidiary company.</mark></p>
                               </div>
                            </section>
                            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -227,7 +231,7 @@
                               <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                               <ul class="list-unstyled lst-spcd">
                                  <li class="affiliated-no-answer">You have indicated you do not have affiliated businesses.</li>
-                                 <li class="affiliated-yes-blank-answer hidden">Affiliated businesses must agree on how they will split the maximum Rent Subsidy, even if they do not reach the maximum.</li>
+                                 <li class="affiliated-yes-blank-answer hidden">Affiliated businesses must agree on how they will split the maximum rent subsidy, even if they do not reach the maximum.</li>
                                  <li class="affiliated-yes-answer hidden">Percentage your business will claim of the base subsidy amount: <span class="h3 affiliated-entitity-amount">0%</span></li>
                                  <li class="affiliated-yes-answer hidden">Other affiliated entities will be able to claim up to <span id="affiliated-remaining">0%</span></li>
                               </ul>
@@ -473,7 +477,8 @@
                         <fieldset class="brdr-tp">
                            <legend><span class="wb-inv">Step 4: </span>Your business locations</legend>
                            <div class="clearfix"></div>
-                           <p>Each location can have up to $75,000 in eligible expenses, for which you can claim a subsidy amount based on your CERS rate (<span class="base-rate">0%</span>).</p>
+                           <p>The CERS amount you can apply for is the portion of your eligible expenses for your business locations covered by your CERS rate.</p>
+                           <p>Each business location can claim up to $75,000 in eligible expenses.</p>
                            <div class="mrgn-tp-lg">
                               <div id="cers-calculation" class=" panel panel-primary panel-body" aria-live="polite">
                                  <p class="h4 mrgn-tp-0">Top-up and eligible expenses</p>
@@ -579,7 +584,7 @@
                                              <p id="choose-own-or-rent-message-1" class="text-info h4">First select whether you own or rent this property</p>
 
                                              <div class="rent-location-1 hidden">
-  
+
                                               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                                 <div class="col-sm-12">
                                                   <label for="calc-method-1">Are your rent and subletting revenue for this location paid monthly? </label>
@@ -592,10 +597,10 @@
                                               <div class="alert alert-info provisional month-one-1 mrgn-tp-md mrgn-bttm-0">
                                                 <p>If you use this monthly option, all expense payments must be in respect of the calendar month.</p>
                                               </div>
-                
+
                                               <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
                                               <div class="clearfix"></div>
-                                              
+
                                               <!-- *****
                                               Month one rent starts here
                                               ***** -->
@@ -620,7 +625,7 @@
                                                   <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
                                                 </div>
                                               </div>
-                
+
                                               <!-- *****
                                               Month two rent starts here
                                               ***** -->
@@ -634,7 +639,7 @@
                                                     </div>
                                                     <p id="rent-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
                                                   </div>
-                
+
                                                   <div class="clearfix"></div>
                                                   <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
                                                   <div class="col-md-6 col-sm-12">
@@ -646,7 +651,7 @@
                                                   </div>
                                                 </div>
                                               </div>
-                
+
                                               <div class="cers-period-1 hidden">
                                                 <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 
@@ -659,7 +664,7 @@
                                                     </div>
                                                     <p id="rent-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
                                                   </div>
-                    
+
                                                   <div class="clearfix"></div>
                                                   <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
                                                   <div class="col-md-6 col-sm-12">
@@ -671,12 +676,12 @@
                                                   </div>
                                                 </div>
                                               </div>
-                
+
                                             </div>
-                
+
                                             <!-- This is where the Owned location inputs start -->
                                             <div class="own-location-1 hidden">
-                                              
+
                                               <legend class="mrgn-bttm-0 month-one-1">Eligible expenses for the claim period</legend>
                                               <div class="row">
 
@@ -685,7 +690,7 @@
 
                                                   <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group"> 
+                                                    <div class="input-group">
                                                       <label for="date-chooser-tax-1" class="wb-inv">The period for which the tax payment was made</label>
                                                       <select class="form-control input-lg" id="date-chooser-tax-1">
                                                         <option data-calc-method="period">CERS period (28 days)</option>
@@ -697,11 +702,11 @@
                                                     <p id="tax-date-1" class="text-muted text-right small">from <span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
-                  
+
                                                 <div class="col-md-12">
                                                   <label for="insurance-own-1">Property insurance<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group"> 
+                                                    <div class="input-group">
                                                       <label for="date-chooser-insurance-1" class="wb-inv">The period for which the insurance payment was made</label>
                                                       <select class="form-control input-lg" id="date-chooser-insurance-1">
                                                         <option data-calc-method="period">CERS period (28 days)</option>
@@ -713,11 +718,11 @@
                                                     <p id="insurance-date-1" class="text-muted text-right small">from <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
-                  
+
                                                 <div class="col-md-12 mrgn-tp-md">
                                                   <label for="interest-own-1">Interest on commercial mortgages<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group"> 
+                                                    <div class="input-group">
                                                       <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
                                                       <select class="form-control input-lg" id="date-chooser-interest-1" disabled="disabled">
                                                         <option data-calc-method="period">CERS period (28 days)</option>
@@ -728,8 +733,8 @@
                                                     <p id="interest-date-1" class="text-muted text-right small">from <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
-                  
-                  
+
+
                                                 <div class="col-md-12 mrgn-tp-lg">
                                                   <label for="lease-own-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp form-group">
@@ -754,17 +759,17 @@
                                           - sub-letting
                                           = qualifying rent expense (QRE)
                                           base * QRE + top-up * QRE
-                                          
-                                          
+
+
                                           line 160 = cummulative rent expense (from all the properties)
-                                          
+
                                           cummulative base CERS, max 300k
-                                          
+
                                           F is 0 if base is 0
-                                          
+
                                           + cummmulative top up CERS = F (Top up rate for property) * G (QRE)
                                           = CERS
-                                          
+
                                           unless other affiliated entities, in which case...
                                           if (300k or over) {
                                             300k * affiliated entities cut
@@ -782,7 +787,7 @@
                                                 <thead>
                                                    <tr>
                                                       <th scope="col">Type of expense</th>
-                                                      <th scope="col">Calculated amount</th>
+                                                      <th scope="col">Amount</th>
                                                    </tr>
                                                 </thead>
                                                 <tbody>
@@ -873,7 +878,7 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-                                              <td data-updated-by="top-up-days-1"></td> 
+                                              <td data-updated-by="top-up-days-1"></td>
                                               <td data-updated-by="rent-amt-1"></td>
                                               <td data-updated-by="tax-amt-1"></td>
                                               <td data-updated-by="insurance-amt-1"></td>
@@ -927,14 +932,14 @@
                <div class="panel-body">
                   <div id="cers-statement">
                     <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
-        
+
                     <p>The line amounts you will need to complete your online application for CERS:</p>
                     <ul class="lst-spcd">
-                      <li><strong>Line 110:</strong> 
+                      <li><strong>Line 110:</strong>
                           Number of eligible properties: <strong>
                           <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-ee" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-ee * 1&quot;}" id="wb-auto-16"></output>
                         </strong> </li>
-                      <li><strong>Line 120:</strong> 
+                      <li><strong>Line 120:</strong>
                           Total eligible rent paid: <strong>
                           <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-pyrl" data-wb-calc="{&quot;expr&quot;: &quot;#p2b-pyrl * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-17">$NaN</output>
                         </strong> </li>
@@ -951,23 +956,23 @@
                             <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2b-c3" id="wb-auto-20"></output>
                           </li>
                       <li><strong>Line 160:</strong>
-                            Total qualifying rent expenses: 
+                            Total qualifying rent expenses:
                             <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-21">$NaN</output>
-                            </strong> 
+                            </strong>
                           </li>
                       <li><strong>Line 200:</strong>
-                            Revenue drop for the current period: 
+                            Revenue drop for the current period:
                             <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-22">$NaN</output>
-                            </strong> 
+                            </strong>
                           </li>
                       <li><strong>Line 210:</strong>
-                            Revenue drop for the previous period: 
+                            Revenue drop for the previous period:
                             <strong><output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p2c-CERS" data-wb-calc="{&quot;expr&quot;: &quot;#p2c-CERS * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-23">$NaN</output>
-                            </strong> 
+                            </strong>
                           </li>
                       <li><strong>Line 310:</strong> Subsidy top-up: <strong>
                           <output class="h3 wb-calc nowrap wb-init wb-calc-inited" for="p3-ei" data-wb-calc="{&quot;expr&quot;: &quot;#p3-ei * 1&quot;, &quot;format&quot;: &quot;currency&quot;}" id="wb-auto-24">$NaN</output>
-                        </strong> 
+                        </strong>
                       </li>
                     </ul>
                   </div>
@@ -1031,16 +1036,19 @@
                <p><a href="who-locations.html#nonarm">Non-arm’s-length and arm’s-length eligible locations</a></p>
             </div>
          </section>
+         <!--
          <section id="contributions" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Lines D and E - Locloyer’s EI, QPIP, CPP, and QPP premiums payable on salary paid to
-                  locations on leave with pay 
+                  locations on leave with pay
                </h2>
             </header>
             <div class="modal-body" data-ajax-replace="who-locations.html #refund-contrib">
                <p><a href="who-locations.html#leave">Active locations and locations on leave with pay</a></p>
             </div>
          </section>
+       -->
+       <!--
          <span class="mfp-hide">
             <section id="tlocwage" class="modal-dialog modal-content overlay-def">
                <header class="modal-header">
@@ -1081,10 +1089,12 @@
                </div>
             </section>
          </span>
+       -->
+       <!--
          <section id="worksharing" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Line G - Amounts received by eligible locations under ESDC's Work-Sharing benefit
-                  program 
+                  program
                </h2>
             </header>
             <div class="modal-body">
@@ -1093,10 +1103,12 @@
                   program</a>
                </div>
                <p>Enter the total amount received under the Work-Sharing program by your eligible locations during the period
-                  covered by this claim in the box for line G. 
+                  covered by this claim in the box for line G.
                </p>
             </div>
          </section>
+       -->
+       <!--
          <section id="lwp" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Active locations and locations on leave with pay</h2>
@@ -1105,6 +1117,7 @@
                <p><a href="who-locations.html#leave">Active locations and locations on leave with pay</a></p>
             </div>
          </section>
+       -->
          <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
             <header class="modal-header">
                <h2 class="modal-title">Print preview for CERS statement</h2>
@@ -1125,6 +1138,7 @@
             </div>
             <div class="modal-footer hidden"> </div>
          </section>
+         <!--
          <section id="baseline-rem" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Pre-crisis pay (baseline remuneration)</h2>
@@ -1133,6 +1147,7 @@
                <p><a href="who-locations.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
             </div>
          </section>
+       -->
          <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Claim period pay per week<span class="loc-lv hidden"> and active locations or locations
@@ -1279,7 +1294,7 @@
               "lease-date-"
             ];
             this.locationIndexRegex = /-1\b/g;
-    
+
             //CEWS legacy for reference
             // this.armsLengthId = "arms-";
             // this.baselineId = "baseline-"
@@ -1292,16 +1307,16 @@
             // this.weeklySummaryInterestClass = "loc-interest-1";
             // this.weeklySummaryClass = "loc-expenses-";
           }
-    
+
           /**
            * generateNewLocationForm
-           * 
+           *
            * function called to run the routine to generate the new form
-           * 
-           * @param {Int} numLocs the number of location panels currently on the 
+           *
+           * @param {Int} numLocs the number of location panels currently on the
            * page
-           * 
-           * @return {DOMDocumentFragment} the cloned tloclate with ID's and other 
+           *
+           * @return {DOMDocumentFragment} the cloned tloclate with ID's and other
            * attributes updated for use in as a new location form
            */
           LocationFormGenerator.prototype.generateNewLocationForm = function (numLocs) {
@@ -1311,26 +1326,26 @@
             var newForm = this.generateNewForm();
             return newForm;
           }
-    
+
           /**
            * generateNewForm
-           * 
-    
-           * clone the tloclate DOM element and update the required attributes for 
+           *
+
+           * clone the tloclate DOM element and update the required attributes for
            * a new location wage form
-           * 
+           *
            * @calls LocationFormGenerator::updateArmsLengthElementId()
-           * @calls LocationFormGenerator::updateBaselineWageElementId() to update 
+           * @calls LocationFormGenerator::updateBaselineWageElementId() to update
            * the baseline wage element
-           * @calls LocationFormGenerator::setUpdatesAndUpdatedByData() to update 
+           * @calls LocationFormGenerator::setUpdatesAndUpdatedByData() to update
            * the data-updates and data-update-by attributes
            * @calls LocationFormGenerator::updateInputs() to update the input fields
-           * @calls LocationFormGenerator::updateTableIds() to update the summary 
+           * @calls LocationFormGenerator::updateTableIds() to update the summary
            * table cells
-           * @calls LocationFormGenerator::openAccordion() to open all accordion 
+           * @calls LocationFormGenerator::openAccordion() to open all accordion
            * elements
            *
-           * @return {DOMDocumentFragment} the update DOM fragment to be used as 
+           * @return {DOMDocumentFragment} the update DOM fragment to be used as
            * the new location wage form
            */
           LocationFormGenerator.prototype.generateNewForm = function () {
@@ -1358,23 +1373,23 @@
             this.visualDefaults(frag);
             return frag;
           }
-    
+
           /**
            * updateAddressFieldIds
-           * 
+           *
            * update the address fields' elements
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned templateId
            */
           LocationFormGenerator.prototype.updateLocationNames = function (frag) {
             $(frag).find('.locationNumber').text(this.numberOfLocations);
           }
-    
+
           /**
            * updateLocNumbers
-           * 
+           *
            * update the location numbers for input elements
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned templateId
            */
            LocationFormGenerator.prototype.updateLocNumbers = function (frag) {
@@ -1417,7 +1432,7 @@
                 $(element).first("option").attr("selected", true);
               } else if ($(element).val().length > 0) {
                 $(element).val("");
-              } 
+              }
               //need to get the label for each of these elements and update the 'for' attr
               var label = $(frag).find("label[for='" + $(element).attr("id") + "']");
               $(element).attr(
@@ -1430,12 +1445,12 @@
               );
             });
           }
-    
+
           /**
            * updateSelectDropdown
-           * 
+           *
            * update the select elements
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned templateId
           */
           LocationFormGenerator.prototype.updateSelectDropdown = function (frag) {
@@ -1458,9 +1473,9 @@
 
           /**
            * updateClass
-           * 
+           *
            * update the class elements based on the parametrs
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned templateId
            * @param {string} className the className to update in the cloned template
            */
@@ -1475,12 +1490,12 @@
               }
             }
           }
-    
+
           /**
            * updateIds 613-523-8145
-           * 
+           *
            * update the id based on the parametrs
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned templateId
            * @param {string} idName the idName to update in the cloned template
           */
@@ -1499,13 +1514,13 @@
               }
             }
           }
-    
+
           /**
            * setUpdatesAndUpdatedByData
-           * 
-           * increment the date-updates and data-updated-by value so the 
+           *
+           * increment the date-updates and data-updated-by value so the
            * appropriate summary table is updated
-           * 
+           *
            * @param {DOMDocumentFragment} frag the cloned tloclate
            */
           LocationFormGenerator.prototype.setUpdatesAndUpdatedByData = function (frag) {
@@ -1522,7 +1537,7 @@
               $(element).attr("data-updated-by", newval);
             });
           }
-    
+
           /**
            * visualDefaults
            *
@@ -1552,10 +1567,10 @@
             $('#amt-ttl-' + numLocs).text("$0.00");
             $('#amt-top-up-' + numLocs).text("$0.00");
           }
-    
+
           return LocationFormGenerator;
         })();
-    
+
       </script>
       <script>
         (function ($, window, wb) {
@@ -1596,11 +1611,11 @@
               // Start initialization
               // returns DOM object = proceed with init
               // returns undefined = do not proceed with init (e.g., already initialized)
-    
+
               var elm = wb.init(event, componentName, selector),
                 $elm,
                 settings;
-    
+
               if (elm) {
                 $elm = $(elm);
                 // ... Do the plugin initialisation
@@ -1612,14 +1627,14 @@
                   window[componentName],
                   wb.getData($elm, componentName)
                 );
-    
+
                 // Call my custom event
                 $elm.trigger("change", settings);
                 // Identify that initialization has completed
                 wb.ready($elm, componentName);
               }
             };
-    
+
           // Plugin event handlers
           $document.on("change", "input", function (event) {
             var elm = event.currentTarget,
@@ -1628,7 +1643,7 @@
               data = wb.getData($("output[for='" + $elmId + "']"), componentName),
               value = $elm.val().replace(/\,\s/g, ''), // Needs to be replaced by data.expr evaluation
               total = 0;
-    
+
             if (data.expr) {
               //protect against NaN values
               if (value == "") {
@@ -1640,7 +1655,7 @@
                 $("output[for='" + $elmId + "']").html(value * 1);
               };
             }
-    
+
             total = ($("#p2c-CERS").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
             if (total < 0) {
               $("[for='p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
@@ -1648,13 +1663,13 @@
               $("[for='p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(total));
             };
           });
-    
+
           $document.on("change", selector, function (event, data) {
             var elm = event.currentTarget,
               $elm = $(elm),
               $input = $("#" + $elm.attr("for")),
               value = $input.val();
-    
+
             if (data && data.format === "currency") {
               $elm.html(toMoney.format(value * 1));
             } else {
@@ -1662,7 +1677,7 @@
             };
             $("[for='p2c-ee p2c-pyrl p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
           });
-    
+
           //when the claim period dropdown is changed
           $document.on("change", "#claim-period", function (event) {
             var rangeISO = $(this).find('option:selected').val(),
@@ -1677,7 +1692,7 @@
             var endDateParts = endDateISO.split("-");
             // console.log('endDateISO ' + endDateISO); //2020-12-19 - full end date for p10
             // console.log('endDateISO[1] ' + endDateParts[1]) //should give 12
-            var claimMonth = getClaimMonth(rangeISO); 
+            var claimMonth = getClaimMonth(rangeISO);
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
 
@@ -1707,7 +1722,7 @@
               $('.date-cers-period-start').text(startDateISO);
               $('.date-cers-period-end').text(endDateISO);
             }
-    
+
             //*****
             //Reset revenue values to what they are defaulted as? for the summary box when the period changes
             //*****
@@ -1716,7 +1731,7 @@
             //show/hide elements based on chosen claim period
             $("#select-a-claim-period-reminder").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
-    
+
             switch (claimPeriod) {
               case 3:
                 $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
@@ -1770,7 +1785,7 @@
             } else {
               NoCERSRate();
             }
-            
+
             //Set top up lock down period date pickers with the defaults for that period and allowed range
             $('.lockdown-start-date').attr({
               "min": startDateISO,
@@ -1783,12 +1798,12 @@
               "value": endDateISO
             });
           });
-    
+
           //*****
           // when the submit button is clicked
           //*****
-    
-    
+
+
           $document.on("click", "#calculate", function (event) {
             event.preventDefault();
             //remove the required attribute in all hidden elements
@@ -1818,8 +1833,8 @@
               $("#results").removeClass("hidden");
             }
           });
-    
-    
+
+
           /**
            * update the location wage summary
            */
@@ -1828,7 +1843,7 @@
             var parts = target.id.split("-");
             var locationNumber = parts[parts.length - 1];
             recalculateLocationAmounts(locationNumber);
-    
+
             //For reference - original method to update based on what was changed
             //   var claimPeriod = $("#claim-period option:selected").data("claim-period");
             //   //get the corresponding summary element to update
@@ -1850,16 +1865,16 @@
             //   }
             //   var formattedVal = toMoney.format(calculatedRent);
             //   $(updateTarget).text(formattedVal);
-              
+
             //   //**********
             //   //This is related to updating the summary table
             //   //**********
-    
+
             //   var updatedByElements = $("*[data-updated-by='" + target.id + "']");
             //   $(updatedByElements).each(function (i, element) {
             //     $(element).text(toMoney.format(unformattedValue));
             //   });
-    
+
             //   //update the total
             //   if ($(updateTarget).data("updates")) {
             //     //update the target to the total column and get all elements that make up the total
@@ -1871,14 +1886,14 @@
             //   }
             // }
           });
-    
+
           /**
           * trigger the recalculation of all summary amounts for the location
           */
           function recalculateLocationAmounts(locationNumber) {
             var calculatedExpense = [];
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
-    
+
             //get the number of days in each month that overlap the claim period
             var monthDays = getClaimMonth($("#claim-period").val(), 1);
             var monthMaxDays = getClaimMonth($("#claim-period").val(), 2);
@@ -1948,7 +1963,7 @@
             } else { //if they haven't specified their calculation methods or something's buggy, totals should be 0
               var calculatedExpense = [0, 0, 0, 0, 0];
             }
-            
+
             var summaryLines = ["rent-amt-" + locationNumber, "tax-amt-" + locationNumber, "insurance-amt-" + locationNumber, "interest-amt-" + locationNumber, "lease-amt-" + locationNumber];
             var formattedVal = 0;
             var updatedByElements = [];
@@ -1973,7 +1988,7 @@
               $(element).text(formattedVal);
             });
 
-    
+
             //calculate the top-up amount for the location
             if ($('#lock-down-eligible-' + locationNumber).is(":visible") && $('#lock-down-ineligible-' + locationNumber).is(":hidden")) {
               var topUpRate = zeroIfEmpty('0.' + $('.top-up-rate-' + locationNumber).text().replace("%", "").replace(".", ""));
@@ -1990,22 +2005,22 @@
 
 
 
-            
+
 
 
             //**********
             //Need to also update the summary table with these values...
             //**********
-    
+
             // var updatedByElements = $("*[data-updated-by='" + target.id + "']");
             // $(updatedByElements).each(function (i, element) {
             //   $(element).text(toMoney.format(unformattedValue));
             // });
-    
+
           }
-    
-    
-    
+
+
+
           //Update location names on street address input
           $(document).on("blur", "input[id^='loc-staddress-']", function(event) {
             var className = $(event.target).prop("id");
@@ -2020,12 +2035,12 @@
             $(displays).each(function(i, element) {
               $(element).text(displayValue);
             });
-    
+
             //Add equivalent for the 'full-address-'
-    
-    
+
+
           });
-          
+
           //Radio event listener
           $document.on("click", "input[type=radio]", function (event) {
             var target = event.target;
@@ -2043,11 +2058,11 @@
                 $('.affiliated-yes-answer').addClass("hidden");
                 $('.affiliated-yes-blank-answer').addClass("hidden");
               }
-    
+
               //**********
               //Recalculate totals??
               //**********
-    
+
             } else if (target.name == "lock-down-" + locationNumber) {
               if (target.id == 'lock-down-yes-' + locationNumber) {
                 $('#lock-down-period-'+locationNumber).removeClass("hidden");
@@ -2070,7 +2085,7 @@
               expenseFieldHideShow(locationNumber);
             }
           });
-    
+
           //Calculation method event listener
           $document.on("change", "select", function (event) {
             var target = event.target;
@@ -2119,10 +2134,10 @@
             // var endDateParts = endDateISO.split("-");
             // // console.log('endDateISO ' + endDateISO); //2020-12-19 - full end date for p10
             // // console.log('endDateISO[1] ' + endDateParts[1]) //should give 12
-            // var claimMonth = getClaimMonth(rangeISO); 
+            // var claimMonth = getClaimMonth(rangeISO);
             // var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             // var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
-            
+
 
             // //Get the priorReference period based on the claimMonth
             // var monthsArray = getClaimMonths(claimMonth, claimPeriod);
@@ -2169,10 +2184,10 @@
 
 
 
-    
+
           function expenseFieldHideShow(locationNumber) {
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
-            //unhide calc method form based on the dropdown selection 
+            //unhide calc method form based on the dropdown selection
             if ($('#choose-own-or-rent-message-' + locationNumber).is(":hidden")) { //ensure an own or rent option is selected first
               if (calcMethod == "month") {
                 $('.month-one-' + locationNumber).removeClass("hidden");
@@ -2186,7 +2201,7 @@
             }
             recalculateLocationAmounts(locationNumber);
           }
-    
+
           $("#affiliated-split").on('blur', updateAffiliatedSummary);
           /*
           * updateAffiliatedSummary
@@ -2207,21 +2222,21 @@
               $('.affiliated-yes-answer').removeClass("hidden");
               $('.affiliated-yes-blank-answer').addClass("hidden");
             }
-    
+
             // *******
             // Need to recalculate the totals...
             // recalculateLocationAmounts(locationNumber);
             // *******
-    
+
           }
-    
+
           $(".lock-down-dates").on('change', function(event) {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             topUpRateCalculation(locationNumber);
             recalculateLocationAmounts(locationNumber);
           });
-    
+
           function topUpRateCalculation(locationNumber) {
             var startDate = $("#lockdown-start-" + locationNumber).val();
             var endDate = $("#lockdown-end-" + locationNumber).val();
@@ -2230,7 +2245,7 @@
             var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
             var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
             var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
-            if (datediff >= 7) { //at least 7 days in the 
+            if (datediff >= 7) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
               var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
               $(updatedByElements).each(function (i, element) {
@@ -2266,7 +2281,7 @@
             $("#loc-arms-" + locNumber).parent("tr").remove();
             $(fieldset).remove();
           });
-    
+
           //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
           function isInt(n) {
             return Number(n) === n && n % 1 === 0;
@@ -2274,15 +2289,15 @@
           function isFloat(n) {
             return Number(n) === n && n % 1 !== 0;
           }
-    
+
           // /**
           //  * getLocationTotalWages
-          //  * 
+          //  *
           //  * get the total wages paid for the given location number
           //  *
-          //  * @param {Int} locationNumber The location panel number 
-          //  * 
-          //  * @return {Float} The total wage paid for 4 weeks 
+          //  * @param {Int} locationNumber The location panel number
+          //  *
+          //  * @return {Float} The total wage paid for 4 weeks
           //  */
           // function getLocationTotalWages(locationNumber) {
           //   var weekone = zeroIfEmpty($('#wkone-' + locationNumber).val());
@@ -2292,7 +2307,7 @@
           //   var weekfour = zeroIfEmpty($('#wkfour-' + locationNumber).val());
           //   return parseFloat(weekone) + parseFloat(weektwo) + parseFloat(weekthree) + parseFloat(weekfour);
           // }
-    
+
           /**
            * calculate the totals when the summary table is opened
            */
@@ -2338,19 +2353,19 @@
             $(".total").attr("data-total-CERS", cews.toFixed(2));
             $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
           }
-    
+
           // /**
           //  * getWeeklyCERS
-          //  * 
+          //  *
           //  * determine the weekly CERS amount based on claim period
           //  *
           //  * @param {Boolean} armsLength Whether the location is at arms length
           //  * @param {String} baselineAmount The locations baseline pay pre-crisis
           //  * @param {String} weeklyAmount The weekly wage value
-          //  * @param {Boolean} paidLeave Whether the location was on paid leave for 
+          //  * @param {Boolean} paidLeave Whether the location was on paid leave for
           //  * the week being calculated
-          //  * 
-          //  * @return {Int} The calculated weekly CERS amount || 0 if no claim 
+          //  *
+          //  * @return {Int} The calculated weekly CERS amount || 0 if no claim
           //  * period is chosen
           //  */
           // function getWeeklyCERS(armsLength, baselineAmount, weeklyAmount, paidLeave) {
@@ -2390,10 +2405,10 @@
           //       return 0;
           //   }
           // }
-    
-    
+
+
           /**
-           * add a new location form  
+           * add a new location form
            */
           var numLocationPanels = 1;
           $("#addLoc").on("click", addLoc);
@@ -2406,7 +2421,7 @@
             //create new row for the calculation table
             var row = document.createElement("tr");
             row.id = "loc" + numLocationPanels;
-    
+
             //create new row in the summary table
             //location 'name' cell
             var eligibleLocationCell = document.createElement("td");
@@ -2466,7 +2481,7 @@
               behavior: 'smooth'
             });
           }
-    
+
           /**
            * calculate the CERS rate reductions
            */
@@ -2494,7 +2509,7 @@
           function calculateRevenueDrop(bAlt) {
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var CERSRateElements = $('.cers-rate-calc');
-            //find the claim month based on the chosen claim period 
+            //find the claim month based on the chosen claim period
             var claimMonth = getClaimMonth($("#claim-period").val());
             //Get claim months function??
             var monthsArray = getClaimMonths(claimMonth, claimPeriod);
@@ -2559,7 +2574,7 @@
               NoCERSRate();
             }
           }
-    
+
           /**
           * NoCERSRate()
           * Fill in default values of 0% when there's not enough information to determine the rate
@@ -2574,14 +2589,14 @@
             $("#rate-formula-u50").addClass("hidden");
             $("#rate-formula-0").removeClass("hidden");
           }
-    
+
           /**
            * getClaimMonths()
            * returns an array of the 4 months with year and prefix based on the claim month
            */
           function getClaimMonths(claimMonth, claimPeriod) {
             var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
-            
+
             //Adding a 0 in front of a month in case it was single digit
             for (var i = 0; i < monthsArray.length; i++) {
               if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
@@ -2608,7 +2623,7 @@
            */
            function getClaimMonths2019(claimMonth) {
             var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
-            
+
             //Adding a 0 in front of a month in case it was single digit
             for (var i = 0; i < monthsArray.length; i++) {
               if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
@@ -2628,7 +2643,7 @@
             perc = perc / 100;
             return perc;
           }
-    
+
           /**
            * zeroIfEmpty()
            * return 0 if the number cannot be parsed into a float; does not account * for letter values.
@@ -2640,7 +2655,7 @@
               return 0;
             }
           }
-    
+
           // //update the location wages summary when the arms length value is changed
           // $(document).on("change", "select[id^='arms-']", function (event) {
           //   //get the location number
@@ -2663,9 +2678,9 @@
           //   $("#wkthree-" + id).blur();
           //   $("#wkfour-" + id).blur();
           // });
-    
+
           // /**
-          //  * run the blur event for the wage input when the corresponding leave 
+          //  * run the blur event for the wage input when the corresponding leave
           //  * with pay option is checked
           //  */
           // $(document).on("click", ".loc-lv > *", function (event) {
@@ -2684,7 +2699,7 @@
           //   var wageInputId = parts[0] + '-' + parts[2];
           //   $("#" + wageInputId).blur();
           // }
-    
+
           // //send data to fields in 2B
           // $(document).on("click", "#transfer-data", function (event) {
           //   calculateTotals();
@@ -2750,8 +2765,8 @@
           //     $("#wkfour-" + i).blur();
           //   }
           // });
-    
-    
+
+
           // $(document).on("blur", "#p2c-loc-alt2", function(event) {
           //   if (event.target.value == 0) {
           //     $("#p3-ei").prop("readonly", true);
@@ -2769,8 +2784,8 @@
           //     $(".p3-loc-req").removeClass("hidden");
           //   }
           // });
-    
-          // //update percentage summary elements in 2B 
+
+          // //update percentage summary elements in 2B
           // $(document).on("blur", "#p2b-c1", function (event) {
           //   $("output[for='p2b-c1']").text(zeroIfEmpty(event.target.value) + "%");
           // });
@@ -2780,15 +2795,15 @@
           // $(document).on("blur", "#p2b-c3", function (event) {
           //   $("output[for='p2b-c3']").text(zeroIfEmpty(event.target.value) + "%");
           // });
-    
+
           /**
            * getMonthNamesPlusYear()
-           * 
+           *
            * get the name of the claim month and previous month
-           * 
+           *
            * @param {iMonth} integer the month expressed as an integer
            * YYYY-MM-DD--YYYY--MM-DD format
-           * 
+           *
            * @return {claimMonths} the 2 months that the CERS period overlaps
            */
            function getMonthNamesPlusYear(iMonth, claimPeriod) {
@@ -2810,16 +2825,16 @@
             }
             return claimMonths;
           }
-    
+
           /**
            * getClaimMonth()
-           * 
+           *
            * get the month where the claim period mostly falls
-           * 
-           * @param {Int} dateRange the claim period dates in 
+           *
+           * @param {Int} dateRange the claim period dates in
            * YYYY-MM-DD--YYYY--MM-DD format
-           * 
-           * @return {Int} the claim month in numeric form 
+           *
+           * @return {Int} the claim month in numeric form
            */
            var date1Max = 0;
            var date2Max = 0;
@@ -2862,11 +2877,11 @@
               return null;
             }
           }
-    
+
           /**
            * Calculate the Rent Subsidy rate
            * @param {Float} revReduction the revenue reduction percentage represented as a decimal
-           *  
+           *
            * @return {Float} the calculated base rate
            */
           function getRentSubsidyRate(revReduction) {
@@ -2888,8 +2903,8 @@
               return revReduction * 0.8;
             }
           }
-    
-    
+
+
           // Bind the init event of the plugin
           $document.on("timerpoke.wb " + initEvent, selector, init);
           // Add the timer poke to initialize the plugin
@@ -2899,9 +2914,9 @@
           $("#reduction-percent-panel").addClass("hidden");
         });
         // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
-    
+
         //hide/show for top-up period input
-    
+
         // //fix for duplicated popup trigger
         // $(document).on("click", ".arms-length-def", function (event) {
         //   showPopup("armslength");
@@ -2915,7 +2930,7 @@
         $(document).on("click", ".toCSV", function (event) {
           export_table_to_csv("location-cews.csv");
         });
-    
+
         /**
          * export_table_to_csv
          *
@@ -2926,7 +2941,7 @@
           var rows = $("#dataset-filter tr");
           for (var i = 0; i < rows.length; i++) {
             var row = [], cols = rows[i].querySelectorAll("td, th");
-    
+
             for (var j = 0; j < cols.length; j++) {
               if (document.documentElement.lang == "fr") {
                 var val = cols[j].innerText.replace(",", ".");
@@ -2937,7 +2952,7 @@
                 row.push(cols[j].innerText.replace(",", ""));
               }
             }
-    
+
             csv.push(row.join(","));
           }
           // Download CSV
@@ -2947,35 +2962,35 @@
          * download_csv
          *
          * https://jsfiddle.net/gengns/j1jm2tjx/
-         * 
+         *
          */
         function download_csv(csv, filename) {
           var csvFile;
           var downloadLink;
-    
+
           // CSV FILE
           csv = "\uFEFF" + csv;
           csvFile = new Blob([csv], { type: "text/csv", encoding: "UTF-8" });
-    
+
           // Download link
           downloadLink = document.createElement("a");
-    
+
           // File name
           downloadLink.download = filename;
-    
+
           // We have to create a link to the file
           downloadLink.href = window.URL.createObjectURL(csvFile);
-    
+
           // Make sure that the link is not displayed
           downloadLink.style.display = "none";
-    
+
           // Add the link to your DOM
           document.body.appendChild(downloadLink);
-    
+
           // Lanzamos
           downloadLink.click();
         }
-    
+
         /**
          * required to allow duplicated popup buttons to open the associated popup
          */
@@ -2996,7 +3011,7 @@
         }
       </script>
       <script>
-    
+
         $(".action-checkbox").change(function () {
           if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
             $("#action-msg1").removeClass("hidden").addClass("visible");
@@ -3007,7 +3022,7 @@
             $("#action-no-msg").removeClass("hidden").addClass("visible");
           }
         })
-    
+
       </script>
    </body>
 </html>
