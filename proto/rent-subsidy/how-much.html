@@ -83,38 +83,41 @@
             <section>
               <h2 id="h-1">How the subsidy is calculated</h2>
               <p>The CERS provides both a base subsidy and in some cases, a top-up amount.</p>
-              <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
-              <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for a top-up subsidy of up to 25% of eligible expenses per affected location.</p>
-              <h3 id="#base-rate"><span class="fas fa-calculator text-muted"></span> Your CERS rent subsidy rate is</h3>
-                             <ul class="fa-ul lst-spcd">
-                                <li>80% of your revenue drop percentage, up to a maximum of 40%</li>
-                                <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> Plus (if revenue drop > 50%):
-                                   <ul>
-                                      <li>your revenue drop percentage minus 50%</li>
-                                      <li>multiplied by 1.25</li>
-                                      <li>to a maximum of 25%</li>
-                                   </ul>
-                                </li>
-                                <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS rent subsidy rate</span></li>
-                             </ul>
-                             <h3 id="#top-up-rate"><span class="fas fa-calculator text-muted"></span> Your CERS top-up rate (per business location) is</h3>
-                             <ul class="fa-ul lst-spcd">
-                                <li>0% if your base rate is 0%</li>
-                                OR
-                                <li>25% (fixed top-up rate)</li>
-                                <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> the number of days your province or municipality was on lock down due to COVID-19</li>
-                                <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the number of days in the CERS period)</li>
-                                <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS top-up rate</span></li>
-                             </ul>
-                             <details>
-                                <summary>Example top-up rate calculation</summary>
-                                <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
-                                <ul>
-                                   <li>25% base top-up rate multiplied by</li>
-                                   <li>7 days out of 28</li>
-                                   <li>For a 6.25% top-up rate.</li>
-                                </ul>
-                             </details>
+              <details>
+                <summary>See the math behind the calculation</summary>
+                <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
+                <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for a top-up subsidy of up to 25% of eligible expenses per affected location.</p>
+                <h3 id="#base-rate"><span class="fas fa-calculator text-muted"></span> Your CERS rent subsidy rate is</h3>
+                <ul class="fa-ul lst-spcd">
+                  <li>80% of your revenue drop percentage, up to a maximum of 40%</li>
+                  <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> Plus (if revenue drop > 50%):
+                      <ul>
+                        <li>your revenue drop percentage minus 50%</li>
+                        <li>multiplied by 1.25</li>
+                        <li>to a maximum of 25%</li>
+                      </ul>
+                  </li>
+                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS rent subsidy rate</span></li>
+                </ul>
+                <h3 id="#top-up-rate"><span class="fas fa-calculator text-muted"></span> Your CERS top-up rate (per business location) is</h3>
+                <ul class="fa-ul lst-spcd">
+                  <li>0% if your base rate is 0%</li>
+                  OR
+                  <li>25% (fixed top-up rate)</li>
+                  <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> the number of days your province or municipality was on lock down due to COVID-19</li>
+                  <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the number of days in the CERS period)</li>
+                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS top-up rate</span></li>
+                </ul>
+                <details>
+                  <summary>Example top-up rate calculation</summary>
+                  <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
+                  <ul>
+                      <li>25% base top-up rate multiplied by</li>
+                      <li>7 days out of 28</li>
+                      <li>For a 6.25% top-up rate.</li>
+                  </ul>
+                </details>
+              </details>
                <h2 id="h-2">Before you start the calculation</h2>
                <p class="lead">Check these boxes to confirm you have all the information you need before you start your calculation:</p>
                <section>
@@ -1062,6 +1065,17 @@
                      Summary of CERS calculation
                   </caption>
                   <tbody>
+                    <tr>
+                      <th scope="row" class="h6">Affiliated entity percentage</th>
+                      <td class="text-right nowrap"><span class="affiliated-entitity-amount h3">0.00%</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="h6">Maximum rent expenses that can be claimed <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
+                      <td class="text-right nowrap">+
+                        <output class="h6 wb-calc nowrap" for="p3-ei"
+                          data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
+                    </tr>
+
                     <tr>
                       <th scope="row" class="h6">Affiliated entity percentage</th>
                       <td class="text-right nowrap"><output class="h6 affiliated-percentage nowrap">N/A</output></td>
