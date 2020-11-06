@@ -480,8 +480,8 @@
                         <fieldset class="brdr-tp">
                            <legend><span class="wb-inv">Step 4: </span>Your business locations</legend>
                            <div class="clearfix"></div>
-                           <p>The CERS amount you can apply for is the portion of your eligible expenses for your business locations covered by your CERS rate.</p>
-                           <p>Each business location can claim up to $75,000 in eligible expenses.</p>
+                           <p>Each location is eligible to claim up to $75,000 in eligible expenses.</p>
+                           <p>The base subsidy amount you can get is based on your CERS rate (<span class="base-rate">0%</span>) as a portion of eligible expenses, up to a maximum amountof $300,000.</p>
                            <div class="mrgn-tp-lg">
                               <div id="cers-calculation" class=" panel panel-primary panel-body" aria-live="polite">
                                  <p class="h4 mrgn-tp-0">Top-up and eligible expenses</p>
@@ -1551,24 +1551,24 @@
           LocationFormGenerator.prototype.visualDefaults = function (frag) {
             var numLocs = this.numberOfLocations;
             //hide the lockdown fields
-            $('#lock-down-period-' + numLocs).addClass("hidden");
-            $('#lock-down-ineligible-' + numLocs).removeClass("hidden");
-            $('#lock-down-eligible-' + numLocs).addClass("hidden");
-            $('.rent-location-' + numLocs).addClass("hidden");
-            $('.own-location-' + numLocs).addClass("hidden");
-            $('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
+            $(frag).find('#lock-down-period-' + numLocs).addClass("hidden");
+            $(frag).find('#lock-down-ineligible-' + numLocs).removeClass("hidden");
+            $(frag).find('#lock-down-eligible-' + numLocs).addClass("hidden");
+            $(frag).find('.rent-location-' + numLocs).addClass("hidden");
+            $(frag).find('.own-location-' + numLocs).addClass("hidden");
+            $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
             //open the accordion
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
             //Clear the summary values
-            $('#rent-amt-' + numLocs).text("$0.00");
-            $('#tax-amt-' + numLocs).text("$0.00");
-            $('#insurance-amt-' + numLocs).text("$0.00");
-            $('#interest-amt-' + numLocs).text("$0.00");
-            $('#lease-amt-' + numLocs).text("$0.00");
-            $('#amt-ttl-' + numLocs).text("$0.00");
-            $('#amt-top-up-' + numLocs).text("$0.00");
+            $(frag).find('#rent-amt-' + numLocs).text("$0.00");
+            $(frag).find('#tax-amt-' + numLocs).text("$0.00");
+            $(frag).find('#insurance-amt-' + numLocs).text("$0.00");
+            $(frag).find('#interest-amt-' + numLocs).text("$0.00");
+            $(frag).find('#lease-amt-' + numLocs).text("$0.00");
+            $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
+            $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
           }
 
           return LocationFormGenerator;
