@@ -132,7 +132,9 @@
                      <li class="checkbox">
                         <input type="checkbox" id="bfore2" class="action-checkbox">
                         <label for="bfore2"><strong>You have your monthly qualifying revenue amounts from 2020 and 2019</strong></label>
+                        <!--
                         <label for="bfore2">You will need revenue amounts for the past few months, as well as your comparison period option.</label>
+                      -->
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
@@ -1879,7 +1881,7 @@
               "value": endDateISO
             });
             $('.lockdown-end-date').val(endDateISO);
-            //recalculate top up for each location 
+            //recalculate top up for each location
             $(".lock-down-dates").each(function (i, element) {
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
@@ -2274,7 +2276,7 @@
           $(document).on("click", "#showLocTable", function (event) {
             calculateTotals();
           });
-          
+
           function calculateTotals() {
             var smryTotals = [0, 0, 0, 0, 0, 0, 0];
             var eligibleLocations = 0;
