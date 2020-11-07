@@ -2224,7 +2224,10 @@
             recalculateLocationAmounts(locationNumber);
           });
 
-          function topUpRateCalculation(locationNumber, radioFlag = 0) {
+          function topUpRateCalculation(locationNumber, radioFlag) {
+            if (radioFlag === undefined) {
+              radioFlag = 0;
+            }
             var startDate = $("#lockdown-start-" + locationNumber).val();
             var endDate = $("#lockdown-end-" + locationNumber).val();
             var date1Arr = startDate.split("-");
@@ -2615,7 +2618,10 @@
            */
            var date1Max = 0;
            var date2Max = 0;
-           function getClaimMonth(dateRange, type = 0) {
+           function getClaimMonth(dateRange, type) {
+            if (type === undefined) {
+              type = 0;
+            }
             var dates = dateRange.split('--');
             var date1Arr = dates[0].split("-");
             var date2Arr = dates[1].split("-");
