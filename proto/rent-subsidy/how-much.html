@@ -1498,6 +1498,10 @@
                 $(element).attr("name",
                   $(element).attr("name").replace(indexRegex, "-" + numLocs)
                 );
+                //in IE and Safari, also need to update the datepicker generated ID
+                $(frag).find('#lockdown-start-1-picker-toggle').attr("id",
+                  $(element).attr("id").replace(indexRegex, "-" + numLocs)
+                );
               } else if ($(element).is("select")) { //if select dropdown, then reset to default option
                 $(element).first("option").attr("selected", true);
               } else if ($(element).val().length > 0) {
