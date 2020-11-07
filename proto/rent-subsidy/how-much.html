@@ -316,7 +316,7 @@
                      </li>
                      <li>
                         <fieldset class="brdr-tp">
-                          <legend><span class="wb-inv">Step 3: </span>Calculate your base CERS rate</legend>
+                          <legend><span class="wb-inv">Step 3: </span>Calculate your rent subsidy rate</legend>
                           <div class="clearfix"></div>
                           <p>The amount of your eligible expenses you can claim is determined by your revenue drop.</p>
                           <div class="provisional alert alert-danger" id="select-a-claim-period-reminder">
@@ -353,7 +353,6 @@
                               </div>
                            </fieldset>
                            <div class="hidden" id="alt-bl-no">
-                              <p><strong>Determine your base subsidy rate for the claim period</strong></p>
                               <fieldset>
                                  <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
                                  <p><a class="wb-lbx" role="button" aria-controls="eligible-rev"
@@ -457,10 +456,9 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Recalculate your revenue drop</a>
                            </div>
                            <div class="hidden" id="alt-bl-yes">
-                              <p><strong>Determine your subsidy rate for the claim period</strong></p>
                               <fieldset>
                                  <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
                                  <p><a class="wb-lbx" role="button" aria-controls="eligible-rev"
@@ -541,7 +539,7 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Recalculate your revenue drop</a>
                            </div>
                            <div id="revenue-drop-results-summary" class="well mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of Step 3</h3>
@@ -963,13 +961,13 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1"></td>
+                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1">0</td>
                                               <td id="rent-smry-1" data-updated-by="rent-amt-1"></td>
                                               <td id="tax-smry-1" data-updated-by="tax-amt-1"></td>
                                               <td id="insurance-smry-1" data-updated-by="insurance-amt-1"></td>
                                               <td id="interest-smry-1" data-updated-by="interest-amt-1"></td>
                                               <td id="lease-smry-1" data-updated-by="lease-amt-1"></td>
-                                              <td class="qre-smry-1" data-updated-by="amt-ttl-1"></td>
+                                              <td id="qre-smry-1" data-updated-by="amt-ttl-1"></td>
                                               <td id="top-up-smry-1" data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
@@ -2293,13 +2291,13 @@
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
-              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$",""));
-              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$",""));
-              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$",""));
-              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$",""));
-              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$",""));
-              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$",""));
-              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$",""));
+              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(",",""));
             });
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
@@ -2316,7 +2314,6 @@
             } else {
               var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
             }
-            console.log(affiliatedSplit);
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
             $('.qualifying-rent-expenses').html(line170Total + '%');
