@@ -1498,10 +1498,6 @@
                 $(element).attr("name",
                   $(element).attr("name").replace(indexRegex, "-" + numLocs)
                 );
-                //in IE and Safari, also need to update the datepicker generated ID
-                $(frag).find('#lockdown-start-1-picker-toggle').attr("id",
-                  $(element).attr("id").replace(indexRegex, "-" + numLocs)
-                );
               } else if ($(element).is("select")) { //if select dropdown, then reset to default option
                 $(element).first("option").attr("selected", true);
               } else if ($(element).val().length > 0) {
@@ -1641,6 +1637,9 @@
             $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
             $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
             //Update the date pickers to the date range of the period
+            //in IE and Safari, also need to update the datepicker generated ID
+            $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
+            $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
             //update the date range to the defaults
             var rangeISO = $('#claim-period').find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
