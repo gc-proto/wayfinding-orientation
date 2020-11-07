@@ -34,6 +34,32 @@
             transform: scale(2);
             margin-bottom: 10px;
             }
+			.wb-tabs {margin-top:15px;border: 1px solid #e3e3e3;
+	box-shadow: 0px 0px 8px #e3e3e3;}
+			.wb-tabs>.tabpanels {background:#f9f9f9; }
+.wb-tabs>.tabpanels legend {font-size:80%; font-weight:700; margin: 0 0 5px;}
+.wb-tabs>.tabpanels fieldset {padding-top:0;}
+.wb-tabs>.tabpanels>details>summary {background:#fff; border-radius: 0;}
+.wb-tabs [role=tablist]>li:focus,.wb-tabs [role=tablist]>li:hover{background:#ddd;}
+.wb-tabs {margin-bottom:0;}
+.wb-tabs>.tabpanels>details {margin-bottom:0;}
+.ds-example .panel-body {box-shadow: none;}
+@media screen and (max-width: 991px){
+	.wb-tabs .tgl-panel {
+		margin-top:15px;
+	}
+}
+@media screen and (min-width: 992px) {
+	.ds-configuration {background:#fff; padding: 0 10px; margin:-30px -30px -30px 0}
+	
+.wb-tabs>.tabpanels>details {
+	border:none; padding:15px;}
+.wb-tabs [role=tablist]>li {border:none;background:none;}
+.wb-tabs [role=tablist]>li.active a {border-width:0 0 4px;}
+/* .wb-tabs>.tabpanels>details:first-child {padding: 30px;} */
+.wb-tabs>.tabpanels>details {padding: 30px;}
+.wb-tabs>.tabpanels>details {background:#f9f9f9;padding: 30px; margin-bottom:0;}
+}
          </style>
       </head>
       <body vocab="http://schema.org/" typeof="WebPage">
@@ -180,35 +206,19 @@
 			  
 		
             
-             	  <h2 id="h-2">Office supplies, phone, and internet expenses</h2>
+             	  <h2 id="h-2">Office supplies, internet, and phone expenses</h2>
 				  
 				  <p>If you are required to pay for office supplies or have connectivity expenses (phone or internet), as a condition of your employment, you may be able to claim those expenses.</p>
 				  <p>Although these expenses can be claimed, they are not related to the physical work space in your home. They are  <strong>claimed in a different section of the  T777 form</strong>.</p>
-<dl class="dl-horizontal">
-<dt>Office supply</dt><dd>
-An office supply is an items that are used up directly in the performance of the duties of the employment. You can only claim the expense, or portion of the expense, that is used for work purposes.  Refer to: <a href="#supplies">Common home office supplies</a></dd>
-<dt>Internet</dt>
-<dd>[need details]
-</dd>
-<dt>Cell phone</dt>
-<dd>
-<p>You may deduct a portion of your basic cell phone service plan if all of the following conditions are met:</p>
-<ul class="fa-ul">
-<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan is reasonable</li>
-<li><span class="fas fa-check text-success fa-li"></span>you are able to substantiate the cellular minutes or data consumed directly in the performance of your employment duties (as well as the cost of the minutes or data)</li>
-<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
-</ul>
-<p>However, you cannot deduct amounts you paid to connect or license the cell phone.</p>
-
-</dd>
-<dt>Land line phone</dt>
-<dd>You can deduct expenses you paid for long-distance telephone calls, as long as you paid them to earn employment income. However, you <strong>cannot</strong> deduct the monthly basic rate for a telephone.</dd>
-
-</dl>
 				  
-				
-				  <table class="table wb-tables" 
-data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
+				  <div class="wb-tabs">
+	<div class="tabpanels">
+		<details id="supplies">
+			<summary>Office supplies</summary>
+			<p>
+				An office supply is an items that are used up directly in the performance of the duties of the employment. You can only claim the expense, or portion of the expense, that is used for work purposes.
+			</p>
+			 <table class="table wb-tables"  data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies-list">
                         <caption>
                             Common home office supplies
                         </caption>
@@ -253,59 +263,7 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
 
   </tr>
 
- <tr class="type-other">
-
-    <td>Cell phone  - basic service plan (minutes / data)</td>
-
-    <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes if all conditions are met |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes if all conditions are met |</span>  Commissioned employees</li></ul>
-<details><summary>Conditions</summary>
-<ul class="fa-ul lst-spcd mrgn-tp-md">
-<li><span class="text-success fas fa-check fa-li"></span>The cost of the plan is reasonable</li>
-<li><span class="text-success fas fa-check fa-li"></span>You are able to substantiate the cellular minutes or data consumed directly in the performance of your employment duties (as well as the cost of the minutes or data)</li>
-<li><span class="text-success fas fa-check fa-li"></span>The cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
-</ul></details></td>
-
-  </tr>
-
-  <tr class="type-supply type-other">
-
-    <td>Cell phone - cases</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
-
-  <tr class="type-other">
-
-    <td>Cell phone - connection or    license fees</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
-
-  <tr class="type-other">
-
-    <td>Cell phone - lease</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
-
-  </tr>
-
-  <tr class="type-other">
-
-    <td>Cell phone - protection plans</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
-
-  <tr class="type-other type-supply">
-
-    <td>Cell phones - purchase</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
+ 
 
   <tr class="type-supply">
 
@@ -467,21 +425,7 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
 
   </tr>
 
-  <tr class="type-other">
 
-    <td>Home internet - connections fees</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
-
-  <tr class="type-other">
-
-    <td>Home internet - monthly access    fee</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
-
-  </tr>
 
   <tr class="type-supply">
 
@@ -523,13 +467,7 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
 
   </tr>
 
-  <tr class="type-supply">
 
-    <td>Long distance telephone calls    made for work</td>
-
-    <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
-
-  </tr>
 
   <tr class="type-supply">
 
@@ -539,13 +477,7 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
 
   </tr>
 
-  <tr class="type-supply">
-
-    <td>Monthly basic home phone    (landline) rate</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
+  
 
   <tr class="type-supply">
 
@@ -758,6 +690,22 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
     <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
 
   </tr>
+  
+  <tr class="type-other">
+
+    <td>Phone</td>
+
+    <td>Refer to: <a href="#phone"  class="wb-tabs-ext">Phone</a> for cell phone, land line, long distance calls and other phone expenses</td>
+
+  </tr>
+   <tr class="type-other">
+
+    <td>Internet</td>
+
+    <td>Refer to: <a href="#internet"  class="wb-tabs-ext">Internet</a> for internet expenses</td>
+
+  </tr>
+		
 						
 						
 						
@@ -767,6 +715,179 @@ data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies">
                            
                         </tbody>
                     </table>
+		</details>
+		<details id="internet">
+			<summary>Internet</summary>
+			<p>
+				...
+			</p>
+			<table class="table" id="internet-list">
+                        <caption>
+                            Internet expenses
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                             
+								<th scope="col">Can be claimed?</th>
+								
+                            </tr>
+                        </thead>
+                        <tbody>
+			  <tr class="type-other">
+
+    <td>Home internet - connections fees</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+
+  <tr class="type-other">
+
+    <td>Home internet - monthly access    fee</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
+
+  </tr>
+  </tbody>
+  </table>
+		</details>
+		<details id="phone">
+			<summary>Phone</summary>
+			<h3 class="mrgn-tp-0">Cell phone</h3>
+			<p>You may deduct a portion of your basic cell phone service plan if all of the following conditions are met:</p>
+<ul class="fa-ul">
+<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan is reasonable</li>
+<li><span class="fas fa-check text-success fa-li"></span>you are able to substantiate the cellular minutes or data consumed directly in the performance of your employment duties (as well as the cost of the minutes or data)</li>
+<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
+</ul>
+<p>However, you cannot deduct amounts you paid to connect or license the cell phone.</p>
+<table class="table"   id="cell-list">
+                        <caption>
+                            Cell phone expenses
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                             
+								<th scope="col">Can be claimed?</th>
+								
+                            </tr>
+                        </thead>
+                        <tbody>
+
+<tr class="type-other">
+
+    <td>Cell phone  - basic service plan (minutes / data)</td>
+
+    <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes if all conditions are met |</span> Salaried employees</li><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success nowrap">Yes if all conditions are met |</span>  Commissioned employees</li></ul>
+<details><summary>Conditions</summary>
+<ul class="fa-ul lst-spcd mrgn-tp-md">
+<li><span class="text-success fas fa-check fa-li"></span>The cost of the plan is reasonable</li>
+<li><span class="text-success fas fa-check fa-li"></span>You are able to substantiate the cellular minutes or data consumed directly in the performance of your employment duties (as well as the cost of the minutes or data)</li>
+<li><span class="text-success fas fa-check fa-li"></span>The cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
+</ul></details></td>
+
+  </tr>
+
+  <tr class="type-supply type-other">
+
+    <td>Cell phone - cases</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+
+  <tr class="type-other">
+
+    <td>Cell phone - connection or    license fees</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+
+  <tr class="type-other">
+
+    <td>Cell phone - lease</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
+
+  </tr>
+
+  <tr class="type-other">
+
+    <td>Cell phone - protection plans</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+
+  <tr class="type-other type-supply">
+
+    <td>Cell phones - purchase</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+  <tr class="type-supply">
+
+    <td>Long distance telephone calls    made for work</td>
+
+    <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
+	</tr>
+	<tr class="type-supply">
+
+   
+
+  </tr>
+
+  </tbody>
+  </table>
+<h3>Land line phone</h3>
+<p>You can deduct expenses you paid for long-distance telephone calls, as long as you paid them to earn employment income. However, you <strong>cannot</strong> deduct the monthly basic rate for a telephone.</p>
+<table class="table"   id="landline-list">
+                        <caption>
+                            Land line phone expenses
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                             
+								<th scope="col">Can be claimed?</th>
+								
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+  <tr class="type-supply">
+
+    <td>Long distance telephone calls    made for work</td>
+
+    <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
+	</tr>
+	<tr class="type-supply">
+
+    <td>Monthly basic home phone    (landline) rate</td>
+
+    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
+
+  </tr>
+
+  </tbody>
+  </table>
+
+		</details>
+	</div>
+
+	
+</div>
+
+
+
+				  
+				
+				 
 					<h2 id="h-3">Other employment expenses</h2>
 					<p>You may be eligible to claim a deduction for employment expenses if you incurred any of the following expenses.</p>
 					<div class="cnjnctn-grd flex-fw-xs">
