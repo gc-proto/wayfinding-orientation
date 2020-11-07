@@ -82,11 +82,11 @@
             </ul>
             <section>
               <h2 id="h-1">How the subsidy is calculated</h2>
-              <p>The CERS provides both a base subsidy and in some cases, a top-up amount.</p>
+              <p>The CERS provides both a base subsidy and in some cases, a lockdown support amount.</p>
+              <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
+              <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location.</p>
               <details>
                 <summary>See the math behind the calculation</summary>
-                <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
-                <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for a top-up subsidy of up to 25% of eligible expenses per affected location.</p>
                 <h3 id="#base-rate"><span class="fas fa-calculator text-muted"></span> Your CERS rent subsidy rate is</h3>
                 <ul class="fa-ul lst-spcd">
                   <li>80% of your revenue drop percentage, up to a maximum of 40%</li>
@@ -139,7 +139,7 @@
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
                         <p>
-                           <label for="bfore3"><strong>You have your eligible expenses broken down by each business location:</strong></label>
+                           <label for="bfore3"><strong>Your eligible expenses are broken down by business location:</strong></label>
                            <ul class="mrgn-lft-lg list-unstyled">
                               <li><a href="expenses-to-claim.html">Expenses you can claim</a></li>
                            </ul>
@@ -147,8 +147,8 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore5" class="action-checkbox">
-                        <label for="bfore5"><strong>You have already paid any rent, property taxes or other eligible expenses that you will include in this application.</strong></label>
-                        <label for="bfore5">You cannot claim any amounts that you have not already paid.</label>
+                        <label for="bfore5"><strong>You have already made your rent or other expense payments</strong></label>
+                        <label for="bfore5">You cannot claim any rent, property tax or other expense amounts that you have not already paid.</label>
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore6" class="action-checkbox">
@@ -157,7 +157,7 @@
                         <ul class="mrgn-lft-lg list-unstyled">
                           <li>
                             <details>
-                            <summary>Find out if you have affiliated entities <span class="far fa-question-circle"></span></summary>
+                            <summary>Find out if you have affiliated entities</summary>
                             <p>An affiliated entity is an organization that:</p>
                             <ul>
                             <li>controls another entity (directly or indirectly)</li>
@@ -237,7 +237,7 @@
                            <legend><span class="wb-inv">Step 2: </span>Affiliated businesses and entities</legend>
                            <p>You and any affiliated entities are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
                            <details>
-                           <summary>Find out if you have affiliated entities <span class="far fa-question-circle"></span></summary>
+                           <summary>Find out if you have affiliated entities</summary>
                            <p>An affiliated entity is an organization that:</p>
                            <ul>
                            <li>controls another entity (directly or indirectly)</li>
@@ -316,27 +316,32 @@
                      </li>
                      <li>
                         <fieldset class="brdr-tp">
-                           <legend><span class="wb-inv">Step 3: </span>Calculate your base CERS rate</legend>
-                           <div class="clearfix"></div>
-                           <p>The percentage of your eligible expenses you can claim is determined by your revenue drop.</p>
-                           <p id="select-a-claim-period-reminder" class="text-info">You must select a Claim period in <a href="#claim-period">Step 1</a> before you can complete this step.</p>
-                           <fieldset class="brdr-0 hidden" id="rate-reduction">
+                          <legend><span class="wb-inv">Step 3: </span>Calculate your rent subsidy rate</legend>
+                          <div class="clearfix"></div>
+                          <p>The amount of your eligible expenses you can claim is determined by your revenue drop.</p>
+                          <div class="provisional alert alert-danger" id="select-a-claim-period-reminder">
+                            <p>You must select a Claim period in <a href="#claim-period">Step 1</a> before you can complete this step.</p>
+                          </div>
+                          <fieldset class="brdr-0 hidden" id="rate-reduction">
                               <details>
-                                <summary>Why you might choose each baseline revenue</summary>
-                                <h3>Compare the baseline revenue options</h3>
+                                <summary>Compare the baseline revenue options</summary>
                                 <p>Baseline revenue and prior reference period options</p>
-                                <div data-ajax-replace="how-much-reduction.html #basebaselinecalc-cntnt">
-                                  <p><a href="how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
-                                    options</a>
-                                  </p>
-                                  <details>
-                                    <summary>Example: Choosing a revenue comparison option</summary>
-                                    <div data-ajax-replace="how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
-                                  </details>
+                                <p>Your baseline revenue is determined by the prior reference period you choose. It is either:</p>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <h3>General prior reference period</h3>
+                                    <p>The eligible revenue you earned in the <strong>corresponding month in 2019</strong></p>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <h3>Alternative prior reference period</h3>
+                                    <p>The average of the eligible revenue you earned in January and February 2020</p>
+                                  </div>
                                 </div>
+                                <p>You must choose one of these prior reference period options and use it when calculating your revenue drop for the base rate for all claim periods. If you have also claimed the CEWS, the method you use must be the same as the method you used for CEWS periods 5 or later.</p>
+                                <p><strong>Note: </strong>If you choose to use the alternative prior referenc period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
                               </details>
                               <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
-                                 <p>Which baseline revenue comparison option will you use for this claim (and all CERS claims you make)?</p>
+                                 <p>Which baseline revenue comparison option will you use for this claim (you must use the same option as other CERS or CEWS claims)?</p>
                                  <ul>
                                     <li data-wb-fieldflow='{"action": "toggle", "toggle": "#alt-bl-no", "live": true}'>
                                        Compare 2019 month with claim month
@@ -348,7 +353,6 @@
                               </div>
                            </fieldset>
                            <div class="hidden" id="alt-bl-no">
-                              <p><strong>Determine your base subsidy rate for the claim period</strong></p>
                               <fieldset>
                                  <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
                                  <p><a class="wb-lbx" role="button" aria-controls="eligible-rev"
@@ -452,10 +456,9 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Recalculate your revenue drop</a>
                            </div>
                            <div class="hidden" id="alt-bl-yes">
-                              <p><strong>Determine your subsidy rate for the claim period</strong></p>
                               <fieldset>
                                  <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
                                  <p><a class="wb-lbx" role="button" aria-controls="eligible-rev"
@@ -536,7 +539,7 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default" href="#revenue-drop-results-summary">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Recalculate your revenue drop</a>
                            </div>
                            <div id="revenue-drop-results-summary" class="well mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of Step 3</h3>
@@ -560,9 +563,9 @@
                           <!-- <p>The base subsidy amount you can get is based on your CERS rate (<span class="base-rate">0%</span>) as a portion of eligible expenses, up to a maximum amountof $300,000.</p>-->
                            <div class="mrgn-tp-lg">
                               <div id="cers-calculation" class=" panel panel-primary panel-body" aria-live="polite">
-                                 <p class="h4 mrgn-tp-0">Top-up and eligible expenses</p>
+                                 <p class="h4 mrgn-tp-0">Lockdown support and eligible expenses</p>
                                  <fieldset id="locations">
-                                    <legend>Calculate your top-up rates and eligible expenses</legend>
+                                    <legend>Calculate your lockdown support rates and eligible expenses</legend>
                                     <p>Include all your business locations.</p>
                                     <fieldset class="panel panel-default" id="loc-1">
                                        <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-building"></span>
@@ -607,12 +610,12 @@
                                              </div>
                                           </div>
                                           <fieldset>
-                                             <legend class="mrgn-bttm-0">Calculate your top-up rate</legend>
+                                             <legend class="mrgn-bttm-0">Calculate your lockdown support rate</legend>
                                              <!-- <p>If your business location was closed due to government COVID-19 restrictions in this region, indicate the start and end dates of the restrictions.</p> -->
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                              <legend>Does the location qualify for lock down support?</legend>
-                                              <p><a href="#restricted-activities-phr" aria-controls="lwp" class="wb-lbx" role="button">Check if public health restrictions affected your business operations<span class="far fa-question-circle"></span></a></p>
+                                              <legend>Does the location qualify for lockdown support?</legend>
+                                              <p><a href="#restricted-activities-phr" aria-controls="lwp" class="wb-lbx" role="button">Check if public health restrictions affected your business operations</a></p>
                                               <ul class="list-unstyled lst-spcd-2">
                                                 <li class="radio">
                                                   <input type="radio" name="lock-down-1" id="lock-down-yes-1">
@@ -642,9 +645,9 @@
                                                 <a class="btn btn-default">Recalculate your lock down support</a>
                                               </div>
                                               <div class="well mrgn-tp-md">
-                                                  <h3 class="mrgn-tp-0">Lock down support summary</h3>
-                                                  <p id="lock-down-ineligible-1">You do not qualify for a top-up. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong>.</p>
-                                                  <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
+                                                  <h3 class="mrgn-tp-0">Lockdown support rate summary</h3>
+                                                  <p id="lock-down-ineligible-1">You do not qualify for a lockdown support. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong>.</p>
+                                                  <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your lockdown support rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
                                               </div>
 
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -660,9 +663,9 @@
                                                    </li>
                                                 </ul>
                                              </fieldset>
-
-                                             <p id="choose-own-or-rent-message-1" class="text-info h4">First select whether you own or rent this property</p>
-
+                                             <div id="choose-own-or-rent-message-1" class="provisional alert alert-danger">
+                                              <p>First select whether you own or rent this property</p>
+                                            </div>
                                              <div class="rent-location-1 hidden">
 
                                               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -898,7 +901,7 @@
                                                     <td id="amt-ttl-1">$0.00</td>
                                                   </tr>
                                                   <tr>
-                                                    <td><span class="loc-staddress-1">location 1</span> top-up amount</td>
+                                                    <td><span class="loc-staddress-1">location 1</span> lockdown support amount</td>
                                                     <td id="amt-top-up-1">$0.00</td>
                                                   </tr>
                                                 </tfoot>
@@ -950,7 +953,7 @@
                                             <th>Interest on commercial mortgages</th>
                                             <th>Subletting revenue</th>
                                             <th>Qualifying expenses</th>
-                                            <th>Top-up amount</th>
+                                            <th>Lockdown support amount</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -958,13 +961,13 @@
                                              <td>
                                               <span class="full-address-1">Location 1</span>
                                              </td>
-                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1"></td>
+                                              <td id="top-up-days-smry-1" data-updated-by="top-up-days-1">0</td>
                                               <td id="rent-smry-1" data-updated-by="rent-amt-1"></td>
                                               <td id="tax-smry-1" data-updated-by="tax-amt-1"></td>
                                               <td id="insurance-smry-1" data-updated-by="insurance-amt-1"></td>
                                               <td id="interest-smry-1" data-updated-by="interest-amt-1"></td>
                                               <td id="lease-smry-1" data-updated-by="lease-amt-1"></td>
-                                              <td class="qre-smry-1" data-updated-by="amt-ttl-1"></td>
+                                              <td id="qre-smry-1" data-updated-by="amt-ttl-1"></td>
                                               <td id="top-up-smry-1" data-updated-by="amt-top-up-1"></td>
                                           </tr>
                                        </tbody>
@@ -1056,7 +1059,7 @@
                           <span class="priorRevReduction h3">0.00%</span>
                           </strong>
                        </li>
-                       <li><strong>Line 310:</strong> Subsidy top-up: <strong>
+                       <li><strong>Line 310:</strong> Subsidy (lockdown support): <strong>
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
@@ -1258,7 +1261,7 @@
                <p>These months are needed to calculate your revenue drops for the current period, prior period, and top-up
                   period, using your chosen baseline.
                </p>
-               <p>Read more about <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span
+               <p>Read more about <a href="who-apply.html" target="_blank">eligible <span
                   class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv">
                   (opens in new window)</span></a>
                </p>
@@ -1271,16 +1274,18 @@
               <h2 class="modal-title">Public health restrictions and business activities</h2>
             </header>
             <div class="modal-body">
-              <p>To qualify for the top-up:</p>
+              <p>To qualify for lockdown support:</p>
               <ul class="fa-ul">
                 <li><span class="fas fa-check text-success fa-li"></span>your business location is subject to a federal, provincial or municipal COVID-19 public health order</li>
                 <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of your revenue during 2019 came from business activities that you are not allowed to carry out under the restrictions</li>
               </ul>
+              <!--
               <details>
                 <summary>Example: Take out restaurant</summary>
                 <p>Your take out restaurant was in a location restricted by a provincial lock down due to COVID-19.</p>
                 <p>However, because activities weren't affected by the lock down, the take out restaurant still does not qualify for the top-up.</p>
               </details>
+            -->
             </div>
           </section>
 
@@ -1632,6 +1637,9 @@
             $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
             $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
             //Update the date pickers to the date range of the period
+            //in IE and Safari, also need to update the datepicker generated ID
+            $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
+            $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
             //update the date range to the defaults
             var rangeISO = $('#claim-period').find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
@@ -2085,7 +2093,7 @@
                 fullAddress = fullAddress + address[i] + ", ";
               }
             }
-            fullAddress.substring(0, fullAddress.length - 2);
+            fullAddress = fullAddress.substring(0, fullAddress.length - 2);
             $('.full-address-' + locationNumber).text(fullAddress);
           });
 
@@ -2219,7 +2227,10 @@
             recalculateLocationAmounts(locationNumber);
           });
 
-          function topUpRateCalculation(locationNumber, radioFlag = 0) {
+          function topUpRateCalculation(locationNumber, radioFlag) {
+            if (radioFlag === undefined) {
+              radioFlag = 0;
+            }
             var startDate = $("#lockdown-start-" + locationNumber).val();
             var endDate = $("#lockdown-end-" + locationNumber).val();
             var date1Arr = startDate.split("-");
@@ -2286,13 +2297,13 @@
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
-              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$",""));
-              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$",""));
-              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$",""));
-              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$",""));
-              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$",""));
-              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$",""));
-              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$",""));
+              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(",",""));
             });
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
@@ -2309,7 +2320,6 @@
             } else {
               var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
             }
-            console.log(affiliatedSplit);
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
             $('.qualifying-rent-expenses').html(line170Total + '%');
@@ -2611,7 +2621,10 @@
            */
            var date1Max = 0;
            var date2Max = 0;
-           function getClaimMonth(dateRange, type = 0) {
+           function getClaimMonth(dateRange, type) {
+            if (type === undefined) {
+              type = 0;
+            }
             var dates = dateRange.split('--');
             var date1Arr = dates[0].split("-");
             var date2Arr = dates[1].split("-");
