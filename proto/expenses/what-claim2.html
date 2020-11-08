@@ -36,6 +36,9 @@
             }
 			.wb-tabs {margin-top:15px;border: 1px solid #e3e3e3;
 	box-shadow: 0px 0px 8px #e3e3e3;}
+	
+	
+.wb-tabs table {background:#fff;}
 			.wb-tabs>.tabpanels {background:#f9f9f9; }
 .wb-tabs>.tabpanels legend {font-size:80%; font-weight:700; margin: 0 0 5px;}
 .wb-tabs>.tabpanels fieldset {padding-top:0;}
@@ -214,11 +217,11 @@
 				  <div class="wb-tabs">
 	<div class="tabpanels">
 		<details id="supplies">
-			<summary>Office supplies</summary>
+			<summary><span class="fas fa-pencil-alt"></span> Office supplies</summary>
 			<p class="mrgn-bttm-md">
 				An office supply is an items that are used up directly in the performance of the duties of the employment. You can only claim the expense, or portion of the expense, that is used for work purposes.
 			</p>
-			 <table class="table wb-tables"  data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies-list">
+			 <table class="table  table-bordered wb-tables"  data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies-list">
                         <caption>
                             Common home office supplies
                         </caption>
@@ -717,11 +720,10 @@
                     </table>
 		</details>
 		<details id="internet">
-			<summary>Internet</summary>
-			<p class="mrgn-bttm-md">
-				[intro details go here]
-			</p>
-			<table class="table" id="internet-list">
+			<summary><span class="fas fa-wifi"></span> Internet</summary>
+			
+
+			<table class="table table-bordered" id="internet-list">
                         <caption>
                             Internet expenses
                         </caption>
@@ -746,23 +748,23 @@
 
     <td>Home internet - monthly access    fee</td>
 
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes |</span>  Commissioned employees</li></ul></td>
+   <td><ul class="fa-ul"><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success">Yes if all conditions are met |</span> <br>Salaried employees</li><li><span class="text-success fas fa-check fa-li"></span><span class="small text-success nowrap">Yes if all conditions are met |</span>  Commissioned employees</li></ul>
+<details><summary>Conditions</summary>
+<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan is reasonable</li>
+
+<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
+<li><span class="fas fa-check text-success fa-li"></span>if you pay for data, you are able to substantiate data consumed directly in the performance of your employment duties (as well as the cost of the data)</li></details></td>
 
   </tr>
   </tbody>
   </table>
 		</details>
 		<details id="phone">
-			<summary>Phone</summary>
-			<h3 class="mrgn-tp-0">Cell phone</h3>
-			<p>You may deduct a portion of your basic cell phone service plan if all of the following conditions are met:</p>
-<ul class="fa-ul">
-<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan is reasonable</li>
-<li><span class="fas fa-check text-success fa-li"></span>you are able to substantiate the cellular minutes or data consumed directly in the performance of your employment duties (as well as the cost of the minutes or data)</li>
-<li><span class="fas fa-check text-success fa-li"></span>the cost of the plan has been apportioned between employment and personal use on a reasonable basis</li>
-</ul>
-<p>However, you cannot deduct amounts you paid to connect or license the cell phone.</p>
-<table class="table"   id="cell-list">
+			<summary><span class="fas fa-mobile-alt"></span> Phone</summary>
+			<h3 class="mrgn-tp-0">Cell phones</h3>
+			
+
+<table class="table table-bordered"   id="cell-list">
                         <caption>
                             Cell phone expenses
                         </caption>
@@ -843,9 +845,9 @@
 
   </tbody>
   </table>
-<h3>Land line phone</h3>
-<p>You can deduct expenses you paid for long-distance telephone calls, as long as you paid them to earn employment income. However, you <strong>cannot</strong> deduct the monthly basic rate for a telephone.</p>
-<table class="table"   id="landline-list">
+<h3>Land line phones</h3>
+
+<table class="table table-bordered"   id="landline-list">
                         <caption>
                             Land line phone expenses
                         </caption>
