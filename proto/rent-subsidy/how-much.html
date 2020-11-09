@@ -219,8 +219,8 @@
                               <select required id="claim-period" class="form-control input-lg">
                                  <option value=""> Select a claim period</option>
                                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
-                                 <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
-                                 <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
+                                 <!-- <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
+                                 <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option> -->
                               </select>
                            </div>
                         </fieldset>
@@ -648,6 +648,34 @@
                                                       </div>
                                                    </div>
                                                 </div>
+                                                <!-- For edge? Manual input -->
+                                                <!-- <div id="lockdown-manual-1">
+                                                  <div class="row">
+                                                    <div class="fieldset">
+                                                      <div class="col-md-12">
+                                                        <legend>Lock down start date<span class="wb-inv"> (<abbr title="Select month and input two digits day">Month D</abbr>)</span></legend>
+                                                        <div class="row">
+                                                          <div class="col-xs-6 col-md-4">
+                                                            <div class="form-group">
+                                                              <label class="wb-inv" for="lockdown-manual-start-month-1"></label>
+                                                              <select class="form-control input-lg" id="lockdown-manual-start-month-1">
+                                                                  <option class="claim-month-one">September</option>
+                                                                  <option class="claim-month-two">October</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-xs-6 col-md-8">
+                                                            <div class="form-group">
+                                                              <label class="wb-inv" for="lockdown-manual-start-day-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
+                                                              <input type="number" class="form-control input-lg" id="lockdown-manual-start-day-1" maxlength="2" width>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div> -->
+
                                                 <a class="btn btn-default">Recalculate your lock down support</a>
                                               </div>
                                               <div class="well mrgn-tp-md">
@@ -952,7 +980,7 @@
                                        <thead>
                                           <tr>
                                             <th>Business location(s)</th>
-                                            <th>Closed due to PHR (days)</th>
+                                            <th>Lockdown (days)</th>
                                             <th>Rent</th>
                                             <th>Property tax</th>
                                             <th>Property insurance</th>
@@ -962,6 +990,9 @@
                                             <th>Lockdown support amount</th>
                                           </tr>
                                        </thead>
+
+                                       <!-- Some kind of indication of which should be included in your application? -->
+
                                        <tbody>
                                           <tr id="loc1">
                                              <td>
@@ -988,6 +1019,9 @@
                                              <td><span class="lease-total">-</span></td>
                                              <td><span class="qre-total">-</span></td>
                                              <td><span class="top-up-total"></span></td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="9">Calculated basic CERS amount: <span class="base-subsidy-amount">$0.00</span></td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -1065,7 +1099,7 @@
                           <span class="priorRevReduction h3">0.00%</span>
                           </strong>
                        </li>
-                       <li><strong>Line 310:</strong> Subsidy (lockdown support): <strong>
+                       <li><strong>Line 310:</strong> Subsidy top-up (lockdown support): <strong>
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
@@ -1086,15 +1120,15 @@
                        <td class="text-right nowrap"><output class="qualifying-rent-expenses">0.00%</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Rent Subsidy Rate</th>
+                       <th scope="row" class="h6">Rent subsidy rate</th>
                        <td class="text-right nowrap">x<output class="mrgn-rght-sm base-rate">0.00%</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Basic CERS <small class="nowrap">(Line 300)</small></th>
+                       <th scope="row" class="h6">Basic CERS amount <small class="nowrap">(Line 300)</small></th>
                        <td class="text-right nowrap">=<output class="mrgn-rght-sm base-subsidy-amount">$0.00</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Subsidy top-up <small class="nowrap">(Line 310)</small></th>
+                       <th scope="row" class="h6">Subsidy top-up (lockdown support) amount <small class="nowrap">(Line 310)</small></th>
                        <td class="text-right nowrap">+<output class="top-up-total mrgn-rght-sm">$0.00</output></td>
                     </tr>
                     <tr class="success">
@@ -2307,7 +2341,7 @@
             }
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
-            $('.qualifying-rent-expenses').html('$' + line170Total);
+            $('.qualifying-rent-expenses').html('$' + toMoney.format(line170Total));
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
             var baseAmount = line170Total * baseRate / 100;
             var claimTotal = baseAmount + smryTotals[6];
