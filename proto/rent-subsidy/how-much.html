@@ -2272,7 +2272,7 @@
             var fieldset = $(event.target).parent("fieldset");
             var id = $(fieldset).attr("id");
             var locNumber = id.split("-")[1];
-            $("#loc-arms-" + locNumber).parent("tr").remove();
+            $("#loc" + locNumber).remove();
             $(fieldset).remove();
           });
 
@@ -2323,9 +2323,9 @@
             }
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
-            $('.qualifying-rent-expenses').html(line170Total + '%');
+            $('.qualifying-rent-expenses').html('$' + line170Total);
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
-            var baseAmount = line170Total * baseRate;
+            var baseAmount = line170Total * baseRate / 100;
             var claimTotal = baseAmount + smryTotals[6];
             baseAmount = baseAmount.toFixed(2);
             claimTotal = claimTotal.toFixed(2);
