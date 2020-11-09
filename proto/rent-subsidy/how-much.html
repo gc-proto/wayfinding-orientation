@@ -2316,7 +2316,7 @@
             $(".top-up-total").html(toMoney.format(smryTotals[6]))
 
             //calculate step 5 totals
-            if ($("#affiliated-no-answer").is(":visible")) {
+            if ($(".affiliated-no-answer").is(":visible")) {
               var affiliatedSplit = 100;
             } else {
               var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
