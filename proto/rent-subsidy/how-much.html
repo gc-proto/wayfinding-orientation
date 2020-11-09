@@ -615,11 +615,17 @@
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
-                                              <p><a href="#restricted-activities-phr" aria-controls="lwp" class="wb-lbx" role="button">Check if public health restrictions affected your business operations</a></p>
+                                              <details>
+                                                <summary>To qualify for lockdown support</summary>
+                                                <ul class="fa-ul">
+                                                  <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
+                                                </ul>
+                                              </details>
                                               <ul class="list-unstyled lst-spcd-2">
                                                 <li class="radio">
                                                   <input type="radio" name="lock-down-1" id="lock-down-yes-1">
-                                                  <label for="lock-down-yes-1">Yes - restricted due to public health order</label>
+                                                  <label for="lock-down-yes-1">Yes</label>
                                                 </li>
                                                 <li class="radio">
                                                   <input type="radio" name="lock-down-1" id="lock-down-no-1">
@@ -1267,28 +1273,6 @@
                </p>
             </div>
          </section>
-
-         <!-- Public health order checklist pop-up -->
-          <section id="restricted-activities-phr" class="mfp-hide modal-dialog modal-content overlay-def">
-            <header class="modal-header">
-              <h2 class="modal-title">Public health restrictions and business activities</h2>
-            </header>
-            <div class="modal-body">
-              <p>To qualify for lockdown support:</p>
-              <ul class="fa-ul">
-                <li><span class="fas fa-check text-success fa-li"></span>your business location is subject to a federal, provincial or municipal COVID-19 public health order</li>
-                <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of your revenue during 2019 came from business activities that you are not allowed to carry out under the restrictions</li>
-              </ul>
-              <!--
-              <details>
-                <summary>Example: Take out restaurant</summary>
-                <p>Your take out restaurant was in a location restricted by a provincial lock down due to COVID-19.</p>
-                <p>However, because activities weren't affected by the lock down, the take out restaurant still does not qualify for the top-up.</p>
-              </details>
-            -->
-            </div>
-          </section>
-
 
          <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
          <div class="hidden-md hidden-lg"
