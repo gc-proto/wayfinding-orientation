@@ -2315,24 +2315,18 @@
             $(".qre-total").html(toMoney.format(smryTotals[5]));
             $(".top-up-total").html(toMoney.format(smryTotals[6]))
 
-            console.log("hi");
             //calculate step 5 totals
             if ($(".affiliated-no-answer").is(":visible")) {
               var affiliatedSplit = 100;
             } else {
               var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
             }
-            console.log('affiliated split: ' + affiliatedSplit);
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
-            console.log('line170Total: ' + line170Total);
             $('.qualifying-rent-expenses').html(line170Total + '%');
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
-            console.log('baseRate: ' + baseRate);
             var baseAmount = line170Total * baseRate;
-            console.log('baseAmount: ' + baseAmount);
             var claimTotal = baseAmount + smryTotals[6];
-            console.log('claimTotal: ' + claimTotal);
             baseAmount = baseAmount.toFixed(2);
             claimTotal = claimTotal.toFixed(2);
             $('.base-subsidy-amount').html(toMoney.format(baseAmount));
