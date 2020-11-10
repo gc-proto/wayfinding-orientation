@@ -87,27 +87,52 @@
               <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location.</p>
               <details>
                 <summary>See the math behind the calculation</summary>
-                <h3 id="#base-rate"><span class="fas fa-calculator text-muted"></span> Your CERS rent subsidy rate is</h3>
-                <ul class="fa-ul lst-spcd">
-                  <li>80% of your revenue drop percentage, up to a maximum of 40%</li>
-                  <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> Plus (if revenue drop > 50%):
-                      <ul>
-                        <li>your revenue drop percentage minus 50%</li>
-                        <li>multiplied by 1.25</li>
-                        <li>to a maximum of 25%</li>
-                      </ul>
-                  </li>
-                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS rent subsidy rate</span></li>
+
+                <h3>Your base rent subsidy rate</h3>
+                <p>The amount you can claim of your expenses (your rent subsidy rate) is based on the <strong>revenue drop your business experienced</strong> between</p>
+                <ul class="lst-lwr-alph">
+                  <li><strong>Corresponding month of 2019 method:</strong> the month of 2019 and 2020 that mostly overlaps the claim period you're applying for</li>
+                  <li><strong>Alternative method: </strong>January and February 2020 compared to the month of 2020 that mostly overlaps the claim period</li>
                 </ul>
-                <h3 id="#top-up-rate"><span class="fas fa-calculator text-muted"></span> Your CERS top-up rate (per business location) is</h3>
+                <p>This revenue drop is then scaled to calculate your rent subsidy rate:</p>
+
+                <table class="table table-condensed small">
+                  <caption>Calculate your rent subsidy rate</caption>
+                  <thead>
+                     <tr>
+                        <th scope="col">Your revenue drop</th>
+                        <th scope="col">How to calculate your rate</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Revenue drop &gt; 70%</td>
+                      <td>The maximum subsidy rate of 65%</td>
+                    </tr>
+                    <tr>
+                      <td>Revenue drop of 50-70%</td>
+                      <td>(Your revenue drop - 50%) x 1.25</td>
+                    </tr>
+                    <tr>
+                      <td>Revenue drop &lt; 50%</td>
+                      <td>0.8 x your revenue drop</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3>Your top up rate (lock down support) rate</h3>
+                <p>In addition to the rent subsidy rate, you can receive a lockdown support amount for certain locations affected by public health restrictions.</p>
+                <p>Your CERS top-up (lockdown support) rate is 25% per day on lockdown, calculated as:</p>
                 <ul class="fa-ul lst-spcd">
-                  <li>0% if your base rate is 0%</li>
-                  OR
                   <li>25% (fixed top-up rate)</li>
-                  <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> the number of days your province or municipality was on lock down due to COVID-19</li>
-                  <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the number of days in the CERS period)</li>
-                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS top-up rate</span></li>
+                  <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> days the location was locked down due to COVID-19</li>
+                  <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the days in the CERS period)</li>
+                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your top-up (lockdown support) rate</span></li>
                 </ul>
+                
+                <p>If you have a 0% rent subsidy rate, you cannot claim a top up for any location.</p>
+                
+                
                 <details>
                   <summary>Example top-up rate calculation</summary>
                   <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
@@ -953,7 +978,7 @@
                                        another location</button>
                                     </p>
                                  </fieldset>
-                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
+                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-building"></span> Results for locations</p>
                                   <ul class="list-unstyled">
                                       <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
                                         class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review, download
