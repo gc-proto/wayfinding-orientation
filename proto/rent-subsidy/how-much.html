@@ -297,7 +297,7 @@
                                  </div>
                                  <div class="col-md-6">
                                     <div class="input-group"> <span class="input-group-addon input-sm">%</span>
-                                       <input type="number" class="form-control text-right percentage" id="affiliated-split">
+                                       <input type="number" class="form-control text-right percentage" id="affiliated-split" max="100" min="0">
                                     </div>
                                  </div>
                               </div>
@@ -2369,19 +2369,6 @@
             });
             $('#lockdown-end-'+numLocationPanels).val(endDateISO);
 
-
-            // // //reinitialize the datepickers - seems to also use the jquery datepicker override
-            // $('#lockdown-start-' + numLocationPanels).datepicker('remove');
-
-
-            
-            // $('#lockdown-start-' + numLocationPanels).datepicker({
-            //   format: "dd/mm/yyyy",
-            //   startView: 2,
-            //   orientation: "top auto"
-            // });
-            // // $('#lockdown-end-' + numLocationPanels).attr({
-              
           }
 
           /**
@@ -2475,13 +2462,9 @@
               $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
+              return;
             }
-            $(".lock-down-dates").each(function (i, element) {
-              var parts = $(element).prop("id").split("-");
-              var locationNumber = parts[parts.length - 1];
-              topUpRateCalculation(locationNumber);
-              recalculateLocationAmounts(locationNumber);
-            });
+            recalculateAllLocations();
           }
 
           /**
@@ -2497,10 +2480,16 @@
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
             $("#rate-formula-0").removeClass("hidden");
+            recalculateAllLocations();
+          }
+
+          function recalculateAllLocations() {
             $(".lock-down-dates").each(function (i, element) {
+              console.log("each lock-down-dates class");
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
-              topUpRateCalculation(locationNumber);
+              console.log("locationNumber: " + locationNumber);
+              topUpRateCalculation(locationNumber, 1);
               recalculateLocationAmounts(locationNumber);
             });
           }
