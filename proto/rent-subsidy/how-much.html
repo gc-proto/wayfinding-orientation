@@ -615,8 +615,8 @@
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
-                                              <details id="lockdown-details-1">
-                                                <summary>To qualify for lockdown support</summary>
+                                              <details>
+                                                <summary class="lockdown-details">To qualify for lockdown support</summary>
                                                 <ul class="fa-ul">
                                                   <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
@@ -1269,7 +1269,8 @@
               "date-tax-end-",
               "date-insurance-end-",
               "date-interest-end-",
-              "date-lease-end-"
+              "date-lease-end-",
+              "lockdown-details-"
             ];
             this.idUpdates = [ //any ids or aria-describedby that get updated
               "lock-down-ineligible-",
@@ -1294,8 +1295,7 @@
               "insurance-date-",
               "interest-date-",
               "lease-date-",
-              "loc-address-",
-              "lockdown-details-"
+              "loc-address-"
             ];
             this.locationIndexRegex = /-1\b/g;
 
@@ -1373,6 +1373,7 @@
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            this.removeInitializedExpandHide(frag);
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -1463,7 +1464,6 @@
            * update the class elements based on the parametrs
            *
            * @param {DOMDocumentFragment} frag the cloned templateId
-           * @param {string} className the className to update in the cloned template
            */
           LocationFormGenerator.prototype.updateClass = function (frag) {
             for (let i = 0; i < this.classUpdates.length; ++i) {
@@ -1478,14 +1478,13 @@
           }
 
           /**
-           * updateIds 613-523-8145
+           * updateIds
            *
            * update the id based on the parametrs
            *
            * @param {DOMDocumentFragment} frag the cloned templateId
-           * @param {string} idName the idName to update in the cloned template
           */
-          LocationFormGenerator.prototype.updateIds = function (frag, idName) {
+          LocationFormGenerator.prototype.updateIds = function (frag) {
             for (let i = 0; i < this.idUpdates.length; ++i) {
               var idUpdateElement = $(frag).find(
                 "#" + this.idUpdates[i] + "1"
@@ -1499,6 +1498,48 @@
                 $(ariaUpdateElement).attr("aria-describedby", $(ariaUpdateElement).attr("aria-describedby").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
               }
             }
+          }
+
+          /**
+           * removeInitializedExpandHide
+           *
+           * replace the expand hide summary elements with an uninitialized version
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.removeInitializedExpandHide = function (frag) {
+            //create new summary element for the top up expand hide
+            var numLocs = this.numberOfLocations;
+            var topUpDescSummary = document.createElement("summary");
+            $(topUpDescSummary).attr("class", "lockdown-details");
+            $(topUpDescSummary).text("To qualify for lockdown support");
+            $(frag).find(".lockdown-details").replaceWith(topUpDescSummary);
+            // //location 'name' cell
+            // var eligibleLocationCell = document.createElement("td");
+            // var locSpan = document.createElement("span");
+            // $(locSpan).addClass("full-address-" + numLocationPanels);
+            // locSpan.innerHTML = "Location " + numLocationPanels;
+            // eligibleLocationCell.appendChild(locSpan);
+            // //create the cells
+            // var expenseCells = [];
+            // for (var i = 0; i < 8; i++) {
+            //   expenseCells[i] = document.createElement("td");
+            // }
+            // //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
+            // $(expenseCells[0]).attr("id", "top-up-days-smry-" + numLocationPanels);
+            // $(expenseCells[0]).attr("data-updated-by", "top-up-days-" + numLocationPanels);
+            
+
+
+            // $( "div.second" ).replaceWith( "<h2>New heading</h2>" );
+            // this.(frag);
+            // <details id="lockdown-details-1">
+            //   <summary>To qualify for lockdown support</summary>
+            //   <ul class="fa-ul">
+            //     <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
+            //     <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
+            //   </ul>
+            // </details>
           }
 
           /**
