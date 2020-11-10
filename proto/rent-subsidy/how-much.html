@@ -615,7 +615,7 @@
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
-                                              <details class="lockdown-details">
+                                              <details id="lockdown-details-1">
                                                 <summary>To qualify for lockdown support</summary>
                                                 <ul class="fa-ul">
                                                   <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
@@ -1295,7 +1295,8 @@
               "insurance-date-",
               "interest-date-",
               "lease-date-",
-              "loc-address-"
+              "loc-address-",
+              "lockdown-details-"
             ];
             this.locationIndexRegex = /-1\b/g;
 
@@ -1555,29 +1556,9 @@
             $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
             $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
             //Update the date pickers to the date range of the period
-            //in IE and Safari, also need to update the datepicker generated ID
-            $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
-            $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
-            //update the date range to the defaults
-            var rangeISO = $('#claim-period').find('option:selected').val(),
-              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
-              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
-              rangeClaim = $('#claim-period').find("option:selected").text(),
-              rangeClaimNo = rangeClaim.substring(7, 8),
-              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
-              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
-            $(frag).find('#lockdown-start-' + numLocs).attr({
-              "min": startDateISO,
-              "max": endDateISO,
-              "value": startDateISO
-            });
-            $(frag).find('#lockdown-start-' + numLocs).val(startDateISO);
-            $(frag).find('#lockdown-end-' + numLocs).attr({
-              "min": startDateISO,
-              "max": endDateISO,
-              "value": endDateISO
-            });
-            $(frag).find('#lockdown-end-' + numLocs).val(endDateISO);
+            // //in IE and Safari, also need to update the datepicker generated ID
+            // $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
+            // $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
           }
 
           return LocationFormGenerator;
@@ -2309,10 +2290,33 @@
             document.getElementById($(frag).prop("id")).scrollIntoView({
               behavior: 'smooth'
             });
-
-            $('.lockdown-details').trigger("wb-init.wb-details");
+            
+            //reinitialize the datepickers and expand hide after 
+            $('#lockdown-details-'+numLocationPanels).trigger("wb-init.wb-details");
             $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
             $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
+
+            //now after reiniting the datepickers, 
+            var rangeISO = $('#claim-period').find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
+              rangeClaim = $('#claim-period').find("option:selected").text(),
+              rangeClaimNo = rangeClaim.substring(7, 8),
+              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
+              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
+              $('#lockdown-start-'+numLocationPanels).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": startDateISO
+            });
+            $('#lockdown-start-'+numLocationPanels).val(startDateISO);
+            $('#lockdown-end-'+numLocationPanels).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": endDateISO
+            });
+            $('#lockdown-end-'+numLocationPanels).val(endDateISO);
+
 
             // // //reinitialize the datepickers - seems to also use the jquery datepicker override
             // $('#lockdown-start-' + numLocationPanels).datepicker('remove');
