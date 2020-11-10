@@ -2255,7 +2255,8 @@
            * add a new location form
            */
           var numLocationPanels = 1;
-          $("#addLoc").on("click, keypress", addLoc);
+          $("#addLoc").on("click", addLoc);
+          $("#addLoc").on("keypress", addLoc);
           function addLoc() {
             numLocationPanels++;
             var frag = locationFormGenerator.generateNewLocationForm(
