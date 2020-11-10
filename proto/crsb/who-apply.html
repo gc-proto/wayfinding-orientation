@@ -178,9 +178,11 @@
          </section>
          <section class="gc-nav-section experimental provisional">
             <h1 property="name" id="wb-cont">Who can apply</h1>
+		 <p>If you are eligible for the Canada Recovery Sickness Benefit (CRSB), you can receive $500 ($450 after taxes withheld) for each 1-week period.</p>
+		 <p>To apply for the CRSB, you must meet all the eligibility criteria and be employed or self-employed on the day before your first application period.</p>
             <section>
                <h2 id="h-1">Eligibility criteria</h2>
-               <p class="lead">To be eligible for the Canada Recovery Sickness Benefit (CRSB), you must meet all the following conditions:</p>
+               <p class="lead">To be eligible for the CRSB, you must meet all the following conditions for the 1-week period you're applying for:</p>
                <section>
                   <ul class="checkbox-lg checkbox-zebra">
                      <li class="checkbox">
@@ -207,18 +209,21 @@
                            </li>
 						   
                         </ul>
-                        <details class="mrgn-lft-lg">
-                           <summary>You can only get 1 recovery benefit at a time</summary>
-                            <p>You may only get one type of federal income support recovery benefit in the same week: Canada Recovery Benefit, Canada Recovery Caregiving Benefit, Canada Recovery Sickness Benefit. </p>
-                        </details>
+                       
                      </li>
-                      <li class="checkbox">
+                       <li class="checkbox">
+                        <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
+                        <label for="eg4">You are unable to work at least 50% of your scheduled work week due to COVID-19</label>
+                     </li>
+                      
+			  <li class="checkbox">
                         <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
-			     <label for="eg9">You are unable to work <strong>at least 50%</strong> of your scheduled work week because you're self-isolating for one of the following reasons:</label>
+				  <label for="eg9"><strong>One of the following applies:</strong></label>
                      		
 					<ul class="std-blt lst-spcd">
-						<li><label for="eg9">You tested positive for COVID-19</label></li>
-						<li><label for="eg9">Your doctor, employer or public health authority advised you to self-isolate</label></li>
+						<li><label for="eg9">You may have or are sick with COVID-19</label></li>
+						<li><label for="eg9">You are advised to self-isolate due to COVID-19</label></li>
+						<li><label for="eg9">You have an underlying health condition that puts you at greater risk of getting COVID-19</label></li>
 					</ul>	
 				 
 			  </li>
@@ -226,21 +231,26 @@
                      <li class="checkbox">
                         <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
                         <label for="eg4">You reside in Canada</label>
+			     <details>
+				     <summary>Definition</summary>
+				     <p>You live and have a home in Canada, but do not have to be a citizen or a permanent resident.</p>
+			     </details>
                      </li>
 			  
 			  <li class="checkbox">
 			     <input type="checkbox" id="eg11" class="action-checkbox cb-dmm">
-			     <label for="eg11">You were in Canada for the eligibility period</label>
+			     <label for="eg11">You were present in Canada</label>
 			     
 			</li>    
-                     <li class="checkbox">
-                        <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
-                        <label for="eg5">You have a valid Social Insurance Number (SIN)</label>
-                     </li>
-                     <li class="checkbox">
+                      <li class="checkbox">
                         <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
                         <label for="eg6">You are at least 15 years old</label>
                      </li>
+		     <li class="checkbox">
+                        <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
+                        <label for="eg5">You have a valid Social Insurance Number (SIN)</label>
+                     </li>
+                   
                      <li class="checkbox">
                         <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
                         <label for="eg7">You earned at least $5,000 (before deductions) in 2019, 2020, or in the 12 months before the date you apply from any of the following sources:</label>
@@ -294,16 +304,8 @@
 			  <li class="checkbox">
 				  <input type="checkbox" id="eg10" class="action-checkbox cb-dmm">
 				<label for="eg10">You are not receiving paid leave from your employer for the same period</label>
-				  
-			 
-			  </li>	  
-			  <li class="checkbox">
-				  <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
-				<label for="eg12">You are not incarcerated in a prison or other institution</label>
-				  
-			  </li>	  
-                    
-                     
+				  	 
+			                                       
                     
                   </ul>
                   <div class="alert alert-warning provisional" id="action-no-msg">
