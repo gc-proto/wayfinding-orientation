@@ -2216,7 +2216,8 @@
             var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
             var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
             var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
-            if (datediff >= 7 && ($('#lock-down-eligible-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
+
+            if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
               var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
               $(updatedByElements).each(function (i, element) {
@@ -2515,7 +2516,7 @@
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
               console.log("locationNumber: " + locationNumber);
-              topUpRateCalculation(locationNumber, 1);
+              topUpRateCalculation(locationNumber);
               recalculateLocationAmounts(locationNumber);
             });
           }
