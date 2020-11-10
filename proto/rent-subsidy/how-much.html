@@ -2290,10 +2290,17 @@
               behavior: 'smooth'
             });
             
+            console.log("numLocationPanels: " + numLocationPanels);
+            console.log($("#loc"+numLocationPanels))
             //reinitialize the datepickers and expand hide after 
-            $('#lockdown-details-'+numLocationPanels).trigger("wb-init.wb-details");
-            $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
-            $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
+            $("#loc"+numLocationPanels).find( wb.allSelectors )
+              .addClass( "wb-init" )
+              .filter( ":not(#" + "loc"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
+
+
+            // $('#lockdown-details-'+numLocationPanels).trigger("wb-init.wb-details");
+            // $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
+            // $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
 
             //now after reiniting the datepickers, 
             var rangeISO = $('#claim-period').find('option:selected').val(),
