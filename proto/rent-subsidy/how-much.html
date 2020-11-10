@@ -609,13 +609,13 @@
                                                 </div>
                                              </div>
                                           </div>
-                                          <fieldset>
+                                          <fieldset class="wb-frmvld">
                                              <legend class="mrgn-bttm-0">Calculate your lockdown support rate</legend>
                                              <!-- <p>If your business location was closed due to government COVID-19 restrictions in this region, indicate the start and end dates of the restrictions.</p> -->
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
-                                              <details>
+                                              <details class="lockdown-details">
                                                 <summary>To qualify for lockdown support</summary>
                                                 <ul class="fa-ul">
                                                   <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
@@ -649,32 +649,32 @@
                                                    </div>
                                                 </div>
                                                 <!-- For edge? Manual input -->
-                                                <!-- <div id="lockdown-manual-1">
+                                                <div id="lockdown-manual-1">
                                                   <div class="row">
                                                     <div class="fieldset">
                                                       <div class="col-md-12">
                                                         <legend>Lock down start date<span class="wb-inv"> (<abbr title="Select month and input two digits day">Month D</abbr>)</span></legend>
                                                         <div class="row">
-                                                          <div class="col-xs-6 col-md-4">
+                                                          <div class="col-xs-6 col-sm-4">
                                                             <div class="form-group">
-                                                              <label class="wb-inv" for="lockdown-manual-start-month-1"></label>
+                                                              <label for="lockdown-manual-start-month-1">Month</label>
                                                               <select class="form-control input-lg" id="lockdown-manual-start-month-1">
-                                                                  <option class="claim-month-one">September</option>
-                                                                  <option class="claim-month-two">October</option>
+                                                                  <option class="claim-month-one">September 2020</option>
+                                                                  <option class="claim-month-two">October 2020</option>
                                                               </select>
                                                             </div>
                                                           </div>
-                                                          <div class="col-xs-6 col-md-8">
+                                                          <div class="col-xs-6 col-sm-2">
                                                             <div class="form-group">
-                                                              <label class="wb-inv" for="lockdown-manual-start-day-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
-                                                              <input type="number" class="form-control input-lg" id="lockdown-manual-start-day-1" maxlength="2" width>
+                                                              <label for="lockdown-manual-start-day-1">Day</label>
+                                                              <input type="number" class="form-control day input-lg" id="lockdown-manual-start-day-1" min="2" max="20">
                                                             </div>
                                                           </div>
                                                         </div>
                                                       </div>
                                                     </div>
                                                   </div>
-                                                </div> -->
+                                                </div>
 
                                                 <a class="btn btn-default">Recalculate your lock down support</a>
                                               </div>
@@ -1339,6 +1339,7 @@
          document.write(wet.builder.refFooter({
          }));
       </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
       <script>
         /**
@@ -1646,6 +1647,8 @@
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
+            //Update the Location name text in summary
+            $(frag).find(".loc-staddress-" + numLocs).text("Location " + numLocs);
             //Clear the summary values
             $(frag).find('#rent-amt-' + numLocs).text("$0.00");
             $(frag).find('#tax-amt-' + numLocs).text("$0.00");
@@ -2365,6 +2368,22 @@
             //create new row for the calculation table
             var row = document.createElement("tr");
             row.id = "loc" + numLocationPanels;
+
+
+            $('.lockdown-details').trigger("wb-init.wb-details");
+
+            // // //reinitialize the datepickers - seems to also use the jquery datepicker override
+            // $('#lockdown-start-' + numLocationPanels).datepicker('remove');
+
+
+            
+            // $('#lockdown-start-' + numLocationPanels).datepicker({
+            //   format: "dd/mm/yyyy",
+            //   startView: 2,
+            //   orientation: "top auto"
+            // });
+            // // $('#lockdown-end-' + numLocationPanels).attr({
+              
 
             //create new row in the summary table
             //location 'name' cell
