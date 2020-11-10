@@ -2332,18 +2332,18 @@
             });
             
             console.log("numLocationPanels: " + numLocationPanels);
-            console.log($("#loc"+numLocationPanels))
+            console.log($("#loc-"+numLocationPanels))
             //reinitialize the datepickers and expand hide after 
-            // $("#loc"+numLocationPanels).find( wb.allSelectors )
-            //   .addClass( "wb-init" )
-            //   .filter( ":not(#" + "loc"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
+            $("#loc-"+numLocationPanels).find( wb.allSelectors )
+              .addClass( "wb-init" )
+              .filter( ":not(#" + "loc-"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
 
-            console.log($('#lockdown-details-'+numLocationPanels));
-            console.log($('#lockdown-details-'+numLocationPanels).parent());
-            $('.lockdown-details').trigger("wb-init.wb-details");
-            // $('.lockdown-details').parent().trigger("wb-init.wb-details");
-            // $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
-            // $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
+            // console.log($('.lockdown-details'));
+            // console.log($('.lockdown-details').parent());
+            // $('.lockdown-details').trigger("wb-init.wb-details");
+            // // $('.lockdown-details').parent().trigger("wb-init.wb-details");
+            // // $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
+            // // $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
 
             //now after reiniting the datepickers, 
             var rangeISO = $('#claim-period').find('option:selected').val(),
