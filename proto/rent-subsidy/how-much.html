@@ -1117,7 +1117,7 @@
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
-                       <td class="text-right nowrap"><output class="qualifying-rent-expenses">0.00%</output></td>
+                       <td class="text-right nowrap"><output class="qualifying-rent-expenses">$0.00</output></td>
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Rent subsidy rate</th>
@@ -2262,7 +2262,7 @@
             }
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
-            $('.qualifying-rent-expenses').html('$' + toMoney.format(line170Total));
+            $('.qualifying-rent-expenses').html(toMoney.format(line170Total));
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
             var baseAmount = line170Total * baseRate / 100;
             var claimTotal = baseAmount + smryTotals[6];
@@ -2334,12 +2334,14 @@
             console.log("numLocationPanels: " + numLocationPanels);
             console.log($("#loc"+numLocationPanels))
             //reinitialize the datepickers and expand hide after 
-            $("#loc"+numLocationPanels).find( wb.allSelectors )
-              .addClass( "wb-init" )
-              .filter( ":not(#" + "loc"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
+            // $("#loc"+numLocationPanels).find( wb.allSelectors )
+            //   .addClass( "wb-init" )
+            //   .filter( ":not(#" + "loc"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
 
-
-            // $('#lockdown-details-'+numLocationPanels).trigger("wb-init.wb-details");
+            console.log($('#lockdown-details-'+numLocationPanels));
+            console.log($('#lockdown-details-'+numLocationPanels).parent());
+            $('.lockdown-details').trigger("wb-init.wb-details");
+            // $('.lockdown-details').parent().trigger("wb-init.wb-details");
             // $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
             // $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
 
