@@ -1133,6 +1133,14 @@
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
+                        <li id="smry-staddress-desc" class="hidden">You will need to include these locations' addresses in your application:
+                          <ul>
+                            <li class="hidden" id="smry-staddress-1"></li>
+                            <li class="hidden" id="smry-staddress-2"></li>
+                            <li class="hidden" id="smry-staddress-3"></li>
+                          </ul>
+                        </li>
+                        <li id="smry-staddress-desc-all">Note that you also need to include your business locations' addresses in your application.</li>
                     </ul>
                  </div>
               </div>
@@ -2271,7 +2279,10 @@
 
           function calculateTotals() {
             var smryTotals = [0, 0, 0, 0, 0, 0, 0];
+            var qreLocations = [];
+            var qreAmounts =  [];
             var eligibleLocations = 0;
+            var qreForLocation = 0;
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
@@ -2281,7 +2292,12 @@
               smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(",",""));
               smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(",",""));
               smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""));
+              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""))
+              smryTotals[5] += qreForLocation;
+              if (qreForLocation > 0) {
+                qreLocations.push(locNum);
+                qreAmounts.push(qreForLocation);
+              }
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(",",""));
             });
             $(".numLocs").text(eligibleLocations);
@@ -2309,6 +2325,70 @@
             claimTotal = claimTotal.toFixed(2);
             $('.base-subsidy-amount').html(toMoney.format(baseAmount));
             $('.rent-subsidy-claim-total').html(toMoney.format(claimTotal));
+            //Get the 3 locations with the highest qualifying expenses to add to the summary for the application form
+            if (qreLocations.length > 3)
+            {
+              var firstQre = 0;
+              var firstLocation = 0;
+              var secondQre = 0;
+              var secondLocation = 0;
+              var thirdQre = 0;
+              var thirdLocation = 0;
+              for (var i = 0; i < qreAmounts.length; i++) {
+                if (qreAmounts[i] > firstQre) {
+                  thirdQre = secondQre;
+                  secondQre = firstQre;
+                  firstQre = qreAmounts[i];
+                  thirdLocation = secondLocation;
+                  secondLocation = firstLocation;
+                  firstLocation = qreLocations[i];
+                } else if (qreAmounts[i] > secondQre) {
+                  thirdQre = secondQre;
+                  secondQre = qreAmounts[i];
+                  thirdLocation = secondLocation;
+                  secondLocation = qreLocations[i];
+                } else if (qreAmounts[i] > thirdQre) {
+                  thirdQre = qreAmounts[i];
+                  thirdLocation = qreLocations[i];
+                }
+              }
+              //the first._location == locNum of the top location for the application form
+              var locationName = "";
+              if (secondQre > 0) //if there's only 1 location, then don't bother showing this in the summary
+              {
+                $('#smry-staddress-desc-all').addClass("hidden");
+                //add location 1 to the summary
+                locationName = $('#loc-staddress-' + firstLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + firstLocation;
+                }
+                $('#smry-staddress-1').text(locationName);
+                $('#smry-staddress-1').removeClass("hidden");
+                $('#smry-staddress-desc').removeClass("hidden");
+
+                //add location 2 to the summary
+                locationName = $('#loc-staddress-' + secondLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + secondLocation;
+                }
+                $('#smry-staddress-2').text($('#loc-staddress-' + secondLocation).val());
+                $('#smry-staddress-2').removeClass("hidden");
+
+                //add location 3 to the summary
+                locationName = $('#loc-staddress-' + thirdLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + thirdLocation;
+                }
+                $('#smry-staddress-3').text($('#loc-staddress-' + thirdLocation).val());
+                $('#smry-staddress-3').removeClass("hidden");
+              }
+            } else {
+              $('#smry-staddress-1').addClass("hidden");
+              $('#smry-staddress-2').addClass("hidden");
+              $('#smry-staddress-3').addClass("hidden");
+              $('#smry-staddress-desc').addClass("hidden");
+              $('#smry-staddress-desc-all').removeClass("hidden");
+            }
           }
 
           /**
@@ -2512,10 +2592,8 @@
 
           function recalculateAllLocations() {
             $(".lock-down-dates").each(function (i, element) {
-              console.log("each lock-down-dates class");
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
-              console.log("locationNumber: " + locationNumber);
               topUpRateCalculation(locationNumber);
               recalculateLocationAmounts(locationNumber);
             });
