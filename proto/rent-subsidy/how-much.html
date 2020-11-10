@@ -637,14 +637,18 @@
                                                 <div class="row">
                                                    <div class="col-sm-6">
                                                       <div class="form-group">
-                                                         <label for="lockdown-start-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
-                                                         <input class="form-control lockdown-start-date" type="date" id="lockdown-start-1" name="lockdown-start-1" min="2020-09-27" value="2020-09-27" max="2020-10-24" />
+                                                          <label for="lockdown-start-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
+                                                          <div class="lockdown-start-datepicker-init">
+                                                            <input class="form-control lockdown-start-date" type="date" id="lockdown-start-1" name="lockdown-start-1" min="2020-09-27" value="2020-09-27" max="2020-10-24" />
+                                                          </div>
                                                       </div>
                                                    </div>
                                                    <div class="col-sm-6">
                                                       <div class="form-group">
-                                                         <label for="lockdown-end-1">Lock down end date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
-                                                         <input class="form-control lockdown-end-date" type="date" id="lockdown-end-1" name="lockdown-end-1" min="2020-09-27" value="2020-10-24" max="2020-10-24" />
+                                                          <label for="lockdown-end-1">Lock down end date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
+                                                          <div class="lockdown-end-datepicker-init">
+                                                            <input class="form-control lockdown-end-date" type="date" id="lockdown-end-1" name="lockdown-end-1" min="2020-09-27" value="2020-10-24" max="2020-10-24" />
+                                                          </div>
                                                       </div>
                                                    </div>
                                                 </div>
@@ -895,7 +899,7 @@
                                            -->
                                        <footer class="panel-footer">
                                           <details open>
-                                             <summary>Expense summary for <span class="loc-staddress-1">location 1</span>
+                                             <summary class="location-details">Expense summary for <span class="loc-staddress-1">location 1</span>
                                              </summary>
                                              <table class="table table-condensed small" id="loc-smry-1">
                                                 <caption class="wb-inv">
@@ -1367,13 +1371,20 @@
             $(frag).attr("aria-live", "polite");
             var rmBtn = $(frag).find(".rm-loc");
             $(rmBtn).removeClass("hidden");
+            //detect if browser uses chromium
+            var isChromium = window.chrome;
             //update the DOM fragment
             this.updateLocationNames(frag);
             this.updateLocNumbers(frag);
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
-            this.removeInitializedExpandHide(frag);
+            if (!isChromium) {
+              console.log("I'm not on chromium...")
+              this.clearInitializedExpandHide(frag, "lockdown-details", "To qualify for lockdown support");
+              this.clearInitializedExpandHide(frag, "location-details", "Expense summary for <span class='loc-staddress-" + numLocs + "'>location 1</span>");
+              this.clearInitializedDatePickers(frag);
+            }
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -1501,45 +1512,45 @@
           }
 
           /**
-           * removeInitializedExpandHide
+           * clearInitializedExpandHide
            *
-           * replace the expand hide summary elements with an uninitialized version
+           * replace an expand hide summary element with an uninitialized version for WET
            *
            * @param {DOMDocumentFragment} frag the cloned templateId
           */
-          LocationFormGenerator.prototype.removeInitializedExpandHide = function (frag) {
+          LocationFormGenerator.prototype.clearInitializedExpandHide = function (frag, summaryClass, summaryText) {
             //create new summary element for the top up expand hide
+            var newExHide = document.createElement("summary");
+            $(newExHide).attr("class", summaryClass);
+            $(newExHide).html(summaryText);
+            $(frag).find("."+summaryClass).replaceWith(newExHide);
+          }
+
+
+          /**
+           * clearInitializedDatePickers
+           *
+           * replace the date picker elements with a uninitialized versions for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedDatePickers = function (frag) {
+            //create new date input for the new location and clear the location 1 initialized html, if applicable (safari, IE)
             var numLocs = this.numberOfLocations;
-            var topUpDescSummary = document.createElement("summary");
-            $(topUpDescSummary).attr("class", "lockdown-details");
-            $(topUpDescSummary).text("To qualify for lockdown support");
-            $(frag).find(".lockdown-details").replaceWith(topUpDescSummary);
-            // //location 'name' cell
-            // var eligibleLocationCell = document.createElement("td");
-            // var locSpan = document.createElement("span");
-            // $(locSpan).addClass("full-address-" + numLocationPanels);
-            // locSpan.innerHTML = "Location " + numLocationPanels;
-            // eligibleLocationCell.appendChild(locSpan);
-            // //create the cells
-            // var expenseCells = [];
-            // for (var i = 0; i < 8; i++) {
-            //   expenseCells[i] = document.createElement("td");
-            // }
-            // //add the data-update-by attr so these cells are populated by the blur event on *[data-updates]
-            // $(expenseCells[0]).attr("id", "top-up-days-smry-" + numLocationPanels);
-            // $(expenseCells[0]).attr("data-updated-by", "top-up-days-" + numLocationPanels);
-            
 
+            var datepickerStart = document.createElement("input");
+            $(datepickerStart).attr("class", "form control lockdown-start-date");
+            $(datepickerStart).attr("type", "date");
+            $(datepickerStart).attr("name", "lockdown-start-"+numLocs);
+            $(datepickerStart).attr("id", "lockdown-start-"+numLocs);
+            $(frag).find(".lockdown-start-datepicker-init").replaceWith(datepickerStart);
 
-            // $( "div.second" ).replaceWith( "<h2>New heading</h2>" );
-            // this.(frag);
-            // <details id="lockdown-details-1">
-            //   <summary>To qualify for lockdown support</summary>
-            //   <ul class="fa-ul">
-            //     <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
-            //     <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
-            //   </ul>
-            // </details>
+            var datepickerEnd = document.createElement("input");
+            $(datepickerEnd).attr("class", "form control lockdown-end-date");
+            $(datepickerEnd).attr("type", "date");
+            $(datepickerEnd).attr("name", "lockdown-end-"+numLocs);
+            $(datepickerEnd).attr("id", "lockdown-end-"+numLocs);
+            $(frag).find(".lockdown-end-datepicker-init").replaceWith(datepickerEnd);
           }
 
           /**
@@ -1581,7 +1592,7 @@
             $(frag).find('.rent-location-' + numLocs).addClass("hidden");
             $(frag).find('.own-location-' + numLocs).addClass("hidden");
             $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
-            //open the accordion
+            //open the accordion for the summary details
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
@@ -2333,19 +2344,12 @@
             
             console.log("numLocationPanels: " + numLocationPanels);
             console.log($("#loc-"+numLocationPanels))
-            //reinitialize the datepickers and expand hide after 
+            //reinitialize the datepickers and expand hide after adding it to page
             $("#loc-"+numLocationPanels).find( wb.allSelectors )
               .addClass( "wb-init" )
               .filter( ":not(#" + "loc-"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
 
-            // console.log($('.lockdown-details'));
-            // console.log($('.lockdown-details').parent());
-            // $('.lockdown-details').trigger("wb-init.wb-details");
-            // // $('.lockdown-details').parent().trigger("wb-init.wb-details");
-            // // $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
-            // // $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
-
-            //now after reiniting the datepickers, 
+            //now after resettting the default values of the datepickers based on the claim period selection
             var rangeISO = $('#claim-period').find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
               endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
