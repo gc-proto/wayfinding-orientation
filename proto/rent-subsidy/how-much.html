@@ -602,10 +602,10 @@
                                           <div class="form-group">
                                              <div id="loc-address-1" class="row loc-address">
                                                 <div class="col-md-12">
-                                                   <label for="loc-staddress-1">Street address</label>
+                                                   <label for="loc-staddress-1">Full address</label>
                                                    <input type="text" size="50" class="form-control input-lg" id="loc-staddress-1">
                                                 </div>
-                                                <div class="col-xs-4">
+<!--                                                 <div class="col-xs-4">
                                                    <label for="loc-city-1">City</label>
                                                    <input type="text" class="form-control input-lg" id="loc-city-1">
                                                 </div>
@@ -631,7 +631,7 @@
                                                 <div class="col-xs-5 col-sm-4">
                                                    <label for="loc-postcode-1">Postal code</label>
                                                    <input type="text" class="form-control input-lg" id="loc-postcode-1" maxlength="6" size="11">
-                                                </div>
+                                                </div> -->
                                              </div>
                                           </div>
                                           <fieldset>
@@ -2068,9 +2068,9 @@
             var fullAddress = "";
             var address = [
               $('#loc-staddress-' + locationNumber).val(),
-              $('#loc-city-' + locationNumber).val(),
-              $('#loc-prov-' + locationNumber).val(),
-              $('#loc-postcode-' + locationNumber).val()
+//               $('#loc-city-' + locationNumber).val(),
+//               $('#loc-prov-' + locationNumber).val(),
+//               $('#loc-postcode-' + locationNumber).val()
             ];
             for (let i = 0; i < address.length; ++i) {
               if (address[i] != "" && address[i] != "--" && address[i] != null) {
