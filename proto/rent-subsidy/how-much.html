@@ -83,31 +83,58 @@
             <section>
               <h2 id="h-1">How the subsidy is calculated</h2>
               <p>The CERS provides both a base subsidy and in some cases, a lockdown support amount.</p>
-              <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
-              <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location.</p>
               <details>
-                <summary>See the math behind the calculation</summary>
-                <h3 id="#base-rate"><span class="fas fa-calculator text-muted"></span> Your CERS rent subsidy rate is</h3>
-                <ul class="fa-ul lst-spcd">
-                  <li>80% of your revenue drop percentage, up to a maximum of 40%</li>
-                  <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> Plus (if revenue drop > 50%):
-                      <ul>
-                        <li>your revenue drop percentage minus 50%</li>
-                        <li>multiplied by 1.25</li>
-                        <li>to a maximum of 25%</li>
-                      </ul>
-                  </li>
-                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS rent subsidy rate</span></li>
+                 <summary>How much can you claim</summary>
+                 <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
+                 <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location.</p>
+               </details>
+               <details>
+                <summary>Calculating your base rent subsidy rate</summary>
+                <p>The amount you can claim of your expenses (your rent subsidy rate) is based on the <strong>revenue drop your business experienced</strong> between</p>
+                <ul class="lst-lwr-alph">
+                  <li><strong>Corresponding month of 2019 method:</strong> the month of 2019 and 2020 that mostly overlaps the claim period you're applying for</li>
+                  <li><strong>Alternative method: </strong>January and February 2020 compared to the month of 2020 that mostly overlaps the claim period</li>
                 </ul>
-                <h3 id="#top-up-rate"><span class="fas fa-calculator text-muted"></span> Your CERS top-up rate (per business location) is</h3>
+                <p>This revenue drop is then scaled to calculate your rent subsidy rate:</p>
+
+                <table class="table table-condensed small">
+                  <caption>Calculate your rent subsidy rate</caption>
+                  <thead>
+                     <tr>
+                        <th scope="col">Your revenue drop</th>
+                        <th scope="col">How to calculate your rate</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Revenue drop &gt; 70%</td>
+                      <td>The maximum subsidy rate of 65%</td>
+                    </tr>
+                    <tr>
+                      <td>Revenue drop of 50-70%</td>
+                      <td>(Your revenue drop - 50%) x 1.25</td>
+                    </tr>
+                    <tr>
+                      <td>Revenue drop &lt; 50%</td>
+                      <td>0.8 x your revenue drop</td>
+                    </tr>
+                  </tbody>
+                </table>
+               </details>
+               <details>
+                <summary>Calculating your top up (lock down support) rate</summary>
+                <p>In addition to the rent subsidy rate, you can receive a lockdown support amount for certain locations affected by public health restrictions.</p>
+                <p>Your CERS top-up (lockdown support) rate is 25% per day on lockdown, calculated as:</p>
                 <ul class="fa-ul lst-spcd">
-                  <li>0% if your base rate is 0%</li>
-                  OR
                   <li>25% (fixed top-up rate)</li>
-                  <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> the number of days your province or municipality was on lock down due to COVID-19</li>
-                  <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the number of days in the CERS period)</li>
-                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your CERS top-up rate</span></li>
+                  <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> days the location was locked down due to COVID-19</li>
+                  <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the days in the CERS period)</li>
+                  <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your top-up (lockdown support) rate</span></li>
                 </ul>
+                
+                <p>If you have a 0% rent subsidy rate, you cannot claim a top up for any location.</p>
+                
+                
                 <details>
                   <summary>Example top-up rate calculation</summary>
                   <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
@@ -205,7 +232,7 @@
                   for verification after you apply.
                </p>
             </details>
-            <div class="alert alert-danger provisional" id="action-no-msg">
+            <div class="alert alert-warning provisional" id="action-no-msg">
             <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
           </div>
             <div class="wb-frmvld">
@@ -234,7 +261,7 @@
                      </li>
                      <li id="stp1">
                         <fieldset>
-                           <legend><span class="wb-inv">Step 2: </span>Affiliated businesses and entities</legend>
+                           <legend><span class="wb-inv">Step 2: </span>Related businesses, charities and non-profits</legend>
                            <p>You and any affiliated entities are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
                            <details>
                            <summary>Find out if you have affiliated entities</summary>
@@ -297,7 +324,7 @@
                                  </div>
                                  <div class="col-md-6">
                                     <div class="input-group"> <span class="input-group-addon input-sm">%</span>
-                                       <input type="number" class="form-control text-right percentage" id="affiliated-split">
+                                       <input type="number" class="form-control text-right percentage" id="affiliated-split" max="100" min="0">
                                     </div>
                                  </div>
                               </div>
@@ -456,7 +483,7 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Update your revenue drop</a>
                            </div>
                            <div class="hidden" id="alt-bl-yes">
                               <fieldset>
@@ -539,7 +566,7 @@
                                     </div>
                                  </div>
                               </fieldset>
-                              <a class="btn btn-default">Recalculate your revenue drop</a>
+                              <a class="btn btn-default">Update your revenue drop</a>
                            </div>
                            <div id="revenue-drop-results-summary" class="well mrgn-tp-md">
                               <h3 class="mrgn-tp-0">Summary of Step 3</h3>
@@ -548,8 +575,8 @@
                                   class="h4 currentRevReduction">0%</span></li>
                                 <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span
                                   class="priorRevReduction h4">0%</span></li>
-                                <p>Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">1%</span>, your rate is calculated as <span id="rate-formula-max" class="hidden">the maximum</span><span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x 1.25 + 40%</span><span id="rate-formula-u50" class="">your revenue drop x 0.8</span><span id="rate-formula-0" class="hidden">0</span>.</p>
-                                <p>Your rent subsidy rate is <span class="h3 mrgn-tp-0 base-rate">0.8%</span></p>
+                                <p>Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">0%</span>, your rate is calculated as <span id="rate-formula-max" class="hidden">the maximum</span><span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x 1.25 + 40%</span><span id="rate-formula-u50" class="hidden">your revenue drop x 0.8</span><span id="rate-formula-0">0</span>.</p>
+                                <p>Your rent subsidy rate is <span class="h3 mrgn-tp-0 base-rate">0%</span></p>
                               </ul>
                            </div>
                         </fieldset>
@@ -577,10 +604,10 @@
                                           <div class="form-group">
                                              <div id="loc-address-1" class="row loc-address">
                                                 <div class="col-md-12">
-                                                   <label for="loc-staddress-1">Street address</label>
+                                                   <label for="loc-staddress-1">Full address</label>
                                                    <input type="text" size="50" class="form-control input-lg" id="loc-staddress-1">
                                                 </div>
-                                                <div class="col-xs-4">
+<!--                                                 <div class="col-xs-4">
                                                    <label for="loc-city-1">City</label>
                                                    <input type="text" class="form-control input-lg" id="loc-city-1">
                                                 </div>
@@ -606,17 +633,17 @@
                                                 <div class="col-xs-5 col-sm-4">
                                                    <label for="loc-postcode-1">Postal code</label>
                                                    <input type="text" class="form-control input-lg" id="loc-postcode-1" maxlength="6" size="11">
-                                                </div>
+                                                </div> -->
                                              </div>
                                           </div>
-                                          <fieldset class="wb-frmvld">
+                                          <fieldset>
                                              <legend class="mrgn-bttm-0">Calculate your lockdown support rate</legend>
                                              <!-- <p>If your business location was closed due to government COVID-19 restrictions in this region, indicate the start and end dates of the restrictions.</p> -->
                                              <div class="clearfix"></div>
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
-                                              <details class="lockdown-details">
-                                                <summary>To qualify for lockdown support</summary>
+                                              <details>
+                                                <summary class="lockdown-details">To qualify for lockdown support</summary>
                                                 <ul class="fa-ul">
                                                   <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
@@ -637,14 +664,18 @@
                                                 <div class="row">
                                                    <div class="col-sm-6">
                                                       <div class="form-group">
-                                                         <label for="lockdown-start-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
-                                                         <input class="form-control lockdown-start-date" type="date" id="lockdown-start-1" name="lockdown-start-1" min="2020-09-27" value="2020-09-27" max="2020-10-24" />
+                                                          <label for="lockdown-start-1">Lock down start date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
+                                                          <div class="lockdown-start-datepicker-init">
+                                                            <input class="form-control lockdown-start-date" type="date" id="lockdown-start-1" name="lockdown-start-1" min="2020-09-27" value="2020-09-27" max="2020-10-24" />
+                                                          </div>
                                                       </div>
                                                    </div>
                                                    <div class="col-sm-6">
                                                       <div class="form-group">
-                                                         <label for="lockdown-end-1">Lock down end date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
-                                                         <input class="form-control lockdown-end-date" type="date" id="lockdown-end-1" name="lockdown-end-1" min="2020-09-27" value="2020-10-24" max="2020-10-24" />
+                                                          <label for="lockdown-end-1">Lock down end date<span class="datepicker-format"> (<abbr title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)</span></label>
+                                                          <div class="lockdown-end-datepicker-init">
+                                                            <input class="form-control lockdown-end-date" type="date" id="lockdown-end-1" name="lockdown-end-1" min="2020-09-27" value="2020-10-24" max="2020-10-24" />
+                                                          </div>
                                                       </div>
                                                    </div>
                                                 </div>
@@ -676,7 +707,7 @@
                                                   </div>
                                                 </div> -->
 
-                                                <a class="btn btn-default">Recalculate your lock down support</a>
+                                                <a class="btn btn-default">Update your lock down support</a>
                                               </div>
                                               <div class="well mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Lockdown support rate summary</h3>
@@ -841,8 +872,9 @@
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                                     <div class="input-group">
                                                       <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
-                                                      <select class="form-control input-lg" id="date-chooser-interest-1" disabled="disabled">
+                                                      <select class="form-control input-lg" id="date-chooser-interest-1">
                                                         <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="month">Per month</option>
                                                       </select>
                                                       <span class="input-group-addon input-sm">$</span>
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
@@ -895,7 +927,7 @@
                                            -->
                                        <footer class="panel-footer">
                                           <details open>
-                                             <summary>Expense summary for <span class="loc-staddress-1">location 1</span>
+                                             <summary class="location-details">Expense summary for <span class="loc-staddress-1">location 1</span>
                                              </summary>
                                              <table class="table table-condensed small" id="loc-smry-1">
                                                 <caption class="wb-inv">
@@ -949,11 +981,11 @@
                                        another location</button>
                                     </p>
                                  </fieldset>
-                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-users"></span> Results for locations</p>
+                                 <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-building"></span> Save your location data for your records</p>
+                                 <p>Review your location data and print or download a spreadsheetfor your records.</p>
                                   <ul class="list-unstyled">
                                       <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
-                                        class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review, download
-                                        and print location calculations</a>
+                                        class="wb-lbx lbx-modal btn btn-default" role="button" id="showLocTable">Review locations summary</a>
                                       </li>
                                       <!-- <li class="mrgn-tp-md">
                                         <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the
@@ -1060,7 +1092,7 @@
               <div class="panel-body">
                  <div id="cers-statement">
                     <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
-                    <p>The line amounts you will need to complete your online application for CERS:</p>
+                    <p>The line amounts you will need to complete your application for the CERS in your online CRA account:</p>
                     <ul class="lst-spcd">
                        <li><strong>Line 110:</strong>
                           Number of eligible properties: <strong>
@@ -1103,6 +1135,14 @@
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
+                        <li id="smry-staddress-desc" class="hidden">You will need to include these locations' addresses in your application:
+                          <ul>
+                            <li class="hidden" id="smry-staddress-1"></li>
+                            <li class="hidden" id="smry-staddress-2"></li>
+                            <li class="hidden" id="smry-staddress-3"></li>
+                          </ul>
+                        </li>
+                        <li id="smry-staddress-desc-all">Note that you also need to include your business locations' addresses in your application.</li>
                     </ul>
                  </div>
               </div>
@@ -1117,7 +1157,7 @@
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
-                       <td class="text-right nowrap"><output class="qualifying-rent-expenses">0.00%</output></td>
+                       <td class="text-right nowrap"><output class="qualifying-rent-expenses">$0.00</output></td>
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Rent subsidy rate</th>
@@ -1236,7 +1276,6 @@
          document.write(wet.builder.refFooter({
          }));
       </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
       <script>
         /**
@@ -1270,7 +1309,8 @@
               "date-tax-end-",
               "date-insurance-end-",
               "date-interest-end-",
-              "date-lease-end-"
+              "date-lease-end-",
+              "lockdown-details-"
             ];
             this.idUpdates = [ //any ids or aria-describedby that get updated
               "lock-down-ineligible-",
@@ -1367,12 +1407,19 @@
             $(frag).attr("aria-live", "polite");
             var rmBtn = $(frag).find(".rm-loc");
             $(rmBtn).removeClass("hidden");
+            //detect if browser uses chromium
+            var isChromium = window.chrome;
             //update the DOM fragment
             this.updateLocationNames(frag);
             this.updateLocNumbers(frag);
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            if (!isChromium) {
+              this.clearInitializedExpandHide(frag, "lockdown-details", "To qualify for lockdown support");
+              this.clearInitializedExpandHide(frag, "location-details", "Expense summary for <span class='loc-staddress-" + numLocs + "'>location 1</span>");
+              this.clearInitializedDatePickers(frag);
+            }
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -1463,7 +1510,6 @@
            * update the class elements based on the parametrs
            *
            * @param {DOMDocumentFragment} frag the cloned templateId
-           * @param {string} className the className to update in the cloned template
            */
           LocationFormGenerator.prototype.updateClass = function (frag) {
             for (let i = 0; i < this.classUpdates.length; ++i) {
@@ -1478,14 +1524,13 @@
           }
 
           /**
-           * updateIds 613-523-8145
+           * updateIds
            *
            * update the id based on the parametrs
            *
            * @param {DOMDocumentFragment} frag the cloned templateId
-           * @param {string} idName the idName to update in the cloned template
           */
-          LocationFormGenerator.prototype.updateIds = function (frag, idName) {
+          LocationFormGenerator.prototype.updateIds = function (frag) {
             for (let i = 0; i < this.idUpdates.length; ++i) {
               var idUpdateElement = $(frag).find(
                 "#" + this.idUpdates[i] + "1"
@@ -1499,6 +1544,48 @@
                 $(ariaUpdateElement).attr("aria-describedby", $(ariaUpdateElement).attr("aria-describedby").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
               }
             }
+          }
+
+          /**
+           * clearInitializedExpandHide
+           *
+           * replace an expand hide summary element with an uninitialized version for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedExpandHide = function (frag, summaryClass, summaryText) {
+            //create new summary element for the top up expand hide
+            var newExHide = document.createElement("summary");
+            $(newExHide).attr("class", summaryClass);
+            $(newExHide).html(summaryText);
+            $(frag).find("."+summaryClass).replaceWith(newExHide);
+          }
+
+
+          /**
+           * clearInitializedDatePickers
+           *
+           * replace the date picker elements with a uninitialized versions for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedDatePickers = function (frag) {
+            //create new date input for the new location and clear the location 1 initialized html, if applicable (safari, IE)
+            var numLocs = this.numberOfLocations;
+
+            var datepickerStart = document.createElement("input");
+            $(datepickerStart).attr("class", "form control lockdown-start-date");
+            $(datepickerStart).attr("type", "date");
+            $(datepickerStart).attr("name", "lockdown-start-"+numLocs);
+            $(datepickerStart).attr("id", "lockdown-start-"+numLocs);
+            $(frag).find(".lockdown-start-datepicker-init").replaceWith(datepickerStart);
+
+            var datepickerEnd = document.createElement("input");
+            $(datepickerEnd).attr("class", "form control lockdown-end-date");
+            $(datepickerEnd).attr("type", "date");
+            $(datepickerEnd).attr("name", "lockdown-end-"+numLocs);
+            $(datepickerEnd).attr("id", "lockdown-end-"+numLocs);
+            $(frag).find(".lockdown-end-datepicker-init").replaceWith(datepickerEnd);
           }
 
           /**
@@ -1540,7 +1627,7 @@
             $(frag).find('.rent-location-' + numLocs).addClass("hidden");
             $(frag).find('.own-location-' + numLocs).addClass("hidden");
             $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
-            //open the accordion
+            //open the accordion for the summary details
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).attr("open", "open");
             });
@@ -1555,29 +1642,9 @@
             $(frag).find('#amt-ttl-' + numLocs).text("$0.00");
             $(frag).find('#amt-top-up-' + numLocs).text("$0.00");
             //Update the date pickers to the date range of the period
-            //in IE and Safari, also need to update the datepicker generated ID
-            $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
-            $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
-            //update the date range to the defaults
-            var rangeISO = $('#claim-period').find('option:selected').val(),
-              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
-              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
-              rangeClaim = $('#claim-period').find("option:selected").text(),
-              rangeClaimNo = rangeClaim.substring(7, 8),
-              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
-              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
-            $(frag).find('#lockdown-start-' + numLocs).attr({
-              "min": startDateISO,
-              "max": endDateISO,
-              "value": startDateISO
-            });
-            $(frag).find('#lockdown-start-' + numLocs).val(startDateISO);
-            $(frag).find('#lockdown-end-' + numLocs).attr({
-              "min": startDateISO,
-              "max": endDateISO,
-              "value": endDateISO
-            });
-            $(frag).find('#lockdown-end-' + numLocs).val(endDateISO);
+            // //in IE and Safari, also need to update the datepicker generated ID
+            // $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
+            // $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
           }
 
           return LocationFormGenerator;
@@ -2003,9 +2070,9 @@
             var fullAddress = "";
             var address = [
               $('#loc-staddress-' + locationNumber).val(),
-              $('#loc-city-' + locationNumber).val(),
-              $('#loc-prov-' + locationNumber).val(),
-              $('#loc-postcode-' + locationNumber).val()
+//               $('#loc-city-' + locationNumber).val(),
+//               $('#loc-prov-' + locationNumber).val(),
+//               $('#loc-postcode-' + locationNumber).val()
             ];
             for (let i = 0; i < address.length; ++i) {
               if (address[i] != "" && address[i] != "--" && address[i] != null) {
@@ -2126,10 +2193,12 @@
               //update the amount in the summary
               var affiliatedPerc = parseFloat($('#affiliated-split').val());
               var affiliatedRemainder = 100 - affiliatedPerc;
-              $('.affiliated-entity-percentage').text(affiliatedPerc + '%');
-              $('#affiliated-remaining').text(affiliatedRemainder + '%');
-              $('.affiliated-yes-answer').removeClass("hidden");
-              $('.affiliated-yes-blank-answer').addClass("hidden");
+              if (affiliatedPerc <= 100 && affiliatedPerc >= 0) {
+                $('.affiliated-entity-percentage').text(affiliatedPerc + '%');
+                $('#affiliated-remaining').text(affiliatedRemainder + '%');
+                $('.affiliated-yes-answer').removeClass("hidden");
+                $('.affiliated-yes-blank-answer').addClass("hidden");
+              }
             }
 
             // *******
@@ -2157,7 +2226,8 @@
             var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
             var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
             var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
-            if (datediff >= 7 && ($('#lock-down-eligible-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
+
+            if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
               var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
               $(updatedByElements).each(function (i, element) {
@@ -2211,7 +2281,10 @@
 
           function calculateTotals() {
             var smryTotals = [0, 0, 0, 0, 0, 0, 0];
+            var qreLocations = [];
+            var qreAmounts =  [];
             var eligibleLocations = 0;
+            var qreForLocation = 0;
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
@@ -2221,7 +2294,12 @@
               smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(",",""));
               smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(",",""));
               smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[5] += zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""));
+              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""))
+              smryTotals[5] += qreForLocation;
+              if (qreForLocation > 0) {
+                qreLocations.push(locNum);
+                qreAmounts.push(qreForLocation);
+              }
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(",",""));
             });
             $(".numLocs").text(eligibleLocations);
@@ -2241,7 +2319,7 @@
             }
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
-            $('.qualifying-rent-expenses').html('$' + toMoney.format(line170Total));
+            $('.qualifying-rent-expenses').html(toMoney.format(line170Total));
             var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
             var baseAmount = line170Total * baseRate / 100;
             var claimTotal = baseAmount + smryTotals[6];
@@ -2249,6 +2327,70 @@
             claimTotal = claimTotal.toFixed(2);
             $('.base-subsidy-amount').html(toMoney.format(baseAmount));
             $('.rent-subsidy-claim-total').html(toMoney.format(claimTotal));
+            //Get the 3 locations with the highest qualifying expenses to add to the summary for the application form
+            if (qreLocations.length > 3)
+            {
+              var firstQre = 0;
+              var firstLocation = 0;
+              var secondQre = 0;
+              var secondLocation = 0;
+              var thirdQre = 0;
+              var thirdLocation = 0;
+              for (var i = 0; i < qreAmounts.length; i++) {
+                if (qreAmounts[i] > firstQre) {
+                  thirdQre = secondQre;
+                  secondQre = firstQre;
+                  firstQre = qreAmounts[i];
+                  thirdLocation = secondLocation;
+                  secondLocation = firstLocation;
+                  firstLocation = qreLocations[i];
+                } else if (qreAmounts[i] > secondQre) {
+                  thirdQre = secondQre;
+                  secondQre = qreAmounts[i];
+                  thirdLocation = secondLocation;
+                  secondLocation = qreLocations[i];
+                } else if (qreAmounts[i] > thirdQre) {
+                  thirdQre = qreAmounts[i];
+                  thirdLocation = qreLocations[i];
+                }
+              }
+              //the first._location == locNum of the top location for the application form
+              var locationName = "";
+              if (secondQre > 0) //if there's only 1 location, then don't bother showing this in the summary
+              {
+                $('#smry-staddress-desc-all').addClass("hidden");
+                //add location 1 to the summary
+                locationName = $('#loc-staddress-' + firstLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + firstLocation;
+                }
+                $('#smry-staddress-1').text(locationName);
+                $('#smry-staddress-1').removeClass("hidden");
+                $('#smry-staddress-desc').removeClass("hidden");
+
+                //add location 2 to the summary
+                locationName = $('#loc-staddress-' + secondLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + secondLocation;
+                }
+                $('#smry-staddress-2').text($('#loc-staddress-' + secondLocation).val());
+                $('#smry-staddress-2').removeClass("hidden");
+
+                //add location 3 to the summary
+                locationName = $('#loc-staddress-' + thirdLocation).val()
+                if (locationName == "") {
+                  locationName = "Location " + thirdLocation;
+                }
+                $('#smry-staddress-3').text($('#loc-staddress-' + thirdLocation).val());
+                $('#smry-staddress-3').removeClass("hidden");
+              }
+            } else {
+              $('#smry-staddress-1').addClass("hidden");
+              $('#smry-staddress-2').addClass("hidden");
+              $('#smry-staddress-3').addClass("hidden");
+              $('#smry-staddress-desc').addClass("hidden");
+              $('#smry-staddress-desc-all').removeClass("hidden");
+            }
           }
 
           /**
@@ -2309,23 +2451,33 @@
             document.getElementById($(frag).prop("id")).scrollIntoView({
               behavior: 'smooth'
             });
-
-            $('.lockdown-details').trigger("wb-init.wb-details");
-            $('#lockdown-start-'+numLocationPanels).trigger("wb-init.wb-date");
-            $('#lockdown-end-'+numLocationPanels).trigger("wb-init.wb-date");
-
-            // // //reinitialize the datepickers - seems to also use the jquery datepicker override
-            // $('#lockdown-start-' + numLocationPanels).datepicker('remove');
-
-
             
-            // $('#lockdown-start-' + numLocationPanels).datepicker({
-            //   format: "dd/mm/yyyy",
-            //   startView: 2,
-            //   orientation: "top auto"
-            // });
-            // // $('#lockdown-end-' + numLocationPanels).attr({
-              
+            //reinitialize the datepickers and expand hide after adding it to page
+            $("#loc-"+numLocationPanels).find( wb.allSelectors )
+              .addClass( "wb-init" )
+              .filter( ":not(#" + "loc-"+numLocationPanels + " .wb-init .wb-init)" ).trigger( "timerpoke.wb" );
+
+            //now after resettting the default values of the datepickers based on the claim period selection
+            var rangeISO = $('#claim-period').find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
+              rangeClaim = $('#claim-period').find("option:selected").text(),
+              rangeClaimNo = rangeClaim.substring(7, 8),
+              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
+              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
+              $('#lockdown-start-'+numLocationPanels).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": startDateISO
+            });
+            $('#lockdown-start-'+numLocationPanels).val(startDateISO);
+            $('#lockdown-end-'+numLocationPanels).attr({
+              "min": startDateISO,
+              "max": endDateISO,
+              "value": endDateISO
+            });
+            $('#lockdown-end-'+numLocationPanels).val(endDateISO);
+
           }
 
           /**
@@ -2419,13 +2571,9 @@
               $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
+              return;
             }
-            $(".lock-down-dates").each(function (i, element) {
-              var parts = $(element).prop("id").split("-");
-              var locationNumber = parts[parts.length - 1];
-              topUpRateCalculation(locationNumber);
-              recalculateLocationAmounts(locationNumber);
-            });
+            recalculateAllLocations();
           }
 
           /**
@@ -2441,6 +2589,10 @@
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
             $("#rate-formula-0").removeClass("hidden");
+            recalculateAllLocations();
+          }
+
+          function recalculateAllLocations() {
             $(".lock-down-dates").each(function (i, element) {
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
