@@ -8,7 +8,7 @@
       <head>
          <meta charset="utf-8">
          <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-         <title>What expenses can be claimed - Work space in the home - Employee expenses – Canada.ca</title>
+         <title>What expenses can be claimed - Claiming expenses for employment use of a work space in the home – Canada.ca</title>
          <meta content="width=device-width,initial-scale=1" name="viewport">
          <meta name=”robots” content=”noindex, follow”>
          <!-- Meta data -->
@@ -34,7 +34,35 @@
             transform: scale(2);
             margin-bottom: 10px;
             }
-			
+			.wb-tabs {margin-top:15px;border: 1px solid #e3e3e3;
+	box-shadow: 0px 0px 8px #e3e3e3;}
+	
+	
+.wb-tabs table {background:#fff;}
+			.wb-tabs>.tabpanels {background:#f9f9f9; }
+.wb-tabs>.tabpanels legend {font-size:80%; font-weight:700; margin: 0 0 5px;}
+.wb-tabs>.tabpanels fieldset {padding-top:0;}
+.wb-tabs>.tabpanels>details>summary {background:#fff; border-radius: 0;}
+.wb-tabs [role=tablist]>li:focus,.wb-tabs [role=tablist]>li:hover{background:#ddd;}
+.wb-tabs {margin-bottom:0;}
+.wb-tabs>.tabpanels>details {margin-bottom:0;}
+.ds-example .panel-body {box-shadow: none;}
+@media screen and (max-width: 991px){
+	.wb-tabs .tgl-panel {
+		margin-top:15px;
+	}
+}
+@media screen and (min-width: 992px) {
+	.ds-configuration {background:#fff; padding: 0 10px; margin:-30px -30px -30px 0}
+	
+.wb-tabs>.tabpanels>details {
+	border:none; padding:15px;}
+.wb-tabs [role=tablist]>li {border:none;background:none;}
+.wb-tabs [role=tablist]>li.active a {border-width:0 0 4px;}
+/* .wb-tabs>.tabpanels>details:first-child {padding: 30px;} */
+.wb-tabs>.tabpanels>details {padding: 30px;}
+.wb-tabs>.tabpanels>details {background:#f9f9f9;padding: 30px; margin-bottom:0;}
+}
          </style>
       </head>
       <body vocab="http://schema.org/" typeof="WebPage">
@@ -72,7 +100,7 @@
             		title: "Line 22900 - Other employment expenses",
             		href: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses.html"
             	},{
-            		title: "Work space in the home - Employee expenses",
+            		title: "Claiming expenses for employment use of a work space in the home",
             		href: "index.html"
             	}],
             	search: true,
@@ -82,7 +110,7 @@
          </script>
          <main role="main" property="mainContentOfPage" class="container">
             <section class="gc-nav">
-               <h1 property="name" id="wb-cont-nav">Work space in the home - Employee expenses</h1>
+               <h1 property="name" id="wb-cont-nav">Claiming expenses for employment use of a work space in the home</h1>
                <ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
                   <li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
                   <li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
@@ -91,9 +119,8 @@
                   <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
                   <ul class="gc-navseq">
                      <li><a href="who-apply.html">Who can claim</a></li>
-					 <li><a href="how-much.html">How much of the work space can be claimed</a></li>
                      <li class="active"><a aria-current="page">What expenses can be claimed</a></li>
-					  
+					  <li><a href="how-much.html">How much of the work space can be claimed</a></li>
 					 <li><a href="calculate.html">Calculate your expenses</a></li>
                      <li><a href="how-apply.html">How to claim</a></li>
 					 
@@ -114,9 +141,9 @@
 			 <li><a href="#h-1">Home expenses</a></li>
 			
 			 <li><a href="#h-2">Office supplies, internet, and phone expenses</a></li>
-
-			  <li><a href="#h-3">Limitations on expenses</a></li>
-			  <li><a href="#h-4">Keep your records</a></li>
+			  <li><a href="#h-3">Other employment expenses</a></li>
+			  <li><a href="#h-4">Limitations on expenses</a></li>
+			  <li><a href="#h-5">Keep your records</a></li>
 
             </ul>
 			
@@ -187,18 +214,19 @@
 				  <p>If you are required to pay for office supplies or have connectivity expenses (internet or phone), as a condition of your employment, you may be able to claim those expenses.</p>
 				  <p>Although these expenses can be claimed, they are not related to the physical work space in your home. They are  <strong>claimed on a different section of the  T777&nbsp;(Short) or T777 form</strong>.</p>
 				  
-				 
+				  <div class="wb-tabs">
+	<div class="tabpanels">
 		<details id="supplies">
 			<summary><span class="fas fa-pencil-alt"></span> Office supplies</summary>
 			<dl class="dl-horizontal brdr-bttm">
-			<dt>What can be claimed</dt><dd>
-				It is an item that is <strong>used up</strong> directly in the performance of your employment</dd>
+			<dt>What is an office supply</dt><dd>
+				An office supply is an item that is <strong>used up</strong> directly in the performance of your employment</dd>
 				<dt>How much to claim</dt><dd>You can only claim the expense, or portion of the expense, that is used for work purposes
 			</dd>
 			</dl>
 			<h3>Common home office supplies</h3>
 		
-			 <table class="table  table-bordered wb-tables"  data-wb-tables='{"paging":false, "ordering":true}' id="supplies-list">
+			 <table class="table  table-bordered wb-tables"  data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }' id="supplies-list">
                         <caption class="wb-inv">
                             Common home office supplies
                         </caption>
@@ -572,13 +600,7 @@
     <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
 
   </tr>
- <tr class="type-supply">
 
-    <td>Software</td>
-
-    <td><ul class="fa-ul"><li><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Salaried employees</li><li class="nowrap"><span class="text-danger fas fa-times fa-li"></span><span class="small text-danger">No&nbsp; |</span> Commissioned employees</li></ul></td>
-
-  </tr>
   <tr class="type-supply">
 
     <td>Speakers</td>
@@ -677,7 +699,20 @@
 
   </tr>
   
- 
+  <tr class="type-other">
+
+    <td>Phone</td>
+
+    <td>Refer to: <a href="#phone"  class="wb-tabs-ext">Phone</a> for cell phone, land line, long distance calls and other phone expenses</td>
+
+  </tr>
+   <tr class="type-other">
+
+    <td>Internet</td>
+
+    <td>Refer to: <a href="#internet"  class="wb-tabs-ext">Internet</a> for internet expenses</td>
+
+  </tr>
 		
 						
 						
@@ -733,7 +768,7 @@
 		</details>
 		<details id="phone">
 			<summary><span class="fas fa-mobile-alt"></span> Phone</summary>
-			<h3>Cell phones</h3>
+			<h3 class="mrgn-tp-0">Cell phones</h3>
 			
 
 <table class="table table-bordered"   id="cell-list">
@@ -852,15 +887,74 @@
   </table>
 
 		</details>
+	</div>
 
+	
+</div>
 
 
 
 				  
 				
 				 
+					<h2 id="h-3">Other employment expenses</h2>
+					<p>You may be eligible to claim other employment expenses, if you incurred them as a condition of your employment.</p>
+					 <p>Although these expenses can be claimed, they are not related to the physical work space in your home. They are  <strong>claimed on a different section of the  T777&nbsp;(Short) or T777 form</strong>.</p>
+					<div class="cnjnctn-grd flex-fw-xs">
+      <div class="cnjnctn-col">
+         <h4 class="mrgn-tp-sm text-muted h5">Salaried employees can claim</h4>
+        
+ <ul class="fa-ul">
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/accounting-legal-fees.html">Accounting and legal fees</a></li> 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/allowable-motor-vehicle-expenses.html">Allowable motor vehicle expenses</a></li> 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/travelling-expenses.html">Travelling expenses</a></li> 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/parking.html">Parking</a></li> 
+ 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/salary-expenses.html">Salary expenses</a></li> 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/office-rent.html">Office Rent</a></li> 
+ 
+  <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/salaried-employees/excess-employees-profit-sharing-plan-epsp-amounts.html">Excess employees profit-sharing plan (EPSP) amounts</a></li> 
+ </ul>
+      </div>
+      <div class="cnjnctn-and"></div>
+      <div class="cnjnctn-col">
+          <h3 class="mrgn-tp-sm text-muted h5">Commission employees can claim</h3>
+       
+   <ul class="fa-ul"> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/accounting-legal-fees.html">Accounting and legal fees</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/advertising-promotion.html">Advertising and promotion</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/allowable-motor-vehicle-expenses.html">Allowable motor vehicle expenses</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/food-beverages.html">Food and beverages</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/entertainment-expenses.html">Entertainment expenses</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/lodging.html">Lodging</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/parking.html">Parking</a></li> 
+
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/licences.html">Licences</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/bonding-premiums.html">Bonding premiums</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/medical-underwriting-fees.html">Medical underwriting fees</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/computers-cell-phones-other-equipment.html">Computers, cell phones, and other equipment</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/salaries-assistant.html">Salaries for an assistant</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/office-rent.html">Office rent</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/training-costs.html">Training costs</a></li> 
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/travel-fare.html">Travel fare</a></li> 
+
+ <li><span class="fas fa-check text-success fa-li"></span><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/commission-employees/excess-employees-profit-sharing-plan-epsp-amounts.html">Excess employees profit-sharing plan (EPSP) amounts</a></li> 
+</ul>
+      </div>
+	 
+    </div>
+	 <h3 class="mrgn-tp-sm text-muted h5">Industry-specific</h3>
+		  <p>Certain employees can claim their expenses according to the industry they work in:</p>
+		  <ul> 
+ 
+ <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/transportation-employees.html">Transportation employees</a></li> 
+ <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/forestry-operations.html">Forestry operations</a></li> 
+ <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/employed-artists.html">Employed artists</a></li> 
+ <li><a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses/employed-tradespersons-including-apprentice-mechanics.html">Employed tradespersons (including apprentice mechanics)</a></li> 
+</ul>				
 					
-				<h2 id="h-3">Limitations on expenses</h2>
+			
+				<h2 id="h-4">Limitations on expenses</h2>
                   <p>The employment expenses you can claim are limited when:</p>
                   <ul>
                      <li>
@@ -878,13 +972,13 @@
                      <li>
                         Your <strong>expenses exceed your income</strong>:
                         <ul>
-                           <li>The amount you can deduct for work space in the home expenses is limited to the amount of employment income remaining after all other employment expenses have been deducted. This means that you cannot use work space expenses to create or increase a loss from employment.</li>
+                           <li>The amount you can deduct for work-space-in-the-home expenses is limited to the amount of employment income remaining after all other employment expenses have been deducted. This means that you cannot use work space expenses to create or increase a loss from employment.</li>
                            <li>If you cannot deduct all your work space expenses in the year, you can carry forward the expenses. You can deduct these expenses in the following year as long as you are reporting income from the same employer. However, you cannot create or increase a loss from employment by carrying forward work space expenses.</li>
                         </ul>
                      </li>
                   </ul>
 			    
-		  <h2 id="h-4">Keep your records</h2>
+		  <h2 id="h-5">Keep your records</h2>
 		<p>Employees should keep the following records for six years:</p>
 		<ul>
 			<li>Declaration of Conditions of Employment (Form <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t2200.html">T2200</a> or <a href="#">T2200 (Short)</a>)</li>
@@ -951,7 +1045,7 @@
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                   <h3 class="wb-inv">Document navigation</h3>
                   <ul class="pager">
-                     <li class="next"><a href="calculate.html" rel="next">Calculate your expenses</a></li>
+                     <li class="next"><a href="how-much.html" rel="next">How much of the work space can be claimed</a></li>
                   </ul>
                </nav>
                <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
