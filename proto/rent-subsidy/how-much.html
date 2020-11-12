@@ -2029,16 +2029,7 @@
               $(element).text(formattedVal);
             });
 
-            //calculate the top-up amount for the location
-            if ($('#lock-down-eligible-' + locationNumber).is(":visible") && $('#lock-down-ineligible-' + locationNumber).is(":hidden")) {
-              //need to recalculate the top up with full decimals...
-              var datediff = getDateDiffLockdown(locationNumber);
-              var topUpRate = getLocationTopUpRate(datediff, locationNumber);
-              // var topUpRateOld = zeroIfEmpty('0.' + $('.top-up-rate-' + locationNumber).text().replace("%", "").replace(".", ""));
-            } else {
-              var topUpRate = 0;
-            }
-            var topUpAmount = qualifyingExpenses * topUpRate;
+            var topUpAmount = (qualifyingExpenses * topUpRate) / 100;
             formattedVal = toMoney.format(topUpAmount);
             $('#amt-top-up-' + locationNumber).text(formattedVal);
             updatedByElements = $('*[data-updated-by="amt-top-up-' + locationNumber + '"]'); //also update the relevant summary table lines
@@ -2205,12 +2196,12 @@
             recalculateLocationAmounts(locationNumber);
           });
 
+          var topUpRate = 0;
           function topUpRateCalculation(locationNumber, radioFlag) {
             if (radioFlag === undefined) {
               radioFlag = 0;
             }
             var datediff = getDateDiffLockdown(locationNumber);
-
             if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
               var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
@@ -2218,9 +2209,8 @@
                 $(element).text(datediff);
               });
               if (cersRate > 0) { //no rent subsidy rate, no top rate
-                var topUpRate = getLocationTopUpRate(datediff, locationNumber);
-                topUpRate = topUpRate.toFixed(2);
-                $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
+                topUpRate = getLocationTopUpRate(datediff, locationNumber);
+                $('.top-up-rate-'+locationNumber).text(topUpRate.toFixed(2) + "%");
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
               } else {
