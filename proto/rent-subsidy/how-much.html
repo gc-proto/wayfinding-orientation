@@ -335,7 +335,7 @@
                               <ul class="list-unstyled lst-spcd">
                                  <li class="affiliated-no-answer">You have indicated you do not have any affiliated entities that are claiming the CERS for this claim period.</li>
                                  <li class="affiliated-yes-blank-answer hidden">Affiliated entities must agree on how they will split the $300,000 eligible expenses maximum, even if they do not reach the maximum.</li>
-                                 <li class="affiliated-yes-answer hidden">Percentage your business will claim of the eligible expense maximum: <span class="h3 affiliated-entity-percentage">0%</span></li>
+                                 <li class="affiliated-yes-answer hidden">Percentage your business will claim of the eligible expense maximum: <span class="h3 affiliated-entity-percentage">0%</span> (you can claim up to <span id="affiliated-max-amount">$0.00</span>)</li>
                                  <li class="affiliated-yes-answer hidden">Other affiliated entities will be able to claim up to <span id="affiliated-remaining">0%</span></li>
                               </ul>
                            </div>
@@ -2006,7 +2006,6 @@
             } else { //if they haven't specified their calculation methods or something's buggy, totals should be 0
               var calculatedExpense = [0, 0, 0, 0, 0];
             }
-
             var summaryLines = ["rent-amt-" + locationNumber, "tax-amt-" + locationNumber, "insurance-amt-" + locationNumber, "interest-amt-" + locationNumber, "lease-amt-" + locationNumber];
             var formattedVal = 0;
             var updatedByElements = [];
@@ -2032,7 +2031,10 @@
 
             //calculate the top-up amount for the location
             if ($('#lock-down-eligible-' + locationNumber).is(":visible") && $('#lock-down-ineligible-' + locationNumber).is(":hidden")) {
-              var topUpRate = zeroIfEmpty('0.' + $('.top-up-rate-' + locationNumber).text().replace("%", "").replace(".", ""));
+              //need to recalculate the top up with full decimals...
+              var datediff = getDateDiffLockdown(locationNumber);
+              var topUpRate = getLocationTopUpRate(datediff, locationNumber);
+              // var topUpRateOld = zeroIfEmpty('0.' + $('.top-up-rate-' + locationNumber).text().replace("%", "").replace(".", ""));
             } else {
               var topUpRate = 0;
             }
@@ -2044,8 +2046,6 @@
               $(element).text(formattedVal);
             });
           }
-
-
 
           //Update location names on street address input
           $(document).on("blur", "input[id^='loc-staddress-']", function(event) {
@@ -2179,9 +2179,12 @@
             } else {
               //update the amount in the summary
               var affiliatedPerc = parseFloat($('#affiliated-split').val());
+              var maxAffiliatedAmt = (affiliatedPerc * 300000) / 100;
+              affiliatedPerc = affiliatedPerc;
               var affiliatedRemainder = 100 - affiliatedPerc;
               if (affiliatedPerc <= 100 && affiliatedPerc >= 0) {
                 $('.affiliated-entity-percentage').text(affiliatedPerc + '%');
+                $('#affiliated-max-amount').text(toMoney.format(maxAffiliatedAmt));
                 $('#affiliated-remaining').text(affiliatedRemainder + '%');
                 $('.affiliated-yes-answer').removeClass("hidden");
                 $('.affiliated-yes-blank-answer').addClass("hidden");
@@ -2206,13 +2209,7 @@
             if (radioFlag === undefined) {
               radioFlag = 0;
             }
-            var startDate = $("#lockdown-start-" + locationNumber).val();
-            var endDate = $("#lockdown-end-" + locationNumber).val();
-            var date1Arr = startDate.split("-");
-            var date2Arr = endDate.split("-");
-            var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
-            var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
-            var datediff = Math.round((date2 - date1) / (1000*60*60*24)) + 1;
+            var datediff = getDateDiffLockdown(locationNumber);
 
             if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               $('#top-up-days-'+locationNumber).text(datediff);
@@ -2220,9 +2217,8 @@
               $(updatedByElements).each(function (i, element) {
                 $(element).text(datediff);
               });
-              var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
-              if (baseRate > 0) { //no rent subsidy rate, no top rate
-                var topUpRate = datediff * 25 / 28;
+              if (cersRate > 0) { //no rent subsidy rate, no top rate
+                var topUpRate = getLocationTopUpRate(datediff, locationNumber);
                 topUpRate = topUpRate.toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
@@ -2241,6 +2237,22 @@
             }
             recalculateLocationAmounts(locationNumber);
           }
+
+          //Gets the number of days between the start and end date of the lockdown period for a location
+          function getDateDiffLockdown(locationNumber) {
+            var startDate = $("#lockdown-start-" + locationNumber).val();
+            var endDate = $("#lockdown-end-" + locationNumber).val();
+            var date1Arr = startDate.split("-");
+            var date2Arr = endDate.split("-");
+            var date1 = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, date1Arr[2]));
+            var date2 = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, date2Arr[2]));
+            return Math.round((date2 - date1) / (1000*60*60*24)) + 1;
+          }
+          //Gets the top up rate for the location, unrounded
+          function getLocationTopUpRate(dateDiff, locationNumber) {
+            return (dateDiff * 25) / 28;
+          }
+
 
           //when the user clicks the remove button on an location panel
           $(document).on("click", ".rm-loc", function(event) {
@@ -2307,8 +2319,7 @@
             var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
             $('.qualifying-rent-expenses').html(toMoney.format(line170Total));
-            var baseRate = zeroIfEmpty($('.base-rate').text().replace("%",""));
-            var baseAmount = line170Total * baseRate / 100;
+            var baseAmount = (line170Total * cersRate) / 100;
             var claimTotal = baseAmount + smryTotals[6];
             baseAmount = baseAmount.toFixed(2);
             claimTotal = claimTotal.toFixed(2);
@@ -2592,6 +2603,7 @@
             }
             recalculateAllLocations();
           }
+
 
           /**
           * NoCERSRate()
