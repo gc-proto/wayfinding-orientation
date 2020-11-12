@@ -1135,7 +1135,7 @@
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
-                        <li id="smry-staddress-desc" class="hidden">You will need to include these locations' addresses in your application:
+                        <li id="smry-staddress-desc" class="hidden">You will need to include these location addresses in your application:
                           <ul>
                             <li class="hidden" id="smry-staddress-1"></li>
                             <li class="hidden" id="smry-staddress-2"></li>
@@ -2287,7 +2287,7 @@
               smryTotals[5] += qreForLocation;
               if (qreForLocation > 0) {
                 qreLocations.push(locNum);
-                qreAmounts.push(getFullAddress(locNum));
+                qreAmounts.push(qreForLocation);
               }
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").split(",").join(""));
             });
@@ -2322,6 +2322,7 @@
             var secondLocation = 0;
             var thirdQre = 0;
             var thirdLocation = 0;
+
             for (var i = 0; i < qreAmounts.length; i++) {
               if (qreAmounts[i] > firstQre) {
                 thirdQre = secondQre;
@@ -2343,9 +2344,8 @@
             //the first._location == locNum of the top location for the application form
             var locationName = "";
             if (firstQre > 0) { //if there's only 1 location, then don't bother showing this in the summary
-              $('#smry-staddress-desc-all').addClass("hidden");
               //add location 1 to the summary
-              locationName = $('#loc-staddress-' + firstLocation).val()
+              locationName = getFullAddress(firstLocation);
               if (locationName == "") {
                 locationName = "Location " + firstLocation;
               }
@@ -2358,33 +2358,26 @@
             }
             if (secondQre > 0) { //if there's only 1 location, then don't bother showing this in the summary
               //add location 2 to the summary
-              locationName = $('#loc-staddress-' + secondLocation).val()
+              locationName = getFullAddress(secondLocation);
               if (locationName == "") {
                 locationName = "Location " + secondLocation;
               }
-              $('#smry-staddress-2').text($('#loc-staddress-' + secondLocation).val());
+              $('#smry-staddress-2').text(locationName);
               $('#smry-staddress-2').removeClass("hidden");
             } else {
               $('#smry-staddress-2').addClass("hidden");
             }
             if (thirdQre > 0) {
               //add location 3 to the summary
-              locationName = $('#loc-staddress-' + thirdLocation).val()
+              locationName = getFullAddress(thirdLocation);
               if (locationName == "") {
                 locationName = "Location " + thirdLocation;
               }
-              $('#smry-staddress-3').text($('#loc-staddress-' + thirdLocation).val());
+              $('#smry-staddress-3').text(locationName);
               $('#smry-staddress-3').removeClass("hidden");
             } else {
               $('#smry-staddress-3').addClass("hidden");
             }
-            // } else {
-            //   $('#smry-staddress-1').addClass("hidden");
-            //   $('#smry-staddress-2').addClass("hidden");
-            //   $('#smry-staddress-3').addClass("hidden");
-            //   $('#smry-staddress-desc').addClass("hidden");
-            //   $('#smry-staddress-desc-all').removeClass("hidden");
-            // }
           }
 
           /* 
