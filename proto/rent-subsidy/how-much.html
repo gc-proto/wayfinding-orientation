@@ -2278,18 +2278,18 @@
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
-              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(",",""));
-              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(",",""));
-              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(",",""))
+              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").split(",").join(""));
+              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").split(",").join(""));
+              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").split(",").join(""));
+              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").split(",").join(""));
+              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").split(",").join(""));
+              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").split(",").join(""))
               smryTotals[5] += qreForLocation;
               if (qreForLocation > 0) {
                 qreLocations.push(locNum);
                 qreAmounts.push(getFullAddress(locNum));
               }
-              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(",",""));
+              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").split(",").join(""));
             });
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
