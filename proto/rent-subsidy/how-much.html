@@ -1914,6 +1914,11 @@
               var locationNumber = parts[parts.length - 1];
               topUpRateCalculation(locationNumber);
               recalculateLocationAmounts(locationNumber);
+              //update the date ranges for input fields in owned location panels
+              updateDateRangeInputs(locationNumber, "tax");
+              updateDateRangeInputs(locationNumber, "insurance");
+              updateDateRangeInputs(locationNumber, "interest");
+              updateDateRangeInputs(locationNumber, "lease");
             });
           });
 
@@ -2192,28 +2197,47 @@
             } else if ($(target).parents('.own-location-' + locationNumber).length) {
               //change dates
               var expenseType = target.id.split("-")[2];
-              var calcMethod = $('#' + target.id + ' option:selected').data("calc-method");
-              var rangeISO = $('#claim-period').find('option:selected').val(),
-                  startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
-                  endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
-              if (calcMethod == "period") {
-                //get the start/end based on the period start/end dates
-                var startDate = startDateISO;
-                var endDate = endDateISO;
-              } else if (calcMethod == "month") {
-                var startDateParts = startDateISO.split("-");
-                var endDateParts = endDateISO.split("-");
-                var startDate = startDateISO;
-                var endDate = endDateISO;
-              } else if (calcMethod == "year") {
-                var startDate = "2020-01-01";
-                var endDate = "2020-12-31";
-              }
-              $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
-              $('.date-' + expenseType + '-end-' + locationNumber).text(endDate);
+              console.log(target.id);
+              updateDateRangeInputs(locationNumber, expenseType);
               recalculateLocationAmounts(locationNumber);
             }
           });
+
+          /**
+           * updateDateRageInputs
+           * 
+           * Updates the date ranges for owned locations based on the location number
+           */
+          function updateDateRangeInputs(locationNumber, expenseType) {
+            var calcMethod = $('#date-chooser-' + expenseType + '-' + locationNumber + ' option:selected').data("calc-method");
+            var rangeISO = $('#claim-period').find('option:selected').val()
+            console.log("calcMethod: " + calcMethod);
+            console.log("rangeISO: " + rangeISO);
+            if (calcMethod == "none" || rangeISO == "") {
+              $('#'+ expenseType +'-date-error-' + locationNumber).removeClass("hidden");
+              $('#'+ expenseType +'-date-' + locationNumber).addClass("hidden");
+              return;
+            }
+            var startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
+                endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
+            if (calcMethod == "period") {
+              //get the start/end based on the period start/end dates
+              var startDate = startDateISO;
+              var endDate = endDateISO;
+            } else if (calcMethod == "month") {
+              var startDateParts = startDateISO.split("-");
+              var endDateParts = endDateISO.split("-");
+              var startDate = startDateISO;
+              var endDate = endDateISO;
+            } else if (calcMethod == "year") {
+              var startDate = "2020-01-01";
+              var endDate = "2020-12-31";
+            }
+            $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
+            $('.date-' + expenseType + '-end-' + locationNumber).text(endDate); 
+            $('#'+ expenseType +'-date-error-' + locationNumber).addClass("hidden");
+            $('#'+ expenseType +'-date-' + locationNumber).removeClass("hidden");
+          }
 
           function expenseFieldHideShow(locationNumber) {
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
