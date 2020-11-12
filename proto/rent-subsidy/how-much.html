@@ -2326,6 +2326,7 @@
               $('.top-up-rate-'+locationNumber).text("0" + "%");
             }
             recalculateLocationAmounts(locationNumber);
+            calculateTotals();
           }
 
           //Gets the number of days between the start and end date of the lockdown period for a location
@@ -2711,6 +2712,7 @@
               topUpRateCalculation(locationNumber);
               recalculateLocationAmounts(locationNumber);
             });
+            calculateTotals();
           }
 
           /**
