@@ -355,15 +355,24 @@
                                 <p>Baseline revenue and prior reference period options</p>
                                 <p>Your baseline revenue is determined by the prior reference period you choose. It is either:</p>
                                 <div class="row">
-                                  <div class="col-md-6">
-                                    <h3>General prior reference period</h3>
-                                    <p>The eligible revenue you earned in the <strong>corresponding month in 2019</strong></p>
+                                  <div class="col-xs-12">
+                                     <div class="row">
+                                        <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg">
+                                           <div class="col-sm-12">
+                                              <p class="mrgn-tp-0 h5 text-muted">General prior reference period</p>
+                                              <p>The eligible revenue you earned in the <strong>corresponding month in 2019</strong></p>
+                                           </div>
+                                        </div>
+                                        <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
+                                        <div class="col-xs-12 col-sm-6 mrgn-bttm-lg">
+                                           <div class="col-sm-12">
+                                              <p class="mrgn-tp-0 h5 text-muted">Alternative prior reference period</p>
+                                              <p>The average of the eligible revenue you earned in January and February 2020</p>
+                                           </div>
+                                        </div>
+                                     </div>
                                   </div>
-                                  <div class="col-md-6">
-                                    <h3>Alternative prior reference period</h3>
-                                    <p>The average of the eligible revenue you earned in January and February 2020</p>
-                                  </div>
-                                </div>
+                               </div>
                                 <p>You must choose one of these prior reference period options and use it when calculating your revenue drop for the base rate for all claim periods. If you have also claimed the CEWS, the method you use must be the same as the method you used for CEWS periods 5 or later.</p>
                                 <p><strong>Note: </strong>If you choose to use the alternative prior referenc period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
                               </details>
@@ -644,9 +653,21 @@
                                               <legend>Does the location qualify for lockdown support?</legend>
                                               <details>
                                                 <summary class="lockdown-details">To qualify for lockdown support</summary>
+                                                <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
+                                                <p>The business location must meet all the following conditions to qualify for the top up:</p>
                                                 <ul class="fa-ul">
-                                                  <li><span class="fas fa-check text-success fa-li"></span>your business location must be closed due to a federal, provincial or municipal COVID-19 public health order</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>approximately 25% or more of the location's revenue came from business activities that you are not allowed to carry out under the restrictions</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the business was forced to cease some or all of its activities in the location for at least one week as a result of a <strong>Covid related public health order</strong></li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the public health order affected a cleary defined geographical region where the business operates, as well as the types of activities that were restricted</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the order came from a federal, provincial or municipal government, or a local health authority</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the <strong>activities the business was restricted from carrying out</strong> must account for at least 25% of total revenues at that location during the 'prior reference period' (month preceeding the claim period)</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>activities at the location must not already be restricted as a direct desult of a failure to comply with a previous public health order or decision</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the business qualifies for a base CERS subsidy rate (<span class="base-rate">0%</span>) for the period</li>
+                                                </ul>
+                                                <p>Note that the public health order must be a cessation of activities. Ordered reduction in operating hours or capacity, or similar restriction such as the following would not qualify:</p>
+                                                <ul class="fa-ul">
+                                                  <li><span class="fas fa-times text-danger fa-li"></span>a restriction on how the activity is performed (e.g., mask requirement for indoor dining servers)</li>
+                                                  <li><span class="fas fa-times text-danger fa-li"></span>a restriction on the time during which the activity may be performed (e.g., a required reduction in service hours)</li>
+                                                  <li><span class="fas fa-times text-danger fa-li"></span>any other restrictions that do not specifically require a cease of activities (e.g., a requirement to reducing seating capacity for indoor dining services</li>
                                                 </ul>
                                               </details>
                                               <ul class="list-unstyled lst-spcd-2">
@@ -934,7 +955,7 @@
                                           }
                                            -->
                                        <footer class="panel-footer">
-                                          <details open>
+                                          <details class="smry-accordion-details" open>
                                              <summary class="location-details">Expense summary for <span class="loc-staddress-1">location 1</span>
                                              </summary>
                                              <table class="table table-condensed small" id="loc-smry-1">
@@ -1639,7 +1660,7 @@
             $(frag).find('.own-location-' + numLocs).addClass("hidden");
             $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
             //open the accordion for the summary details
-            var accordion = $(frag).find("details").each(function (i, element) {
+            var accordion = $(frag).find(".smry-accordion-details").each(function (i, element) {
               $(element).attr("open", "open");
             });
             //Update the Location name text in summary
