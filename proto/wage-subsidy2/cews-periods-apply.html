@@ -1834,7 +1834,7 @@ END: Period 10 is open -->
                 </div>
               </form>
             </div>
-            <div id="answers"></div>
+            <div id="answers" class="data-ajax"></div>
           </div>
         </div>
       </div>
@@ -1873,5 +1873,26 @@ END: Period 10 is open -->
             }));
          </script> 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+	<script>
+(function( $, document, wb ) {
+"use strict";
+$('.data-ajax').on( "wb-contentupdated", function( event, data ){
+// "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
+// "data.content" contains the
+var $elm = $(event.currentTarget);
+$elm
+.find( wb.allSelectors )
+.addClass( "wb-init" )
+.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+.trigger( "timerpoke.wb" );
+/*
+* Since we are working with events we want to ensure that we are being
+* passive about our control, so returning true allows for events to always
+* continue
+*/
+return true;
+});
+})( jQuery, document, wb );
+</script>
 </body>
 </html>
