@@ -2311,8 +2311,8 @@
                 $(element).text(datediff);
               });
               if (cersRate > 0) { //no rent subsidy rate, no top rate
-                topUpRate = getLocationTopUpRate(datediff, locationNumber);
-                $('.top-up-rate-'+locationNumber).text(topUpRate.toFixed(2) + "%");
+                topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
+                $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
               } else {
