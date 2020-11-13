@@ -2180,6 +2180,7 @@
                 $('#lock-down-period-'+locationNumber).addClass("hidden");
                 $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).addClass("hidden");
+                topUpRateCalculation(locationNumber);
               }
             } else if (target.name = "owner-location-" + locationNumber) {
               if (target.id == 'owner-location-yes-' + locationNumber) {
