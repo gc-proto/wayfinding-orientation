@@ -661,7 +661,7 @@
                                                   <li><span class="fas fa-check text-success fa-li"></span>the order came from a federal, provincial or municipal government, or a local health authority</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>the <strong>activities the business was restricted from carrying out</strong> must account for at least 25% of total revenues at that location during the 'prior reference period' (month preceeding the claim period)</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>activities at the location must not already be restricted as a direct desult of a failure to comply with a previous public health order or decision</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the business qualifies for a base CERS subsidy rate (<span class="base-rate">0%</span>) for the period</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the business qualifies for a base CERS subsidy rate more than 0% for the period</li>
                                                 </ul>
                                                 <p>Note that the public health order must be a cessation of activities. Ordered reduction in operating hours or capacity, or similar restriction such as the following would not qualify:</p>
                                                 <ul class="fa-ul">
@@ -2109,8 +2109,11 @@
             $(updatedByElements).each(function (i, element) {
               $(element).text(formattedVal);
             });
-
-            var topUpAmount = (qualifyingExpenses * topUpRate) / 100;
+            if ($('#lock-down-eligible-' + locationNumber).is(':visible')) {
+              var topUpAmount = (qualifyingExpenses * topUpRate) / 100;
+            } else {
+              var topUpAmount = 0;
+            }
             formattedVal = toMoney.format(topUpAmount);
             $('#amt-top-up-' + locationNumber).text(formattedVal);
             updatedByElements = $('*[data-updated-by="amt-top-up-' + locationNumber + '"]'); //also update the relevant summary table lines
