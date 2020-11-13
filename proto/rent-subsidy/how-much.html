@@ -1841,11 +1841,6 @@
               $('.date-cers-period-end').text(endDateISO);
             }
 
-            //*****
-            //Reset revenue values to what they are defaulted as? for the summary box when the period changes
-            //*****
-
-
             //show/hide elements based on chosen claim period
             $("#select-a-claim-period-reminder").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
@@ -2268,7 +2263,7 @@
           }
 
           $("#affiliated-split").on('blur', updateAffiliatedSummary);
-          /*
+          /**
           * updateAffiliatedSummary
           *
           * Updates the summary for affiliated section when there is an input field for the split visible
@@ -2292,12 +2287,7 @@
                 $('.affiliated-yes-blank-answer').addClass("hidden");
               }
             }
-
-            // *******
-            // Need to recalculate the totals...
-            // recalculateLocationAmounts(locationNumber);
-            // *******
-
+            calculateTotals();
           }
 
           $document.on("blur", ".lock-down-dates", function (event) {
@@ -2912,20 +2902,7 @@
         $(document).on("wb-ready.wb", function () {
           $("#reduction-percent-panel").addClass("hidden");
         });
-        // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
 
-        //hide/show for top-up period input
-
-        // //fix for duplicated popup trigger
-        // $(document).on("click", ".arms-length-def", function (event) {
-        //   showPopup("armslength");
-        // });
-        // $(document).on("click", ".baseline-rem-def", function (event) {
-        //   showPopup("baseline-rem");
-        // });
-        // $(document).on("click", ".pay-claim-def", function (event) {
-        //   showPopup("pay-claim");
-        // });
         $(document).on("click", ".toCSV", function (event) {
           export_table_to_csv("location-cews.csv");
         });
