@@ -2147,6 +2147,7 @@
 
           //Radio event listener
           $document.on("click", "input[type=radio]", function (event) {
+            console.log("hi");
             var target = event.target;
             var parts = target.name.split("-");
             var locationNumber = parts[parts.length - 1];
@@ -2188,6 +2189,7 @@
               }
               expenseFieldHideShow(locationNumber);
             }
+            recalculateLocationAmounts(locationNumber);
           });
 
           //Calculation method event listener
@@ -2200,7 +2202,6 @@
             } else if ($(target).parents('.own-location-' + locationNumber).length) {
               //change dates
               var expenseType = target.id.split("-")[2];
-              console.log(target.id);
               updateDateRangeInputs(locationNumber, expenseType);
               recalculateLocationAmounts(locationNumber);
             }
@@ -2214,8 +2215,6 @@
           function updateDateRangeInputs(locationNumber, expenseType) {
             var calcMethod = $('#date-chooser-' + expenseType + '-' + locationNumber + ' option:selected').data("calc-method");
             var rangeISO = $('#claim-period').find('option:selected').val()
-            console.log("calcMethod: " + calcMethod);
-            console.log("rangeISO: " + rangeISO);
             if (calcMethod == "none" || rangeISO == "") {
               $('#'+ expenseType +'-date-error-' + locationNumber).removeClass("hidden");
               $('#'+ expenseType +'-date-' + locationNumber).addClass("hidden");
