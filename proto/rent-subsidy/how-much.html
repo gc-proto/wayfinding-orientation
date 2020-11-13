@@ -1677,6 +1677,15 @@
             // //in IE and Safari, also need to update the datepicker generated ID
             // $(frag).find('#lockdown-start-1-picker-toggle').attr("id", '#lockdown-start-' + numLocs + '-picker-toggle');
             // $(frag).find('#lockdown-end-1-picker-toggle').attr("id", '#lockdown-end-' + numLocs + '-picker-toggle');
+            //Update all the owned location inputs to have the default 'select a period' message
+            $(frag).find('#tax-date-' + numLocs).addClass("hidden");
+            $(frag).find('#tax-date-error-' + numLocs).removeClass("hidden");
+            $(frag).find('#insurance-date-' + numLocs).addClass("hidden");
+            $(frag).find('#insurance-date-error-' + numLocs).removeClass("hidden");
+            $(frag).find('#interest-date-' + numLocs).addClass("hidden");
+            $(frag).find('#interest-date-error-' + numLocs).removeClass("hidden");
+            $(frag).find('#lease-date-' + numLocs).addClass("hidden");
+            $(frag).find('#lease-date-error-' + numLocs).removeClass("hidden");
           }
 
           return LocationFormGenerator;
