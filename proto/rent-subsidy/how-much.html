@@ -131,10 +131,10 @@
                   <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the days in the CERS period)</li>
                   <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your top-up (lockdown support) rate</span></li>
                 </ul>
-                
+
                 <p>If you have a 0% rent subsidy rate, you cannot claim a top up for any location.</p>
-                
-                
+
+
                 <details>
                   <summary>Example top-up rate calculation</summary>
                   <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
@@ -185,19 +185,7 @@
                           <li>
                             <details>
                             <summary>Find out if you have affiliated entities</summary>
-                            <p>An affiliated entity is an organization that:</p>
-                            <ul>
-                            <li>controls another entity (directly or indirectly)</li>
-                            <li>is controlled by another entity (directly or indirectly)</li>
-                            <li>is under common control alongside another entity</li>
-                            </ul>
-
-                            <p>Although the rules can be complicated, some examples include:</p>
-                            <ul>
-                            <li>you run your business activities through more than one entity (corporations, trusts or partnerships)</li>
-                            <li>you and your spouse each own or operate a business, directly or through a corporation or other entity </li>
-                            <li>the entity through which your business or activities are conducted is owned or controlled by people who own or control other entities </li>
-                            </ul>
+                            <div data-ajax-replace="who-apply.html #affiliated"></div>
                          </details>
                           </li>
                        </ul>
@@ -265,19 +253,7 @@
                            <p>You and any affiliated entities are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
                            <details>
                            <summary>Find out if you have affiliated entities</summary>
-                           <p>An affiliated entity is an organization that:</p>
-                           <ul>
-                           <li>controls another entity (directly or indirectly)</li>
-                           <li>is controlled by another entity (directly or indirectly)</li>
-                           <li>is under common control alongside another entity</li>
-                           </ul>
-
-                           <p>Although the rules can be complicated, some examples include:</p>
-                           <ul>
-                           <li>you run your business activities through more than one entity (corporations, trusts or partnerships)</li>
-                           <li>you and your spouse each own or operate a business, directly or through a corporation or other entity </li>
-                           <li>the entity through which your business or activities are conducted is owned or controlled by people who own or control other entities </li>
-                           </ul>
+                           <div data-ajax-replace="who-apply.html #affiliated"></div>
                         </details>
                            <!--
                            <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businesses or entities<span class="far fa-question-circle"></span></a></p>
@@ -1220,7 +1196,7 @@
                </ul>
             </nav>
          </section>
-         
+
          <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
             <header class="modal-header">
                <h2 class="modal-title">Print preview for CERS statement</h2>
@@ -2214,7 +2190,7 @@
 
           /**
            * updateDateRageInputs
-           * 
+           *
            * Updates the date ranges for owned locations based on the location number
            */
           function updateDateRangeInputs(locationNumber, expenseType) {
@@ -2241,7 +2217,7 @@
               var endDate = "2020-12-31";
             }
             $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
-            $('.date-' + expenseType + '-end-' + locationNumber).text(endDate); 
+            $('.date-' + expenseType + '-end-' + locationNumber).text(endDate);
             $('#'+ expenseType +'-date-error-' + locationNumber).addClass("hidden");
             $('#'+ expenseType +'-date-' + locationNumber).removeClass("hidden");
           }
@@ -2483,11 +2459,11 @@
             }
           }
 
-          /* 
+          /*
           * getFullAddress
           *
           * Returns the concatenated address fields, with commas, as a string
-          * 
+          *
           * @param {locationNumber} integer defining the location panel to reference
           */
           function getFullAddress(locationNumber) {
@@ -2565,7 +2541,7 @@
             document.getElementById($(frag).prop("id")).scrollIntoView({
               behavior: 'smooth'
             });
-            
+
             //reinitialize the datepickers and expand hide after adding it to page
             $("#loc-"+numLocationPanels).find( wb.allSelectors )
               .addClass( "wb-init" )
