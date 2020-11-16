@@ -833,6 +833,7 @@
 
                                                 <div class="col-md-12 mrgn-tp-md">
                                                   <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+                                                  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Adjust your amounts for the CERS period (28 days) option if your expense payment periods don't align with the monthly or yearly options.</p>
 
                                                   <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -841,6 +842,7 @@
                                                       <select class="form-control input-lg" id="date-chooser-tax-1">
                                                         <option data-calc-method="none">Select an expense period</option>
                                                         <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="month">Per month</option>
                                                         <option data-calc-method="year">Year 2020</option>
                                                       </select>
                                                       <span class="input-group-addon input-sm">$</span>
@@ -859,6 +861,7 @@
                                                       <select class="form-control input-lg" id="date-chooser-insurance-1">
                                                         <option data-calc-method="none">Select an expense period</option>
                                                         <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="month">Per month</option>
                                                         <option data-calc-method="year">Year 2020</option>
                                                       </select>
                                                       <span class="input-group-addon input-sm">$</span>
@@ -1059,7 +1062,7 @@
                                              <td><span class="top-up-total"></span></td>
                                           </tr>
                                           <tr>
-                                            <td colspan="9">Calculated basic CERS amount: <span class="base-subsidy-amount">$0.00</span></td>
+                                            <td colspan="9">Calculated basic CERS amount: <span class="base-subsidy-amount">$0.00</span> (based on your <span class="base-rate">0%</span> rate)</td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -1098,7 +1101,7 @@
               <div class="panel-body">
                  <div id="cers-statement">
                     <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
-                    <p>The line amounts you will need to complete your application for the CERS in your online CRA account:</p>
+                    <p>The line amounts you will need to complete your application for <strong><span class="claim-period"></span></strong> of the CERS in your online CRA account:</p>
                     <ul class="lst-spcd">
                        <li><strong>Line 110:</strong>
                           Number of eligible properties: <strong>
@@ -1153,7 +1156,7 @@
               </div>
               <table class="table" id="cers-statement-table">
                  <caption class="h5 mrgn-bttm-0">
-                    Summary of CERS calculation
+                    Period <span class="claim-period-no"></span>: Summary of CERS calculation
                  </caption>
                  <tbody>
                     <tr>
