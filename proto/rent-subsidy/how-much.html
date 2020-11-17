@@ -2658,14 +2658,21 @@
               }
             }
             if (revReduction > 0) {
+              //Moving the round down to before the cersRate is calculated:
+              revReduction = roundPercDown(revReduction);
               //get the base rate
               cersRate = parseFloat(Math.max(getRentSubsidyRate(revReduction), 0));
               //round to nearest
               cersRate = cersRate * 100;
               cersRate = cersRate.toFixed(2);
-              $(".currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
-              $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
-              $(".preferentialRevReduction").text(roundPercDown(revReduction) + "%");
+
+              currentRevReduc = roundPercDown(currentRevReduc) * 100;
+              priorRevReduc = roundPercDown(priorRevReduc) * 100;
+              revReduction = revReduction * 100;
+
+              $(".currentRevReduction").text(currentRevReduc.toFixed() + "%");
+              $(".priorRevReduction").text(priorRevReduc.toFixed(2) + "%");
+              $(".preferentialRevReduction").text(revReduction.toFixed(2) + "%");
               $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
@@ -2751,7 +2758,7 @@
           function roundPercDown(perc) {
             perc = perc * 10000;
             perc = Math.floor(perc);
-            perc = perc / 100;
+            perc = perc / 10000;
             return perc;
           }
 
