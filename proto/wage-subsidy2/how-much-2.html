@@ -3224,7 +3224,9 @@
             }
           }
           $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate").text(cewsRate * 100 + "%");
+          var cewsRateDisplay = cewsRate * 100;
+          cewsRateDisplay = cewsRateDisplay.toFixed(2);
+          $("#cews-rate").text(cewsRateDisplay + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
@@ -3315,7 +3317,9 @@
             $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
           }
           $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
-          $("#cews-rate-alt").text(cewsRate * 100 + "%");
+          var cewsRateDisplay = cewsRate * 100;
+          cewsRateDisplay = cewsRateDisplay.toFixed(2);
+          $("#cews-rate").text(cewsRateDisplay + "%");
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0

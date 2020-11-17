@@ -556,14 +556,14 @@
                                         <div class="col-md-12">
                                           <div class="checkbox provisional gc-chckbxrdio pull-right">
                                             <input id="jan-feb-closed" type="checkbox" checked="checked"/>
-                                            <label for="jan-feb-closed">Business was operating normally during January and February</label>
+                                            <label for="jan-feb-closed">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
                                           </div>
                                         </div>
                                       </div>
                                       <div id="jan-feb-closed-inputs" class="mrgn-bttm-lg pull-right hidden">
                                         <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
                                            <div class="col-md-12">
-                                              <label for="jan-feb-closed-days" class="required">Days the business was not operating during Jan-Feb 2020<span class="wb-inv"> (do not include
+                                              <label for="jan-feb-closed-days" class="required">Days you were not in business during Jan-Feb 2020<span class="wb-inv"> (do not include
                                               spaces or commas)</span><strong class="required">(required)</strong></label>
                                            </div>
                                            <div class="col-xs-6">
@@ -2692,7 +2692,7 @@
               priorRevReduc = roundPercDown(priorRevReduc) * 100;
               revReduction = revReduction * 100;
 
-              $(".currentRevReduction").text(currentRevReduc.toFixed() + "%");
+              $(".currentRevReduction").text(currentRevReduc.toFixed(2) + "%");
               $(".priorRevReduction").text(priorRevReduc.toFixed(2) + "%");
               $(".preferentialRevReduction").text(revReduction.toFixed(2) + "%");
               $(".base-rate").text(cersRate + "%");
