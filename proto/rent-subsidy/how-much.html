@@ -2633,7 +2633,6 @@
               if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
                 if ($('#jan-feb-closed-inputs').is(":visible")) {
                   var daysNotOperating = zeroIfEmpty($('#jan-feb-closed-days').val());
-                  console.log("daysNotOperating: " + daysNotOperating);
                   var baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
                 } else {
                   var baseRev = (janRev + febRev) / 2;
