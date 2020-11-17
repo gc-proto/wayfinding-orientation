@@ -131,10 +131,10 @@
                   <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> 28 (the days in the CERS period)</li>
                   <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5">Your top-up (lockdown support) rate</span></li>
                 </ul>
-                
+
                 <p>If you have a 0% rent subsidy rate, you cannot claim a top up for any location.</p>
-                
-                
+
+
                 <details>
                   <summary>Example top-up rate calculation</summary>
                   <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
@@ -172,11 +172,13 @@
                            </ul>
                         </p>
                      </li>
+                     <!--
                      <li class="checkbox">
                         <input type="checkbox" id="bfore5" class="action-checkbox">
                         <label for="bfore5"><strong>You have already made your rent or other expense payments</strong></label>
                         <label for="bfore5">You cannot claim any rent, property tax or other expense amounts that you have not already paid.</label>
                      </li>
+                   -->
                      <li class="checkbox">
                         <input type="checkbox" id="bfore6" class="action-checkbox">
                         <label for="bfore6"><strong>If your business has affiliated businesses or entities:</strong></label>
@@ -185,19 +187,7 @@
                           <li>
                             <details>
                             <summary>Find out if you have affiliated entities</summary>
-                            <p>An affiliated entity is an organization that:</p>
-                            <ul>
-                            <li>controls another entity (directly or indirectly)</li>
-                            <li>is controlled by another entity (directly or indirectly)</li>
-                            <li>is under common control alongside another entity</li>
-                            </ul>
-
-                            <p>Although the rules can be complicated, some examples include:</p>
-                            <ul>
-                            <li>you run your business activities through more than one entity (corporations, trusts or partnerships)</li>
-                            <li>you and your spouse each own or operate a business, directly or through a corporation or other entity </li>
-                            <li>the entity through which your business or activities are conducted is owned or controlled by people who own or control other entities </li>
-                            </ul>
+                            <div data-ajax-replace="who-apply.html #affiliated"></div>
                          </details>
                           </li>
                        </ul>
@@ -224,7 +214,8 @@
             </section>
             <h2 id="h-3">Use the calculator</h2>
             <p>Use this calculator before you apply for the subsidy to calculate the amount you can apply for.</p>
-            <p>After calculating your amounts, you will have to apply for the subsidy online through My Business Account or Represent a Client using the information you printed.</p>
+            <p>After calculating your amounts, you will have to apply for the subsidy online through My Business Account or Represent a Client.</p>
+            <p><strong>Print the information from the calculator</strong> in order to use it in your application.</p>
             <details>
                <summary>Privacy statement: This calculator does not collect your information</summary>
                <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of CERS you may be eligible to
@@ -261,23 +252,11 @@
                      </li>
                      <li id="stp1">
                         <fieldset>
-                           <legend><span class="wb-inv">Step 2: </span>Related businesses, charities and non-profits</legend>
-                           <p>You and any affiliated entities are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
+                           <legend><span class="wb-inv">Step 2: </span>Related businesses, charities, and non-profit organizations</legend>
+                           <p>You and any related businesses, charities, and non-profit organizations (affiliated entities) are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
                            <details>
                            <summary>Find out if you have affiliated entities</summary>
-                           <p>An affiliated entity is an organization that:</p>
-                           <ul>
-                           <li>controls another entity (directly or indirectly)</li>
-                           <li>is controlled by another entity (directly or indirectly)</li>
-                           <li>is under common control alongside another entity</li>
-                           </ul>
-
-                           <p>Although the rules can be complicated, some examples include:</p>
-                           <ul>
-                           <li>you run your business activities through more than one entity (corporations, trusts or partnerships)</li>
-                           <li>you and your spouse each own or operate a business, directly or through a corporation or other entity </li>
-                           <li>the entity through which your business or activities are conducted is owned or controlled by people who own or control other entities </li>
-                           </ul>
+                           <div data-ajax-replace="who-apply.html #affiliated"></div>
                         </details>
                            <!--
                            <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businesses or entities<span class="far fa-question-circle"></span></a></p>
@@ -374,7 +353,7 @@
                                   </div>
                                </div>
                                 <p>You must choose one of these prior reference period options and use it when calculating your revenue drop for the base rate for all claim periods. If you have also claimed the CEWS, the method you use must be the same as the method you used for CEWS periods 5 or later.</p>
-                                <p><strong>Note: </strong>If you choose to use the alternative prior referenc period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
+                                <p><strong>Note: </strong>If you choose to use the alternative prior reference period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
                               </details>
                               <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                                  <p>Which baseline revenue comparison option will you use for this claim (you must use the same option as other CERS or CEWS claims)?</p>
@@ -656,11 +635,11 @@
                                                 <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
                                                 <p>The business location must meet all the following conditions to qualify for the top up:</p>
                                                 <ul class="fa-ul">
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the business was forced to cease some or all of its activities in the location for at least one week as a result of a <strong>Covid related public health order</strong></li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the public health order affected a cleary defined geographical region where the business operates, as well as the types of activities that were restricted</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the business was forced to cease some or all of its activities in the location for at least one week as a result of a <strong>COVID related public health order</strong></li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the public health order affected a clearly defined geographical region where the business operates, as well as the types of activities that were restricted</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>the order came from a federal, provincial or municipal government, or a local health authority</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the <strong>activities the business was restricted from carrying out</strong> must account for at least 25% of total revenues at that location during the 'prior reference period' (month preceeding the claim period)</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>activities at the location must not already be restricted as a direct desult of a failure to comply with a previous public health order or decision</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>the <strong>activities the business was restricted from carrying out</strong> must account for at least 25% of total revenues at that location during the 'prior reference period' (month preceding the claim period)</li>
+                                                  <li><span class="fas fa-check text-success fa-li"></span>activities at the location must not already be restricted as a direct result of a failure to comply with a previous public health order or decision</li>
                                                   <li><span class="fas fa-check text-success fa-li"></span>the business qualifies for a base CERS subsidy rate more than 0% for the period</li>
                                                 </ul>
                                                 <p>Note that the public health order must be a cessation of activities. Ordered reduction in operating hours or capacity, or similar restriction such as the following would not qualify:</p>
@@ -756,7 +735,7 @@
 
                                               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                                 <div class="col-sm-12">
-                                                  <label for="calc-method-1">Are your rent and subletting revenue for this location paid monthly? </label>
+                                                  <label for="calc-method-1">Are your rent and any rental income for this location paid monthly? </label>
                                                   <select class="form-control input-lg valid" id="calc-method-1">
                                                     <option data-calc-method="month">Yes - calculate monthly</option>
                                                     <option data-calc-method="period">No - manually input 28 day amounts</option>
@@ -787,7 +766,7 @@
                                                 <div class="clearfix"></div>
                                                 <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
                                                 <div class="col-md-6 col-sm-12">
-                                                  <label for="lease-one-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                  <label for="lease-one-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                     <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
                                                   </div>
@@ -812,7 +791,7 @@
                                                   <div class="clearfix"></div>
                                                   <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
                                                   <div class="col-md-6 col-sm-12">
-                                                    <label for="lease-two-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <label for="lease-two-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                     <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-two-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-two-date-1">
                                                     </div>
@@ -837,7 +816,7 @@
                                                   <div class="clearfix"></div>
                                                   <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
                                                   <div class="col-md-6 col-sm-12">
-                                                    <label for="lease-cers-period-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <label for="lease-cers-period-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                     <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-cers-period-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-cers-period-date-1">
                                                     </div>
@@ -856,6 +835,7 @@
 
                                                 <div class="col-md-12 mrgn-tp-md">
                                                   <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+                                                  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Adjust your amounts for the CERS period (28 days) option if your expense payment periods don't align with the monthly or yearly options.</p>
 
                                                   <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -864,6 +844,7 @@
                                                       <select class="form-control input-lg" id="date-chooser-tax-1">
                                                         <option data-calc-method="none">Select an expense period</option>
                                                         <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="month">Per month</option>
                                                         <option data-calc-method="year">Year 2020</option>
                                                       </select>
                                                       <span class="input-group-addon input-sm">$</span>
@@ -882,6 +863,7 @@
                                                       <select class="form-control input-lg" id="date-chooser-insurance-1">
                                                         <option data-calc-method="none">Select an expense period</option>
                                                         <option data-calc-method="period">CERS period (28 days)</option>
+                                                        <option data-calc-method="month">Per month</option>
                                                         <option data-calc-method="year">Year 2020</option>
                                                       </select>
                                                       <span class="input-group-addon input-sm">$</span>
@@ -912,7 +894,7 @@
 
 
                                                 <div class="col-md-12 mrgn-tp-lg">
-                                                  <label for="lease-own-1">Subletting revenue<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                  <label for="lease-own-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp form-group">
                                                     <div class="input-group">
                                                       <label for="date-chooser-lease-1" class="wb-inv">The period for which the lease payment was made</label>
@@ -986,7 +968,7 @@
                                                     <td data-updates="interest-ttl-1" id="interest-amt-1">$0.00</td>
                                                   </tr>
                                                   <tr>
-                                                    <td>Subletting revenue</td>
+                                                    <td>Rental income</td>
                                                     <td data-updates="lease-ttl-1" id="lease-amt-1">$0.00</td>
                                                   </tr>
                                                 </tbody>
@@ -1046,7 +1028,7 @@
                                             <th>Property tax</th>
                                             <th>Property insurance</th>
                                             <th>Interest on commercial mortgages</th>
-                                            <th>Subletting revenue</th>
+                                            <th>Rental income</th>
                                             <th>Qualifying expenses</th>
                                             <th>Lockdown support amount</th>
                                           </tr>
@@ -1082,7 +1064,7 @@
                                              <td><span class="top-up-total"></span></td>
                                           </tr>
                                           <tr>
-                                            <td colspan="9">Calculated basic CERS amount: <span class="base-subsidy-amount">$0.00</span></td>
+                                            <td colspan="9">Calculated basic CERS amount: <span class="base-subsidy-amount">$0.00</span> (based on your <span class="base-rate">0%</span> rate)</td>
                                           </tr>
                                        </tfoot>
                                     </table>
@@ -1121,7 +1103,7 @@
               <div class="panel-body">
                  <div id="cers-statement">
                     <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
-                    <p>The line amounts you will need to complete your application for the CERS in your online CRA account:</p>
+                    <p>The line amounts you will need to complete your application for <strong><span class="claim-period"></span></strong> of the CERS in your online CRA account:</p>
                     <ul class="lst-spcd">
                        <li><strong>Line 110:</strong>
                           Number of eligible properties: <strong>
@@ -1176,7 +1158,7 @@
               </div>
               <table class="table" id="cers-statement-table">
                  <caption class="h5 mrgn-bttm-0">
-                    Summary of CERS calculation
+                    Period <span class="claim-period-no"></span>: Summary of CERS calculation
                  </caption>
                  <tbody>
                     <tr>
@@ -1184,12 +1166,12 @@
                        <td class="text-right nowrap"><output class="affiliated-entity-percentage">N/A</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small class="nowrap">(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
+                       <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small>(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
                        <td class="text-right nowrap"><output class="qualifying-rent-expenses">$0.00</output></td>
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Rent subsidy rate</th>
-                       <td class="text-right nowrap"><abbr title="multipled by" class="brdr-0">X</abbr><output class="mrgn-lft-sm base-rate">0.00%</output></td>
+                       <td class="text-right nowrap"><abbr title="multipled by" class="brdr-0">x</abbr><output class="mrgn-lft-sm base-rate">0.00%</output></td>
                     </tr>
                     <tr>
                        <th scope="row" class="h6">Basic CERS amount <small class="nowrap">(Line 300)</small></th>
@@ -1206,7 +1188,7 @@
                  </tbody>
               </table>
               <div class="panel-body">
-                 <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your rent subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+                 <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your rent subsidy application. The data is not saved on this page. <strong>If you leave this page without printing you will need to enter your information again.</strong></p>
                  <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg"
                     role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview (or save to PDF) <span class="wb-inv"> CERS
                     statement</span></span></a>
@@ -1220,7 +1202,7 @@
                </ul>
             </nav>
          </section>
-         
+
          <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
             <header class="modal-header">
                <h2 class="modal-title">Print preview for CERS statement</h2>
@@ -1241,6 +1223,7 @@
             </div>
             <div class="modal-footer hidden"> </div>
          </section>
+         <!--
          <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Claim period pay per week<span class="loc-lv hidden"> and active locations or locations
@@ -1260,6 +1243,7 @@
                </div>
             </div>
          </section>
+       -->
          <section id="eligible-rev" class="mfp-hide modal-dialog modal-content overlay-def">
             <header class="modal-header">
                <h2 class="modal-title">Eligible revenue</h2>
@@ -2180,6 +2164,7 @@
                 $('#lock-down-period-'+locationNumber).addClass("hidden");
                 $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).addClass("hidden");
+                topUpRateCalculation(locationNumber);
               }
             } else if (target.name = "owner-location-" + locationNumber) {
               if (target.id == 'owner-location-yes-' + locationNumber) {
@@ -2213,7 +2198,7 @@
 
           /**
            * updateDateRageInputs
-           * 
+           *
            * Updates the date ranges for owned locations based on the location number
            */
           function updateDateRangeInputs(locationNumber, expenseType) {
@@ -2240,7 +2225,7 @@
               var endDate = "2020-12-31";
             }
             $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
-            $('.date-' + expenseType + '-end-' + locationNumber).text(endDate); 
+            $('.date-' + expenseType + '-end-' + locationNumber).text(endDate);
             $('#'+ expenseType +'-date-error-' + locationNumber).addClass("hidden");
             $('#'+ expenseType +'-date-' + locationNumber).removeClass("hidden");
           }
@@ -2310,8 +2295,8 @@
                 $(element).text(datediff);
               });
               if (cersRate > 0) { //no rent subsidy rate, no top rate
-                topUpRate = getLocationTopUpRate(datediff, locationNumber);
-                $('.top-up-rate-'+locationNumber).text(topUpRate.toFixed(2) + "%");
+                topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
+                $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
               } else {
@@ -2482,11 +2467,11 @@
             }
           }
 
-          /* 
+          /*
           * getFullAddress
           *
           * Returns the concatenated address fields, with commas, as a string
-          * 
+          *
           * @param {locationNumber} integer defining the location panel to reference
           */
           function getFullAddress(locationNumber) {
@@ -2564,7 +2549,7 @@
             document.getElementById($(frag).prop("id")).scrollIntoView({
               behavior: 'smooth'
             });
-            
+
             //reinitialize the datepickers and expand hide after adding it to page
             $("#loc-"+numLocationPanels).find( wb.allSelectors )
               .addClass( "wb-init" )
