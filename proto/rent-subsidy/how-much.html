@@ -172,11 +172,13 @@
                            </ul>
                         </p>
                      </li>
+                     <!--
                      <li class="checkbox">
                         <input type="checkbox" id="bfore5" class="action-checkbox">
                         <label for="bfore5"><strong>You have already made your rent or other expense payments</strong></label>
                         <label for="bfore5">You cannot claim any rent, property tax or other expense amounts that you have not already paid.</label>
                      </li>
+                   -->
                      <li class="checkbox">
                         <input type="checkbox" id="bfore6" class="action-checkbox">
                         <label for="bfore6"><strong>If your business has affiliated businesses or entities:</strong></label>
@@ -250,8 +252,8 @@
                      </li>
                      <li id="stp1">
                         <fieldset>
-                           <legend><span class="wb-inv">Step 2: </span>Related businesses, charities and non-profits</legend>
-                           <p>You and any affiliated entities are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
+                           <legend><span class="wb-inv">Step 2: </span>Related businesses, charities, and non-profit organizations</legend>
+                           <p>You and any related businesses, charities, and non-profit organizations (affiliated entities) are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
                            <details>
                            <summary>Find out if you have affiliated entities</summary>
                            <div data-ajax-replace="who-apply.html #affiliated"></div>
@@ -549,6 +551,27 @@
                                              </div>
                                           </div>
                                        </div>
+                                       <!-- Section to add days not operating during Jan-Feb -->
+                                       <div class="form-group row">
+                                        <div class="col-md-12">
+                                          <div class="checkbox provisional gc-chckbxrdio pull-right">
+                                            <input id="jan-feb-closed" type="checkbox" checked="checked"/>
+                                            <label for="jan-feb-closed">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div id="jan-feb-closed-inputs" class="mrgn-bttm-lg pull-right hidden">
+                                        <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
+                                           <div class="col-md-12">
+                                              <label for="jan-feb-closed-days" class="required">Days you were not in business during Jan-Feb 2020<span class="wb-inv"> (do not include
+                                              spaces or commas)</span><strong class="required">(required)</strong></label>
+                                           </div>
+                                           <div class="col-xs-6">
+                                              <input type="number" class="form-control text-right" id="jan-feb-closed-days" max="59" min="0">
+                                           </div>
+                                        </div>
+                                     </div>
+
                                     </div>
                                  </div>
                               </fieldset>
@@ -991,7 +1014,7 @@
                                     </p>
                                  </fieldset>
                                  <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-building"></span> Save your location data for your records</p>
-                                 <p>Review your location data and print or download a spreadsheet for your records.</p>
+                                 <p>Review, print or download a csv of your location data for your records. Should you be contacted by the CRA for auditing purposes, having this in your records will save you time.</p>
                                   <ul class="list-unstyled">
                                       <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
                                         class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review locations summary</a>
@@ -1109,20 +1132,20 @@
                           </strong>
                        </li>
                        <li><strong>Line 120:</strong>
-                          Total eligible rent paid: <strong>
+                          Total eligible rent: <strong>
                           <span class="rent-total h3">$0.00</span>
                           </strong>
                        </li>
                        <li><strong>Line 130:</strong>
-                          Total eligible property taxes paid:
+                          Total eligible property taxes:
                           <span class="tax-total h3">$0.00</span>
                        </li>
                        <li><strong>Line 140:</strong>
-                          Total eligible property insurance paid:
+                          Total eligible property insurance:
                           <span class="insurance-total h3">$0.00</span>
                        </li>
                        <li><strong>Line 150:</strong>
-                          Total eligible interest paid on commercial mortgages entered into for the purpose of purchasing real property:
+                          Total eligible interest on commercial mortgages:
                           <span class="interest-total h3">$0.00</span>
                        </li>
                        <li><strong>Line 160:</strong>
@@ -1140,7 +1163,7 @@
                           <span class="priorRevReduction h3">0.00%</span>
                           </strong>
                        </li>
-                       <li><strong>Line 310:</strong> Subsidy top-up (lockdown support): <strong>
+                       <li><strong>Line 310:</strong> Lockdown support (subsidy top-up): <strong>
                           <span class="top-up-total h3">$0.00</span>
                           </strong>
                        </li>
@@ -1172,11 +1195,11 @@
                        <td class="text-right nowrap"><abbr title="multipled by" class="brdr-0">x</abbr><output class="mrgn-lft-sm base-rate">0.00%</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Basic CERS amount <small class="nowrap">(Line 300)</small></th>
+                       <th scope="row" class="h6">Base Canada Emergency Rent Subsidy <small class="nowrap">(Line 300)</small></th>
                        <td class="text-right nowrap">=<output class="mrgn-lft-sm base-subsidy-amount">$0.00</output></td>
                     </tr>
                     <tr>
-                       <th scope="row" class="h6">Subsidy top-up (lockdown support) amount <small class="nowrap">(Line 310)</small></th>
+                       <th scope="row" class="h6">Lockdown support (subsidy top-up) amount <small class="nowrap">(Line 310)</small></th>
                        <td class="text-right nowrap">+<output class="top-up-total mrgn-lft-sm">$0.00</output></td>
                     </tr>
                     <tr class="success">
@@ -2133,7 +2156,6 @@
 
           //Radio event listener
           $document.on("click", "input[type=radio]", function (event) {
-            console.log("hi");
             var target = event.target;
             var parts = target.name.split("-");
             var locationNumber = parts[parts.length - 1];
@@ -2594,12 +2616,9 @@
               NoCERSRate();
             }
           });
-          $document.on("blur", ".cers-rate-calc", function(event) {
-            calculateRevenueDrop(false)
-          });
-          $document.on("blur", ".cers-rate-calc-alt", function(event) {
-            calculateRevenueDrop(true)
-          });
+          $document.on("blur", ".cers-rate-calc", function(event) {calculateRevenueDrop(false)});
+          $document.on("blur", ".cers-rate-calc-alt", function(event) {calculateRevenueDrop(true)});
+          $document.on("blur", "#jan-feb-closed-days", function(event) {calculateRevenueDrop(true)});
           function calculateRevenueDrop(bAlt) {
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var CERSRateElements = $('.cers-rate-calc');
@@ -2612,7 +2631,12 @@
               var janRev = zeroIfEmpty($("#2020-01-yes").val());
               var febRev = zeroIfEmpty($("#2020-02-yes").val());
               if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
-                var baseRev = (janRev + febRev) / 2;
+                if ($('#jan-feb-closed-inputs').is(":visible")) {
+                  var daysNotOperating = zeroIfEmpty($('#jan-feb-closed-days').val());
+                  var baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
+                } else {
+                  var baseRev = (janRev + febRev) / 2;
+                }
                 //get the value of the claim month
                 var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
                 //get the value of the previous month
@@ -2656,14 +2680,21 @@
               }
             }
             if (revReduction > 0) {
+              //Moving the round down to before the cersRate is calculated:
+              revReduction = roundPercDown(revReduction);
               //get the base rate
               cersRate = parseFloat(Math.max(getRentSubsidyRate(revReduction), 0));
               //round to nearest
               cersRate = cersRate * 100;
               cersRate = cersRate.toFixed(2);
-              $(".currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
-              $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
-              $(".preferentialRevReduction").text(roundPercDown(revReduction) + "%");
+
+              currentRevReduc = roundPercDown(currentRevReduc) * 100;
+              priorRevReduc = roundPercDown(priorRevReduc) * 100;
+              revReduction = revReduction * 100;
+
+              $(".currentRevReduction").text(currentRevReduc.toFixed(2) + "%");
+              $(".priorRevReduction").text(priorRevReduc.toFixed(2) + "%");
+              $(".preferentialRevReduction").text(revReduction.toFixed(2) + "%");
               $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
@@ -2671,6 +2702,22 @@
             }
             recalculateAllLocations();
           }
+
+          //Checkbox event listener
+          $document.on("click", "input[type=checkbox]", function (event) {
+            var target = event.target;
+            //Check which radio button it is and which content it's show/hiding
+            if (target.id == "jan-feb-closed") {
+              if ($('#jan-feb-closed-inputs').is(":hidden")) {
+                $('#jan-feb-closed-inputs').removeClass("hidden");
+              } else {
+                $('#jan-feb-closed-inputs').addClass("hidden");
+              }
+              calculateRevenueDrop();
+            }
+          });
+              
+
 
 
           /**
@@ -2749,7 +2796,7 @@
           function roundPercDown(perc) {
             perc = perc * 10000;
             perc = Math.floor(perc);
-            perc = perc / 100;
+            perc = perc / 10000;
             return perc;
           }
 
