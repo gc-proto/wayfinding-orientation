@@ -605,9 +605,9 @@
                                 <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
                                 <p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your return. </p>
                                 <div id="flat-rate-info" class="hidden">
-                                    <p>CRA is allowing you to claim a flat rate of <strong>$300.00</strong> for your expenses for this year.</p>
+                                    <p>CRA is allowing you to claim a flat rate of <strong>$400.00</strong> for your expenses for this year.</p>
                                     <p>Your employer is not required to complete a <strong>T2200 short</strong> and you do not need to fill out the <strong>T777 short</strong> form.</p>
-                                    <p>You will simply enter $300.00 on <strong>line 22900</strong> on your return.</p>
+                                    <p>You will simply enter $400.00 on <strong>line 22900</strong> on your return.</p>
                                 </div>
                                 <h4>Summary of the employment-use amount</h4>
                                 <p><span class="h4">$<span class="employment-use-total-amount">0.00</span></span> of the employment-use portion.</p>
@@ -769,7 +769,7 @@
                                             <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
                                     </ul>
                                 </div>//-->
-                                <div class="ws-t777short hidden">
+                                <!--   <div class="ws-t777short hidden">
                                     <p>Using your salary, the employment-use amount would be <span id="oemployment-use-salary-total-amount">[$0.00]</span> based on:</p>
                                     <ul>
                                         <li><span class="h5">$<span class="employment-use-salary-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
@@ -778,7 +778,7 @@
                                             <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
                                     </ul>
                                     <p>If this is a preferred amount, you will need to re-calculate your claim.
-                                </div>
+                                </div> //-->
                             </div>
                             <div class="hidden-print ws-t777reg">
                                 <p><strong>Reminder:</strong> There are supplies you can, and cannot claim for employment expenses. Review <span class="salary-income"><a href="#supplies-salary-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as a salaried employee</a></span>                                    <span class="commission-income hidden"><a href="#supplies-commission-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as an employee who makes commissions</a></span>.</p>
@@ -1229,18 +1229,21 @@
             } else if (state == 4) {
                 //Personal-use portion claims
                 var sum = parseFloat($(".shared-room-hrs-percent-output").text());
-                var workspaceRate = 100 - sum;
                 var personalRate = $("#shared-room-personal-percent-output-id").text();
-                var sharedExpenseRate = $("#shared-room-personal-hrs-percent-output-id").val();
+                var sharedExpenseRate = sum.toFixed(2);
+                var workspaceRate = (100 - personalRate).toFixed(2);
 
                 var suppliesRebate = (suppliesBill + OtherExpensesEmploymentBill); //100% of Supplies + other employment expenses
-                var personal = toMoney.format(((maintenanceBill + sharedMaintenanceBill + OtherHomeExpensesBill + electricityBill + HomeInsuranceBill + PropertyTaxesBill + RentBill) * (personalRate / 100))); //Expenses based on square footage of workspace and hours worked in it
-                var personalNumber = ((maintenanceBill + sharedMaintenanceBill + OtherHomeExpensesBill + electricityBill + HomeInsuranceBill + PropertyTaxesBill + RentBill) * (personalRate / 100));
+                var personal = toMoney.format(((maintenanceBill + OtherHomeExpensesBill + electricityBill + HomeInsuranceBill + PropertyTaxesBill + RentBill) * (workspaceRate / 100))); //Expenses based on square footage of workspace and hours worked in it
+                var personalNumber = ((maintenanceBill + OtherHomeExpensesBill + electricityBill + HomeInsuranceBill + PropertyTaxesBill + RentBill) * (workspaceRate / 100));
 
                 var sharedExpense = (sharedMaintenanceBill) * (sharedExpenseRate / 100);
-                var result = suppliesRebate + personalNumber + sharedExpense;
+                var result = (suppliesRebate + personalNumber + sharedExpense).toFixed(2);
 
-                $("#personal-use-output").text(result);
+                //$("#personal-use-output").text(toMoney.format(result));
+                $(".ws-t777short-total-amount").text(result);
+                $("#ws-total-claim-output").text(toMoney.format(result));
+                //$("#employment-use-output").text(toMoney.format(result));
                 return result;
             }
         }
@@ -1442,7 +1445,7 @@
          * Summary Report for Designated Room t777 Regular Form
          * 
          */
-        function validateSummaryCommt777(personalUse) {
+        function validateSummaryCommt777(personalUse, rate) {
 
             //Personal-use portion claims
             var sum = parseFloat($(".shared-room-hrs-percent-output").text());
@@ -1645,6 +1648,7 @@
                 $(".ws-t777short-total-amount").text("$0.00");
             }
 
+
             //Work Claim
             if (workRebateNumber) {
                 var employmentUse = $("#employment-use-output").text().replace("$", "");
@@ -1760,7 +1764,7 @@
          * Summary Report for Shared Room t777 Short Form
          * 
          */
-        function validateSummaryCommt777Short(personalUse) {
+        function validateSummaryCommt777Short(personalUse, rate) {
             //How much can you claim? Calculation
             workExpenses = suppliesBill + OtherExpensesEmploymentBill;
 
@@ -1768,13 +1772,15 @@
             var workRate = rate.toFixed(2);
             workRebate = toMoney.format((((maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill + HomeInsuranceBill + PropertyTaxesBill) * (workRate / 100))));
             workRebateNumber = (((maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill + HomeInsuranceBill + PropertyTaxesBill) * (workRate / 100)));
-            expenses = toMoney.format((maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill));
-            expensesNumber = (maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill);
-            $("#employment-use-output").text(workRebate);
+            expenses = toMoney.format((maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill + HomeInsuranceBill + PropertyTaxesBill));
+            expensesNumber = (maintenanceBill + OtherHomeExpensesBill + electricityBill + RentBill + HomeInsuranceBill + PropertyTaxesBill);
+            sharedRate = parseFloat($(".shared-room-hrs-percent-output").text());
+            sharedExpense = ((sharedMaintenanceBill) * (sharedRate / 100));
+            var employmentUse = (workRebate + sharedExpense);
+            //$("#employment-use-output").text(toMoney.format(employmentUse));
             //$("#personal-use-output").text(personalRebate);
             //$("#personal-use-salary-total-amount").text(personalUseRebate);
-            sharedRate = $("#shared-room-hrs-percent-output-id").val();
-            sharedExpense = ((sharedMaintenanceBill) * (sharedRate / 100));
+            $("#employment-use-output").text(toMoney.format(workRebateNumber + sharedExpense));
 
             //Line 11
             expensesList = electricityBill + totalMaintenanceBill + RentBill + OtherHomeExpensesBill;
@@ -1807,16 +1813,20 @@
 
 
             //Claim Amount
+            /**
             if (claim) {
                 var summary = $("#ws-total-claim-output").text().replace("$", "");
                 $(".ws-t777short-total-amount").text(summary);
             } else {
                 $(".ws-t777short-total-amount").text("$0.00");
             }
+            */
 
             //Work Claim
             if (workRebateNumber) {
-                var employmentUse = $("#employment-use-output").text().replace("$", "");
+                var employmentUse = workRebateNumber + sharedExpense;
+                employmentUse = toMoney.format(employmentUse);
+                employmentUse = employmentUse.replace("$", "");
                 $(".employment-use-total-amount").text(employmentUse);
             } else {
                 $(".employment-use-total-amount").text("0.00");
@@ -1846,15 +1856,6 @@
                 $(".employment-use-home-rate").text("0");
             }
 
-            //Expenses paid for Work Space Only
-            if (sharedMaintenanceBill) {
-                otherMaintenanceRebate = toMoney.format(sharedMaintenanceBill);
-                otherMaintenanceRebate = otherMaintenanceRebate.replace("$", "");
-                $(".employment-use-ws-amount").text(otherMaintenanceRebate);
-            } else {
-                $(".employment-use-ws-amount").text("0.00");
-            }
-
             //Work Space Only Expense
             if (sharedMaintenanceBill) {
                 otherMaintenanceRebate = toMoney.format(sharedMaintenanceBill);
@@ -1864,8 +1865,18 @@
                 $(".employment-use-ws-claim").text("0.00");
             }
 
+            //Expenses paid for Work Space Only
+            if (sharedExpense) {
+                var workspaceClaim = toMoney.format(sharedExpense);
+                workspaceClaim = workspaceClaim.replace("$", "");
+                $(".employment-use-ws-amount").text(workspaceClaim);
+            } else {
+                $(".employment-use-ws-amount").text("0.00");
+            }
+
             //Work Space Only Rate (100%)
-            var workspaceRate = 100;
+            var workspaceRate = parseFloat($(".shared-room-hrs-percent-output").text());
+            workspaceRate = workspaceRate.toFixed(2);
             if (workspaceRate) {
                 $(".employment-use-ws-rate").text(workspaceRate);
             } else {
@@ -2064,7 +2075,7 @@
                     calculateBills();
                     fillClaims(state);
                     var personalUse = calculateDesignatedRoom(state, rate);
-                    if (personalUse < 300) {
+                    if (personalUse < 400) {
                         $('#flat-rate-info').show();
                     } else {
                         $('#flat-rate-info').hide();
@@ -2082,12 +2093,12 @@
                     calculateBills();
                     fillClaims(state);
                     var personalUse = calculateCommonArea(state);
-                    if (personalUse < 300) {
+                    if (personalUse < 400) {
                         $('#flat-rate-info').show();
                     } else {
                         $('#flat-rate-info').hide();
                     }
-                    validateSummaryCommt777(personalUse);
+                    validateSummaryCommt777(personalUse, rate);
                 }
             }
 
@@ -2104,7 +2115,7 @@
                     calculateBills();
                     fillClaims(state);
                     var workUse = calculateDesignatedRoom(state, rate);
-                    if (workUse < 300) {
+                    if (workUse < 400) {
                         $('#flat-rate-info').show();
                     } else {
                         $('#flat-rate-info').hide();
@@ -2124,12 +2135,12 @@
                     calculateBills();
                     fillClaims(state);
                     var personalUse = calculateCommonArea(state);
-                    if (personalUse < 300) {
+                    if (personalUse < 400) {
                         $('#flat-rate-info').show();
                     } else {
                         $('#flat-rate-info').hide();
                     }
-                    validateSummaryCommt777Short(personalUse);
+                    validateSummaryCommt777Short(personalUse, rate);
                 }
             }
         });
