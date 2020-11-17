@@ -2652,6 +2652,8 @@
                 }
                 //get the higher rev reduction
                 revReduction = Math.max(currentRevReduc, priorRevReduc);
+                //Moving the round down to before the cersRate is calculated:
+                revReduction = roundPercDown(revReduction);
               } else {
                 NoCERSRate();
                 return;
@@ -2665,7 +2667,7 @@
               cersRate = cersRate.toFixed(2);
               $(".currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
               $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
-              $(".preferentialRevReduction").text(roundPercDown(revReduction) + "%");
+              $(".preferentialRevReduction").text(revReduction + "%");
               $(".base-rate").text(cersRate + "%");
             } else {
               NoCERSRate();
