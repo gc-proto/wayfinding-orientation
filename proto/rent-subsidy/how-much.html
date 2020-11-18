@@ -2187,7 +2187,7 @@
                 $('#lock-down-eligible-'+locationNumber).addClass("hidden");
                 topUpRateCalculation(locationNumber);
               }
-            } else if (target.name = "owner-location-" + locationNumber) {
+            } else if (target.name == "owner-location-" + locationNumber) {
               if (target.id == 'owner-location-yes-' + locationNumber) {
                 $('.own-location-'+locationNumber).removeClass("hidden");
                 $('.rent-location-'+locationNumber).addClass("hidden");
@@ -2286,14 +2286,25 @@
               affiliatedPerc = affiliatedPerc;
               var affiliatedRemainder = 100 - affiliatedPerc;
               if (affiliatedPerc <= 100 && affiliatedPerc >= 0) {
-                $('.affiliated-entity-percentage').text(affiliatedPerc + '%');
+                $('.affiliated-entity-percentage').text(toPercent(affiliatedPerc));
                 $('#affiliated-max-amount').text(toMoney.format(maxAffiliatedAmt));
-                $('#affiliated-remaining').text(affiliatedRemainder + '%');
+                $('#affiliated-remaining').text(toPercent(affiliatedRemainder));
                 $('.affiliated-yes-answer').removeClass("hidden");
                 $('.affiliated-yes-blank-answer').addClass("hidden");
               }
             }
             calculateTotals();
+          }
+
+          /**
+           * Apply the transforms necessary for FR vs EN syntax of percentages
+           */
+          function toPercent(percentage) {
+            if (document.documentElement.lang == "fr") {
+             return percentage + '&nbsp;%';
+            } else {
+              return percentage + '%';
+            }
           }
 
           $document.on("blur", ".lock-down-dates", function (event) {
@@ -2312,19 +2323,19 @@
             if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
-                $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
+                $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
               } else {
                 $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).addClass("hidden");
-                $('.top-up-rate-'+locationNumber).text("0" + "%");
+                $('.top-up-rate-'+locationNumber).text(toPercent("0"));
                 datediff = 0;
               }
             } else {
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
-              $('.top-up-rate-'+locationNumber).text("0" + "%");
+              $('.top-up-rate-'+locationNumber).text(toPercent("0"));
               if ($('#lockdown-start-'+locationNumber).is(":hidden")) { //if no date range is selected
                 datediff = 0;
               }
@@ -2384,7 +2395,7 @@
             var qreAmounts =  [];
             var eligibleLocations = 0;
             var qreForLocation = 0;
-            if (document.documentElement.lang = "fr") {
+            if (document.documentElement.lang == "fr") {
               var langThousands = " ";
               var langDecimals = ",";
             } else {
@@ -2691,21 +2702,24 @@
             }
             if (revReduction > 0) {
               //Moving the round down to before the cersRate is calculated:
-              revReduction = roundPercDown(revReduction);
+              // revReduction = roundPercDown(revReduction);
+              revReduction = revReduction.toFixed(4); //rounding to nearest instead
               //get the base rate
               cersRate = parseFloat(Math.max(getRentSubsidyRate(revReduction), 0));
               //round to nearest
               cersRate = cersRate * 100;
               cersRate = cersRate.toFixed(2);
 
-              currentRevReduc = roundPercDown(currentRevReduc) * 100;
-              priorRevReduc = roundPercDown(priorRevReduc) * 100;
+              // currentRevReduc = roundPercDown(currentRevReduc) * 100;
+              // priorRevReduc = roundPercDown(priorRevReduc) * 100;
+              currentRevReduc = currentRevReduc.toFixed(4) * 100;
+              priorRevReduc = priorRevReduc.toFixed(4) * 100;
               revReduction = revReduction * 100;
 
-              $(".currentRevReduction").text(currentRevReduc.toFixed(2) + "%");
-              $(".priorRevReduction").text(priorRevReduc.toFixed(2) + "%");
-              $(".preferentialRevReduction").text(revReduction.toFixed(2) + "%");
-              $(".base-rate").text(cersRate + "%");
+              $(".currentRevReduction").text(toPercent(currentRevReduc.toFixed(2)));
+              $(".priorRevReduction").text(toPercent(priorRevReduc.toFixed(2)));
+              $(".preferentialRevReduction").text(toPercent(revReduction.toFixed(2)));
+              $(".base-rate").text(toPercent(cersRate));
             } else {
               NoCERSRate();
               return;
@@ -2735,10 +2749,10 @@
           * Fill in default values of 0% when there's not enough information to determine the rate
           */
           function NoCERSRate() {
-            $(".currentRevReduction").text("0%");
-            $(".priorRevReduction").text("0%");
-            $(".preferentialRevReduction").text("0%");
-            $(".base-rate").text("0%");
+            $(".currentRevReduction").text(toPercent("0"));
+            $(".priorRevReduction").text(toPercent("0"));
+            $(".preferentialRevReduction").text(toPercent("0"));
+            $(".base-rate").text(toPercent("0"));
             $("#rate-formula-max").addClass("hidden");
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
@@ -2833,14 +2847,18 @@
            * @return {claimMonths} the 2 months that the CERS period overlaps
            */
            function getMonthNamesPlusYear(iMonth, claimPeriod) {
-            if (document.documentElement.lang = "fr") {
+            if (document.documentElement.lang == "fr") {
               var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
             } else {
               var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             }
             var claimMonths = [monthNames[iMonth - 2], monthNames[iMonth - 1]];
             if (iMonth == 1) {
-              claimMonths[0] = "December";
+              if (document.documentElement.lang == "fr") {
+                claimMonths[0] = "décembre";
+              } else {
+                claimMonths[0] = "December";
+              }
             }
             //add years
             if (claimPeriod < 4) {
@@ -2973,9 +2991,9 @@
             for (var j = 1; j < cols.length; j++) {
               if (document.documentElement.lang == "fr") {
                 var val = cols[j].innerText.replace(",", ".");
-                val = val.replace(/,/g, ".")
+                val = val.replace(/,/g, ".");
                 if (i > 0) {
-                  val = val.replace(/\s/g, "")
+                  val = val.replace(/\s/g, "");
                 }
                 row.push(val);
               } else {
