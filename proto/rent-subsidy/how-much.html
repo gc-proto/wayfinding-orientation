@@ -564,7 +564,7 @@
                                       <div id="jan-feb-closed-inputs" class="mrgn-bttm-lg pull-right hidden">
                                         <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
                                            <div class="col-md-12">
-                                              <label for="jan-feb-closed-days" class="required">Days you were not in business during Jan-Feb 2020<span class="wb-inv"> (do not include
+                                              <label for="jan-feb-closed-days" class="required">Days you were not in business during Jan-Feb 2020 <span class="wb-inv"> (do not include
                                               spaces or commas)</span><strong class="required">(required)</strong></label>
                                            </div>
                                            <div class="col-xs-6">
@@ -2384,22 +2384,29 @@
             var qreAmounts =  [];
             var eligibleLocations = 0;
             var qreForLocation = 0;
+            if (document.documentElement.lang = "fr") {
+              var langThousands = " ";
+              var langDecimals = ",";
+            } else {
+              var langThousands = ",";
+              var langDecimals = ".";
+            }
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
-              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").split(",").join(""));
-              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").split(",").join(""));
-              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").split(",").join(""));
-              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").split(",").join(""));
-              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").split(",").join(""));
-              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").split(",").join(""))
+              smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+              smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+              smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+              smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+              smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""))
               smryTotals[5] += qreForLocation;
               if (qreForLocation > 0) {
                 qreLocations.push(locNum);
                 qreAmounts.push(qreForLocation);
               }
-              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").split(",").join(""));
+              smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
             });
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
@@ -2826,11 +2833,11 @@
            * @return {claimMonths} the 2 months that the CERS period overlaps
            */
            function getMonthNamesPlusYear(iMonth, claimPeriod) {
-            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            /*
-            In FR, replace with
-            var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-            */
+            if (document.documentElement.lang = "fr") {
+              var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+            } else {
+              var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            }
             var claimMonths = [monthNames[iMonth - 2], monthNames[iMonth - 1]];
             if (iMonth == 1) {
               claimMonths[0] = "December";
@@ -2967,7 +2974,9 @@
               if (document.documentElement.lang == "fr") {
                 var val = cols[j].innerText.replace(",", ".");
                 val = val.replace(/,/g, ".")
-                val = val.replace(/\s/g, "")
+                if (i > 0) {
+                  val = val.replace(/\s/g, "")
+                }
                 row.push(val);
               } else {
                 row.push(cols[j].innerText.replace(",", ""));
