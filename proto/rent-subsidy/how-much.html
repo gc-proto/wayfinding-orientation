@@ -2309,11 +2309,6 @@
             }
             var datediff = getDateDiffLockdown(locationNumber);
             if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
-              $('#top-up-days-'+locationNumber).text(datediff);
-              var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
-              $(updatedByElements).each(function (i, element) {
-                $(element).text(datediff);
-              });
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(topUpRate + "%");
@@ -2323,14 +2318,21 @@
                 $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).addClass("hidden");
                 $('.top-up-rate-'+locationNumber).text("0" + "%");
+                datediff = 0;
               }
             } else {
-              //repeat of above...
-              $('#top-up-days-'+locationNumber).text(0);
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text("0" + "%");
+              if ($('#lockdown-start-'+locationNumber).is(":hidden")) { //if no date range is selected
+                datediff = 0;
+              }
             }
+            $('#top-up-days-'+locationNumber).text(datediff);
+            var updatedByElements = $('*[data-updated-by="top-up-days-' + locationNumber + '"]'); //also update the relevant summary table lines
+            $(updatedByElements).each(function (i, element) {
+              $(element).text(datediff);
+            });
             recalculateLocationAmounts(locationNumber);
             calculateTotals();
           }
@@ -2806,7 +2808,7 @@
            */
           function zeroIfEmpty(fieldVal) {
             if (fieldVal != null && fieldVal != "") {
-              return parseFloat(fieldVal);
+              return parseFloat(fieldVal.replace(" ",""));
             } else {
               return 0;
             }
@@ -2824,6 +2826,10 @@
            */
            function getMonthNamesPlusYear(iMonth, claimPeriod) {
             var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            /*
+            In FR, replace with
+            var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+            */
             var claimMonths = [monthNames[iMonth - 2], monthNames[iMonth - 1]];
             if (iMonth == 1) {
               claimMonths[0] = "December";
@@ -2948,7 +2954,15 @@
           for (var i = 0; i < rows.length; i++) {
             var row = [], cols = rows[i].querySelectorAll("td, th");
 
-            for (var j = 0; j < cols.length; j++) {
+            //Address column (keep commas as strings)
+            var val = cols[0].innerText.replace(",", ".");
+            if (val.indexOf(",") != -1) {
+              val = "\"" + val + "\"";
+            }
+            row.push(val);
+
+            //Number columns
+            for (var j = 1; j < cols.length; j++) {
               if (document.documentElement.lang == "fr") {
                 var val = cols[j].innerText.replace(",", ".");
                 val = val.replace(/,/g, ".")
