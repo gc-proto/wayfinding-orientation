@@ -111,20 +111,100 @@
 
 	<div class="col-12">
 
-		<p _ngcontent-tkc-c35="" class="h6">Your exempt travel status will be evaluated at the border by a Border Services Officer. This is for information collection purposes only and is in no way designating this travel as exempt.</p>
+		<p _ngcontent-tkc-c35="" class="mrgn-tp-md">Your exempt travel status will be evaluated at the border by a Border Services Officer. This is for information collection purposes only and is in no way designating this travel as exempt.</p>
 
-		<p _ngcontent-tkc-c35="" class="label label-info" style="white-space: normal;">Exempt travel is travel for the purpose of performing cross border services, essential services, medical support services or trade/transport services</p></div>
+		<p _ngcontent-tkc-c35="">Exempt travel is travel for the purpose of performing cross border services, essential services, medical support services or trade/transport services.</p>
 
-		<br />
+		<style>
 
-		<button _ngcontent-tkc-c35="" type="button" id="exempt-btn-no" aria-labelledby="exempt-label exempt-btn-no" aria-controls="purposeOfTravel" class="btn btn-default" aria-pressed="false" aria-expanded="false"> NO </button>
+			.provisional.gc-chckbxrdio label {
+				cursor: pointer;
+				display: block;
+				font-size: 20px;
+			}
+			.provisional.gc-chckbxrdio legend {
+				float: none;
+				font-size: 22px;
+				font-weight: 700;
+				margin-bottom: 15px;
+				margin-top: 0;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"] {
+				border: 0;
+				clip: rect(0 0 0 0);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute;
+				width: 1px;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"][disabled] + label {
+				cursor: not-allowed;
+				opacity: .5;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"] + label {
+				display: inline-block;
+				line-height: 2;
+				margin-left: 36px;
+				width: auto;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"] + label::before {
+				border: 4px solid #fff;
+				-webkit-box-shadow: 0 0 0 2px #000;
+				box-shadow: 0 0 0 2px #000;
+				content: "";
+				display: inline-block;
+				height: 36px;
+				left: 0;
+				position: absolute;
+				top: 2px;
+				width: 36px;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"] + label:hover::before {
+				background-image: -webkit-gradient(linear, left top, left bottom, from(#e6e5e5), color-stop(50%, white));
+				background-image: linear-gradient(to bottom, #e6e5e5, white 50%);
+			}
+			.provisional.gc-chckbxrdio input[type="radio"]:focus + label::before {
+				-webkit-box-shadow: 0 0 0 2px #000, 0 0 8px 4px #3b99fc;
+				box-shadow: 0 0 0 2px #000, 0 0 8px 4px #3b99fc;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"] + label::before {
+				border-radius: 50%;
+			}
+			.provisional.gc-chckbxrdio input[type="radio"]:checked + label::before {
+				background: #444;
+			}
 
-		<button _ngcontent-tkc-c35="" type="button" id="exempt-btn-yes" aria-labelledby="exempt-label exempt-btn-yes" aria-controls="exemptDetails" class="btn btn-default" aria-pressed="false" aria-expanded="false"> YES </button>
+		</style>
+
+		<fieldset class="provisional gc-chckbxrdio mrgn-bttm-xl" style="border:0;">
+			<legend class="wb-inv">Is your travel status exempt?</legend>
+			<ul class="list-unstyled lst-spcd-2">
+				<li class="radio">
+					<input type="radio" name="exempt" id="yes">
+					<label for="yes">Yes</label>
+				</li>
+				<li class="radio">
+					<input type="radio" name="exempt" id="no">
+					<label for="No">No</label>
+				</li>
+			</ul>
+		</fieldset>
+
+    <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
+      <h3 class="wb-inv">Document navigation</h3>
+      <ul class="pager">
+				<li class="previous"><a href="#" rel="prev"><span class="wb-inv">Previous:</span> How are you entering Canada?</a></li>
+				<li class="next"><a href="#" rel="next">Your port of entry</a></li>
+      </ul>
+    </nav>
 
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
 
-		</div><!-- .col-12 -->
+
+	</div><!-- .col-12 -->
 
 </div><!-- .row -->
 
