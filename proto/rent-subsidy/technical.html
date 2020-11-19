@@ -103,7 +103,7 @@
 				  <dd><div data-ajax-replace="x.html #id-name-goes-here>"> </div></dd>
         -->
           <dt id="h-1-2">Lockdown support eligibility criteria</dt>
-          <dd><div data-ajax-replace="how-much.html #lockdown-eligibility"> </div></dd>
+          <dd><div class="data-ajax" data-ajax-replace="how-much.html #lockdown-eligibility"> </div></dd>
 				  </dl>
           <!--
 				  <h2 id="h-2">Scenarios</h2>
@@ -142,5 +142,34 @@
             }));
          </script>
          <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+         <script>
+
+//AJAX in WET4 component fix
+
+(function ($, document, wb) {
+
+                "use strict";
+
+                $('.data-ajax').on("wb-contentupdated", function (event, data) {
+
+                                var $elm = $(event.currentTarget);
+
+                                $elm
+
+                                                .find(wb.allSelectors)
+
+                                                .addClass("wb-init")
+
+                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+
+                                                .trigger("timerpoke.wb");
+
+                                return true;
+
+                });
+
+})(jQuery, document, wb);
+
+</script>
       </body>
    </html>
