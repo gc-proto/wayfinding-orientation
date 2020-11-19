@@ -193,10 +193,11 @@
               </ul>
               </li>
               </ul>
-              </details>
               <div class="alert alert-warning provisional">
                 <p>You do not qualify for lockdown support if you are already restricted or closed because you failed to comply with a previous public health order or decision. </p>
               </div>
+              </details>
+            </div>
             </details>
 
 
@@ -410,7 +411,7 @@
                                 <p>You must choose one of these prior reference period options and use it when calculating your revenue drop for the base rate for all claim periods.</p>
 
                                 <div class="provisional alert alert-warning">
-
+                                  <p>You must use the same option for all future CERS claims.</p>
                                   <p>If you have also claimed the CEWS, you must use the same method you used for the base CEWS for periods 5 or later.</p></div>
 
                                 <p><strong>Note: </strong>If you choose to use the alternative prior reference period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
@@ -427,7 +428,8 @@
                                  </ul>
                               </div>
                               <div class="provisional alert alert-warning">
-                              <p>You must use the same option as other CERS or CEWS claims </p></div>
+                                <p>You must use the same option for all future CERS claims.</p>
+                                <p>If you have also claimed the CEWS, you must use the same method you used for the base CEWS for periods 5 or later.</p></div>
                            </fieldset>
                            <div class="hidden" id="alt-bl-no">
                               <fieldset>
@@ -716,7 +718,8 @@
                                               <legend>Does the location qualify for lockdown support?</legend>
                                               <details>
                                                 <summary class="lockdown-details">Learn about lockdown support eligibility criteria</summary>
-                                                <div data-ajax-replace=" #lockdown-eligibility"></div>
+
+                                                <div class="data-ajax" data-ajax-replace=" #lockdown-eligibility"> </div>
                                                 <!--
                                                 <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
                                                 <p>The business location must meet all the following conditions to qualify for the top up:</p>
@@ -938,7 +941,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
                                                     </div>
                                                     <p id="tax-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="tax-date-1" class="hidden text-muted text-right small">from <span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="tax-date-1" class="hidden text-muted text-right small"><span class="date-tax-from-1">from</span> <span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-tax-to-1">to</span> <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -957,7 +960,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
                                                     </div>
                                                     <p id="insurance-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="insurance-date-1" class="hidden text-muted text-right small">from <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="insurance-date-1" class="hidden text-muted text-right small"><span class="date-insurance-from-1">from</span> <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-insurance-to-1"></span>to</span> <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -975,7 +978,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
                                                     </div>
                                                     <p id="interest-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="interest-date-1" class="hidden text-muted text-right small">from <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="interest-date-1" class="hidden text-muted text-right small"><span class="date-interest-from-1">from</span> <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-interest-to-1">to</span> <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -994,7 +997,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
                                                     </div>
                                                     <p id="lease-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="lease-date-1" class="hidden text-muted text-right small">from <span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="lease-date-1" class="hidden text-muted text-right small"><span class="date-lease-from-1">from</span> <span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-interest-to-1">to</span> <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></p>
                                                   </fieldset>
                                                 </div>
                                               </div>
@@ -1409,6 +1412,14 @@
               "date-insurance-end-",
               "date-interest-end-",
               "date-lease-end-",
+              "date-tax-from-",
+              "date-insurance-from-",
+              "date-interest-from-",
+              "date-lease-from-",
+              "date-tax-to-",
+              "date-insurance-to-",
+              "date-interest-to-",
+              "date-lease-to-",
               "lockdown-details-"
             ];
             this.idUpdates = [ //any ids or aria-describedby that get updated
@@ -1730,7 +1741,10 @@
             $(frag).find('.rent-location-' + numLocs).addClass("hidden");
             $(frag).find('.own-location-' + numLocs).addClass("hidden");
             $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
-            //open the accordion for the summary details
+            //open the accordion for the summary details and close on the other ones
+            var accordion = $(frag).find("details").each(function (i, element) {
+              $(element).removeAttr("open");
+            });
             var accordion = $(frag).find(".smry-accordion-details").each(function (i, element) {
               $(element).attr("open", "open");
             });
@@ -2297,24 +2311,42 @@
             }
             var startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
                 endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
-            if (calcMethod == "period") {
-              //get the start/end based on the period start/end dates
-              var startDate = startDateISO;
-              var endDate = endDateISO;
-            } else if (calcMethod == "month") {
-              var startDateParts = startDateISO.split("-");
+            if (calcMethod == "month") {
+              if (document.documentElement.lang == "fr") {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("pour");
+                $('.date-' + expenseType + '-to-' + locationNumber).text("et");
+              } else {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("for");
+                $('.date-' + expenseType + '-to-' + locationNumber).text("and");
+              }
               var endDateParts = endDateISO.split("-");
-              var startDate = startDateISO;
-              var endDate = endDateISO;
-            } else if (calcMethod == "year") {
-              var startDate = "2020-01-01";
-              var endDate = "2020-12-31";
+              var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
+              var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
+              var startDate = claimMonths[0];
+              var endDate = claimMonths[1];
+            } else {
+              if (document.documentElement.lang == "fr") {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("de");
+                $('.date-' + expenseType + '-to-' + locationNumber).text("à");
+              } else {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("from");
+                $('.date-' + expenseType + '-to-' + locationNumber).text("to");
+              }
+              if (calcMethod == "period") {
+                //get the start/end based on the period start/end dates
+                var startDate = startDateISO;
+                var endDate = endDateISO;
+              } else if (calcMethod == "year") {
+                var startDate = "2020-01-01";
+                var endDate = "2020-12-31";
+              }
             }
             $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
             $('.date-' + expenseType + '-end-' + locationNumber).text(endDate);
             $('#'+ expenseType +'-date-error-' + locationNumber).addClass("hidden");
             $('#'+ expenseType +'-date-' + locationNumber).removeClass("hidden");
           }
+
 
           function expenseFieldHideShow(locationNumber) {
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
@@ -2366,7 +2398,7 @@
            */
           function toPercent(percentage) {
             if (document.documentElement.lang == "fr") {
-             return percentage + '&nbsp;%';
+             return percentage + '\xa0%';
             } else {
               return percentage + '%';
             }
@@ -2461,7 +2493,7 @@
             var eligibleLocations = 0;
             var qreForLocation = 0;
             if (document.documentElement.lang == "fr") {
-              var langThousands = " ";
+              var langThousands = "/\s{4}/"; //nbsp code
               var langDecimals = ",";
             } else {
               var langThousands = ",";
@@ -3046,25 +3078,27 @@
             var row = [], cols = rows[i].querySelectorAll("td, th");
 
             //Address column (keep commas as strings)
-            var val = cols[0].innerText.replace(",", ".");
-            if (val.indexOf(",") != -1) {
-              val = "\"" + val + "\"";
-            }
-            row.push(val);
-
-            //Number columns
             for (var j = 1; j < cols.length; j++) {
-              if (document.documentElement.lang == "fr") {
-                var val = cols[j].innerText.replace(",", ".");
-                val = val.replace(/,/g, ".");
-                if (i > 0) {
-                  val = val.replace(/\s/g, "");
-                }
-                row.push(val);
-              } else {
-                row.push(cols[j].innerText.replace(",", ""));
+              var val = cols[0].innerText;
+              if (val.indexOf(",") != -1) {
+                val = "\"" + val + "\"";
               }
+              row.push(val);
             }
+
+            // //Number columns
+            // for (var j = 1; j < cols.length; j++) {
+            //   if (document.documentElement.lang == "fr") {
+            //     // var val = cols[j].innerText.replace(",", ".");
+            //     // val = val.replace(/,/g, ".");
+            //     if (i > 0) {
+            //       val = val.replace(/\s/g, "");
+            //     }
+            //     row.push(val);
+            //   } else {
+            //     row.push(cols[j].innerText.replace(",", ""));
+            //   }
+            // }
 
             csv.push(row.join(","));
           }
@@ -3137,5 +3171,34 @@
         })
 
       </script>
+      <script>
+
+//AJAX in WET4 component fix
+
+(function ($, document, wb) {
+
+                "use strict";
+
+                $('.data-ajax').on("wb-contentupdated", function (event, data) {
+
+                                var $elm = $(event.currentTarget);
+
+                                $elm
+
+                                                .find(wb.allSelectors)
+
+                                                .addClass("wb-init")
+
+                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+
+                                                .trigger("timerpoke.wb");
+
+                                return true;
+
+                });
+
+})(jQuery, document, wb);
+
+</script>
    </body>
 </html>
