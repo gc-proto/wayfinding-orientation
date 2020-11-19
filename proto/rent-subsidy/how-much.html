@@ -718,7 +718,8 @@
                                               <legend>Does the location qualify for lockdown support?</legend>
                                               <details>
                                                 <summary class="lockdown-details">Learn about lockdown support eligibility criteria</summary>
-                                                <div data-ajax-replace=" #lockdown-eligibility"></div>
+
+                                                <div class="data-ajax" data-ajax-replace=" #lockdown-eligibility"> </div>
                                                 <!--
                                                 <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
                                                 <p>The business location must meet all the following conditions to qualify for the top up:</p>
@@ -3170,5 +3171,34 @@
         })
 
       </script>
+      <script>
+
+//AJAX in WET4 component fix
+
+(function ($, document, wb) {
+
+                "use strict";
+
+                $('.data-ajax').on("wb-contentupdated", function (event, data) {
+
+                                var $elm = $(event.currentTarget);
+
+                                $elm
+
+                                                .find(wb.allSelectors)
+
+                                                .addClass("wb-init")
+
+                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+
+                                                .trigger("timerpoke.wb");
+
+                                return true;
+
+                });
+
+})(jQuery, document, wb);
+
+</script>
    </body>
 </html>
