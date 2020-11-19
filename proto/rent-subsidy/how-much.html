@@ -715,7 +715,9 @@
                                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                               <legend>Does the location qualify for lockdown support?</legend>
                                               <details>
-                                                <summary class="lockdown-details">To qualify for lockdown support</summary>
+                                                <summary class="lockdown-details">Learn about lockdown support eligibility criteria</summary>
+                                                <div data-ajax-replace=" #lockdown-eligibility"></div>
+                                                <!--
                                                 <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
                                                 <p>The business location must meet all the following conditions to qualify for the top up:</p>
                                                 <ul class="fa-ul">
@@ -732,6 +734,7 @@
                                                   <li><span class="fas fa-times text-danger fa-li"></span>a restriction on the time during which the activity may be performed (e.g., a required reduction in service hours)</li>
                                                   <li><span class="fas fa-times text-danger fa-li"></span>any other restrictions that do not specifically require a cease of activities (e.g., a requirement to reducing seating capacity for indoor dining services</li>
                                                 </ul>
+                                              -->
                                               </details>
                                               <ul class="list-unstyled lst-spcd-2">
                                                 <li class="radio">
@@ -795,7 +798,7 @@
                                               </div>
                                               <div class="well mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Lockdown support rate summary</h3>
-                                                  <p id="lock-down-ineligible-1">You do not qualify for lockdown support. To qualify, the location must have been closed due to COVID-19 restrictions for <strong>more than 1 week</strong>.</p>
+                                                  <p id="lock-down-ineligible-1">You do not qualify for lockdown support. To qualify, the location must have been closed or significantly reduced due to a COVID-19 related public health order for <strong>1 week or longer</strong>.</p>
                                                   <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your lockdown support rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
                                               </div>
 
@@ -1516,7 +1519,7 @@
             this.updateClass(frag);
             this.updateIds(frag);
             if (!isChromium) {
-              this.clearInitializedExpandHide(frag, "lockdown-details", "To qualify for lockdown support");
+              this.clearInitializedExpandHide(frag, "lockdown-details", "Learn about lockdown support eligibility criteria");
               this.clearInitializedExpandHide(frag, "location-details", "Expense summary for <span class='loc-staddress-" + numLocs + "'>location 1</span>");
               this.clearInitializedDatePickers(frag);
             }
