@@ -240,7 +240,7 @@
                 title: "Line 22900 - Other employment expenses",
                 href: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-229-other-employment-expenses.html"
             }, {
-                title: "Claiming expenses for employment use of a work space in the home",
+                title: "Work space in the home - Employee expenses",
                 href: "index.html"
             }],
             search: true,
@@ -250,7 +250,7 @@
     </script>
     <main role="main" property="mainContentOfPage" class="container">
         <section class="gc-nav">
-            <h1 property="name" id="wb-cont-nav">Claiming expenses for employment use of a work space in the home</h1>
+            <h1 property="name" id="wb-cont-nav">Work space in the home - Employee expenses</h1>
             <ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
                 <li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
                 <li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
@@ -259,8 +259,9 @@
                 <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
                 <ul class="gc-navseq">
                     <li><a href="who-apply.html">Who can claim</a></li>
+                   <li><a href="how-much.html">How much of the work space can be claimed</a></li>
                     <li><a href="what-claim.html">What expenses can be claimed</a></li>
-                    <li><a href="how-much.html">How much of the work space can be claimed</a></li>
+                    
                     <li class="active"><a aria-current="page">Calculate your expenses</a></li>
                     <li><a href="how-apply.html">How to claim</a></li>
                 </ul>
@@ -280,31 +281,26 @@
                 <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of work space expenses you may be eligible to claim.</p>
                 <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
             </details>
-            <div class="row mrgn-bttm-md">
-                <div class="col-xs-12">
-                    <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
-                        <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span
-                  class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fas fa-calculator fa-stack-2x"></span></span>
-                        </div>
-                        <h2 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="confirm-registration">Use the calculator</h2>
-                        <div class="clearfix"></div>
-                        <div class="mrgn-lft-lg">
+          
                             <p><strong>Reminder:</strong> You must meet the <a href="who-apply.html#h-1">eligibility criteria</a> to claim your expenses.</p>
                             <div class="wb-frmvld fieldflow-lg">
                                 <form>
                                     <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
-                                        <p>My claim is related to</p>
+                                        <p>You would like to claim</p>
                                         <ul>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses due to COVID-19 that may also include office supplies and phone/internet expenses (Simplified claim)</li>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses, and other expenses such as vehicle costs, equipment, and fees (Standard claim)</li>
+                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A rate $2 for each day you worked from home (up to a maximum of $400 a year) due to the COVID-19 pandemic, to cover all your work space and office supply expenses (Simple daily-rate claim)</li>
+                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space at home and office supply expenses  due to the COVID-19 pandemic, and you have your receipts (Simplified expenses based claim)</li>
+                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses, and other employment expenses such as vehicle costs, equipment, and fees, and you have your receipts (Standard expenses based claim)</li>
                                         </ul>
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  
+           <div id="daily-rate-alert" class="hidden">
+              <div class="provisional alert alert-info">
+                 <p>Text here</p>   
+              </div>
+           </div>
             <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
                     <div class="alert alert-info provisional ws-t777reg hidden">
@@ -916,7 +912,7 @@
                         <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
                     </header>
                     <div class="modal-body">
-                        <div data-ajax-replace=" #wsih-total-expenses"></div>
+                        <div data-ajax-replace=" #wsih-total-expenses" class="data-ajax></div>
 
                         <ul class="list-inline">
                             <li>
