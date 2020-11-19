@@ -3253,9 +3253,7 @@
           
           //find the claim month based on the chosen claim period 
           var claimMonth = getClaimMonth($("#claim-period").val());
-          console.log(claimMonth);
           var monthsArray = getClaimMonths(claimMonth, claimPeriod);
-          console.log(monthsArray);
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
           //get the value of the previous month
@@ -3388,6 +3386,18 @@
         perc = perc / 100;
         return perc;
       }
+
+      /**
+      * Apply the transforms necessary for FR vs EN syntax of percentages
+      */
+      function toPercent(percentage) {
+        if (document.documentElement.lang == "fr") {
+          return percentage + '&nbsp;%';
+        } else {
+          return percentage + '%';
+        }
+      }
+
 
       /**
        * zeroIfEmpty()
