@@ -86,7 +86,7 @@
               <details>
                  <summary>How much can you claim</summary>
                  <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for your business and any affiliated entities per claim period.</p>
-                 <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location for the days the order was in place.</p>
+                 <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of 25% of eligible expenses per affected location for the days the order was in place.</p>
                </details>
                <details>
                 <summary>Calculating your base rent subsidy rate</summary>
@@ -152,21 +152,22 @@
               <summary>Lockdown support eligibility criteria </summary>
               <div id="lockdown-eligibility">
               <p>Lockdown support is calculated on a location by location basis.</p>
-              <p>To qualify for lockdown support, you must first:</p>
+              <p>To qualify for lockdown support, you must have:</p>
               <ul>
-              <li>qualify for a base rent subsidy rate of more than 0% for the claim period</li>
-              <li>be temporarily closed or significantly restricted for a week or longer due to a COVID-19-related public health order</li>
+              <li>a base rent subsidy rate of more than 0% for the claim period</li>
+              <li>one or more locations temporarily closed, or have activities significantly restricted for a week or longer due to a COVID-19-related public health order</li>
               </ul>
               <p>A public health order must:</p>
               <ul>
               <li>be issued by a federal, provincial, or municipal government, or a local health authority</li>
-              <li>be limited based on at least one of these conditions:
+              <li>be limited based on at least one of these factors:
               <ul>
               <li>geographical boundaries</li>
               <li>type of business or other activity</li>
               <li>risks associated with a particular location</li>
               </ul>
               </li>
+              <li>result in sanctions or be an offence if you do not comply</li>
               <li>require you to stop some or all of your regular activities while the order is in place
               <ul>
               <li>activities you were not able to carry out must account for at least approximately 25% of total revenues at that location during the prior reference period</li>
@@ -175,23 +176,19 @@
               </ul>
               <p>An order that restricts or reduces activities but doesn’t require you to close or stop certain activities does not qualify for lockdown support. </p>
               <details>
-              <summary>Examples of restrictions that do not qualify for lockdown support </summary>
+              <summary>Examples of restrictions that do not qualify for lockdown support</summary>
               <ul>
-              <li>rules about how an activity is performed, such as
-              <ul>
-              <li>requiring staff and customers to wear masks indoors</li>
-              </ul>
-              </li>
-              <li>rules about when you can perform your regular activities, such as
-              <ul>
-              <li>restricted or reduced service hours or hours of operation</li>
-              </ul>
-              </li>
-              <li>any other restrictions that do not specifically order you to stop or close an activity, such as
-              <ul>
-              <li>reduced seating capacity or other physical distancing strategies</li>
-              </ul>
-              </li>
+                <li>travel restrictions that reduce the number of clients</li>
+                <li>rules about when you can perform your regular activities, such as
+                  <ul>
+                    <li>restricted or reduced service hours or hours of operation</li>
+                  </ul>
+                </li>
+                <li>any other restrictions that do not specifically order you to stop or close an activity, such as
+                  <ul>
+                    <li>reduced seating capacity or other physical distancing strategies</li>
+                  </ul>
+                </li>
               </ul>
               <div class="alert alert-warning provisional">
                 <p>You do not qualify for lockdown support if you are already restricted or closed because you failed to comply with a previous public health order or decision. </p>
@@ -1840,6 +1837,25 @@
               }
             };
 
+            //Prevent form submit (print preview) on enter key
+            $(window).keydown(function(event){
+              if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+              }
+            });
+
+          //AJAX in WET4 component fix
+          $('.data-ajax').on("wb-contentupdated", function (event, data) {
+            var $elm = $(event.currentTarget);
+            $elm
+              .find(wb.allSelectors)
+              .addClass("wb-init")
+              .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+              .trigger("timerpoke.wb");
+            return true;
+          });
+
           // Plugin event handlers
           $document.on("change", "input", function (event) {
             var elm = event.currentTarget,
@@ -3158,7 +3174,7 @@
         }
       </script>
       <script>
-
+        
         $(".action-checkbox").change(function () {
           if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
             $("#action-msg1").removeClass("hidden").addClass("visible");
@@ -3171,34 +3187,5 @@
         })
 
       </script>
-      <script>
-
-//AJAX in WET4 component fix
-
-(function ($, document, wb) {
-
-                "use strict";
-
-                $('.data-ajax').on("wb-contentupdated", function (event, data) {
-
-                                var $elm = $(event.currentTarget);
-
-                                $elm
-
-                                                .find(wb.allSelectors)
-
-                                                .addClass("wb-init")
-
-                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
-
-                                                .trigger("timerpoke.wb");
-
-                                return true;
-
-                });
-
-})(jQuery, document, wb);
-
-</script>
    </body>
 </html>
