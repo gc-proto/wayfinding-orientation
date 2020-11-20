@@ -589,202 +589,175 @@
           expenses</button>
                     </p>
                 </form>
-                <div class="panel panel-primary hidden" id="results">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Your employee home work space expenses results</h3>
-                    </div>
-                    <div id="wsih-total-expenses">
-                        <div class="panel-body">
-                            <p><strong>Print and keep this record using the print preview button below</strong>. You will need the amounts below when filling out the <strong class="ws-t777reg hidden">T777</strong><strong class="ws-t777short hidden">T777 short</strong>                                form.</p>
-                            <div class="ws-t777short hidden">
-                                <h4 class="mrgn-tp-sm">Summary of total expenses</h4>
-                                <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
-                                <p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your return. </p>
-                                <div id="flat-rate-info" class="hidden">
-                                    <p>CRA is allowing you to claim a flat rate of <strong>$400.00</strong> for your expenses for this year.</p>
-                                    <p>Your employer is not required to complete a <strong>T2200 short</strong> and you do not need to fill out the <strong>T777 short</strong> form.</p>
-                                    <p>You will simply enter $400.00 on <strong>line 22900</strong> on your return.</p>
-                                </div>
-                                <h4>Summary of the employment-use amount</h4>
-                                <p><span class="h4">$<span class="employment-use-total-amount">0.00</span></span> of the employment-use portion.</p>
-                                <p>This amount will go on <strong>line 12</strong> of the T777 short form.</p>
-                                <p>The total amount of the employment-use portion is based on:</p>
-                                <ul>
-                                    <li><span class="h5">$<span class="employment-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
-                                        <span class="mrgn-lft-lg">$<span class="employment-use-home-claim">0.00</span> &times; <span class="employment-use-home-rate">0</span>%</li>
-                                    <li><span class="h5">$<span class="employment-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
-                                        <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
-                                </ul>
-                            </div>
-                            <div class="ws-t777reg hidden">
-                                <h4 class="mrgn-tp-sm">Summary of the personal-use portion</h4>
-                                <p><span class="h4">$<span class="personal-use-total-amount">0.00</span></span> of the personal-use portion.</p>
-                                <p>This amount will go on <strong>line 23</strong> of the form T777.</p>
-                                <p>The total amount of personal-use portion is based on:</p>
-                                <ul>
-                                    <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
-                                        <span class="mrgn-lft-lg">$<span class="personal-use-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</li>
-                                    <li><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
-                                        <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
-                                </ul>
-                            </div>
-                            <details>
-                                <summary>Amounts you provided</summary>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <caption>
-                                            Expense and income amounts provided<br> From: <span class="startDate">[Start]</span> to <span class="endDate">[End]</span>
-                                        </caption>
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" class="col-sm-6">Expense</th>
-                                                <th scope="col" class="active">Amount to report</th>
-                                                <th scope="col">T777<span class="ws-t777short hidden"> short</span> form</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
-                                                <td class="active" id="supplies-output">[$0.00]</td>
-                                                <td>Line 1</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Other expenses (employment use of a cell phone, employment use of monthly internet access fees, long distance calls for employment purposes, etc.)</td>
-                                                <td class="active" id="ws-expenses-output">[$0.00]</td>
-                                                <td>Line 2</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Total expenses (you can claim)</td>
-                                                <td class="active" id="ws-total-claim-output">[$0.00]</td>
-                                                <td>Line 5</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Electricity, heat and water </td>
-                                                <td class="active" id="utilities-output">[$0.00]</td>
-                                                <td>Line <span class="ws-t777short hidden">6</span><span class="ws-t777reg hidden">17</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Maintenance
-                                                    <ul>
-                                                        <li>Maintenance of entire home (including work <span class="nowrap">space) = <span id="home-ws-maintenance">[$0.00]</span></span>
-                                                        </li>
-                                                        <li class="designated-room">Designated work space (room) <span class="nowrap">only = <span id="designated-room-maintenance-output">[$0.00]</span></span>
-                                                            <li class="shared-room hidden">Common (shared) work space <span class="nowrap">only = <span id="shared-room-maintenance-output">[$0.00]</span></span>
-                                                            </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="active" id="maintenance-output">[$0.00]</td>
-                                                <td>Line <span class="ws-t777short hidden">7</span><span class="ws-t777reg hidden">18</span></td>
-                                            </tr>
-                                            <tr class="commission-income hidden">
-                                                <td>Home insurance <small>(commission income only)</br>
-                  </small></td>
-                                                <td class="active" id="insurance-commission-output">[$0.00]</td>
-                                                <td>Line <span class="ws-t777short hidden">8</span><span class="ws-t777reg hidden">19</span></td>
-                                            </tr>
-                                            <tr class="commission-income hidden">
-                                                <td>Property taxes</br>
-                                                    <small>(commission income only)</br>
-                  </small></td>
-                                                <td class="active" id="property-taxes-commission-output">[$0.00]</td>
-                                                <td>Line <span class="ws-t777short hidden">9</span><span class="ws-t777reg hidden">20</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Other expenses (rent, etc.)</td>
-                                                <td class="active" id="home-expenses-output">[$0.00]</td>
-                                                <td>Line <span class="ws-t777short hidden">10</span><span class="ws-t777reg hidden">21</span></td>
-                                            </tr>
-                                            <tr class="ws-t777reg hidden">
-                                                <td>Personal-use portion</td>
-                                                <td class="active" id="personal-use-output">[$0.00]</td>
-                                                <td>Line 23</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Employment-use amount</td>
-                                                <td class="active" id="employment-use-output">[$0.00]</td>
-                                                <td>Line 12</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Employment income</td>
-                                                <td class="active" id="income-output">[$0.00]</td>
-                                                <td>Line 13</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Dues (line 20700) and RPP deductions (line 21200) </td>
-                                                <td class="active" id="dues-pension-output">[$0.00]</td>
-                                                <td>Line 14</td>
-                                            </tr>
-                                            <tr class="ws-t777short hidden">
-                                                <td>Expenses availble to use in future years </td>
-                                                <td class="active" id="carry-forward-output">[$0.00]</td>
-                                                <td>Line 16</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table" id="cews-statement-table">
-                                        <caption>
-                                            Work space data you provided
-                                        </caption>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Size of work spaces in your home</th>
-                                                <td class="text-right nowrap"><span id="room-area-output">[answer]</span><span class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
-                                            </tr>
-                                            <tr class="shared-room hidden">
-                                                <th scope="row">Hours a week in work space</th>
-                                                <td class="text-right nowrap"><span id="shared-room-hrs-output">[answer]</span></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Total finished area of your home</th>
-                                                <td class="text-right nowrap"><span id="total-home-area-summary">[answer]</span><span class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </details>
-                            <div class="carry-fwd hidden">
-                                <p>
-                                    <mark>will be hidden by default and only appear for T777 short</mark> The income you reported is less than the expenses claimed for employment-use. You can carry forward <strong class="carry-fwd-output">[$0.00]</strong>                                    to be claimed in future years.</p>
-                                <p>This amount will go on <strong>line 17</strong> of the T777 short form.</p>
-                                <p><strong>Note:<strong> If you earn commission income, you may also claim <a href="#salaried-lbx" class="wb-lbx">expenses as a salaried employee</a> instead.</p>
+             <div class="panel panel-primary hidden" id="results">
+  <div class="panel-heading">
+    <h3 class="panel-title">Your employee home work space expenses results</h3>
+  </div>
+  <div class="panel-body">
+    <div id="wsih-total-expenses">
+      <p><strong>Print and keep this record using the print preview button below</strong>. You will need the amounts below when filling out the <strong class="ws-t777reg hidden">T777</strong><strong class="ws-t777short hidden">T777 short</strong> form.</p>
+      <div class="ws-t777short hidden">
+        <h4 class="mrgn-tp-sm">Summary of total expenses</h4>
+        <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
+        <p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your return. </p>
+        <div id="flat-rate-info" class="hidden">
+          <p>CRA is allowing you to claim a flat rate of <strong>$400.00</strong> for your expenses for this year.</p>
+          <p>Your employer is not required to complete a <strong>T2200 short</strong> and you do not need to fill out the <strong>T777 short</strong> form.</p>
+          <p>You will simply enter $400.00 on <strong>line 22900</strong> on your return.</p>
+        </div>
+        <h4>Summary of the employment-use amount</h4>
+        <p><span class="h4">$<span class="employment-use-total-amount">0.00</span></span> of the employment-use portion.</p>
+        <p>This amount will go on <strong>line 12</strong> of the T777 short form.</p>
+        <p>The total amount of the employment-use portion is based on:</p>
+        <ul>
+          <li><span class="h5">$<span class="employment-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
+            <span class="mrgn-lft-lg">$<span class="employment-use-home-claim">0.00</span> &times; <span class="employment-use-home-rate">0</span>%</li>
+          <li><span class="h5">$<span class="employment-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
+            <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
+        </ul>
       </div>
-     <!-- <div class="commission-income hidden">
-        <p> If your commission income is <strong>less</strong> than the total expenses you have claimed, you can either: </p>
-                                <ul>
-                                    <li>carry forward the extra amount to the next year, or</li>
-                                    <li>if you also have a salary that is larger than your commission income, you can claim you expenses, but not your insurance or property taxes</li>
-                                </ul>
-                                <div class="ws-t777reg hidden">
-                                    <p>Using your salary, the personal-use portion would be <span id="personal-use-salary-total-amount">[$0.00]</span> based on:</p>
-                                    <ul>
-                                        <li><span class="h5">$<span class="personal-use-salary-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
-                                            <span class="mrgn-lft-lg">$<span class="personal-use-salary-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</li>
-                                        <li><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
-                                            <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
-                                    </ul>
-                                </div>//-->
-                                <!--   <div class="ws-t777short hidden">
-                                    <p>Using your salary, the employment-use amount would be <span id="oemployment-use-salary-total-amount">[$0.00]</span> based on:</p>
-                                    <ul>
-                                        <li><span class="h5">$<span class="employment-use-salary-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
-                                            <span class="mrgn-lft-lg">$<span class="employment-use-salary-home-claim">0.00</span> &times; <span class="employment-use-home-rate">0</span>%</li>
-                                        <li><span class="h5">$<span class="employment-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
-                                            <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
-                                    </ul>
-                                    <p>If this is a preferred amount, you will need to re-calculate your claim.
-                                </div> //-->
-                            </div>
-                            <div class="hidden-print ws-t777reg">
-                                <p><strong>Reminder:</strong> There are supplies you can, and cannot claim for employment expenses. Review <span class="salary-income"><a href="#supplies-salary-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as a salaried employee</a></span>                                    <span class="commission-income hidden"><a href="#supplies-commission-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as an employee who makes commissions</a></span>.</p>
-                            </div>
-                            <p>You are now ready to <strong>print these amounts</strong> so you can enter them into the form. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
-                            <p class="hidden-print"><a class="wb-lbx btn btn-default btn-lg wb-init wb-lbx-inited" id="wb-auto-62" role="button" href="#pp-statement"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
-        statement</span></span></a></p>
-                        </div>
-                    </div>
-                </div>
+      <div class="ws-t777reg hidden">
+        <h4 class="mrgn-tp-sm">Summary of the personal-use portion</h4>
+        <p><span class="h4">$<span class="personal-use-total-amount">0.00</span></span> of the personal-use portion.</p>
+        <p>This amount will go on <strong>line 23</strong> of the form T777.</p>
+        <p>The total amount of personal-use portion is based on:</p>
+        <ul>
+          <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
+            <span class="mrgn-lft-lg">$<span class="personal-use-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</li>
+          <li><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
+            <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
+        </ul>
+      </div>
+      <details>
+        <summary>Amounts you provided</summary>
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <caption>
+            Expense and income amounts provided<br>
+            From: <span class="startDate">[Start]</span> to <span class="endDate">[End]</span>
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" class="col-sm-6">Expense</th>
+                <th scope="col" class="active">Amount to report</th>
+                <th scope="col">T777<span class="ws-t777short hidden"> short</span> form</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="ws-t777short hidden">
+                <td>Supplies (postage, stationery, ink cartridge, other office supplies, etc.)</td>
+                <td class="active" id="supplies-output">[$0.00]</td>
+                <td>Line 1</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Other expenses (employment use of a cell phone, employment use of monthly internet access fees, long distance calls for employment purposes, etc.)</td>
+                <td class="active" id="ws-expenses-output">[$0.00]</td>
+                <td>Line 2</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Total expenses (you can claim)</td>
+                <td class="active" id="ws-total-claim-output">[$0.00]</td>
+                <td>Line 5</td>
+              </tr>
+              <tr>
+                <td>Electricity, heat and water </td>
+                <td class="active" id="utilities-output">[$0.00]</td>
+                <td>Line <span class="ws-t777short hidden">6</span><span class="ws-t777reg hidden">17</span></td>
+              </tr>
+              <tr>
+                <td>Maintenance
+                  <ul>
+                    <li>Maintenance of entire home (including work <span class="nowrap">space) = <span id="home-ws-maintenance">[$0.00]</span></span> </li>
+                    <li class="designated-room">Designated work space (room) <span class="nowrap">only = <span id="designated-room-maintenance-output">[$0.00]</span></span>
+                    <li class="shared-room hidden">Common (shared) work space <span class="nowrap">only = <span id="shared-room-maintenance-output">[$0.00]</span></span> </li>
+                  </ul></td>
+                <td class="active" id="maintenance-output">[$0.00]</td>
+                <td>Line <span class="ws-t777short hidden">7</span><span class="ws-t777reg hidden">18</span></td>
+              </tr>
+              <tr class="commission-income hidden">
+                <td>Home insurance <small>(commission income only)</br>
+                  </small></td>
+                <td class="active" id="insurance-commission-output">[$0.00]</td>
+                <td>Line <span class="ws-t777short hidden">8</span><span class="ws-t777reg hidden">19</span></td>
+              </tr>
+              <tr class="commission-income hidden">
+                <td>Property taxes</br>
+                  <small>(commission income only)</br>
+                  </small></td>
+                <td class="active" id="property-taxes-commission-output">[$0.00]</td>
+                <td>Line <span class="ws-t777short hidden">9</span><span class="ws-t777reg hidden">20</span></td>
+              </tr>
+              <tr>
+                <td>Other expenses (rent, etc.)</td>
+                <td class="active" id="home-expenses-output">[$0.00]</td>
+                <td>Line <span class="ws-t777short hidden">10</span><span class="ws-t777reg hidden">21</span></td>
+              </tr>
+              <tr class="ws-t777reg hidden">
+                <td>Personal-use portion</td>
+                <td class="active" id="personal-use-output">[$0.00]</td>
+                <td>Line 23</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Employment-use amount</td>
+                <td class="active" id="employment-use-output">[$0.00]</td>
+                <td>Line 12</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Employment income</td>
+                <td class="active" id="income-output">[$0.00]</td>
+                <td>Line 13</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Dues (line 20700) and RPP deductions (line 21200) </td>
+                <td class="active" id="dues-pension-output">[$0.00]</td>
+                <td>Line 14</td>
+              </tr>
+              <tr class="ws-t777short hidden">
+                <td>Expenses availble to use in future years </td>
+                <td class="active" id="carry-forward-output">[$0.00]</td>
+                <td>Line 16</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <table class="table" id="cews-statement-table">
+            <caption>
+            Work space data you provided
+            </caption>
+            <tbody>
+              <tr>
+                <th scope="row">Size of work spaces in your home</th>
+                <td class="text-right nowrap"><span id="room-area-output">[answer]</span><span class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
+              </tr>
+              <tr class="shared-room hidden">
+                <th scope="row">Hours a week in work space</th>
+                <td class="text-right nowrap"><span id="shared-room-hrs-output">[answer]</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Total finished area of your home</th>
+                <td class="text-right nowrap"><span id="total-home-area-summary">[answer]</span><span class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="carry-fwd hidden">
+        <p>
+          <mark>will be hidden by default and only appear for T777 short</mark>
+          The income you reported is less than the expenses claimed for employment-use. You can carry forward <strong class="carry-fwd-output">[$0.00]</strong> to be claimed in future years.</p>
+        <p>This amount will go on <strong>line 17</strong> of the T777 short form.</p>
+        <p><strong>Note:<strong> If you earn commission income, you may also claim <a href="#salaried-lbx" class="wb-lbx">expenses as a salaried employee</a> instead.</p>
+      </div>
+      <div class="hidden-print ws-t777reg">
+        <p><strong>Reminder:</strong> There are supplies you can, and cannot claim for employment expenses. Review <span class="salary-income"><a href="#supplies-salary-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as a salaried employee</a></span> <span class="commission-income hidden"><a href="#supplies-commission-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as an employee who makes commissions</a></span>.</p>
+      </div>
+    </div>
+    <p>You are now ready to <strong>print these amounts</strong> so you can enter them into the form. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+    <p class="hidden-print"><a class="wb-lbx btn btn-default btn-lg wb-init wb-lbx-inited" id="wb-auto-62" role="button" href="#pp-statement"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
+      statement</span></span></a></p>
+  </div>
+</div>
 
 
                 <!--Overlays //-->
@@ -842,7 +815,7 @@
                         <h2 class="modal-title">Expenses that can be claimed for employment purposes</h2>
                     </header>
                     <div class="modal-body">
-                        <table class="table wb-tables" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
+                        <table class="table wb-tables data-ajax" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
                             <caption class="wb-inv">
                                 Common other home office expenses
                             </caption>
@@ -865,7 +838,7 @@
                         <h2 class="modal-title">Work space supplies and if they can be claimed for an employee</h2>
                     </header>
                     <div class="modal-body">
-                        <table class="table wb-tables" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
+                        <table class="table wb-tables data-ajax" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
                             <caption class="wb-inv">
                                 Common home office supplies
                             </caption>
@@ -912,7 +885,7 @@
                         <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
                     </header>
                     <div class="modal-body">
-                        <div data-ajax-replace=" #wsih-total-expenses" class="data-ajax></div>
+                        <div data-ajax-replace=" #wsih-total-expenses" class="data-ajax"></div>
 
                         <ul class="list-inline">
                             <li>
