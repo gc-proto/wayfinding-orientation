@@ -2154,7 +2154,7 @@
                   if (unformattedValueOne[i] == "0") {
                     calculatedExpense.push(0);
                   } else if (periodOption[i] == 'year') {
-                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 365 * 28);
+                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 366 * 28);
                   } else if (periodOption[i] == 'period' ) {
                     calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
                   } else if (periodOption[i] == 'month' ) {
