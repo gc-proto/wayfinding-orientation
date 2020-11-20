@@ -273,7 +273,7 @@
            
 
             <details class="mrgn-bttm-lg">
-                <summary>Note: This calculator does not collect or store your information</summary>
+                <summary>This calculator does not collect or store your information</summary>
                 <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of work space expenses you may be eligible to claim.</p>
                 <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
             </details>
@@ -284,7 +284,7 @@
                                     <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
                                         <p>You would like to claim</p>
                                         <ul>
-                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A rate $2 for each day you worked from home (up to a maximum of $400 a year) due to the COVID-19 pandemic, to cover all your work space and office supply expenses (Simple daily-rate claim)</li>
+                                            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A rate of $2 for each day you worked from home (up to a maximum of $400 a year) due to the COVID-19 pandemic, to cover all your work space and office supply expenses (Simple daily-rate claim)</li>
                                             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space at home and office supply expenses  due to the COVID-19 pandemic, and you have your receipts (Simplified expenses based claim)</li>
                                             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses, and other employment expenses such as vehicle costs, equipment, and fees, and you have your receipts (Standard expenses based claim)</li>
                                         </ul>
@@ -592,7 +592,7 @@
     <h3 class="panel-title">Your employee home work space expenses results</h3>
   </div>
   <div class="panel-body">
-    <div id="wsih-total-expenses">
+    <div id="wsih-print-summary-1">
       <p><strong>Print and keep this record using the print preview button below</strong>. You will need the amounts below when filling out the <strong class="ws-t777reg hidden">T777</strong><strong class="ws-t777short hidden">T777 short</strong> form.</p>
       <div class="ws-t777short hidden">
         <h4 class="mrgn-tp-sm">Summary of total expenses</h4>
@@ -626,8 +626,10 @@
             <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</li>
         </ul>
       </div>
+     </div>
       <details>
         <summary>Amounts you provided</summary>
+         <div id="wsih-form-tables">
         <div class="table-responsive">
           <table class="table table-bordered">
             <caption>
@@ -719,7 +721,7 @@
           </table>
         </div>
         <div class="table-responsive">
-          <table class="table" id="cews-statement-table">
+          <table class="table">
             <caption>
             Work space data you provided
             </caption>
@@ -739,7 +741,9 @@
             </tbody>
           </table>
         </div>
+           </div>
       </details>
+   <div id="wsih-print-summary-2">
       <div class="carry-fwd hidden">
         <p>
           <mark>will be hidden by default and only appear for T777 short</mark>
@@ -883,8 +887,9 @@
                         <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
                     </header>
                     <div class="modal-body">
-                        <div data-ajax-replace=" #wsih-total-expenses" class="data-ajax"></div>
-
+                        <div data-ajax-replace=" #wsih-print-summary-1"></div>
+<div data-ajax-replace=" #wsih-form-tables" class="data-ajax"></div>
+                       <div data-ajax-replace=" #wsih-print-summary-2"></div>
                         <ul class="list-inline">
                             <li>
                                 <button onclick="window.print()" class="btn btn-success btn-lg"><span
