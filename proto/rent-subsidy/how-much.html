@@ -290,8 +290,8 @@
                               <select required id="claim-period" class="form-control input-lg">
                                  <option value=""> Select a claim period</option>
                                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
-                                 <!-- <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
-                                 <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option> -->
+                                 <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
+                                 <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
                               </select>
                            </div>
                         </fieldset>
@@ -1837,6 +1837,17 @@
               }
             };
 
+          //AJAX in WET4 component fix
+          $('.data-ajax').on("wb-contentupdated", function (event, data) {
+            var $elm = $(event.currentTarget);
+            $elm
+              .find(wb.allSelectors)
+              .addClass("wb-init")
+              .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+              .trigger("timerpoke.wb");
+            return true;
+          });
+
           // Plugin event handlers
           $document.on("change", "input", function (event) {
             var elm = event.currentTarget,
@@ -1913,8 +1924,8 @@
 
               //date in format 2020-xx-xx
               //last day of month
-              var lastDayMonthOne = new Date(startDateParts[0], startDateParts[1] + 1, 0).getDate();
-              var lastDayMonthTwo = new Date(endDateParts[0], endDateParts[1] + 1, 0).getDate();
+              var lastDayMonthOne = new Date(startDateParts[0], startDateParts[1], 0).getDate();
+              var lastDayMonthTwo = new Date(endDateParts[0], endDateParts[1], 0).getDate();
               $('.date-month-one-start').text(startDateISO.substring(0, 8) + '01');
               $('.date-month-one-end').text(startDateISO.substring(0, 8) + lastDayMonthOne);
               $('.date-month-two-start').text(endDateISO.substring(0, 8) + '01');
@@ -2143,7 +2154,7 @@
                   if (unformattedValueOne[i] == "0") {
                     calculatedExpense.push(0);
                   } else if (periodOption[i] == 'year') {
-                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 365 * 28);
+                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 366 * 28);
                   } else if (periodOption[i] == 'period' ) {
                     calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
                   } else if (periodOption[i] == 'month' ) {
@@ -3153,8 +3164,6 @@
             ]);
           })(jQuery, wb);
         }
-      </script>
-      <script>
 
         $(".action-checkbox").change(function () {
           if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
@@ -3167,35 +3176,15 @@
           }
         })
 
+        var list = document.querySelectorAll('input,select');
+        for (i = 0; i < list.length; i++) {
+          list[i].addEventListener('keypress', function(event) {
+            if(event.keyCode == 13) {
+              event.preventDefault();
+              return false;
+            }
+          })
+        }
       </script>
-      <script>
-
-//AJAX in WET4 component fix
-
-(function ($, document, wb) {
-
-                "use strict";
-
-                $('.data-ajax').on("wb-contentupdated", function (event, data) {
-
-                                var $elm = $(event.currentTarget);
-
-                                $elm
-
-                                                .find(wb.allSelectors)
-
-                                                .addClass("wb-init")
-
-                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
-
-                                                .trigger("timerpoke.wb");
-
-                                return true;
-
-                });
-
-})(jQuery, document, wb);
-
-</script>
    </body>
 </html>
