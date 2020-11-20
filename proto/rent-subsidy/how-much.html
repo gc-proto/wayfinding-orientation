@@ -1837,6 +1837,25 @@
               }
             };
 
+            //Prevent form submit (print preview) on enter key
+            $(window).keydown(function(event){
+              if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+              }
+            });
+
+          //AJAX in WET4 component fix
+          $('.data-ajax').on("wb-contentupdated", function (event, data) {
+            var $elm = $(event.currentTarget);
+            $elm
+              .find(wb.allSelectors)
+              .addClass("wb-init")
+              .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+              .trigger("timerpoke.wb");
+            return true;
+          });
+
           // Plugin event handlers
           $document.on("change", "input", function (event) {
             var elm = event.currentTarget,
@@ -3155,7 +3174,7 @@
         }
       </script>
       <script>
-
+        
         $(".action-checkbox").change(function () {
           if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
             $("#action-msg1").removeClass("hidden").addClass("visible");
@@ -3168,34 +3187,5 @@
         })
 
       </script>
-      <script>
-
-//AJAX in WET4 component fix
-
-(function ($, document, wb) {
-
-                "use strict";
-
-                $('.data-ajax').on("wb-contentupdated", function (event, data) {
-
-                                var $elm = $(event.currentTarget);
-
-                                $elm
-
-                                                .find(wb.allSelectors)
-
-                                                .addClass("wb-init")
-
-                                                .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
-
-                                                .trigger("timerpoke.wb");
-
-                                return true;
-
-                });
-
-})(jQuery, document, wb);
-
-</script>
    </body>
 </html>
