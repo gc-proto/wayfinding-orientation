@@ -1409,11 +1409,11 @@
               "date-insurance-end-",
               "date-interest-end-",
               "date-lease-end-",
-              "date-tax-from-",
+			  "date-tax-from-",
               "date-insurance-from-",
               "date-interest-from-",
               "date-lease-from-",
-              "date-tax-to-",
+			  "date-tax-to-",
               "date-insurance-to-",
               "date-interest-to-",
               "date-lease-to-",
@@ -1527,9 +1527,16 @@
             this.updateClass(frag);
             this.updateIds(frag);
             if (!isChromium) {
-              this.clearInitializedExpandHide(frag, "lockdown-details", "Learn about lockdown support eligibility criteria");
-              this.clearInitializedExpandHide(frag, "location-details", "Expense summary for <span class='loc-staddress-" + numLocs + "'>location 1</span>");
-              this.clearInitializedDatePickers(frag);
+				if (document.documentElement.lang == "fr") {
+					var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
+				    var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+				} else {
+					var SummaryOne = "Learn about lockdown support eligibility criteria";
+				    var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+				}
+				this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
+				this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
+				this.clearInitializedDatePickers(frag);
             }
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
@@ -1837,16 +1844,19 @@
               }
             };
 
-          //AJAX in WET4 component fix
-          $('.data-ajax').on("wb-contentupdated", function (event, data) {
-            var $elm = $(event.currentTarget);
-            $elm
-              .find(wb.allSelectors)
-              .addClass("wb-init")
-              .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
-              .trigger("timerpoke.wb");
-            return true;
-          });
+			//AJAX in WET4 component fix
+			$('.data-ajax').on("wb-contentupdated",
+			function (event, data) {
+			var $elm = $(event.currentTarget);
+			$elm
+				.find(wb.allSelectors)
+				.addClass("wb-init")
+				.filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+				.trigger("timerpoke.wb");
+				return 
+				true;
+			});
+
 
           // Plugin event handlers
           $document.on("change", "input", function (event) {
@@ -2501,22 +2511,16 @@
             var eligibleLocations = 0;
             var qreForLocation = 0;
             if (document.documentElement.lang == "fr") {
-              var langThousands = /\s/; //nbsp code
+               var langThousands = /\s/; //nbsp regex
               var langDecimals = ",";
             } else {
-               var langThousands = ",";
-               var langDecimals = ".";
+              var langThousands = ",";
+              var langDecimals = ".";
             }
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
-
-
-              console.log($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(/\s/));
-              console.log($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
-
-
               smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
@@ -2530,8 +2534,6 @@
               }
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
             });
-            console.log(smryTotals[0]);
-            console.log(toMoney.format(smryTotals[0]));
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
             $(".tax-total").html(toMoney.format(smryTotals[1]));
@@ -3183,16 +3185,19 @@
             $("#action-no-msg").removeClass("hidden").addClass("visible");
           }
         })
+		
+		//Prevent form submit (print preview) on enter key
+		var list = document.querySelectorAll('input,select');
+		for (i = 0; i < list.length; i++) {
+			list[i].addEventListener('keypress',function(event) {
+				if(event.keyCode == 13) {
+					event.preventDefault();
+					return false;
+				}
+			})
+		}
 
-        var list = document.querySelectorAll('input,select');
-        for (i = 0; i < list.length; i++) {
-          list[i].addEventListener('keypress', function(event) {
-            if(event.keyCode == 13) {
-              event.preventDefault();
-              return false;
-            }
-          })
-        }
       </script>
+
    </body>
 </html>
