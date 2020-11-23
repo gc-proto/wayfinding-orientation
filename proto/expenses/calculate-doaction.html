@@ -272,14 +272,14 @@
             <h1 property="name" id="wb-cont">Calculate your expenses</h1>
 		<p>Everything hidden</p>
 
-         <!--   <details class="mrgn-bttm-lg">
+        <details class="mrgn-bttm-lg">
                 <summary>This calculator does not collect or store your information</summary>
                 <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only used to help you determine the amount of work space expenses you may be eligible to claim.</p>
                 <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
             </details>
 
             <p><strong>Reminder:</strong> You must meet the <a href="who-apply.html#h-1">eligibility criteria</a> to claim your expenses.</p>
-        <div class="wb-frmvld fieldflow-lg">
+       <!-- <div class="wb-frmvld fieldflow-lg">
                 <form>
                     <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
                         <p>You would like to claim</p>
@@ -290,9 +290,9 @@
                         </ul>
                     </div>
                 </form>
-            </div>//-->
+            </div>
 
-        <!--    <div id="daily-rate-alert" class="hidden">
+        <div id="daily-rate-alert" class="hidden">
                 <div class="alert alert-info">
                     <h2 class="mrgn-tp-0 h3">Simplified option</h2>
                     <p>To simplify the claim for your work space and office supply expenses, you can <a href="how-apply.html#h-1">claim a flat rate of $2 for every day you worked</a> (up to a total of $400 a year) on your 2020 tax return.</p>
@@ -334,8 +334,7 @@
     <li data-wb-fieldflow='[{"action": "addClass", "source": ".ws-non-continuous, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>No; I have returned to my place of work, and have not returned to working from home</li>
     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-non-continuous", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Yes</li>
   </ul>
-</div>//-->
-          <!--  <div id="ff-ws-type" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+</div> <div id="ff-ws-type" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <div class="wb-fieldflow-header">
                     <!--<div class="alert alert-info provisional ws-non-continuous hidden">
       <p><strong>Note:</strong> you can only claim expenses for the time you were were working from home.  If you returned to the work place and were required to work from home again, you cannot claim expenses for the time you were back at your work place.</p>
@@ -358,8 +357,8 @@
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "toggle", "toggle": ".ws-feet-sq", "live": true}]'> Square feet (ft&#178;)</li>
                 </ul>
             </div>
-    <!--need to add hidden class   <div class="wb-frmvld" id="wsih-calculator">
-        <!--        <form method="get" id="wsih-calculator-form">
+    <!--need to add hidden class//-->   <div class="wb-frmvld" id="wsih-calculator">
+  <form method="get" id="wsih-calculator-form">
 
                     <fieldset id="workarea">
                         <legend class="brdr-tp">Size of work space and home</legend>
@@ -425,7 +424,7 @@
                                     maintenance), based on the amount of hours worked in the space.</p>
                             </div>
                         </div>
-                    </fieldset>//-->
+                    </fieldset>
                    <fieldset id="workspace-calculation">
     <legend class="mrgn-bttm-sm required">Period of time worked at home within the year <strong class="required">(required)</strong></legend>
     <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from home for the full year&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -510,7 +509,7 @@
       </div>
     </div>
   </fieldset>
-            <!--        <fieldset>
+             <fieldset>
                         <legend class="mrgn-bttm-0">Expenses to claim</legend>
                         <p>Enter the amount paid to an expense for the period you worked from home. Enter $0 if you are not claiming the expense.</p>
                         <div class="form-group ws-t777short hidden">
@@ -818,10 +817,10 @@
                     <p class="hidden-print"><a class="wb-lbx btn btn-default btn-lg wb-init wb-lbx-inited" id="wb-auto-62" role="button" href="#pp-statement"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
       statement</span></span></a></p>
                 </div>
-            </div>//-->
+            </div>
 
 
-            <!--Overlays 
+      <!--Overlays//--> 
             <section id="ff-ws-type-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
                 <header class="modal-header">
                     <h2 class="modal-title">Designated work space (room) or common (shared) space</h2>
@@ -940,7 +939,7 @@
                     </table>
                 </div>
             </section>
-            <!--Overlay for print preview 
+         <!--Overlay for print preview //-->
             <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def provisional">
                 <header class="modal-header">
                     <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
@@ -960,7 +959,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer hidden"> </div>
-            </section>//-->
+            </section>
             <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
                 <h3 class="wb-inv">Document navigation</h3>
                 <ul class="pager">
@@ -995,7 +994,7 @@
     <script type="text/javascript">
         document.write(wet.builder.refFooter({}));
     </script>
-<!-- <script>
+ <script>
         (function($, document, wb) {
             "use strict";
             $('.data-ajax').on("wb-contentupdated", function(event, data) {
@@ -1015,9 +1014,9 @@
                 return true;
             });
         })(jQuery, document, wb);
-    </script>//-->
+    </script>
     <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
-   <!-- <script>
+ <script>
         (function($, wb) {
             "use strict";
             var $document = wb.doc;
@@ -2077,7 +2076,7 @@
                 }
             }
         });
-    </script>//-->
+    </script>
 </body>
 
 </html>
