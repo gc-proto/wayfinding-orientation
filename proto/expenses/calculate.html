@@ -876,48 +876,19 @@
                     <h2 class="modal-title">Expenses that can be claimed for employment purposes</h2>
                 </header>
                 <div class="modal-body">
-                    <table class="table wb-tables data-ajax" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
-                        <caption class="wb-inv">
-                            Common other home office expenses
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Item</th>
-
-                                <th scope="col">Can be claimed?</th>
-
-                            </tr>
-                        </thead>
-                        <tbody data-ajax-replace="what-claim.html .type-other">
-
-                        </tbody>
-                    </table>
+			<div data-ajax-replace="what-claim.html #internet-cntnt" class="data-ajax"></div>
+			<div data-ajax-replace="what-claim.html #phone-cntnt" class="data-ajax"></div>
                 </div>
             </section>
-            <section id="supplies-salary-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+      <section id="supplies-salary-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
                 <header class="modal-header">
                     <h2 class="modal-title">Work space supplies and if they can be claimed for an employee</h2>
                 </header>
-                <div class="modal-body">
-                    <table class="table wb-tables data-ajax" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
-                        <caption class="wb-inv">
-                            Common home office supplies
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Item</th>
-
-                                <th scope="col">Can be claimed?</th>
-
-                            </tr>
-                        </thead>
-                        <tbody data-ajax-replace="what-claim.html .type-supply">
-
-                        </tbody>
-                    </table>
+                <div class="modal-body data-ajax" data-ajax-replace="what-claim.html #supplies-cntnt" >
+                   
                 </div>
             </section>
-            <section id="supplies-commission-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+         <!-- <section id="supplies-commission-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
                 <header class="modal-header">
                     <h2 class="modal-title">Work space supplies and if they can be claimed for an employee that makes commissions</h2>
                 </header>
@@ -939,7 +910,7 @@
                         </tbody>
                     </table>
                 </div>
-            </section>
+            </section>//-->
             <!--Overlay for print preview //-->
             <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def provisional">
                 <header class="modal-header">
