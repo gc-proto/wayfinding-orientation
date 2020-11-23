@@ -426,36 +426,90 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset id="workspace-calculation">
-                        <legend class="mrgn-bttm-sm">Period of time worked at home within the year</legend>
-                        <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from home for the full year&nbsp;<span class="far fa-question-circle"></span></a></p>
-                        <div class="row form-group">
-                            <div class="col-sm-5 form-group">
-
-                                <label for="work-home-start" class="control-label required"><span class="field-name">Start of period<span id="startCount"> 1</span></span> <strong class="required">(required)</strong> </label>
-                                <input class="form-control input-lg" id="work-home-start" name="work-home-start" type="date" required="required" />
-
-                            </div>
-                            <div class="col-sm-7">
-
-
-
-                                <div class="row">
-                                    <div class="col-sm-8 mrgn-bttm-0 form-group">
-                                        <label for="work-home-end" class="control-label required"><span class="field-name">End of period<span id="endCount"> 1</span></span> <strong class="required">(required)</strong></label>
-                                    </div>
-                                    <div class="col-sm-8 form-group">
-                                        <input class="form-control input-lg" id="work-home-end" name="work-home-end" type="date" required="required" max="" />
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <button class="copyDate btn btn-default  mrgn-rght-sm" title="Add period" type="button"><span class="fas fa-plus"></span><span class="wb-inv"> Add period</span></button> <button class="removeDate btn btn-warning"
-                                            title="Remove period" type="button"><span class="fas fa-trash-alt"></span><span class="wb-inv"> Remove period</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </fieldset>
+                   <fieldset id="workspace-calculation">
+    <legend class="mrgn-bttm-sm required">Period of time worked at home within the year <strong class="required">(required)</strong></legend>
+    <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from home for the full year&nbsp;<span class="far fa-question-circle"></span></a></p>
+    <div class="row form-group">
+      <div class="col-sm-5 form-group">
+        <label for="work-home-start" class="control-label required"><span class="field-name">Start of period<span id="startCount"> 1</span></span><span class="wb-inv"> (required)</span></label>
+        <input class="form-control input-lg" id="work-home-start" name="work-home-start" type="date" required="required" />
+      </div>
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-8 mrgn-bttm-0 form-group">
+            <label for="work-home-end" class="control-label required"><span class="field-name">End of period<span id="endCount"> 1</span></span><span class="wb-inv"> (required)</span></label>
+          </div>
+          <div class="col-sm-8 form-group">
+            <input class="form-control input-lg" id="work-home-end" name="work-home-end" type="date" required="required" max="" />
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-default mrgn-rght-sm" title="Add period" type="button" id="add-date-2" data-wb-doaction='[{ "action": "removeClass", "source": ".date-span-2", "class": "hidden"}, { "action": "addClass", "source": "#add-date-2", "class": "hidden"}]'><span class="fas fa-plus"></span><span class="wb-inv"> Add period</span></button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+	    <div class="row form-group date-span-2 hidden">
+      <div class="col-sm-5 form-group">
+        <label for="work-home-start-2" class="control-label required"><span class="field-name">Start of period 2</span><span class="wb-inv"> (required)</span></label>
+        <input class="form-control input-lg" id="work-home-start-2" name="work-home-start-2" type="date" required="required" />
+      </div>
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-8 mrgn-bttm-0 form-group">
+            <label for="work-home-end-2" class="control-label required"><span class="field-name">End of period 2</span><span class="wb-inv"> (required)</span></label>
+          </div>
+          <div class="col-sm-8 form-group">
+            <input class="form-control input-lg" id="work-home-end-2" name="work-home-end-2" type="date" required="required" max="" />
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-default mrgn-rght-sm" title="Add period" type="button" id="add-date-3" data-wb-doaction='[{ "action": "removeClass", "source": ".date-span-3", "class": "hidden"}, { "action": "addClass", "source": "#add-date-3, #remove-date-2", "class": "hidden"}]'><span class="fas fa-plus"></span><span class="wb-inv"> Add period</span></button>
+            <button class="btn btn-warning" title="Remove period" type="button" id="remove-date-2" data-wb-doaction='[{ "action": "removeClass", "source": "#add-date-2", "class": "hidden"}, { "action": "addClass", "source": ".date-span-2", "class": "hidden"}]'><span class="fas fa-trash-alt"></span><span class="wb-inv"> Remove period</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+	     <div class="row form-group date-span-3 hidden">
+      <div class="col-sm-5 form-group">
+        <label for="work-home-start-3" class="control-label required"><span class="field-name">Start of period 3</span><span class="wb-inv"> (required)</span></label>
+        <input class="form-control input-lg" id="work-home-start-3" name="work-home-start-3" type="date" required="required" />
+      </div>
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-8 mrgn-bttm-0 form-group">
+            <label for="work-home-end-3" class="control-label required"><span class="field-name">End of period 3</span><span class="wb-inv"> (required)</span></label>
+          </div>
+          <div class="col-sm-8 form-group">
+            <input class="form-control input-lg" id="work-home-end-3" name="work-home-end-3" type="date" required="required" max="" />
+          </div>
+          <div class="col-sm-4">
+            <button class="btn btn-default mrgn-rght-sm" title="Add period" type="button" id="add-date-4" data-wb-doaction='[{ "action": "removeClass", "source": ".date-span-4", "class": "hidden"}, { "action": "addClass", "source": "#add-date-4, #remove-date-3", "class": "hidden"}]'><span class="fas fa-plus"></span><span class="wb-inv"> Add period</span></button>
+            <button class="btn btn-warning" title="Remove period" type="button" id="remove-date-3" data-wb-doaction='[{ "action": "removeClass", "source": "#add-date-3, #remove-date-2", "class": "hidden"}, { "action": "addClass", "source": ".date-span-3", "class": "hidden"}]'><span class="fas fa-trash-alt"></span><span class="wb-inv"> Remove period</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+	     <div class="row form-group date-span-4 hidden">
+      <div class="col-sm-5 form-group">
+        <label for="work-home-start-4" class="control-label required"><span class="field-name">Start of period 4</span><span class="wb-inv"> (required)</span></label>
+        <input class="form-control input-lg" id="work-home-start-4" name="work-home-start-4" type="date" required="required" />
+      </div>
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-8 mrgn-bttm-0 form-group">
+            <label for="work-home-end-4" class="control-label required"><span class="field-name">End of period 4</span><span class="wb-inv"> (required)</span></label>
+          </div>
+          <div class="col-sm-8 form-group">
+            <input class="form-control input-lg" id="work-home-end-4" name="work-home-end-4" type="date" required="required" max="" />
+          </div>
+          <div class="col-sm-4">
+            
+            <button class="btn btn-warning" title="Remove period" type="button" id="remove-date-4" data-wb-doaction='[{ "action": "removeClass", "source": "#add-date-4, #remove-date-3", "class": "hidden"}, { "action": "addClass", "source": ".date-span-4", "class": "hidden"}]'><span class="fas fa-trash-alt"></span><span class="wb-inv"> Remove period</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
                     <fieldset>
                         <legend class="mrgn-bttm-0">Expenses to claim</legend>
                         <p>Enter the amount paid to an expense for the period you worked from home. Enter $0 if you are not claiming the expense.</p>
@@ -470,7 +524,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="supplies-input" name="supplies-input" type="text" required="required" aria-describedby="supplies-def supplies-date">
                             </div>
-                            <p id="supplies-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="supplies-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="form-group ws-t777short hidden">
                             <label for="ws-expenses-input" class="required"><span class="field-name">Other expenses related only to employment purposes<br>
@@ -481,7 +535,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="ws-expenses-input" name="ws-expenses-input" type="text" required="required" aria-describedby="ws-expenses-def ws-expenses-date">
                             </div>
-                            <p id="ws-expenses-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="ws-expenses-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="form-group">
                             <label for="utilities-input" class="required"><span class="field-name">Electricity, heat and water</span><span class="wb-inv"> in dollars and
@@ -489,7 +543,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="utilities-input" name="utilities-input" type="text" required="required" aria-describedby="utilities-date">
                             </div>
-                            <p id="utilities-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="utilities-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="form-group">
                             <label for="home-maintenance-input" class="required"><span class="field-name">Maintenance <br>
@@ -498,7 +552,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="home-maintenance-input" name="home-maintenance-input" type="text" required="required" aria-describedby="home-maintenance-def home-maintenance-date">
                             </div>
-                            <p id="home-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="home-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="form-group designated-room">
                             <label for="designated-room-maintenance-input" class="required"><span class="field-name">Maintenance <br>
@@ -507,7 +561,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="designated-room-maintenance-input" name="designated-room-maintenance-input" type="text" required="required" aria-describedby="ws-maintenance-def-1 designated-room-maintenance-date">
                             </div>
-                            <p id="designated-room-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="designated-room-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="form-group shared-room hidden">
                             <label for="shared-room-maintenance-input" class="required"><span class="field-name">Maintenance <br>
@@ -516,7 +570,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="shared-room-maintenance-input" name="shared-room-maintenance-input" type="text" required="required" aria-describedby="ws-maintenance-def-2 shared-room-maintenance-date">
                             </div>
-                            <p id="shared-room-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="shared-room-maintenance-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                         <div class="home-own">
                             <div class="form-group commission-income hidden">
@@ -524,14 +578,14 @@
                                 <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                     <input class="form-control input-lg currency" id="insurance-commission-input" name="insurance-commission-input" type="text" required="required" aria-describedby="insurance-commission-date">
                                 </div>
-                                <p id="insurance-commission-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                                <p id="insurance-commission-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                             </div>
                             <div class="form-group commission-income hidden">
                                 <label for="property-taxes-commission-input" class="required"><span class="field-name">Property taxes (for commission income only)</span><span class="wb-inv"> in dollars and cents</span> <strong class="required">(required)</strong></label>
                                 <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                     <input class="form-control input-lg currency" id="property-taxes-commission-input" name="property-taxes-commission-input" type="text" required="required" aria-describedby="property-taxes-commission-date">
                                 </div>
-                                <p id="property-taxes-commission-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                                <p id="property-taxes-commission-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                             </div>
                         </div>
                         <div class="form-group home-rent hidden">
@@ -541,7 +595,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="home-rent-input" name="home-rent-input" type="text" required="required" aria-describedby="home-rent-date">
                             </div>
-                            <p id="home-rent-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="home-rent-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
 
                         <div class="form-group">
@@ -551,7 +605,7 @@
                             <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
                                 <input class="form-control input-lg currency" id="home-expenses-input" name="home-expenses-input" type="text" required="required" aria-describedby="home-expenses-date">
                             </div>
-                            <p id="home-expenses-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="additionDate"></span></p>
+                            <p id="home-expenses-date" class="text-muted small">from <span class="startDate">[Start]</span> to <span class="endDate">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2">[Start]</span> to <span class="endDate2">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3">[Start]</span> to <span class="endDate3">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4">[Start]</span> to <span class="endDate4">[End]</span></span></p>
                         </div>
                     </fieldset>
                     <fieldset class="ws-t777short hidden">
