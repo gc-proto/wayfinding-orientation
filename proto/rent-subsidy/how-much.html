@@ -175,8 +175,8 @@
               </li>
               </ul>
               <p>An order that restricts or reduces activities but doesn’t require you to close or stop certain activities does not qualify for lockdown support. </p>
-              <details>
-              <summary>Examples of restrictions that do not qualify for lockdown support</summary>
+              
+              <p><strong>Examples of restrictions that do not qualify for lockdown support</strong></p>
               <ul>
                 <li>travel restrictions that reduce the number of clients</li>
                 <li>rules about when you can perform your regular activities, such as
@@ -193,7 +193,7 @@
               <div class="alert alert-warning provisional">
                 <p>You do not qualify for lockdown support if you are already restricted or closed because you failed to comply with a previous public health order or decision. </p>
               </div>
-              </details>
+
             </div>
             </details>
 
@@ -2501,16 +2501,22 @@
             var eligibleLocations = 0;
             var qreForLocation = 0;
             if (document.documentElement.lang == "fr") {
-              var langThousands = "/\s{4}/"; //nbsp code
+              var langThousands = /\s/; //nbsp code
               var langDecimals = ",";
             } else {
-              var langThousands = ",";
-              var langDecimals = ".";
+               var langThousands = ",";
+               var langDecimals = ".";
             }
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
               var locNum = $(element).prop("id").split("loc")[1];
               eligibleLocations++;
+
+
+              console.log($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(/\s/));
+              console.log($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
+
+
               smryTotals[0] += zeroIfEmpty($("#rent-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[1] += zeroIfEmpty($("#tax-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
@@ -2524,6 +2530,8 @@
               }
               smryTotals[6] += zeroIfEmpty($("#top-up-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
             });
+            console.log(smryTotals[0]);
+            console.log(toMoney.format(smryTotals[0]));
             $(".numLocs").text(eligibleLocations);
             $(".rent-total").html(toMoney.format(smryTotals[0]));
             $(".tax-total").html(toMoney.format(smryTotals[1]));
@@ -3086,8 +3094,8 @@
             var row = [], cols = rows[i].querySelectorAll("td, th");
 
             //Address column (keep commas as strings)
-            for (var j = 1; j < cols.length; j++) {
-              var val = cols[0].innerText;
+            for (var j = 0; j < cols.length; j++) {
+              var val = cols[j].innerText;
               if (val.indexOf(",") != -1) {
                 val = "\"" + val + "\"";
               }
