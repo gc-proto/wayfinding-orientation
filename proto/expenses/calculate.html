@@ -1084,8 +1084,8 @@
          * 
          * determine the percentage of the week that the common space used for work
          *
-         * @return {object} with property for raw hours and property representing 
-         * the percentage of hours the room is used during the week
+         * @return {object} with property for raw hours and property 
+         * representing the percentage of hours the room is used during the week
          */
         function getCommonWorkSpaceHours() {
             var workHours = 0;
@@ -1900,6 +1900,15 @@
             if (toDate) {
                 $(".endDate").text(toDate);
             }
+        });
+
+        //make sure the claim period doesnt exceed the start year
+        $(document).on("change keyup", "[id^='work-home-start']", function(event) {
+            var startDateElement = event.target;
+            var startDate = new Date(startDateElement.value);
+            var endDateElement = $("[id^='" + event.target.id.replace("start", "end") + "']");
+            $(endDateElement).attr("max", startDate.getFullYear() + "-12-31");
+            $(endDateElement).attr("min", startDate.getFullYear() + "-01-01");
         });
 
         //when a user updates the common space hours
