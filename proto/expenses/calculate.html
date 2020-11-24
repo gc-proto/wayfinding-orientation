@@ -917,9 +917,9 @@
                     <h2 class="modal-title">Print preview for employment use of a work space in the home expense calculation</h2>
                 </header>
                 <div class="modal-body">
-                    <div data-ajax-replace=" #wsih-print-summary-1"></div>
-                    <div data-ajax-replace=" #wsih-form-tables" class="data-ajax"></div>
-                    <div data-ajax-replace=" #wsih-print-summary-2"></div>
+                    <div data-ajax-replace="#wsih-print-summary-1"></div>
+                    <div data-ajax-replace="#wsih-form-tables" class="data-ajax"></div>
+                    <div data-ajax-replace="#wsih-print-summary-2"></div>
                     <ul class="list-inline">
                         <li>
                             <button onclick="window.print()" class="btn btn-success btn-lg"><span
@@ -1911,6 +1911,12 @@
             $(endDateElement).attr("max", startDate.getFullYear() + "-12-31");
             $(endDateElement).attr("min", startDate.getFullYear() + "-01-01");
         });
+
+        $(document).on("click keyup", "[id^='remove-date-']", function(event) {
+            var index = $(event.target).attr("id").replace("remove-date-", "");
+            $("#work-home-start-" + index).val("");
+            $("#work-home-end-" + index).val("");
+        })
 
         //when a user updates the common space hours
         $(document).on("change keyup", "#shared-room-hrs-input", function(event) {
