@@ -1913,9 +1913,11 @@
         });
 
         $(document).on("click keyup", "[id^='remove-date-']", function(event) {
-            var index = $(event.target).attr("id").replace("remove-date-", "");
+            var index = $(event.target).prop("id").replace("remove-date-", "");
             $("#work-home-start-" + index).val("");
             $("#work-home-end-" + index).val("");
+            $("#work-home-end-" + index).attr("max", "");
+            $("#work-home-end-" + index).attr("min", "");
         })
 
         //when a user updates the common space hours
