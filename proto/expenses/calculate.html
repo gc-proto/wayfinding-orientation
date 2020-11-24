@@ -1912,12 +1912,15 @@
             $(endDateElement).attr("min", startDate.getFullYear() + "-01-01");
         });
 
+        //reset date field values, min, max, and spans when date is removed
         $(document).on("click keyup", "[id^='remove-date-']", function(event) {
             var index = $(event.target).prop("id").replace("remove-date-", "");
             $("#work-home-start-" + index).val("");
             $("#work-home-end-" + index).val("");
             $("#work-home-end-" + index).attr("max", "");
             $("#work-home-end-" + index).attr("min", "");
+            $(".startDate" + index).text("start");
+            $(".endDate" + index).text("end");
         })
 
         //when a user updates the common space hours
