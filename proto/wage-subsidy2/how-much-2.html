@@ -2982,18 +2982,7 @@
               }
             }
             break;
-          //period 7+
-          case (period > 6):
-            if (paidLeave) {
-              return oldFormula(armsLength, weeklyAmount, baselineAmount);
-            } else {
-              if (cewsRate == 0) {
-                return 0;
-              } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
-              }
-            }
-            break;
+          //period 9+
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
@@ -3003,6 +2992,18 @@
               {
                 return 0;
               }
+            } else {
+              if (cewsRate == 0) {
+                return 0;
+              } else {
+                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+              }
+            }
+            break;
+          //period 7+
+          case (period > 6):
+            if (paidLeave) {
+              return oldFormula(armsLength, weeklyAmount, baselineAmount);
             } else {
               if (cewsRate == 0) {
                 return 0;
@@ -3208,35 +3209,35 @@
             $(".safe-harbour-show").addClass("hidden");
             $(".safe-harbour-hide").removeClass("hidden");
             //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-            $(".top-up-rate").text(roundPercDown(topUpRate) + "%");
-            $(".base-rate").text(roundPercDown(baseRate) + "%");
+            $(".top-up-rate").text(toPercent(roundPercDown(topUpRate)));
+            $(".base-rate").text(toPercent(roundPercDown(baseRate)));
           }
-          $("#currentRevReduction").text(roundPercDown(currentRevReduc) + "%");
-          $(".priorRevReduction").text(roundPercDown(priorRevReduc) + "%");
+          $("#currentRevReduction").text(toPercent(roundPercDown(currentRevReduc)));
+          $(".priorRevReduction").text(toPercent(roundPercDown(priorRevReduc)));
           if (claimPeriod < 11) {
-            $(".rev-drop-top-up").text(roundPercDown(threeMonthReduction) + "%");
+            $(".rev-drop-top-up").text(toPercent(roundPercDown(threeMonthReduction)));
           }
           if (claimPeriod > 7 && claimPeriod < 11) {
             if (revReduction > threeMonthReduction) {
-              $(".rev-drop-top-up-higher").text(roundPercDown(revReduction) + "%");
+              $(".rev-drop-top-up-higher").text(toPercent(roundPercDown(revReduction)));
             } else {
-              $(".rev-drop-top-up-higher").text(roundPercDown(threeMonthReduction) + "%");
+              $(".rev-drop-top-up-higher").text(toPercent(roundPercDown(threeMonthReduction)));
             }
           }
-          $(".rev-reduc-base").text(roundPercDown(revReduction) + "%");
+          $(".rev-reduc-base").text(toPercent(roundPercDown(revReduction)));
           var cewsRateDisplay = cewsRate * 100;
           cewsRateDisplay = cewsRateDisplay.toFixed(2);
-          $("#cews-rate").text(cewsRateDisplay + "%");
+          $("#cews-rate").text(toPercent(cewsRateDisplay));
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
-          $("#currentRevReduction").text("0%");
-          $(".priorRevReduction").text("0%");
-          $(".top-up-rate").text("0%");
-          $(".base-rate").text("0%");
-          $(".rev-drop-top-up").text("0%");
-          $(".rev-reduc-base").text("0%");
-          $("#cews-rate").text("0%");
+          $("#currentRevReduction").text(toPercent("0"));
+          $(".priorRevReduction").text(toPercent("0"));
+          $(".top-up-rate").text(toPercent("0"));
+          $(".base-rate").text(toPercent("0"));
+          $(".rev-drop-top-up").text(toPercent("0"));
+          $(".rev-reduc-base").text(toPercent("0"));
+          $("#cews-rate").text(toPercent("0"));
         }
       });
 
@@ -3491,12 +3492,12 @@
           $("#p2c-cews").trigger("change");
           var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
           $("#p2b-c1").val(revenueDisplay);
-          $("output[for='p2b-c1']").text(revenueDisplay + "%");
+          $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
           var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
           $("#p2b-c2").val(threeMonthRevenueDisplay);
-          $("output[for='p2b-c2']").text(threeMonthRevenueDisplay + "%");
+          $("output[for='p2b-c2']").text(toPercent(threeMonthRevenueDisplay));
           $("#p2b-c3").val(roundPercDown(cewsRate));
-          $("output[for='p2b-c3']").text(roundPercDown(cewsRate) + "%");
+          $("output[for='p2b-c3']").text(toPercent(roundPercDown(cewsRate)));
         } else {
           var eligibleEmployees = $("fieldset[id^='emp-']").length;
           for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
@@ -3542,13 +3543,13 @@
 
       //update percentage summary elements in 2B 
       $(document).on("blur", "#p2b-c1", function (event) {
-        $("output[for='p2b-c1']").text(zeroIfEmpty(event.target.value) + "%");
+        $("output[for='p2b-c1']").text(toPercent(zeroIfEmpty(event.target.value)));
       });
       $(document).on("blur", "#p2b-c2", function (event) {
-        $("output[for='p2b-c2']").text(zeroIfEmpty(event.target.value) + "%");
+        $("output[for='p2b-c2']").text(toPercent(zeroIfEmpty(event.target.value)));
       });
       $(document).on("blur", "#p2b-c3", function (event) {
-        $("output[for='p2b-c3']").text(zeroIfEmpty(event.target.value) + "%");
+        $("output[for='p2b-c3']").text(toPercent(zeroIfEmpty(event.target.value)));
       });
 
       /**
