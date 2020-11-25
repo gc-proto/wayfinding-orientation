@@ -2986,7 +2986,7 @@
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return min(weeklyAmount, 573, max(500, 0.55 * weeklyAmount));
+                return Math.min(weeklyAmount, 573, Math.max(500, 0.55 * weeklyAmount));
               }
               else
               {
@@ -3301,35 +3301,35 @@
             $(".safe-harbour-show").addClass("hidden");
             $(".safe-harbour-hide").removeClass("hidden");
             //update the view and round down base and top up dates to nearest 2 decimals on the percentage
-            $(".top-up-rate-alt").text(roundPercDown(topUpRate) + "%");
-            $(".base-rate-alt").text(roundPercDown(baseRate) + "%");
+            $(".top-up-rate-alt").text(toPercent(roundPercDown(topUpRate)));
+            $(".base-rate-alt").text(toPercent(roundPercDown(baseRate)));
           }
           if (claimPeriod > 7 && claimPeriod < 11) {
             if (revReduction > threeMonthReduction) {
-              $(".rev-drop-top-up-higher-alt").text(roundPercDown(revReduction) + "%");
+              $(".rev-drop-top-up-higher-alt").text(toPercent(roundPercDown(revReduction)));
             } else {
-              $(".rev-drop-top-up-higher-alt").text(roundPercDown(threeMonthReduction) + "%");
+              $(".rev-drop-top-up-higher-alt").text(toPercent(roundPercDown(threeMonthReduction)));
             }
           }
-          $("#currentRevReduction-alt").text(roundPercDown(currentRevReduc) + "%");
-          $(".priorRevReduction-alt").text(roundPercDown(priorRevReduc) + "%");
+          $("#currentRevReduction-alt").text(toPercent(roundPercDown(currentRevReduc)));
+          $(".priorRevReduction-alt").text(toPercent(roundPercDown(priorRevReduc)));
           if (claimPeriod < 11) {
-            $(".rev-drop-top-up-alt").text(roundPercDown(threeMonthReduction) + "%");
+            $(".rev-drop-top-up-alt").text(toPercent(roundPercDown(threeMonthReduction)));
           }
-          $(".rev-reduc-alt-base").text(roundPercDown(revReduction) + "%");
+          $(".rev-reduc-alt-base").text(toPercent(roundPercDown(revReduction)));
           var cewsRateDisplay = cewsRate * 100;
           cewsRateDisplay = cewsRateDisplay.toFixed(2);
-          $("#cews-rate-alt").text(cewsRateDisplay + "%");
+          $("#cews-rate-alt").text(toPercent(cewsRateDisplay));
           $("#employees").removeClass("hidden");
         } else {
           //if it can't compute because of 0 values, then reset calculation summary to 0
-          $("#currentRevReduction-alt").text("0%");
-          $(".priorRevReduction-alt").text("0%");
-          $(".top-up-rate-alt").text("0%");
-          $(".base-rate-alt").text("0%");
-          $(".rev-drop-top-up-alt").text("0%");
-          $(".rev-reduc-alt-base").text("0%");
-          $("#cews-rate-alt").text("0%");
+          $("#currentRevReduction-alt").text(toPercent(0));
+          $(".priorRevReduction-alt").text(toPercent(0));
+          $(".top-up-rate-alt").text(toPercent(0));
+          $(".base-rate-alt").text(toPercent(0));
+          $(".rev-drop-top-up-alt").text(toPercent(0));
+          $(".rev-reduc-alt-base").text(toPercent(0));
+          $("#cews-rate-alt").text(toPercent(0));
         }
       });
 
@@ -3393,7 +3393,7 @@
       */
       function toPercent(percentage) {
         if (document.documentElement.lang == "fr") {
-          return percentage + '&nbsp;%';
+          return percentage + '\xa0%';
         } else {
           return percentage + '%';
         }
@@ -3586,7 +3586,6 @@
           date2Counter++;
           date2.setUTCDate(date2.getUTCDate() - 1);
         }
-        console.log(date1Max);
         if (parseInt(date1Counter) < parseInt(date2Counter)) {
           return date2Month + 1;
         } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
