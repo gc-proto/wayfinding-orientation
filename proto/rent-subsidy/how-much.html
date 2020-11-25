@@ -84,7 +84,7 @@
               <h2 id="h-1">How the subsidy is calculated</h2>
               <p>The CERS provides both a base subsidy and in some cases, a lockdown support amount.</p>
               <details>
-                 <summary>How much can you claim</summary>
+                 <summary>How much you may claim</summary>
                  <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for you and any affiliated entities per claim period.</p>
                  <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of 25% of eligible expenses per affected location for the days the order was in place.</p>
                </details>
@@ -291,8 +291,10 @@
                               <select required id="claim-period" class="form-control input-lg">
                                  <option value=""> Select a claim period</option>
                                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
+                                 <!--
                                  <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
                                  <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
+                               -->
                               </select>
                            </div>
                         </fieldset>
@@ -659,6 +661,7 @@
                            <div class="clearfix"></div>
                            <p>The CERS amount you can apply for is a percentage of your eligible expenses for all your business locations. (<span class="base-rate">0%</span>).</p>
                            <p>Each location is eligible to claim up to $75,000 in eligible expenses.</p>
+                           <p>Your subsidy amount is based on the <strong>28 day claim period</strong>, not on the full 30 or 31 days in a month. </p>
                           <!-- <p>The base subsidy amount you can get is based on your CERS rate (<span class="base-rate">0%</span>) as a portion of eligible expenses, up to a maximum amountof $300,000.</p>-->
                            <div class="mrgn-tp-lg">
                               <div id="cers-calculation" class=" panel panel-primary panel-body" aria-live="polite">
@@ -836,12 +839,14 @@
 
                                               <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
                                               <div class="clearfix"></div>
-
+                                              <!--
+                                              <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
+                                            -->
+                                              <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                                               <!-- *****
                                               Month one rent starts here
                                               ***** -->
                                               <div class="form-group row mrgn-bttm-0 month-one-1">
-                                                <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 
                                                 <div class="col-md-6 col-sm-12">
                                                   <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
@@ -867,6 +872,9 @@
                                               ***** -->
                                               <div class="month-two-1">
                                                 <legend class="mrgn-bttm-0">Monthly eligible expenses for <span class="claim-month-two">month 2</span></legend>
+                                                <!--
+                                                <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
+                                              -->
                                                 <div class="form-group row mrgn-bttm-0">
                                                   <div class="col-md-6 col-sm-12">
                                                     <label for="rent-two-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
@@ -922,8 +930,8 @@
                                               <div class="row">
 
                                                 <div class="col-md-12 mrgn-tp-md">
-                                                  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
                                                   <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Adjust your amounts for the CERS period (28 days) option if your expense payment periods don't align with the monthly or yearly options.</p>
+                                                  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 
                                                   <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
@@ -939,7 +947,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
                                                     </div>
                                                     <p id="tax-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="tax-date-1" class="hidden text-muted text-right small"><span class="date-tax-from-1">from</span> <span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-tax-to-1">to</span> <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="tax-date-1" class="hidden text-muted text-right small"><span class="date-tax-from-1">from</span> <span class="date-tax-dates-1"><span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -958,7 +966,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
                                                     </div>
                                                     <p id="insurance-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="insurance-date-1" class="hidden text-muted text-right small"><span class="date-insurance-from-1">from</span> <span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-insurance-to-1"></span>to</span> <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="insurance-date-1" class="hidden text-muted text-right small"><span class="date-insurance-from-1">from</span> <span class="date-insurance-start-1"><span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -976,7 +984,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
                                                     </div>
                                                     <p id="interest-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="interest-date-1" class="hidden text-muted text-right small"><span class="date-interest-from-1">from</span> <span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-interest-to-1">to</span> <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="interest-date-1" class="hidden text-muted text-right small"><span class="date-interest-from-1">from</span> <span class="date-interest-start-1"><span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
                                                   </fieldset>
                                                 </div>
 
@@ -995,7 +1003,7 @@
                                                       <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
                                                     </div>
                                                     <p id="lease-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="lease-date-1" class="hidden text-muted text-right small"><span class="date-lease-from-1">from</span> <span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> <span class="date-interest-to-1">to</span> <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></p>
+                                                    <p id="lease-date-1" class="hidden text-muted text-right small"><span class="date-lease-from-1">from</span> <span class="date-insurance-start-1"><span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
                                                   </fieldset>
                                                 </div>
                                               </div>
@@ -1081,7 +1089,7 @@
                                     </p>
                                  </fieldset>
                                  <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-building"></span> Save your location data for your records</p>
-                                 <p>Review, print or download a csv of your location data for your records. Should you be contacted by the CRA for auditing purposes, having this in your records will save you time.</p>
+                                 <p>Review your location data and print or download a spreadsheet for your records.</p>
                                   <ul class="list-unstyled">
                                       <li class="mrgn-tp-md"><a href="#loc-calculation-table" aria-controls="loc-calculation-table"
                                         class="wb-lbx lbx-modal btn btn-primary" role="button" id="showLocTable">Review locations summary</a>
@@ -1410,14 +1418,14 @@
               "date-insurance-end-",
               "date-interest-end-",
               "date-lease-end-",
-			  "date-tax-from-",
+              "date-tax-from-",
               "date-insurance-from-",
               "date-interest-from-",
               "date-lease-from-",
-			  "date-tax-to-",
-              "date-insurance-to-",
-              "date-interest-to-",
-              "date-lease-to-",
+              "date-tax-dates-",
+              "date-insurance-dates-",
+              "date-interest-dates-",
+              "date-lease-dates-",
               "lockdown-details-"
             ];
             this.idUpdates = [ //any ids or aria-describedby that get updated
@@ -2331,12 +2339,11 @@
             var startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
                 endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
             if (calcMethod == "month") {
+              $('.date-' + expenseType + '-dates-' + locationNumber).addClass("hidden");
               if (document.documentElement.lang == "fr") {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("pour");
-                $('.date-' + expenseType + '-to-' + locationNumber).text("et");
+                $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour un mois calendaire");
               } else {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("for");
-                $('.date-' + expenseType + '-to-' + locationNumber).text("and");
+                $('.date-' + expenseType + '-from-' + locationNumber).text("payment for one calendar month");
               }
               var endDateParts = endDateISO.split("-");
               var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
@@ -2344,12 +2351,12 @@
               var startDate = claimMonths[0];
               var endDate = claimMonths[1];
             } else {
+              $('.date-' + expenseType + '-dates-' + locationNumber).removeClass("hidden");
               if (document.documentElement.lang == "fr") {
                 $('.date-' + expenseType + '-from-' + locationNumber).text("de");
-                $('.date-' + expenseType + '-to-' + locationNumber).text("à");
               } else {
                 $('.date-' + expenseType + '-from-' + locationNumber).text("from");
-                $('.date-' + expenseType + '-to-' + locationNumber).text("to");
+
               }
               if (calcMethod == "period") {
                 //get the start/end based on the period start/end dates
@@ -2865,6 +2872,7 @@
           * Fill in default values of 0% when there's not enough information to determine the rate
           */
           function NoCERSRate() {
+            cersRate = 0;
             $(".currentRevReduction").text(toPercent("0"));
             $(".priorRevReduction").text(toPercent("0"));
             $(".preferentialRevReduction").text(toPercent("0"));
