@@ -1019,6 +1019,16 @@
     </script>
     <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
     <script>
+        //prevent enter from submitting the form
+        var list = document.querySelectorAll("input,select");
+        for (i=0;i < list.length; i++) {
+            list[i].addEventListener("keypress", function(event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                }
+            })
+        }
+
         (function($, wb) {
             "use strict";
             var $document = wb.doc;
