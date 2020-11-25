@@ -1141,6 +1141,7 @@
          * return {Float} the JS compliant float equiv
          */
         function toFloat(number) {
+            number = number.trim();
             if (number == "") {
                 return parseFloat(0);
             }
