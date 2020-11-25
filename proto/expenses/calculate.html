@@ -1239,8 +1239,9 @@
 
                 //Personal-Use Portion
                 if (result) {
-                    var price = $(".personal-use-output").text().replace("$", "");
-                    $(".personal-use-total-amount").text(price);
+                    var summary = toMoney.format(result);
+                    summary = summary.replace("$", "");
+                    $(".personal-use-total-amount").text(summary);
                 } else {
                     $(".personal-use-total-amount").text("0.00");
                 }
