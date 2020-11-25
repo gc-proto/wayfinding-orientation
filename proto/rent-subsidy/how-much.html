@@ -2285,7 +2285,9 @@
 
             } else if (target.name == "lock-down-" + locationNumber) {
               if (target.id == 'lock-down-yes-' + locationNumber) {
-                $('#lock-down-period-'+locationNumber).removeClass("hidden");
+                if (cersRate > 0) {
+                  $('#lock-down-period-'+locationNumber).removeClass("hidden");
+                }
                 topUpRateCalculation(locationNumber, 1);
               } else if (target.id == 'lock-down-no-' + locationNumber) {
                 $('#lock-down-period-'+locationNumber).addClass("hidden");
