@@ -1921,9 +1921,11 @@
         $(document).on("change keyup", "[id^='work-home-start']", function(event) {
             var startDateElement = event.target;
             var startDate = new Date(startDateElement.value);
-            var endDateElement = $("[id^='" + event.target.id.replace("start", "end") + "']");
-            $(endDateElement).attr("max", startDate.getFullYear() + "-12-31");
-            $(endDateElement).attr("min", startDate.getFullYear() + "-01-01");
+            var endDateElements = $("[id^='work-home-end']");
+            $(endDateElements).each(function(i, element) {
+                $(element).attr("max", startDate.getFullYear() + "-12-31");
+                $(element).attr("min", startDate.getFullYear() + "-01-01");
+            })
         });
 
         //reset date field values, min, max, and spans when date is removed
@@ -1935,7 +1937,7 @@
             $("#work-home-end-" + index).attr("min", "");
             $(".startDate" + index).text("start");
             $(".endDate" + index).text("end");
-        })
+        });
 
         //when a user updates the common space hours
         $(document).on("change keyup", "#shared-room-hrs-input", function(event) {
