@@ -84,7 +84,7 @@
               <h2 id="h-1">How the subsidy is calculated</h2>
               <p>The CERS provides both a base subsidy and in some cases, a lockdown support amount.</p>
               <details>
-                 <summary>How much can you claim</summary>
+                 <summary>How much you may claim</summary>
                  <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for you and any affiliated entities per claim period.</p>
                  <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of 25% of eligible expenses per affected location for the days the order was in place.</p>
                </details>
@@ -291,8 +291,10 @@
                               <select required id="claim-period" class="form-control input-lg">
                                  <option value=""> Select a claim period</option>
                                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
+                                 <!--
                                  <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
                                  <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
+                               -->
                               </select>
                            </div>
                         </fieldset>
@@ -2349,7 +2351,7 @@
                 $('.date-' + expenseType + '-from-' + locationNumber).text("de");
               } else {
                 $('.date-' + expenseType + '-from-' + locationNumber).text("from");
-                
+
               }
               if (calcMethod == "period") {
                 //get the start/end based on the period start/end dates
