@@ -368,7 +368,7 @@
                               class="ws-metre-sq hidden">metres</span><span
                               class="ws-feet-sq hidden">feet</span></span> <strong class="required">(required)</strong> </label>
                             <div class="input-group col-sm-5 col-md-4">
-                                <input class="form-control input-lg" id="designated-room-area-input" name="designated-room-area-input" type="number" required="required">
+                                <input class="form-control input-lg" id="designated-room-area-input" name="designated-room-area-input" type="text" required="required">
                                 <span class="input-group-addon ws-metre-sq hidden">m&#178;</span><span class="input-group-addon ws-feet-sq hidden">ft&#178;</span> </div>
                         </div>
                         <div class="shared-room hidden">
@@ -376,7 +376,7 @@
                                 <label for="shared-room-area-input" class="required"><span class="field-name">Common (shared) space in your home</span><span class="wb-inv"> in square <span class="ws-metre-sq hidden">metres</span><span class="ws-feet-sq hidden">feet</span></span> <strong class="required">(required)</strong></label>
                                 <p id="shared-room-def"><a href="#shared-room-lbx" class="wb-lbx">How to calculate a common (shared) space in your home&nbsp;<span class="far fa-question-circle"></span></a></p>
                                 <div class="input-group col-sm-5 col-md-4">
-                                    <input class="form-control input-lg" id="shared-room-area-input" name="shared-room-area-input" type="number" required="required" aria-describedby="shared-room-def">
+                                    <input class="form-control input-lg" id="shared-room-area-input" name="shared-room-area-input" type="text" required="required" aria-describedby="shared-room-def">
                                     <span class="input-group-addon ws-metre-sq hidden">m&#178;</span><span class="input-group-addon ws-feet-sq hidden">ft&#178;</span> </div>
                             </div>
                         </div>
@@ -386,14 +386,14 @@
                             <p id="total-home-area-def"><a href="#total-home-area-lbx" class="wb-lbx">What is included in the total
               finished area&nbsp;<span class="far fa-question-circle"></span></a></p>
                             <div class="input-group col-sm-5 col-md-4">
-                                <input class="form-control input-lg" id="total-home-area-input" name="total-home-area-input" type="number" aria-describedby="total-home-area-def" required="required">
+                                <input class="form-control input-lg" id="total-home-area-input" name="total-home-area-input" type="text" aria-describedby="total-home-area-def" required="required">
                                 <span class="input-group-addon ws-metre-sq hidden">m&#178;</span><span class="input-group-addon ws-feet-sq hidden">ft&#178;</span> </div>
                         </div>
                         <div class="shared-room hidden">
                             <div class="form-group">
                                 <label for="shared-room-hrs-input" class="required"><span class="field-name">Hours a week you worked in the common space</span> <strong class="required">(required)</strong></label>
                                 <div class="input-group col-sm-5 col-md-4">
-                                    <input class="form-control input-lg" id="shared-room-hrs-input" name="shared-room-hrs-input" type="number" required="required">
+                                    <input class="form-control input-lg" id="shared-room-hrs-input" name="shared-room-hrs-input" type="text" required="required">
                                     <span class="input-group-addon"><span class="far fa-clock fa-lg"></span></span>
                                 </div>
                             </div>
@@ -1044,9 +1044,15 @@
             currency: "CAD",
             minimumFractionDigits: 2
         });
+        const toFormattedNumber = new Intl.NumberFormat(wb.lang + "-CA");
+        //regex for identifying currency values
         const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
-        const FRENCH_CURRENCY_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{2})?$/gm;
-        const ENGLISH_CURRENCY_FORMAT = /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/gm;
+        const FRENCH_CURRENCY_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{2})?$/g;
+        const ENGLISH_CURRENCY_FORMAT = /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/g;
+        //regex for identifying number formats not limited to decimal places
+        const FRENCH_NUMBER_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{1,})?$/g;
+        const ENGLISH_NUMBER_FORMAT = /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{1,})?$/g;
+
         /**
          * calculateCommonRoomClaimRate
          * 
@@ -1110,7 +1116,7 @@
             //if common room panel is visible, add each common room to the work space
             if (!$("div.shared-room").hasClass("hidden")) {
                 if ($("#shared-room-area-input").val() !== "") {
-                    workArea += parseFloat($("#shared-room-area-input").val());
+                    workArea += spaceToFloat($("#shared-room-area-input").val());
                 }
             }
             return workArea;
@@ -1128,7 +1134,7 @@
             var workHours = 0;
             if (!$("div.shared-room").hasClass("hidden")) {
                 if ($("#shared-room-hrs-input").val() !== "") {
-                    workHours += parseFloat($("#shared-room-hrs-input").val());
+                    workHours += spaceToFloat($("#shared-room-hrs-input").val());
                 }
             }
             return {
@@ -1149,7 +1155,7 @@
             //if the designated work space input is visible, add it to the work space
             if (!$("#designated-room-area-input").hasClass("hidden")) {
                 if ($("#designated-room-area-input").val() !== "") {
-                    workArea += parseFloat($("#designated-room-area-input").val());
+                    workArea += spaceToFloat($("#designated-room-area-input").val());
                 }
             }
             return workArea;
@@ -1159,9 +1165,9 @@
         /**
          * toFloat
          * 
-         * convert a formatted number to a JS compliant float
+         * convert a formatted currency value to a JS compliant float
          * 
-         * param {String} the formatted number
+         * param {String} the formatted currency value
          * 
          * return {Float} the JS compliant float equiv
          */
@@ -1176,6 +1182,33 @@
                 reformattedNumber = reformattedNumber.replace(/\,/g, ".");
                 return parseFloat(reformattedNumber);
             } else if (number.match(ENGLISH_CURRENCY_FORMAT)) {
+                reformattedNumber = number.replace(/\,/g, "");
+                return parseFloat(reformattedNumber);
+            } else {
+                return parseFloat(number);
+            }
+        }
+
+        /**
+         * spaceToFloat
+         * 
+         * convert a formatted number to a JS compliant float
+         * 
+         * param {String} the number value
+         * 
+         * return {Float} the JS compliant float equiv
+         */
+         function spaceToFloat(number) {
+            number = number.trim();
+            if (number == "") {
+                return parseFloat(0);
+            }
+            var reformattedNumber = 0;
+            if (number.match(FRENCH_NUMBER_FORMAT)) {
+                reformattedNumber = number.replace(/\s/g, "");
+                reformattedNumber = reformattedNumber.replace(/\,/g, ".");
+                return parseFloat(reformattedNumber);
+            } else if (number.match(ENGLISH_NUMBER_FORMAT)) {
                 reformattedNumber = number.replace(/\,/g, "");
                 return parseFloat(reformattedNumber);
             } else {
@@ -1886,7 +1919,7 @@
             //update the total finished area summary 
             var totalArea = parseFloat(event.target.value);
             if (!isNaN(totalArea)) {
-                $(".total-home-area-output").text(totalArea);
+                $(".total-home-area-output").text(toFormattedNumber.format(totalArea));
             } else {
                 $(".total-home-area-output").text("0");
             }
@@ -1895,22 +1928,22 @@
             var spaceUsed = calculateSpaceUsed(workArea, totalArea).toFixed(2);
             //update display
             if (!isNaN(spaceUsed)) {
-                $(".ws-area-personal-percent-output").text((100 - spaceUsed).toFixed(2));
-                $(".ws-area-employment-percent-output").text(spaceUsed);
+                $(".ws-area-personal-percent-output").text(toFormattedNumber.format((100 - spaceUsed).toFixed(2)));
+                $(".ws-area-employment-percent-output").text(toFormattedNumber.format(spaceUsed));
             } else {
                 $(".ws-area-employment-percent-output").text("0");
                 $(".ws-area-personal-percent-output").text("0");
             }
             var claimRate = calculateCommonRoomClaimRate(spaceUsed, getCommonWorkSpaceHours().percentage).toFixed(2);
-            $(".shared-room-personal-percent-output").text((100 - claimRate).toFixed(2));
-            $(".shared-room-employment-percent-output").text(claimRate);
+            $(".shared-room-personal-percent-output").text(toFormattedNumber.format((100 - claimRate).toFixed(2)));
+            $(".shared-room-employment-percent-output").text(toFormattedNumber.format(claimRate));
         });
 
         //trigger the summary to update when common workspace input is updated
         $(document).on("change keyup", "#shared-room-area-input", function(event) {
             var workArea = getCommonWorkSpace();
             if (!isNaN(workArea)) {
-                $(".room-area-output").text(workArea);
+                $(".room-area-output").text(toFormattedNumber.format(workArea));
             } else {
                 $(".room-area-output").text("0");
             }
@@ -1919,14 +1952,14 @@
                 calculateSpaceUsed(workArea, $("#total-home-area-input").val()),
                 getCommonWorkSpaceHours().percentage
             ).toFixed(1);
-            $(".shared-room-personal-percent-output").text((100 - claimRate).toFixed(2));
-            $(".shared-room-employment-percent-output").text(parseFloat(claimRate).toFixed(2));
+            $(".shared-room-personal-percent-output").text(toFormattedNumber.format((100 - claimRate).toFixed(2)));
+            $(".shared-room-employment-percent-output").text(toFormattedNumber.format(parseFloat(claimRate).toFixed(2)));
         });
         //when designated work space input is changed
         $(document).on("change keyup", "#designated-room-area-input", function(event) {
             var workArea = getDesignatedWorkSpace();
             if (!isNaN(workArea)) {
-                $(".room-area-output").text(workArea);
+                $(".room-area-output").text(toFormattedNumber.format(workArea));
             } else {
                 $(".room-area-output").text("0");
             }
@@ -1984,13 +2017,13 @@
             }
             var hours = getCommonWorkSpaceHours();
             if (!isNaN(hours.percentage) && !isNaN(hours.rawHours)) {
-                $(".perhr-percent-sum").text(100 - hours.percentage);
-                $(".shared-room-hrs-percent-output").text(hours.percentage.toFixed(2));
+                $(".perhr-percent-sum").text(toFormattedNumber.format(100 - hours.percentage));
+                $(".shared-room-hrs-percent-output").text(toFormattedNumber.format(hours.percentage.toFixed(2)));
                 $(".shared-room-personal-hrs-percent-output").text(
-                    100 - hours.percentage.toFixed(2)
+                    toFormattedNumber.format(100 - hours.percentage.toFixed(2))
                 );
-                $(".shared-room-hrs-output").text(hours.rawHours);
-                $("#per-cmmn-rm-sum").text(168 - hours.rawHours);
+                $(".shared-room-hrs-output").text(toFormattedNumber.format(hours.rawHours));
+                $("#per-cmmn-rm-sum").text(toFormattedNumber.format((168 - hours.rawHours)));
             } else {
                 $(".perhr-percent-sum").text("0");
                 $(".perhr-percent-sum").text("0");
@@ -2002,8 +2035,8 @@
                 calculateSpaceUsed(workArea, $("#total-home-area-input").val()),
                 hours.percentage
             ).toFixed(2);
-            $(".shared-room-personal-percent-output").text((100 - claimRate).toFixed(2));
-            $(".shared-room-employment-percent-output").text(parseFloat(claimRate).toFixed(2));
+            $(".shared-room-personal-percent-output").text(toFormattedNumber.format((100 - claimRate).toFixed(2)));
+            $(".shared-room-employment-percent-output").text(toFormattedNumber.format(parseFloat(claimRate).toFixed(2)));
             //$(".shared-room-employment-hrs-percent-output").text((100 - claimRate).toFixed(2));
         });
 
