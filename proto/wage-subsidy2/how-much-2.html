@@ -2986,7 +2986,7 @@
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return Math.min(weeklyAmount, 573, Math.max(500, 0.55 * weeklyAmount));
+                return Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 573)));
               }
               else
               {
