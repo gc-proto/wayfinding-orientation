@@ -663,8 +663,8 @@
                             <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
                             <p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your return. </p>
                             <div id="flat-rate-info" class="provisional alert alert-info hidden">
-                               <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a flat rate of $2 a day for every day worked from home within the eligible period up to $400.00 for all your expenses.</p>
-                               
+                                <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a flat rate of $2 a day for every day worked from home within the eligible period up to $400.00 for all your expenses.</p>
+
                                 <p><a href="how-apply.html#h-1" target="_blank">Daily-rate claim<span class="wb-inv"> (opens in a new window)</span>&nbsp;<sup class="far fa-window-restore"></sup></a></p>
                             </div>
                             <hr>
@@ -700,7 +700,7 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <caption>
-                                        Expense and income amounts provided<br> From: <span class="startDate1 nowrap">[Start]</span> to <span class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4 nowrap">[Start]</span> to <span class="endDate4 nowrap">[End]</span></span>
+                                        Expense and income amounts provided<br> From: <span class="startDate1 nowrap">[Start]</span> to <span class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2 nowrap">[Start]</span>                                        to <span class="endDate2 nowrap">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4 nowrap">[Start]</span>                                        to <span class="endDate4 nowrap">[End]</span></span>
                                     </caption>
                                     <thead>
                                         <tr>
@@ -1342,7 +1342,7 @@
                 $(".maintenance-output").text(toMoney.format(totalMaintenanceBill));
                 $(".insurance-commission-output").text(toMoney.format(HomeInsuranceBill));
                 $(".property-taxes-commission-output").text(toMoney.format(PropertyTaxesBill));
-                $(".home-expenses-output").text(toMoney.format(OtherHomeExpensesBill));
+                $(".home-expenses-output").text(toMoney.format(OtherHomeExpensesBill + RentBill));
             } else if (state == 2) {
                 $(".utilities-output").text(toMoney.format(electricityBill));
                 $(".home-ws-maintenance").text(toMoney.format(maintenanceBill));
@@ -1351,7 +1351,7 @@
                 $(".maintenance-output").text(toMoney.format(totalMaintenanceBill));
                 $(".insurance-commission-output").text(toMoney.format(HomeInsuranceBill));
                 $(".property-taxes-commission-output").text(toMoney.format(PropertyTaxesBill));
-                $(".home-expenses-output").text(toMoney.format(OtherHomeExpensesBill));
+                $(".home-expenses-output").text(toMoney.format(OtherHomeExpensesBill + RentBill));
             } else if (state == 3) {
                 $(".supplies-output").text(toMoney.format(suppliesBill));
                 $(".ws-expenses-output").text(toMoney.format(OtherExpensesEmploymentBill));
