@@ -70,29 +70,31 @@
 
                 <p><strong>Answer a few questions to find out if you may be allowed to enter Canada. </strong></p>
                <p>If you are travelling as a group, this should be completed for each person.</p>
-               <input type="checkbox" id="entry" name="entry" value="entry">
-               <label for="entry" style="font-weight: normal; font-size: 16px; display: inline;">I acknowledge that this tool provides
-                  information, and does not guarantee entry into Canada</label> <mark>better to have above continue button, but not sure fieldflow supports it</mark>
-                 
-                <div class="wb-frmvld" id="services">
-                  <!-- <form method="get"> -->
-                    <!--Smart question!-->
-                    <div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
-                        "noForm":false,
-                        "renderas":"radio",
-                        "base": { "live": false },
-                        "noreqlabel": true
-                      }'>
-                      <p>Are you:</p>
-                      <ul>
-                   <li><a href="./wizard-v2/citizen.html">a Canadian citizen, a permanent resident of Canada, a person registered under the Indian Act, or a protected person</a></li>
-                   <li><a href="./wizard-v2/foreign.html">a foreign national (including a United States citizen)</a></li>
-
-                      </ul>
-                    </div>
-                    
-                  <!-- </form> -->
-                </div>
+               <div id="form1" class="wb-frmvld hidden">
+                  <form action="advanced-en.html">
+                     <!--Smart question!-->
+                     <div id="question2" class="wb-fieldflow" data-wb-fieldflow='{ "noForm": true,
+                           "unhideelm": "#form1",
+                           "renderas":"radio",
+                           "base": { "live": false },
+                           "noreqlabel": true
+                        }'>
+                        <p>Are you:</p>
+                        <ul>
+                           <li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"citizen"}'><a href="./wizard-v2/citizen.html">a Canadian citizen, a permanent resident of Canada, a person registered under the Indian Act, or a protected person</a></li>
+                           <li data-wb-fieldflow='{"action": "query", "name":"moreinfo", "value":"foreign"}'><a href="./wizard-v2/foreign.html">a foreign national (including a United States citizen)</a></li>
+                        </ul>
+                     </div>
+                     <hr class="mrgn-bttm-0">
+                     <fieldset class="chkbxrdio-grp">
+                        <legend class="wb-inv"><span class="field-name">Acknowledgement</span></legend>
+                        <div class="checkbox">
+                           <label for="acknowledgement" style="font-weight: normal; font-size: 16px; display: inline;"><input type="checkbox" id="acknowledgement" name="acknowledgement" value="yes" required> I acknowledge that this tool provides information, and does not guarantee entry into Canada</label>
+                        </div>
+                     </fieldset>
+                     <input class="btn btn-primary" type="submit" value="Continue" />
+                  </form>
+               </div>
               </section>
             </section>
 
