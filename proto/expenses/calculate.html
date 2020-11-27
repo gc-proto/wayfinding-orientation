@@ -1644,6 +1644,7 @@
             futureClaims = (workRebateNumber - line15).toFixed(2);
             if (futureClaims < 0) {
                 futureClaims = 0.00;
+                $(".carry-fwd").addClass("hidden");
             } else {
                 $(".carry-fwd").removeClass("hidden");
                 $(".carry-fwd-output").text(toMoney.format(futureClaims));
