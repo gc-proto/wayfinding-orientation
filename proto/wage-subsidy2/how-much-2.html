@@ -3123,7 +3123,7 @@
         var cewsRateElements = $('.cews-rate-calc');
         //find the claim month based on the chosen claim period 
         var claimMonth = getClaimMonth($("#claim-period").val());
-
+        console.log("claimMonth: " + claimMonth);
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth);
@@ -3254,7 +3254,9 @@
           
           //find the claim month based on the chosen claim period 
           var claimMonth = getClaimMonth($("#claim-period").val());
+          console.log("claimMonth: " + claimMonth);
           var monthsArray = getClaimMonths(claimMonth, claimPeriod);
+
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
           //get the value of the previous month
@@ -3576,7 +3578,7 @@
         var date2Counter = 0;
         var date2Month = date2.getUTCMonth();
         if (date1Month == date2Month) {
-          return date1Month;
+          return date1Month + 1;
         }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;

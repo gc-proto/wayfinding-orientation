@@ -3029,8 +3029,8 @@
             var date1Month = date1.getUTCMonth();
             var date2Counter = 0;
             var date2Month = date2.getUTCMonth();
-            if (date1Month == date2Month) {
-              return date1Month;
+            if (date1Month == date2Month && type == 0) {
+              return date1Month + 1;
             }
             while (date1Month == date1.getUTCMonth()) {
               date1Counter++;
