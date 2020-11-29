@@ -2420,7 +2420,7 @@
         switch (claimPeriod) {
           case 10:
             $(".p7-and-before").addClass("hidden");
-            $(".p8-plus").addClass("hidden");
+            $(".p8-plus").removeClass("hidden");
             $(".p11-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
@@ -3141,7 +3141,7 @@
           var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
           
-          if (claimPeriod < 10) {
+          if (claimPeriod < 11) {
             //get the avg of the revenue from the previous three motnhs (2020)
             var threeMonthRev2020 = [
               zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
