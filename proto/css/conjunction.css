@@ -12,22 +12,16 @@
 	padding-top: 9px;
 }
 .cnjnctn-grd .cnjnctn-and, .cnjnctn-grd .cnjnctn-or {
-	flex-basis: content;
-	position: relative;
-	align-self: stretch;
+
 	padding-right: 19px;
 	padding-left: 19px;
 	padding-top: 5px;
+	background-image: linear-gradient(to bottom, #6f6f6f 0.3em, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.4em, #6f6f6f 2.4em, #6f6f6f 2.4em);
+	background-repeat: no-repeat;
+	background-size: 2px 100%;
+	background-position: center;
 }
-.cnjnctn-grd .cnjnctn-and:after, .cnjnctn-grd .cnjnctn-or:after {
-	content: " ";
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	left: 50%;
-	border-left: 2px solid #6f6f6f;
-	border-image: linear-gradient(to bottom, #6f6f6f 0.3em, #6f6f6f 0.3em, rgba(0,0,0,0) 0.3em, rgba(0,0,0,0) 2.4em, #6f6f6f 2.4em, #6f6f6f 2.4em) 1 100% !important;
-}
+
 [tabindex] .modal-content .cnjnctn-grd .cnjnctn-and:after, [tabindex] .modal-content .cnjnctn-grd .cnjnctn-or:after {
 	top: 1px;
 	bottom: -1px;	
@@ -80,10 +74,9 @@ html:lang(fr) .cnjnctn-or:before {
 }
 .cnjnctn-grd.flex-fw-xs .cnjnctn-and, .cnjnctn-grd.flex-fw-xs .cnjnctn-or {
 	padding-left: 0px;
+	background-image: none;
 }
-.cnjnctn-grd.flex-fw-xs .cnjnctn-and:after, .cnjnctn-grd.flex-fw-xs .cnjnctn-or:after {
-	border: 0!important;
-}
+
 .flex-fw-xs .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
@@ -102,10 +95,9 @@ html:lang(fr) .cnjnctn-or:before {
 }
 .flex-fw-sm .cnjnctn-and, .cnjnctn-grd.flex-fw-sm .cnjnctn-or {
 	padding-left: 0px;
+	background-image: none;
 }
-.cnjnctn-grd.flex-fw-sm .cnjnctn-and:after, .cnjnctn-grd.flex-fw-sm .cnjnctn-or:after {
-	border: 0!important;
-}
+
 .flex-fw-sm .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
@@ -124,10 +116,9 @@ html:lang(fr) .cnjnctn-or:before {
 }
 .flex-fw-md .cnjnctn-and, .cnjnctn-grd.flex-fw-md .cnjnctn-or {
 	padding-left: 0px;
+	background-image: none;
 }
-.cnjnctn-grd.flex-fw-md .cnjnctn-and:after, .cnjnctn-grd.flex-fw-md .cnjnctn-or:after {
-	border: 0!important;
-}
+
 .flex-fw-md .cnjnctn-and:before {
 	border-width: 0px 2px 0px 2px;
 }
@@ -156,14 +147,10 @@ padding-left: 19px;
 .flex-fw-lg .cnjnctn-and, .cnjnctn-grd.flex-fw-lg .cnjnctn-or {
 
 padding-left: 0px;
-
+background-image: none;
 }
 
-.cnjnctn-grd.flex-fw-lg .cnjnctn-and:after, .cnjnctn-grd.flex-fw-lg .cnjnctn-or:after {
 
-border: 0!important;
-
-}
 
 .flex-fw-lg .cnjnctn-and:before {
 
