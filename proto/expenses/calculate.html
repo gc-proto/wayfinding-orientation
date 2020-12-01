@@ -284,7 +284,7 @@
                     <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
                         <p>You would like to claim</p>
                         <ul>
-                            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A rate of $2 for each day you worked from home within the eligible period (up to $400 a year) because of the COVID-19 pandemic to cover all your work space and office supply expenses (Simple daily-rate claim)</li>
+                            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A rate of $2 for each day you worked from home within the eligible period (up to $400 a year) because of the COVID-19 pandemic to cover all your work space and office supply expenses (Temporary flat rate claim)</li>
                             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space at home and office supply expenses due to the COVID-19 pandemic, and you have your receipts (Simplified expenses based claim)</li>
                             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Work space expenses and other employment expenses, such as vehicle costs, equipment, and fees, and you have your receipts (Standard expenses based claim)</li>
                         </ul>
@@ -294,8 +294,8 @@
 
             <div id="daily-rate-alert" class="hidden">
                 <div class="alert alert-info">
-                    <h2 class="mrgn-tp-0 h3">Simplified option</h2>
-                    <p>To simplify the claim for your work space and office supply expenses, you can <a href="how-apply.html#h-1">claim a flat rate of $2 for every day you worked from home within the eligible period</a> (up to a maximum of $400). This option
+                    <h2 class="mrgn-tp-0 h3">Simplified option: Temporary flat rate method</h2>
+                    <p>To simplify the claim for your work space and office supply expenses, you can <a href="how-apply.html#h-1">claim $2 per day you worked from home within the eligibile period</a> (up to a maximum of $400). This option
                         is for your 2020 tax return.</p>
                    <p><mark><strong>Tip:</strong> You may be able to claim a higher claim by choosing one of the other two claim options above.</mark></p> 
                 </div>
@@ -339,9 +339,25 @@
                 <ul>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
                     <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Rented then owned, or owned then rented</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>I moved (updated)</li>
                 </ul>
             </div>
+	 <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
+               <div class="wb-fieldflow-header">
+		 <div class="alert alert-info provisional">
+			 <div class="bg-warning">
+			<p>If you moved at any time when you were working from home, you will need to complete the calculator again in order to calculate the amounts you can claim based on the area of each residence and work space.</p> 
+			 <p>Once you have calculated the amounts for each residence, you can add the amounts together to put the total on each line of the T777<span class="ws-t777short hidden"> short</span> form.</p>
+			 </div>
+			 </div>
+		 <p class="wb-fieldflow-label">Your work space is in a home that you</p>
+		 </div>
+                <ul>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
+                    <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
+                </ul>
+            </div>	
+		
             <div id="ff-commission" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
                 <p>Did you earn commission income (Box 42 on T4 slip)?</p>
                 <ul>
@@ -452,7 +468,7 @@
                     <fieldset id="workspace-calculation">
                         <legend class="mrgn-bttm-sm required">Period of time worked at home within the year <strong class="required">(required)</strong></legend>
                         <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from home for the full year&nbsp;<span class="far fa-question-circle"></span></a></p>
-                       <p><mark><strong>Note:</strong> Moving from one residence to another but still working from home is considered one period.</mark></p>
+                     <!--  <p><mark><strong>Note:</strong> Moving from one residence to another but still working from home is considered one period.</mark></p> //-->
                        <div class="row form-group">
                             <div class="col-sm-5 form-group">
                                 <label for="work-home-start-1" class="control-label required"><span class="field-name">Start of period<span id="startCount"> 1</span></span><span class="wb-inv"> (required)</span></label>
@@ -685,9 +701,9 @@
                             <p><span class="h4">$<span class="ws-t777short-total-amount">0.00</span></span> is the total expenses you can claim.</p>
                             <p>This amount will go on <strong>line 5 </strong> on the T777 short form, which will also go on line 22900 of your return. </p>
                             <div id="flat-rate-info" class="provisional alert alert-info hidden">
-                                <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a flat rate of $2 a day for every day worked from home within the eligible period up to $400.00 for all your expenses.</p>
+                                <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a <mark>temporary</mark> flat rate of $2 a day for every day worked from home within the eligible period up to $400.00 for all your expenses.</p>
 
-                                <p><a href="how-apply.html#h-1" target="_blank">Daily-rate claim<span class="wb-inv"> (opens in a new window)</span>&nbsp;<sup class="far fa-window-restore"></sup></a></p>
+                                <p><a href="how-apply.html#h-1" target="_blank"><mark>Temporary flat rate method</mark><span class="wb-inv"> (opens in a new window)</span>&nbsp;<sup class="far fa-window-restore"></sup></a></p>
                             </div>
                             <hr>
                             <h4>Summary of the employment-use amount</h4>
