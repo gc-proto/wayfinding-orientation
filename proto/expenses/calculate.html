@@ -1676,8 +1676,6 @@
             //Line 5
             var expensesClaim = (expensesNumber * (workRate / 100));
             //claim = workExpenses + expensesClaim;
-            claim = workExpenses + line4;
-            $(".ws-total-claim-output").text(toMoney.format(claim));
 
             //Line 16
             futureClaims = (workRebateNumber - line15).toFixed(2);
@@ -1842,9 +1840,6 @@
                 line4 = workRebateNumber;
             }
 
-            //Line 5
-            claim = workExpenses + line4;
-            $(".ws-total-claim-output").text(toMoney.format(claim));
 
             //Line 16
             futureClaims = workRebateNumber - line15;
