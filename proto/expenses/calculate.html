@@ -258,7 +258,7 @@
             <nav aria-label="Section menu">
                 <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
                 <ul class="gc-navseq">
-			<li><a href="choose.html">Choose your claim method</a></li>
+			<li><a href="choose.html">Compare claim method options</a></li>
                     <li><a href="who-apply.html">Who can claim</a></li>
                     <li><a href="how-much.html">Determine your work space use</a></li>
                     <li><a href="what-claim.html">Expenses you can claim</a></li>
@@ -727,9 +727,9 @@
                                 <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
                                     <span class="mrgn-lft-lg">$<span class="personal-use-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</span>
                                 </li>
-                                <!--  <li><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
+                               <li class="shared-room hidden"><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
                                     <span class="mrgn-lft-lg">$<span class="personal-use-ws-claim">0.00</span> &times; <span class="personal-use-ws-rate">0</span>%</span>
-                                </li>//-->
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -1676,8 +1676,6 @@
             //Line 5
             var expensesClaim = (expensesNumber * (workRate / 100));
             //claim = workExpenses + expensesClaim;
-            claim = workExpenses + line4;
-            $(".ws-total-claim-output").text(toMoney.format(claim));
 
             //Line 16
             futureClaims = (workRebateNumber - line15).toFixed(2);
@@ -1842,9 +1840,6 @@
                 line4 = workRebateNumber;
             }
 
-            //Line 5
-            claim = workExpenses + line4;
-            $(".ws-total-claim-output").text(toMoney.format(claim));
 
             //Line 16
             futureClaims = workRebateNumber - line15;
