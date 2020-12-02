@@ -64,6 +64,29 @@ html:lang(fr) .cnjnctn-or:before {
 	content: "ou";
 }
 
+//*For collapsed content at all resolutions
+.flex-fw {
+flex-direction: column;
+}
+
+.cnjnctn-grd.flex-fw {
+border-left: 2px solid #6f6f6f;
+padding-left: 19px;
+}
+
+.flex-fw .cnjnctn-and, .cnjnctn-grd.flex-fw-lg .cnjnctn-or {
+padding-left: 0px;
+background-image: none;
+}
+
+.flex-fw .cnjnctn-and:before {
+border-width: 0px 2px 0px 2px;
+}
+
+.flex-fw .cnjnctn-col-sm	{
+	width: 100%;	
+}
+
 @media all and (max-width: 767px) {
 .flex-fw-xs {
 	flex-direction: column;
@@ -128,39 +151,8 @@ html:lang(fr) .cnjnctn-or:before {
 }
 
 
-@media all and (min-width: 1170px) {
-
-.flex-fw-lg {
-
-flex-direction: column;
-
-}
-
-.cnjnctn-grd.flex-fw-lg {
-
-border-left: 2px solid #6f6f6f;
-
-padding-left: 19px;
-
-}
-
-.flex-fw-lg .cnjnctn-and, .cnjnctn-grd.flex-fw-lg .cnjnctn-or {
-
-padding-left: 0px;
-background-image: none;
-}
 
 
-
-.flex-fw-lg .cnjnctn-and:before {
-
-border-width: 0px 2px 0px 2px;
-
-}
-.flex-fw-lg .cnjnctn-col-sm	{
-	width: 100%;	
-}
-}
 
 .dcsn-details  details + .cnjnctn-or:before {
 
