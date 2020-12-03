@@ -1686,14 +1686,16 @@
                 $(".carry-fwd").removeClass("hidden");
                 $(".carry-fwd-output").text(toMoney.format(futureClaims));
             }
-
+            var claim = (electricityBill + maintenanceBill + HomeInsuranceBill + PropertyTaxesBill + OtherExpensesEmploymentBill) * (workRate / 100) + designatedMaintenanceBill;
             //Claim Amount
             if (claim) {
                 //var summary = $(".ws-total-claim-output").text().replace("$", "");
                 var summary = toMoney.format(claim);
                 summary = summary.replace("$", "");
                 $(".ws-t777short-total-amount").text(summary);
+                $(".ws-total-claim-output").text(toMoney.format(summary));
             } else {
+                $(".ws-total-claim-output").text(toMoney.format("0.00"));
                 $(".ws-t777short-total-amount").text(toMoney.format("0.00"));
             }
 
