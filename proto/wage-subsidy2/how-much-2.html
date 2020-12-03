@@ -2420,7 +2420,7 @@
         switch (claimPeriod) {
           case 10:
             $(".p7-and-before").addClass("hidden");
-            $(".p8-plus").addClass("hidden");
+            $(".p8-plus").removeClass("hidden");
             $(".p11-plus").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
@@ -3123,7 +3123,7 @@
         var cewsRateElements = $('.cews-rate-calc');
         //find the claim month based on the chosen claim period 
         var claimMonth = getClaimMonth($("#claim-period").val());
-
+        console.log("claimMonth: " + claimMonth);
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth);
@@ -3141,7 +3141,7 @@
           var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
           
-          if (claimPeriod < 10) {
+          if (claimPeriod < 11) {
             //get the avg of the revenue from the previous three motnhs (2020)
             var threeMonthRev2020 = [
               zeroIfEmpty($("#" + monthsArray[3] + "-no").val()),
@@ -3254,7 +3254,9 @@
           
           //find the claim month based on the chosen claim period 
           var claimMonth = getClaimMonth($("#claim-period").val());
+          console.log("claimMonth: " + claimMonth);
           var monthsArray = getClaimMonths(claimMonth, claimPeriod);
+
           //get the value of the claim month
           var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
           //get the value of the previous month
@@ -3576,7 +3578,7 @@
         var date2Counter = 0;
         var date2Month = date2.getUTCMonth();
         if (date1Month == date2Month) {
-          return date1Month;
+          return date1Month + 1;
         }
         while (date1Month == date1.getUTCMonth()) {
           date1Counter++;
