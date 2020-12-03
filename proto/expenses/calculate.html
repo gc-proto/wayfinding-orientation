@@ -403,9 +403,10 @@
                     <fieldset id="workarea">
                         <legend class="brdr-tp">Size of work space and home</legend>
                         <div class="form-group designated-room">
-                            <label for="designated-room-area-input" class="required"><span class="field-name">Designated work (room) space in your home</span><span class="wb-inv"> in square <span
+                            <label for="designated-room-area-input" class="required"><span class="field-name"><mark>Designated work space (room)</mark> in your home</span><span class="wb-inv"> in square <span
                               class="ws-metre-sq hidden">metres</span><span
                               class="ws-feet-sq hidden">feet</span></span> <strong class="required">(required)</strong> </label>
+				<p id="designated-room-def"><a href="#designated-room-lbx" class="wb-lbx"><mark>How to calculate a designated work space (room) in your home</mark>&nbsp;<span class="far fa-question-circle"></span></a></p>
                             <div class="input-group col-sm-5 col-md-4">
                                 <input class="form-control input-lg" id="designated-room-area-input" name="designated-room-area-input" type="text" required="required">
                                 <span class="input-group-addon ws-metre-sq hidden">m&#178;</span><span class="input-group-addon ws-feet-sq hidden">ft&#178;</span> </div>
@@ -877,15 +878,21 @@
                 </header>
                 <div class="modal-body" data-ajax-replace="how-much.html #tp-ws>"> </div>
             </section>
+	<section id="designated-room-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+                <header class="modal-header">
+                    <h2 class="modal-title"><mark>How to calculate a designated work space (room) in your home</mark></h2>
+                </header>
+                <div class="modal-body" data-ajax-replace="how-much.html #ajax-size-room">
+                </div>
+            </section>
             <section id="shared-room-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
                 <header class="modal-header">
                     <h2 class="modal-title">How to calculate a common (shared) space in your home</h2>
                 </header>
                 <div class="modal-body">
-                    <h3 class="mrgn-tp-0">Example of working from the dining room table</h3>
+			 <div data-ajax-replace="how-much.html #ajax-size-ws"></div>
+                    <h3>Example of working from the dining room table</h3>
                     <div data-ajax-replace="how-much.html #ex-wrkspc"></div>
-                    <h3>Open concept designs</h3>
-                    <div data-ajax-replace="how-much.html #opn-cncpt"></div>
                 </div>
             </section>
             <section id="total-home-area-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
