@@ -155,75 +155,79 @@
                      <dd>
                         <p>The size of the space you work in must be reasonable.</p>
                         <p>You can measure in square metres or square feet.</p>
-                        <div class="row small">
-                           <div class="col-sm-6">
-                              <a class="wb-lbx " href="measure-room-a.png" title="Rectangular room. The room is 4 metres by 3 metres.">
-                              <img src="measure-room-a.png" alt="Rectangular room. The room is 4 metres by 3 metres." class="img-responsive" />
-                              </a>
-                           </div>
-                           <div class="col-sm-6">
-                              <p>The formula to calculate a rectangle or square is:<br> Length <span class="fas fa-times"><span class="wb-inv">times</span></span> Width</p>
-                              <p>For example:</p>
-                              <ul class="fa-ul lst-spcd mrgn-bttm-lg">
-                                 <li><span class="mrgn-tp-0 text-muted h5">&nbsp;&nbsp;4 <abbr title="metres">m</abbr></span> (length of room)
-                                 </li>
-                                 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;&nbsp;3 <abbr title="metres">m</abbr></span> (width of room)
-                                 </li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">12 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of room)</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <hr>
-                        <div class="row small">
-                           <div class="col-sm-6">
-                              <p>To calculate an irregular-shaped room, break down the dimenions into rectangles and added them up.</p>
-                              <a class="wb-lbx" href="measure-room-b.png" title="L-shaped room. The room is 4 metres by 3 metres, with a 2 metre by 1.5 metre cut-out.">
-                              <img src="measure-room-b.png" alt="L-shaped room. The room is 4 metres by 3 metres, with a 2 metre by 1.5 metre cut-out." class="img-responsive" />
-                              </a>
-                           </div>
-                           <div class="col-sm-6">
-                              <p>For example:</p>
-                              <ul class="fa-ul lst-spcd mrgn-bttm-lg">
-                                 <li><span class="mrgn-tp-0 text-muted h5">&nbsp;4 <abbr title="metres">m</abbr></span> (length of 1st area)
-                                 </li>
-                                 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;1.5 <abbr title="metres">m</abbr></span> (width of 1st area)
-                                 </li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;6 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 1st area)</li>
-                              </ul>
-                              <ul class="fa-ul lst-spcd mrgn-bttm-lg">
-                                 <li><span class="mrgn-tp-0 text-muted h5">&nbsp;2 <abbr title="metres">m</abbr></span> (length of 2nd area)
-                                 </li>
-                                 <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;1.5 <abbr title="metres">m</abbr></span> (width of 2nd area)
-                                 </li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;3 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 2nd area)</li>
-                              </ul>
-                              <ul class="fa-ul lst-spcd mrgn-bttm-lg">
-                                 <li><span class="mrgn-tp-0 text-muted h5">&nbsp;6 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 1st area)
-                                 </li>
-                                 <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> <span class="text-muted h5">&nbsp;3 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 2nd area)
-                                 </li>
-                                 <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;9 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of room)</li>
-                              </ul>
-                           </div>
-                        </div>
-                        <hr>
-                        <div id="opn-cncpt">
-                           <p>If you have an <strong>open concept design</strong>, you would use a reasonable percentage of the open space as your work space.  You cannot use the entire floor space as your work space.</p>
-                           <div class="row small">
-                              <div class="col-sm-8">
-                                 <a class="wb-lbx" href="measure-room-c.png" title="Open concept design showing the dining room table as the work space .The dining space is 4 metres by 3 metres.">
-                                 <img src="measure-room-c.png" alt="Open concept design showing the dining room table as the work space.  The dining space is 4 metres by 3 metres." class="img-responsive" />
-                                 </a>
+                        <div id="ajax-size-ws">
+                           <div id="ajax-size-room">
+                              <div class="row small">
+                                 <div class="col-sm-6">
+                                    <a class="wb-lbx " href="measure-room-a.png" title="Rectangular room. The room is 4 metres by 3 metres.">
+                                    <img src="measure-room-a.png" alt="Rectangular room. The room is 4 metres by 3 metres." class="img-responsive" />
+                                    </a>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <p>The formula to calculate a rectangle or square is:<br> Length <span class="fas fa-times"><span class="wb-inv">times</span></span> Width</p>
+                                    <p>For example:</p>
+                                    <ul class="fa-ul lst-spcd mrgn-bttm-lg">
+                                       <li><span class="mrgn-tp-0 text-muted h5">&nbsp;&nbsp;4 <abbr title="metres">m</abbr></span> (length of room)
+                                       </li>
+                                       <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;&nbsp;3 <abbr title="metres">m</abbr></span> (width of room)
+                                       </li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">12 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of room)</li>
+                                    </ul>
+                                 </div>
                               </div>
-                              <div class="col-sm-4">
-                                 <p>For example:</p>
-                                 <ul class="fa-ul lst-spcd mrgn-bttm-lg">
-                                    <li><span class="mrgn-tp-0 text-muted h5">&nbsp;&nbsp;4 <abbr title="metres">m</abbr></span> (length of dining area)
-                                    </li>
-                                    <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;&nbsp;3 <abbr title="metres">m</abbr></span> (width of dining area)
-                                    </li>
-                                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">12 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of dining area)</li>
-                                 </ul>
+                              <hr>
+                              <div class="row small">
+                                 <div class="col-sm-6">
+                                    <p>To calculate an irregular-shaped room, break down the dimenions into rectangles and added them up.</p>
+                                    <a class="wb-lbx" href="measure-room-b.png" title="L-shaped room. The room is 4 metres by 3 metres, with a 2 metre by 1.5 metre cut-out.">
+                                    <img src="measure-room-b.png" alt="L-shaped room. The room is 4 metres by 3 metres, with a 2 metre by 1.5 metre cut-out." class="img-responsive" />
+                                    </a>
+                                 </div>
+                                 <div class="col-sm-6">
+                                    <p>For example:</p>
+                                    <ul class="fa-ul lst-spcd mrgn-bttm-lg">
+                                       <li><span class="mrgn-tp-0 text-muted h5">&nbsp;4 <abbr title="metres">m</abbr></span> (length of 1st area)
+                                       </li>
+                                       <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;1.5 <abbr title="metres">m</abbr></span> (width of 1st area)
+                                       </li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;6 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 1st area)</li>
+                                    </ul>
+                                    <ul class="fa-ul lst-spcd mrgn-bttm-lg">
+                                       <li><span class="mrgn-tp-0 text-muted h5">&nbsp;2 <abbr title="metres">m</abbr></span> (length of 2nd area)
+                                       </li>
+                                       <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;1.5 <abbr title="metres">m</abbr></span> (width of 2nd area)
+                                       </li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;3 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 2nd area)</li>
+                                    </ul>
+                                    <ul class="fa-ul lst-spcd mrgn-bttm-lg">
+                                       <li><span class="mrgn-tp-0 text-muted h5">&nbsp;6 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 1st area)
+                                       </li>
+                                       <li class="brdr-bttm"><span class="fas fa-plus fa-li"><span class="wb-inv">plus</span></span> <span class="text-muted h5">&nbsp;3 <abbr title="square metres">m<sup>2</sup></abbr></span> (size of 2nd area)
+                                       </li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">&nbsp;9 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of room)</li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                           <hr>
+                           <div id="opn-cncpt">
+                              <p>If you have an <strong>open concept design</strong>, you would use a reasonable percentage of the open space as your work space.  You cannot use the entire floor space as your work space.</p>
+                              <div class="row small">
+                                 <div class="col-sm-8">
+                                    <a class="wb-lbx" href="measure-room-c.png" title="Open concept design showing the dining room table as the work space .The dining space is 4 metres by 3 metres.">
+                                    <img src="measure-room-c.png" alt="Open concept design showing the dining room table as the work space.  The dining space is 4 metres by 3 metres." class="img-responsive" />
+                                    </a>
+                                 </div>
+                                 <div class="col-sm-4">
+                                    <p>For example:</p>
+                                    <ul class="fa-ul lst-spcd mrgn-bttm-lg">
+                                       <li><span class="mrgn-tp-0 text-muted h5">&nbsp;&nbsp;4 <abbr title="metres">m</abbr></span> (length of dining area)
+                                       </li>
+                                       <li class="brdr-bttm"><span class="fas fa-times fa-li"><span class="wb-inv">times</span></span> <span class="text-muted h5">&nbsp;&nbsp;3 <abbr title="metres">m</abbr></span> (width of dining area)
+                                       </li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="text-muted h5">12 <abbr title="square metres">m<sup>2</sup></abbr></span> (total size of dining area)</li>
+                                    </ul>
+                                 </div>
                               </div>
                            </div>
                         </div>
