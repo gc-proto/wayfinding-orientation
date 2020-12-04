@@ -1521,6 +1521,11 @@
                     Math.min(netIncome, totalEmploymentUse)
                 )
             );
+            if (netIncome < totalEmploymentUse) {
+                $("#carry-fwd").removeClass('hidden');
+            } else {
+                $("#carry-fwd").addClass('hidden');
+            }
             $(".personal-use-total-amount").text();
         });
     </script>
