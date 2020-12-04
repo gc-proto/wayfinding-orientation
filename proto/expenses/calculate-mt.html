@@ -1449,6 +1449,7 @@
             var otherExpenses = toFloat($("#home-expenses-input").val()) || 0;
             var roomMaintenance = toFloat($("#designated-room-maintenance-input").val()) || toFloat($("#shared-room-maintenance-input").val()) || 0;
             var rate;
+            var personalUsePercent = $(".ws-area-personal-percent-output").text();
             //get the employment use rate based on room type
             if ($(".shared-room").hasClass("hidden")) {
                 rate = calculateSpaceUsed(workArea, totalArea);
@@ -1489,7 +1490,7 @@
             $(".home-expenses-output").text(toMoney.format(otherExpenses + rentBill));
             $(".income-output").text(toMoney.format(income));
             $(".dues-pension-output").text(toMoney.format(
-                (supplies + otherExpenses + otherWorkExpenses) + unionDues + pension
+                (supplies + otherWorkExpenses) + unionDues + pension
             ));
             //display the room measurements
             $(".room-area-output").text(toFormattedNumber.format(workArea));
@@ -1502,7 +1503,7 @@
             } else {
                 totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
             }
-            var netIncome = income - (supplies + otherExpenses) - pension - unionDues;
+            var netIncome = income - (supplies + otherWorkExpenses) - pension - unionDues;
             $(".ws-total-claim-output").text(
                 toMoney.format( 
                     (supplies + otherExpenses) + 
@@ -1512,14 +1513,15 @@
             $(".employment-use-output").text(toMoney.format(totalEmploymentUse));
             $(".employment-use-total-amount").text(toMoney.format(totalEmploymentUse));
             $(".carry-forward-output").text(toMoney.format(
-                Math.max(0, totalEmploymentUse - income - (supplies + otherExpenses) - unionDues - pension))
-            );
+                Math.max(0, totalEmploymentUse - netIncome)
+            ));
             $(".ws-t777short-total-amount").text(
                 toMoney.format(
-                    (supplies + otherExpenses + otherWorkExpenses) + 
+                    (supplies + otherWorkExpenses) + 
                     Math.min(netIncome, totalEmploymentUse)
                 )
             );
+            $(".personal-use-total-amount").text();
         });
     </script>
 </body>
