@@ -296,9 +296,9 @@
             <div id="daily-rate-alert" class="hidden">
                 <div class="alert alert-info">
                     <h2 class="mrgn-tp-0 h3">Simplified option: Temporary flat rate method</h2>
-                    <p>To simplify the claim for your work space and office supply expenses, you can <a href="how-apply.html#h-1">claim $2 per day you worked from home within the eligibile period</a> (up to a maximum of $400). This option
+                    <p>To simplify the claim for your work space and office supply expenses, you can <a href="how-apply.html#h-1">claim $2 per day you worked from home within the eligible period</a> (up to a maximum of $400). This option
                         is for your 2020 tax return.</p>
-                   <p><mark><strong>Tip:</strong> You may be able to claim a higher claim by choosing one of the other two claim options above.</mark></p> 
+                   <p><mark><strong>Tip:</strong> You may be able to claim a higher amount by choosing one of the other two claim options above.</mark></p> 
                 </div>
             </div>
             <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
@@ -322,7 +322,7 @@
                             </div>
                             <div class="mrgn-lft-md mrgn-rght-md">
                                 <p><strong>Note:</strong> Given your various types of employment expenses, the calculator below can only help you determine the <mark>employment-use</mark> portion of your work space. The calculator will provide you with the values for lines
-                                    17-23 of the T777. You will still need complete the remainder of the T777 to determine the final amount you can claim on your taxes.</p>
+                                    17-23 of the T777. You will still need to complete the remainder of the T777 to determine the final amount you can claim on your taxes.</p>
                             </div>
                         </div>
                     </div>
@@ -335,12 +335,12 @@
 				   </ul>
                       </div>
                    </div>
-                    <p class="wb-fieldflow-label">Your work space is in a home that you</p>
+                    <p class="wb-fieldflow-label">What is your residence situation? (updated)</p>
                 </div>
                 <ul>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent</li>
-                    <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own</li>
-                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Changed locations (updated)</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Rent, and have not moved while working from home within the year (updated)</li>
+                    <li data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own, and have not moved while working from home within the year (updated)</li>
+                    <li data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved while working from home within the year (updated)</li>
                 </ul>
             </div>
 	 <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
@@ -360,7 +360,10 @@
             </div>	
 		
             <div id="ff-commission" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
-                <p>Did you earn commission income (Box 42 on T4 slip)?</p>
+                 <div class="wb-fieldflow-header">
+		    <p class="wb-fieldflow-label">Did you earn commission income (Box 42 on T4 slip)?</p>
+			   <p><a href="#commission-lbx" class="wb-lbx"><mark>What are the limitations for claiming expenses when earning commmissions</mark>&nbsp;<span class="far fa-question-circle"></span></a></p>
+		    </div>
                 <ul>
                     <li data-wb-fieldflow='[{"action": "removeClass", "source": ".commission-income", "class": "hidden", "live": true}, {"action": "addClass", "source": ".salary-income, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Yes </li>
                     <li data-wb-fieldflow='[{"action": "addClass", "source": ".commission-income, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".salary-income", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>No </li>
@@ -555,8 +558,8 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend class="mrgn-bttm-0">Home including work space expenses to claim</legend>
-                        <p>Enter the total amount you paid to an expense for the period you worked from home. Enter $0 if you are not claiming the expense.</p>
+                        <legend class="mrgn-bttm-0"><mark>Home and work space expenses to claim</mark></legend>
+			    <p>Enter the total amount you paid <mark>for</mark> an expense <mark>during</mark> the period you worked from home. Enter $0 if you are not claiming the expense.</p>
                         <div class="form-group home-rent hidden">
                             <label for="home-rent-input" class="required"><span class="field-name"><mark>Total rent you paid</mark> from <span class="startDate1 nowrap">[Start]</span> to <span class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span class="startDate4 nowrap">[Start]</span> to <span class="endDate4 nowrap">[End]</span></span></span><span class="wb-inv"> in dollars and
               cents</span> <strong class="required">(required)</strong></label>
@@ -716,7 +719,7 @@
                             <p>This amount will go on <strong class="ws-t777short hidden">line 12</strong><strong class="ws-t777reg hidden">line 23</strong> of the T777<span class="ws-t777short hidden"> short</span> form.</p>
                             <p>The total amount of the employment-use portion is based on:</p>
                             <ul>
-                                <li><span class="h5">$<span class="employment-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
+                                <li><span class="h5">$<span class="employment-use-home-amount">0.00</span></span> expenses <mark>paid for the entire home and work space</mark><br>
                                     <span class="mrgn-lft-lg">$<span class="employment-use-home-claim">0.00</span> &times; <span class="employment-use-home-rate">0</span>%</li>
                                 <li><span class="h5">$<span class="employment-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
                                     <span class="mrgn-lft-lg">$<span class="employment-use-ws-claim">0.00</span> &times; <span class="employment-use-ws-rate">0</span>%</li>
@@ -728,7 +731,7 @@
                             <p>This amount will go on <strong>line 23</strong> of the form T777.</p>
                             <p>The total amount of personal-use portion is based on:</p>
                             <ul>
-                                <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses paid for the entire home including work space<br>
+                                <li><span class="h5">$<span class="personal-use-home-amount">0.00</span></span> expenses <mark>paid for the entire home and work space</mark><br>
                                     <span class="mrgn-lft-lg">$<span class="personal-use-home-claim">0.00</span> &times; <span class="personal-use-home-rate">0</span>%</span>
                                 </li>
                                <li class="shared-room hidden"><span class="h5">$<span class="personal-use-ws-amount">0.00</span></span> expenses paid for the work space only<br>
@@ -866,7 +869,8 @@
                         </div>
 			    </div>
                         <div class="hidden-print ws-t777reg">
-                            <p><strong>Reminder:</strong> There are supplies you can, and cannot claim for employment expenses. Review <span class="salary-income"><a href="#supplies-salary-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as a salaried employee</a></span>                                <span class="commission-income hidden"><a href="#supplies-commission-lbx" class="wb-lbx">which types of supplies can, and cannot be claimed as an employee who makes commissions</a></span>.</p>
+                            <p><strong>Reminder:</strong> There are supplies you can, and cannot claim for employment expenses.</p>
+				<p><a href="#supplies-salary-lbx" class="wb-lbx"><mark>Which types of supplies can, and cannot be claimed</mark>&nbsp;<span class="far fa-question-circle"></span></a></span>.</p>
                         </div>
                     </div>
                     <p>You are now ready to <strong>print these amounts</strong> so you can enter them into the form. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
@@ -877,6 +881,15 @@
 
 
             <!--Overlays //-->
+<section id="commission-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+                <header class="modal-header">
+                    <h2 class="modal-title"><mark>Limitations of claiming expenses as a commissioned employe</mark></h2>
+                </header>
+                <div class="modal-body">
+			<ul data-ajax-replace="what-claim.html #ajax-exceed-commission"></ul>
+                   
+                </div>
+            </section>
             <section id="ff-ws-type-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
                 <header class="modal-header">
                     <h2 class="modal-title">Designated work space (room) or common (shared) space</h2>
@@ -965,29 +978,7 @@
 
                 </div>
             </section>
-            <!-- <section id="supplies-commission-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
-                <header class="modal-header">
-                    <h2 class="modal-title">Work space supplies and if they can be claimed for an employee </h2>
-                </header>
-                <div class="modal-body">
-                    <table class="table wb-tables" data-wb-tables='{"lengthMenu": [[5, -1], [5, "All"]] }'>
-                        <caption class="wb-inv">
-                            Common home office supplies
-                        </caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Item</th>
-
-                                <th scope="col">Can be claimed?</th>
-
-                            </tr>
-                        </thead>
-                        <tbody data-ajax-replace="what-claim.html .type-supply">
-
-                        </tbody>
-                    </table>
-                </div>
-            </section>//-->
+          
             <!--Overlay for print preview //-->
             <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def provisional">
                 <header class="modal-header">
