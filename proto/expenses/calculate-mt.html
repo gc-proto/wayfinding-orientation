@@ -1216,21 +1216,23 @@
          * 
          * return {Float} the JS compliant float equiv
          */
-        function toFloat(number) {
-            number = number.trim();
-            if (number == "") {
+        function toFloat(formattedNumber) {
+            if (typeof formattedNumber == "string") {
+                formattedNumber = formattedNumber.trim();
+            }
+            if (formattedNumber == "") {
                 return parseFloat(0);
             }
             var reformattedNumber = 0;
-            if (number.match(FRENCH_CURRENCY_FORMAT)) {
-                reformattedNumber = number.replace(/\s/g, "");
+            if (formattedNumber.match(FRENCH_CURRENCY_FORMAT)) {
+                reformattedNumber = formattedNumber.replace(/\s/g, "");
                 reformattedNumber = reformattedNumber.replace(/\,/g, ".");
                 return parseFloat(reformattedNumber);
-            } else if (number.match(ENGLISH_CURRENCY_FORMAT)) {
-                reformattedNumber = number.replace(/\,/g, "");
+            } else if (formattedNumber.match(ENGLISH_CURRENCY_FORMAT)) {
+                reformattedNumber = formattedNumber.replace(/\,/g, "");
                 return parseFloat(reformattedNumber);
             } else {
-                return parseFloat(number);
+                return parseFloat(formattedNumber);
             }
         }
 
@@ -1451,11 +1453,11 @@
             if ($(".shared-room").hasClass("hidden")) {
                 rate = calculateSpaceUsed(workArea, totalArea);
             } else {
-                rate = $("#shared-room-employment-percent-output-id").text();
+                rate = toFloat($("#shared-room-employment-percent-output-id").text());
             }
             $(".employment-use-home-amount").text(
                 toMoney.format(
-                    (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (toFloat(rate) / 100)
+                    (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate / 100)
                 )
             );
             $(".employment-use-home-claim").text(
@@ -1466,7 +1468,7 @@
             $(".employment-use-ws-claim").text(toMoney.format(roomMaintenance));
             $(".employment-use-ws-amount").text(toMoney.format(roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100)));
             
-            $(".employment-use-home-rate").text(rate);
+            $(".employment-use-home-rate").text(rate.toFixed(2));
             $(".employment-use-ws-rate").text(
                 toFloat($(".shared-room-hrs-percent-output").text()).toFixed(2)
             );
@@ -1487,15 +1489,19 @@
             $(".home-expenses-output").text(toMoney.format(otherExpenses + rentBill));
             $(".income-output").text(toMoney.format(income));
             $(".dues-pension-output").text(toMoney.format(
-                (supplies + otherExpenses) + unionDues + pension
+                (supplies + otherExpenses + otherWorkExpenses) + unionDues + pension
             ));
             //display the room measurements
             $(".room-area-output").text(toFormattedNumber.format(workArea));
             $(".total-home-area-summary").text(toFormattedNumber.format(totalArea));
             $(".shared-room-hrs-output").text(toFormattedNumber.format(workHours));
             //total claim calculations
-            
-            var totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (toFloat(rate) / 100)) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
+            var totalEmploymentUse = 0;
+            if ($(".shared-room").hasClass("hidden")) {
+                totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance;
+            } else {
+                totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
+            }
             var netIncome = income - (supplies + otherExpenses) - pension - unionDues;
             $(".ws-total-claim-output").text(
                 toMoney.format( 
@@ -1503,7 +1509,6 @@
                     Math.min(netIncome, totalEmploymentUse)
                 )
             );
-            
             $(".employment-use-output").text(toMoney.format(totalEmploymentUse));
             $(".employment-use-total-amount").text(toMoney.format(totalEmploymentUse));
             $(".carry-forward-output").text(toMoney.format(
@@ -1511,7 +1516,7 @@
             );
             $(".ws-t777short-total-amount").text(
                 toMoney.format(
-                    (supplies + otherExpenses) + 
+                    (supplies + otherExpenses + otherWorkExpenses) + 
                     Math.min(netIncome, totalEmploymentUse)
                 )
             );
