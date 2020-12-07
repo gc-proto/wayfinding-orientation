@@ -1677,7 +1677,7 @@
       var otherExpenses = toFloat($("#home-expenses-input").val()) || 0;
       var roomMaintenance = toFloat($("#designated-room-maintenance-input").val()) || toFloat($("#shared-room-maintenance-input").val()) || 0;
       var rate;
-      var personalUsePercent = $(".ws-area-personal-percent-output").text();
+      var personalUsePercent = toFloat($(".ws-area-personal-percent-output").text());
       var totalEmploymentUse = 0;
       var netIncome = Math.max(income - (supplies + otherWorkExpenses) - pension - unionDues, 0);
 
