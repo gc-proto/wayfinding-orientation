@@ -1697,8 +1697,10 @@
         //total claim calculations
         totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
         $(".employment-use-ws-rate").text(
-          toFloat($(".shared-room-hrs-percent-output").text())
+          toFormattedNumber.format(
+            toFloat($(".shared-room-hrs-percent-output").text())
             .toFixed(2)
+          )
         );
         $(".employment-use-ws-amount").text(
           toMoney.format(roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100))
@@ -1716,7 +1718,9 @@
         )
       );
       $(".employment-use-ws-claim").text(toMoney.format(roomMaintenance));
-      $(".employment-use-home-rate").text(rate.toFixed(2));
+      $(".employment-use-home-rate").text(
+        toFormattedNumber.format(rate.toFixed(2))
+      );
       $(".supplies-output").text(toMoney.format(supplies));
       $(".ws-expenses-output").text(toMoney.format(otherWorkExpenses));
       $(".utilities-output").text(toMoney.format(electricityBill));
