@@ -1704,7 +1704,7 @@
           toMoney.format(roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100))
         );
       }
-      var carryFwd = totalEmploymentUse - netIncome;
+      var carryFwd = Math.max(0, totalEmploymentUse - netIncome);
       $(".employment-use-home-amount").text(
         toMoney.format(
           (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate / 100)
@@ -1759,7 +1759,7 @@
         toMoney.format(totalEmploymentUse)
       );
       $(".carry-forward-output").text(
-        toMoney.format(Math.max(0, carryFwd))
+        toMoney.format(carryFwd)
       );
       $(".ws-t777short-total-amount").text(
         toMoney.format(
@@ -1773,7 +1773,7 @@
           .removeClass('hidden');
       } else {
         $(".carry-forward-output")
-          .closest("tr.hidden")
+          .closest("tr")
           .addClass('hidden');
       }
     });
