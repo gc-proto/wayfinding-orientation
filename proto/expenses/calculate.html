@@ -1428,7 +1428,7 @@ main form :not(.btn-call-to-action).btn {
             } else {
                 totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
             }
-            var netIncome = income - (supplies + otherWorkExpenses) - pension - unionDues;
+            var netIncome = Math.max(income - (supplies + otherWorkExpenses) - pension - unionDues, 0);
             $(".ws-total-claim-output").text(
                 toMoney.format( 
                     (supplies + otherWorkExpenses) + 
