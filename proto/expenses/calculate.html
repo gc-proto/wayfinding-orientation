@@ -1677,6 +1677,7 @@
       var personalUsePercent = toFloat($(".ws-area-personal-percent-output").text());
       var totalEmploymentUse = 0;
       var netIncome = Math.max(income - (supplies + otherWorkExpenses) - pension - unionDues, 0);
+      var totalExpenses = electricityBill + homeMaintenance + propertyTaxes + otherWorkExpenses + homeInsurance;
       //room type specific calculations/display effects
       if ($(".shared-room").hasClass("hidden")) {
         //designated room
@@ -1689,6 +1690,8 @@
         $(".employment-use-ws-amount").text(
           toMoney.format(roomMaintenance)
         );
+        //add room maintenance to total expenses
+        totalExpenses += roomMaintenance;
       } else {
         //common/shared room
         rate = toFloat($("#shared-room-employment-percent-output-id").text());
@@ -1780,7 +1783,7 @@
       } else {
         $('#flat-rate-info').addClass("hidden");
       }
-      if (carryFwd > 0 || netIncome < totalEmploymentUse) {
+      if (carryFwd > 0 || netIncome < totalExpenses) {
         $(".carry-fwd").removeClass('hidden');
       } else {
         $(".carry-fwd").addClass('hidden');
