@@ -375,13 +375,11 @@
       <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
           <div class="alert alert-info provisional">
-            <div class="bg-warning">
               <p>If you moved during the period(s) you are eligible to claim work space at home expenses, you will need
                 to complete the calculator separately for every property you lived. You must enter the portion of the
                 expenses you paid in each property.</p>
               <p>Once you have calculated the amounts for each property, you will add the amounts together to put the
                 total on each line of the T777<span class="ws-t777short hidden"> short</span> form.</p>
-            </div>
           </div>
           <p class="wb-fieldflow-label">Your work space is in a home that you</p>
         </div>
@@ -1660,7 +1658,7 @@
         $("#results").removeClass("hidden");
       }
       validateDates();
-
+      //get inputs. defaulting to zero
       var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
       var totalArea = $("#total-home-area-input").val();
       var workHours = $("#shared-room-hrs-input").val();
@@ -1680,14 +1678,15 @@
       var personalUsePercent = toFloat($(".ws-area-personal-percent-output").text());
       var totalEmploymentUse = 0;
       var netIncome = Math.max(income - (supplies + otherWorkExpenses) - pension - unionDues, 0);
-
-      //get the employment use rate based on room type
+      //room type specific calculations/display effects
       if ($(".shared-room").hasClass("hidden")) {
         //designated room
         rate = calculateSpaceUsed(workArea, totalArea);
         //total claim calculations
         totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance;
+        //employment use percentage
         $(".employment-use-ws-rate").text(toFormattedNumber.format(100));
+        //employment use amount
         $(".employment-use-ws-amount").text(
           toMoney.format(roomMaintenance)
         );
@@ -1696,28 +1695,40 @@
         rate = toFloat($("#shared-room-employment-percent-output-id").text());
         //total claim calculations
         totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100);
+        //employment use percentage
         $(".employment-use-ws-rate").text(
           toFormattedNumber.format(
             toFloat($(".shared-room-hrs-percent-output").text())
             .toFixed(2)
           )
         );
+        //employment use amount
         $(".employment-use-ws-amount").text(
           toMoney.format(roomMaintenance * (toFloat($(".shared-room-hrs-percent-output").text()) / 100))
         );
       }
+      //calculate the carry forward amount
       var carryFwd = Math.max(0, totalEmploymentUse - netIncome);
+      //calculate total claim amount
+      var totalClaim = toMoney.format(
+          (supplies + otherWorkExpenses) +
+          Math.min(netIncome, totalEmploymentUse)
+        );
+      //total claimable expense calculation
       $(".employment-use-home-amount").text(
         toMoney.format(
           (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate / 100)
         )
       );
+      //total of expenses paid
       $(".employment-use-home-claim").text(
         toMoney.format(
           electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill
         )
       );
+      //workspace specific claim amount
       $(".employment-use-ws-claim").text(toMoney.format(roomMaintenance));
+      //workplace specific claim rate
       $(".employment-use-home-rate").text(
         toFormattedNumber.format(rate.toFixed(2))
       );
@@ -1748,7 +1759,6 @@
           (supplies + otherWorkExpenses) + unionDues + pension
         )
       );
-      //display the room measurements
       $(".room-area-output").text(toFormattedNumber.format(workArea));
       $(".total-home-area-summary").text(toFormattedNumber.format(totalArea));
       $(".shared-room-hrs-output").text(toFormattedNumber.format(workHours));
@@ -1765,12 +1775,12 @@
       $(".carry-forward-output").text(
         toMoney.format(carryFwd)
       );
-      $(".ws-t777short-total-amount").text(
-        toMoney.format(
-          (supplies + otherWorkExpenses) +
-          Math.min(netIncome, totalEmploymentUse)
-        )
-      );
+      $(".ws-t777short-total-amount").text(totalClaim);
+      if (totalClaim < 400) {
+        $("#flat-rate-info").removeClass("hidden");
+      } else {
+        $('#flat-rate-info').addClass("hidden");
+      }
       if (carryFwd > 0 || netIncome < totalEmploymentUse) {
         $(".carry-forward-output")
           .closest("tr.hidden")
