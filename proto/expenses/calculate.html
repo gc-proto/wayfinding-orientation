@@ -1706,6 +1706,10 @@
         );
       }
       var carryFwd = Math.max(0, totalEmploymentUse - netIncome);
+      var totalClaim = toMoney.format(
+          (supplies + otherWorkExpenses) +
+          Math.min(netIncome, totalEmploymentUse)
+        );
       $(".employment-use-home-amount").text(
         toMoney.format(
           (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate / 100)
@@ -1764,12 +1768,12 @@
       $(".carry-forward-output").text(
         toMoney.format(carryFwd)
       );
-      $(".ws-t777short-total-amount").text(
-        toMoney.format(
-          (supplies + otherWorkExpenses) +
-          Math.min(netIncome, totalEmploymentUse)
-        )
-      );
+      $(".ws-t777short-total-amount").text(totalClaim);
+      if (totalClaim < 400) {
+          $("#flat-rate-info").removeClass("hidden");
+      } else {
+          $('#flat-rate-info').addClass("hidden");
+      }
       if (carryFwd > 0 || netIncome < totalEmploymentUse) {
         $(".carry-forward-output")
           .closest("tr.hidden")
