@@ -1782,13 +1782,9 @@
         $('#flat-rate-info').addClass("hidden");
       }
       if (carryFwd > 0 || netIncome < totalEmploymentUse) {
-        $(".carry-forward-output")
-          .closest("tr.hidden")
-          .removeClass('hidden');
+        $(".carry-fwd").removeClass('hidden');
       } else {
-        $(".carry-forward-output")
-          .closest("tr")
-          .addClass('hidden');
+        $(".carry-fwd").addClass('hidden');
       }
     });
   </script>
