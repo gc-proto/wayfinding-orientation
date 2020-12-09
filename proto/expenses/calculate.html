@@ -1584,8 +1584,8 @@
       $(".shared-room-employment-percent-output").text(toFormattedNumber.format(parseFloat(claimRate).toFixed(2)));
     });
 
-    //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with
-    $(document).on("click", "input[type='radio']:first, input[type='radio']:eq(1), input[type='radio']:eq(2), input[type='radio']:eq(3), input[type='radio']:eq(4), input[type='radio']:eq(5), input[type='radio']:eq(6), input[type='radio']:eq(7), input[type='radio']:eq(8), input[type='radio']:eq(9)", function (event) {
+    //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with if need to target specific use :eq(n)
+    $(document).on("click", ".wb-fieldflow-form input[type='radio']", function (event) {
       $("input[type='text'], input[type='number'], input[type='date']").each(function (i, element) {
         $(element).val("");
         $(element).trigger("change");
