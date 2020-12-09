@@ -847,6 +847,9 @@
               your
               expenses</button>
           </p>
+          <p>
+            <button class="btn btn-danger btn-lg mrgn-bttm-lg mrgn-tp-lg" id="calc-reset" type="reset">Reset</button>
+          </p>
         </form>
       </div>
       <div class="panel panel-primary hidden" id="results" aria-live="polite">
@@ -1582,8 +1585,8 @@
     });
 
     //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with
-    $(document).on("click", "input[type='radio']:first, input[type='radio']:eq(1), input[type='radio']:eq(2), input[type='radio']:eq(3)", function (event) {
-      $("input[type='text'], input[type='number']").each(function (i, element) {
+    $(document).on("click", "input[type='radio']:first, input[type='radio']:eq(1), input[type='radio']:eq(2), input[type='radio']:eq(3), input[type='radio']:eq(4), input[type='radio']:eq(5), input[type='radio']:eq(6), input[type='radio']:eq(7), input[type='radio']:eq(8), input[type='radio']:eq(9)", function (event) {
+      $("input[type='text'], input[type='number'], input[type='date']").each(function (i, element) {
         $(element).val("");
         $(element).trigger("change");
       });
