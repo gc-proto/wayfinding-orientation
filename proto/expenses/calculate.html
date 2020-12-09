@@ -355,15 +355,14 @@
           <li
             data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own, and have not moved while working from home within the year</li>
           <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved while working from home within the year</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
         </ul>
       </div>
       <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
           <div class="alert alert-info provisional">
              <div data-ajax-replace="how-much.html #ajax-change-ws" class="data-ajax"></div>
-             <p>If this situations applies, you will need to use the calculate for each change seperately to get the correct amount you can claim.</p>
-             <p>Continue with the first propety you lived in during the eligible period(s) you worked from home.</p>
+             <p>If this situations applies to you, use the calculator for each change of work space or property seperately to get the correct amount you can claim. Continue with the first space you worked from home during the eligible period(s).</p>
              
              <!--<p>If you moved during the period(s) you are eligible to claim work space at home expenses, you will need
                 to complete the calculator separately for every property you lived. You must enter the portion of the
@@ -490,7 +489,7 @@
               </div>
             </div>
             <div class="well">
-              <h3 class="mrgn-tp-0">Summary of calculated space</h3>
+              <h2 class="mrgn-tp-0">Summary of calculated space</h2>
               <ul class="fa-ul list-unstyled lst-spcd">
                 <li><span class="h4"><span class="room-area-output">0</span> <span class="ws-metre-sq hidden">square
                       metres</span><span class="ws-feet-sq hidden">square feet</span></span> of <span
@@ -801,7 +800,7 @@
                       class="startDate3 nowrap">[Start]</span> to <span class="endDate3 nowrap">[End]</span></span><span
                     class="date-span-4 hidden">, and from <span class="startDate4 nowrap">[Start]</span> to <span
                       class="endDate4 nowrap">[End]</span></span><br>
-                  <span class="text-muted">such as postage, stationary, ink cartridges, and other office supplies only
+                  <span class="text-muted small">such as postage, stationary, ink cartridges, and other office supplies only
                     for employment purposes</span></span><span class="wb-inv"> in dollars and
                   cents</span> <strong class="required">(required)</strong></label>
               <p id="ws-supplies-def"><a href="#supplies-salary-lbx" class="wb-lbx">What supplies can be <span
@@ -819,7 +818,7 @@
                     class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span
                       class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span
                       class="startDate4 nowrap">[Start]</span> to <span class="endDate4 nowrap">[End]</span></span> <br>
-                  <span class="text-muted">such as employment use of a cell phone, employment use of long distance
+                  <span class="text-muted small">such as employment use of a cell phone, employment use of long distance
                     calls, etc.</span></span><span class="wb-inv"> in dollars and
                   cents</span> <strong class="required">(required)</strong></label>
               <p id="ws-expenses-def"><a href="#ws-expenses-lbx" class="wb-lbx">What are expenses you can claim for
@@ -836,7 +835,7 @@
             <p>Enter the amount reported on your T4 tax slip. Enter $0 if there is no amount on the slip.</p>
             <div class="form-group">
               <label for="income-input" class="required"><span class="field-name">Enter your employment income<br>
-                  <span class="text-muted">box 14 of your T4 slips (or line 10100 of your return)</span></span><span
+                  <span class="text-muted small">box 14 of your T4 slips (or line 10100 of your return)</span></span><span
                   class="wb-inv"> in dollars and
                   cents</span> <strong class="required">(required)</strong></label>
               <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
@@ -847,7 +846,7 @@
             <div class="form-group">
               <label for="dues-input" class="required"><span class="field-name">Annual union, professional, or like
                   dues<br>
-                  <span class="text-muted">box 44 of your T4 slips (or line 21200 of your return)</span></span><span
+                  <span class="text-muted small">box 44 of your T4 slips (or line 21200 of your return)</span></span><span
                   class="wb-inv"> in dollars and
                   cents</span> <strong class="required">(required)</strong></label>
               <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
@@ -858,7 +857,7 @@
             <div class="form-group">
               <label for="pension-input" class="required"><span class="field-name">Registered pension plan (RPP)
                   deduction<br>
-                  <span class="text-muted">box 20 of your T4 slips (or box 032 of your T4A slips, or line 20700 of your
+                  <span class="text-muted small">box 20 of your T4 slips (or box 032 of your T4A slips, or line 20700 of your
                     return)</span></span><span class="wb-inv"> in dollars and
                   cents</span> <strong class="required">(required)</strong></label>
               <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
@@ -874,9 +873,9 @@
           </p>
         </form>
       </div>
-      <div class="panel panel-primary hidden" id="results">
+      <div class="panel panel-primary hidden" id="results" aria-live="polite">
         <div class="panel-heading">
-          <h3 class="panel-title">Your employee home work space expenses results</h3>
+          <h2 class="panel-title">Your employee home work space expenses results</h2>
         </div>
         <div class="panel-body">
           <div id="wsih-print-summary-1">
@@ -884,7 +883,7 @@
               amounts below when filling out the <strong class="ws-t777reg hidden nowrap">T777 (20)</strong><strong
                 class="ws-t777short hidden nowrap">T777 short (20)</strong> form.</p>
             <div class="ws-t777short hidden">
-              <h4 class="mrgn-tp-sm">Summary of total expenses</h4>
+              <h3 class="mrgn-tp-sm">Summary of total expenses</h3>
               <p><span class="h4"><span class="ws-t777short-total-amount">$0.00</span></span> is the total expenses you
                 can claim.</p>
               <p>This amount will go on <strong>line 5 </strong> on the <span class="nowrap">T777 short form</span>, which will also go on line
@@ -898,7 +897,7 @@
               </div>
             </div>
             <hr>
-            <h4>Summary of the employment-use amount</h4>
+            <h3>Summary of the employment-use amount</h3>
             <p><span class="h4"><span class="employment-use-total-amount">$0.00</span></span> is the employment-use
               portion.</p>
             <p>This amount will go on <strong class="ws-t777short hidden">line 12</strong><strong
@@ -950,7 +949,7 @@
                     <tr>
                       <th scope="col" class="col-sm-6">Expense</th>
                       <th scope="col" class="active">Amount to report</th>
-                      <th scope="col">T777<span class="ws-t777short hidden">&nbsp;short</span>&nbsp;(20) form<span class="wb-t777reg hidden small"><br>(to be released in January 2021</span></th>
+                      <th scope="col">T777<span class="ws-t777short hidden">&nbsp;short</span>&nbsp;(20) form<span class="ws-t777reg hidden small"><br>(to be released in January 2021</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1062,7 +1061,7 @@
           <div id="wsih-print-summary-2">
             <div class="ws-t777short hidden">
               <div class="carry-fwd hidden">
-                <p> The income you reported is less than the expenses claimed for employment-use. You can carry forward
+                <p>The income you reported is less than the expenses claimed for employment-use. You can carry forward
                   <strong class="carry-forward-output">[$0.00]</strong> to be claimed in future years.</p>
                 <p>This amount will go on <strong>line 16</strong> of the <span class="nowrap">T777 short (20)</span> form.</p>
                 <p class="commission-income hidden"><strong>Note:</strong> If you earned commission income, you may also
