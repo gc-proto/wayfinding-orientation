@@ -355,16 +355,18 @@
           <li
             data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own, and have not moved while working from home within the year</li>
           <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "ajax", "url": "how-much.html #ajax-change-ws", "live": true, "container": "#moved", "type": "prepend"}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
         </ul>
       </div>
       <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
-        
-           <div class="provisional alert alert-info data-ajax" id="moved">
+           
+           <div class="provisional alert alert-info">
+              <div data-ajax-replace="how-much.html #ajax-change-ws"></div>
+              <p><a href="#moved-lbx" class="wb-lbx">Example: Moving between two homes</a></p>
              <p>If this situation applies, you will need to calculate each work space location separately to get the correct amount you can claim.  This means you will use the calculator multiple times. <br>
              You will only need to complete one T777&nbsp;(20) or T777S form.  Add the amounts from each work space location together when filling in the lines on the form.</p>
-          <p>Continue with a work space you used during the eligible period(s) you worked from home by selecting below if you rented or own your home.</p>
+        
            </div>
           <p class="wb-fieldflow-label">Your work space is in a home that you</p>
         </div>
@@ -1044,6 +1046,14 @@
       </div>
 
       <!--Overlays //-->
+  <section id="moved-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+          <h2 class="modal-title">Example: Moving between two homes</h2>
+        </header>
+        <div class="modal-body" data-ajax-replace="how-much.html #ajax-change-ws-ex">
+         
+        </div>
+      </section>
       <section id="commission-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
           <h2 class="modal-title">Limitations of claiming expenses as a commissioned employee</h2>
@@ -1558,6 +1568,10 @@
     //when a user updates the common space hours
     $(document).on("change keyup", "#shared-room-hrs-input", function (event) {
       if ($("#shared-room-area-input").val() == "" && $("#total-home-area-input").val() == "") {
+        $(".perhr-percent-sum").text("0");
+        $(".perhr-percent-sum").text("0");
+        $(".shared-room-hrs-output").text("0");
+        $("#per-cmmn-rm-sum").text("0");
         return;
       }
       var hours = getCommonWorkSpaceHours();
@@ -1585,15 +1599,16 @@
     });
 
     //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with if need to target specific use :eq(n)
- $(document).on("click", ".wb-fieldflow-form input[type='radio']", function (event) {
-  $("input[type='text'], input[type='number']").each(function (i, element) {
-    $(element).trigger("change");
-  });
-  $("input[type='date']").each(function (i, element) {
-    $(element).val("");
-  });
-  $("#results").addClass("hidden");
-});
+    $(document).on("click", ".wb-fieldflow-form input[type='radio']", function (event) {
+      $("input[type='text'], input[type='number']").each(function (i, element) {
+        $(element).val("");
+        $(element).trigger("change");
+      });
+      $("input[type='date']").each(function (i, element) {
+        $(element).val("");
+      });
+      $("#results").addClass("hidden");
+    });
 
     //submit button was clicked
     $(document).on("click", "#exp-cal", function (event) {
