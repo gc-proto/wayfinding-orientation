@@ -355,13 +355,13 @@
           <li
             data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own, and have not moved while working from home within the year</li>
           <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "ajax", "url": "how-much.html #ajax-change-ws", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "ajax", "url": "how-much.html #ajax-change-ws", "live": true, "container": "#moved"}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
         </ul>
       </div>
       <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
-          <div class="alert alert-info provisional">
-             <div data-ajax-replace="how-much.html #ajax-change-ws" class="data-ajax"></div>
+          <div class="alert alert-info provisional" id="moved">
+           
              <p>If this situation applies, you will need to calculate each work space location separately to get the correct amount you can claim.  This means you will use the calculator multiple times. <br>
              You will only need to complete one T777&nbsp;(20) or T777S form.  Add the amounts from each work space location together when filling in the lines on the form.</p>
           <p>Continue with a work space you used during the eligible period(s) you worked from home by selecting below if you rented or own your home.</p>
