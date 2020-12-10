@@ -11,7 +11,7 @@
   <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
   <title>Calculate your expenses - Work space in the home - Employment expenses – Canada.ca</title>
   <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta name=”robots” content=”noindex, follow”>
+  <meta name="robots" content=”noindex, follow”>
   <!-- Meta data -->
   <!-- Meta data-->
   <!-- Load closure template scripts -->
@@ -334,7 +334,7 @@
             
                   <p><strong>Note:</strong> Given your various types of employment expenses, the calculator below can
                     only help you determine the employment-use portion of your work space. The calculator will provide
-                    you with the values for lines 31 to 35 of the T777&nbsp;(20). You will still need to complete the remainder of the T777&nbsp;(20) to determine the final
+                    you with the values for lines 31 to 35 of the T777&nbsp;(20) form to be released in January 2021. You will still need to complete the remainder of the T777&nbsp;(20) to determine the final
                     amount you can claim on your taxes.</p>
               
             </div>
@@ -355,17 +355,17 @@
           <li
             data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Own, and have not moved while working from home within the year</li>
           <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "ajax", "url": "how-much.html #ajax-change-ws", "live": true, "container": "#moved", "type": "prepend"}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Moved work spaces while working from home within the year</li>
         </ul>
       </div>
       <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
-          <div class="alert alert-info provisional">
-             <div data-ajax-replace="how-much.html #ajax-change-ws" class="data-ajax"></div>
+        
+           <div class="provisional alert alert-info data-ajax" id="moved">
              <p>If this situation applies, you will need to calculate each work space location separately to get the correct amount you can claim.  This means you will use the calculator multiple times. <br>
-             You will only need to complete one T777&nbsp;(20) or T777S form.  Add the amounts from each work space location together when filing in the lines on the form.</p>
-          <p>Continue with the first work space you used during the eligible period(s) you worked from home by selecting below if you rented or own your home.</p>
-          </div>
+             You will only need to complete one T777&nbsp;(20) or T777S form.  Add the amounts from each work space location together when filling in the lines on the form.</p>
+          <p>Continue with a work space you used during the eligible period(s) you worked from home by selecting below if you rented or own your home.</p>
+           </div>
           <p class="wb-fieldflow-label">Your work space is in a home that you</p>
         </div>
         <ul>
@@ -517,7 +517,7 @@
             <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from
                 home for the <span class="nowrap">full year&nbsp;<span class="far fa-question-circle"></span></span></a>
             </p>
-            <!--  <p><strong>Note:</strong> Moving from one residence to another but still working from home is considered one period.</p> //-->
+          
             <div class="row form-group">
               <div class="col-sm-5 form-group">
                 <label for="work-home-start-1" class="control-label required"><span class="field-name">Start of
@@ -842,11 +842,14 @@
               </div>
             </div>
           </fieldset>
-          <p>
-            <button class="btn btn-call-to-action btn-lg mrgn-bttm-lg mrgn-tp-lg" id="exp-cal" type="submit">Calculate
+          <ul class="list-inline mrgn-bttm-lg mrgn-tp-lg">
+            <button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="exp-cal" type="submit">Calculate
               your
               expenses</button>
-          </p>
+          </li>
+        <!--  <li>
+            <button class="btn btn-danger btn-lg mrgn-bttm-sm" id="calc-reset" type="reset">Reset form</button>//-->
+   </li></ul>
         </form>
       </div>
       <div class="panel panel-primary hidden" id="results" aria-live="polite">
@@ -999,7 +1002,7 @@
                     <tr>
                       <th scope="row">Size of work space in your home</th>
                       <td class="text-right nowrap"><span class="room-area-output">[answer]</span><span
-                          class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
+                          class="hidden ws-metre-sq"><abbr class="brdr-0" title="square metres">m²</abbr></span><span class="hidden ws-feet-sq"><abbr class="brdr-0" title="square feet">ft²</abbr></span></td>
                     </tr>
                     <tr class="shared-room hidden">
                       <th scope="row">Hours a week in work space</th>
@@ -1008,7 +1011,7 @@
                     <tr>
                       <th scope="row">Total finished area of your home</th>
                       <td class="text-right nowrap"><span class="total-home-area-summary">[answer]</span><span
-                          class="hidden ws-metre-sq">m²</span><span class="hidden ws-feet-sq">ft²</span></td>
+                          class="hidden ws-metre-sq"<abbr class="brdr-0" title="square metres">m²</abbr></span><span class="hidden ws-feet-sq"><abbr class="brdr-0" title="square feet">ft²</abbr></span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -1581,14 +1584,16 @@
       $(".shared-room-employment-percent-output").text(toFormattedNumber.format(parseFloat(claimRate).toFixed(2)));
     });
 
-    //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with
-    $(document).on("click", "input[type='radio']:first, input[type='radio']:eq(1), input[type='radio']:eq(2), input[type='radio']:eq(3)", function (event) {
-      $("input[type='text'], input[type='number']").each(function (i, element) {
-        $(element).val("");
-        $(element).trigger("change");
-      });
-      $("#results").addClass("hidden");
-    });
+    //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with if need to target specific use :eq(n)
+ $(document).on("click", ".wb-fieldflow-form input[type='radio']", function (event) {
+  $("input[type='text'], input[type='number']").each(function (i, element) {
+    $(element).trigger("change");
+  });
+  $("input[type='date']").each(function (i, element) {
+    $(element).val("");
+  });
+  $("#results").addClass("hidden");
+});
 
     //submit button was clicked
     $(document).on("click", "#exp-cal", function (event) {
