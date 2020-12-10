@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+      <title>Calculate your decrease in income - Canada Recovery Benefit (CRB) – Canada.ca</title>
+      <meta content="width=device-width,initial-scale=1" name="viewport">
+      <meta name=”robots” content=”noindex, follow”>
+      <!-- Meta data -->
+      <!-- Meta data-->
+      <!-- Load closure template scripts -->
+      <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+      <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+      <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+      <link href="../css/cews.css" rel="stylesheet">
+      <link href="../css/checkbox-radio-CRA.css" rel="stylesheet">
+      <link href="../css/bullets-with-questions.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+      <style type="text/css">
+         div.hidden-action {
+         transform: scaleX(0);
+         overflow: hidden;
+         display: none;
+         }
+         div.visible-action {
+         transform: scaleX(1);
+         display: visible;
+         }
+         /*Checkbox/Fieldflow radio input sizing,positioning*/
+         .checkbox-zebra > li:nth-child(2n+1) {
+         background-color: #f5f5f5;
+         margin-left: -50px;
+         padding-top: 10px;
+         padding-bottom: 15px;
+         padding-left: 50px;
+         }
+         .checkbox-zebra [role="checkbox"]::before {
+         background-color: #fff;
+         }
+         .std-blt {
+         font-size: 20px;
+         line-height: 1.65em;
+         }
+         .std-blt {
+         list-style-type: disc;
+         }
+         .std-blt li label {
+         display: block;
+         padding-left: 0px;
+         }
+         /********
+         ********
+         ** New checklist example
+         ** May 15, 2020
+         ** Replacing checkkboxes with clickable divs that convey a sense of success to the user
+         ********
+         ********/
+         /* One input per line */
+         .provisional [role="checkbox"] { /* (0,2,0) */
+         cursor: pointer;
+         display: inline-block;
+         padding-left: 15px;
+         position: relative;
+         }
+         .provisional [role="checkbox"]::before,
+         .provisional [role="checkbox"]::after { /* (0,2,1) */
+         content: "";
+         left: 0;
+         position: absolute;
+         top: 0;
+         transform: translate(-100%, 0%);
+         }
+         .provisional .wb-checklist.wb-checklist-sm { /* (0,3,0) */
+         font-size: 17px;
+         }
+         /* the basic, unchecked style */
+         .provisional [role="checkbox"]::before { /* (0,2,1) */
+         border: 4px solid #fff;
+         box-shadow: 0 0 0 2px #000;
+         display: inline-block;
+         height: 36px;
+         width: 36px;
+         }
+         .provisional .wb-checklist-sm [role="checkbox"]::before { /* (0,3,1) */
+         border-width: 3px;
+         height: 24px;
+         transform: translate(-100%, 20%);
+         width: 24px;
+         }
+         /* hover styling */
+         .provisional [role="checkbox"][aria-checked="false"]:hover::before { /* (0,3,1) */
+         background-image: linear-gradient(to bottom, hsl(10, 0%, 90%), hsl(10, 0%, 100%) 50%);
+         }
+         /* focus styling */
+         .provisional [role="checkbox"]:focus { /* (0,3,0) */
+         outline: none;
+         }
+         .provisional [role="checkbox"]:focus::before { /* (0,3,2) */
+         box-shadow: 0 0 0 2px #000, 0 0 8px 4px rgb(59, 153, 252);
+         }
+         /* the checked style using the [aria-checked='true'] pseudo class and aria-checked=true attribute */
+         .provisional [role="checkbox"][aria-checked="true"]::before { /* (0,3,1) */
+         background-color: #318000;
+         border: none;
+         }
+         .provisional [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
+         border-color: white;
+         border-style: solid;
+         border-width: 0 5px 5px 0;
+         display: inline-block;
+         height: 26px;
+         width: 13px;
+         transform: translate(-185%, 10%) rotate(45deg);
+         }
+         .provisional .wb-checklist-sm [role="checkbox"][aria-checked="true"]::after { /* (0,3,1) */
+         border-width: 0 4px 4px 0;
+         height: 16px;
+         width: 9px;
+         transform: translate(-185%, 40%) rotate(45deg);
+         }
+      </style>
+      <!-- Write closure template -->
+      <script type="text/javascript">
+         document.write(wet.builder.refTop({
+         }));
+      </script>
+   </head>
+   <body vocab="http://schema.org/" typeof="WebPage">
+      <div id="def-top">
+      </div>
+      <!-- Write closure template -->
+      <script type="text/javascript">
+         var defTop = document.getElementById("def-top");
+         defTop.outerHTML = wet.builder.top({
+            lngLinks: [{
+               lang: "fr",
+               href: "#",
+               text: "Français"
+            }],
+            breadcrumbs: [{
+               title: "Canada.ca",
+               href: "https://www.canada.ca/en.html"
+            }, {
+               title: "Benefits",
+               href: "https://www.canada.ca/en/services/benefits.html"
+            }, {
+               title: "COVID-19 – Emergency benefits and services",
+               href: "https://www.canada.ca/en/services/benefits/covid19-emergency-benefits.html"
+            }, {
+               title: "Canada Recovery Benefit (CRB)",
+               href: "index.html"
+            }],
+            search: true,
+            siteMenu: true,
+            showPreContent: true
+         });
+      </script>
+      <main role="main" property="mainContentOfPage" class="container">
+         <section class="gc-nav">
+            <h1 property="name" id="wb-cont-nav">Canada Recovery Benefit (CRB)</h1>
+            <ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
+               <li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
+               <li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
+            </ul>
+            <nav aria-label="Section menu">
+               <h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
+               <ul class="gc-navseq">
+                  <li><a href="who-apply.html">Who can apply</a>
+                     <ul class="gc-navseq noline">
+                        <li class="active"><a aria-current="page">Calculate your decrease in income</a>
+                     </ul>
+                  </li>
+                  <li><a href="how-much.html">How much you can get</a></li>
+                  <li><a href="periods.html">Periods you can apply for</a></li>
+                  <li><a href="how-apply.html">How to apply</a></li>
+                  <li><a href="keep-payment.html">Keep getting your payments</a></li>
+                  <li><a href="send-payment.html">Return a payment</a></li>
+                  <li><a href="contact.html">Contact us about CRB</a></li>
+               </ul>
+               <div class="hidden-sm hidden-xs" data-ajax-replace="index.html #related-menu"> </div>
+            </nav>
+         </section>
+         <section class="gc-nav-section experimental provisional">
+            <h1 property="name" id="wb-cont">Calculate your decrease in income</h1>
+            <p>Use the calculator below to find out how much your income has decreased compared to the previous year.</p>
+            <p>The calculator will determine your average weekly net income from the previous year and compare this to your average weekly income during the CRB period you're applying for.</p>
+            <details>
+               <summary>Privacy statement: this calculator does not collect or store your information</summary>
+               <p>The CRA does not collect or store any of the information you enter on this page or in the calculation spreadsheet. The amounts you etner are only used to help you determine the decrease in your average weekly income during the CRB period you're applying for compared to the previous year.</p>
+               <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page, you may need to enter the information again.</p>
+            </details>
+            <div class="wb-frmvld">
+               <h2><span class="fa fa-calculator"> Use the calculator</span></h2>
+               <form method="get" class="mrgn-bttm-lg" id="cews-cal">
+                  <ol class="lst-stps">
+                     <li id="stp1">
+                        <fieldset>
+                           <legend><span class="wb-inv">Step 1: </span>Determine your weekly income from the previous year</legend>
+                           <p>Use your annual employment or self-employment net income from either 2019, 2020, or the previous 12 months. The time frame you choose may depend on the period you're applying for.</p>
+                           <details>
+                              <summary>Periods in 2020 (periods 1 to 7)</summary>
+                              <p>You may use income from either:</p>
+                              <ul>
+                                 <li>The 2019 calendar year</li>
+                                 <li>The past 12 months</li>
+                              </ul>
+                           </details>
+                           <details>
+                              <summary>Periods in 2021 (periods 8 to 26)</summary>
+                              <p>You may use income from either:</p>
+                              <ul>
+                                 <li>The 2020 calendar year</li>
+                                 <li>The 2019 calendar year</li>
+                                 <li>The past 12 months</li>
+                              </ul>
+                           </details>
+                           <p><a href="#income-include" aria-controls="income-include" class="wb-lbx" role="button">What income should you include?&nbsp;<span class="far fa-question-circle"></span></a></p>
+                           <section id="income-include" class="mfp-hide modal-dialog modal-content overlay-def">
+                              <header class="modal-header">
+                                 <h2 class="modal-title">What income should you include?</h2>
+                              </header>
+                              <div class="modal-body">
+                                 <p>When calculating your net income for the previous year, you may include maternity and parental benefits from EI or similar QPIP benefits.</p>
+                                 <p>For this calculation, self-employment income is your revenue minus any expenses incurred to earn the self-employment revenue.</p>
+                                 <p>Employment and/or self-employment net income includes, among other things:</p>
+                                 <ul>
+                                    <li>tips you may earn while working</li>
+                                    <li>non-eligible dividends</li>
+                                    <li>honoraria (such as nominal amounts paid to emergency service volunteers)</li>
+                                    <li>royalties (such as those paid to artists)</li>
+                                 </ul>
+                                 <p>Do not include the following in the calculation:</p>
+                                 <ul>
+                                    <li>EI regular benefits</li>
+                                    <li>disability benefits</li>
+                                    <li>pensions</li>
+                                    <li>student loans and bursaries</li>
+                                    <li>any Canada COVID-19 emergency or recover benefits</li>
+                                 </ul>
+                              </div>
+                           </section>
+                           <div class="form-group row mrgn-tp-lg">
+                              <label class="col-sm-12 control-label" for="previous-income">Enter your annual net income from the previous year<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <div class="col-sm-4">
+                                 <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                    <input type="number" class="form-control text-right currency" name="previous-income" id="previous-income" size="10" placeholder="0.00">
+                                 </div>
+                              </div>
+                              <div class="col-md-12 mrgn-tp-lg">
+                                 <a class="btn btn-default">Update your revenue drop</a>
+                              </div>
+                           </div>
+                        </fieldset>
+                        <hr class="brdr-bttm">
+                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                           <h3 class="mrgn-tp-0">Summary of Step 1</h3>
+                           <ul class="list-unstyled lst-spcd">
+                              <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h5 weekly-previous-income">$0</span></li>
+                              <li><a href="#calculate-average-income" aria-controls="calculate-average-income" class="wb-lbx" role="button">How did we get this number?&nbsp;<span class="far fa-question-circle"></span></a></li>
+                              <section id="calculate-average-income" class="mfp-hide modal-dialog modal-content overlay-def">
+                                 <header class="modal-header">
+                                    <h2 class="modal-title">How did we get this number?</h2>
+                                 </header>
+                                 <div class="modal-body">
+                                    <p>You entered your annual income. For the calculation, we need to use your average weekly income.</p>
+                                    <ul class="fa-ul lst-spcd">
+                                       <li><span class="mrgn-tp-0 h5"><span class="previous-income">$0</span><span class="text-muted"> (income during the previous year)</span></span></li>
+                                       <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">52<span class="text-muted"> (weeks in a year)</span></li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span class="weekly-previous-income">$0</span><span class="text-muted"> (average weekly income)</span></span></li>
+                                       </ul>
+                                 </div>
+                              </section>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <fieldset>
+                           <legend><span class="wb-inv">Step 2: </span>Determine your weekly income during the CRB period</legend>
+                           <p>Add up the employment or self-employment net income you earned during the full 2-week CRB period that you're applying for.</p>
+                           <p><a href="#income-include" aria-controls="income-include" class="wb-lbx" role="button">What income should you include?&nbsp;<span class="far fa-question-circle"></span></a></p>
+                           <div class="form-group row mrgn-tp-lg">
+                              <label class="col-sm-12 control-label" for="period-income">Enter your net income during the 2-week CRB period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <div class="col-sm-4">
+                                 <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                    <input type="number" class="form-control text-right currency" name="period-income" id="period-income" size="10" placeholder="0.00">
+                                 </div>
+                              </div>
+                              <div class="col-sm-8">
+                                 <p class="small"><a href="#claim-periods" aria-controls="lwp" class="wb-lbx" role="button">See CRB period dates&nbsp;<span class="far fa-question-circle"></span></a></p>
+                                 <section id="claim-periods" class="mfp-hide modal-dialog modal-content overlay-def">
+                                    <header class="modal-header">
+                                       <h2 class="modal-title">Canada Recovery Benefit (CRB) claim periods</h2>
+                                    </header>
+                                    <div class="modal-body">
+                                       <table class="table">
+                                          <thead>
+                                             <tr>
+                                                <th>Period</th>
+                                                <th>Dates</th>
+                                             </tr>
+                                       </thead>
+                                       <tbody>
+                                             <tr>
+                                                <td>Period 1</td>
+                                                <td>September 27 to October 10, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 2</td>
+                                                <td>October 11 to October 24, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 3</td>
+                                                <td>October 25 to November 7, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 4</td>
+                                                <td>November 8 to November 21, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 5</td>
+                                                <td>November 22 to December 5, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 6</td>
+                                                <td>December 6 to December 19, 2020</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 7</td>
+                                                <td>December 20 to January 2, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 8</td>
+                                                <td>January 3 to January 16, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 9</td>
+                                                <td>January 17 to January 30, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 10</td>
+                                                <td>January 31 to February 13, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 11</td>
+                                                <td>February 14 to February 27, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 12</td>
+                                                <td>February 28 to March 13, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 13</td>
+                                                <td>March 14 to March 27, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 14</td>
+                                                <td>March 28 to April 10, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 15</td>
+                                                <td>April 11 to April 24, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 16</td>
+                                                <td>April 25 to May 8, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 17</td>
+                                                <td>May 9 to May 22, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 18</td>
+                                                <td>May 23 to June 5, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 19</td>
+                                                <td>June 6 to June 19, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 20</td>
+                                                <td>June 20 to July 3, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 21</td>
+                                                <td>July 4 to July 17, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 22</td>
+                                                <td>July 18 to July 31, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 23</td>
+                                                <td>August 1 to August 14, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 24</td>
+                                                <td>August 15 to August 28, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 25</td>
+                                                <td>August 29 to September 11, 2021</td>
+                                             </tr>
+                                             <tr>
+                                                <td>Period 26</td>
+                                                <td>September 12 to September 25, 2021</td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </div>
+                                 </section>
+                              </div>
+                              <div class="col-md-12 mrgn-tp-lg">
+                                 <a class="btn btn-default">Update your revenue drop</a>
+                              </div>
+                           </div>
+                        </fieldset>
+                        <hr class="brdr-bttm">
+                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                           <h3 class="mrgn-tp-0">Summary of Step 2</h3>
+                           <ul class="list-unstyled lst-spcd">
+                              <li>Your average weekly income during the CRB period was: <span class="h3 weekly-period-income">$0.00</span></li>
+                              <li><a href="#calculate-average-income-period" aria-controls="calculate-average-income-period" class="wb-lbx" role="button">How did we get this number?&nbsp;<span class="far fa-question-circle"></span></a></li>
+                              <section id="calculate-average-income-period" class="mfp-hide modal-dialog modal-content overlay-def">
+                                 <header class="modal-header">
+                                    <h2 class="modal-title">How did we get this number?</h2>
+                                 </header>
+                                 <div class="modal-body">
+                                    <p>You entered your income during the 2-week CRB period. For the calculation, we need to use your average weekly income.</p>
+                                    <ul class="fa-ul lst-spcd">
+                                       <li><span class="mrgn-tp-0 h5"><span class="period-income">0</span><span class="text-muted"> (income during the CRB period)</span></span></li>
+                                       <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">2<span class="text-muted"> (weeks in the CRB period)</span></li>
+                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5">$<span id="weekly-period-income">0</span><span class="text-muted"> (average weekly income)</span></span></li>
+                                    </ul>
+                                 </div>
+                              </section>
+                           </ul>
+                        </div>
+                     </li>
+                     <li>
+                        <fieldset>
+                           <legend><span class="wb-inv">Step 3: </span>Calculate your decrease in weekly income</legend>
+                           <button id="calculate" class="btn btn-primary btn-lg" type="button">Calculate your total wage subsidy</button>
+                        </fieldset>
+                     </li>
+                  </ol>
+               </form>
+            </div>
+            <div class="panel panel-primary hidden" id="results">
+               <header class="panel-heading">
+                  <h2 class="panel-title">Result</h2>
+               </header>
+               <div class="panel-body">
+                  <div id="crb-statement">
+                     <p>Your average weekly income changed by:</p>
+                     <ul class="fa-ul lst-spcd">
+                        <li><span class="mrgn-tp-0 h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
+                        <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> <span class="h5"><span class="weekly-period-income">$0.00</span><span class="text-muted"> (CRB period's average weekly income)</span></li>
+                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
+                     </ul>
+                     <p class="mrgn-tp-lg">As a percentage, this is a difference of:</p>
+                     <ul class="fa-ul lst-spcd">
+                        <li ><span class="mrgn-tp-0 h5"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
+                        <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></li>
+                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="perc-decrease">0%</span><span class="text-muted"> (percentage decrease in average income)</span></span></li>
+
+                        <li id="qualify" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% decrease in your average weekly income.</span>
+                        <li id="doesnt-qualify" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% decrease in your average weekly income.</span></li>
+                        </ul>
+                  </div>
+               </div>
+            </div>
+
+                     
+         <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
+            <h3 class="wb-inv">Document navigation</h3>
+            <ul class="pager">
+               <li class="next"><a href="how-much.html" rel="next">How much you can get</a></li>
+            </ul>
+         </nav>
+            <div class="hidden-md hidden-lg" data-ajax-replace="index.html #related-menu"> </div>
+         </section>
+         <div id="def-preFooter">
+         </div>
+         <!-- Write closure template -->
+         <script type="text/javascript">
+            var defPreFooter = document.getElementById("def-preFooter");
+            defPreFooter.outerHTML = wet.builder.preFooter({
+               dateModified: "2020-03-13",
+               showPostContent: true,
+               showFeedback: true,
+               showShare: true
+            });
+         </script>
+      </main>
+      <div id="def-footer">
+      </div>
+      <!-- Write closure template -->
+      <script type="text/javascript">
+         var defFooter = document.getElementById("def-footer");
+         defFooter.outerHTML = wet.builder.footer({
+            showFooter: true,
+            showFeatures: true
+         });
+      </script>
+      <!-- Write closure template -->
+      <script type="text/javascript">
+         document.write(wet.builder.refFooter({
+         }));
+      </script>
+      <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+      <script>
+         $(".action-checkbox").change(function(){
+            if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+               $("#action-msg1").removeClass("hidden").addClass("visible");
+               $("#action-no-msg").addClass("hidden").removeClass("visible");
+            }
+            if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+               $("#action-msg1").addClass("hidden").removeClass("visible");
+               $("#action-no-msg").removeClass("hidden").addClass("visible");
+            }
+         })
+      </script>
+      <script>
+         $(document).ready(function(){
+            // $('#previous-income').keydown(function(){ calculateDecrease(false); });
+            // $('#period-income').keydown(function(){ calculateDecrease(false); });
+            $('#previous-income').blur(function(){ calculateDecrease(false); });
+            $('#period-income').blur(function(){ calculateDecrease(false); });
+            $("#calculate").on("click", function(){ calculateDecrease(true); });
+            $("#calculate").on("click", function(){ calculateDecrease(true); });
+            function calculateDecrease(summaryFlag) {
+               var incPrevious = zeroIfEmpty($("#previous-income").val());
+               var incPeriod = zeroIfEmpty($("#period-income").val());
+               var incPrevWeekly = roundNumber(incPrevious / 52);
+               var incPeriodWeekly = roundNumber(incPeriod / 52);
+               if (incPrevWeekly - incPeriodWeekly > 0) {
+                  var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
+                  var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
+               } else {
+                  var dollarDecrease = 0;
+                  var percDecrease = 0;
+               }
+               if (incPrevious > 0) {
+                  $(".previous-income").text(toMoney(incPrevious));
+                  $(".weekly-previous-income").text(toMoney(incPrevWeekly));
+                  $(".dollar-decrease").text(toMoney(dollarDecrease));
+                  $(".perc-decrease").text(toPercent(percDecrease));
+               } else { //avoid NANs
+                  $(".previous-income").text(toMoney(0));
+                  $(".weekly-previous-income").text(toMoney(0));
+                  $(".dollar-decrease").text(toMoney(0));
+                  $(".perc-decrease").text(toPercent(0));
+               }
+               if (percDecrease >= 50) //has a qualifying reduction
+               {
+                  $("#qualify").removeClass("hidden");
+                  $("#doesnt-qualify").addClass("hidden");
+               }
+               else
+               {
+                  $("#qualify").addClass("hidden");
+                  $("#doesnt-qualify").removeClass("hidden");
+               }
+
+               if (incPeriod > 0) {
+                  $(".period-income").text(toMoney(incPeriod));
+                  $(".weekly-period-income").text(toMoney(incPeriodWeekly));
+               } else { //avoid NANs
+                  $(".period-income").text(toMoney(0));
+                  $(".weekly-period-income").text(toMoney(0));
+               }
+
+               if (summaryFlag) { //unhide the final calculation
+                  $("#results").removeClass("hidden");
+               }
+            }
+
+            /**
+            * Function to update the currency outputs
+            */
+            function toMoney(amount) {
+               if (document.documentElement.lang == "fr") {
+                  return '$\xa0' + amount;
+               } else{
+                  return '$' + amount;
+               }
+            }
+
+            /**
+            * Apply the transforms necessary for FR vs EN syntax of percentages
+            */
+            function toPercent(percentage) {
+               if (document.documentElement.lang == "fr") {
+                  return percentage + '\xa0%';
+               } else {
+                  return percentage + '%';
+               }
+            }
+
+            /**
+            * zeroIfEmpty()
+            * return 0 if the number cannot be parsed into a float; does not account * for letter values.
+            */
+            function zeroIfEmpty(fieldVal) {
+               if (fieldVal != null && fieldVal != "") {
+                  return roundNumber(parseFloat(fieldVal));
+               } else {
+                  return 0;
+               }
+            }
+
+            /**
+            * roundNumber()
+            * add 0.0000001 to mitigate 0.005 rounding down issues in javascript and toFixed for 2 decimal points
+            */
+            function roundNumber(num) {
+               num = num + 0.0000001;
+               return num.toFixed(2);
+            }
+         });
+      </script>
+   </body>
+</html>
