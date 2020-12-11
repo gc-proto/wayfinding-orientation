@@ -1585,12 +1585,13 @@ main form :not(.btn-call-to-action).btn {
         $(".carry-fwd").addClass('hidden');
       }
     });
-window.onload = function() {	  
+	window.onload = function() {	  
 if( /Android/i.test(navigator.userAgent)) {
   var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
   for (var i = 0; i < osDetect.length; i++) {
 osDetect[i].setAttribute("inputmode", "numeric"); 
   }
+}
 else if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 $('input[type="text"]').on('touchstart', function() {
   $(this).attr('type', 'number');
@@ -1599,7 +1600,6 @@ $('input[type="text"]').on('keydown blur', function() {
   $(this).attr('type', 'text');
 });	
 }
-}	  	
 }	
 
   </script>
