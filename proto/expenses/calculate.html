@@ -1729,15 +1729,14 @@
         $(".carry-fwd").addClass('hidden');
       }
     });
-	  
-if( /Android/i.test(navigator.userAgent) ) {
-  var x = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
-  for (var i = 0; i < x.length; i++) {
-
-  x[i].setAttribute("inputmode", "numeric"); 
+window.onload = function() {	  
+if( /Android/i.test(navigator.userAgent)) {
+  var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
+  for (var i = 0; i < osDetect.length; i++) {
+osDetect[i].setAttribute("inputmode", "numeric"); 
   }
 }
-	  
+}	  
   </script>
 </body>
 
