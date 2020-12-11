@@ -416,17 +416,34 @@
 
                                 <p><strong>Note: </strong>If you choose to use the alternative prior reference period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
                               </details>
-                              <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
+
+                              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                <legend>Which baseline revenue comparison option will you use for this claim?</legend>
+                                <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
+                                <ul class="list-unstyled lst-spcd-2">
+                                   <li class="radio">
+                                      <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false">
+                                      <label for="rev-comp-yes">Compare 2019 month with claim month </label>
+                                   </li>
+                                   <li class="radio">
+                                      <input type="radio" name="rev-comp" id="rev-comp-no" class="valid" aria-invalid="false">
+                                      <label for="rev-comp-no">Average of January and February 2020 (alternative baseline revenue) </label>
+                                   </li>
+                                </ul>
+                             </fieldset>
+
+                              <!-- <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
                                  <p>Which baseline revenue comparison option will you use for this claim?</p>
                                  <ul>
                                     <li data-wb-fieldflow='{"action": "toggle", "toggle": "#alt-bl-no", "live": true}'>
-                                       Compare 2019 month with claim month
+                                       
                                     </li>
                                     <li data-wb-fieldflow='{"action": "toggle", "toggle": "#alt-bl-yes", "live": true}'>
-                                       Average of January and February 2020 (alternative baseline revenue)
+                                      
                                     </li>
                                  </ul>
-                              </div>
+                              </div> -->
+
                               <div class="provisional alert alert-warning">
                                 <p>You must use the same option for all future CERS claims.</p>
                                 <p>If you have also claimed the CEWS, you must use the same method you used for the base CEWS for periods 5 or later.</p></div>
@@ -2306,8 +2323,19 @@
                 $('.own-location-'+locationNumber).addClass("hidden");
                 $('.rent-location-'+locationNumber).removeClass("hidden");
                 $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
-              }
+              } 
               expenseFieldHideShow(locationNumber);
+            } else if (target.name == "rev-comp") {
+              if (target.id == "rev-comp-no") {
+                $('#alt-bl-no').addClass("hidden");
+                $('#alt-bl-yes').removeClass("hidden");
+                calculateRevenueDrop(true);
+              } else {
+                $('#alt-bl-no').removeClass("hidden");
+                $('#alt-bl-yes').addClass("hidden");
+                calculateRevenueDrop(false);
+              }
+              topUpRateCalculation(locationNumber);
             }
             recalculateLocationAmounts(locationNumber);
           });
