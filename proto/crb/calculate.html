@@ -186,12 +186,12 @@
             <p>The calculator will determine your average weekly net income from the previous year and compare this to your average weekly income during the CRB period you're applying for.</p>
             <details>
                <summary>Privacy statement: this calculator does not collect or store your information</summary>
-               <p>The CRA does not collect or store any of the information you enter on this page or in the calculation spreadsheet. The amounts you etner are only used to help you determine the decrease in your average weekly income during the CRB period you're applying for compared to the previous year.</p>
+               <p>The CRA does not collect or store any of the information you enter on this page. The amounts you enter are only used to help you determine the decrease in your average weekly income during the CRB period you're applying for compared to the previous year.</p>
                <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page, you may need to enter the information again.</p>
             </details>
             <div class="wb-frmvld">
                <h2><span class="fa fa-calculator"> Use the calculator</span></h2>
-               <form method="get" class="mrgn-bttm-lg" id="cews-cal">
+               <form action="#" method="get" class="mrgn-bttm-lg" id="crb-cal">
                   <ol class="lst-stps">
                      <li id="stp1">
                         <fieldset>
@@ -214,36 +214,46 @@
                                  <li>The past 12 months</li>
                               </ul>
                            </details>
-                           <p><a href="#income-include" aria-controls="income-include" class="wb-lbx" role="button">What income should you include?&nbsp;<span class="far fa-question-circle"></span></a></p>
+                           <p><a href="#income-include-previous" aria-controls="income-include-previous" class="wb-lbx" role="button">What income should you include?&nbsp;<span class="far fa-question-circle"></span></a></p>
                            <section id="income-include" class="mfp-hide modal-dialog modal-content overlay-def">
                               <header class="modal-header">
                                  <h2 class="modal-title">What income should you include?</h2>
                               </header>
                               <div class="modal-body">
+                                 <div id="income-include-standard">
+                                    <p>For this calculation, self-employment income is your revenue minus any expenses incurred to earn the self-employment revenue.</p>
+                                    <p>Employment and/or self-employment net income includes, among other things:</p>
+                                    <ul class="fa-ul">
+                                       <li><span class="fas fa-check text-success fa-li"></span>tips you may earn while working</li>
+                                       <li><span class="fas fa-check text-success fa-li"></span>non-eligible dividends</li>
+                                       <li><span class="fas fa-check text-success fa-li"></span>honoraria (such as nominal amounts paid to emergency service volunteers)</li>
+                                       <li><span class="fas fa-check text-success fa-li"></span>royalties (such as those paid to artists)</li>
+                                    </ul>
+                                    <p>Do not include the following in the calculation:</p>
+                                    <ul class="fa-ul">
+                                       <li><span class="fas fa-times text-danger fa-li"></span>EI regular benefits</li>
+                                       <li><span class="fas fa-times text-danger fa-li"></span>disability benefits</li>
+                                       <li><span class="fas fa-times text-danger fa-li"></span>pensions</li>
+                                       <li><span class="fas fa-times text-danger fa-li"></span>student loans and bursaries</li>
+                                       <li><span class="fas fa-times text-danger fa-li"></span>any Canada COVID-19 emergency or recover benefits</li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </section>
+                           <section id="income-include-previous" class="mfp-hide modal-dialog modal-content overlay-def">
+                              <header class="modal-header">
+                                 <h2 class="modal-title">What income should you include?</h2>
+                              </header>
+                              <div class="modal-body">
                                  <p>When calculating your net income for the previous year, you may include maternity and parental benefits from EI or similar QPIP benefits.</p>
-                                 <p>For this calculation, self-employment income is your revenue minus any expenses incurred to earn the self-employment revenue.</p>
-                                 <p>Employment and/or self-employment net income includes, among other things:</p>
-                                 <ul>
-                                    <li>tips you may earn while working</li>
-                                    <li>non-eligible dividends</li>
-                                    <li>honoraria (such as nominal amounts paid to emergency service volunteers)</li>
-                                    <li>royalties (such as those paid to artists)</li>
-                                 </ul>
-                                 <p>Do not include the following in the calculation:</p>
-                                 <ul>
-                                    <li>EI regular benefits</li>
-                                    <li>disability benefits</li>
-                                    <li>pensions</li>
-                                    <li>student loans and bursaries</li>
-                                    <li>any Canada COVID-19 emergency or recover benefits</li>
-                                 </ul>
+                                 <div data-ajax-replace="#income-include-standard"></div>
                               </div>
                            </section>
                            <div class="form-group row mrgn-tp-lg">
-                              <label class="col-sm-12 control-label" for="previous-income">Enter your annual net income from the previous year<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <label class="col-sm-12 control-label required" for="previous-income">Enter your annual net income from the previous year<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
                               <div class="col-sm-4">
                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                    <input type="number" class="form-control text-right currency" name="previous-income" id="previous-income" placeholder="0.00">
+                                    <input type="number" class="form-control text-right currency" name="previous-income" id="previous-income" required="required">
                                  </div>
                               </div>
                               <div class="col-md-12 mrgn-tp-lg">
@@ -251,11 +261,10 @@
                               </div>
                            </div>
                         </fieldset>
-                        <hr class="brdr-bttm">
-                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                        <div id="step-1-smry" class="well mrgn-tp-md mrgn-bttm-lg hidden">
                            <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                            <ul class="list-unstyled lst-spcd">
-                              <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h5 weekly-previous-income">$0</span></li>
+                              <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h3 weekly-previous-income">$0</span></li>
                               <li><a href="#calculate-average-income" aria-controls="calculate-average-income" class="wb-lbx" role="button">How did we get this number?&nbsp;<span class="far fa-question-circle"></span></a></li>
                            </ul>
                            <section id="calculate-average-income" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -279,10 +288,10 @@
                            <p>Add up the employment or self-employment net income you earned during the full 2-week CRB period that you're applying for.</p>
                            <p><a href="#income-include" aria-controls="income-include" class="wb-lbx" role="button">What income should you include?&nbsp;<span class="far fa-question-circle"></span></a></p>
                            <div class="form-group row mrgn-tp-lg">
-                              <label class="col-sm-12 control-label" for="period-income">Enter your net income during the 2-week CRB period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
+                              <label class="col-sm-12 control-label required" for="period-income">Enter your net income during the 2-week CRB period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label> 
                               <div class="col-sm-4">
                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                    <input type="number" class="form-control text-right currency" name="period-income" id="period-income" placeholder="0.00">
+                                    <input type="number" class="form-control text-right currency" name="period-income" id="period-income" required="required">
                                  </div>
                               </div>
                               <div class="col-sm-8">
@@ -414,8 +423,7 @@
                               </div>
                            </div>
                         </fieldset>
-                        <hr class="brdr-bttm">
-                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                        <div id="step-2-smry" class="well mrgn-tp-md mrgn-bttm-lg hidden">
                            <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                            <ul class="list-unstyled lst-spcd">
                               <li>Your average weekly income during the CRB period was: <span class="h3 weekly-period-income">$0.00</span></li>
@@ -439,7 +447,7 @@
                      <li>
                         <fieldset>
                            <legend><span class="wb-inv">Step 3: </span>Calculate your decrease in weekly income</legend>
-                           <button id="calculate" class="btn btn-primary btn-lg" type="button">Calculate your decrease in weekly income</button>
+                           <button id="calculate" class="btn btn-primary btn-lg">Calculate your decrease in weekly income</button>
                         </fieldset>
                      </li>
                   </ol>
@@ -455,17 +463,20 @@
                      <ul class="fa-ul lst-spcd">
                         <li><span class="mrgn-tp-0 h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
                         <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> <span class="h5"><span class="weekly-period-income">$0.00</span><span class="text-muted"> (CRB period's average weekly income)</span></span></li>
-                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
+                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (change in average weekly income)</span></span></li>
                      </ul>
-                     <p class="mrgn-tp-lg">As a percentage, this is a difference of:</p>
-                     <ul class="fa-ul lst-spcd">
-                        <li ><span class="mrgn-tp-0 h5"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
-                        <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
-                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="perc-decrease">0%</span><span class="text-muted"> (percentage decrease in average income)</span></span></li>
 
-                        <!-- <li id="qualify" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% decrease in your average weekly income.</span>
-                        <li id="doesnt-qualify" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% decrease in your average weekly income.</span></li> -->
-                     </ul>
+                     <div class="hidden" id="percentage-result">
+                        <p class="mrgn-tp-lg">As a percentage, this is a difference of:</p>
+                        <ul class="fa-ul lst-spcd">
+                           <li ><span class="mrgn-tp-0 h5"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
+                           <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
+                           <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="perc-decrease">0%</span><span class="text-muted"> (percentage decrease in average income)</span></span></li>
+                     
+                           <!-- <li id="qualify" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% decrease in your average weekly income.</span>
+                           <li id="doesnt-qualify" class="mrgn-tp-lg hidden"><span class="fas fa-times fa-li text-danger"></span><span class="mrgn-tp-0 h3">The income you entered would not qualify as a 50% decrease in your average weekly income.</span></li> -->
+                        </ul>
+                     </div>
                      <div class="alert alert-success provisional hidden" id="qualify">
                         <h3>The income you entered would qualify as a 50% decrease in your average weekly income.</h3>
                      </div>
@@ -528,67 +539,95 @@
       </script>
       <script>
          $(document).ready(function(){
-            // $('#previous-income').keydown(function(){ calculateDecrease(false); });
-            // $('#period-income').keydown(function(){ calculateDecrease(false); });
+
+            /**
+            * Function to update the currency outputs
+            */
+            const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+               style: "currency",
+               currency: "CAD",
+               minimumFractionDigits: 2
+            });
+
+            $("#calculate").on("click", function(){ calculateButton(); });
+            $("#calculate").on("click", function(){ calculateButton(); });
+            function calculateButton() {
+               // event.preventDefault();
+               //remove the required attribute in all hidden elements
+               $("[required]:hidden").each(function (i, element) {
+                  $(element).removeAttr("required");
+               });
+               var count = 0,
+               $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+               $emptyElms = [];
+               //find all required fields that were left empty
+               for (let i = 0; i < $($elms).length; i++) {
+                  var $elm = $($elms).eq(i);
+                  if ($elm.val() == "") {
+                     $emptyElms.push($elm);
+                     count++;
+                  }
+               }
+               //if WET4 already has errors, scroll to those
+               if ($("#errors-default")[0]) {
+                  $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+                  //scroll to the FIRST element that failed custom validation
+               } else if ($emptyElms[0]) {
+                  $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+                  console.debug($emptyElms);
+                  //validation passed, show the results
+               } else {
+                  event.preventDefault();
+                  calculateDecrease(true); //Call the calculation function
+               }
+               
+            }
+
             $('#previous-income').blur(function(){ calculateDecrease(false); });
             $('#period-income').blur(function(){ calculateDecrease(false); });
-            $("#calculate").on("click", function(){ calculateDecrease(true); });
-            $("#calculate").on("click", function(){ calculateDecrease(true); });
             function calculateDecrease(summaryFlag) {
                var incPrevious = zeroIfEmpty($("#previous-income").val());
                var incPeriod = zeroIfEmpty($("#period-income").val());
                var incPrevWeekly = roundNumber(incPrevious / 52);
                var incPeriodWeekly = roundNumber(incPeriod / 2);
-               if (incPrevWeekly - incPeriodWeekly > 0) {
-                  var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
-                  var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
-               } else {
-                  var dollarDecrease = 0;
-                  var percDecrease = 0;
-               }
+               var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
+               var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
                if (incPrevious > 0) {
-                  $(".previous-income").text(toMoney(incPrevious));
-                  $(".weekly-previous-income").text(toMoney(incPrevWeekly));
-                  $(".dollar-decrease").text(toMoney(dollarDecrease));
+                  $(".previous-income").text(toMoney.format(incPrevious));
+                  $(".weekly-previous-income").text(toMoney.format(incPrevWeekly));
+                  $(".dollar-decrease").text(toMoney.format(dollarDecrease));
                   $(".perc-decrease").text(toPercent(percDecrease));
+                  $("#step-1-smry").removeClass("hidden");
                } else { //avoid NANs
-                  $(".previous-income").text(toMoney(0));
-                  $(".weekly-previous-income").text(toMoney(0));
-                  $(".dollar-decrease").text(toMoney(0));
+                  $(".previous-income").text(toMoney.format(0));
+                  $(".weekly-previous-income").text(toMoney.format(0));
+                  $(".dollar-decrease").text(toMoney.format(0));
                   $(".perc-decrease").text(toPercent(0));
                }
-               if (percDecrease >= 50) //has a qualifying reduction
-               {
+               if (percDecrease >= 50) { //has a qualifying reduction
                   $("#qualify").removeClass("hidden");
                   $("#doesnt-qualify").addClass("hidden");
-               }
-               else
-               {
+               } else {
                   $("#qualify").addClass("hidden");
                   $("#doesnt-qualify").removeClass("hidden");
                }
+               if (percDecrease < 0) {
+                  $("#percentage-result").addClass("hidden");
+               } else {
+                  $("#percentage-result").removeClass("hidden");
+               }
 
-               if (incPeriod > 0) {
-                  $(".period-income").text(toMoney(incPeriod));
-                  $(".weekly-period-income").text(toMoney(incPeriodWeekly));
+               if (incPeriod != 0) {
+                  $(".period-income").text(toMoney.format(incPeriod));
+                  $(".weekly-period-income").text(toMoney.format(incPeriodWeekly));
+                  $("#step-2-smry").removeClass("hidden");
                } else { //avoid NANs
-                  $(".period-income").text(toMoney(0));
-                  $(".weekly-period-income").text(toMoney(0));
+                  $(".period-income").text(toMoney.format(0));
+                  $(".weekly-period-income").text(toMoney.format(0));
                }
 
                if (summaryFlag) { //unhide the final calculation
                   $("#results").removeClass("hidden");
-               }
-            }
-
-            /**
-            * Function to update the currency outputs
-            */
-            function toMoney(amount) {
-               if (document.documentElement.lang == "fr") {
-                  return '$\xa0' + amount;
-               } else{
-                  return '$' + amount;
                }
             }
 
