@@ -252,7 +252,7 @@
                            </div>
                         </fieldset>
                         <hr class="brdr-bttm">
-                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                        <div id="step-1-smry" class="well mrgn-tp-md mrgn-bttm-lg hiiden">
                            <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                            <ul class="list-unstyled lst-spcd">
                               <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h5 weekly-previous-income">$0</span></li>
@@ -415,7 +415,7 @@
                            </div>
                         </fieldset>
                         <hr class="brdr-bttm">
-                        <div class="well mrgn-tp-md mrgn-bttm-lg">
+                        <div id="step-2-smry" class="well mrgn-tp-md mrgn-bttm-lg hiiden">
                            <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                            <ul class="list-unstyled lst-spcd">
                               <li>Your average weekly income during the CRB period was: <span class="h3 weekly-period-income">$0.00</span></li>
@@ -551,6 +551,7 @@
                   $(".weekly-previous-income").text(toMoney(incPrevWeekly));
                   $(".dollar-decrease").text(toMoney(dollarDecrease));
                   $(".perc-decrease").text(toPercent(percDecrease));
+                  $("#step-1-smry").removeClass("hidden");
                } else { //avoid NANs
                   $(".previous-income").text(toMoney(0));
                   $(".weekly-previous-income").text(toMoney(0));
@@ -571,6 +572,7 @@
                if (incPeriod > 0) {
                   $(".period-income").text(toMoney(incPeriod));
                   $(".weekly-period-income").text(toMoney(incPeriodWeekly));
+                  $("#step-2-smry").removeClass("hidden");
                } else { //avoid NANs
                   $(".period-income").text(toMoney(0));
                   $(".weekly-period-income").text(toMoney(0));
