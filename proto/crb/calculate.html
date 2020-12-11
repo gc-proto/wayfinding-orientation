@@ -9,8 +9,8 @@
       <!-- Meta data -->
       <!-- Meta data-->
       <!-- Load closure template scripts -->
-      <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
-      <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+      <script  src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+      <script  src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
       <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
       <link href="../css/cews.css" rel="stylesheet">
       <link href="../css/checkbox-radio-CRA.css" rel="stylesheet">
@@ -120,7 +120,7 @@
          }
       </style>
       <!-- Write closure template -->
-      <script type="text/javascript">
+      <script >
          document.write(wet.builder.refTop({
          }));
       </script>
@@ -129,7 +129,7 @@
       <div id="def-top">
       </div>
       <!-- Write closure template -->
-      <script type="text/javascript">
+      <script >
          var defTop = document.getElementById("def-top");
          defTop.outerHTML = wet.builder.top({
             lngLinks: [{
@@ -266,7 +266,7 @@
                                  <p>You entered your annual income. For the calculation, we need to use your average weekly income.</p>
                                  <ul class="fa-ul lst-spcd">
                                     <li><span class="mrgn-tp-0 h5"><span class="previous-income">$0</span><span class="text-muted"> (income during the previous year)</span></span></li>
-                                    <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">52<span class="text-muted"> (weeks in a year)</span></li>
+                                    <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">52<span class="text-muted"> (weeks in a year)</span></span></li>
                                     <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span class="weekly-previous-income">$0</span><span class="text-muted"> (average weekly income)</span></span></li>
                                  </ul>
                               </div>
@@ -286,7 +286,7 @@
                                  </div>
                               </div>
                               <div class="col-sm-8">
-                                 <p class="small"><a href="#claim-periods" aria-controls="lwp" class="wb-lbx" role="button">See CRB period dates&nbsp;<span class="far fa-question-circle"></span></a></p>
+                                 <p class="small"><a href="#claim-periods" aria-controls="claim-periods" class="wb-lbx" role="button">See CRB period dates&nbsp;<span class="far fa-question-circle"></span></a></p>
                                  <section id="claim-periods" class="mfp-hide modal-dialog modal-content overlay-def">
                                     <header class="modal-header">
                                        <h2 class="modal-title">Canada Recovery Benefit (CRB) claim periods</h2>
@@ -420,20 +420,20 @@
                            <ul class="list-unstyled lst-spcd">
                               <li>Your average weekly income during the CRB period was: <span class="h3 weekly-period-income">$0.00</span></li>
                               <li><a href="#calculate-average-income-period" aria-controls="calculate-average-income-period" class="wb-lbx" role="button">How did we get this number?&nbsp;<span class="far fa-question-circle"></span></a></li>
-                              <section id="calculate-average-income-period" class="mfp-hide modal-dialog modal-content overlay-def">
-                                 <header class="modal-header">
-                                    <h2 class="modal-title">How did we get this number?</h2>
-                                 </header>
-                                 <div class="modal-body">
-                                    <p>You entered your income during the 2-week CRB period. For the calculation, we need to use your average weekly income.</p>
-                                    <ul class="fa-ul lst-spcd">
-                                       <li><span class="mrgn-tp-0 h5"><span class="period-income">0</span><span class="text-muted"> (income during the CRB period)</span></span></li>
-                                       <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">2<span class="text-muted"> (weeks in the CRB period)</span></li>
-                                       <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span class="weekly-period-income">0</span><span class="text-muted"> (average weekly income)</span></span></li>
-                                    </ul>
-                                 </div>
-                              </section>
                            </ul>
+                           <section id="calculate-average-income-period" class="mfp-hide modal-dialog modal-content overlay-def">
+                              <header class="modal-header">
+                                 <h2 class="modal-title">How did we get this number?</h2>
+                              </header>
+                              <div class="modal-body">
+                                 <p>You entered your income during the 2-week CRB period. For the calculation, we need to use your average weekly income.</p>
+                                 <ul class="fa-ul lst-spcd">
+                                    <li><span class="mrgn-tp-0 h5"><span class="period-income">0</span><span class="text-muted"> (income during the CRB period)</span></span></li>
+                                    <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5">2<span class="text-muted"> (weeks in the CRB period)</span></span></li>
+                                    <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h5"><span class="weekly-period-income">0</span><span class="text-muted"> (average weekly income)</span></span></li>
+                                 </ul>
+                              </div>
+                           </section>
                         </div>
                      </li>
                      <li>
@@ -460,7 +460,7 @@
                      <p class="mrgn-tp-lg">As a percentage, this is a difference of:</p>
                      <ul class="fa-ul lst-spcd">
                         <li ><span class="mrgn-tp-0 h5"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
-                        <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></li>
+                        <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">divided by</span></span> <span class="h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
                         <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="perc-decrease">0%</span><span class="text-muted"> (percentage decrease in average income)</span></span></li>
 
                         <li id="qualify" class="mrgn-tp-lg hidden"><span class="fas fa-check fa-li text-success"></span><span class="mrgn-tp-0 h3">The income you entered would qualify as a 50% decrease in your average weekly income.</span>
@@ -482,7 +482,7 @@
          <div id="def-preFooter">
          </div>
          <!-- Write closure template -->
-         <script type="text/javascript">
+         <script >
             var defPreFooter = document.getElementById("def-preFooter");
             defPreFooter.outerHTML = wet.builder.preFooter({
                dateModified: "2020-03-13",
@@ -495,7 +495,7 @@
       <div id="def-footer">
       </div>
       <!-- Write closure template -->
-      <script type="text/javascript">
+      <script >
          var defFooter = document.getElementById("def-footer");
          defFooter.outerHTML = wet.builder.footer({
             showFooter: true,
@@ -503,7 +503,7 @@
          });
       </script>
       <!-- Write closure template -->
-      <script type="text/javascript">
+      <script >
          document.write(wet.builder.refFooter({
          }));
       </script>
