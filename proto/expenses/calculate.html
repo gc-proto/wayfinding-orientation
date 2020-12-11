@@ -834,7 +834,7 @@
             </div>
           </fieldset>
           <ul class="list-inline mrgn-bttm-lg mrgn-tp-lg">
-            <button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="exp-cal" type="submit">Calculate
+            <li><button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="exp-cal" type="submit">Calculate
               your
               expenses</button>
           </li>
@@ -1015,7 +1015,7 @@
                 <p>The income you reported is less than the expenses claimed for employment-use. You can carry forward
                   <strong class="carry-forward-output">[$0.00]</strong> to be claimed in future years.</p>
                 <p>This amount will go on <strong>line 16</strong> of the T777S form.</p>
-                <p class="commission-income hidden"><strong>Note:</strong> If you did not earn enough commission income to cover your expenses, you may claim <a href="#salaried-lbx" class="wb-lbx">expenses as a salaried employee</a> instead.</p>
+                <p class="commission-income hidden"><strong>Note:</strong> If you did not earn enough commission income to cover your expenses, you may claim expenses as a salaried employee instead.</p>
               </div>
             </div>
             <div class="hidden-print ws-t777reg">
@@ -1103,17 +1103,6 @@
         <div class="modal-body">
           <ul class="fa-ul">
             <li data-ajax-replace="what-claim.html #expns-ws-onl-y>"></li>
-            <li data-ajax-replace="what-claim.html #expns-hm-ws-n>"></li>
-          </ul>
-        </div>
-      </section>
-      <section id="home-maintenance-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
-        <header class="modal-header">
-          <h2 class="modal-title">Reasonable maintenance expenses for a home and work area</h2>
-        </header>
-        <div class="modal-body">
-          <ul class="fa-ul" data-ajax-replace="what-claim.html #expns-hm-ws-y #expns-hm-ws-n">
-            <li data-ajax-replace="what-claim.html #expns-hm-ws-y>"></li>
             <li data-ajax-replace="what-claim.html #expns-hm-ws-n>"></li>
           </ul>
         </div>
@@ -1740,6 +1729,15 @@
         $(".carry-fwd").addClass('hidden');
       }
     });
+	  
+if( /Android/i.test(navigator.userAgent) ) {
+  var x = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
+  for (var i = 0; i < x.length; i++) {
+
+  x[i].setAttribute("inputmode", "numeric"); 
+  }
+}
+	  
   </script>
 </body>
 
