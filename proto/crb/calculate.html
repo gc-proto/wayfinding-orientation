@@ -254,7 +254,7 @@
                         <div id="step-1-smry" class="well mrgn-tp-md mrgn-bttm-lg hidden">
                            <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                            <ul class="list-unstyled lst-spcd">
-                              <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h5 weekly-previous-income">$0</span></li>
+                              <li>Your average weekly income from the previous year was: <span class="mrgn-tp-0 h3 weekly-previous-income">$0</span></li>
                               <li><a href="#calculate-average-income" aria-controls="calculate-average-income" class="wb-lbx" role="button">How did we get this number?&nbsp;<span class="far fa-question-circle"></span></a></li>
                            </ul>
                            <section id="calculate-average-income" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -453,7 +453,7 @@
                      <ul class="fa-ul lst-spcd">
                         <li><span class="mrgn-tp-0 h5"><span class="weekly-previous-income">$0.00</span><span class="text-muted"> (previous year's average weekly income)</span></span></li>
                         <li class="brdr-bttm"><span class="fas fa-minus fa-li"><span class="wb-inv">minus</span></span> <span class="h5"><span class="weekly-period-income">$0.00</span><span class="text-muted"> (CRB period's average weekly income)</span></span></li>
-                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (decrease in average weekly income)</span></span></li>
+                        <li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 h4"><span class="dollar-decrease">$0.00</span><span class="text-muted"> (change in average weekly income)</span></span></li>
                      </ul>
 
                      <div class="hidden" id="percentage-result">
@@ -538,13 +538,6 @@
                currency: "CAD",
                minimumFractionDigits: 2
             });
-
-               // if (document.documentElement.lang == "fr") {
-               //    return '$\xa0' + amount;
-               // } else{
-               //    return '$' + amount;
-               // }
-            // }
 
             $("#calculate").on("click", function(){ calculateButton(); });
             $("#calculate").on("click", function(){ calculateButton(); });
