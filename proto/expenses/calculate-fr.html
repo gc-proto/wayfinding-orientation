@@ -1603,10 +1603,10 @@ if( /Android/i.test(navigator.userAgent)) {
 osDetect[i].setAttribute("inputmode", "numeric"); 
   }
 if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-$('#wsih-calculator-form input[type="text"]').on('touchstart', function() {
+$('input[type="text"]').on('touchstart', function() {
   $(this).attr('type', 'number');
 });
-$('#wsih-calculator-form input[type="text"]').on('keydown blur', function() {
+$('input[type="text"]').on('keydown blur', function() {
   $(this).attr('type', 'text');
 });	
 }
