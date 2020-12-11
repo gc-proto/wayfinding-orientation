@@ -1596,6 +1596,14 @@ main form :not(.btn-call-to-action).btn {
         $(".carry-fwd").addClass('hidden');
       }
     });
+	window.onload = function() {	  
+if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text]");
+  for (var i = 0; i < osDetect.length; i++) {
+osDetect[i].type = 'number'; 
+  }
+}
+}	  
   </script>
 </body>
 </html>
