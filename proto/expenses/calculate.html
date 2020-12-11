@@ -1735,16 +1735,16 @@ if( /Android/i.test(navigator.userAgent)) {
   for (var i = 0; i < osDetect.length; i++) {
 osDetect[i].setAttribute("inputmode", "numeric"); 
   }
-if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-$('#wsih-calculator-form input[type="text"]').on('touchstart', function() {
+}
+else if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+$('input[type="text"]').on('touchstart', function() {
   $(this).attr('type', 'number');
 });
-$('#wsih-calculator-form input[type="text"]').on('keydown blur', function() {
+$('input[type="text"]').on('keydown blur', function() {
   $(this).attr('type', 'text');
 });	
 }
-}	 	  
-}	  
+}	
   
   </script>
 </body>
