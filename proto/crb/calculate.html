@@ -251,7 +251,6 @@
                               </div>
                            </div>
                         </fieldset>
-                        <hr class="brdr-bttm">
                         <div id="step-1-smry" class="well mrgn-tp-md mrgn-bttm-lg hidden">
                            <h3 class="mrgn-tp-0">Summary of Step 1</h3>
                            <ul class="list-unstyled lst-spcd">
@@ -414,7 +413,6 @@
                               </div>
                            </div>
                         </fieldset>
-                        <hr class="brdr-bttm">
                         <div id="step-2-smry" class="well mrgn-tp-md mrgn-bttm-lg hidden">
                            <h3 class="mrgn-tp-0">Summary of Step 2</h3>
                            <ul class="list-unstyled lst-spcd">
@@ -531,17 +529,25 @@
       </script>
       <script>
          $(document).ready(function(){
-            // $('#previous-income').keydown(function(){ calculateDecrease(false); });
-            // $('#period-income').keydown(function(){ calculateDecrease(false); });
-            $('#previous-income').blur(function(){ calculateDecrease(false); });
-            $('#period-income').blur(function(){ calculateDecrease(false); });
+
+            /**
+            * Function to update the currency outputs
+            */
+            const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+               style: "currency",
+               currency: "CAD",
+               minimumFractionDigits: 2
+            });
+
+               // if (document.documentElement.lang == "fr") {
+               //    return '$\xa0' + amount;
+               // } else{
+               //    return '$' + amount;
+               // }
+            // }
+
             $("#calculate").on("click", function(){ calculateButton(); });
             $("#calculate").on("click", function(){ calculateButton(); });
-
-
-
-            //hide percentage when negative
-
             function calculateButton() {
                // event.preventDefault();
                //remove the required attribute in all hidden elements
@@ -574,8 +580,8 @@
                
             }
 
-
-
+            $('#previous-income').blur(function(){ calculateDecrease(false); });
+            $('#period-income').blur(function(){ calculateDecrease(false); });
             function calculateDecrease(summaryFlag) {
                var incPrevious = zeroIfEmpty($("#previous-income").val());
                var incPeriod = zeroIfEmpty($("#period-income").val());
@@ -584,15 +590,15 @@
                var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
                var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
                if (incPrevious > 0) {
-                  $(".previous-income").text(toMoney(incPrevious));
-                  $(".weekly-previous-income").text(toMoney(incPrevWeekly));
-                  $(".dollar-decrease").text(toMoney(dollarDecrease));
+                  $(".previous-income").text(toMoney.format(incPrevious));
+                  $(".weekly-previous-income").text(toMoney.format(incPrevWeekly));
+                  $(".dollar-decrease").text(toMoney.format(dollarDecrease));
                   $(".perc-decrease").text(toPercent(percDecrease));
                   $("#step-1-smry").removeClass("hidden");
                } else { //avoid NANs
-                  $(".previous-income").text(toMoney(0));
-                  $(".weekly-previous-income").text(toMoney(0));
-                  $(".dollar-decrease").text(toMoney(0));
+                  $(".previous-income").text(toMoney.format(0));
+                  $(".weekly-previous-income").text(toMoney.format(0));
+                  $(".dollar-decrease").text(toMoney.format(0));
                   $(".perc-decrease").text(toPercent(0));
                }
                if (percDecrease >= 50) { //has a qualifying reduction
@@ -609,27 +615,16 @@
                }
 
                if (incPeriod != 0) {
-                  $(".period-income").text(toMoney(incPeriod));
-                  $(".weekly-period-income").text(toMoney(incPeriodWeekly));
+                  $(".period-income").text(toMoney.format(incPeriod));
+                  $(".weekly-period-income").text(toMoney.format(incPeriodWeekly));
                   $("#step-2-smry").removeClass("hidden");
                } else { //avoid NANs
-                  $(".period-income").text(toMoney(0));
-                  $(".weekly-period-income").text(toMoney(0));
+                  $(".period-income").text(toMoney.format(0));
+                  $(".weekly-period-income").text(toMoney.format(0));
                }
 
                if (summaryFlag) { //unhide the final calculation
                   $("#results").removeClass("hidden");
-               }
-            }
-
-            /**
-            * Function to update the currency outputs
-            */
-            function toMoney(amount) {
-               if (document.documentElement.lang == "fr") {
-                  return '$\xa0' + amount;
-               } else{
-                  return '$' + amount;
                }
             }
 
