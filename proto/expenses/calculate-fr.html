@@ -1596,7 +1596,17 @@ main form :not(.btn-call-to-action).btn {
         $(".carry-fwd").addClass('hidden');
       }
     });
+window.onload = function() {	  
+if( /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
 
+$('input[type="text"]').on('touchstart', function() {
+  $(this).attr('type', 'number');
+});
+
+$('input[type="text"]').on('keydown blur', function() {
+  $(this).attr('type', 'text');
+});
+}}
   </script>
 </body>
 </html>
