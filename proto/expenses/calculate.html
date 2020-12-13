@@ -298,7 +298,7 @@
               <li
                 data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Home office expenses you paid while working at home due to the COVID-19 pandemic, and you have supporting documents</li>
               <li
-                data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Home office expenses and other employment expenses (such as motor vehicle expenses), and you have supporting documents</li>
+                data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Home office expenses, and may have other employment expenses to claim (such as motor vehicle expenses), and you have supporting documents</li>
             </ul>
           </div>
         </form>
@@ -620,8 +620,8 @@
             </div>
           </fieldset>
           <fieldset>
-            <legend class="mrgn-bttm-0">Home including work space expenses</legend>
-            <p>Enter the total amount you paid for an expense during the period you worked from home. Enter $0 if you
+            <legend class="mrgn-bttm-0">Work-space-in-the-home expenses</legend>
+            <p>Enter the total amount you paid for an expense for the period(s) you worked from home. Enter $0 if you
               are not claiming the expense.</p>
             <div class="form-group home-rent hidden">
               <label for="home-rent-input" class="required"><span class="field-name">Total rent you paid from <span
@@ -652,23 +652,7 @@
                   required="required">
               </div>
             </div>
-            <div class="form-group">
-              <label for="home-maintenance-input" class="required"><span class="field-name">Total home including work space maintenance costs from <span class="startDate1 nowrap">[Start]</span> to <span
-                    class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span
-                      class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span
-                    class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span
-                      class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span
-                      class="startDate4 nowrap">[Start]</span> to <span
-                      class="endDate4 nowrap">[End]</span></span></span> <span class="wb-inv"> in dollars and
-                  cents</span></span> <strong class="required small">(required)</strong></label>
-              <p id="home-maintenance-def"><a href="#home-maintenance-lbx" class="wb-lbx">What is considered reasonable
-                  maintenance expenses for the home and <span class="nowrap">work space&nbsp;<span
-                      class="far fa-question-circle"></span></span></a></p>
-              <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
-                <input class="form-control input-lg currency" id="home-maintenance-input" name="home-maintenance-input"
-                  type="text" required="required">
-              </div>
-            </div>
+           
             <div class="home-own">
               <div class="form-group commission-income hidden">
                 <label for="insurance-commission-input" class="required"><span class="field-name">Total home insurance
@@ -721,12 +705,35 @@
               </div>
             </div>
           </fieldset>
-          <fieldset>
-            <legend class="mrgn-bttm-0">Work space and work-related expenses</legend>
-            <p>Enter the amount paid to an expense for the period you worked from home. Enter $0 if you are not claiming
-              the expense.</p>
-            <div class="form-group designated-room">
-              <label for="designated-room-maintenance-input" class="required"><span class="field-name">Designated work space (room) only maintenance costs from <span class="startDate1 nowrap">[Start]</span> to <span
+	  <fieldset>
+		  <legend class="mrgn-bttm-0">Maintenance costs</legend>
+		  <p>Enter the total amounts you paid for maintenance costs for the period(s) you worked from home, for the:</p>
+		  <ul><li>entire home that includes the work space, and</li>
+			  <li class="designated-room hidden">designated work space (room) only</li>
+			    <li class="shared-room hidden">common (shared) space only</li> 
+		  </ul>
+		  <p>Enter $0 if you are not claiming the expense.</p>
+		  
+		   <div class="form-group">
+              <label for="home-maintenance-input" class="required"><span class="field-name">Total maintenance costs for the entire home that includes the work space from <span class="startDate1 nowrap">[Start]</span> to <span
+                    class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span
+                      class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span
+                    class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span
+                      class="endDate3 nowrap">[End]</span></span><span class="date-span-4 hidden">, and from <span
+                      class="startDate4 nowrap">[Start]</span> to <span
+                      class="endDate4 nowrap">[End]</span></span></span> <span class="wb-inv"> in dollars and
+                  cents</span></span> <strong class="required small">(required)</strong></label>
+              <p id="home-maintenance-def"><a href="#home-maintenance-lbx" class="wb-lbx">What is considered reasonable
+                  maintenance expenses for the home and <span class="nowrap">work space&nbsp;<span
+                      class="far fa-question-circle"></span></span></a></p>
+              <div class="input-group col-sm-5 col-md-4"> <span class="input-group-addon">$</span>
+                <input class="form-control input-lg currency" id="home-maintenance-input" name="home-maintenance-input"
+                  type="text" required="required">
+              </div>
+            </div>
+		  
+		   <div class="form-group designated-room">
+              <label for="designated-room-maintenance-input" class="required"><span class="field-name">Total maintenance costs for only the designated work space (room) from <span class="startDate1 nowrap">[Start]</span> to <span
                     class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span
                       class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span
                     class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span
@@ -743,7 +750,7 @@
               </div>
             </div>
             <div class="form-group shared-room hidden">
-              <label for="shared-room-maintenance-input" class="required"><span class="field-name">Common (shared) space only maintenance costs from <span class="startDate1 nowrap">[Start]</span> to <span
+              <label for="shared-room-maintenance-input" class="required"><span class="field-name">Total maintenance costs for only the common (shared) space from <span class="startDate1 nowrap">[Start]</span> to <span
                     class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span
                       class="startDate2 nowrap">[Start]</span> to <span class="endDate2 nowrap">[End]</span></span><span
                     class="date-span-3 hidden">, and from <span class="startDate3 nowrap">[Start]</span> to <span
@@ -759,7 +766,15 @@
                   name="shared-room-maintenance-input" type="text" required="required">
               </div>
             </div>
-            <div class="form-group ws-t777short hidden">
+		  </fielset>
+
+	  
+          <fieldset class="ws-t777short hidden">
+            <legend class="mrgn-bttm-0">Office supplies and other employment-related expenses</legend>
+            <p>Enter the amount paid to an expense for the period(s) you worked from home. Enter $0 if you are not claiming
+              the expense.</p>
+           
+            <div class="form-group">
               <label for="supplies-input" class="required"><span class="field-name">Supplies purchased from <span
                     class="startDate1 nowrap">[Start]</span> to <span class="endDate1 nowrap">[End]</span><span
                     class="date-span-2 hidden">, and from <span class="startDate2 nowrap">[Start]</span> to <span
@@ -777,7 +792,7 @@
                   required="required">
               </div>
             </div>
-            <div class="form-group ws-t777short hidden">
+            <div class="form-group">
               <label for="ws-expenses-input" class="required"><span class="field-name">Other expenses that support
                   working from home from <span class="startDate1 nowrap">[Start]</span> to <span
                     class="endDate1 nowrap">[End]</span><span class="date-span-2 hidden">, and from <span
