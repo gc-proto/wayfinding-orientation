@@ -308,11 +308,11 @@ main form :not(.btn-call-to-action).btn {
       </div>
       <ul>
         <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Locataire, sans déménagement pendant le travail à domicile durant l'année</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent", "class": "hidden", "live": true}, {"action": "addClass", "source": ".home-own, #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-ws-type", "renderas": "radio"}]'>Locataire, sans déménagement pendant la période de travail à domicile durant l'année</li>
         <li
-            data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Propriétaire, sans déménagement pendant le travail à domicile durant l'année</li>
+            data-wb-fieldflow='[{"action": "addClass", "source": ".home-rent, #wsih-calculator", "class": "hidden", "live": true}, {"action": "removeClass", "source": ".home-own", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-commission", "renderas": "radio"}]'>Propriétaire, sans déménagement pendant la période de travail à domicile durant l'année</li>
         <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Déménagement ou changement d'espace de travail tout en travaillant à domicile pendant l'année</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".home-rent, .home-own", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership-alt", "renderas": "radio"}]'>Déménagement ou changement d'espace la période de travail tout en travaillant à domicile pendant l'année</li>
       </ul>
     </div>
     <div id="ff-home-ownership-alt" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
@@ -390,8 +390,8 @@ main form :not(.btn-call-to-action).btn {
             </div>
           </div>
           <div class="form-group mrgn-tp-md">
-            <label for="total-home-area-input" class="required"><span class="field-name">Superficie totale finie de votre domicile</span><span class="wb-inv"> en <span class="ws-metre-sq hidden">mètres</span><span class="ws-feet-sq hidden">pieds</span> carrés</span> <strong class="required small">(obligatoire)</strong></label>
-            <p id="total-home-area-def"><a href="#total-home-area-lbx" class="wb-lbx">Ce qui est inclus dans la superficie totale <span class="nowrap">finie&nbsp;<span class="far fa-question-circle"></span></span></a></p>
+            <label for="total-home-area-input" class="required"><span class="field-name">Superficie totale aménagée de votre domicile</span><span class="wb-inv"> en <span class="ws-metre-sq hidden">mètres</span><span class="ws-feet-sq hidden">pieds</span> carrés</span> <strong class="required small">(obligatoire)</strong></label>
+            <p id="total-home-area-def"><a href="#total-home-area-lbx" class="wb-lbx">Ce qui est inclus dans la superficie totale <span class="nowrap">aménagée&nbsp;<span class="far fa-question-circle"></span></span></a></p>
             <div class="input-group col-sm-5 col-md-4">
               <input class="form-control input-lg" id="total-home-area-input" name="total-home-area-input" type="text"
                   aria-describedby="total-home-area-def" required="required">
@@ -411,7 +411,7 @@ main form :not(.btn-call-to-action).btn {
             <h2 class="mrgn-tp-0">Sommaire de l'espace calculé</h2>
             <ul class="fa-ul list-unstyled lst-spcd">
               <li><span class="h4"><span class="room-area-output">0</span> <span class="ws-metre-sq hidden">mètres carrés</span><span class="ws-feet-sq hidden">pieds carrés</span></span> de l'espace de travail <span class="shared-room hidden">commun</span><span class="designated-room hidden">désigné</span></li>
-              <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">Divisé par </span></span> <span class="h4"><span class="total-home-area-output">0</span> <span class="ws-metre-sq hidden">mètres carrés</span><span class="ws-feet-sq hidden">pieds carrés</span></span> de la superficie totale finie</li>
+              <li class="brdr-bttm"><span class="fas fa-divide fa-li"><span class="wb-inv">Divisé par </span></span> <span class="h4"><span class="total-home-area-output">0</span> <span class="ws-metre-sq hidden">mètres carrés</span><span class="ws-feet-sq hidden">pieds carrés</span></span> de la superficie totale aménagée</li>
               <li><span class="fas fa-equals fa-li"><span class="wb-inv">égale </span></span> <span class="h4"><span class="ws-area-employment-percent-output">0</span>&nbsp;%</span> de votre domicile utilisé comme espace de travail<span class="designated-room hidden"> aux fins d'emploi et l'emploi</span> </li>
               <li class="shared-room hidden brdr-bttm"><span class="fas fa-times fa-li"><span
                       class="wb-inv">multiplié par </span></span> <span class="h4"><span
@@ -770,7 +770,7 @@ main form :not(.btn-call-to-action).btn {
           </ul>
         </div>
         <details class="mrgn-tp-md mrgn-bttm-md">
-          <summary>Vérifiez les montants que vous avez fourn</summary>
+          <summary>Vérifiez les montants que vous avez fournis</summary>
           <div id="wsih-form-tables">
             <div class="table-responsive">
               <table class="table table-bordered">
@@ -870,7 +870,7 @@ main form :not(.btn-call-to-action).btn {
                     <td class="text-right nowrap"><span class="shared-room-hrs-output">[0]</span></td>
                   </tr>
                   <tr>
-                    <th scope="row">Superficie totale finie de votre domicile</th>
+                    <th scope="row">Superficie totale aménagée de votre domicile</th>
                     <td class="text-right nowrap"><span class="total-home-area-summary">[0]</span><span class="hidden ws-metre-sq"><abbr class="brdr-0" title="mètres carrés">m²</abbr></span><span class="hidden ws-feet-sq"><abbr class="brdr-0" title="pieds carrés ">pi²</abbr></span></td>
                   </tr>
                 </tbody>
@@ -937,7 +937,7 @@ main form :not(.btn-call-to-action).btn {
     </section>
     <section id="total-home-area-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
-        <h2 class="modal-title">Superficie totale finie du domicile</h2>
+        <h2 class="modal-title">Superficie totale aménagée du domicile</h2>
       </header>
       <div class="modal-body" data-ajax-replace="how-much-fr.html #sz-hm>"> </div>
     </section>
