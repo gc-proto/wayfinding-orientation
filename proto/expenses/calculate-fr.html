@@ -1710,12 +1710,12 @@
         //common/shared room
         rate = toFloat($("#shared-room-employment-percent-output-id").text());
         //total claim calculations
-        totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text().replace("%", "")) / 100);
+        totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text()) / 100);
         //employment use percentage
         $(".employment-use-ws-rate").text(
           toFormattedNumber.format(
             toFloat(
-              $("#shared-room-hrs-percent-output-id").text().replace("%", "")
+              $("#shared-room-hrs-percent-output-id").text()
             )
           )
         );
