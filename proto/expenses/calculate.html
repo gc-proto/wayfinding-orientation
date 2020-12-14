@@ -1793,11 +1793,6 @@
         toMoney.format(carryFwd)
       );
       $(".ws-t777short-total-amount").text(totalClaim);
-      if (totalClaim < 400) {
-        $("#flat-rate-info").removeClass("hidden");
-      } else {
-        $('#flat-rate-info').addClass("hidden");
-      }
       if (carryFwd > 0 || netIncome < totalExpenses) {
         $(".carry-fwd").removeClass('hidden');
       } else {
