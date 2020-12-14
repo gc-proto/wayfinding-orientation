@@ -1506,7 +1506,7 @@
     //when the total area input is updated
     $(document).on("change keyup", "#total-home-area-input", function (event) {
       //update the total finished area summary 
-      var totalArea = parseFloat(event.target.value);
+      var totalArea = spaceToFloat(event.target.value);
       if (!isNaN(totalArea)) {
         $(".total-home-area-output").text(toFormattedNumber.format(totalArea));
       } else {
@@ -1549,7 +1549,7 @@
       }
       $("#total-home-area-input").trigger("change");
       var claimRate = calculateCommonRoomClaimRate(
-        calculateSpaceUsed(workArea, $("#total-home-area-input").val()),
+        calculateSpaceUsed(workArea, toFloat($("#total-home-area-input").val())),
         getCommonWorkSpaceHours().percentage
       ).toFixed(1);
       $(".shared-room-personal-percent-output").text(
@@ -1640,7 +1640,7 @@
       }
       var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
       var claimRate = calculateCommonRoomClaimRate(
-        calculateSpaceUsed(workArea, $("#total-home-area-input").val()),
+        calculateSpaceUsed(workArea, toFloat($("#total-home-area-input").val())),
         hours.percentage
       ).toFixed(2);
       $(".shared-room-personal-percent-output").text(toFormattedNumber.format((100 - claimRate).toFixed(2)));
@@ -1673,8 +1673,8 @@
       validateDates();
       //get inputs. defaulting to zero
       var workArea = getCommonWorkSpace() + getDesignatedWorkSpace();
-      var totalArea = $("#total-home-area-input").val();
-      var workHours = $("#shared-room-hrs-input").val();
+      var totalArea = spaceToFloat($("#total-home-area-input").val());
+      var workHours = getCommonWorkSpaceHours();
       var income = toFloat($("#income-input").val()) || 0;
       var unionDues = toFloat($("#dues-input").val()) || 0;
       var pension = toFloat($("#pension-input").val()) || 0;
@@ -1714,9 +1714,8 @@
         //employment use percentage
         $(".employment-use-ws-rate").text(
           toFormattedNumber.format(
-            toFloat(
-              $("#shared-room-hrs-percent-output-id").text()
-            )
+            toFloat($("#shared-room-hrs-percent-output-id").text())
+              .toFixed(2)
           )
         );
         //employment use amount
@@ -1779,7 +1778,7 @@
       );
       $(".room-area-output").text(toFormattedNumber.format(workArea));
       $(".total-home-area-summary").text(toFormattedNumber.format(totalArea));
-      $(".shared-room-hrs-output").text(toFormattedNumber.format(workHours));
+      $(".shared-room-hrs-output").text(toFormattedNumber.format(workHours.rawHours));
       $(".ws-total-claim-output").text(
         toMoney.format(
           (supplies + otherWorkExpenses) +
