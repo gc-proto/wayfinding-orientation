@@ -186,6 +186,67 @@
 				<p>All of the vaccine candidates for which Canada has agreements are two-dose vaccines, with the
 					exception of the Johnson &amp; Johnson candidate, which is a one-dose vaccine.</p>
 			</div>
+			<section class="well well-sm brdr-0 mrgn-bttm-0">
+				<div class="container row-no-gutters">
+					<div class="col-md-3">
+						<h2 class="mrgn-tp-sm h3">Find out about vaccinations in your province or territory: </h2>
+					</div>
+
+
+
+					<div class="col-md-9">
+
+
+
+						<div class="mrgn-bttm-md mrgn-lft-lg input-group">
+							<label for="list3">Your province or territory</label>
+							<form>
+								<select style="width: 85%" class="form-control"
+									name="Provincial and territorial vaccine paged" id="list">
+
+									<!--<option selected="selected" value="none">Select an audience</option> LF: better to see top option-->
+									<option selected="selected"
+										value="https://www.albertahealthservices.ca/topics/Page17295.aspx">
+										Alberta</option>
+									<option
+										value="https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/covid-19-provincial-support/vaccines">
+										British Colombia</option>
+									<option value="https://www.gov.mb.ca/covid19/vaccine/index.html">
+										Manitoba</option>
+									<option
+										value="https://www2.gnb.ca/content/gnb/en/corporate/promo/covid-19/vaccine.html">
+										New Brunswick</option>
+									<option value="https://www.gov.nl.ca/covid-19/">
+										Newfoundland and Labrador MAIN</option>
+									<option value="https://www.gov.nt.ca/covid-19/">
+										Northwest Territories MAIN</option>
+									<option value="https://novascotia.ca/coronavirus/">Nova
+										Scotia MAIN</option>
+									<option value="https://www.gov.nu.ca/health/information/covid-19-novel-coronavirus">
+										Nunavut MAIN</option>
+									<option value="https://covid-19.ontario.ca/covid-19-vaccines-ontario">
+										Ontario</option>
+									<option value="https://www.princeedwardisland.ca/en/topic/covid-19-vaccines">
+										Prince Edward Island</option>
+									<option
+										value="https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progress-of-the-covid-19-vaccination/">
+										Quebec</option>
+									<option
+										value="https://www.saskatchewan.ca/government/health-care-administration-and-provider-resources/treatment-procedures-and-guidelines/emerging-public-health-issues/2019-novel-coronavirus/covid-19-vaccine">
+										Saskatchewan</option>
+									<option
+										value="https://yukon.ca/en/health-and-wellness/covid-19-information/your-health-covid-19/covid-19-vaccine-strategy">
+										Yukon Territory</option>
+								</select>
+								<input style="width: 15%" type=button value="Go" onclick="goToNewPage()" />
+							</form>
+						</div>
+
+
+					</div>
+				</div>
+
+			</section>
 		</div>
 		<div class="col-md-12">
 			<div class="row">
@@ -280,7 +341,7 @@
 				</ul>
 			</div>
 		</div>
-	
+
 		<div class="clearfix"></div>
 
 
@@ -309,10 +370,18 @@
 			showFeatures: true
 		});
 	</script>
-	<!-- Write closure template -->
-	<script type="text/javascript">
-		document.write(wet.builder.refFooter({
-		}));
+		<!-- Go to province page -->
+	<script>
+		function goToNewPage() {
+			var url = document.getElementById('list').value;
+			if (url != 'none') {
+				window.location = url;
+			}
+		}
+	< !--Write closure template-- >
+			<script type="text/javascript">
+				document.write(wet.builder.refFooter({
+				}));
 	</script>
 	<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
 	<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
