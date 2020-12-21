@@ -1587,6 +1587,21 @@ main form :not(.btn-call-to-action).btn {
         $(".carry-fwd").addClass('hidden');
       }
     });
+
+    //flat rate calculations
+    $(document).on("click", "#fr-cal", function (event) {
+      event.preventDefault();
+      var numDays = parseFloat($("#days-worked-home-input").val()) || 0;
+      if (numDays > 200) {
+        $(".days-worked-home-output").text(0);
+        $(".flat-rate-total-amount").text(toMoney.format(0));
+        return;
+      }
+      var flatRateTotal = numDays * 2;
+      $(".days-worked-home-output").text(numDays);
+      $(".flat-rate-total-amount").text(toMoney.format(flatRateTotal));
+    });
+
     window.onload = function () {
       if (/Android/i.test(navigator.userAgent)) {
         var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
