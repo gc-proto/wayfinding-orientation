@@ -290,11 +290,10 @@
        <p>Answer a few questions to begin calculating your home office expenses.</p>
       <div class="wb-frmvld fieldflow-lg">
         <form>
-          <div class="wb-fieldflow "
-            data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}, {"action": "append", "source": "#ff-flat-rate", "renderas": "radio"}}'>
+          <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
             <p>You are claiming</p>
             <ul>
-              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".daily-rate", "class": "hidden", "live": true}, {"action": "addClass", "source": ".detailed-claim", "class": "hidden", "live": true}]'>A temporary flat rate of $2 for each day you worked from home in 2020 due to the COVID-19 pandemic, up to a maximum of $400 to cover all your home office expenses</li>
+              <li data-wb-fieldflow='[{"action": "append", "source": "#ff-flat-rate", "renderas": "radio"}]'>A temporary flat rate of $2 for each day you worked from home in 2020 due to the COVID-19 pandemic, up to a maximum of $400 to cover all your home office expenses</li>
               <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short, .detailed-claim", "class": "hidden", "live": true}, {"action": "addClass", "source": ".flat-rate, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
                 Home office expenses you paid while working at home due to the COVID-19 pandemic, and you have
                 supporting documents</li>
@@ -318,9 +317,9 @@
          </div>
         <ul>
           <li
-            data-wb-fieldflow='[{"action": "removeClass", "source": "#wsih-calculator", "class": "hidden", "live": true}]'>Yes</li>
+            data-wb-fieldflow='[{"action": "removeClass", "source": ".flat-rate, #wsih-calculator", "class": "hidden", "live": true}]'>Yes</li>
           <li
-            data-wb-fieldflow='[{"action": "addClass", "source": ".flat-rate", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-no-flt", "renderas": "radio"}]'>No</li>
+            data-wb-fieldflow='[{"action": "addClass", "source": ".flat-rate #wsih-calculator", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-no-flt", "renderas": "radio"}]'>No</li>
         </ul>
       </div>
        <div id="ff-no-fr" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
