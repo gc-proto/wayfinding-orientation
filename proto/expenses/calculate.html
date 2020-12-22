@@ -1831,6 +1831,9 @@
       } else {
         $(".carry-fwd").addClass('hidden');
       }
+      document.getElementById("results").scrollIntoView({
+        behavior: 'smooth'
+      });
     });
 
     //flat rate calculations
@@ -1844,6 +1847,9 @@
       $(".days-worked-home-output").text(numDays);
       $(".flat-rate-total-amount").text(toMoney.format(flatRateTotal));
       $("#fr-results").removeClass("hidden");
+      document.getElementById("fr-results").scrollIntoView({
+        behavior: 'smooth'
+      });
     });
 
     window.onload = function () {
