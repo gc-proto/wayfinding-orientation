@@ -278,44 +278,48 @@
     </section>
     <section class="gc-nav-section experimental">
       <h1 property="name" id="wb-cont">Calculate your expenses</h1>
+      <noscript><div class="alert alert-info"><p>This calculator requires your browser to have Javascript turned on.</p></div></noscript>
       <details class="mrgn-bttm-lg">
-        <summary>This calculator does not collect or store your information</summary>
+        <summary>This page does not collect or store your information</summary>
         <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only
           used to help you determine the amount of work space expenses you may be eligible to claim.</p>
-        <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you
+        <p><strong>Warning:</strong> This page does not save any data and if you leave or refresh this page you
           may need to enter the information again.</p>
       </details>
-      <p class="lead"><strong>Reminder:</strong> You must meet the <a href="who-apply.html#h-1">eligibility criteria</a>
-        to make a
-        claim.</p>
+     
+       <p>Answer a few questions to begin calculating your home office expenses.</p>
       <div class="wb-frmvld fieldflow-lg">
         <form>
-          <div class="wb-fieldflow "
-            data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
+          <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true}'>
             <p>You are claiming</p>
             <ul>
-              <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>A temporary flat rate of $2 for each day you worked from home in 2020 due to the COVID-19 pandemic, up to a maximum of $400 to cover all your home office expenses</li>
-              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".flat-rate, #wsih-calculator", "class": "hidden", "live": true}, {"action": "addClass", "source": ".detailed-claim", "class": "hidden", "live": true}]'>A temporary flat rate of $2 for each day you worked from home in 2020 due to the COVID-19 pandemic, up to a maximum of $400 to cover all your home office expenses</li>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short, .detailed-claim", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator, .flat-rate, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
                 Home office expenses you paid while working at home due to the COVID-19 pandemic, and you have
                 supporting documents</li>
-              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
+              <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg, .detailed-claim", "class": "hidden", "live": true}, {"action": "addClass", "source": "#wsih-calculator, .flat-rate, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>
                 Home office expenses, and may have other employment expenses to claim (such as motor vehicle expenses),
                 and you have supporting documents</li>
             </ul>
           </div>
         </form>
       </div>
-      <div id="daily-rate-alert" class="hidden">
-        <div class="alert alert-info">
-          <h2 class="mrgn-tp-0 h3">Temporary flat rate method</h2>
-          <p>Under this method you do not have  to calculate the size of your work space or keep supporting documents. Instead, you <a href="how-apply.html#h-1">claim a temporary flat rate of $2 for each day you worked from home in 2020</a> due to the COVID-19 pandemic (up to a maximum of $400). This option is only available for the 2020 tax year due to the COVID-19 pandemic.</p>
-        </div>
-      </div>
+    
+       <div class="flat-rate hidden">
+          <p>Before you continue, make sure you have:</p>
+            <ul class="fa-ul">
+              <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt1.html">eligibility criteria</a> to make a claim</li>
+              <li><span class="fas fa-check text-success fa-li"></span> understood what is this claim method<br> <a class="wb-lbx" href="#flat-rate-lbx">What is the temporary <span class="nowrap">flate rate&nbsp;<span class="far fa-question-circle"></span></span></a></li>
+         </ul>
+            </div>
+         
+    
       <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
           <div class="ws-t777short hidden">
             <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
+              <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt2.html">eligibility criteria</a> to make a claim</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of your work space</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of all finished areas in your home
                 (including your work space)</li>
@@ -340,6 +344,7 @@
             </div>
             <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
+                <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt2.html">eligibility criteria</a> to make a claim</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of your work space</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of all finished areas in your home
                 (including your work space)</li>
@@ -430,7 +435,25 @@
       </div>
       <div class="hidden wb-frmvld" id="wsih-calculator">
         <form method="get" id="wsih-calculator-form">
-          <fieldset id="workarea">
+            
+   <fieldset id="days-worked" class="flat-rate hidden">
+            <legend>Days worked from home</legend>
+             <div class="form-group">
+              <label for="days-worked-home-input" class="required"><span class="field-name">How many days did you work from home during the COVID-19 pandemic in 2020</span> <strong
+                  class="required small">(required)</strong> </label>
+              <p><a href="#work-days-lbx" class="wb-lbx">What is considered a work day <span
+                class="nowrap">from home&nbsp;<span class="far fa-question-circle"></span></span></a></p>
+              <div class="input-group col-sm-5 col-md-4">
+                <input class="form-control input-lg" id="days-worked-home-input" name="days-worked-home-input"
+                  type="text" required="required">
+               
+              </div>
+            </div>
+            
+            </fieldset>
+           
+
+          <fieldset id="workarea" class="detailed-claim hidden">
             <legend class="brdr-tp">Size of work space and home</legend>
             <div class="form-group designated-room">
               <label for="designated-room-area-input" class="required"><span class="field-name">Designated work space
@@ -527,7 +550,7 @@
               </div>
             </div>
           </fieldset>
-          <fieldset id="workspace-calculation">
+          <fieldset id="workspace-calculation" class="detailed-claim hidden">
             <legend class="mrgn-bttm-sm required">Period of time worked at home within the year <strong
                 class="required">(required)</strong></legend>
             <p id="periods-def"><a href="#periods-lbx" class="wb-lbx">How to claim expenses if you have not worked from
@@ -633,7 +656,7 @@
               </div>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset class="detailed-claim hidden">
             <legend class="mrgn-bttm-0">Work-space-in-the-home expenses</legend>
             <p>Enter the total amount you paid for an expense for the period(s) you worked from home. Enter $0 if you
               are not claiming the expense.</p>
@@ -719,7 +742,7 @@
               </div>
             </div>
           </fieldset>
-          <fieldset>
+          <fieldset class="detailed-claim hidden">
             <legend class="mrgn-bttm-0">Maintenance costs</legend>
             <p>Enter the total amounts you paid for maintenance costs for the period(s) you worked from home, for the:
             </p>
@@ -788,7 +811,7 @@
             </fieldset>
 
 
-            <fieldset class="ws-t777short hidden">
+            <fieldset class="detailed-claim ws-t777short hidden">
               <legend class="mrgn-bttm-0">Office supplies and other employment-related expenses</legend>
               <p>Enter the amount paid to an expense for the period(s) you worked from home. Enter $0 if you are not
                 claiming
@@ -838,7 +861,7 @@
                 </div>
               </div>
             </fieldset>
-            <fieldset class="ws-t777short hidden">
+            <fieldset class="detailed-claim ws-t777short hidden">
               <legend class="mrgn-bttm-0">Income and deductions</legend>
               <p>Enter the amount reported on your T4 tax slip. Enter $0 if there is no amount on the slip.</p>
               <div class="form-group">
@@ -877,9 +900,7 @@
             </fieldset>
             <ul class="list-inline mrgn-bttm-lg mrgn-tp-lg">
               <li><button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="exp-cal"
-                  type="submit">Calculate
-                  your
-                  expenses</button>
+                          type="submit">Calculate your expenses</button>
               </li>
               <!--  <li>
             <button class="btn btn-danger btn-lg mrgn-bttm-sm" id="calc-reset" type="reset">Reset form</button>//-->
@@ -889,9 +910,15 @@
       </div>
       <div class="panel panel-primary hidden" id="results" aria-live="polite">
         <div class="panel-heading">
-          <h2 class="panel-title">Your employee home work space expenses results</h2>
+          <h2 class="panel-title">Your home office expenses results</h2>
         </div>
         <div class="panel-body">
+             <div class="flat-rate hidden">
+                <p><span class="h4"><span class="flat-rate-total-amount">$0.00</span></span> is the total amount you can claim for the temporary flat rate.</p>
+               <p class="mrgn-lft-lg"><strong>$2.00</strong> <span class="fas fa-times fa-lg"></span><span class="wb-inv"> multiplied by</span> <span class="days-worked-home-output">0</span></p>
+              <p>This amount will go on <strong class="nowrap">line 9939</strong> on the <strong>T777S</strong> form, which will also go on <strong class="nowrap">line 22900</strong> of your return. </p>
+            </div>
+           <div class="detailed-claim hidden">
           <div id="wsih-print-summary-1">
             <p><strong>Print and keep this record using the print preview button below</strong>. You will need the
               amounts below when filling out the <strong>T777<span class="ws-t777short hidden">S</span></strong> form.
@@ -900,9 +927,7 @@
               <h3 class="mrgn-tp-sm">Summary of total expenses</h3>
               <p><span class="h4"><span class="ws-t777short-total-amount">$0.00</span></span> is the total expenses you
                 can claim.</p>
-              <p>This amount will go on <strong class="nowrap">line 5</strong> on the <strong>T777S</strong> form, which
-                will also go on <strong class="nowrap">line
-                  22900</strong> of your return. </p>
+              <p>This amount will go on <strong class="nowrap">line 5</strong> on the <strong>T777S</strong> form, which will also go on <strong class="nowrap">line 22900</strong> of your return. </p>
           <!--    <div id="flat-rate-info" class="provisional alert alert-info hidden">
                 <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a temporary flat rate of
                   $2 a day for every day worked from home within the eligible period up to $400.00 for all your
@@ -1087,9 +1112,26 @@
                 class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> work space
                   in home expenses statement</span></span></a></p>
         </div>
+         </div>
       </div>
 
       <!--Overlays //-->
+  <section id="flat-rate-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+          <h2 class="modal-title">Temporary flat rate method</h2>
+        </header>
+        <div class="modal-body" data-ajax-replace="choose.html #ajax-temporary">
+
+        </div>
+      </section>
+  <section id="work-days-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+          <h2 class="modal-title">Work days at home</h2>
+        </header>
+        <div class="modal-body" data-ajax-replace="how-apply.html #dys">
+
+        </div>
+      </section>
       <section id="moved-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
           <h2 class="modal-title">Example: Moving between two homes</h2>
