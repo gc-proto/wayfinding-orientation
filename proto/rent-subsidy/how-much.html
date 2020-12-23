@@ -2044,7 +2044,6 @@
                 $("#2019-09-no").closest("div.form-group").addClass("hidden");
                 break;
               case 5:
-              case 4:
                 $("#2021-02-yes").closest("div.form-group").addClass("hidden");
                 $("#2021-01-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
@@ -2064,6 +2063,7 @@
                 $("#2020-09-no").closest("div.form-group").addClass("hidden");
                 $("#2019-09-no").closest("div.form-group").addClass("hidden");
                 break;
+              case 4:
               case 3:
                 $("#2021-02-yes").closest("div.form-group").addClass("hidden");
                 $("#2021-01-yes").closest("div.form-group").addClass("hidden");
@@ -2902,15 +2902,14 @@
           $document.on("blur", "#jan-feb-closed-days", function(event) {calculateRevenueDrop(true)});
           function calculateRevenueDrop(bAlt) {
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-            console.log("claimPeriod: " + claimPeriod);
             var CERSRateElements = $('.cers-rate-calc');
             //find the claim month based on the chosen claim period
-            console.log("val: " + $("#claim-period").val());
             var claimMonth = getClaimMonth($("#claim-period").val());
-            console.log("claimMonth: " + claimMonth);
             //Get claim months function??
             var monthsArray = getClaimMonths(claimMonth, claimPeriod);
+            console.log(monthsArray);
             var months2019Array = getClaimMonths2019(claimMonth);
+            console.log(months2019Array);
             if (bAlt) { //alternate baseline method
               var janRev = zeroIfEmpty($("#2020-01-yes").val());
               var febRev = zeroIfEmpty($("#2020-02-yes").val());
@@ -3040,16 +3039,19 @@
            */
           function getClaimMonths(claimMonth, claimPeriod) {
             var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
-
-            //Adding a 0 in front of a month in case it was single digit
+            
             for (var i = 0; i < monthsArray.length; i++) {
+              if (monthsArray[i] <= 0) { //non-months
+                monthsArray[i] += 12;
+              }
+              //Adding a 0 in front of a month in case it was single digit
               if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
                 monthsArray[i] = "0" + monthsArray[i];
               }
               //get the year for the month based on period
-              if (claimPeriod < 11) {
+              if (claimPeriod < 4) {
                 monthsArray[i] = "2020-" + monthsArray[i];
-              } else if (claimPeriod < 15) {
+              } else if (claimPeriod < 8) {
                 if (parseInt(monthsArray[i]) > 5) {
                   monthsArray[i] = "2020-" + monthsArray[i];
                 } else {
@@ -3165,6 +3167,10 @@
             var date1Month = date1.getUTCMonth();
             var date2Counter = 0;
             var date2Month = date2.getUTCMonth();
+            if (type == 0 && dateRange == "2020-12-20--2020-01-16") { //period 11/4 was arbitrarily defined differently from this rule...
+              var claimMonth = date1Month + 1;
+              return pad(claimMonth, 2);
+            }
             if (date1Month == date2Month && type == 0) {
               return date1Month + 1;
             }
