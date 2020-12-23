@@ -1625,7 +1625,9 @@
       });
       $("#work-home-end-" + index).attr("min", startDateElement.value);
       //if the user changed the start date to a date after the current end date, display the wet4 error
-      $("#work-home-end-" + index).trigger('change');
+      if ($("#work-home-end-" + index).val() !== '') {
+        $("#work-home-end-" + index).trigger('change');
+      }
       $(startDateElements).each(function (i, element) {
         $(element).attr("max", startDate.getFullYear() + "-12-31");
         $(element).attr("min", startDate.getFullYear() + "-01-01");
