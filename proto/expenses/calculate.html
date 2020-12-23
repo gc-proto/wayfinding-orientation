@@ -1616,18 +1616,22 @@
     //make sure the claim period doesnt exceed the start year
     $(document).on("change keyup", "[id^='work-home-start']", function (event) {
       var startDateElement = event.target;
+      var index = event.target.id.split("-")[3];
       var startDate = new Date(startDateElement.value);
       var endDateElements = $("[id^='work-home-end']");
+      var startDateElements = $("[id^='work-home-start']");
       $(endDateElements).each(function (i, element) {
+        $(element).attr("max", startDate.getFullYear() + "-12-31");
+      });
+      $("#work-home-end-" + index).attr("min", startDateElement.value);
+      //if the user changed the start date to a date after the current end date, display the wet4 error
+      if ($("#work-home-end-" + index).val() !== '') {
+        $("#work-home-end-" + index).trigger('change');
+      }
+      $(startDateElements).each(function (i, element) {
         $(element).attr("max", startDate.getFullYear() + "-12-31");
         $(element).attr("min", startDate.getFullYear() + "-01-01");
       });
-      $("#work-home-start-2").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-3").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-4").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-2").attr("min", startDate.getFullYear() + "-01-01");
-      $("#work-home-start-3").attr("min", startDate.getFullYear() + "-01-01");
-      $("#work-home-start-4").attr("min", startDate.getFullYear() + "-01-01");
     });
 
     //reset date field values, min, max, and spans when date is removed
