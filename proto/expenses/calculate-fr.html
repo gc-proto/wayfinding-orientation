@@ -252,35 +252,67 @@ main form :not(.btn-call-to-action).btn {
   <section class="gc-nav-section experimental">
     <h1 property="name" id="wb-cont">Calculez vos dépenses</h1>
     <details class="mrgn-bttm-lg">
-      <summary>Ce calculateur ne recueille et n'enregistre aucune information</summary>
+      <summary>Ce formulaire ne recueille et n'enregistre aucune information</summary>
       <p>L'ARC ne recueille ou ne conserve pas les informations que vous entrez sur cette page. Ces montants sont seulement utilisés pour vous aider à déterminer le montant des dépenses liées à l'espace de travail que vous pouvez déduire.</p>
-      <p><strong>Avertissement :</strong> Ce calculateur ne sauvegarde pas de données. Si vous quittez ou actualisez cette page, vous devrez peut-être entrer les informations de nouveau.</p>
+      <p><strong>Avertissement :</strong> Cette page ne sauvegarde pas de données. Si vous quittez ou actualisez cette page, vous devrez peut-être entrer les informations de nouveau.</p>
     </details>
-    <p class="lead"><strong>Rappel : </strong> Vous devez répondre aux <a href="who-apply-fr.html#h-1">critères d'admissibilité</a> pour pouvoir demander la déduction.</p>
+    <p class="lead"><span class="fas fa-calculator fa-lg"></span> Répondez à quelques questions pour commencer à calculer vos frais de bureau à domicile.</p>
     <div class="wb-frmvld fieldflow-lg">
       <form>
         <div class="wb-fieldflow "
             data-wb-fieldflow='{"renderas": "radio", "noForm": true, "isoptional": true, "reset": {"action": "addClass", "source": "#wsih-calculator", "class": "hidden"}}'>
           <p>Vous souhaitez déduire</p>
           <ul>
-            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#daily-rate-alert", "class": "hidden", "live": true}]'>Un taux fixe temporaire de 2&nbsp;$ pour chaque jour où vous avez travaillé de la maison en 2020 en raison de la pandémie de COVID-19, jusqu'à un maximum de 400&nbsp;$ pour couvrir toutes vos dépenses de bureau à domicile</li>
+            <li data-wb-fieldflow='[{"action": "removeClass", "source": "#flat-rate-calculator", "class": "hidden", "live": true}]'>Un taux fixe temporaire de 2&nbsp;$ pour chaque jour où vous avez travaillé de la maison en 2020 en raison de la pandémie de COVID-19, jusqu'à un maximum de 400&nbsp;$ pour couvrir toutes vos dépenses de bureau à domicile</li>
             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777short", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777reg", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Des dépenses liées au travail à domicile que vous avez payés pendant la période où vous avez travaillé de la maison en raison de la pandémie de COVID-19, et vous avez des pièces justificatives</li>
             <li data-wb-fieldflow='[{"action": "removeClass", "source": ".ws-t777reg", "class": "hidden", "live": true}, {"action": "addClass", "source": "#daily-rate-alert, .ws-t777short", "class": "hidden", "live": true}, {"action": "append", "source": "#ff-home-ownership", "renderas": "radio"}]'>Des dépenses liées au travail à domicile , et vous pourriez avoir d'autres dépenses d'emploi (telles que les frais de véhicule), et vous avez des pièces justificatives</li>
           </ul>
         </div>
       </form>
     </div>
-    <div id="daily-rate-alert" class="hidden">
-      <div class="alert alert-info">
-        <h2 class="mrgn-tp-0 h3">Méthode du taux fixe temporaire</h2>
-        <p>Avec cette méthode, vous n'avez pas à calculer la taille de votre espace de travail ni à conserver de documents justificatifs. À la place, vous <a href="how-apply-fr.html#h-1">déduisez un taux fixe temporaire de 2&nbsp;$ pour chaque jour où vous avez travaillé de la maison en 2020</a> en raison de la pandémie de COVID-19 (jusqu'à un maximum de 400&nbsp;$). Cette option est seulement disponible pour l'année d'imposition 2020 en raison de la pandémie de COVID-19.</p>
+    <div id="flat-rate-calculator" class="wb-frmvld hidden">
+      <p>Avant de continuer, assurez-vous d’avoir :</p>
+      <ul class="fa-ul">
+        <li><span class="fas fa-check text-success fa-li"></span> confirmé que vous remplissez les <a href="who-apply-alt1.html">critères d'admissibilité pour la méthode à taux fixe temporaire</a> afin de pouvoir faire une déduction</li>
+        <li><span class="fas fa-check text-success fa-li"></span> compris cette méthode de déduction<br>
+          <a class="wb-lbx" href="#flat-rate-lbx">Qu’est-ce que le taux fixe <span class="nowrap">temporaire&nbsp;<span class="far fa-question-circle"></span></span></a></li>
+      </ul>
+      <form method="get" id="fr-calculator-form">
+        <fieldset id="days-worked">
+          <legend>Jours de travail à la maison</legend>
+          <div class="form-group">
+            <label for="days-worked-home-input" class="required"><span class="field-name">Combien de jours avez-vous travaillé à la maison pendant la pandémie de COVID-19 en 2020</span> <strong
+                  class="required small">(required)</strong> </label>
+            <p><a href="#work-days-lbx" class="wb-lbx">Ce qui est considéré comme un jour de travail <span
+                class="nowrap">à la maison&nbsp;<span class="far fa-question-circle"></span></span></a></p>
+            <div class="input-group col-sm-5 col-md-4">
+              <input class="form-control input-lg" id="days-worked-home-input" name="days-worked-home-input"
+                  type="number" required="required" min="0" max="200">
+            </div>
+          </div>
+        </fieldset>
+        <p>
+          <button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="fr-cal"
+                  type="submit">Calculez le taux fixe</button>
+        </p>
+      </form>
+      <div class="panel panel-primary hidden" id="fr-results" aria-live="polite">
+        <div class="panel-heading">
+          <h2 class="panel-title">Résultat du taux fixe</h2>
+        </div>
+        <div class="panel-body">
+          <p><span class="h4"><span class="flat-rate-total-amount" class="nowrap">0,00 $</span></span> est le montant total que vous pouvez déduire pour le taux fixe temporaire.</p>
+          <p class="mrgn-lft-lg"><strong class="nowrap">2,00 $</strong> <span class="fas fa-times"></span><span class="wb-inv"> multiplié par</span> <strong class="days-worked-home-output">0</strong> jours de travail à la maison</p>
+          <p>Ce montant doit être inscrit à la <strong class="nowrap">linge 9939</strong> du <strong>formulaire T777S</strong>, qui sera aussi inscrit à la <strong class="nowrap">ligne 22900</strong> de votre déclaration.</p>
+        </div>
       </div>
     </div>
     <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
       <div class="wb-fieldflow-header">
         <div class="ws-t777short hidden">
-          <p>Avant de continuer, assurez-vous d'avoir en main :</p>
+          <p>Avant de continuer, assurez-vous d'avoir :</p>
           <ul class="fa-ul">
+		<li><span class="fas fa-check text-success fa-li"></span> confirmé que vous remplissez les <a href="who-apply-alt2.html">critères d'admissibilité pour la méthode détaillée</a> afin de pouvoir faire une déduction;</li>
             <li><span class="fas fa-check text-success fa-li"></span> la taille totale de votre espace de travail;</li>
             <li><span class="fas fa-check text-success fa-li"></span> la taille totale de toutes les parties finies de votre maison (y compris votre espace de travail);</li>
             <li><span class="fas fa-check text-success fa-li"></span> les documents qui indiquent vos revenus d'emploi et vos déductions (par exemple, un feuillet T4);</li>
@@ -293,8 +325,9 @@ main form :not(.btn-call-to-action).btn {
             <p><strong>Remarque :</strong> Étant donné les différents types de dépenses liées à l'emploi, le calculateur ci-dessous peut seulement vous aider à déterminer la partie de vos dépenses liées au travail à domicile qui est utilisée aux fins d'emploi. Le calculateur vous fournira les valeurs des lignes 31 à 35 du formulaire T777 qui sera disponible en janvier 2021. </p>
           <p>Vous devrez quand même remplir le reste du formulaire T777 pour déterminer le montant final que vous pouvez déduire de vos impôts.</p>
 		</div>
-          <p>Avant de continuer, assurez-vous d'avoir en main :</p>
+          <p>Avant de continuer, assurez-vous d'avoir :</p>
           <ul class="fa-ul">
+		  <li><span class="fas fa-check text-success fa-li"></span> confirmé que vous remplissez les <a href="who-apply-alt2.html">critères d'admissibilité pour la méthode détaillée</a> afin de pouvoir faire une déduction;</li>
             <li><span class="fas fa-check text-success fa-li"></span> la taille totale de votre espace de travail;</li>
             <li><span class="fas fa-check text-success fa-li"></span> la taille totale de toutes les parties finies de votre maison (y compris votre espace de travail);</li>
             <li><span class="fas fa-check text-success fa-li"></span> les documents qui indiquent vos revenus d'emploi et vos déductions (par exemple, un feuillet T4);</li>
@@ -738,7 +771,7 @@ main form :not(.btn-call-to-action).btn {
     </div>
     <div class="panel panel-primary hidden" id="results" aria-live="polite">
       <div class="panel-heading">
-        <h2 class="panel-title">Résultats des dépenses liées à l'espace de travail à domicile dans le cadre de votre emploi</h2>
+        <h2 class="panel-title">Résultats de vos frais de bureau à domicile</h2>
       </div>
       <div class="panel-body">
         <div id="wsih-print-summary-1">
@@ -747,10 +780,7 @@ main form :not(.btn-call-to-action).btn {
             <h3 class="mrgn-tp-sm">Sommaire du total des dépenses</h3>
             <p><span class="h4"><span class="ws-t777short-total-amount">0,00&nbsp;$</span></span> est le total des dépenses que vous pouvez déduire.</p>
             <p>Ce montant doit être inscrit à <strong class="nowrap">la ligne 5</strong> du <strong class="nowrap">formulaire T777S</strong>, ainsi qu'à <strong class="nowrap">la ligne 22900</strong> de votre déclaration.</p>
-          <!--  <div id="flat-rate-info" class="provisional alert alert-info hidden">
-              <p><strong>Rappel :</strong> Pour l'année d'imposition 2020, l'ARC vous permet de déduire un taux fixe temporaire de 2&nbsp;$ par jour pour chaque jour de travail à la maison pendant la période admissible, jusqu'à un maximum de 400&nbsp;$ pour toutes vos dépenses.</p>
-              <p><a href="how-apply.html#h-1" target="_blank">Méthode à taux fixe temporaire<span class="wb-inv"> (s'ouvre dans une nouvelle fenêtre)</span>&nbsp;<sup class="far fa-window-restore"></sup></a></p>
-            </div>//-->
+        
           </div>
           <hr>
           <h3>Sommaire du montant lié à un emploi</h3>
@@ -896,6 +926,22 @@ main form :not(.btn-call-to-action).btn {
     </div>
     
     <!--Overlays //-->
+<section id="flat-rate-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+           <h2 class="modal-title">Méthode à taux fixe temporaire</h2>
+        </header>
+        <div class="modal-body" data-ajax-replace="choose-fr.html #ajax-temporary">
+     
+        </div>
+      </section>
+  <section id="work-days-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
+        <header class="modal-header">
+           <h2 class="modal-title">Jours de travail à la maison</h2>
+        </header>
+        <div class="modal-body" data-ajax-replace="how-apply-fr.html #dys">
+
+        </div>
+      </section>
     <section id="moved-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
       <header class="modal-header">
         <h2 class="modal-title">Exemple : Déménagement</h2>
@@ -1114,7 +1160,7 @@ main form :not(.btn-call-to-action).btn {
      * 
      * @return {Float} the percentage of bills that can be claimed; 0 if params * fail validation
      */
-     function calculateCommonRoomClaimRate(percSpaceUsed, percHour) {
+    function calculateCommonRoomClaimRate(percSpaceUsed, percHour) {
       if (parseFloat(percSpaceUsed) && parseFloat(percHour)) {
         return percSpaceUsed * percHour / 100;
       }
@@ -1380,6 +1426,7 @@ main form :not(.btn-call-to-action).btn {
       var endDateElements = $("[id^='work-home-end']");
       $(endDateElements).each(function (i, element) {
         $(element).attr("max", startDate.getFullYear() + "-12-31");
+
         $(element).attr("min", startDate.getFullYear() + "-01-01");
       });
       $("#work-home-start-2").attr("max", startDate.getFullYear() + "-12-31");
@@ -1586,7 +1633,27 @@ main form :not(.btn-call-to-action).btn {
       } else {
         $(".carry-fwd").addClass('hidden');
       }
+      document.getElementById("results").scrollIntoView({
+        behavior: 'smooth'
+      });
     });
+
+    //flat rate calculations
+    $(document).on("click", "#fr-cal", function (event) {
+      event.preventDefault();
+      var numDays = parseFloat($("#days-worked-home-input").val()) || 0;
+      if (isNaN(numDays)) {
+        return;
+      }
+      var flatRateTotal = numDays * 2;
+      $(".days-worked-home-output").text(numDays);
+      $(".flat-rate-total-amount").text(toMoney.format(flatRateTotal));
+      $("#fr-results").removeClass("hidden");
+      document.getElementById("fr-results").scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
     window.onload = function () {
       if (/Android/i.test(navigator.userAgent)) {
         var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");

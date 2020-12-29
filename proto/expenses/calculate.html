@@ -280,13 +280,13 @@
       <h1 property="name" id="wb-cont">Calculate your expenses</h1>
         <noscript><div class="alert alert-info"><p>This calculator requires your browser to have Javascript turned on.</p></div></noscript>
       <details class="mrgn-bttm-lg">
-         <summary>This <mark>form</mark> does not collect or store your information</summary>
+         <summary>This form does not collect or store your information</summary>
         <p>The CRA is not collecting or retaining any of the information you enter on this page. These amounts are only
           used to help you determine the amount of work space expenses you may be eligible to claim.</p>
-         <p><strong>Warning:</strong> This <mark>page</mark> does not save any data and if you leave or refresh this page you
+         <p><strong>Warning:</strong> This page does not save any data and if you leave or refresh this page you
           may need to enter the information again.</p>
       </details>
-      <p class="lead">Answer a few questions to begin calculating your home office expenses.</p>
+      <p class="lead"><span class="fas fa-calculator fa-lg"></span> Answer a few questions to begin calculating your home office expenses.</p>
       <div class="wb-frmvld fieldflow-lg">
         <form>
           <div class="wb-fieldflow "
@@ -308,15 +308,15 @@
        
           <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
-              <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt1.html">eligibility criteria</a> to make a claim</li>
-              <li><span class="fas fa-check text-success fa-li"></span> understood what is this claim method<br> <a class="wb-lbx" href="#flat-rate-lbx">What is the temporary <span class="nowrap">flate rate&nbsp;<span class="far fa-question-circle"></span></span></a></li>
+              <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt1.html">eligibility criteria for the temporary flat rate method</a> to make a claim</li>
+              <li><span class="fas fa-check text-success fa-li"></span> understood this claim method<br> <a class="wb-lbx" href="#flat-rate-lbx">What is the temporary <span class="nowrap">flate rate&nbsp;<span class="far fa-question-circle"></span></span></a></li>
          </ul>
 
         <form method="get" id="fr-calculator-form">
-             <fieldset id="days-worked" class="flat-rate hidden bg-warning">
+             <fieldset id="days-worked">
             <legend>Days worked from home</legend>
              <div class="form-group">
-              <label for="days-worked-home-input" class="required"><span class="field-name">How many days did you work from home during the COVID-19 pandemic in 2020<span class="wb-inv"> (maximum 200 days)</span></span> <strong
+              <label for="days-worked-home-input" class="required"><span class="field-name">How many days did you work from home during the COVID-19 pandemic in 2020</span> <strong
                   class="required small">(required)</strong> </label>
               <p><a href="#work-days-lbx" class="wb-lbx">What is considered a work day <span
                 class="nowrap">from home&nbsp;<span class="far fa-question-circle"></span></span></a></p>
@@ -331,23 +331,24 @@
            <p><button class="btn btn-call-to-action btn-lg mrgn-bttm-sm mrgn-rght-lg" id="fr-cal"
                   type="submit">Calculate the flat rate</button></p>
          </form>
-           <div class="panel panel-primary" id="fr-results" aria-live="polite">
+           <div class="panel panel-primary hidden" id="fr-results" aria-live="polite">
         <div class="panel-heading">
           <h2 class="panel-title">Flat rate result</h2>
         </div>
         <div class="panel-body">
 
                 <p><span class="h4"><span class="flat-rate-total-amount">$0.00</span></span> is the total amount you can claim for the temporary flat rate.</p>
-               <p class="mrgn-lft-lg"><strong>$2.00</strong> <span class="fas fa-times"></span><span class="wb-inv"> multiplied by</span> <strong class="days-worked-home-output">0</span> days worked at home</p>
-              <p>This amount will go on <strong class="nowrap">line 9939</strong> on the <strong>T777S</strong> form, which will also go on <strong class="nowrap">line 22900</strong> of your return. </p>
+               <p class="mrgn-lft-lg"><strong>$2.00</strong> <span class="fas fa-times"></span><span class="wb-inv"> multiplied by</span> <strong class="days-worked-home-output">0</strong> days worked at home</p>
+              <p>This amount will go on <strong class="nowrap">line 9939</strong> on the <strong>T777S form</strong> , which will also go on <strong class="nowrap">line 22900</strong> of your return. </p>
             </div>
-         
+         </div>
       </div>
       <div id="ff-home-ownership" class="hidden wb-fieldflow-sub" data-wb-fieldflow='{"isoptional": true}'>
         <div class="wb-fieldflow-header">
           <div class="ws-t777short hidden">
             <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
+               <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt2.html">eligibility criteria for the detailed method</a> to make a claim</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of your work space</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of all finished areas in your home
                 (including your work space)</li>
@@ -372,6 +373,7 @@
             </div>
             <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
+               <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the <a href="who-apply-alt2.html">eligibility criteria for the detailed method</a> to make a claim</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of your work space</li>
               <li><span class="fas fa-check text-success fa-li"></span> total size of all finished areas in your home
                 (including your work space)</li>
@@ -921,7 +923,7 @@
       </div>
       <div class="panel panel-primary hidden" id="results" aria-live="polite">
         <div class="panel-heading">
-          <h2 class="panel-title">Your employee home work space expenses results</h2>
+          <h2 class="panel-title">Your home office expenses results</h2>
         </div>
         <div class="panel-body">
           <div id="wsih-print-summary-1">
@@ -935,13 +937,6 @@
               <p>This amount will go on <strong class="nowrap">line 5</strong> on the <strong>T777S</strong> form, which
                 will also go on <strong class="nowrap">line
                   22900</strong> of your return. </p>
-          <!--    <div id="flat-rate-info" class="provisional alert alert-info hidden">
-                <p><strong>Reminder:</strong> For the 2020 tax year, CRA is allowing to claim a temporary flat rate of
-                  $2 a day for every day worked from home within the eligible period up to $400.00 for all your
-                  expenses.</p>
-                <p><a href="how-apply.html#h-1" target="_blank">Temporary flat rate method<span class="wb-inv"> (opens
-                      in a new window)</span>&nbsp;<sup class="far fa-window-restore"></sup></a></p>
-              </div>//-->
             </div>
             <hr>
             <h3>Summary of the employment-use amount</h3>
@@ -1124,7 +1119,7 @@
       <!--Overlays //-->
 <section id="flat-rate-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
-           <h2 class="modal-title"><mark>Temporary flat rate method</mark></h2>
+           <h2 class="modal-title">Temporary flat rate method</h2>
         </header>
         <div class="modal-body" data-ajax-replace="choose.html #ajax-temporary">
      
@@ -1132,7 +1127,7 @@
       </section>
   <section id="work-days-lbx" class="mfp-hide modal-dialog modal-content overlay-def">
         <header class="modal-header">
-           <h2 class="modal-title"><mark>Work days at home</mark></h2>
+           <h2 class="modal-title">Days worked from home</h2>
         </header>
         <div class="modal-body" data-ajax-replace="how-apply.html #dys">
 
@@ -1621,18 +1616,22 @@
     //make sure the claim period doesnt exceed the start year
     $(document).on("change keyup", "[id^='work-home-start']", function (event) {
       var startDateElement = event.target;
+      var index = event.target.id.split("-")[3];
       var startDate = new Date(startDateElement.value);
       var endDateElements = $("[id^='work-home-end']");
+      var startDateElements = $("[id^='work-home-start']");
       $(endDateElements).each(function (i, element) {
+        $(element).attr("max", startDate.getFullYear() + "-12-31");
+      });
+      $("#work-home-end-" + index).attr("min", startDateElement.value);
+      //if the user changed the start date to a date after the current end date, display the wet4 error
+      if ($("#work-home-end-" + index).val() !== '') {
+        $("#work-home-end-" + index).trigger('change');
+      }
+      $(startDateElements).each(function (i, element) {
         $(element).attr("max", startDate.getFullYear() + "-12-31");
         $(element).attr("min", startDate.getFullYear() + "-01-01");
       });
-      $("#work-home-start-2").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-3").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-4").attr("max", startDate.getFullYear() + "-12-31");
-      $("#work-home-start-2").attr("min", startDate.getFullYear() + "-01-01");
-      $("#work-home-start-3").attr("min", startDate.getFullYear() + "-01-01");
-      $("#work-home-start-4").attr("min", startDate.getFullYear() + "-01-01");
     });
 
     //reset date field values, min, max, and spans when date is removed
@@ -1831,7 +1830,27 @@
       } else {
         $(".carry-fwd").addClass('hidden');
       }
+      document.getElementById("results").scrollIntoView({
+        behavior: 'smooth'
+      });
     });
+
+    //flat rate calculations
+    $(document).on("click", "#fr-cal", function (event) {
+      event.preventDefault();
+      var numDays = parseFloat($("#days-worked-home-input").val()) || 0;
+      if (isNaN(numDays)) {
+        return;
+      }
+      var flatRateTotal = numDays * 2;
+      $(".days-worked-home-output").text(numDays);
+      $(".flat-rate-total-amount").text(toMoney.format(flatRateTotal));
+      $("#fr-results").removeClass("hidden");
+      document.getElementById("fr-results").scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+
     window.onload = function () {
       if (/Android/i.test(navigator.userAgent)) {
         var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
