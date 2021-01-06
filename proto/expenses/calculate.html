@@ -1629,8 +1629,10 @@
         $("#work-home-end-" + index).trigger('change');
       }
       $(startDateElements).each(function (i, element) {
-        $(element).attr("max", startDate.getUTCFullYear() + "-12-31");
-        $(element).attr("min", startDate.getUTCFullYear() + "-01-01");
+        if (element.id !== "work-home-start-1") {
+          $(element).attr("min", startDate.getUTCFullYear() + "-01-01");
+          $(element).attr("max", startDate.getUTCFullYear() + "-12-31");
+        }
       });
     });
 
