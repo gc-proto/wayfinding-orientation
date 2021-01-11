@@ -3638,6 +3638,7 @@
         var janRev = zeroIfEmpty($("#2020-01-yes").val());
         var febRev = zeroIfEmpty($("#2020-02-yes").val());
         if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
+          var baseRevTopUp = (janRev + febRev) / 2;
           if ($('#jan-feb-closed-inputs').is(":visible")) {
             var daysNotOperating = zeroIfEmpty($('#jan-feb-closed-days').val());
             var baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
@@ -3659,7 +3660,7 @@
             var twoMoAgo = zeroIfEmpty($("#" + monthsArray[2] + "-yes").val());
             var threeMonthAvg = (threeMoAgo + twoMoAgo + prevClaimValue) / 3;
             //get the rate reduction from the three month average
-            threeMonthReduction = (baseRev - threeMonthAvg) / baseRev;
+            threeMonthReduction = (baseRevTopUp - threeMonthAvg) / baseRevTopUp;
           }
           claimPeriodRevReduction = (baseRev - claimMonthValue) / baseRev;
           //get the revenue reduction
