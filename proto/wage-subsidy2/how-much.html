@@ -3583,10 +3583,17 @@
             $(".top-up-rate").text(toPercent(roundPercDown(topUpRate)));
             $(".base-rate").text(toPercent(roundPercDown(baseRate)));
           }
-          $("#currentRevReduction").text(toPercent(roundPercDown(currentRevReduc)));
-          $(".priorRevReduction").text(toPercent(roundPercDown(priorRevReduc)));
           if (claimPeriod < 11) {
             $(".rev-drop-top-up").text(toPercent(roundPercDown(threeMonthReduction)));
+            $("#currentRevReduction").text(toPercent(roundPercDown(currentRevReduc)));
+            $(".priorRevReduction").text(toPercent(roundPercDown(priorRevReduc)));
+          } else {
+            var displayRevReducCurrent = currentRevReduc * 100;
+            var displayPriorReducCurrent = priorRevReduc * 100;
+            var displayPrefReducCurrent = revReduction * 100;
+            $("#currentRevReduction").text(toPercent(displayRevReducCurrent.toFixed(2)));
+            $(".priorRevReduction").text(toPercent(displayPriorReducCurrent.toFixed(2)));
+            $(".rev-reduc-base").text(toPercent(displayPrefReducCurrent.toFixed(2)));
           }
           if (claimPeriod > 7 && claimPeriod < 11) {
             if (revReduction > threeMonthReduction) {
@@ -3595,7 +3602,6 @@
               $(".rev-drop-top-up-higher").text(toPercent(roundPercDown(threeMonthReduction)));
             }
           }
-          $(".rev-reduc-base").text(toPercent(roundPercDown(revReduction)));
           var cewsRateDisplay = cewsRate * 100;
           cewsRateDisplay = cewsRateDisplay.toFixed(2);
           $("#cews-rate").text(toPercent(cewsRateDisplay));
@@ -3706,12 +3712,19 @@
               $(".rev-drop-top-up-higher-alt").text(toPercent(roundPercDown(threeMonthReduction)));
             }
           }
-          $("#currentRevReduction-alt").text(toPercent(roundPercDown(currentRevReduc)));
-          $(".priorRevReduction-alt").text(toPercent(roundPercDown(priorRevReduc)));
           if (claimPeriod < 11) {
             $(".rev-drop-top-up-alt").text(toPercent(roundPercDown(threeMonthReduction)));
+            $("#currentRevReduction-alt").text(toPercent(roundPercDown(currentRevReduc)));
+            $(".priorRevReduction-alt").text(toPercent(roundPercDown(priorRevReduc)));
+            $(".rev-reduc-alt-base").text(toPercent(roundPercDown(revReduction)));
+          } else {
+            var displayRevReducCurrent = currentRevReduc * 100;
+            var displayPriorReducCurrent = priorRevReduc * 100;
+            var displayPrefReducCurrent = revReduction * 100;
+            $("#currentRevReduction-alt").text(toPercent(displayRevReducCurrent.toFixed(2)));
+            $(".priorRevReduction-alt").text(toPercent(displayPriorReducCurrent.toFixed(2)));
+            $(".rev-reduc-alt-base").text(toPercent(displayPrefReducCurrent.toFixed(2)));
           }
-          $(".rev-reduc-alt-base").text(toPercent(roundPercDown(revReduction)));
           var cewsRateDisplay = cewsRate * 100;
           cewsRateDisplay = cewsRateDisplay.toFixed(2);
           $("#cews-rate-alt").text(toPercent(cewsRateDisplay));
@@ -4032,7 +4045,7 @@
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         var topUpMax = 0.25;
-        topUpMultiplier = 1.25;
+        var topUpMultiplier = 1.25;
         if (claimPeriod > 10) {
           topUpMax = 0.35;
           topUpMultiplier = 1.75;
