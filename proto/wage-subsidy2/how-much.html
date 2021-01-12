@@ -4032,13 +4032,15 @@
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         var topUpMax = 0.25;
+        topUpMultiplier = 1.25;
         if (claimPeriod > 10) {
           topUpMax = 0.35;
+          topUpMultiplier = 1.75;
         }
-        if (1.25 * (reduction - 0.5) > topUpMax) {
+        if (topUpMultiplier * (reduction - 0.5) > topUpMax) {
           return topUpMax;
         } else {
-          return 1.25 * (reduction - 0.5);
+          return topUpMultiplier * (reduction - 0.5);
         }
       }
 
