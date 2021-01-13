@@ -8,9 +8,9 @@
       <meta name="robots" content="noindex" />
       <!-- Meta data -->
       <!-- Load closure tloclate scripts -->
-      <script type="text/javascript"
+      <script 
          src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
-      <script type="text/javascript"
+      <script 
          src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
       <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet" />
       <link href="../css/cews.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
       <!-- Write closure tloclate -->
-      <script type="text/javascript">
+      <script >
          document.write(wet.builder.refTop({
          }));
       </script>
@@ -27,7 +27,7 @@
       <div id="def-top">
       </div>
       <!-- Write closure tloclate -->
-      <script type="text/javascript">
+      <script >
          var defTop = document.getElementById("def-top");
          defTop.outerHTML = wet.builder.top({
            lngLinks: [{
@@ -93,7 +93,7 @@
                 <p>The amount you can claim of your expenses (your rent subsidy rate) is based on the <strong>revenue drop you experienced</strong> between</p>
 
                 <ul class="lst-lwr-alph">
-                  <li><strong>Corresponding month of 2019 method:</strong> the months of 2019 and 2020 that relate to the claim period you're applying for</li>
+                  <li><strong>Corresponding month of the previous year method:</strong> the months of 2019 and 2020 that relate to the claim period you're applying for</li>
                   <li><strong>Alternative method: </strong>January and February 2020 compared to the months of 2020 that relate to the claim period</li>
                 </ul>
                 <p>This revenue drop is then scaled to calculate your rent subsidy rate:</p>
@@ -198,10 +198,9 @@
             </div>
             </details>
 
-
-               <h2 id="h-2">Before you start the calculation</h2>
-               <p class="lead">Check these boxes to confirm you have all the information you need before you start your calculation:</p>
                <section>
+                  <h2 id="h-2">Before you start the calculation</h2>
+                  <p class="lead">Check these boxes to confirm you have all the information you need before you start your calculation:</p>
                   <ul class="checkbox-lg checkbox-zebra">
                      <li class="checkbox">
                         <input type="checkbox" id="bfore1" class="action-checkbox">
@@ -212,19 +211,17 @@
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore2" class="action-checkbox">
-                        <label for="bfore2"><strong>You have your monthly qualifying revenue amounts from 2020 and 2019</strong></label>
+                        <label for="bfore2"><strong>You have your monthly qualifying revenue amounts from the two years</strong></label>
                         <!--
                         <label for="bfore2">You will need revenue amounts for the past few months, as well as your comparison period option.</label>
                       -->
                      </li>
                      <li class="checkbox">
                         <input type="checkbox" id="bfore3" class="action-checkbox">
-                        <p>
-                           <label for="bfore3"><strong>Your eligible expenses are broken down by business location</strong></label>
-                           <ul class="mrgn-lft-lg list-unstyled">
-                              <li><a href="expenses-to-claim.html">Expenses you can claim</a></li>
-                           </ul>
-                        </p>
+                        <label for="bfore3"><strong>Your eligible expenses are broken down by business location</strong></label>
+                        <ul class="mrgn-lft-lg list-unstyled">
+                          <li><a href="expenses-to-claim.html">Expenses you can claim</a></li>
+                        </ul>
                      </li>
                      <!--
                      <li class="checkbox">
@@ -277,7 +274,7 @@
                   for verification after you apply.
                </p>
             </details>
-            <div class="alert alert-warning provisional" id="action-no-msg">
+            <div class="alert alert-warning provisional">
             <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
           </div>
             <div class="wb-frmvld">
@@ -292,9 +289,10 @@
                                  <option value=""> Select a claim period</option>
                                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
                                  <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
-                                 <!--
                                  <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
-                               -->
+                                 <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
+                                 <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
+                                 <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
                               </select>
                            </div>
                         </fieldset>
@@ -306,7 +304,7 @@
                            </ul>
                         </div>
                      </li>
-                     <li id="stp1">
+                     <li id="stp2">
                         <fieldset>
                            <legend><span class="wb-inv">Step 2: </span>Affiliated businesses, charities, and non-profits (affiliated eligible entities)</legend>
                            <p>You and any affiliated businesses, charities, and non-profit organizations (affiliated entities) are only eligible for the CERS base subsidy amount on a combined maximum of $300,000 in eligible expenses.</p>
@@ -395,7 +393,7 @@
                                         <div class="col-xs-12 col-sm-6 brdr-rght mrgn-bttm-lg">
                                            <div class="col-sm-12">
                                               <p class="mrgn-tp-0 h5 text-muted">General prior reference period</p>
-                                              <p>The eligible revenue you earned in the <strong>corresponding month in 2019</strong></p>
+                                              <p>The eligible revenue you earned in the <strong>corresponding month of the previous year</strong></p>
                                            </div>
                                         </div>
                                         <div class="col-xs-1 col-sm-12 pstn-tp-sm text-center mrgn-bttm-lg"><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></div>
@@ -423,7 +421,7 @@
                                 <ul class="list-unstyled lst-spcd-2">
                                    <li class="radio">
                                       <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false">
-                                      <label for="rev-comp-yes">Compare 2019 month with claim month </label>
+                                      <label for="rev-comp-yes">Compare month of previous year with claim month (e.g. July 2019 with July 2020) </label>
                                    </li>
                                    <li class="radio">
                                       <input type="radio" name="rev-comp" id="rev-comp-no" class="valid" aria-invalid="false">
@@ -460,12 +458,12 @@
                                  </p>
                                  <div class="row">
                                     <div class="col-md-6 brdr-rght">
-                                       <p><strong>2019 revenue</strong></p>
+                                       <p><strong>Previous year revenue</strong></p>
                                        <div class="form-group row">
                                           <label class="col-sm-6 control-label" for="2019-09-no">September 2019<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right cers-rate-calc currency" name="2019-09-no" id="2019-09-no" size="10" placeholder="0.00">
+                                                <input type="number" class="form-control text-right cers-rate-calc currency" name="2019-09-no" id="2019-09-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -476,7 +474,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2019-10-no" id="2019-10-no" size="10" placeholder="0.00">
+                                                   name="2019-10-no" id="2019-10-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -487,24 +485,38 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2019-11-no" id="2019-11-no" size="10" placeholder="0.00">
+                                                   name="2019-11-no" id="2019-11-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
-                                       <div class="form-group row">
-                                          <label class="col-sm-6 control-label" for="2019-12-no">December 2019<span
-                                             class="wb-inv"> (do not include a
-                                          dollar sign, spaces or commas)</span></label>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 control-label" for="2019-12-no">December 2019<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                            <div class="col-sm-6">
+                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                  <input type="number" class="form-control text-right cers-rate-calc currency" name="2019-12-no" id="2019-12-no" placeholder="0.00">
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-sm-6 control-label" for="2020-01-no">January 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
                                           <div class="col-sm-6">
-                                             <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2019-12-no" id="2019-12-no" size="10" placeholder="0.00">
-                                             </div>
+                                            <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                <input type="number" class="form-control text-right cers-rate-calc currency" name="2020-01-no" id="2020-01-no" placeholder="0.00">
+                                            </div>
                                           </div>
-                                       </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-sm-6 control-label" for="2020-02-no">February 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                          <div class="col-sm-6">
+                                            <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                <input type="number" class="form-control text-right cers-rate-calc currency" name="2020-02-no" id="2020-02-no" placeholder="0.00">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
                                     </div>
                                     <div class="col-md-6">
-                                       <p><strong>2020 revenue</strong></p>
+                                       <p><strong>Claim period revenue</strong></p>
                                        <div class="form-group row">
                                           <label class="col-sm-6 control-label" for="2020-09-no">September 2020<span
                                              class="wb-inv"> (do not include a
@@ -512,7 +524,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2020-09-no" id="2020-09-no" size="10" placeholder="0.00">
+                                                   name="2020-09-no" id="2020-09-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -523,7 +535,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2020-10-no" id="2020-10-no" size="10" placeholder="0.00">
+                                                   name="2020-10-no" id="2020-10-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -534,7 +546,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2020-11-no" id="2020-11-no" size="10" placeholder="0.00">
+                                                   name="2020-11-no" id="2020-11-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -545,10 +557,26 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc currency"
-                                                   name="2020-12-no" id="2020-12-no" size="10" placeholder="0.00">
+                                                   name="2020-12-no" id="2020-12-no" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-sm-6 control-label" for="2021-01-no">January 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                          <div class="col-sm-6">
+                                            <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right cers-rate-calc currency" name="2021-01-no" id="2021-01-no" placeholder="0.00">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-sm-6 control-label" for="2021-02-no">February 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                          <div class="col-sm-6">
+                                            <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right cers-rate-calc currency" name="2021-02-no" id="2021-02-no" placeholder="0.00">
+                                            </div>
+                                          </div>
+                                        </div>
                                     </div>
                                  </div>
                               </fieldset>
@@ -573,7 +601,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-01-yes" id="2020-01-yes" size="10" placeholder="0.00">
+                                                   name="2020-01-yes" id="2020-01-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -584,7 +612,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-02-yes" id="2020-02-yes" size="10" placeholder="0.00">
+                                                   name="2020-02-yes" id="2020-02-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -595,7 +623,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-09-yes" id="2020-09-yes" size="10" placeholder="0.00">
+                                                   name="2020-09-yes" id="2020-09-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -606,7 +634,7 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-10-yes" id="2020-10-yes" size="10" placeholder="0.00">
+                                                   name="2020-10-yes" id="2020-10-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
@@ -617,21 +645,34 @@
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                                                 <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-11-yes" id="2020-11-yes" size="10" placeholder="0.00">
+                                                   name="2020-11-yes" id="2020-11-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
                                        <div class="form-group row">
-                                          <label class="col-sm-6 control-label" for="2020-12-yes">December 2020<span
-                                             class="wb-inv"> (do not include a
-                                          dollar sign, spaces or commas)</span></label>
+                                          <label class="col-sm-6 control-label" for="2020-12-yes">December 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
                                           <div class="col-sm-6">
                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right cers-rate-calc-alt currency"
-                                                   name="2020-12-yes" id="2020-12-yes" size="10" placeholder="0.00">
+                                              <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2020-12-yes" id="2020-12-yes" placeholder="0.00">
                                              </div>
                                           </div>
                                        </div>
+                                       <div class="form-group row">
+                                        <label class="col-sm-6 control-label" for="2021-01-yes">January 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                        <div class="col-sm-6">
+                                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                            <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-01-yes" id="2021-01-yes" placeholder="0.00">
+                                           </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-sm-6 control-label" for="2021-02-yes">February 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                                        <div class="col-sm-6">
+                                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                            <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-02-yes" id="2021-02-yes" placeholder="0.00">
+                                          </div>
+                                        </div>
+                                      </div>
                                        <!-- Section to add days not operating during Jan-Feb -->
                                        <div class="form-group row">
                                         <div class="col-md-12">
@@ -666,9 +707,11 @@
                                   class="h4 currentRevReduction">0%</span></li>
                                 <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span
                                   class="priorRevReduction h4">0%</span></li>
-                                <p>Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">0%</span>, your rate is calculated as <span id="rate-formula-max" class="hidden">the maximum</span><span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x 1.25 + 40%</span><span id="rate-formula-u50" class="hidden">your revenue drop x 0.8</span><span id="rate-formula-0">0</span>.</p>
-                                <p>Your rent subsidy rate is <span class="h3 mrgn-tp-0 base-rate">0%</span></p>
                               </ul>
+                              <div class="small" style="margin-left:40px;">
+                                  <p>Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">0%</span>, your rate is calculated as <span id="rate-formula-max" class="hidden">the maximum</span><span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x 1.25 + 40%</span><span id="rate-formula-u50" class="hidden">your revenue drop x 0.8</span><span id="rate-formula-0">0</span>.</p>
+                                  <p>Your rent subsidy rate is <span class="h3 mrgn-tp-0 base-rate">0%</span></p>
+                              </div>
                            </div>
                         </fieldset>
                      </li>
@@ -855,177 +898,265 @@
                                                 <p>If you choose the monthly option, your rent for each month will be <strong>prorated</strong> for the days that fall within the <strong>28 day claim period</strong>.</p>
                                                 <p>If your expense payment periods don't align with the monthly option, choose the CERS period (28 days) option</p>
                                               </div>
-
-                                              <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
-                                              <div class="clearfix"></div>
-                                              <!--
-                                              <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
-                                            -->
-                                              <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
-                                              <!-- *****
-                                              Month one rent starts here
-                                              ***** -->
-                                              <div class="form-group row mrgn-bttm-0 month-one-1">
-
-                                                <div class="col-md-6 col-sm-12">
-                                                  <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                    <input type="number" class="form-control text-right currency rent-expense-1" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
-                                                  </div>
-                                                  <p id="rent-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
-                                                </div>
-
+                                              
+                                              <fieldset>
+                                                <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
                                                 <div class="clearfix"></div>
-                                                <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                                <div class="col-md-6 col-sm-12">
-                                                  <label for="lease-one-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                    <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
-                                                  </div>
-                                                  <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
-                                                </div>
-                                              </div>
+                                                <!--
+                                                <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
+                                              -->
+                                                <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+                                                <!-- *****
+                                                Month one rent starts here
+                                                ***** -->
+                                                <div class="form-group row mrgn-bttm-0 month-one-1">
 
+                                                  <div class="col-md-6 col-sm-12">
+                                                    <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                      <input type="number" class="form-control text-right currency rent-expense-1" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
+                                                    </div>
+                                                    <p id="rent-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
+                                                  </div>
+
+                                                  <div class="clearfix"></div>
+                                                  <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
+                                                  <div class="col-md-6 col-sm-12">
+                                                    <label for="lease-one-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                      <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
+                                                    </div>
+                                                    <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
+                                                  </div>
+                                                </div>
+                                              </fieldset>
                                               <!-- *****
                                               Month two rent starts here
                                               ***** -->
                                               <div class="month-two-1">
-                                                <legend class="mrgn-bttm-0">Monthly eligible expenses for <span class="claim-month-two">month 2</span></legend>
-                                                <!--
-                                                <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
-                                              -->
-                                                <div class="form-group row mrgn-bttm-0">
-                                                  <div class="col-md-6 col-sm-12">
-                                                    <label for="rent-two-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="rent-two-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-two-date-1">
+                                                <fieldset>
+                                                  <legend class="mrgn-bttm-0">Monthly eligible expenses for <span class="claim-month-two">month 2</span></legend>
+                                                  <!--
+                                                  <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
+                                                -->
+                                                  <div class="form-group row mrgn-bttm-0">
+                                                    <div class="col-md-6 col-sm-12">
+                                                      <label for="rent-two-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency" id="rent-two-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-two-date-1">
+                                                      </div>
+                                                      <p id="rent-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
                                                     </div>
-                                                    <p id="rent-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
-                                                  </div>
 
-                                                  <div class="clearfix"></div>
-                                                  <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                                  <div class="col-md-6 col-sm-12">
-                                                    <label for="lease-two-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-two-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-two-date-1">
+                                                    <div class="clearfix"></div>
+                                                    <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
+                                                    <div class="col-md-6 col-sm-12">
+                                                      <label for="lease-two-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-two-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-two-date-1">
+                                                      </div>
+                                                      <p id="lease-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
                                                     </div>
-                                                    <p id="lease-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
                                                   </div>
-                                                </div>
+                                                </fieldset>
                                               </div>
 
                                               <div class="cers-period-1 hidden">
                                                 <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
-
+                                                <fieldset>
                                                 <legend class="mrgn-bttm-0 mrgn-tp-lg">Monthly eligible expenses for the claim period</legend>
-                                                <div class="form-group row mrgn-bttm-0">
-                                                  <div class="col-md-6 col-sm-12">
-                                                    <label for="rent-cers-period-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency valid" id="rent-cers-period-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-cers-period-date-1">
+                                                  <div class="form-group row mrgn-bttm-0">
+                                                    <div class="col-md-6 col-sm-12">
+                                                      <label for="rent-cers-period-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency valid" id="rent-cers-period-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-cers-period-date-1">
+                                                      </div>
+                                                      <p id="rent-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
                                                     </div>
-                                                    <p id="rent-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
-                                                  </div>
 
-                                                  <div class="clearfix"></div>
-                                                  <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                                  <div class="col-md-6 col-sm-12">
-                                                    <label for="lease-cers-period-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-cers-period-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-cers-period-date-1">
+                                                    <div class="clearfix"></div>
+                                                    <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
+                                                    <div class="col-md-6 col-sm-12">
+                                                      <label for="lease-cers-period-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-cers-period-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-cers-period-date-1">
+                                                      </div>
+                                                      <p id="lease-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
                                                     </div>
-                                                    <p id="lease-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
                                                   </div>
-                                                </div>
+                                                </fieldset>
                                               </div>
-
                                             </div>
+
+                                            <style>
+                                              fieldset {border:none;}
+                                            </style>
 
                                             <!-- This is where the Owned location inputs start -->
                                             <div class="own-location-1 hidden">
+                                              <fieldset>
+                                                <legend class="mrgn-bttm-0 month-one-1">Eligible expenses for the claim period</legend>
+                                                <div class="row">
 
-                                              <legend class="mrgn-bttm-0 month-one-1">Eligible expenses for the claim period</legend>
-                                              <div class="row">
+                                                  <div class="col-md-12 mrgn-tp-md">
+                                                    <p>If your expense payment periods don't align with the monthly or yearly options, choose the CERS period (28 days) option. </p>
+                                                    <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
 
-                                                <div class="col-md-12 mrgn-tp-md">
-                                                  <p>If your expense payment periods don't align with the monthly or yearly options, choose the CERS period (28 days) option. </p>
-                                                  <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+                                                    <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                      <div class="input-group">
+                                                        <label for="date-chooser-tax-1" class="wb-inv">The period for which the tax payment was made</label>
+                                                        <select class="form-control input-lg" id="date-chooser-tax-1">
+                                                          <option data-calc-method="none">Select an expense period</option>
+                                                          <option data-calc-method="period">CERS period (28 days)</option>
+                                                          <option data-calc-method="month">Per month</option>
+                                                          <option data-calc-method="year">Yearly</option>
+                                                        </select>
+                                                        <span class="input-group-addon input-sm period-not-4-yearly-tax-1 not-monthly-tax-1">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency period-not-4-yearly-tax-1 not-monthly-tax-1" style="height:46px;" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
+                                                      </div>
+                                                      <div class="period-4-yearly-tax-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="year-2020-tax-own-1">Property taxes for 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="year-2020-tax-own-1" placeholder="0.00" data-updates="tax-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="period-4-yearly-tax-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="year-2021-tax-own-1">Property taxes for 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="year-2021-tax-own-1" placeholder="0.00" data-updates="tax-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-tax-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="month-one-tax-own-1">Property taxes for <span class="claim-month-one">month 1</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-one-tax-own-1" placeholder="0.00" data-updates="tax-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-tax-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="month-two-tax-own-1">Property taxes for <span class="claim-month-two">month 2</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-two-tax-own-1" placeholder="0.00" data-updates="tax-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="period-not-4-yearly-tax-1 not-monthly-tax-1">
+                                                        <p id="tax-date-error-1" class="text-info text-right small">Select an expense period first</p>
+                                                        <p id="tax-date-1" class="hidden text-muted text-right small"><span class="date-tax-from-1">from</span> <span class="date-tax-dates-1"><span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
+                                                      </div>
+                                                    </fieldset>
+                                                  </div>
 
-                                                  <label for="tax-own-1">Property taxes<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group">
-                                                      <label for="date-chooser-tax-1" class="wb-inv">The period for which the tax payment was made</label>
-                                                      <select class="form-control input-lg" id="date-chooser-tax-1">
-                                                        <option data-calc-method="none">Select an expense period</option>
-                                                        <option data-calc-method="period">CERS period (28 days)</option>
-                                                        <option data-calc-method="month">Per month</option>
-                                                        <option data-calc-method="year">Year 2020</option>
-                                                      </select>
-                                                      <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="tax-own-1" placeholder="0.00" data-updates="tax-amt-1" aria-describedby="tax-date-1">
-                                                    </div>
-                                                    <p id="tax-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="tax-date-1" class="hidden text-muted text-right small"><span class="date-tax-from-1">from</span> <span class="date-tax-dates-1"><span class="date-tax-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-tax-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
-                                                  </fieldset>
+                                                  <div class="col-md-12">
+                                                    <label for="insurance-own-1">Property insurance<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                      <div class="input-group">
+                                                        <label for="date-chooser-insurance-1" class="wb-inv">The period for which the insurance payment was made</label>
+                                                        <select class="form-control input-lg" id="date-chooser-insurance-1">
+                                                          <option data-calc-method="none">Select an expense period</option>
+                                                          <option data-calc-method="period">CERS period (28 days)</option>
+                                                          <option data-calc-method="month">Per month</option>
+                                                          <option data-calc-method="year">Yearly</option>
+                                                        </select>
+                                                        <span class="input-group-addon input-sm period-not-4-yearly-insurance-1 not-monthly-insurance-1">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency period-not-4-yearly-insurance-1 not-monthly-insurance-1" style="height:46px;" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
+                                                      </div>
+                                                      <div class="period-4-yearly-insurance-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="year-2020-insurance-own-1">Property insurance for 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="year-2020-insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="period-4-yearly-insurance-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="year-2021-insurance-own-1">Property insurance for 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="year-2021-insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-insurance-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="month-one-insurance-own-1">Property insurance for <span class="claim-month-one">month 1</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-one-insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-insurance-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="month-two-insurance-own-1">Property insurance for <span class="claim-month-two">month 2</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-two-insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="period-not-4-yearly-insurance-1 not-monthly-insurance-1">
+                                                        <p id="insurance-date-error-1" class="text-info text-right small">Select an expense period first</p>
+                                                        <p id="insurance-date-1" class="hidden text-muted text-right small"><span class="date-insurance-from-1">from</span> <span class="date-insurance-dates-1"><span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
+                                                      </div>
+                                                    </fieldset>
+                                                  </div>
+
+                                                  <div class="col-md-12 mrgn-tp-md">
+                                                    <label for="interest-own-1">Interest on commercial mortgages<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                      <div class="input-group">
+                                                        <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
+                                                        <select class="form-control input-lg" id="date-chooser-interest-1">
+                                                          <option data-calc-method="none">Select an expense period</option>
+                                                          <option data-calc-method="period">CERS period (28 days)</option>
+                                                          <option data-calc-method="month">Per month</option>
+                                                        </select>
+                                                        <span class="input-group-addon input-sm not-monthly-interest-1">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency not-monthly-interest-1" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
+                                                      </div>
+                                                      <div class="monthly-interest-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="month-one-interest-own-1">Interest for <span class="claim-month-one">month 1</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-one-interest-own-1" placeholder="0.00" data-updates="interest-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-interest-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="month-two-interest-own-1">Interest for <span class="claim-month-two">month 2</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-two-interest-own-1" placeholder="0.00" data-updates="interest-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="not-monthly-interest-1">
+                                                        <p id="interest-date-error-1" class="text-info text-right small">Select an expense period first</p>
+                                                        <p id="interest-date-1" class="hidden text-muted text-right small"><span class="date-interest-from-1">from</span> <span class="date-interest-dates-1"><span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
+                                                      </div>
+                                                    </fieldset>
+                                                  </div>
+
+
+                                                  <div class="col-md-12 mrgn-tp-lg">
+                                                    <label for="lease-own-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                    <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp form-group">
+                                                      <div class="input-group">
+                                                        <label for="date-chooser-lease-1" class="wb-inv">The period for which the lease payment was made</label>
+                                                        <select class="form-control input-lg" id="date-chooser-lease-1">
+                                                          <option data-calc-method="none">Select an expense period</option>
+                                                          <option data-calc-method="period">CERS period (28 days)</option>
+                                                          <option data-calc-method="month">Per month</option>
+                                                        </select>
+                                                        <span class="input-group-addon input-sm not-monthly-lease-1">$</span>
+                                                        <input type="number" class="form-control text-right rent-expense-1 currency not-monthly-lease-1" style="height:46px;" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
+                                                      </div>
+                                                      <div class="monthly-lease-1 col-md-6 hidden mrgn-bttm-md">
+                                                        <label for="month-one-lease-own-1">Rental income for <span class="claim-month-one">month 1</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-one-lease-own-1" placeholder="0.00" data-updates="lease-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="monthly-lease-1 col-md-6 hidden mrgn-bttm-lg">
+                                                        <label for="month-two-lease-own-1">Rental income for <span class="claim-month-two">month 2</span><span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                                        <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                          <input type="number" class="form-control text-right rent-expense-1 currency" id="month-two-lease-own-1" placeholder="0.00" data-updates="lease-amt-1">
+                                                        </div>
+                                                      </div>
+                                                      <div class="not-monthly-lease-1">
+                                                        <p id="lease-date-error-1" class="text-info text-right small not-monthly-lease-1">Select an expense period first</p>
+                                                        <p id="lease-date-1" class="hidden text-muted text-right small not-monthly-lease-1"><span class="date-lease-from-1">from</span> <span class="date-lease-dates-1"><span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
+                                                      </div>
+                                                    </fieldset>
+                                                  </div>
                                                 </div>
-
-                                                <div class="col-md-12">
-                                                  <label for="insurance-own-1">Property insurance<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group">
-                                                      <label for="date-chooser-insurance-1" class="wb-inv">The period for which the insurance payment was made</label>
-                                                      <select class="form-control input-lg" id="date-chooser-insurance-1">
-                                                        <option data-calc-method="none">Select an expense period</option>
-                                                        <option data-calc-method="period">CERS period (28 days)</option>
-                                                        <option data-calc-method="month">Per month</option>
-                                                        <option data-calc-method="year">Year 2020</option>
-                                                      </select>
-                                                      <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="insurance-own-1" placeholder="0.00" data-updates="insurance-amt-1" aria-describedby="insurance-date-1">
-                                                    </div>
-                                                    <p id="insurance-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="insurance-date-1" class="hidden text-muted text-right small"><span class="date-insurance-from-1">from</span> <span class="date-insurance-start-1"><span class="date-insurance-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-insurance-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
-                                                  </fieldset>
-                                                </div>
-
-                                                <div class="col-md-12 mrgn-tp-md">
-                                                  <label for="interest-own-1">Interest on commercial mortgages<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                                    <div class="input-group">
-                                                      <label for="date-chooser-interest-1" class="wb-inv">The period for which the interest payment was made</label>
-                                                      <select required class="form-control input-lg" id="date-chooser-interest-1">
-                                                        <option data-calc-method="none">Select an expense period</option>
-                                                        <option data-calc-method="period">CERS period (28 days)</option>
-                                                        <option data-calc-method="month">Per month</option>
-                                                      </select>
-                                                      <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="interest-own-1" placeholder="0.00" data-updates="interest-amt-1" aria-describedby="interest-date-1">
-                                                    </div>
-                                                    <p id="interest-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="interest-date-1" class="hidden text-muted text-right small"><span class="date-interest-from-1">from</span> <span class="date-interest-start-1"><span class="date-interest-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-interest-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
-                                                  </fieldset>
-                                                </div>
-
-
-                                                <div class="col-md-12 mrgn-tp-lg">
-                                                  <label for="lease-own-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp form-group">
-                                                    <div class="input-group">
-                                                      <label for="date-chooser-lease-1" class="wb-inv">The period for which the lease payment was made</label>
-                                                      <select class="form-control input-lg" id="date-chooser-lease-1">
-                                                        <option data-calc-method="none">Select an expense period</option>
-                                                        <option data-calc-method="period">CERS period (28 days)</option>
-                                                        <option data-calc-method="month">Per month</option>
-                                                      </select>
-                                                      <span class="input-group-addon input-sm">$</span>
-                                                      <input type="number" class="form-control text-right rent-expense-1 currency" style="height:46px;" id="lease-own-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-date-1">
-                                                    </div>
-                                                    <p id="lease-date-error-1" class="text-info text-right small">Select an expense period first</p>
-                                                    <p id="lease-date-1" class="hidden text-muted text-right small"><span class="date-lease-from-1">from</span> <span class="date-insurance-start-1"><span class="date-lease-start-1"><span class="date-cers-period-start">[Start]</span></span> to <span class="date-lease-end-1"><span class="date-cers-period-end">[End]</span></span></span></p>
-                                                  </fieldset>
-                                                </div>
-                                              </div>
+                                              </fieldset>
                                             </div>
                                           </fieldset>
                                         </div>
@@ -1133,8 +1264,8 @@
                                     following table as spreadsheet file (CSV)</button>
                                  </p>
                                  <div class="table-responsive">
-                                    <table class="table table-bordered table-condensed small" id="dataset-filter"
-                                       summary="Claim amount calculations per location for claim period">
+                                    <table class="table table-bordered table-condensed small" id="dataset-filter">
+                                      <caption class="wb-inv">Claim amount calculations per location for claim period</caption>
                                        <thead>
                                           <tr>
                                             <th>Business location(s)</th>
@@ -1376,10 +1507,9 @@
 
          <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
 
-         </section>
          <div id="def-preFooter"></div>
          <!-- Write closure tloclate -->
-         <script type="text/javascript">
+         <script >
             var defPreFooter = document.getElementById("def-preFooter");
             defPreFooter.outerHTML = wet.builder.preFooter({
               dateModified: "2020-08-02",
@@ -1391,7 +1521,7 @@
       </main>
       <div id="def-footer"></div>
       <!-- Write closure tloclate -->
-      <script type="text/javascript">
+      <script >
          var defFooter = document.getElementById("def-footer");
          defFooter.outerHTML = wet.builder.footer({
            showFooter: true,
@@ -1399,7 +1529,7 @@
          });
       </script>
       <!-- Write closure tloclate -->
-      <script type="text/javascript">
+      <script >
          document.write(wet.builder.refFooter({
          }));
       </script>
@@ -1445,7 +1575,19 @@
               "date-insurance-dates-",
               "date-interest-dates-",
               "date-lease-dates-",
-              "lockdown-details-"
+              "lockdown-details-",
+              "period-not-4-yearly-tax-",
+              "period-4-yearly-tax-",
+              "period-not-4-yearly-insurance-",
+              "period-4-yearly-insurance-",
+              "not-monthly-tax-",
+              "monthly-tax-",
+              "not-monthly-insurance-",
+              "monthly-insurance-",
+              "not-monthly-interest-",
+              "monthly-interest-",
+              "not-monthly-lease-",
+              "monthly-lease-"
             ];
             this.idUpdates = [ //any ids or aria-describedby that get updated
               "lock-down-ineligible-",
@@ -1555,16 +1697,16 @@
             this.updateClass(frag);
             this.updateIds(frag);
             if (!isChromium) {
-				if (document.documentElement.lang == "fr") {
-					var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
-				    var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-				} else {
-					var SummaryOne = "Learn about lockdown support eligibility criteria";
-				    var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-				}
-				this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
-				this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
-				this.clearInitializedDatePickers(frag);
+              if (document.documentElement.lang == "fr") {
+                var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
+                  var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              } else {
+                var SummaryOne = "Learn about lockdown support eligibility criteria";
+                  var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              }
+              this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
+              this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
+              this.clearInitializedDatePickers(frag);
             }
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
@@ -1803,6 +1945,18 @@
             $(frag).find('#interest-date-error-' + numLocs).removeClass("hidden");
             $(frag).find('#lease-date-' + numLocs).addClass("hidden");
             $(frag).find('#lease-date-error-' + numLocs).removeClass("hidden");
+            $(frag).find('.period-4-yearly-tax-' + numLocs).addClass("hidden");
+            $(frag).find('.period-not-4-yearly-tax-' + numLocs).removeClass("hidden");
+            $(frag).find('.not-monthly-tax-' + numLocs).removeClass("hidden");
+            $(frag).find('.monthly-tax-' + numLocs).addClass("hidden");
+            $(frag).find('.period-4-yearly-insurance-' + numLocs).addClass("hidden");
+            $(frag).find('.period-not-4-yearly-insurance-' + numLocs).removeClass("hidden");
+            $(frag).find('.not-monthly-insurance-' + numLocs).removeClass("hidden");
+            $(frag).find('.monthly-insurance-' + numLocs).addClass("hidden");
+            $(frag).find('.not-monthly-interest-' + numLocs).removeClass("hidden");
+            $(frag).find('.monthly-interest-' + numLocs).addClass("hidden");
+            $(frag).find('.not-monthly-lease-' + numLocs).removeClass("hidden");
+            $(frag).find('.monthly-lease-' + numLocs).addClass("hidden");
           }
 
           return LocationFormGenerator;
@@ -1960,7 +2114,7 @@
               $('.claim-month-two').text(claimMonths[1]);
               $('.prior-reference-month').text(priorReferenceMonth[1]); //this should give the month/year of the prior reference period
 
-              //date in format 2020-xx-xx
+              //date in format 202x-xx-xx
               //last day of month
               var lastDayMonthOne = new Date(startDateParts[0], startDateParts[1], 0).getDate();
               var lastDayMonthTwo = new Date(endDateParts[0], endDateParts[1], 0).getDate();
@@ -1976,12 +2130,60 @@
             $("#select-a-claim-period-reminder").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
 
+
             switch (claimPeriod) {
+              case 6:
+                $("#2021-02-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-01-yes").closest("div.form-group").removeClass("hidden");
+                $("#2020-12-yes").closest("div.form-group").addClass("hidden");
+                $("#2020-11-yes").closest("div.form-group").addClass("hidden");
+                $("#2020-10-yes").closest("div.form-group").addClass("hidden");
+                $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-02-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-02-no").closest("div.form-group").removeClass("hidden");
+                $("#2021-01-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-01-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-12-no").closest("div.form-group").addClass("hidden");
+                $("#2019-12-no").closest("div.form-group").addClass("hidden");
+                $("#2020-11-no").closest("div.form-group").addClass("hidden");
+                $("#2019-11-no").closest("div.form-group").addClass("hidden");
+                $("#2020-10-no").closest("div.form-group").addClass("hidden");
+                $("#2019-10-no").closest("div.form-group").addClass("hidden");
+                $("#2020-09-no").closest("div.form-group").addClass("hidden");
+                $("#2019-09-no").closest("div.form-group").addClass("hidden");
+                break;
+              case 5:
+                $("#2021-02-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-01-yes").closest("div.form-group").removeClass("hidden");
+                $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
+                $("#2020-11-yes").closest("div.form-group").addClass("hidden");
+                $("#2020-10-yes").closest("div.form-group").addClass("hidden");
+                $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-02-no").closest("div.form-group").addClass("hidden");
+                $("#2020-02-no").closest("div.form-group").addClass("hidden");
+                $("#2021-01-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-01-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-12-no").closest("div.form-group").removeClass("hidden");
+                $("#2019-12-no").closest("div.form-group").removeClass("hidden");
+                $("#2020-11-no").closest("div.form-group").addClass("hidden");
+                $("#2019-11-no").closest("div.form-group").addClass("hidden");
+                $("#2020-10-no").closest("div.form-group").addClass("hidden");
+                $("#2019-10-no").closest("div.form-group").addClass("hidden");
+                $("#2020-09-no").closest("div.form-group").addClass("hidden");
+                $("#2019-09-no").closest("div.form-group").addClass("hidden");
+                break;
+              case 4: 
               case 3:
+                $("#2021-02-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-01-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-10-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-02-no").closest("div.form-group").addClass("hidden");
+                $("#2020-02-no").closest("div.form-group").addClass("hidden");
+                $("#2021-01-no").closest("div.form-group").addClass("hidden");
+                $("#2020-01-no").closest("div.form-group").addClass("hidden");
                 $("#2020-12-no").closest("div.form-group").removeClass("hidden");
                 $("#2019-12-no").closest("div.form-group").removeClass("hidden");
                 $("#2020-11-no").closest("div.form-group").removeClass("hidden");
@@ -1992,10 +2194,16 @@
                 $("#2019-09-no").closest("div.form-group").addClass("hidden");
                 break;
               case 2:
+                $("#2021-02-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-01-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-12-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-02-no").closest("div.form-group").addClass("hidden");
+                $("#2020-02-no").closest("div.form-group").addClass("hidden");
+                $("#2021-01-no").closest("div.form-group").addClass("hidden");
+                $("#2020-01-no").closest("div.form-group").addClass("hidden");
                 $("#2020-12-no").closest("div.form-group").addClass("hidden");
                 $("#2019-12-no").closest("div.form-group").addClass("hidden");
                 $("#2020-11-no").closest("div.form-group").removeClass("hidden");
@@ -2006,10 +2214,16 @@
                 $("#2019-09-no").closest("div.form-group").addClass("hidden");
                 break;
               case 1:
+                $("#2021-02-yes").closest("div.form-group").addClass("hidden");
+                $("#2021-01-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-12-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-11-yes").closest("div.form-group").addClass("hidden");
                 $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-02-no").closest("div.form-group").addClass("hidden");
+                $("#2020-02-no").closest("div.form-group").addClass("hidden");
+                $("#2021-01-no").closest("div.form-group").addClass("hidden");
+                $("#2020-01-no").closest("div.form-group").addClass("hidden");
                 $("#2020-12-no").closest("div.form-group").addClass("hidden");
                 $("#2019-12-no").closest("div.form-group").addClass("hidden");
                 $("#2020-11-no").closest("div.form-group").addClass("hidden");
@@ -2022,9 +2236,9 @@
               default:
             }
             //recalculate the summary based on the values that are already there
-            if ($("#2020-" + claimMonth + "-no").is(":visible")) {
+            if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
               calculateRevenueDrop(false);
-            } else if ($("#2020-" + claimMonth + "-yes").is(":visible")) {
+            } else if ($("#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
               calculateRevenueDrop(true);
             } else {
               NoCERSRate();
@@ -2047,6 +2261,30 @@
             $(".lock-down-dates").each(function (i, element) {
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
+              //While we are getting all the locations in the form...
+              var periodOptions = [
+                $('#date-chooser-tax-' + locationNumber + ' option:selected').data("calc-method"),
+                $('#date-chooser-insurance-' + locationNumber + ' option:selected').data("calc-method"),
+                $('#date-chooser-interest-' + locationNumber + ' option:selected').data("calc-method"),
+                $('#date-chooser-lease-' + locationNumber + ' option:selected').data("calc-method")
+              ];
+              var rentExpenses = ["tax","insurance","interest","lease"];
+              $(periodOptions).each(function (i, element) {
+                if (claimPeriod == 4 && periodOptions[i] == "year") {
+                  $(".monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                  $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
+                  $(".period-not-4-yearly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                } else if (periodOptions[i] == "month") {
+                  $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                  $(".monthly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
+                  $(".not-monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                } else {
+                  $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                  $(".period-not-4-yearly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
+                  $(".monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
+                  $(".not-monthly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
+                }
+              });
               topUpRateCalculation(locationNumber);
               recalculateLocationAmounts(locationNumber);
               //update the date ranges for input fields in owned location panels
@@ -2093,9 +2331,31 @@
             }
           });
 
+          $document.on("change", "[id^=date-chooser-]", function (event) {
+            var target = event.target;
+            var parts = target.id.split("-");
+            var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
+            var rentType = parts[parts.length - 2];
+            var locationNumber = parts[parts.length - 1];
+            var calcOption = $('#date-chooser-' + rentType + '-' + locationNumber + ' option:selected').data("calc-method");
+            if (claimPeriod == 4 && calcOption == "year") { //requires 2 yearly inputs for owned locations
+              $(".monthly-" + rentType + "-" + locationNumber).addClass("hidden");
+              $(".period-4-yearly-" + rentType + "-" + locationNumber).removeClass("hidden");
+              $(".period-not-4-yearly-" + rentType + "-" + locationNumber).addClass("hidden");
+            } else if (calcOption == "month") {
+              $(".period-4-yearly-" + rentType + "-" + locationNumber).addClass("hidden");
+              $(".not-monthly-" + rentType + "-" + locationNumber).addClass("hidden");
+              $(".monthly-" + rentType + "-" + locationNumber).removeClass("hidden");
+            } else { //hide them
+              $(".period-4-yearly-" + rentType + "-" + locationNumber).addClass("hidden");
+              $(".period-not-4-yearly-" + rentType + "-" + locationNumber).removeClass("hidden");
+              $(".not-monthly-" + rentType + "-" + locationNumber).removeClass("hidden");
+              $(".monthly-" + rentType + "-" + locationNumber).addClass("hidden");
+            }
+          });
 
           /**
-           * update the location wage summary
+           * update the location rent summary
            */
           $document.on("blur", "*[data-updates]", function (event) {
             var target = event.target;
@@ -2148,7 +2408,7 @@
               for (let i = 0; i < unformattedValueOne.length; ++i) {
                 calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
               }
-            } else if ($('#tax-own-' + locationNumber).is(":visible")) { //value for owned locations
+            } else { //value for owned locations
               //owned property
               var unformattedValueOne = [
                 "0",
@@ -2166,8 +2426,8 @@
                 $('#date-chooser-lease-' + locationNumber + ' option:selected').data("calc-method")
               ]
               for (let i = 0; i < unformattedValueOne.length; ++i) {
-                if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
-                    calculatedExpense.push(0);
+                if (i == 0) { //rent doesn't matter for owned locations
+                  calculatedExpense.push(0);
                 } else if (periodOption[i] == 'none') {
                   //display error message
                   switch (i) {
@@ -2178,7 +2438,7 @@
                     case 2:
                       $('#insurance-date-error-' + locationNumber).removeClass("hidden");
                       $('#insurance-date-' + locationNumber).addClass("hidden");
-                      break;
+                      break;  
                     case 3:
                       $('#interest-date-error-' + locationNumber).removeClass("hidden");
                       $('#interest-date-' + locationNumber).addClass("hidden");
@@ -2188,16 +2448,47 @@
                       $('#lease-date-' + locationNumber).addClass("hidden");
                       break;
                   }
+                  calculatedExpense.push(0);
                 } else {
-                  if (unformattedValueOne[i] == "0") {
-                    calculatedExpense.push(0);
-                  } else if (periodOption[i] == 'year') {
-                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 366 * 28);
-                  } else if (periodOption[i] == 'period' ) {
-                    calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
+                  if (periodOption[i] == 'year') {
+                    if (claimPeriod == 4) {
+                      if (i == 1) { //tax
+                        var pro2020 = zeroIfEmpty($('#year-2020-tax-own-' + locationNumber).val().replace("$", ""));
+                        var pro2021 = zeroIfEmpty($('#year-2021-tax-own-' + locationNumber).val().replace("$", ""));
+                      } else if (i == 2) { //insurance
+                        var pro2020 = zeroIfEmpty($('#year-2020-insurance-own-' + locationNumber).val().replace("$", "")); //how do I get the days?
+                        var pro2021 = zeroIfEmpty($('#year-2021-insurance-own-' + locationNumber).val().replace("$", ""));
+                      }
+                      if (pro2020 == 0 && pro2021 == 0) {
+                        calculatedExpense.push(0);
+                      } else {
+                        calculatedExpense.push((pro2020 / 366 * 12) + (pro2021 / 365 * 16));
+                      }
+                    } else if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
+                      calculatedExpense.push(0);
+                    } else if (claimPeriod < 4) {
+                      calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 366 * 28);
+                    } else {
+                      calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 365 * 28);
+                    }
                   } else if (periodOption[i] == 'month' ) {
-                    calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[0] / monthMaxDays[0]) +
-                                  (zeroIfEmpty(unformattedValueOne[i]) * monthDays[1] / monthMaxDays[1]));
+                    var rentExpenseTypes = ["0", "tax", "insurance", "interest", "lease"];
+                    var proMonth1 = zeroIfEmpty($('#month-one-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
+                    var proMonth2 = zeroIfEmpty($('#month-two-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
+                    if (proMonth1 == 0 && proMonth2 == 0) {
+                      calculatedExpense.push(0);
+                    } else {
+                      calculatedExpense.push((proMonth1 * monthDays[0] / monthMaxDays[0]) +
+                                  (proMonth2 * monthDays[1] / monthMaxDays[1]));
+                    }
+                  } else if (periodOption[i] == 'period' ) {
+                    if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
+                      calculatedExpense.push(0);
+                    } else {
+                      calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
+                    }
+                  } else {
+                    calculatedExpense.push(0);
                   }
                   switch (i) {
                     case 1:
@@ -2219,8 +2510,8 @@
                   }
                 }
               }
-            } else { //if they haven't specified their calculation methods or something's buggy, totals should be 0
-              var calculatedExpense = [0, 0, 0, 0, 0];
+            // } else { //if they haven't specified their calculation methods or something's buggy, totals should be 0
+            //   var calculatedExpense = [0, 0, 0, 0, 0];
             }
             var summaryLines = ["rent-amt-" + locationNumber, "tax-amt-" + locationNumber, "insurance-amt-" + locationNumber, "interest-amt-" + locationNumber, "lease-amt-" + locationNumber];
             var formattedVal = 0;
@@ -2255,6 +2546,7 @@
             $(updatedByElements).each(function (i, element) {
               $(element).text(formattedVal);
             });
+            calculateTotals();
           }
 
           //Update location names on street address input
@@ -2304,14 +2596,8 @@
 
             } else if (target.name == "lock-down-" + locationNumber) {
               if (target.id == 'lock-down-yes-' + locationNumber) {
-                if (cersRate > 0) {
-                  $('#lock-down-period-'+locationNumber).removeClass("hidden");
-                }
-                topUpRateCalculation(locationNumber, 1);
+                topUpRateCalculation(locationNumber);
               } else if (target.id == 'lock-down-no-' + locationNumber) {
-                $('#lock-down-period-'+locationNumber).addClass("hidden");
-                $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
-                $('#lock-down-eligible-'+locationNumber).addClass("hidden");
                 topUpRateCalculation(locationNumber);
               }
             } else if (target.name == "owner-location-" + locationNumber) {
@@ -2335,7 +2621,7 @@
                 $('#alt-bl-yes').addClass("hidden");
                 calculateRevenueDrop(false);
               }
-              topUpRateCalculation(locationNumber);
+              recalculateAllLocations();
             }
             recalculateLocationAmounts(locationNumber);
           });
@@ -2363,6 +2649,7 @@
           function updateDateRangeInputs(locationNumber, expenseType) {
             var calcMethod = $('#date-chooser-' + expenseType + '-' + locationNumber + ' option:selected').data("calc-method");
             var rangeISO = $('#claim-period').find('option:selected').val()
+            var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             if (calcMethod == "none" || rangeISO == "") {
               $('#'+ expenseType +'-date-error-' + locationNumber).removeClass("hidden");
               $('#'+ expenseType +'-date-' + locationNumber).addClass("hidden");
@@ -2378,7 +2665,6 @@
                 $('.date-' + expenseType + '-from-' + locationNumber).text("payment for one calendar month");
               }
               var endDateParts = endDateISO.split("-");
-              var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
               var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
               var startDate = claimMonths[0];
               var endDate = claimMonths[1];
@@ -2395,8 +2681,13 @@
                 var startDate = startDateISO;
                 var endDate = endDateISO;
               } else if (calcMethod == "year") {
-                var startDate = "2020-01-01";
-                var endDate = "2020-12-31";
+                if (claimPeriod < 4) {
+                  var startDate = "2020-01-01";
+                  var endDate = "2020-12-31";
+                } else {
+                  var startDate = "2021-01-01";
+                  var endDate = "2021-12-31";
+                }
               }
             }
             $('.date-' + expenseType + '-start-' + locationNumber).text(startDate);
@@ -2470,12 +2761,16 @@
           });
 
           var topUpRate = 0;
-          function topUpRateCalculation(locationNumber, radioFlag) {
-            if (radioFlag === undefined) {
-              radioFlag = 0;
-            }
+          function topUpRateCalculation(locationNumber) {
             var datediff = getDateDiffLockdown(locationNumber);
-            if (datediff >= 7 && ($('#lockdown-start-'+locationNumber).is(":visible") || radioFlag == 1)) { //at least 7 days in the
+            if ($('#lock-down-yes-' + locationNumber + ':checked').length == 1 && cersRate > 0) { //yes is selected
+              $('#lock-down-period-'+locationNumber).removeClass("hidden");
+            } else {
+              $('#lock-down-period-'+locationNumber).addClass("hidden");
+              $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
+              $('#lock-down-eligible-'+locationNumber).addClass("hidden");
+            }
+            if (datediff >= 7 && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
@@ -2487,7 +2782,7 @@
                 $('.top-up-rate-'+locationNumber).text(toPercent("0"));
                 datediff = 0;
               }
-            } else {
+            } else { //no is selected
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text(toPercent("0"));
@@ -2759,7 +3054,7 @@
               rangeClaimNo = rangeClaim.substring(7, 8),
               startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
               endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
-              $('#lockdown-start-'+numLocationPanels).attr({
+            $('#lockdown-start-'+numLocationPanels).attr({
               "min": startDateISO,
               "max": endDateISO,
               "value": startDateISO
@@ -2771,7 +3066,6 @@
               "value": endDateISO
             });
             $('#lockdown-end-'+numLocationPanels).val(endDateISO);
-
           }
 
           /**
@@ -2784,9 +3078,9 @@
           $document.on("change", "#rate-reduction", function (event) {
             var rangeISO = $('#claim-period').find('option:selected').val();
             var claimMonth = getClaimMonth(rangeISO);
-            if ($("#2020-" + claimMonth + "-no").is(":visible")) {
+            if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
               calculateRevenueDrop(false);
-            } else if ($("#2020-" + claimMonth + "-yes").is(":visible")) {
+            } else if ($("#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
               calculateRevenueDrop(true);
             } else { //shouldn't actually happen... but display 0 if it does as failsafe
               NoCERSRate();
@@ -2802,7 +3096,7 @@
             var claimMonth = getClaimMonth($("#claim-period").val());
             //Get claim months function??
             var monthsArray = getClaimMonths(claimMonth, claimPeriod);
-            var months2019Array = getClaimMonths2019(claimMonth);
+            var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
             if (bAlt) { //alternate baseline method
               var janRev = zeroIfEmpty($("#2020-01-yes").val());
               var febRev = zeroIfEmpty($("#2020-02-yes").val());
@@ -2932,16 +3226,19 @@
            */
           function getClaimMonths(claimMonth, claimPeriod) {
             var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
-
-            //Adding a 0 in front of a month in case it was single digit
+            
             for (var i = 0; i < monthsArray.length; i++) {
+              if (monthsArray[i] <= 0) { //non-months
+                monthsArray[i] += 12;
+              }
+              //Adding a 0 in front of a month in case it was single digit
               if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
                 monthsArray[i] = "0" + monthsArray[i];
               }
               //get the year for the month based on period
-              if (claimPeriod < 11) {
+              if (claimPeriod < 4) {
                 monthsArray[i] = "2020-" + monthsArray[i];
-              } else if (claimPeriod < 15) {
+              } else if (claimPeriod < 8) {
                 if (parseInt(monthsArray[i]) > 5) {
                   monthsArray[i] = "2020-" + monthsArray[i];
                 } else {
@@ -2957,15 +3254,29 @@
            * getClaimMonths2019()
            * returns an array of the 4 months adjusted for year 2019
            */
-           function getClaimMonths2019(claimMonth) {
+           function getClaimMonths2019(claimMonth, claimPeriod) {
             var monthsArray = [claimMonth, claimMonth - 1, claimMonth - 2, claimMonth - 3];
 
             //Adding a 0 in front of a month in case it was single digit
             for (var i = 0; i < monthsArray.length; i++) {
+              if (monthsArray[i] <= 0) { //negative numbers
+                monthsArray[i]+= 12;
+              }
               if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
                 monthsArray[i] = "0" + monthsArray[i];
               }
-              monthsArray[i] = "2019-" + monthsArray[i];
+              //match the correct year of the previous year
+              if (claimPeriod < 4) {
+                monthsArray[i] = "2019-" + monthsArray[i];
+              } else if (claimPeriod < 8) {
+                if (parseInt(monthsArray[i]) > 5) {
+                  monthsArray[i] = "2019-" + monthsArray[i];
+                } else {
+                  monthsArray[i] = "2020-" + monthsArray[i];
+                }
+              } else {
+                monthsArray[i] = "2020-" + monthsArray[i];
+              }
             }
             return monthsArray;
           }
@@ -3057,6 +3368,10 @@
             var date1Month = date1.getUTCMonth();
             var date2Counter = 0;
             var date2Month = date2.getUTCMonth();
+            if (type == 0 && dateRange == "2020-12-20--2021-01-16") { //period 11/4 was arbitrarily defined differently from this rule...
+              var claimMonth = date1Month + 1;
+              return pad(claimMonth, 2);
+            }
             if (date1Month == date2Month && type == 0) {
               return date1Month + 1;
             }
@@ -3077,12 +3392,21 @@
               return maxDays;
             }
             if (parseInt(date1Counter) < parseInt(date2Counter)) {
-              return date2Month + 1;
+              var claimMonth = date2Month + 1;
+              return pad(claimMonth, 2);
             } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
-              return date1Month + 1;
+              var claimMonth = date1Month + 1;
+              return pad(claimMonth, 2);
             } else {
               return null;
             }
+          }
+
+          //https://stackoverflow.com/questions/2998784/how-to-output-numbers-with-leading-zeros-in-javascript
+          function pad(num, size) {
+              num = num.toString();
+              while (num.length < size) num = "0" + num;
+              return num;
           }
 
           /**
