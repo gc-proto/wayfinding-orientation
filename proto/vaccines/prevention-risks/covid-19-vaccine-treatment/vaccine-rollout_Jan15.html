@@ -170,45 +170,45 @@ Vaccines and treatments for COVID-19: Vaccine rollout</h1>
 <h2 id="local">Local vaccination rollout plans</h2>
 <p>Provinces and territories have developed detailed vaccination rollout plans for their residents.  Use the province or territory website for more information.</p>
 
+<form>
 
+	<legend>Select your final destination:</legend>
 
+	<select class="form-control" name="list" id="list">
+	<option selected="selected" value="https://www.albertahealthservices.ca/topics/Page17295.aspx">Alberta</option>
+	<option value="https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/covid-19-provincial-support/vaccines">British Columbia</option>
+	<option value="https://www.gov.mb.ca/covid19/vaccine/index.html">Manitoba</option>
+	<option value="https://www2.gnb.ca/content/gnb/en/corporate/promo/covid-19/vaccine.html">New Brunswick</option>
+	<option value="https://www.gov.nl.ca/covid-19/">Newfoundland and Labrador</option>
+	<option value="https://www.gov.nt.ca/covid-19/">Northwest Territories</option>
+	<option value="https://novascotia.ca/coronavirus/">Nova	Scotia</option>
+	<option value="https://www.gov.nu.ca/health/information/covid-19-novel-coronavirus">Nunavut</option>
+	<option value="https://covid-19.ontario.ca/covid-19-vaccines-ontario">Ontario</option>
+	<option value="https://www.princeedwardisland.ca/en/topic/covid-19-vaccines">Prince Edward Island</option>
+	<option value="https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progress-of-the-covid-19-vaccination/">Quebec</option>
+	<option value="https://www.saskatchewan.ca/government/health-care-administration-and-provider-resources/treatment-procedures-and-guidelines/emerging-public-health-issues/2019-novel-coronavirus/covid-19-vaccine">Saskatchewan</option>
+	<option value="https://yukon.ca/en/health-and-wellness/covid-19-information/your-health-covid-19/covid-19-vaccine-strategy">Yukon Territory</option>
+	</select>
 
+	<style>
+		select#list {
+			width: 50% !important;
+		}
+	</style>
 
+	<button class="btn btn-call-to-action" onclick="goToNewPage();return false;">Go to external website</button>
 
-						<style>
+	<script>
+		function goToNewPage() {
+			var url = document.getElementById('list').value;
+			if (url != 'none') {
+				window.location = url;
+			}
+		}
+	</script>
 
-						main form :not(.btn-call-to-action).btn, main form :not(.btn-primary).btn {
-							line-height: 1em !important;
-						}
+</form>
 
-						</style>
-
-												<div class="clearfix"></div>
-												<section class="mrgn-bttm-xl mrgn-tp-lg">
-												  <div class="row-no-gutters" id="pt-selector">
-												    <div class="col-md-10">
-												      <div class="wb-fieldflow" data-wb-fieldflow="{ &quot;noreqlabel&quot;: true }">
-												        <p>Select your final destination:</p>
-												        <ul>
-																	<li><a href="https://www.albertahealthservices.ca/topics/Page17295.aspx">Alberta</a></li>
-																	<li><a href="https://www2.gov.bc.ca/gov/content/safety/emergency-preparedness-response-recovery/covid-19-provincial-support/vaccines">British Columbia</a></li>
-																	<li><a href="https://www.gov.mb.ca/covid19/vaccine/index.html">Manitoba</a></li>
-																	<li><a href="https://www2.gnb.ca/content/gnb/en/corporate/promo/covid-19/vaccine.html">New Brunswick</a></li>
-																	<li><a href="https://www.gov.nl.ca/covid-19/">Newfoundland and Labrador</a></li>
-																	<li><a href="https://www.gov.nt.ca/covid-19/">Northwest Territories</a></li>
-																	<li><a href="https://novascotia.ca/coronavirus/">Nova	Scotia</a></li>
-																	<li><a href="https://www.gov.nu.ca/health/information/covid-19-novel-coronavirus">Nunavut</a></li>
-																	<li><a href="https://covid-19.ontario.ca/covid-19-vaccines-ontario">Ontario</a></li>
-																	<li><a href="https://www.princeedwardisland.ca/en/topic/covid-19-vaccines">Prince Edward Island</a></li>
-																	<li><a href="https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/progress-of-the-covid-19-vaccination/">Quebec</a></li>
-																	<li><a href="https://www.saskatchewan.ca/government/health-care-administration-and-provider-resources/treatment-procedures-and-guidelines/emerging-public-health-issues/2019-novel-coronavirus/covid-19-vaccine">Saskatchewan</a></li>
-																	<li><a href="https://yukon.ca/en/health-and-wellness/covid-19-information/your-health-covid-19/covid-19-vaccine-strategy">
-																			Yukon Territory</a></li>
-												        </ul>
-												      </div>
-												    </div>
-												  </div>
-												</section>
 
 
 
