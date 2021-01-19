@@ -3613,9 +3613,6 @@
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
 
-        console.log(monthsArray);
-        console.log(months2019Array);
-
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -3673,6 +3670,10 @@
             priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
             currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           }
+          if (claimPeriod > 10) {
+            revReduction = parseFloat(revReduction).toFixed(4);
+            threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
+          }
           //get the base rate
           baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
           //get the top-up rate
@@ -3681,8 +3682,13 @@
           } else {
             topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           }
+          if (claimPeriod > 10) {
+            baseRate = parseFloat(baseRate).toFixed(4);
+            topUpRate = parseFloat(topUpRate).toFixed(4);
+          }
           //calculate the overall rate
-          cewsRate = (baseRate + topUpRate).toFixed(4);
+          cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
+          cewsRate = parseFloat(cewsRate).toFixed(4);
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           }
@@ -3794,6 +3800,10 @@
           );
           currentRevReduc = (baseRev - claimMonthValue) / baseRev;
           priorRevReduc = (baseRev - prevClaimValue) / baseRev;
+          if (claimPeriod > 10) {
+            revReduction = parseFloat(revReduction).toFixed(4);
+            threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
+          }
           //get the base rate
           baseRate = parseFloat(
             Math.max(getP5PlusBaseRate(revReduction), 0)
@@ -3804,8 +3814,13 @@
           } else {
             topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           }
+          if (claimPeriod > 10) {
+            baseRate = parseFloat(baseRate).toFixed(4);
+            topUpRate = parseFloat(topUpRate).toFixed(4);
+          }
           //calculate the overall rate
-          cewsRate = (baseRate + topUpRate).toFixed(4);
+          cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
+          cewsRate = parseFloat(cewsRate).toFixed(4);
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           }
