@@ -91,11 +91,79 @@
 					territories.</p>
 				<h2 class="h3">On this page</h2>
 				<ul>
-					<li><a href="#entering">Entering Canada from another country</a></li>
-					<li><a href="#between">Travelling between provinces</a></li>
-					<li><a href="#details">Check the provincial or territorial requirements</a></li>
+					<li><a href="#between">Travelling between provinces</a></li>					<li><a href="#entering">Entering Canada from another country</a></li>
+
 
 				</ul>
+				<h2 id="between">Travelling between provinces</h2>
+
+
+				<p><strong>Whether you drive or fly</strong>, if you travel between provinces without having been out of the
+					country, there are no federal travel requirements, but there may be provincial or
+					territorial rules and restrictions. </p>
+
+				<p>Go to the province or territory website of your destination for travel
+					restrictions and quarantine requirements when travelling between provinces within Canada.
+				</p>
+
+
+				<h3 id="details">Check provincial or territorial requirements</h2>
+				<div class="well col-md-12">
+					<p>Go to the <strong>province or territory website</strong> to understand their requirements for travellers.</p>
+
+					<form>
+						<div class="col-md-6 input-group">
+							<select class="form-control" name="list" id="list">
+								<option label="Select your final destination"></option>
+								<option value="https://www.alberta.ca/covid-19-travel-advice.aspx">
+									Alberta
+								</option>
+								<option
+									value="http://www.bccdc.ca/health-info/diseases-conditions/covid-19/prevention-risks/travel">
+									British Columbia</option>
+								<option value="https://manitoba.ca/covid19/restartmb/prs/orders/index.html#current">Manitoba
+								</option>
+								<option
+									value="https://www2.gnb.ca/content/gnb/en/corporate/promo/covid-19/travel.html">
+									New Brunswick</option>
+								<option value="https://www.gov.nl.ca/covid-19/individuals-and-households/travel-advice-2/">Newfoundland and Labrador
+								</option>
+								<option value="https://www.gov.nt.ca/covid-19/en/services/travel-moving-around">Northwest Territories</option>
+								<option value="https://novascotia.ca/coronavirus/alerts-notices/#travel">Nova Scotia</option>
+								<option
+									value="https://gov.nu.ca/health/information/travel-and-isolation">
+									Nunavut</option>
+								<option value="https://www.ontario.ca/page/covid-19-stop-spread#section-6">Ontario
+								</option>
+								<option value="https://www.princeedwardisland.ca/en/topic/travel-guidance">
+									Prince
+									Edward Island</option>
+								<option
+									value="https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/answers-questions-coronavirus-covid19/transportation-travel-covid-19/#c52419">
+									Quebec</option>
+								<option
+									value="https://www.saskatchewan.ca/government/health-care-administration-and-provider-resources/treatment-procedures-and-guidelines/emerging-public-health-issues/2019-novel-coronavirus/travel-information">
+									Saskatchewan</option>
+								<option
+									value="https://yukon.ca/en/borders-and-travel-covid-19">
+									Yukon Territory</option>
+							</select>
+							<span class="input-group-btn">
+								<button style="font-size:16px !important;" class="btn btn-primary"
+									onclick="goToNewPage();return false;">Go</button>
+							</span>
+						</div>
+
+						<script>
+							function goToNewPage() {
+								var url = document.getElementById('list').value;
+								if (url != 'none') {
+									window.location = url;
+								}
+							}
+						</script>
+				</div>
+				</form>
 
 
 				<h2 id="entering">Entering Canada from another country</h2>
@@ -124,77 +192,7 @@
 
 
 
-						<h2 id="between">Travelling between provinces</h2>
-
-
-						<p>Whether you drive or fly, if you travel between provinces without having been out of the
-							country, there are no federal travel requirements, but there may be provincial or
-							territorial rules and restrictions. </p>
-
-						<p>Go to the province or territory website of your destination for travel
-							restrictions and quarantine requirements when travelling between provinces within Canada.
-						</p>
-
-
-						<h2 id="details">Check the provincial or territorial requirements</h2>
-						<div class="well col-md-12">
-							<p>Go to the <strong>province or territory website</strong> to understand their requirements for travellers.</p>
-
-
-							<form>
-								<div class="col-md-6 input-group">
-									<select class="form-control" name="list" id="list">
-										<option label="Select your final destination"></option>
-										<option value="https://www.alberta.ca/covid-19-travel-advice.aspx">
-											Alberta
-										</option>
-										<option
-											value="http://www.bccdc.ca/health-info/diseases-conditions/covid-19/prevention-risks/travel">
-											British Columbia</option>
-										<option value="https://manitoba.ca/covid19/restartmb/prs/orders/index.html#current">Manitoba
-										</option>
-										<option
-											value="https://www2.gnb.ca/content/gnb/en/corporate/promo/covid-19/travel.html">
-											New Brunswick</option>
-										<option value="https://www.gov.nl.ca/covid-19/individuals-and-households/travel-advice-2/">Newfoundland and Labrador
-										</option>
-										<option value="https://www.gov.nt.ca/covid-19/en/services/travel-moving-around">Northwest Territories</option>
-										<option value="https://novascotia.ca/coronavirus/alerts-notices/#travel">Nova Scotia</option>
-										<option
-											value="https://gov.nu.ca/health/information/travel-and-isolation">
-											Nunavut</option>
-										<option value="https://www.ontario.ca/page/covid-19-stop-spread#section-6">Ontario
-										</option>
-										<option value="https://www.princeedwardisland.ca/en/topic/travel-guidance">
-											Prince
-											Edward Island</option>
-										<option
-											value="https://www.quebec.ca/en/health/health-issues/a-z/2019-coronavirus/answers-questions-coronavirus-covid19/transportation-travel-covid-19/#c52419">
-											Quebec</option>
-										<option
-											value="https://www.saskatchewan.ca/government/health-care-administration-and-provider-resources/treatment-procedures-and-guidelines/emerging-public-health-issues/2019-novel-coronavirus/travel-information">
-											Saskatchewan</option>
-										<option
-											value="https://yukon.ca/en/borders-and-travel-covid-19">
-											Yukon Territory</option>
-									</select>
-									<span class="input-group-btn">
-										<button style="font-size:16px !important;" class="btn btn-primary"
-											onclick="goToNewPage();return false;">Go</button>
-									</span>
-								</div>
-
-								<script>
-									function goToNewPage() {
-										var url = document.getElementById('list').value;
-										if (url != 'none') {
-											window.location = url;
-										}
-									}
-								</script>
-						</div>
-						</form>
-
+	
 
 
 
