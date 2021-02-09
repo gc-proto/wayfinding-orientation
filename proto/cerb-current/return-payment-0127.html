@@ -1784,9 +1784,8 @@ background-color: #26384a !important
                         <p class="wb-fieldflow-label">[Q1] Did you earn a minimum of $5,000 (before taxes) in employment or net self-employment income in 2019 or the 12 months before you applied for the CERB?<!--Q1--></p>
                         <p>Net self-employment income includes your revenue minus any expenses you incurred to earn the self-employment revenue.</p>
                         </div>
-			
-			    <ul>
-                          <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer8&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
+			                   <ul>
+                          <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer8-1&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
                           <li>No
                             <div class="wb-fieldflow-sub" data-wb-fieldflow="{&quot;renderas&quot;: &quot;radio&quot;, &quot;isoptional&quot;: true, &quot;reset&quot;: {&quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.alert-answer&quot;, &quot;class&quot;: &quot;hidden&quot;}}">
                               <div class="wb-fieldflow-header">
@@ -1794,7 +1793,7 @@ background-color: #26384a !important
                               <p>You may have used your gross self-employment income when you applied. Gross self-employment income includes all revenues before expenses.</p>
                               </div>
                               <ul>
-                                <li data-wb-fieldflow='{"action": "append", "source": "#question3", "renderas":"radio", "noreqlabel": true}'>Yes</li>Yes</li>
+                                <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer8-2&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
                                 <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer9&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">No</li>
                                 <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer10&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Not sure</li>
                               </ul>  
@@ -1807,7 +1806,7 @@ background-color: #26384a !important
 		                        <p>You may have used your gross instead of your net self-employment income when you applied. Gross self-employment income includes all revenues before expenses.</p>
 		                        </div>
 		                        <ul>
-		                          <li data-wb-fieldflow='{"action": "append", "source": "#question3", "renderas":"radio", "noreqlabel": true}'>Yes</li>
+		                          <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer8-2&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
 		                          <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer9&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">No</li>
 		                          <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer10&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Still not sure</li>
 		                        </ul>
@@ -2048,24 +2047,6 @@ background-color: #26384a !important
               </form>
             </div>
 		  
-<!-- Question 3 -->
-
-<div class="wb-frmvld hidden">
-
-<form method="get">
-
-<div id="question3" class="wb-fieldflow" data-wb-fieldflow='{"renderas":"radio", "reset": {"action": "addClass", "source": ".alert-answer", "class": "hidden"}, "live":true, "noreqlabel": true}'>	
-	<p>When did you first apply for the CERB</p>
-	<ul>
-		<li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer9-1&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">On or before April 30, 2020</li>
-		<li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer9-2&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">After April 30, 2020</li>
-	</ul>
-</div>
-
-</form>
-
-</div>
-		  
             <!--Answers -->
 		  
             <div class="hidden provisional alert alert-warning alert-answer" id="answer1">
@@ -2140,13 +2121,32 @@ background-color: #26384a !important
                 </dd>
               </dl>
             </div>
-            <div class="hidden provisional alert alert-info alert-answer" id="answer8">
+
+            <div class="hidden provisional alert alert-info alert-answer" id="answer8-1">
               <p class="h5 mrgn-tp-0">You probably do not need to repay</p>
-              <p>Based on your response, you probably do not need to repay the CERB.</p>
-              <p>You may have got the letter because we have incomplete information about your 2020 employment or self-employment income. We'll be able to make a final determination after you file your 2020 personal income taxes with the CRA.</p>
+              <p>Based on your response, you probably do not need to repay the CERB. You may have got the letter because we have incomplete information about your 2020 employment or self-employment income. We'll be able to make a final determination after you file your 2020 personal income taxes with the CRA.</p>
               <p>If you're concerned you might need to repay, contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
-              <p>If your CERB payment came from EI/Service Canada, please contact <a href="#">EI/Service Canada</a>.</p>
+              <p>If your CERB payment came from EI/Service Canada, please contact <a href="http://test.canada.ca/covid-19-guidance/proto/cerb-current/return-payment-0127.html">EI/Service Canada</a>.</p>
             </div>
+
+            <div class="hidden provisional alert alert-info alert-answer" id="answer8-2">
+              <p class="h5 mrgn-tp-0">You probably do not need to repay</p>
+              <p>You probably do not have to repay the CERB if<p>
+              <ul>
+                <li>your gross self-employment income was at least $5,000
+                  <ul>
+                    <li>You met all the other eligibility requirements</li>
+                  </ul>
+                </li>
+              </ul>      
+              <p>The CRA will advise you in writing if you meet the above criteria by [date].</p>
+
+              <p><strong>If you already repaid the CERB</strong></p>
+              <p>If you have already repaid the CERB because you were told you did not meet the income requirement, you may be able to have your payment returned. Please contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
+              <p>If your CERB payment came from EI/Service Canada, please contact <a href="http://test.canada.ca/covid-19-guidance/proto/cerb-current/return-payment-0127.html">EI/Service Canada</a>.</p>
+
+            </div>  
+
             <div class="hidden provisional alert alert-warning alert-answer" id="answer9">
               <p class="h5 mrgn-tp-0">Repay the CERB</p>
               <p>Based on your responses, you did not meet the income requirements to be eligible for the benefit. You will need to repay the full amount of CERB you received to the CRA.</p>
@@ -2160,34 +2160,11 @@ background-color: #26384a !important
                 </dd>
               </dl>
             </div>
-            <div class="hidden provisional alert alert-info alert-answer" id="answer9-1">
-              <p class="h5 mrgn-tp-0">You may not need to repay the CERB</p>
-		    <p>You may not have to repay the CERB if you meet all the following criteria:</p>
-		      <ul>
-			      <li>Your gross self-employment income was at least $5,000</li>
-			      <li>You first applied for the CERB on or before April 30, 2020</li>
-			      <li>You met all the other eligibility requirements
-		    </ul>
-		 <p>The CRA will advise you in writing if you meet all the above criteria by [date].</p>
-		    <p><strong>If you already repaid the CERB</strong></p>
-		    <p>If meet the above criteria and you have already repaid the CERB to the CRA, you may be able to have your payment returned to you. </p>
-		    <p>The CRA will assess these claims on a case-by-case basis.</p> 
-			    <p>[next steps - pending]</p>
-            </div>
-            <div class="hidden provisional alert alert-info alert-answer" id="answer9-2">
-              <p class="h5 mrgn-tp-0">You may still have to repay the CERB</p>
-              <p>If you first applied for the CERB after April 30, 2020, when the income eligibility criteria on the website had been clarified, you may still have to repay the CERB.</p>
-		    <p><strong>You may apply for consideration</strong></p>
-		    <p>If you can demonstrate that you applied for the CERB based on incomplete or incorrect information about the income requirement, you may not have to repay it, as long as you met all the other eligibility criteria.</p>
-		    <p>To apply for consideration, [next steps – pending]</p>
-		    <p>[phone number?]</p>
-		<p>The CRA will assess these claims on a case-by-case basis.</p>
-		    
-            </div>
+
             <div class="hidden provisional alert alert-warning alert-answer" id="answer10">
               <p class="h5 mrgn-tp-0">You may need to repay</p>
               <p>If you aren't sure if you met the income requirement and are  concerned you might need to repay,  contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong>.</p>
-              <p>If your CERB payment came from EI/Service Canada, please contact <a href="#">EI/Service Canada</a>.</p>
+              <p>If your CERB payment came from EI/Service Canada, please contact <a href="http://test.canada.ca/covid-19-guidance/proto/cerb-current/return-payment-0127.html">EI/Service Canada</a>.</p>
             </div>
           </div>
           <!--End of Fieldflow //--> 
