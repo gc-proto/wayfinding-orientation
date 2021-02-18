@@ -1335,7 +1335,7 @@
     const toFormattedNumber = new Intl.NumberFormat(wb.lang + "-CA");
     //regex for identifying currency values
     const NON_CURRENCY_CHARACTER = /[a-zA-Z\+\-~<>?\/":;'\[\{\]\}\\|!@#$%^&*()_=]/g;
-    const FRENCH_CURRENCY_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{1,2})?$/g;
+    const FRENCH_CURRENCY_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{2})?$/g;
     const ENGLISH_CURRENCY_FORMAT = /^(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$/g;
     //regex for identifying number formats not limited to decimal places
     const FRENCH_NUMBER_FORMAT = /^(\d{1,3}(\s\d{3})*|(\d+))(\,\d{1,})?$/g;
@@ -1742,7 +1742,7 @@
         totalExpenses += roomMaintenance;
       } else {
         //common/shared room
-        rate = toFloat($("#shared-room-employment-percent-output-id").text());
+        rate = spaceToFloat($("#shared-room-employment-percent-output-id").text());
         //total claim calculations
         totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text()) / 100);
         //employment use percentage
