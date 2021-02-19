@@ -1543,7 +1543,7 @@ main form :not(.btn-call-to-action).btn {
         totalExpenses += roomMaintenance;
       } else {
         //common/shared room
-        rate = toFloat($("#shared-room-employment-percent-output-id").text());
+        rate = spaceToFloat($("#shared-room-employment-percent-output-id").text());
         //total claim calculations
         totalEmploymentUse = ((electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate) / 100) + roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text()) / 100);
         //employment use percentage
