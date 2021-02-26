@@ -1569,8 +1569,7 @@ main form :not(.btn-call-to-action).btn {
       //calculate total claim amount
       var totalClaim = toMoney.format(
         (supplies + otherWorkExpenses) +
-        Math.min(netIncome, totalEmploymentUse)
-      );
+        Math.min(netIncome, totalEmploymentUse)).replace('CA', '').trim();
       //total claimable expense calculation
       $(".employment-use-home-amount").text(
         toMoney.format(
