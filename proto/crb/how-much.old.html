@@ -108,7 +108,7 @@
 		<li><span class="fas fa-equals fa-li"><span class="wb-inv">equals</span></span> <span class="mrgn-tp-0 text-muted h5"><span class="nowrap">$900</span> </span> (amount you receive per period)</li>
 	</ul>
 <h3>Expect an adjustment at tax time</h3>	
-<p>The 10% tax may not be all the tax you need to pay. You may need to pay more (or less) depending on your personal tax situation.</p>
+<p>The 10% tax may not be all the tax you need to pay. You may need to pay more (or less), depending on your personal tax situation.</p>
 
 <p><a href="#h-3">What do to at tax time</a></p>
 				 
@@ -157,11 +157,13 @@
 		<div class="wb-fieldflow-sub" data-wb-fieldflow='{"renderas":"radio", "reset": { "action": "addClass", "source":".alert2, .alert1", "class": "hidden"}, "noreqlabel": true}'>
 			<div class="wb-fieldflow-header">
 			<p class="wb-fieldflow-label">Select how much net income you expect to earn in 2021, not including CRB payments</p>
-			<!--<p class="text-muted"><strong>Net income includes:</strong> Amounts that are normally considered part of net income for income tax purposes (line 23600 of your tax return), with some adjustments for split income and certain repaid amounts. Net income includes any CERB, CRCB and CRSB payments you received. It does not include the CRB.</p>-->
+			<!--<p class="text-muted"><strong>Net income includes:</strong> all amounts that are normally considered part of net income for income tax purposes (line 23600  of your tax return), with some adjustments for split income and certain repaid amounts. Net income includes any CERB, CRCB and CRSB payments you received. It does not include the CRB.</p>-->
 			</div>
 				<ul>
 					<li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-1", "class": "hidden", "live": true}'>Less than $38,000</li>
-					<li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-2", "class": "hidden", "live": true}'>More than $38,000</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-2", "class": "hidden", "live": true}'>Between $38,000 and $52,000</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-3", "class": "hidden", "live": true}'>Between $52,000 and $64,000</li>
+					<li data-wb-fieldflow='{"action": "removeClass", "source": "#answer2-4", "class": "hidden", "live": true}'>More than $64,000</li>
 				</ul>		
 			</div>	
 		</li>
@@ -201,6 +203,18 @@
 <p>You will not have to pay back more than your CRB benefit amount for the year. </p>
 <p>Any amounts you need to reimburse will be included as part of your total balance owing for your 2021 taxes.</p>
 </div>
+<div id="answer2-3" class="hidden alert alert-warning alert2 provisional">
+<p><strong>You will have an amount to reimburse at tax time.</strong></p>
+<p>Based on the income you’re reporting, you will need to reimburse $0.50 of the CRB for every dollar of net income you earned over $38,000 on your 2021 income tax return.</p>
+<p>If you apply for 7 or fewer periods in 2021, you may need to reimburse the full amount you received.</p>
+<p>You will not have to pay back more than your CRB benefit amount for the year. </p>
+<p>Any amounts you need to reimburse will be included as part of your total balance owing for your 2021 taxes.</p>
+</div>
+<div id="answer2-4" class="hidden alert alert-warning alert2 provisional">
+<p><strong>You will have to reimburse the full amount at tax time.</strong></p>
+<p>Based on the income you’re reporting, you will need to reimburse the full amount of the CRB you received on your 2021 income tax return. That is $0.50 of the CRB for every dollar of net income you earned over $38,000. You may want to consider this before you apply.</p>
+<p>Any amounts you need to reimburse will be included as part of your total balance owing for your 2021 taxes.</p>
+</div>
 </div>
 
           </form>
@@ -217,10 +231,11 @@
 <h3>Verify your tax slips</h3>
 <p>All COVID-19 benefits from the CRA and any provincial or territorial payments that you received in 2020 will be shown on one T4A slip.</p>
 <p>If you applied for multiple benefits or made repayments, verify that the amounts on your T4A slip are correct before you report them in your tax return.</p>
-<p><a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4a-report.html#h_2">Verify COVID-19 amounts on your T4A</a></p> 
+<p><a href="http://test.canada.ca/cra/cops/t1/covid19-1-e.html#h_2">Verify COVID-19 amounts on your T4A</a></p> 
 
+<!--- Will switch to ajax once the id's are added to the other page --->
 <h3 id="h_3">Report T4A amounts on your tax return</h3>
-	<p>If you received a T4A slip, your CRB amount is shown in <span class="nowrap"><strong>box 202</strong></span>. Other COVID-19 benefit amounts are in boxes 197 to 204:</p>
+<p>If you received a T4A slip, your COVID-19 benefit amounts are shown in <span class="nowrap"><strong>boxes 197 </strong>to <strong>204:</strong></span></p>
 
 <details>
 <summary>Find your T4A COVID-19 benefit box numbers</summary>
@@ -228,41 +243,25 @@
 </details>
 
 <p>Add up each COVID-19 benefit payment amount you received from your T4A slip and enter the total amount on <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-13000-other-income.html">line 13000</a> of your tax return.</p>
-<p>In the space to the left of line 13000, specify the type of income you're reporting. If you're filing a paper return and received more than one benefit, attach a list of all the benefits you received.</p>
+<p>In the space to the left of line 13000, specify the type of income you are reporting. If you are filing a paper return and received more than one benefit, attach a list of all benefits received.</p>
 
 <h4 id="h_2_2">Report the income tax deducted at source</h4>
 <p>If you received the CRB, CRCB or CRSB, the CRA withheld a 10% tax at source on each payment. Enter the income tax deducted from <strong>box 022 </strong>on <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-43700-total-income-tax-deducted.html">line 43700</a> on your 2020 tax return.</p>
-	
-	<p>For Quebec residents, the 10% tax withheld at source is split:</p>
-	<ul>
-		<li>5% on your <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/tax-slips/understand-your-tax-slips/t4-slips/t4a-statement-pension-retirement-annuity-other-income.html">T4A slip</a>
-		<li>5% on your <a href="https://www.revenuquebec.ca/en/online-services/forms-and-publications/current-details/rl-1-t">RL-1 slip</a>
-	</ul>
-	<!--<p>Quebec residents will get both a T4A and RL-1 slip. The 10% tax withheld at source will be split between the 2 tax slips, 5% will be reported on the T4A slip and the other 5% will be reported on the <a href="https://www.revenuquebec.ca/en/online-services/forms-and-publications/current-details/rl-1-t">RL-1 slip</a>.</p>-->
+<p>Quebec residents will get both a T4A and RL-1 slip. The 10% tax withheld at source will be split between the 2 tax slips, 5% will be reported on the T4A slip and the other 5% will be reported on the RL-1 slip.</p>
+
+<h4 id="h_2_3">If your income is tax exempt</h4>
+<p>If your income is eligible for tax exemption under section 87 of the Indian Act, for details go to <a href="https://www.canada.ca/en/revenue-agency/services/aboriginal-peoples.html">taxes and benefits for Indigenous peoples</a>.</p>
 
 <h3>If you need to reimburse CRB</h3>
 <p>If you received the CRB and your net income is more than $38,000 (excluding CRB amounts), you may have to reimburse some or all of the benefit.</p>
-
-<p><a href="https://test.canada.ca/covid-19-guidance/proto/crb/how-much.html#determine">Determine if you need to reimburse the CRB</a></p>
-	
 <p>Any amounts you need to reimburse will be included as part of your total balance owing for your 2020 taxes.</p>
+<p><a href="https://test.canada.ca/covid-19-guidance/proto/crb/how-much.html#determine">Determine if you need to reimburse the CRB</a>
 
-<details>
-<summary>If you're filing electronically</summary>
-<p>If you're filing with certified tax software, the amounts you need to reimburse should be calculated for you and added to your balance owing.</p>
-</details>
-	
 <details>
 <summary>If you're filing a paper return</summary>
-<p>If line 23400 is <strong>more than <span class="nowrap">$38,000</span></strong>, complete section "Line 23500 – Social benefits repayment" of the worksheet to calculate how much you need to reimburse.</p>
-	<p>Use the worksheet that applies to you:
-		<ul>
-			<li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/tax-packages-years/general-income-tax-benefit-package/5000-d1.html">worksheet for the return (for all except non-residents)</a>
-			<li><a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/tax-packages-years/general-income-tax-benefit-package/non-residents/5013-d1.html">worksheet for return (non-residents and deemed residents)</a>
-		</ul>
-	</p>
-<p>You will have to reimburse $0.50 of the CRB for every dollar of net income you earned above $38,000. You will not have pay back more than what you received in CRB benefits for that year.</p>
-	<p><strong>How to calculate the social benefits repayment on the worksheet</strong></p>
+<p>If you're filing a paper return and line 23400 is <strong>more than <span class="nowrap">$38,000</span></strong>, use the chart for line 23500 on the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/tax-packages-years/general-income-tax-benefit-package/5000-d1.html">worksheet for the return</a> to calculate the social benefits repayment amount you need to reimburse.</p>
+<p>You will have to reimburse $0.50 of the CRB for every dollar of net income you earned above $38,000.</p>
+<p>How to calculate the social benefits repayment on the worksheet</p>
 <ol>
    <li>Enter applicable amounts on lines 1 to 24</li>
    <li>Insert your CRB amount on <strong>line 25</strong> (from box 202 on your T4A slip)</li>
@@ -276,16 +275,17 @@
 <p>You <strong>do not</strong> have to attach the worksheet to your return, but keep it for your records.</p>
 </details>
 
-<h3 id="h_2_3">If your income is tax exempt</h3>
-<p>If your income is eligible for tax exemption under section 87 of the Indian Act, for details go to <a href="https://www.canada.ca/en/revenue-agency/services/aboriginal-peoples.html">taxes and benefits for Indigenous peoples</a>.</p>
-	
-<h3>Interest and penalties</h3>
-<p>Interest relief will be given to people who have a taxable income of <span class="nowrap">$75,000</span> or less in 2020, and received at least one of the COVID-19  benefits, such as the CRB.</p>
-<p>You must file your 2020 tax return to qualify for interest relief.</p>
-		    <p><a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/interest-relief.html">Eligibility criteria for interest relief</a></p>
+<details>
+<summary>If you're filing electronically</summary>
+<p>If you're filing electronically with certified tax software, the amounts you need to reimburse should be calculated for you and added to your balance owing.</p>
+</details>
 
+<h3>Interest and penalties</h3>
+<p>Interest relief will be given to individuals who, in 2020, had a total taxable income of <span class="nowrap">$75,000</span> or less and received at least one of the COVID-19-related income support benefits , including the CRB.</p>
+<p>If you meet the criteria and have filed your 2020 tax return, the CRA will automatically apply interest relief on your 2020 taxes owing. You will not have to pay interest on any amount owing from your 2020 taxes until <span class="nowrap">April 30, 2022</span>.</p>
 <h4>File your taxes on time</h4>
-<p>File your tax return before the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/important-dates-individuals/filing-dates-tax-return.html">due date</a>. If you file late, you will be charged a <span class="nowrap">5% late-filing</span> penalty on top of what you already owe, plus an additional 1% for each month (up to a maximum of 12 months).</p>
+<p>Late filing penalties still apply.  File your tax return before the <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/important-dates-individuals/filing-dates-tax-return.html">due date</a>. If you file late, you will be charged a <span class="nowrap">5% late-filing</span> penalty on top of what you already owe, plus an additional 1% for each month (up to a maximum of 12 months).</p>
+
 
 
 </section>
