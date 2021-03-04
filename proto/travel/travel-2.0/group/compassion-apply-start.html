@@ -230,11 +230,39 @@
                </li>
             </ul>
             <h3>Start your request for exemption form</h3>
-<p><mark>Add field flow question here: Are your forms signed and ready to attach to page 6</mark> Yes - show the button</p>
-            <div class="mrgn-tp-sm">
-               <p><a href="https://border-frontiere.powerappsportals.com/en-US/"
-                     class="btn btn-call-to-action mrgn-lft-lg">Start your Request for exemption</a></p>
-            </div>
+
+
+            <div class="wb-frmvld">
+	<form method="get">
+
+		<!--Question 1-->
+		<div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
+			"renderas":"checkbox",
+			"noForm": true,
+			"base": { "live": true },
+			"default": { "action": "addClass", "source":"#apply-btn", "class": "hidden" }
+			}'>
+			<p>Are your forms signed and ready to attach to page 6?</p>
+			<ul>
+				<li data-wb-fieldflow='{"action": "removeClass", "source":"#apply-btn", "class": "hidden"}'>Yes</li>
+				
+			</ul>
+		</div>
+
+
+		</div>
+
+
+		
+					
+					<div data-wb-urlmapping='{ "p=apply-btn": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg mrgn-tp-sm" id="apply-btn" role="status" aria-controls="question1">
+		
+   <p><a href="https://border-frontiere.powerappsportals.com/en-US/" class="btn btn-call-to-action">Start
+         your Request for exemption</a></p>
+      					</div>
+
+
+
 
             <h2 class="h3">Wait for approval</h2>
             <p>If your submission is completed, you will also receive a receipt email with an application number.</p>
@@ -250,6 +278,8 @@
 
 
          </div>
+
+         
          <div class="clearfix"></div>
          <!-- 
                <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
