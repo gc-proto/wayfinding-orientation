@@ -764,17 +764,25 @@ background-color: #26384a !important
 	  <p>If you're not sure, find out if you need to repay and what you need to do: <!--should link to ff--><a href="">Determine if you need to repay</a></p>
 
 	  <!--CALENDAR starts-->
-	  <details><summary>Review each CERB eligibility period in a calendar</summary>
-		  <p>calendar ex-hide go here</p>
-	  </details>
-<!--	  
-<ul id="eligibility-cal" class="list-unstyled">
-	<li>view each 4-week eligibility period in a calendar:
-        <ul class="list-unstyled mrgn-lft-md mrgn-tp-md">
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 1 - March&nbsp;15 to April&nbsp;11&nbsp;2020</summary>
-              <div id="ep-cal1">
+<div class="wb-frmvld fieldflow-lg" id="eligibility-cal">
+<form>
+	<div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "isoptional": true}'>
+		<p>Review each CERB eligibility period in a calendar</p>
+			<ul>                    
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal1", "live": true}'>Period 1 - March&nbsp;15 to April&nbsp;11&nbsp;2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal2", "live": true}'>Period 2 - April 12 to May 9, 2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal3", "live": true}'>Period 3 - May 10 to June 6, 2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal4", "live": true}'>Period 4 - June 7 to July 4, 2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal5", "live": true}'>Period 5 - July 5 to August 1, 2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal6", "live": true}'>Period 6 - August 2 to August 29, 2020</li>
+                <li data-wb-fieldflow='{"action": "toggle", "toggle": "#ep-cal7", "live": true}'>Period 7 - August 30 to September 26, 2020</li>
+            </ul>
+    </div>
+</form>
+</div>       
+
+<div id="answers">
+              <div id="ep-cal1" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -909,12 +917,9 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 2 - April&nbsp;12 to May&nbsp;9,&nbsp;2020</summary>
-              <div id="ep-cal2">
+
+
+              <div id="ep-cal2" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -1067,12 +1072,8 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 3 - May&nbsp;10 to June&nbsp;6,&nbsp;2020</summary>
-              <div id="ep-cal3">
+
+              <div id="ep-cal3" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -1225,12 +1226,8 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 4 - June&nbsp;7 to July&nbsp;4,&nbsp;2020</summary>
-              <div id="ep-cal4">
+				
+				<div id="ep-cal4" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -1365,12 +1362,8 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 5 - July&nbsp;5 to August&nbsp;1,&nbsp;2020</summary>
-              <div id="ep-cal5">
+
+              <div id="ep-cal5" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -1523,12 +1516,8 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 6 - August&nbsp;2 to August&nbsp;29,&nbsp;2020</summary>
-              <div id="ep-cal6">
+
+              <div id="ep-cal6" class="hidden">
                 <p class="wb-inv">A table with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6 col-md-offset-3">
@@ -1607,12 +1596,8 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-          <li>
-            <details>
-              <summary><span class="far fa-calendar-check fa-lg mrgn-rght-sm mrgn-lft-sm"></span> Period 7 - August&nbsp;30 to September&nbsp;26,&nbsp;2020 </summary>
-              <div class="ep-cal7">
+
+              <div id="ep-cal7" class="hidden">
                 <p class="wb-inv">Two tables with all the days that apply to eligibility period</p>
                 <div class="row">
                   <div class="col-md-6">
@@ -1765,11 +1750,7 @@ background-color: #26384a !important
                   </div>
                 </div>
               </div>
-            </details>
-          </li>
-        </ul>
-      </li>
-	  </ul>-->
+</div>
 <!--CALENDAR ends-->
 
 		 
@@ -2320,7 +2301,7 @@ background-color: #26384a !important
       </div>
       <h3>Send your EI/ Service Canada payment back to Service Canada</h3>
       <div id="back-sc">
-        <p>If you received your CERB from Service Canada (EI), you must <a href="/en/services/benefits/ei/cerb-application/return-or-repay.html">send it back to Service Canada</a>. </p>
+        <p>If you received your CERB from Service Canada (EI), you must <a href="/en/services/benefits/ei/cerb-application/return-or-repay.html">send it back to Service Canada</a>.</p>
       </div>
     </details>
 	  
@@ -2335,8 +2316,8 @@ background-color: #26384a !important
 	  <p>The timing of when you repay a CERB amount may impact your taxes. </p>
 	  <p>If you repaid a CERB amount:</p>
 	  <ul>
-		  <li><strong>before December 31, 2020</strong> – your repayment should be reflected on your 2020 T4A slip (you will not pay tax on amounts you repaid in 2020)
-		  <li><strong>after December 31, 2020</strong> - you will be taxed based on the full amount shown on your 2020 T4A slip (your repayment will be on your 2021 T4A slip, which you can claim as a deduction on next year’s tax return)
+		  <li><strong>before December 31, 2020</strong> – your repayment should be reflected on your 2020 T4A slip (you will not pay tax on amounts you repaid in 2020)</li>
+		  <li><strong>after December 31, 2020</strong> - you will be taxed based on the full amount shown on your 2020 T4A slip (your repayment will be on your 2021 T4A slip, which you can claim as a deduction on next year’s tax return)</li>
 	  </ul>
 	  <p>For more on taxes, go to: <a href="">Impact on your taxes</a></p>
 
@@ -2355,12 +2336,6 @@ background-color: #26384a !important
     </nav>
   </section>
 </div>
-
-
-
-</div>
-<div class="mwstransform section"><div>
-
 
 <div class="container">
 <div class="row row-no-gutters mrgn-tp-xl">
@@ -2444,15 +2419,6 @@ background-color: #26384a !important
 	</div>
 </div>
 </div>
-
-
-
-
-</div>
-
-</div>
-<div class="mwsgeneric-base-html parbase section">
-
 
     
     <div class="container">
