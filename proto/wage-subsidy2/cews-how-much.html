@@ -3553,7 +3553,7 @@
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
-
+        
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -3563,10 +3563,11 @@
           //get the value of the claim month
           var claimMonth2020Value = zeroIfEmpty($("#" + monthsArray[0] + "-no").val());
           var claimMonth2019Value = zeroIfEmpty($("#" + months2019Array[0] + "-no").val());
+
           //get the value of the previous month
           var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
-          
+
           if (claimPeriod < 11) {
             //get the avg of the revenue from the previous three motnhs (2020)
             var threeMonthRev2020 = [
@@ -4138,8 +4139,8 @@
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
         var period = $("#claim-period option:selected").data("claim-period");
         if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
           return maxBase[period - 5];
