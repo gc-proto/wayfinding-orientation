@@ -1330,7 +1330,7 @@
     const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
       style: "currency",
       currency: "CAD",
-      minimumFractionDigits: 2
+      minimumFractionDigits: 2,
     });
     const toFormattedNumber = new Intl.NumberFormat(wb.lang + "-CA");
     //regex for identifying currency values
@@ -1379,6 +1379,7 @@
       event.target.value = toFloat(event.target.value);
       event.target.value = toMoney.format(event.target.value)
         .replace("$", "");
+      event.target.value = event.target.value.replace('CA', "").trim();
     }
 
     /**
@@ -1736,7 +1737,7 @@
         $(".employment-use-ws-rate").text(toFormattedNumber.format(100));
         //employment use amount
         $(".employment-use-ws-amount").text(
-          toMoney.format(roomMaintenance)
+          toMoney.format(roomMaintenance).replace('CA', '').trim()
         );
         //add room maintenance to total expenses
         totalExpenses += roomMaintenance;
@@ -1754,7 +1755,7 @@
         );
         //employment use amount
         $(".employment-use-ws-amount").text(
-          toMoney.format(roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text()) / 100))
+          toMoney.format(roomMaintenance * (toFloat($("#shared-room-hrs-percent-output-id").text()) / 100)).replace('CA', '').trim()
         );
       }
       //calculate the carry forward amount
@@ -1763,52 +1764,52 @@
       var totalClaim = toMoney.format(
         (supplies + otherWorkExpenses) +
         Math.min(netIncome, totalEmploymentUse)
-      );
+      ).replace('CA', '').trim();
       //total claimable expense calculation
       $(".employment-use-home-amount").text(
         toMoney.format(
           (electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill) * (rate / 100)
-        )
+        ).replace('CA', '').trim()
       );
       //total of expenses paid
       $(".employment-use-home-claim").text(
         toMoney.format(
           electricityBill + homeMaintenance + homeInsurance + propertyTaxes + otherExpenses + rentBill
-        )
+        ).replace('CA', '').trim()
       );
       //workspace specific claim amount
-      $(".employment-use-ws-claim").text(toMoney.format(roomMaintenance));
+      $(".employment-use-ws-claim").text(toMoney.format(roomMaintenance).replace('CA', '').trim());
       //workplace specific claim rate
       $(".employment-use-home-rate").text(
         toFormattedNumber.format(rate.toFixed(2))
       );
-      $(".supplies-output").text(toMoney.format(supplies));
-      $(".ws-expenses-output").text(toMoney.format(otherWorkExpenses));
-      $(".utilities-output").text(toMoney.format(electricityBill));
-      $(".home-ws-maintenance").text(toMoney.format(homeMaintenance));
+      $(".supplies-output").text(toMoney.format(supplies).replace('CA', '').trim());
+      $(".ws-expenses-output").text(toMoney.format(otherWorkExpenses).replace('CA', '').trim());
+      $(".utilities-output").text(toMoney.format(electricityBill).replace('CA', '').trim());
+      $(".home-ws-maintenance").text(toMoney.format(homeMaintenance).replace('CA', '').trim());
       //only one room output will be shown at a time, but cover both bases.
       $(".shared-room-maintenance-output").text(
-        toMoney.format(roomMaintenance)
+        toMoney.format(roomMaintenance).replace('CA', '').trim()
       );
       $(".designated-room-maintenance-output").text(
-        toMoney.format(roomMaintenance)
+        toMoney.format(roomMaintenance).replace('CA', '').trim()
       );
       $(".maintenance-output").text(
-        toMoney.format(homeMaintenance + roomMaintenance)
+        toMoney.format(homeMaintenance + roomMaintenance).replace('CA', '').trim()
 
       );
       $(".insurance-commission-output").text(
-        toMoney.format(homeInsurance)
+        toMoney.format(homeInsurance).replace('CA', '').trim()
       );
       $(".property-taxes-commission-output").text(
-        toMoney.format(propertyTaxes)
+        toMoney.format(propertyTaxes).replace('CA', '').trim()
       );
-      $(".home-expenses-output").text(toMoney.format(otherExpenses + rentBill));
-      $(".income-output").text(toMoney.format(income));
+      $(".home-expenses-output").text(toMoney.format(otherExpenses + rentBill).replace('CA', '').trim());
+      $(".income-output").text(toMoney.format(income).replace('CA', '').trim());
       $(".dues-pension-output").text(
         toMoney.format(
           (supplies + otherWorkExpenses) + unionDues + pension
-        )
+        ).replace('CA', '').trim()
       );
       $(".room-area-output").text(toFormattedNumber.format(workArea));
       $(".total-home-area-summary").text(toFormattedNumber.format(totalArea));
@@ -1817,14 +1818,14 @@
         toMoney.format(
           (supplies + otherWorkExpenses) +
           Math.min(netIncome, totalEmploymentUse)
-        )
+        ).replace('CA', '').trim()
       );
-      $(".employment-use-output").text(toMoney.format(totalEmploymentUse));
+      $(".employment-use-output").text(toMoney.format(totalEmploymentUse).replace('CA', '').trim());
       $(".employment-use-total-amount").text(
-        toMoney.format(totalEmploymentUse)
+        toMoney.format(totalEmploymentUse).replace('CA', '').trim()
       );
       $(".carry-forward-output").text(
-        toMoney.format(carryFwd)
+        toMoney.format(carryFwd).replace('CA', '').trim()
       );
       $(".ws-t777short-total-amount").text(totalClaim);
       if (carryFwd > 0 || netIncome < totalExpenses) {
