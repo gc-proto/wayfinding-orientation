@@ -287,32 +287,7 @@ h1#wb-cont::after {
 
 
 
-		<!-- START SCRIPT PAGE FEEDBACK WIDGET -->
-		<script>
-		   $(document).on("wb-ready.wb", function() {
-		       $("#btnno").click(function(e) {
-		           $(".gc-pg-hlpfl-no").removeClass("nojs-show");
-		           $(".gc-pg-hlpfl-btn").addClass("hide");
-		           $("#helpful").val("No");
-		       });
-		       $("#gc-pg-hlpfl-frm").submit(function(e) {
-		           e.preventDefault();
-		           $(".gc-pg-hlpfl-thnk").removeClass("hide");
-		           $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
-		           $.ajax({
-		               url: 'https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm',
-		               type: 'POST',
-		               dataType: 'text',
-		               data: $('form#gc-pg-hlpfl-frm').serialize(),
-		               success: function(data) {},
-		               error: function(xhr, status, err) {
-		                   console.log(xhr.responseText);
-		               }
-		           });
-		       });
-		   });
-		</script>
-		<!-- END SCRIPT PAGE FEEDBACK WIDGET -->
+
 
 
 
@@ -354,7 +329,32 @@ h1#wb-cont::after {
 		<!-- <script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script> -->
 		<!-- <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> -->
 
-
+		<!-- START SCRIPT PAGE FEEDBACK WIDGET -->
+		<script>
+			 $(document).on("wb-ready.wb", function() {
+					 $("#btnno").click(function(e) {
+							 $(".gc-pg-hlpfl-no").removeClass("nojs-show");
+							 $(".gc-pg-hlpfl-btn").addClass("hide");
+							 $("#helpful").val("No");
+					 });
+					 $("#gc-pg-hlpfl-frm").submit(function(e) {
+							 e.preventDefault();
+							 $(".gc-pg-hlpfl-thnk").removeClass("hide");
+							 $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
+							 $.ajax({
+									 url: 'https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm',
+									 type: 'POST',
+									 dataType: 'text',
+									 data: $('form#gc-pg-hlpfl-frm').serialize(),
+									 success: function(data) {},
+									 error: function(xhr, status, err) {
+											 console.log(xhr.responseText);
+									 }
+							 });
+					 });
+			 });
+		</script>
+		<!-- END SCRIPT PAGE FEEDBACK WIDGET -->
 
 
 	</body>
