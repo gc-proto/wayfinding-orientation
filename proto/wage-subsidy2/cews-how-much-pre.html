@@ -340,9 +340,9 @@
                     <option data-claim-period="8" value="2020-09-27--2020-10-24">Period 8: September 27, 2020, to October 24, 2020</option>
                     <option data-claim-period="9" value="2020-10-25--2020-11-21">Period 9: October 25, 2020, to November 21, 2020</option>
                     <option data-claim-period="10" value="2020-11-22--2020-12-19">Period 10: November 22, 2020, to December 19, 2020</option>
-                    <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2020</option>
-                    <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, 2020, to February 13, 2020</option>
-                    <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14, 2020, to March 13, 2020</option>
+                    <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
+                    <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, 2021, to February 13, 2021</option>
+                    <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14, 2021, to March 13, 2021</option>
                   </select>
                 </div>
               </fieldset>
@@ -2643,7 +2643,124 @@
         }
         //show/hide elements based on chosen claim period
 
+        //defaults
+        $("#2021-05-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-04-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-03-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-02-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-01-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-12-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-11-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-10-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-09-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-08-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-07-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-06-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-05-yes").closest("div.form-group").addClass("hidden");
+        $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-05-no").closest("div.form-group").addClass("hidden");
+        $("#2021-04-no").closest("div.form-group").addClass("hidden");
+        $("#2021-03-no").closest("div.form-group").addClass("hidden");
+        $("#2021-02-no").closest("div.form-group").addClass("hidden");
+        $("#2020-02-no").closest("div.form-group").addClass("hidden");
+        $("#2021-01-no").closest("div.form-group").addClass("hidden");
+        $("#2020-01-no").closest("div.form-group").addClass("hidden");
+        $("#2020-12-no").closest("div.form-group").addClass("hidden");
+        $("#2019-12-no").closest("div.form-group").addClass("hidden");
+        $("#2020-11-no").closest("div.form-group").addClass("hidden");
+        $("#2019-11-no").closest("div.form-group").addClass("hidden");
+        $("#2020-10-no").closest("div.form-group").addClass("hidden");
+        $("#2019-10-no").closest("div.form-group").addClass("hidden");
+        $("#2020-09-no").closest("div.form-group").addClass("hidden");
+        $("#2019-09-no").closest("div.form-group").addClass("hidden");
+        $("#2020-08-no").closest("div.form-group").addClass("hidden");
+        $("#2019-08-no").closest("div.form-group").addClass("hidden");
+        $("#2020-07-no").closest("div.form-group").addClass("hidden");
+        $("#2019-07-no").closest("div.form-group").addClass("hidden");
+        $("#2020-06-no").closest("div.form-group").addClass("hidden");
+        $("#2019-06-no").closest("div.form-group").addClass("hidden");
+        $("#2020-05-no").closest("div.form-group").addClass("hidden");
+        $("#2019-05-no").closest("div.form-group").addClass("hidden");
+        $("#2020-04-no").closest("div.form-group").addClass("hidden");
+        $("#2019-04-no").closest("div.form-group").addClass("hidden");
+        $("#2019-03-no").closest("div.form-group").addClass("hidden");
+        $("#cal-sprdsht-p1-4").addClass("hidden");
+        $("#cal-sprdsht-none").addClass("hidden");
+        $("#cal-sprsht-p5").addClass("hidden");
+        $("#cal-sprsht-p7").addClass("hidden");
+        $("#cal-sprsht-p9").addClass("hidden");
+        $("#cal-sprsht-p11").addClass("hidden");
+
         switch (claimPeriod) {
+          case 16:
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprsht-p11").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-05-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-04-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-05-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-05-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-04-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-04-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 15:
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprsht-p11").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-04-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-03-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-04-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-04-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-03-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-03-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 14:
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $("#cal-sprsht-p11").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-03-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-02-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-03-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-03-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-02-no").closest("div.form-group").removeClass("hidden");
+            $("#2020-02-no").closest("div.form-group").removeClass("hidden");
+            break;
           case 13:
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
@@ -2654,11 +2771,6 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
             $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
@@ -2667,37 +2779,10 @@
             $(".choose-claim-period").addClass("hidden");
             $("#2021-02-yes").closest("div.form-group").removeClass("hidden");
             $("#2021-01-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
             $("#2021-02-no").closest("div.form-group").removeClass("hidden");
             $("#2020-02-no").closest("div.form-group").removeClass("hidden");
             $("#2021-01-no").closest("div.form-group").removeClass("hidden");
             $("#2020-01-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
-            $("#2020-09-no").closest("div.form-group").addClass("hidden");
-            $("#2019-09-no").closest("div.form-group").addClass("hidden");
-            $("#2020-08-no").closest("div.form-group").addClass("hidden");
-            $("#2019-08-no").closest("div.form-group").addClass("hidden");
-            $("#2020-07-no").closest("div.form-group").addClass("hidden");
-            $("#2019-07-no").closest("div.form-group").addClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 12:
             $(".p7-and-before").addClass("hidden");
@@ -2709,50 +2794,18 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
             $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
             $("#2021-01-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
             $("#2021-01-no").closest("div.form-group").removeClass("hidden");
             $("#2020-01-no").closest("div.form-group").removeClass("hidden");
             $("#2020-12-no").closest("div.form-group").removeClass("hidden");
             $("#2019-12-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
-            $("#2020-09-no").closest("div.form-group").addClass("hidden");
-            $("#2019-09-no").closest("div.form-group").addClass("hidden");
-            $("#2020-08-no").closest("div.form-group").addClass("hidden");
-            $("#2019-08-no").closest("div.form-group").addClass("hidden");
-            $("#2020-07-no").closest("div.form-group").addClass("hidden");
-            $("#2019-07-no").closest("div.form-group").addClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 11:
             $(".p7-and-before").addClass("hidden");
@@ -2764,50 +2817,18 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
             $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
             $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
             $("#2020-12-no").closest("div.form-group").removeClass("hidden");
             $("#2019-12-no").closest("div.form-group").removeClass("hidden");
             $("#2020-11-no").closest("div.form-group").removeClass("hidden");
             $("#2019-11-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
-            $("#2020-09-no").closest("div.form-group").addClass("hidden");
-            $("#2019-09-no").closest("div.form-group").addClass("hidden");
-            $("#2020-08-no").closest("div.form-group").addClass("hidden");
-            $("#2019-08-no").closest("div.form-group").addClass("hidden");
-            $("#2020-07-no").closest("div.form-group").addClass("hidden");
-            $("#2019-07-no").closest("div.form-group").addClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 10:
             $(".p7-and-before").addClass("hidden");
@@ -2819,32 +2840,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
             $("#cal-sprsht-p9").removeClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
             $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
             $("#2020-12-no").closest("div.form-group").removeClass("hidden");
             $("#2019-12-no").closest("div.form-group").removeClass("hidden");
             $("#2020-11-no").closest("div.form-group").removeClass("hidden");
@@ -2853,16 +2858,6 @@
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             $("#2020-09-no").closest("div.form-group").removeClass("hidden");
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-08-no").closest("div.form-group").addClass("hidden");
-            $("#2019-08-no").closest("div.form-group").addClass("hidden");
-            $("#2020-07-no").closest("div.form-group").addClass("hidden");
-            $("#2019-07-no").closest("div.form-group").addClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 9:
             $(".p7-and-before").addClass("hidden");
@@ -2874,34 +2869,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
             $("#cal-sprsht-p9").removeClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
             $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-08-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-07-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
             $("#2020-11-no").closest("div.form-group").removeClass("hidden");
             $("#2019-11-no").closest("div.form-group").removeClass("hidden");
             $("#2020-10-no").closest("div.form-group").removeClass("hidden");
@@ -2910,14 +2887,6 @@
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
             $("#2020-08-no").closest("div.form-group").removeClass("hidden");
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-07-no").closest("div.form-group").addClass("hidden");
-            $("#2019-07-no").closest("div.form-group").addClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 8:
             $(".p7-and-before").addClass("hidden");
@@ -2929,36 +2898,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
             $("#cal-sprsht-p7").removeClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
             $("#2020-10-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-08-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-07-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-06-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
             $("#2020-10-no").closest("div.form-group").removeClass("hidden");
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             $("#2020-09-no").closest("div.form-group").removeClass("hidden");
@@ -2967,12 +2916,6 @@
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             $("#2020-07-no").closest("div.form-group").removeClass("hidden");
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-06-no").closest("div.form-group").addClass("hidden");
-            $("#2019-06-no").closest("div.form-group").addClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 7:
             $(".p7-and-before").removeClass("hidden");
@@ -2984,38 +2927,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
             $("#cal-sprsht-p7").removeClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-08-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-07-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-05-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
             $("#2020-09-no").closest("div.form-group").removeClass("hidden");
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
             $("#2020-08-no").closest("div.form-group").removeClass("hidden");
@@ -3024,10 +2945,6 @@
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             $("#2020-06-no").closest("div.form-group").removeClass("hidden");
             $("#2019-06-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-05-no").closest("div.form-group").addClass("hidden");
-            $("#2019-05-no").closest("div.form-group").addClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 6:
             $(".p7-and-before").removeClass("hidden");
@@ -3039,40 +2956,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
             $("#cal-sprsht-p5").removeClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
             $("#2020-08-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-07-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-05-yes").closest("div.form-group").removeClass("hidden");
-            $("#2020-04-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
-            $("#2020-09-no").closest("div.form-group").addClass("hidden");
-            $("#2019-09-no").closest("div.form-group").addClass("hidden");
             $("#2020-08-no").closest("div.form-group").removeClass("hidden");
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             $("#2020-07-no").closest("div.form-group").removeClass("hidden");
@@ -3081,8 +2974,6 @@
             $("#2019-06-no").closest("div.form-group").removeClass("hidden");
             $("#2020-05-no").closest("div.form-group").removeClass("hidden");
             $("#2019-05-no").closest("div.form-group").removeClass("hidden");
-            $("#2020-04-no").closest("div.form-group").addClass("hidden");
-            $("#2019-04-no").closest("div.form-group").addClass("hidden");
             break;
           case 5:
             $(".p7-and-before").removeClass("hidden");
@@ -3094,42 +2985,16 @@
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprdsht-p1-4").addClass("hidden");
-            $("#cal-sprdsht-none").addClass("hidden");
             $("#cal-sprsht-p5").removeClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
-            $("#2021-02-yes").closest("div.form-group").addClass("hidden");
-            $("#2021-01-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-12-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-11-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-10-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-09-yes").closest("div.form-group").addClass("hidden");
-            $("#2020-08-yes").closest("div.form-group").addClass("hidden");
             $("#2020-07-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-06-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-05-yes").closest("div.form-group").removeClass("hidden");
             $("#2020-04-yes").closest("div.form-group").removeClass("hidden");
-            $("#2021-02-no").closest("div.form-group").addClass("hidden");
-            $("#2020-02-no").closest("div.form-group").addClass("hidden");
-            $("#2021-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-01-no").closest("div.form-group").addClass("hidden");
-            $("#2020-12-no").closest("div.form-group").addClass("hidden");
-            $("#2019-12-no").closest("div.form-group").addClass("hidden");
-            $("#2020-11-no").closest("div.form-group").addClass("hidden");
-            $("#2019-11-no").closest("div.form-group").addClass("hidden");
-            $("#2020-10-no").closest("div.form-group").addClass("hidden");
-            $("#2019-10-no").closest("div.form-group").addClass("hidden");
-            $("#2020-09-no").closest("div.form-group").addClass("hidden");
-            $("#2019-09-no").closest("div.form-group").addClass("hidden");
-            $("#2020-08-no").closest("div.form-group").addClass("hidden");
-            $("#2019-08-no").closest("div.form-group").addClass("hidden");
             $("#2020-07-no").closest("div.form-group").removeClass("hidden");
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             $("#2020-06-no").closest("div.form-group").removeClass("hidden");
@@ -3148,10 +3013,6 @@
             $(".p11-plus").addClass("hidden");
             $(".p10-").addClass("hidden");
             $("#cal-sprdsht-p1-4").removeClass("hidden");
-            $("#cal-sprsht-p5").addClass("hidden");
-            $("#cal-sprsht-p7").addClass("hidden");
-            $("#cal-sprsht-p9").addClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $("#rate-reduction").addClass("hidden");
             $(".emp-lv").addClass("hidden");
             $("#p4-tws").prop("readonly", false);
@@ -3612,7 +3473,7 @@
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
-
+        
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
@@ -3622,10 +3483,11 @@
           //get the value of the claim month
           var claimMonth2020Value = zeroIfEmpty($("#" + monthsArray[0] + "-no").val());
           var claimMonth2019Value = zeroIfEmpty($("#" + months2019Array[0] + "-no").val());
+
           //get the value of the previous month
           var prevClaim2020Value = zeroIfEmpty($("#" + monthsArray[1] + "-no").val());
           var prevClaim2019Value = zeroIfEmpty($("#" + months2019Array[1] + "-no").val());
-          
+
           if (claimPeriod < 11) {
             //get the avg of the revenue from the previous three motnhs (2020)
             var threeMonthRev2020 = [
@@ -3921,14 +3783,12 @@
           }
           if (claimPeriod < 11) {
             monthsArray[i] = "2019-" + monthsArray[i];
-          } else if (claimPeriod < 15) {
-            if (parseInt(monthsArray[i]) > 5) {
+          } else {
+            if ((claimPeriod < 14 && parseInt(monthsArray[i]) > 5) || (parseInt(monthsArray[i]) > 2)) {
               monthsArray[i] = "2019-" + monthsArray[i];
             } else {
               monthsArray[i] = "2020-" + monthsArray[i];
             }
-          } else {
-            monthsArray[i] = "2020-" + monthsArray[i];
           }
         }
         return monthsArray;
@@ -4199,8 +4059,8 @@
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
         var period = $("#claim-period option:selected").data("claim-period");
         if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
           return maxBase[period - 5];
