@@ -164,24 +164,36 @@
 				<!-- START PAGE FEEDBACK WIDGET -->
 				<div class="row row-no-gutters mrgn-tp-xl">
 					<div class="col-sm-7 col-lg-6">
-						<section class="gc-pg-hlpfl provisional">
+
+						<section class="provisional gc-pg-hlpfl">
 							<div class="well mrgn-bttm-0">
-								<form id="gc-pg-hlpfl-frm" action="#" method="post" autocomplete="off">
-									<input type="hidden" name="institutionopt" value="ISED">
-									<input type="hidden" name="themeopt" value="Business">
+								<form id="gc-pg-hlpfl-frm"
+											action="index-en.html"
+											method="post"
+											autocomplete="off"
+											class="provisional wb-postback"
+											data-wb-postback='{"success":".gc-pg-hlpfl-thnk","content":"#gc-pg-hlpfl-frm"}'>
+									<input type="hidden" name="tid" value="ASK_FOR_THIS_ID">
+									<input type="hidden" name="auke" value="ASK_FOR_THIS_VALUE">
+									<input type="hidden" name="institutionopt" value="INSTITION_NAME">
+									<input type="hidden" name="themeopt" value="THEME">
 									<input type="hidden" name="language" value="EN">
-									<input type="hidden" name="pageTitle" value="Test page - managing your business">
-									<input type="hidden" name="submissionPage" value="test.html">
-									<input type="hidden" name="sectionopt" value="">
-									<input type="hidden" id="helpful" name="helpful" value="Yes">
+									<input type="hidden" name="pageTitle" value="PAGE_TITLE">
+									<input type="hidden" name="submissionPage" value="SUBMISSION_PAGE.html">
+									<input type="hidden" name="sectionopt" value="SECTION_NAME">
 									<div class="gc-pg-hlpfl-btn">
 										<div class="row row-no-gutters">
 											<div class="col-xs-12 col-sm-7 mrgn-tp-sm">
 												<h2 class="mrgn-tp-sm h5">Did you find what you were looking for?</h2>
 											</div>
 											<div class="col-xs-8 col-sm-5 text-right">
-												<button id="btnyes" type="submit" value="Yes" class="btn btn-primary">Yes</button>
-												<button id="btnno" type="button" class="btn btn-primary mrgn-lft-sm nojs-hide">No</button>
+												<button type="submit" name="helpful" value="Yes" class="btn btn-primary">Yes</button>
+												<button type="button"
+																class="btn btn-primary mrgn-lft-sm nojs-hide"
+																data-wb-doaction='[
+																	{"action":"removeClass","source":".gc-pg-hlpfl-no","class":"nojs-show"},
+																	{"action":"addClass","source":".gc-pg-hlpfl-btn","class":"hide"}
+																]'> No </button>
 											</div>
 										</div>
 									</div>
@@ -190,41 +202,55 @@
 										<fieldset>
 											<legend class="h4 mrgn-tp-0 mrgn-bttm-md">What was wrong?</legend>
 											<div class="radio">
-												<label for="problem1">
-													<input name="problem" id="problem1" type="radio" value="I can't find the information" data-gc-analytics-wtph-value="I can't find the information-Je ne peux pas trouver l'information" data-gc-analytics-collect="notPrivate">
+												<label>
+													<input name="problem" id="problem01" type="radio" value="I can't find the information" data-gc-analytics-wtph-value="I can't find the information-Je ne peux pas trouver l'information" data-gc-analytics-collect="notPrivate">
 													I can't <strong>find</strong> the information
 												</label>
 											</div>
 											<div class="radio">
-												<label for="problem2">
-													<input name="problem" id="problem2" type="radio" value="The information is hard to understand" data-gc-analytics-wtph-value="The information is hard to understand-L'information est difficile à comprendre" data-gc-analytics-collect="notPrivate">
+												<label>
+													<input name="problem" id="problem02" type="radio" value="The information is hard to understand" data-gc-analytics-wtph-value="The information is hard to understand-L'information est difficile à comprendre" data-gc-analytics-collect="notPrivate">
 													The information is hard to <strong>understand</strong>
 												</label>
 											</div>
 											<div class="radio">
-												<label for="problem3">
-													<input name="problem" id="problem3" type="radio" value="There was an error / something didn't work" data-gc-analytics-wtph-value="There was an error or something didn't work-Il y avait une erreur ou quelque chose ne fonctionnait pas" data-gc-analytics-collect="notPrivate">
+												<label>
+													<input name="problem" id="problem03" type="radio" value="There was an error / something didn't work" data-gc-analytics-wtph-value="There was an error or something didn't work-Il y avait une erreur ou quelque chose ne fonctionnait pas" data-gc-analytics-collect="notPrivate">
 													There was an error or something <strong>didn't work</strong>
 												</label>
 											</div>
 											<div class="radio">
-												<label for="problem4">
-													<input name="problem" id="problem4" type="radio" value="Other reason" data-gc-analytics-wtph-value="Other reason-Autre raison" data-gc-analytics-collect="notPrivate">
+												<label>
+													<input name="problem" id="problem04" type="radio" value="Something is broken or incorrect">
+													Something is broken or incorrect
+												</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input name="problem" id="problem05" type="radio" value="Other reason" data-gc-analytics-wtph-value="Other reason-Autre raison" data-gc-analytics-collect="notPrivate">
 													Other reason
 												</label>
 											</div>
 										</fieldset>
-										<label for="problem6" class="mrgn-bttm-0">Please provide more details</label>
+										<label for="problem06" class="mrgn-bttm-0">Please provide more details</label>
 										<p class="small">
 											<strong>You will not receive a reply. Telephone numbers and email addresses will be removed.</strong>
 											<br>
 											<span class="small">Maximum 300 characters</span>
 										</p>
-										<textarea id="problem6" name="details" class="full-width" maxlength="300"></textarea>
+										<textarea name="details" id="problem06" class="full-width" maxlength="300"></textarea>
 										<div id="warning" class="alert alert-danger hidden" role="alert">
 											<p class="text-danger"><strong>Remove any personal information before submitting feedback</strong></p>
 										</div>
-										<button type="submit" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">Submit</button>
+										<button type="submit"
+														name="helpful"
+														value="No"
+														class="btn btn-primary mrgn-tp-md mrgn-bttm-sm"
+														data-wb-doaction='[{
+															"action": "ajax",
+															"type": "POST",
+															"url": "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm"
+														}]'> Submit </button>
 									</div>
 								</form>
 								<div class="gc-pg-hlpfl-thnk hide">
@@ -232,9 +258,10 @@
 								</div>
 							</div>
 						</section>
+
 					</div>
 					<div class="col-sm-3 col-sm-offset-1 col-lg-offset-3">
-						<div class="wb-share" data-wb-share="{&quot;pnlId&quot;:&quot;pnlShrPg&quot;, &quot;lnkClass&quot;: &quot;btn btn-default btn-block mrgn-tp-md&quot;}"></div>
+						<div class="wb-share" data-wb-share='{"pnlId":"pnlShrPg", "lnkClass": "btn btn-default btn-block mrgn-tp-md"}'></div>
 					</div>
 				</div>
 				<!-- END PAGE FEEDBACK WIDGET -->
@@ -270,50 +297,40 @@
 			( function ( $, windows, wb ) {
 				"use strict";
 				var componentName = "gc-pg-hlpfl",
-					selector = "." + componentName,
-					initEvent = "wb-init" + selector,
-					$document = wb.doc,
-					regex = {
-						phoneNumber: /(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/im,
-						sin: /(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/im,
-						postalCode: /[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d/im,
-						email: /([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})/im
-					},
-					init = function ( event ) {
-						var elm = wb.init( event, componentName, selector ),
-							$elm;
-						if ( elm ) {
-							$elm = $( elm );
-							$elm.trigger( "keyup" );
-							$elm.trigger( "submit" );
-							$elm.trigger( "click" );
-							wb.ready( $elm, componentName );
-						}
-					};
+						selector = "." + componentName,
+						initEvent = "wb-init" + selector,
+						$document = wb.doc,
+						regex = {
+							phoneNumber: /(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/im,
+							sin: /(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/im,
+							postalCode: /[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d/im,
+							email: /([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})/im
+						},
+						init = function ( event ) {
+							var elm = wb.init( event, componentName, selector ),
+									$elm;
+							if ( elm ) {
+								$elm = $( elm );
+								$elm.trigger( "keyup" );
+								$elm.trigger( "submit" );
+								$elm.trigger( "click" );
+								wb.ready( $elm, componentName );
+							}
+						};
 				$document.on( "keyup", selector + " textarea", function ( event ) {
 					var textValue = event.target.value,
-						$warning = $( "#warning" );
+							$warning = $( "#warning" );
 
 					if ( textValue.match( regex.phoneNumber ) || textValue.match( regex.sin ) || textValue.match( regex.postalCode ) || textValue.match( regex.email ) ) {
 						$warning.removeClass( "hidden" ).animate();
 					} else {
 						$warning.addClass( "hidden" );
 					}
-				});
+				} );
 
-				$document.on( "click", selector + " #btnno", function () {
-					$( ".gc-pg-hlpfl-no" ).removeClass( "nojs-show" );
-					$( ".gc-pg-hlpfl-btn" ).addClass( "hide" );
-					$( "#helpful" ).val( "No" );
-				});
-
-				$document.on( "submit", selector + " #gc-pg-hlpfl-frm", function ( event ) {
+				/* $document.on( "submit", selector + " #gc-pg-hlpfl-frm", function ( event ) {
 					var elm = event.currentTarget,
-						$elm = $( elm );
-
-					event.preventDefault();
-					$( ".gc-pg-hlpfl-thnk" ).removeClass( "hide" );
-					$elm.addClass( "hide nojs-show" );
+							$elm = $( elm );
 
 					$.ajax( {
 						url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
@@ -325,11 +342,11 @@
 							console.log( xhr.responseText );
 						}
 					} );
-				} );
+				} ); */
 
 				$document.on( "timerpoke.wb " + initEvent, selector, init );
 				wb.add( selector );
-			})( jQuery, window, wb );
+			} )( jQuery, window, wb );
 		</script>
 		<!-- END SCRIPT PAGE FEEDBACK WIDGET -->
 	</body>
