@@ -17,7 +17,7 @@
          <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
          <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
          <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
-         <link href="../../css/wizard.css" rel="stylesheet">
+         <link href="../../../css/wizard.css" rel="stylesheet">
          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
          <!-- Write closure template -->
          <script type="text/javascript">
@@ -63,25 +63,60 @@
          <main role="main" property="mainContentOfPage" class="container">
 
                 <h1>Find out if you can travel to Canada - Citizen - Vaccinated</h1>
+
+               <div class="wiz-choice mrgn-tp-lg mrgn-bttm-lg">
+                  <p>You indicated that you are:</p>
+               
+                  <ul>
+                     <li> a Canadian citizen, a permanent resident of Canada, a person registered under the Indian Act or a protected person</li>
+                     <li> not showing signs and symptoms consistent with COVID-19</li>
+                     <li>are vaccinated against COVID-19</li>
+                  </ul>
+               </div>
+               
+               <!-- <div class="alert alert-info"> -->
+               <p>At this time, <strong>there are no exemptions </strong>to quarantine or testing specifically for vaccinated
+               travellers. If any exemptions apply, it will be based on your <strong>reason for travel</strong>.</p>
+               <!-- </div> -->
  
            
-                <mark>want to be careful with the wording, someone MAY still be exempt, it just isn't by virtue of their vaccination, it's their reason for entry</mark>
-            <h2>No exemptions for vaccinated travellers</h2>
-                  <p>At this time, <strong>there are no exemptions </strong>to quarantine or testing specifically for vaccinated
-                     travellers.</p> <mark>If you do qualify for any exemptions, it will be based on your reason for travel.</mark>
-
-            <h3>Studying transmission after vaccination</h3>
-
-            <p>It has only been a few months since people around the world began to be vaccinated against COVID-19.</p>
-            <p>There is much that is not yet known about transmission of the virus by vaccinated people. The Government of Canada is
-               studying the evidence about transmission as it becomes available. </p>
-            <p>As our knowledge changes, our policies to keep Canadians safe will change too. </p>
+            <div class="wb-frmvld" id="services">
+               <!-- <form method="get"> -->
+               <!--Smart question!-->
+               <div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
+                                  "noForm":false,
+                                  "renderas":"radio",
+                                  "base": { "live": false }
+                                }'>
+                  <p>What best describes you or your reason for returning to Canada?</p>
+                  <ul>
+                     <li><a href="../answers/citizen-no-symptoms.html">optional reasons (leisure, visit, weddings, upkeep of
+                           property, return from travel, etc.)</a></li>
+                     <!-- <li><a href="./answers/citizen-no-symptoms.html">return home from travel</a></li> -->
+                     <li><a href="../citizen-no-symptoms-work.html">work activities or employment reasons</a></li>
+                     <li><a href="../citizen-no-symptoms-compassion.html">grief and loss (funerals, sitting vigil, end of life visit,
+                           etc.)</a> </li>
+                     <li><a href="../citizen-no-symptoms-compassion.html">caring for someone critically ill or who has a valid
+                           medical reason (as a non-health professional)</a></li>
+                     <li><a href="../answers/citizen-trans-border.html">crossing the border is essential to everyday functions
+                           <!-- quarantine exempt -->
+                        </a></li>
+                     <li><a href="../answers/citizen-no-symptoms.html">received essential medical services or treatment in another
+                           country</a></li>
+                     <li><a href="../answers/citizen-medical-treatment.html">receiving essential medical services or treatment in
+                           Canada
+                           <!-- quarantine exempt ?? -->
+                        </a></li>
+                     <li><a href="../answers/citizen-return.html">return home</a></li>
             
-            <p>The World Health Organization also recommends that vaccinated travellers shouldn't be exempted from entry and
-               quarantine requirements at this time.</p>
-               
+                     <!-- <li><a href="./answers/citizen-possible-essential.html">another essential service or reason not listed</a></li> -->
+                  </ul>
+               </div>
+               <!-- </form> -->
+            </div>
+            </div>
+
         
-            <a class="btn btn-primary mrgn-bttm-md mrgn-tp-lg" href="./citizen.html">Continue to entry requirements</a>
 
             </section>
             <div id="def-preFooter"></div>
