@@ -906,35 +906,24 @@
                                                       </div>
                                                    </div>
                                                 </div>
-                                                <!-- For edge? Manual input
-                                                <div id="lockdown-manual-1">
-                                                  <div class="row">
-                                                    <div class="fieldset">
-                                                      <div class="col-md-12">
-                                                        <legend>Lockdown start date<span class="wb-inv"> (<abbr title="Select month and input two digits day">Month D</abbr>)</span></legend>
-                                                        <div class="row">
-                                                          <div class="col-xs-6 col-sm-4">
-                                                            <div class="form-group">
-                                                              <label for="lockdown-manual-start-month-1">Month</label>
-                                                              <select class="form-control input-lg" id="lockdown-manual-start-month-1">
-                                                                  <option class="claim-month-one">September 2020</option>
-                                                                  <option class="claim-month-two">October 2020</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-xs-6 col-sm-2">
-                                                            <div class="form-group">
-                                                              <label for="lockdown-manual-start-day-1">Day</label>
-                                                              <input type="number" class="form-control day input-lg" id="lockdown-manual-start-day-1" min="2" max="20">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div> -->
-
-                                                <a class="btn btn-default">Update your lockdown support</a>
+                                                <a class="btn btn-default">Update your lockdown dates</a>
+                                                <!-- Confirming 7 or more days -->
+                                                <div id="lock-down-straddle-1" class="hidden"> <!-- id to replicate -->
+                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                    <!-- <div class="col-md-12"> -->
+                                                    <legend>Did the lockdown <span id="7-days-text-1"></span> <span id="7-days-gap-1">March 15, 2020</span>?</legend>
+                                                    <ul class="list-unstyled lst-spcd-2">
+                                                      <li class="radio">
+                                                        <input type="radio" name="7-days-1" id="7-days-yes-1">
+                                                        <label for="7-days-yes-1">Yes</label>
+                                                      </li>
+                                                      <li class="radio">
+                                                        <input type="radio" name="7-days-1" id="7-days-no-1">
+                                                        <label for="7-days-no-1">No</label>
+                                                      </li>
+                                                    </ul>
+                                                  </fieldset>
+                                                </div> 
                                               </div>
                                               <div class="well mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Lockdown support rate summary</h3>
@@ -1675,6 +1664,9 @@
             this.idUpdates = [ //any ids or aria-describedby that get updated
               "lock-down-ineligible-",
               "lock-down-eligible-",
+              "lock-down-straddle-",
+              "7-days-text-",
+              "7-days-gap-",
               "top-up-days-",
               "choose-own-or-rent-message-",
               "lock-down-period-",
@@ -1992,6 +1984,7 @@
           LocationFormGenerator.prototype.visualDefaults = function (frag) {
             var numLocs = this.numberOfLocations;
             //hide the lockdown fields
+            $(frag).find('#lock-down-straddle-' + numLocs).addClass("hidden");
             $(frag).find('#lock-down-period-' + numLocs).addClass("hidden");
             $(frag).find('#lock-down-ineligible-' + numLocs).removeClass("hidden");
             $(frag).find('#lock-down-eligible-' + numLocs).addClass("hidden");
@@ -2829,16 +2822,42 @@
             }
           }
 
-          $document.on("blur", ".lock-down-dates", function (event) {
+          $document.on("click", "input[name^='7-days-']", function (event) {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             topUpRateCalculation(locationNumber);
             recalculateLocationAmounts(locationNumber);
           });
 
+          $document.on("blur", ".lock-down-dates", function (event) {
+            var parts = this.id.split("-");
+            var locationNumber = parts[parts.length - 1];
+            topUpRateCalculation(locationNumber);
+            recalculateLocationAmounts(locationNumber);
+          });
+          
+
           var topUpRate = 0;
           function topUpRateCalculation(locationNumber) {
             var datediff = getDateDiffLockdown(locationNumber);
+            var rangeISO = $('#claim-period').find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
+              date1ArrPeriod = startDateISO.split("-"),
+              date2ArrPeriod = endDateISO.split("-"),
+              startDatePeriod = new Date(Date.UTC(date1ArrPeriod[0], date1ArrPeriod[1]-1, parseInt(date1ArrPeriod[2])+1)),
+              endDatePeriod = new Date(Date.UTC(date2ArrPeriod[0], date2ArrPeriod[1]-1, parseInt(date2ArrPeriod[2])+1));
+            //Dates start and end of the lockdown selection
+            var startDate = $("#lockdown-start-" + locationNumber).val(),
+              endDate = $("#lockdown-end-" + locationNumber).val(),
+              date1Arr = startDate.split("-"),
+              date2Arr = endDate.split("-"),
+              startSelectionDate = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, parseInt(date1Arr[2])+1)),
+              endSelectionDate = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, parseInt(date2Arr[2])+1));
+            if (((startDatePeriod.getDate() != startSelectionDate.getDate()) && (endDatePeriod.getDate() != endSelectionDate.getDate())) || datediff >= 7)  {
+              $('#7-days-yes-' + locationNumber).prop('checked', false);
+              $('#lock-down-straddle-'+locationNumber).addClass("hidden");
+            }
             if ($('#lock-down-yes-' + locationNumber + ':checked').length == 1 && cersRate > 0) { //yes is selected
               $('#lock-down-period-'+locationNumber).removeClass("hidden");
             } else {
@@ -2846,7 +2865,7 @@
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
             }
-            if (datediff >= 7 && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
+            if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
@@ -2858,7 +2877,37 @@
                 $('.top-up-rate-'+locationNumber).text(toPercent("0"));
                 datediff = 0;
               }
-            } else { //no is selected
+            } else { //fewer than 7 days selected and the 7-days is not 'yes'
+              console.log("hi2");
+              if ($('#lockdown-start-'+locationNumber).is(":visible")) {
+                //Dates start and end of the period
+                if (document.documentElement.lang == "fr") {
+                  var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                } else {
+                  var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                }
+                if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
+                  var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 7);
+                  if (document.documentElement.lang == "fr") {
+                    var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                  } else {
+                    var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                  }
+                  $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                  $('#7-days-text-'+locationNumber).text("start on or before");
+                  $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+                } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
+                  var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 7);
+                  if (document.documentElement.lang == "fr") {
+                    var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                  } else {
+                    var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                  }
+                  $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                  $('#7-days-text-'+locationNumber).text("end on or after");
+                  $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+                }
+              }
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text(toPercent("0"));
