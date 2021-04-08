@@ -2835,7 +2835,6 @@
             topUpRateCalculation(locationNumber);
             recalculateLocationAmounts(locationNumber);
           });
-          
 
           var topUpRate = 0;
           function topUpRateCalculation(locationNumber) {
@@ -2866,6 +2865,9 @@
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
             }
             if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
+              if (datediff < 7) { //'yes' is selected, but dates might have changed
+                sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
+              }
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
@@ -2878,36 +2880,7 @@
                 datediff = 0;
               }
             } else { //fewer than 7 days selected and the 7-days is not 'yes'
-              console.log("hi2");
-              if ($('#lockdown-start-'+locationNumber).is(":visible")) {
-                //Dates start and end of the period
-                if (document.documentElement.lang == "fr") {
-                  var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
-                } else {
-                  var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                }
-                if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
-                  var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 7);
-                  if (document.documentElement.lang == "fr") {
-                    var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
-                  } else {
-                    var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
-                  }
-                  $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
-                  $('#7-days-text-'+locationNumber).text("start on or before");
-                  $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
-                } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
-                  var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 7);
-                  if (document.documentElement.lang == "fr") {
-                    var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
-                  } else {
-                    var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
-                  }
-                  $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
-                  $('#7-days-text-'+locationNumber).text("end on or after");
-                  $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
-                }
-              }
+              sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text(toPercent("0"));
@@ -2922,6 +2895,39 @@
             });
             recalculateLocationAmounts(locationNumber);
             calculateTotals();
+          }
+
+          //Updates the follow up question to the date range for the lockdown period with the correct 'end' date for the 7 days
+          function sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber) {
+            if ($('#lockdown-start-'+locationNumber).is(":visible")) {
+              //Dates start and end of the period
+              if (document.documentElement.lang == "fr") {
+                var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+              } else {
+                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              }
+              if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
+                var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 7);
+                if (document.documentElement.lang == "fr") {
+                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                } else {
+                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                }
+                $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                $('#7-days-text-'+locationNumber).text("start on or before");
+                $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+              } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
+                var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 7);
+                if (document.documentElement.lang == "fr") {
+                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                } else {
+                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                }
+                $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                $('#7-days-text-'+locationNumber).text("end on or after");
+                $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+              }
+            }
           }
 
           //Gets the number of days between the start and end date of the lockdown period for a location
