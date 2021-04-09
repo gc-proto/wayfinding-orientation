@@ -909,6 +909,7 @@
                                                 <a class="btn btn-default">Update your lockdown dates</a>
                                                 <!-- Confirming 7 or more days -->
                                                 <div id="lock-down-straddle-1" class="hidden"> <!-- id to replicate -->
+                                                  <p>To qualify for lockdown support, your location must have been closed or significantly impacted due to a COVID-19 public health order for 1 week or longer.</p>
                                                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                                     <!-- <div class="col-md-12"> -->
                                                     <legend>Did the lockdown <span id="7-days-text-1"></span> <span id="7-days-gap-1">March 15, 2020</span>?</legend>
@@ -2907,7 +2908,7 @@
                 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
               }
               if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
-                var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 7);
+                var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 6);
                 if (document.documentElement.lang == "fr") {
                   var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
@@ -2917,7 +2918,7 @@
                 $('#7-days-text-'+locationNumber).text("start on or before");
                 $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
               } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
-                var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 7);
+                var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 6);
                 if (document.documentElement.lang == "fr") {
                   var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
