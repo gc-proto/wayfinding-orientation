@@ -489,14 +489,16 @@ input[type=number] {
   </nav>
 </section>
 <section class="gc-nav-section experimental">
-<h1 property="name" id="wb-cont">Repayment relief for self-employed people</h1>
-<p>Some self-employed individuals who applied for the Canada Emergency Response Benefit (CERB) were told they had to repay it because they had based their eligibility on their gross self-employment income. If these individuals met all the other eligibility criteria, they may not have to pay back the CERB. If they have already repaid it, they may be able to get their benefit reimbursed.</p>
+<!--h1 property="name" id="wb-cont">Repayment relief for self-employed people</h1-->
+<h1 property="name" id="wb-cont">Self-employed repayment relief (net vs. gross)</h1>
+<p>Some self-employed individuals who applied for the Canada Emergency Response Benefit (CERB) were told they had to repay it. This was because they based their eligibility on their gross instead of their net self-employment income. If these individuals met all the other eligibility criteria, they may not have to pay back the CERB. If they have already repaid the CERB, they may be able to get it reimbursed.</p>
 <h2>On this page</h2>
 <ul>
   <li><a href="#criteria">Repayment relief criteria</a></li>
   <li><a href="#eligible">If you meet the relief criteria</a>
     <ul>
-      <li><a href="#repaid">If you meet the criteria but already repaid</a></li>
+      <li><a href="#repaid">If you already repaid</a></li>
+      <li><a href="#contact">If CRA does not contact you by X date</a></li>
     </ul>
   </li>
   <li><a href="#noteligible">If you do not meet the relief criteria</a></li>
@@ -535,7 +537,7 @@ input[type=number] {
     <li class="checkbox">
       <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
       <label for="eg4">
-      <p>You filed both your 2019 and 2020 taxes before <span class="nowrap">December 31, 2022</span></p>
+      <p>You filed both your 2019 and 2020 taxes on or before <span class="nowrap">December 31, 2022</span></p>
       </label>
     </li>
   </ul>
@@ -557,16 +559,29 @@ input[type=number] {
 <h2 class="h3" id="repaid">If you already repaid</h2>
 <p>You may be able to get your money back. Reimbursements will start in summer 2021. The CRA will contact you by mail with instructions.</p>
 <p>You must file your 2019 and 2020 income tax return (using your current <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4a-report.html">T4A tax slip</a>) before the CRA can process your reimbursement.</p>
-<p>If you are reimbursed for a repayment you made in 2020, the CRA may reassess your 2020 tax return.</p>
+<p>If you're reimbursed for a repayment you made in 2020, the CRA may reassess your 2020 tax return.</p>
 
 <!--How to request a reimbursement-->
-<h3 class="h4">If CRA doesn't contact you by X date</h3>
-<p>Contact the CRA to request a reimbursement.</p>
+<h3 id="contact" class="h4">If CRA does not contact you by X date</h3>
+<p>Contact the CRA to request a reimbursement or to submit additional documentation.</p>
 <dl class="dl-horizontal brdr-0">
+<dt id="online">Online:</dt>
+<dd>
+  <details open="">
+    <summary>Contact the CRA through CRA My Account</summary>
+    <ol>
+      <li>Log in to your <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">CRA My Account</a></li>
+      <li>Select “Submit documents” (in top right corner)</li>
+      <li>Enter your case or reference number, or select “without a case or reference number”</li>
+      <li>Select “Submit supporting documents for COVID-19 support payments”</li>
+      <li>Enter a short description about your submission and attach your files</li>
+    </ol>
+  </details>
+</dd>
 <dt id="phone">By phone:</dt>
 <dd>
   <details>
-    <summary>Request reimbursement by phone</summary>
+    <summary>Contact the CRA by phone</summary>
     <dl class="dl-horizontal brdr-0">
       <dt>
         <p><strong>Telephone number:</strong></p>
@@ -636,17 +651,19 @@ input[type=number] {
 <dt id="mail">By mail:</dt>
 <dd>
 <details>
-<summary>Request reimbursement by mail</summary>
+<summary>Contact the CRA by mail</summary>
 <dl class="dl-horizontal brdr-0">
   <p>Be sure to include:</p>
   <ul>
+    <li>your case number (if you have one)</li>
     <li>the reason for your request</li>
     <li>your full name</li>
     <li>your social insurance number</li>
     <li>a telephone number where you can be contacted</li>
     <li>the amount of the repayment</li>
-    <li>date(s) of repayment, and</li>
-    <li>method of repayment; cheque, financial institution, returned uncashed cheque, etc.</li>
+    <li>the date(s) you repaid</li>
+    <li>how you repaid it (cheque, financial institution, returned uncashed cheque)</li>
+    <li>any additional documents requested by the CRA</li>
   </ul>
   <p><strong>Mail your request to:</strong></p>
   <p>Eligibility and Entitlement Recovery Benefits<br>
@@ -654,35 +671,18 @@ input[type=number] {
     66 Stapon Road</p>
   </details>
   </dd>
-</dl>
-<p class="mrgn-tp-lg">You can only be reimbursed for periods that you repaid. You can no longer apply for CERB periods retroactively.</p>
-<h3 id="documents">How to submit your validation documents</h3>
-<p>If the CRA requests additional information, you can submit your documentation online or by fax.</p>
-<dl class="dl-horizontal brdr-0">
-  <dt>Online:</dt>
-  <dd>
-    <details open="">
-      <summary>Submit your documents through CRA My Account</summary>
-      <ol>
-        <li>Log in to your <a href="/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">CRA My Account</a></li>
-        <li>Select “Submit documents” (in top right corner)</li>
-        <li>Enter your case or reference number, or select “without a case or reference number”</li>
-        <li>Select “Submit supporting documents for COVID-19 support payments”</li>
-        <li>Enter a short description about your submission and attach your files</li>
-      </ol>
-    </details>
-  </dd>
-  <dt>By fax:</dt>
+  <dt id="fax">By fax:</dt>
   <dd>
     <details>
-      <summary>Send your documents by fax</summary>
+      <summary>Contact the CRA by fax</summary>
       <ol>
         <li>Include a cover sheet with your full name, a daytime phone number, and the number of pages you’re faxing</li>
-        <li>Fax your documents to <span class="nowrap"><strong>1-833-325-0555</strong></span></li>
+        <li>Fax your documents to <span class="nowrap"><strong>1-833-325-XXXX</strong></span></li>
       </ol>
     </details>
   </dd>
 </dl>
+<p class="mrgn-tp-lg">You can only be reimbursed for periods that you repaid. You can no longer apply for CERB periods retroactively.</p>
 
 <!--MUST REPAY-->
 <h2 id="noteligible">If you do not meet the relief criteria</h2>
@@ -770,7 +770,7 @@ input[type=number] {
     <dl id="wb-dtmd">
       <dt>Date modified:</dt>
       <dd>
-        <time property="dateModified">2021-04-13</time>
+        <time property="dateModified">2021-04-20</time>
       </dd>
     </dl>
   </div>
