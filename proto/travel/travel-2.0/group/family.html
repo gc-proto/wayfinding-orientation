@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Foreign nationals reuniting with family - Travel restrictions in Canada - Canada.ca</title>
+		<title>Foreign nationals reuniting or travelling with family - Travel restrictions in Canada - Canada.ca</title>
 		<meta content="width=device-width,initial-scale=1" name="viewport">
 		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
 		<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
@@ -59,38 +59,9 @@
 					}
 				</style>
 		<main property="mainContentOfPage" class="container">
-			<section class="gc-nav">
-				 <h1 property="name" id="wb-cont-nav">Travel restrictions in Canada</h1>
-					<section id="archived" class="wb-inv alert alert-warning wb-inview" data-inview="archived-bnr"></section>
-					<section id="archived-bnr" class="wb-overlay modal-content overlay-def wb-bar-t">
-						<header>
-							<h2 class="wb-inv">Interactive prototye</h2>
-						</header>
-						<p>This prototype is for interactive design or layout elements <strong>only</strong>, such as expand-collapses, or
-							additional wizard questions.</p>
-						<p>The final text comes from Samira's (PHAC) document.</p>
-					</section>
-
-				<ul id="gc-navseq-nav" class="hidden-xs hidden-sm">
-					<li> <a class="gc-navseq-nav-btn" href="#gc-navseq-header">Go to navigation menu</a> </li>
-					<li> <a class="gc-navseq-nav-btn" href="#wb-cont">Skip to main content</a> </li>
-				</ul>
-				<nav aria-label="Section menu">
-					<h2 id="gc-navseq-header" class="mrgn-tp-0 hidden-xs hidden-sm">Sections</h2>
-					<ul class="gc-navseq">
-						<li><a href="wizard-start.html">Find out if you can travel to Canada</a></li>
-						<li><a href="isolation.html">Mandatory isolation or quarantine</a></li>
-						<li> <a href="visitors-workers-students.html">Visitors, foreign workers and students</a></li>
-						<li class="active"><a aria-current="page">Foreign nationals reuniting with family</a></li>
-						<li><a href="compassion.html">Caring for others, funerals and support</a></li>
-						<li><a href="provinces.html">Provincial and territorial restrictions</a></li>
-						<li><a href="flying.html">Flying in Canada</a></li>
-						<li><a href="border.html">Entry, borders and transit</a></li>
-					</ul>
-				</nav>
-			</section>
+	
 			<section class="gc-nav-section experimental">
-				 <h1 property="name" id="wb-cont">Foreign nationals reuniting with family</h1>
+				 <h1 property="name" id="wb-cont">Foreign nationals reuniting or travelling with family</h1>
 
 		<p>In most circumstances, your family member must be a Canadian citizen, a permanent resident of Canada, or a temporary
 			resident in order to enter Canada for the purpose of reuniting.</p>
@@ -104,7 +75,7 @@
 			"base": { "live": true },
 			"default": { "action": "addClass", "source":"#question1,#question2,#question3,#immediate,#no-entry,#no-entry-extended,#extended", "class": "hidden" }
 			}'>
-			<p>What is your relationship with the person you want to reunite with?</p>
+			<p>What is your relationship with the person you want to reunite or travel with?</p>
 			<ul>
 				<li data-wb-fieldflow='{"action": "removeClass", "source":"#immediate", "class": "hidden"}'>you're the spouse or
 				common law partner of the person</li>
@@ -125,7 +96,7 @@
 		<div id="question2" class="wb-fieldflow-sub hidden"
 			data-wb-fieldflow='{"renderas":"radio"}'>
 			<div class="wb-fieldflow-header">
-				<p class="wb-fieldflow-label">Are you reuniting with a Canadian citizen or permanent resident of Canada?</p>
+				<p class="wb-fieldflow-label">Are you reuniting or travelling with a Canadian citizen or permanent resident of Canada?</p>
 			</div>
 			<ul>
 				<li data-wb-fieldflow='{ "action": "append", "source":"#question3" }'>Yes</li>
@@ -255,6 +226,15 @@
 									<li><a href="./isolation.html#quarantine">mandatory quarantine requirements</a></li>
 									<li><a href="./provinces.html">provincial and territorial travel restrictions</a></li>
 								</ul>
+
+													<details>
+														<summary><mark>If you’re an immediate family member travelling with an international student</mark></summary>
+																				<p><mark>Most immediate family members can enter Canada with an international student.</mark></p>
+
+														<p><a href="./visitors-workers-students.html#family-of-students">Immediate family members of international
+																students</a></p>
+													</details>
+
 						</details>
 						<details>
 							<summary>Coming from all other countries as a foreign national</summary>
@@ -285,8 +265,7 @@
 									Authorization (eTA)</a></p>
 
 							<details><summary>If you’re an immediate family member travelling with an international student</summary>
-							<p>Most immediate family don't need a written authorization from IRCC to travel with them. However, you must show that your reasons for
-							travel are non-discretionary (non-optional). For example, you’ll help them get established and support them in Canada.</p>
+							<p><mark>Most immediate family members can enter Canada with a family member. You will not need a written authorization from IRCC to travel with the student.</mark> </p>
 
 	<p><a href="./visitors-workers-students.html#family-of-students">Immediate family members of international students</a></p>
 							</details>
@@ -558,6 +537,13 @@
 				</ul>
 					
 					</div>
+
+													<h2 class="h3">Travelling as a group</h2>
+
+					<details><summary><mark>Travelling with family members or a romantic partner</mark></summary>
+					<p>If you’re travelling to Canada with a Canadian citizen, a permanent resident or a temporary resident of Canada you’ll need to meet the same requirements as someone who is reuniting with their family to prove your relationship. The specific documents you need vary depending on your relationship. You will present the information at the border when you
+					enter Canada together.</p>
+					</details>
 
 				<div class="mrgn-bttm-lg" id="definitions">
 					<!-- GAC, you can use this as an include on the family choice pages that use the definitions - it's OK to have all the definitions on each page for easy content management - Jennifer from DTO
