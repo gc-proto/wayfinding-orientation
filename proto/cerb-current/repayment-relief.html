@@ -341,7 +341,7 @@ ol.lst-stps>li:before {
 	margin-bottom: 5px;
 	padding-right: 15px;
 }
-.checkbox-zebra > li:nth-child(2n+1) {
+.checkbox-zebra > li:nth-child(2n) {
 	background-color: #f5f5f5;
 	padding-top: 10px;
 	padding-bottom: 15px;
@@ -504,8 +504,12 @@ input[type=number] {
         </li>
         <li><a href="#noteligible">If you do not meet the relief criteria</a></li>
       </ul>
-      <h2 id="repay">If you were told to repay</h2>
-      <p>If you’re self-employed and were told to repay the <abbr title="Canada Emergency Response Benefit">CERB</abbr>, it may be because you based your eligibility on your gross instead of your net self-employment income. However, if you met all the other eligibility criteria, you may not have to pay back the CERB. If you already repaid the CERB, you may be able to get it reimbursed.</p>
+      <h2 id="repay">If you based your eligibility on your gross income</h2>
+      <p>If you’re self-employed and based your eligibility on your gross instead of your net self-employment income, you may have received notification about repaying the <abbr title="Canada Emergency Response Benefit">CERB</abbr>. However, if you met all the other eligibility criteria, you may not have to pay back the CERB. If you already repaid the CERB, you may be able to get it reimbursed.</p>
+      <!--p>If you received your CERB from Service Canada (EI), and meet the repayment relief criteria below you may not have to repay the CERB.</p--> 
+      
+      <!--p>If you're self-employed and were told to repay the <abbr title="Canada Emergency Response Benefit">CERB</abbr>, it may be because you based your eligibility on your gross instead of your net self-employment income. However, if you met all the other eligibility criteria, you may not have to pay back the CERB.</p>
+		<p>If you already repaid the CERB, you may be able to get it reimbursed. You can apply for reimbursement through CRA even if you received your CERB payment from Service Canada (EI).</p-->
       <h2 id="criteria">Repayment relief criteria</h2>
       <p class="lead">You may not have to repay the CERB if you meet all of the following conditions. If you have already repaid it, you may be able to get it returned.</p>
       <section>
@@ -513,7 +517,8 @@ input[type=number] {
           <li class="checkbox">
             <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
             <label for="eg1">
-            <p>You received the CERB based on your self-employment income for an eligibility period between <span class="nowrap">March 15, 2020</span> and <span class="nowrap">September 26, 2020</span></p>
+            <p>You received the CERB <!--from the CRA or Service Canada (EI)--> based on your self-employment income for an eligibility period between <span class="nowrap">March 15, 2020</span> and <span class="nowrap">September 26, 2020</span></p>
+            <p class="small text-muted">Applies to CRA and Service Canada (EI) CERB recipients</p>
             </label>
           </li>
           <li class="checkbox">
@@ -522,26 +527,22 @@ input[type=number] {
             <p>You earned more than $5,000 in <strong>gross self-employment income</strong> (before taxes, deductions, and expenses) in 2019 or the 12 months before you applied for the CERB</p>
             <p>You may also include the following types of income:</p>
             <ul class="std-blt lst-spcd">
-              <li>
-                <label for="eg2">employment income</label>
-              </li>
-              <li>
-                <label for="eg2">provincial benefit payments related to maternity or parental leave</label>
-              </li>
+              <li> employment income </li>
+              <li> provincial benefit payments related to maternity or parental leave </li>
             </ul>
             </label>
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
             <label for="eg3">
-            <p>You met all of the other <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">CERB eligibility criteria</a></p>
+            <p>You filed both your 2019 and 2020 taxes</p>
+            <p class="text-muted small">You must file by <span class="nowrap">December 31, 2022</span></p>
             </label>
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
             <label for="eg4">
-            <p>You filed both your 2019 and 2020 taxes</p>
-            <p class="text-muted small">You must file by <span class="nowrap">December 31, 2022</span></p>
+            <p>You met all of the other <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">CERB eligibility criteria</a></p>
             </label>
           </li>
         </ul>
@@ -556,13 +557,13 @@ input[type=number] {
       
       <!--MEETS THE CRITERIA-->
       <h2 id="eligible">If you meet the relief criteria</h2>
-      <p>You can keep the CERB. You do not need to contact the CRA to check. The CRA will
+      <p>You can keep the CERB. You do not need to contact the CRA or Service Canada to check. The CRA will
         review your 2019 and 2020 tax returns and contact you if we need more information.</p>
       
       <!--PAID IT BACK-->
       <h2 class="h3" id="repaid">If you already repaid</h2>
       <p>You may be able to get your money back. The reimbursement process will begin in June 2021. To get a reimbursement, you will have to submit a request form to the CRA and we will assess your situation. The form will be available after the June 15, 2021 tax due date.</p>
-	    <p>You must <strong>file your 2019 and 2020 income tax return</strong> (using your current <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4a-report.html">T4A tax slip</a>) before the CRA can process your reimbursement. If you're reimbursed for a repayment you made in 2020, the CRA may reassess your 2020 tax return.</p>
+      <p>You must <strong>file your 2019 and 2020 income tax return</strong> (using your current <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4a-report.html">T4A slip</a> or <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4e-report.html">T4E slip</a>) before the CRA can process your reimbursement. If you're reimbursed for a repayment you made in 2020, the CRA may reassess your 2020 tax return.</p>
       
       <!--How to request a reimbursement--> 
       <!--h3 id="contact" class="h4">How to request reimbursement</h3>
@@ -616,19 +617,18 @@ input[type=number] {
     <li>your full name</li>
     <li>a daytime phone number</li>
     <li>a case number (if you have one)</li>
-    <li>the number of pages you’re faxing</li>
+    <li>the number of pages you're faxing</li>
   </ul>
   </details>
   </dd>
  
 </dl-->
       <p>You can only be reimbursed for periods that you repaid. You can no longer apply for CERB periods retroactively.</p>
-      
       <!--MUST REPAY-->
       <h2 id="noteligible">If you do not meet the relief criteria</h2>
       <p>You will have to <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/return-payment.html#h4">return or repay the CERB</a> payments you received.</p>
       <p>If you aren't sure if you met the income requirement and are concerned you might need to repay, contact the CRA at <a href="tel:18339662099" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099<span class="wb-inv"> (opens up phone application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-833-966-2099</strong> or <span class="nowrap"><abbr title="teletypewriter">TTY</abbr> <a href="tel:18006650354" class="hidden-md hidden-lg nowrap"><span class="fas fa-tty fa-flip-horizontal"></span>1-800-665-0354<span class="wb-inv"> (opens up tty application)</span></a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-tty fa-flip-horizontal"></span>1-800-665-0354</strong></span>.</p>
-      <p>If your CERB payment came from Service Canada (EI), please contact <a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">Service Canada (EI)</a>.</p>
+      <!--p>If your CERB payment came from Service Canada (EI), please contact <a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">Service Canada</a>.</p-->
       <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
         <h3 class="wb-inv">Document navigation</h3>
         <ul class="pager">
