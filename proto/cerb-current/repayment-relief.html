@@ -341,7 +341,7 @@ ol.lst-stps>li:before {
 	margin-bottom: 5px;
 	padding-right: 15px;
 }
-.checkbox-zebra > li:nth-child(2n) {
+.checkbox-zebra > li:nth-child(2n+1) {
 	background-color: #f5f5f5;
 	padding-top: 10px;
 	padding-bottom: 15px;
@@ -532,19 +532,20 @@ input[type=number] {
             </ul>
             </label>
           </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-            <label for="eg3">
-            <p>You filed both your 2019 and 2020 taxes</p>
-            <p class="text-muted small">You must file by <span class="nowrap">December 31, 2022</span></p>
-            </label>
-          </li>
-          <li class="checkbox">
+           <li class="checkbox">
             <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
             <label for="eg4">
             <p>You met all of the other <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/who-apply.html#eligibility-criteria">CERB eligibility criteria</a></p>
             </label>
           </li>
+			<li class="checkbox">
+            <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+            <label for="eg3">
+            <p>You filed both your 2019 and 2020 taxes</p>
+            <p class="small text-muted">You must file by <span class="nowrap">December 31, 2022</span></p>
+            </label>
+          </li>
+         
         </ul>
         <div class="alert alert-warning provisional" id="action-no-msg">
           <p>You must meet all of the above criteria to be eligible for repayment relief. If you do not meet the above criteria, you must <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/return-payment.html#h4">return or repay the CERB</a>.</p>
