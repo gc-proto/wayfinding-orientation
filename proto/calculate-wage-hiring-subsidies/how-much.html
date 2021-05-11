@@ -15,9 +15,9 @@
 <script type="text/javascript"
     src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/wet-en.js"></script>
 <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet" />
-<link href="http://test.canada.ca/covid-19-guidance/proto/css/cews.css" rel="stylesheet" />
-<link href="http://test.canada.ca/covid-19-guidance/proto/css/checkbox-radio-cers.css" rel="stylesheet" />
-<link href="http://test.canada.ca/cra/css/and-or.css" rel="stylesheet" />
+<link href="../css/cews.css" rel="stylesheet" />
+<link href="../css/checkbox-radio-cers.css" rel="stylesheet" />
+	<link href="http://test.canada.ca/cra/css/and-or.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 <!-- Write closure template -->
@@ -62,6 +62,7 @@ fieldset +.buttons {
 .wb-steps-active .panel-title {
 	font-size: 1.3em;
 }
+	fieldset fieldset {min-width: 1px;}
 </style>
 </head>
 
@@ -86,9 +87,6 @@ fieldset +.buttons {
       }, {
         title: "Canada Emergency Wage Subsidy (CEWS)",
         href: "index.html"
-      }, {
-        title: "Canada Recovery Hiring Project (CRHP)",
-        href: "index.html"
       }],
       search: true,
       siteMenu: true,
@@ -96,8 +94,9 @@ fieldset +.buttons {
     });
   </script>
 <main property="mainContentOfPage" class="container">
-<h1 property="name" id="wb-cont">Calculate your CEWS and CRHP subsidy amount</h1>
-<div data-wb-urlmapping='{
+  <h1 property="name" id="wb-cont">Calculate your CEWS and CRHP subsidy amount</h1>
+
+  <div data-wb-urlmapping='{
 		"subsidy=cews":
 			[{
 				"action": "removeClass",
@@ -135,10 +134,10 @@ fieldset +.buttons {
 <p>You can currently use the calculator for claim periods 1 to . More periods will be added as they become available. </p>
 <p>The calculator has been updated to include <a href="cews-what-changes.html">changes to the period 8 to 10 top-up calculation finalized on November 17th</a>. It automatically applies the best subsidy rate you qualify for (including applying any safe harbour and deeming rules) based on information you enter. </p>
 <p>To understand the math behind the wage subsidy calculation, refer to <a href="how-much-version-math.html">how the subsidy is calculated</a>.</p>
-<section>
+
   <h2 id="h-2">Before you start the calculation</h2>
   <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
-  <section>
+
     <ul class="checkbox-lg checkbox-zebra">
       <li class="checkbox">
         <input type="checkbox" id="bfore1" class="action-checkbox">
@@ -251,8 +250,6 @@ fieldset +.buttons {
       <p class="h4 mrgn-tp-0 text-success">You can now proceed</p>
       <p>Go ahead and calculate the amounts you will need for your claim. </p>
     </div>
-  </section>
-</section>
 <h2 id="h-3">Choose your calculator</h2>
 <div class="cnjnctn-type-or cnjnctn-sm wb-eqht mrgn-bttm-xl" data-wb-actionmng='[
       { "trggroup":"clearFilter", "action": "removeClass", "source": ".btn-cews-cal", "class": "btn-primary" } ]'>
@@ -264,7 +261,7 @@ fieldset +.buttons {
         <li>expect to complete your calculation now</li>
       </ul>
     </div>
-    <button type="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</button>
+    <a href="#cal-calc" type="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</a>
   </div>
   <div class="cnjnctn-col">
     <div class="eqht-trgt">
@@ -274,11 +271,9 @@ fieldset +.buttons {
         <li>want to save your calculation and come back to it later</li>
       </ul>
     </div>
-    <button type="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</button>
+    <a href="#cews-cal-opt1" type="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</a>
   </div>
 </div>
-<div class="mrgn-tp-lg">
-<p class="wb-inv" id="cews-cal-options">&nbsp;</p>
 <div id="cews-cal-opt1" class="hidden" aria-live="polite">
   <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
   <div class="alert alert-warning provisional">
@@ -730,7 +725,7 @@ fieldset +.buttons {
     <p>The claim amount of WRL or EBL will need to be manually reduced by a total of $128 so
       that the total CEWS amount related to Mary does not exceed the $847 maximum for that week. </p>
   </details>
-</div>
+</div>	
 <div id="cal-calc" class="hidden"  aria-live="polite">
 <details>
   <summary>Privacy statement: This calculator does not collect or store your information</summary>
@@ -781,7 +776,7 @@ fieldset +.buttons {
       <div class="row">
         <div class="col-sm-8 col-md-9">
           <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-            <legend class="small required"><span class="field-name">Is your business traded on the public stock exchange?</span> <strong class="required">(required)</strong></legend>
+            <legend class="small required"><span class="field-name">Is your business publicly traded on the stock exchange?</span> <strong class="required">(required)</strong></legend>
             <ul class="list-unstyled lst-spcd-2">
               <li class="radio">
                 <input type="radio" name="bsn-eligibility" value="No" id="elig-type-no" class="valid" aria-invalid="false" required="required">
@@ -798,6 +793,7 @@ fieldset +.buttons {
           <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
         </div>
       </div>
+				</div>
     </fieldset>
     <fieldset id="rev-drop-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Revenue drop and subsidy rate</span></legend>
@@ -1820,6 +1816,8 @@ fieldset +.buttons {
     <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your  total subsidy comparison</button>
   </form>
 </div>
+	</div>
+<!---Start of results //-->
 <div class="hidden" id="results">
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
@@ -1831,7 +1829,7 @@ fieldset +.buttons {
     <details id="details-panel1">
       <summary>CEWS total amount:<br class="hidden-sm hidden-xs">
         <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-	      data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'>
+	      data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'>$0.00</output>
       </summary>
       <div id="cews-statement">
         <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>A to H</strong> when you complete your online application for CEWS.</p>
@@ -2086,7 +2084,9 @@ fieldset +.buttons {
     </details>
   </div>
 </div>
-</section>
+</div>	
+	<!--End of results//-->
+	<!--Start of overlays //-->
 <section id="calc-summary" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
     <h2 class="modal-title">Summary of CEWS and CRHP online calculator</h2>
@@ -2094,7 +2094,7 @@ fieldset +.buttons {
   <div class="modal-body">
     <p>Line numbers refer to comparable lines you must fill out in the application form for CEWS.</p>
     <p>All amounts are for the claim period unless otherwise noted.</p>
-    <ul class="list-unstyled lst-spcd2">
+    <ul class="lst-spcd">
       <li>Claim period: <span class="claim-period h3">default</span></li>
       <li id="sec-2" class="hidden">Publically traded company: <span class="h3 crhp-eligible">Unsure</span></li>
       <li id="sec-3-a" class="hidden">Revenue drop
@@ -2152,9 +2152,7 @@ fieldset +.buttons {
       </li>
     </ul>
     <p>Further explainations will be in the summary review before the final calculation.</p>
-    <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a>
-    <p>See <a href="#" target="_blank">how the revenue drop and subsidy rate are <span class="nowrap">calculated<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
-    <p>The math to explain <a href="#" target="_blank">how the subsidy is <span class="nowrap">calculated<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
+    
   </div>
 </section>
 <section id="armslength" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -2323,15 +2321,13 @@ fieldset +.buttons {
               class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
   </div>
 </section>
-<!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
-<div class="hidden-md hidden-lg"
-      data-ajax-replace="/content/canadasite/en/revenue-agency/services/subsidy/emergency-wage-subsidy.html #related-menu"> </div>
-</section>
-<div id="def-preFooter"></div>
+	<!--End of overlays//-->
+	
+	
 
-<!-- Write closure template --> 
-
-<script type="text/javascript">
+  <div id="def-preFooter"></div>
+  <!-- Write closure template --> 
+  <script type="text/javascript">
       var defPreFooter = document.getElementById("def-preFooter");
       defPreFooter.outerHTML = wet.builder.preFooter({
         dateModified: "2020-11-09",
@@ -2339,9 +2335,17 @@ fieldset +.buttons {
         showFeedback: true,
         showShare: true
       });
-    </script>
+    </script> 
 </main>
-
+<div id="def-footer"></div>
+<!-- Write closure template --> 
+<script type="text/javascript">
+    var defFooter = document.getElementById("def-footer");
+    defFooter.outerHTML = wet.builder.footer({
+      showFooter: true,
+      showFeatures: true
+    });
+  </script> 
 <!-- Write closure template --> 
 <script type="text/javascript">
     document.write(wet.builder.refFooter({
@@ -3906,6 +3910,7 @@ $('.crhp-eligible').text(
           }
           if (monthsArray[i].toString().match(/^[1-9]$/)) { //checking for single digit, in which case add 0 ahead of it
             monthsArray[i] = "0" + monthsArray[i];
+
           }
           //get the year for the month based on period
           if (claimPeriod < 11) {
@@ -4212,6 +4217,7 @@ $('.crhp-eligible').text(
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         var topUpMax = 0.25;
+
         var topUpMultiplier = 1.25;
         if (claimPeriod > 10) {
           topUpMax = 0.35;
