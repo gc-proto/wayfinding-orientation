@@ -16,31 +16,6 @@
 <!-- Load closure template scripts -->
 <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/soyutils.js"></script>
 <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/wet-en.js"></script>
-	
-	<!--Script to allow WET4 components to work in AJAX //-->
-	<script>
-(function( $, document, wb ) {
-"use strict";
-$('.data-ajax').on( "wb-contentupdated", function( event, data ){
-// "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
-// "data.content" contains the
-var $elm = $(event.currentTarget);
-$elm
-.find( wb.allSelectors )
-.addClass( "wb-init" )
-.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
-.trigger( "timerpoke.wb" );
-/*
-* Since we are working with events we want to ensure that we are being
-* passive about our control, so returning true allows for events to always
-* continue
-*/
-return true;
-});
-})( jQuery, document, wb );
-</script>
-<!--End of script //-->	
-	
 <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
 <link href="css/subway.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
@@ -2858,30 +2833,30 @@ END: Period 5 is closed -->
                   <ul>
                     <li>Open for application
                       <ul>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-9>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 9: October 25 to November 21, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-10>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 10: November 22 to December 19, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-11>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 11: December 20, 2020, to January 16, 2021</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-12>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 12: January 17 to February 13, 2021</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-13>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 13: February 14 to March 13, 2021</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-14>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 14: March 14 to April 10, 2021</li>
-												<li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-15>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 15: April 11 to May 8, 2021</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-9>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 9: October 25 to November 21, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-10>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 10: November 22 to December 19, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-11>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 11: December 20, 2020, to January 16, 2021</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-12>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 12: January 17 to February 13, 2021</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-13>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 13: February 14 to March 13, 2021</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-14>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 14: March 14 to April 10, 2021</li>
+			<li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-15>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 15: April 11 to May 8, 2021</li>
                       </ul>
                     </li>
                     <li> Upcoming
                       <ul>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-16>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 16: May 9 to June 5, 2021</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-16>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 16: May 9 to June 5, 2021</li>
                       </ul>
                     </li>
                     <li>No longer available
                       <ul>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-1>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 1: March 15 to April 11, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-2>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 2: April 12 to May 9, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-3>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 3: May 10 to June 6, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-4>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 4: June 7 to July 4, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-5>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 5: July 5 to August 1, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-6>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 6: August 2 to August 29, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-7>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 7: August 30 to September 26, 2020</li>
-                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;chrp-periods-apply.html#p-8>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 8: September 27 to October 24, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-1>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 1: March 15 to April 11, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-2>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 2: April 12 to May 9, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-3>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 3: May 10 to June 6, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-4>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 4: June 7 to July 4, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-5>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 5: July 5 to August 1, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-6>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 6: August 2 to August 29, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-7>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 7: August 30 to September 26, 2020</li>
+                        <li data-wb-fieldflow="{&quot;action&quot;: &quot;ajax&quot;, &quot;url&quot;: &quot;crhp-periods-apply.html#p-8>&quot;, &quot;live&quot;: true, &quot;container&quot;: &quot;#answers&quot;}">Period 8: September 27 to October 24, 2020</li>
                       </ul>
                     </li>
                   </ul>
@@ -2902,9 +2877,6 @@ END: Period 5 is closed -->
     <div class="hidden-md hidden-lg" data-ajax-replace="/recovery-hiring-program.html#related-menu"> </div>
   </section>
 </div>
-
-
-
 </div>
   <div id="def-preFooter"> </div>
   <!-- Write closure template --> 
