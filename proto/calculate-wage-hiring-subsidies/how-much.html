@@ -136,14 +136,14 @@ fieldset +.buttons {
 <p>To understand the math behind the wage subsidy calculation, refer to <a href="how-much-version-math.html">how the subsidy is calculated</a>.</p>
 
   <h2 id="h-2">Before you start the calculation</h2>
-  <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
+  <p class="lead">Check these boxes to confirm you are prepared adbefore you start your calculations:</p>
 
     <ul class="checkbox-lg checkbox-zebra">
       <li class="checkbox">
         <input type="checkbox" id="bfore1" class="action-checkbox">
         <label for="bfore1">You are an eligible employer during this claim period</label>
         <ul class="mrgn-lft-lg list-unstyled">
-          <li><a href="who-apply.html">Who can apply</a></li>
+          <li><a href="../wage-subsidy2/cews-who-apply.html">Who can apply</a></li>
         </ul>
       </li>
       <li class="checkbox">
@@ -155,7 +155,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You know which of your employees are eligible for this claim period</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="who-employees.html">Which of your employees qualify</a></li>
+              <li><a href="../wage-subsidy2/cews-who-employees.html">Which of your employees qualify</a></li>
             </ul>
           </div>
           <div class="cnjnctn-col">
@@ -163,7 +163,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You have access to their pay information</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
+              <li><a href="../wage-subsidy2/who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
             </ul>
           </div>
         </div>
@@ -804,10 +804,51 @@ fieldset +.buttons {
       </div>
     </fieldset>
     <fieldset id="questionaire" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Canada Recovery Hiring Program eligibility</span></legend>
-      <div class="panel-body">
+      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Canada Recovery Hiring Program eligibility and base remuneration</span></legend>
+      <div class="panel-body hidden" id="no-crhp-message">
         <div class="row">
           <div class="col-sm-8 col-md-9">
+            <p>The CRHP is not available in claim period <span class="claim-period-no">(choose a claim period)</span>.</p>
+            <p>Continue to the next to calculate the CEWS.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body" id="crhp-questions">
+        <div class="row">
+          <div class="col-sm-8 col-md-9">
+            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+              <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program?</span> <strong class="required">(required)</strong></legend>
+              
+              <mark>We have a few options here...
+                <ul>
+                  <li>Add a pop-up with a list of CCPC related info</li>
+                  <li>Add 2-3 questions to walk people through the eligibility - ie, are you a corporation -> are you canadian controlled -> are you publically traded</li>
+                  <li>Provide a link (or ajax in a pop up) the Eligibility page for CRHP</li>
+                  <li>Another option coudl be to add checklist items to the Before you start checklist that check CCPC related stuff, or even add a separate little checklist in that section</li>
+                </ul>
+              </mark>
+              
+              <details>
+                <summary>Eligibility requirements for the Canada Recovery Hiring Program</summary>
+                <p>To be eligible for the Canada Recovery Hiring Program (CRHP), you must meet all the CEWS eligibility. In addition, you are not eligible for the CRHP if you are a publicly listed or non-Canadian controlled corporation.</p>
+                <p>For more details, see <a href="#">Who can apply for the CRHP</a>.</p>
+              </details>
+              <ul class="list-unstyled lst-spcd-2">
+                <li class="radio">
+                  <input type="radio" name="bsn-eligibility" value="Yes" id="elig-type-yes" class="valid" aria-invalid="false" required="required">
+                  <label for="elig-type-yes">Yes</label>
+                </li>
+                <li class="radio">
+                  <input type="radio" name="bsn-eligibility" value="No" id="elig-type-no" class="valid" aria-invalid="false" required="required">
+                  <label for="elig-type-no">No</label>
+                </li>
+              </ul>
+            </fieldset>
+            <div class="hidden well" id="crhp-ineligible">
+              <h3>You are ineligible for the CRHP</h3>
+              <p>Continue to the next step to calculate the CEWS.</p>
+            </div>
+
             <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
               <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program?</span> <strong class="required">(required)</strong></legend>
               <details>
@@ -826,20 +867,8 @@ fieldset +.buttons {
                 </li>
               </ul>
             </fieldset>
-          </div>
-          <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
-          </div>
-        </div>
-      </div>
-    </fieldset>
 
 
-    <fieldset id="base-remuneration-crhp" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Canada Recovery Hiring Program base remuneration</span></legend>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-sm-8 col-md-9">
             <fieldset>
               <legend class="mrgn-bttm-0">Enter your p14 base remuneration for the CRHP</legend>
               <!-- <div class="clearfix"></div> -->
@@ -873,7 +902,15 @@ fieldset +.buttons {
               </div>
 
             </fieldset>
+
+
           </div>
+          
+          
+
+
+
+
           <div class="col-sm-4 col-md-3">
             <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
           </div>
