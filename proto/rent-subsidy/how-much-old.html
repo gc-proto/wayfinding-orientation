@@ -74,6 +74,16 @@
          </section>
          <section class="gc-nav-section experimental">
             <h1 property="name" id="wb-cont">Calculate your subsidy amount</h1>
+            <div class="provisional alert alert-info">
+              <h3>Changes to lockdown support</h3>
+              <p><strong>May xx, 2021</strong></p>
+              <p>The CRA has made changes to the CERS online calculator regarding the calculation of lockdown support.</p>
+              <p>If a lockdown period is one week or longer, you may qualify for lockdown support even if the minimum lockdown period of one week overlaps two different claim periods.</p>
+	      <p>If you used the CERS calculator on or before [Effective date of calculator update], it may not have accurately calculated your lockdown support if your lockdown period overlapped two or more claim periods.</p>
+		    <p><a href="#"Find out how this change affects lockdown support eligibility</a></p>
+            </div>
+
+
             <h2 class="h3 mrgn-tp-sm">On this page</h2>
             <ul>
               <li><a href="#h-1">How the subsidy is calculated</a></li>
@@ -138,11 +148,11 @@
 
                 <details>
                   <summary>Example top-up rate calculation</summary>
-                  <p>For example, if one of your business locations was on lockdown for 7 days of the 28 day period, you would be eligible to receive:</p>
+                  <p>For example, if one of your business locations was on lockdown for 10 days of the 28 day period, you would be eligible to receive:</p>
                   <ul>
                       <li>25% base top-up rate multiplied by</li>
-                      <li>7 days out of 28</li>
-                      <li>For a 6.25% top-up rate.</li>
+                      <li>10 days out of 28</li>
+                      <li>For a 8.93% top-up rate.</li>
                   </ul>
                 </details>
               </details>
@@ -155,9 +165,29 @@
               <p>Lockdown support is calculated on a location by location basis.</p>
               <p>To qualify for lockdown support, you must have:</p>
               <ul>
-              <li>a base rent subsidy rate of more than 0% for the claim period</li>
-              <li>one or more locations temporarily closed, or have activities significantly restricted for a week or longer due to a COVID-19-related public health order</li>
+                <li>a base rent subsidy rate of more than 0% for the claim period</li>
+                <li>one or more locations temporarily closed, or have activities significantly restricted for a week or longer due to a COVID-19-related public health order
+                  <ul>
+                    <li>the minimum lockdown period can span across two different claim periods <span class="label label-info">Updated: April xx, 2021</span></li>
+                    <details>
+                      <summary>Example: Gloria's Gift Shop</summary>
+                      <p>Gloria owns a gift shop in Ontario.</p>
+                      <p>Her location was closed due to a COVID-19 related public health order from May 5, 2021 to May 12, 2021 inclusive.</p>
+                      <p>Claim period 8 ended on May 8, 2021.</p>
+                      <p>This means she was locked down for 8 days total, but:</p>
+                      <ul>
+                        <li>3 days occurred in claim period 8</li>
+                        <li>5 days occurred in claim period 9</li>
+                      </ul>
+                      <p>If Gloria used the CERS calculator to calculate the lockdown support when she applied for the rent subsidy for claim period 8 on May 9, 2021, she would not have received any lockdown support in her original claim.</p>
+                      <p>However, if Gloria re-applies for the rent subsidy after May xx, 2021, she may receive a lockdown support payment in claim periods 8 and 9. She would be eligible based on the 3 days her business was closed at the end of the claim period 8 and the 5 days it was closed at the beginning of period 9.</p>
+                  </ul>
+                </li>
               </ul>
+              <div class="provisional alert alert-info">
+                <p>If you used the CERS calculator on or before May xx, 2021, it may not have accurately calculated your lockdown support if your lockdown period overlapped two or more claim periods.</p>
+		<p><a href="after.html">Find out how to change a CERS application</a></p>      
+              </div>
               <p>A public health order must:</p>
               <ul>
               <li>be issued by a federal, provincial, or municipal government, or a local health authority</li>
@@ -906,35 +936,25 @@
                                                       </div>
                                                    </div>
                                                 </div>
-                                                <!-- For edge? Manual input
-                                                <div id="lockdown-manual-1">
-                                                  <div class="row">
-                                                    <div class="fieldset">
-                                                      <div class="col-md-12">
-                                                        <legend>Lockdown start date<span class="wb-inv"> (<abbr title="Select month and input two digits day">Month D</abbr>)</span></legend>
-                                                        <div class="row">
-                                                          <div class="col-xs-6 col-sm-4">
-                                                            <div class="form-group">
-                                                              <label for="lockdown-manual-start-month-1">Month</label>
-                                                              <select class="form-control input-lg" id="lockdown-manual-start-month-1">
-                                                                  <option class="claim-month-one">September 2020</option>
-                                                                  <option class="claim-month-two">October 2020</option>
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                                          <div class="col-xs-6 col-sm-2">
-                                                            <div class="form-group">
-                                                              <label for="lockdown-manual-start-day-1">Day</label>
-                                                              <input type="number" class="form-control day input-lg" id="lockdown-manual-start-day-1" min="2" max="20">
-                                                            </div>
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div> -->
-
-                                                <a class="btn btn-default">Update your lockdown support</a>
+                                                <a class="btn btn-default">Update your lockdown dates</a>
+                                                <!-- Confirming 7 or more days -->
+                                                <div id="lock-down-straddle-1" class="hidden"> <!-- id to replicate -->
+                                                  <p>Lockdown period must be at least 7 days long.</p>
+                                                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                                    <!-- <div class="col-md-12"> -->
+                                                    <legend>Did the lockdown <span id="7-days-text-1"></span> <span id="7-days-gap-1">March 15, 2020</span>?</legend>
+                                                    <ul class="list-unstyled lst-spcd-2">
+                                                      <li class="radio">
+                                                        <input type="radio" name="7-days-1" id="7-days-yes-1">
+                                                        <label for="7-days-yes-1">Yes</label>
+                                                      </li>
+                                                      <li class="radio">
+                                                        <input type="radio" name="7-days-1" id="7-days-no-1">
+                                                        <label for="7-days-no-1">No</label>
+                                                      </li>
+                                                    </ul>
+                                                  </fieldset>
+                                                </div> 
                                               </div>
                                               <div class="well mrgn-tp-md">
                                                   <h3 class="mrgn-tp-0">Lockdown support rate summary</h3>
@@ -1675,6 +1695,9 @@
             this.idUpdates = [ //any ids or aria-describedby that get updated
               "lock-down-ineligible-",
               "lock-down-eligible-",
+              "lock-down-straddle-",
+              "7-days-text-",
+              "7-days-gap-",
               "top-up-days-",
               "choose-own-or-rent-message-",
               "lock-down-period-",
@@ -1992,6 +2015,7 @@
           LocationFormGenerator.prototype.visualDefaults = function (frag) {
             var numLocs = this.numberOfLocations;
             //hide the lockdown fields
+            $(frag).find('#lock-down-straddle-' + numLocs).addClass("hidden");
             $(frag).find('#lock-down-period-' + numLocs).addClass("hidden");
             $(frag).find('#lock-down-ineligible-' + numLocs).removeClass("hidden");
             $(frag).find('#lock-down-eligible-' + numLocs).addClass("hidden");
@@ -2829,6 +2853,13 @@
             }
           }
 
+          $document.on("click", "input[name^='7-days-']", function (event) {
+            var parts = this.id.split("-");
+            var locationNumber = parts[parts.length - 1];
+            topUpRateCalculation(locationNumber);
+            recalculateLocationAmounts(locationNumber);
+          });
+
           $document.on("blur", ".lock-down-dates", function (event) {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
@@ -2839,6 +2870,24 @@
           var topUpRate = 0;
           function topUpRateCalculation(locationNumber) {
             var datediff = getDateDiffLockdown(locationNumber);
+            var rangeISO = $('#claim-period').find('option:selected').val(),
+              startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
+              date1ArrPeriod = startDateISO.split("-"),
+              date2ArrPeriod = endDateISO.split("-"),
+              startDatePeriod = new Date(Date.UTC(date1ArrPeriod[0], date1ArrPeriod[1]-1, parseInt(date1ArrPeriod[2])+1)),
+              endDatePeriod = new Date(Date.UTC(date2ArrPeriod[0], date2ArrPeriod[1]-1, parseInt(date2ArrPeriod[2])+1));
+            //Dates start and end of the lockdown selection
+            var startDate = $("#lockdown-start-" + locationNumber).val(),
+              endDate = $("#lockdown-end-" + locationNumber).val(),
+              date1Arr = startDate.split("-"),
+              date2Arr = endDate.split("-"),
+              startSelectionDate = new Date(Date.UTC(date1Arr[0], date1Arr[1]-1, parseInt(date1Arr[2])+1)),
+              endSelectionDate = new Date(Date.UTC(date2Arr[0], date2Arr[1]-1, parseInt(date2Arr[2])+1));
+            if (((startDatePeriod.getDate() != startSelectionDate.getDate()) && (endDatePeriod.getDate() != endSelectionDate.getDate())) || datediff >= 7)  {
+              $('#7-days-yes-' + locationNumber).prop('checked', false);
+              $('#lock-down-straddle-'+locationNumber).addClass("hidden");
+            }
             if ($('#lock-down-yes-' + locationNumber + ':checked').length == 1 && cersRate > 0) { //yes is selected
               $('#lock-down-period-'+locationNumber).removeClass("hidden");
             } else {
@@ -2846,7 +2895,10 @@
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
             }
-            if (datediff >= 7 && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
+            if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
+              if (datediff < 7) { //'yes' is selected, but dates might have changed
+                sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
+              }
               if (cersRate > 0) { //no rent subsidy rate, no top rate
                 topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
@@ -2858,7 +2910,8 @@
                 $('.top-up-rate-'+locationNumber).text(toPercent("0"));
                 datediff = 0;
               }
-            } else { //no is selected
+            } else { //fewer than 7 days selected and the 7-days is not 'yes'
+              sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
               $('.top-up-rate-'+locationNumber).text(toPercent("0"));
@@ -2873,6 +2926,39 @@
             });
             recalculateLocationAmounts(locationNumber);
             calculateTotals();
+          }
+
+          //Updates the follow up question to the date range for the lockdown period with the correct 'end' date for the 7 days
+          function sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber) {
+            if ($('#lockdown-start-'+locationNumber).is(":visible")) {
+              //Dates start and end of the period
+              if (document.documentElement.lang == "fr") {
+                var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+              } else {
+                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              }
+              if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
+                var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 6);
+                if (document.documentElement.lang == "fr") {
+                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                } else {
+                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                }
+                $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                $('#7-days-text-'+locationNumber).text("start on or before");
+                $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+              } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
+                var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 6);
+                if (document.documentElement.lang == "fr") {
+                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                } else {
+                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                }
+                $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
+                $('#7-days-text-'+locationNumber).text("end on or after");
+                $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
+              }
+            }
           }
 
           //Gets the number of days between the start and end date of the lockdown period for a location
