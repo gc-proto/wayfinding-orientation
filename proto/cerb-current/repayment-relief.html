@@ -19,13 +19,9 @@
 <meta name="dcterms.spatial" content="Canada"/>
 <meta name="dcterms.source" content="aem"/>
 <meta name="dcterms.identifier" content="Canada_Revenue_Agency"/>
-
 <!-- MWS-1244 Include Facebook metadata on page -->
-
 <meta prefix="fb: https://www.facebook.com/2008/fbml" property="fb:pages" content="378967748836213, 160339344047502, 184605778338568, 237796269600506, 10860597051, 14498271095, 209857686718, 160504807323251, 111156792247197, 113429762015861, 502566449790031, 312292485564363, 1471831713076413, 22724568071, 17294463927, 1442463402719857, 247990812241506, 730097607131117, 1142481292546228, 1765602380419601, 131514060764735, 307780276294187, 427238637642566, 525934210910141, 1016214671785090, 192657607776229, 586856208161152, 1146080748799944, 408143085978521, 490290084411688, 163828286987751, 565688503775086, 460123390028, 318424514044, 632493333805962, 370233926766473, 173004244677, 1562729973959056, 362400293941960, 769857139754987, 167891083224996, 466882737009651, 126404198009505, 135409166525475, 664638680273646, 169011506491295, 217171551640146, 182842831756930, 1464645710444681, 218822426028, 218740415905, 123326971154939, 125058490980757, 1062292210514762, 1768389106741505, 310939332270090, 285960408117397, 985916134909087, 655533774808209, 1522633664630497, 686814348097821, 230798677012118, 320520588000085, 103201203106202, 273375356172196, 61263506236, 353102841161, 1061339807224729, 1090791104267764, 395867780593657, 1597876400459657, 388427768185631, 937815283021844, 207409132619743, 1952090675003143, 206529629372368, 218566908564369, 175257766291975, 118472908172897, 767088219985590, 478573952173735, 465264530180856, 317418191615817, 428040827230778, 222493134493922, 196833853688656, 194633827256676, 252002641498535, 398018420213195, 265626156847421, 202442683196210, 384350631577399, 385499078129720, 178433945604162, 398240836869162, 326182960762584, 354672164565195, 375081249171867, 333050716732105, 118996871563050, 240349086055056, 119579301504003, 185184131584797, 333647780005544, 306255172770146, 369589566399283, 117461228379000, 349774478396157, 201995959908210, 307017162692056, 145928592172074, 122656527842056">
-
 <!-- MWS-1890 JSON-LD output -->
-
 <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/wet-boew.min.css"/>
 <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/wet-boew/css/theme.css"/>
 <noscript>
@@ -33,12 +29,10 @@
 </noscript>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
 <style>
-@charset "utf-8";
-/* CSS Document */
+@charset "utf-8"; /* CSS Document */
 h1#wb-cont {
 	border-bottom: none;
-}
-/* Remove text decoration for abbr tags (equations) */
+} /* Remove text decoration for abbr tags (equations) */
 abbr.brdr-0 {
 	text-decoration: none!important;
 }
@@ -46,9 +40,8 @@ section.gc-nav h1 {
 	font-size: 1.3em;
 	color: #555;
 	border-bottom: none;
-}
+} /*page structure desktop (new) */
 
-/*page structure desktop (new) */
 @media all and (min-width:992px) {
 section.gc-nav nav {
 	position: relative;
@@ -123,8 +116,7 @@ li .gc-navseq {
 	line-height: 1.3em;
 	text-align: center;
 	padding: 3px;
-	font-size: 1.0em;/* transition: width 0.2s, height 0.2s, margin-top 0.2s, font-size 0.2s, margin-left 0.2s, line-height 0.2s;
-  */
+	font-size: 1.0em;/* transition: width 0.2s, height 0.2s, margin-top 0.2s, font-size 0.2s, margin-left 0.2s, line-height 0.2s; */
 }
 ul.gc-navseq>li ul.gc-navseq.noline>li.active::before {
 	content: " ";
@@ -147,8 +139,8 @@ ul.gc-navseq>li>:first-child::before {
 	content: "";
 }
 @-moz-document url-prefix() {
- ul.gc-navseq>li>:first-child::before {
- margin-left: -2.0em;
+ul.gc-navseq>li>:first-child::before {
+margin-left: -2.0em;
 }
 }
 .gc-navseq li a::before {
@@ -163,17 +155,14 @@ ul.gc-navseq.noline>li {
 }
 ul.gc-navseq.noline>li>:first-child::before {
 	margin-top: 0.2em
-}
-/*active*/
+} /*active*/
 .gc-navseq li.active>:first-child::before, .gc-navseq-fa li.active span.fa-li {
 	background-color: #26374a;
 	color: #fff;
-}
-/*sub-steps*/
+} /*sub-steps*/
 .gc-navseq li ul {
 	margin-top: 16px!important;
-}
-/*Hover animation */
+} /*Hover animation */
 ul.gc-navseq>li>a[href]:hover::before {
 	width: 0.83em;
 	height: 0.83em;
@@ -193,9 +182,8 @@ ul.gc-navseq.noline>li>a[href]:hover::before {
 }
 .gc-navseq-fa>li>a[href]:hover span.fa-li::before {
 	margin-top: -0.1em;
-}
+} /*Vertical steps in mobile */
 
-/*Vertical steps in mobile */
 @media screen and (max-width:991px) {
 section.gc-nav {
 	margin-top: 30px;
@@ -224,8 +212,7 @@ section.gc-nav h1 {
 	margin-top: -40px;
 	float: left;
 }
-}
-/*nav buttons */
+} /*nav buttons */
 .gc-navseq-nav-btn:hover, .gc-navseq-nav-btn:focus, .gc-navseq-nav-btn:visited {
 	display: inline-block;
 	color: #fff;
@@ -251,9 +238,8 @@ section.gc-nav h1 {
 #gc-navseq-nav {
 	display: flex;
 }
-}
+} /*Navigation template in mobile */
 
-/*Navigation template in mobile */
 @media all and (max-width:991px) {
 .gc-nav nav {
 	padding-top: 40px;
@@ -266,8 +252,7 @@ section.gc-nav h1 {
 }
 .gc-navseq-nav-btn:focus {
 	position: relative;
-}
-/* new topic style */
+} /* new topic style */
 h1 {
 	border-bottom: none;
 }
@@ -277,8 +262,7 @@ h1#wb-cont::after {
 	width: 70px; /* Change this to whatever width you want to have before hover. */
 	padding-bottom: 8px; /* This creates some space between the element and the border. */
 	border-bottom: .18em solid #af3c43; /* This creates the border. Replace black with whatever color you want. */
-}
-/* Styled ordered list design */
+} /* Styled ordered list design */
 ol.lst-stps, .lst-stps {
 	counter-reset: item;
 }
@@ -344,8 +328,8 @@ ol.lst-stps li:before, .lst-stps .lst-item:before {
 	margin-bottom: 20px;
 	border: 1px solid #e3e3e3;
 	box-shadow: 0px 0px 10px #ddd;
-}
-/*Checkbox/Fieldflow radio input sizing,positioning*/ .checkbox-lg > li.checkbox {
+} /*Checkbox/Fieldflow radio input sizing,positioning*/
+.checkbox-lg > li.checkbox {
 	margin-top: 0px;
 }
 .checkbox-lg > li {
@@ -385,14 +369,11 @@ ol.lst-stps li:before, .lst-stps .lst-item:before {
 .fieldflow-lg fieldset legend {
 	font-size: 22px;
 	margin-top: 0px;
-}
-/*Hide arrows in Chrome/FF for number input*/
-/* Chrome, Safari, Edge, Opera */
+} /*Hide arrows in Chrome/FF for number input*/ /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
- -webkit-appearance: none;
- margin: 0;
-}
-/* Firefox */
+-webkit-appearance: none;
+margin: 0;
+} /* Firefox */
 input[type=number] {
 	-moz-appearance: textfield;
 }
@@ -409,7 +390,6 @@ mark {
 <link href="https://www.canada.ca/etc/designs/canada/wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon"/>
 <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="KBFUZ-C9D7G-RB8SX-GRGEN-HGMC9",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"KBFUZ-C9D7G-RB8SX-GRGEN-HGMC9",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="yzt3qtaxan7gkydgbyrq-f-00caf12d5-clientnsv4-s.akamaihd.net",i={"ak.v":"31","ak.cp":"789605","ak.ai":parseInt("231651",10),"ak.ol":"0","ak.cr":54,"ak.ipv":4,"ak.proto":"h2","ak.rid":"2fe90f1","ak.r":33993,"ak.a2":e,"ak.m":"dscb","ak.n":"essl","ak.bpcip":"198.103.184.0","ak.cport":51806,"ak.gh":"23.36.1.68","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1617301027","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==NB1mrb8wUVSvj3jQaogG/ZQSjM/2nXLNIWTzjT9/0UvipkPbalUaAJBkrUhG3OX2RcORCccJMMWYGweLi1XuHaB3UAJPe6l/3vQZuDGYdtSIBijY0cOSrPpBGcfur5VoKv2PS9DRjvLO/hfVjn3BawbE8N8cfOqtfZgamJTt5U+3mgJgFd0HCT+Lr/tfYj62A5Jy0L5zTbv4qxtdddH+rzX11gVFTHgifXNbsTaFQ7dAHIy0Z7Fmae8qqfNQZJztlFPQ4FgfwuN3mXXMrU89TjTTlTQzeTdq6rZyrU6x8zm326dzH+0nEivvs0hE3qm3Eox54jnf9hyu4MJT2h/h8SuXtLX3vGtOkso+ta9J+d+aNzHZlNWPrfXDU5uZztp00GZDgqrtZ+SeOwlVvPstYH/vqGKxDjK+FzDvGXVD290=","ak.pv":"598","ak.dpoabenc":""};if(""!==t)i["ak.ruds"]=t;var _={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!_.i){var a=BOOMR.subscribe;a("before_beacon",_.av,null,null),a("onbeacon",_.rv,null,null),_.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script>
 </head>
-
 <body vocab="http://schema.org/" typeof="WebPage" resource="#wb-webpage">
 <nav>
   <ul id="wb-tphp">
@@ -512,8 +492,7 @@ mark {
         </ul>
       </nav>
     </section>
-    <section class="gc-nav-section experimental"> 
-      <!--h1 property="name" id="wb-cont">Repayment relief for self-employed people</h1-->
+    <section class="gc-nav-section experimental">
       <h1 property="name" id="wb-cont">Self-employment income (net vs. gross)</h1>
       <!--p><span class="label label-danger">Status: Closed for applications</span></p-->
       <p>If you're self-employed, you may have based your eligibility on your gross instead of your net self-employment income. The Government of Canada announced on <span class="nowrap">February 9, 2021</span> that you can keep the <abbr title="Canada Emergency Response Benefit">CERB</abbr> if you meet the conditions below. You cannot apply for any additional CERB periods retroactively.</p>
@@ -573,20 +552,19 @@ mark {
       </section>
       <div class="clearfix"></div>
       
-      <!--MEETS THE CRITERIA-->
+	  <!--MEETS THE CRITERIA-->
       <h2 id="eligible">If you meet the conditions</h2>
       <p>You can keep the CERB. You do not need to contact the CRA or Service Canada to check. The CRA will review your 2019 and 2020 income tax returns and contact you if we need more information.</p>
-      
+		
       <!--PAID IT BACK-->
       <h2 class="h3" id="repaid">If you already repaid</h2>
       <p>You can get your repayment back. Whether you repaid the CRA or Service Canada, you must submit an application form to the CRA to get a reimbursement.</p>
       <p>We begin processing reimbursements on <span class="nowrap"><strong>June 15, 2021</strong></span>. It may take up to 90 days for the CRA to process your request.</p>
       <p>You must <strong>file your 2019 and 2020 income tax return</strong> (using your current <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4a-report.html">T4A tax slip</a> or <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/covid19-taxes/t4e-report.html">T4E tax slip</a>) before the CRA can process your reimbursement. If you're reimbursed for a repayment you made in 2020, we may reassess your 2020 tax return.</p>
-      
-      <!--How to request a reimbursement-->
-      
+		
+      <!--REIMBURSEMENT-->
       <h3 id="contact" class="h4">How to request reimbursement</h3>
-      <p>To request a reimbursement for a CERB repayment, you must fill in and submit the reimbursement application form. Whether you repaid the CRA or Service Canada,  you must submit the form to the CRA. You can only be reimbursed for periods that you repaid.</p>
+      <p>To request a reimbursement for a CERB repayment, you must fill in and submit the reimbursement application form. Whether you repaid the CRA or Service Canada, you must submit the form to the CRA. You can only be reimbursed for periods that you repaid.</p>
       <ol class="lst-stps">
         <li class="lst-item">
           <p class="mrgn-tp-lg"><strong>Download and fill out the form </strong></p>
@@ -606,13 +584,10 @@ mark {
                   <li>Select "Submit documents" (in top right corner)</li>
                   <li>Select "without a case or reference number"</li>
                   <li>Select "More topic selections"</li>
-                  <li>Select "COVID-19 – Send Form T180 for CERB
-                    <mark>reimbursement"</mark>
-                  </li>
+                  <li>Select "COVID-19 – Send Form T180 for CERB reimbursement" </li>
                   <li>Enter a short description about your submission and attach your files (pdf, jpg, tif)</li>
-              <li>Save your reference number for future use</li>
+                  <li>Save your reference number for future use</li>
                 </ol>
-				 
               </details>
             </dd>
             <dt id="mail">By mail:</dt>
@@ -648,14 +623,11 @@ mark {
         </li>
         <li class="lst-item">
           <p><strong>Wait for the CRA to contact you</strong></p>
-          <p>Processing begins <strong><span class="nowrap">June 15, 2021</span></strong>.  It may take up to 90 days for the CRA to process your request. You do not need to contact the CRA.</p>
-          <p>
-            We will contact you through <mark>CRA My Account or by mail</mark> after we have processed your request.
-            We review each request on a case by case basis.</p>
+          <p>Processing begins <span class="nowrap">June 15, 2021</span>. It may take up to <strong>90 days</strong> for the CRA to process your request. You do not need to contact the CRA.</p>
+          <p>We will contact you by mail after we have processed your request.</p>
           <p>You may receive an amended T4A, T4E, or RL-1 tax slip to reflect the full amount of the CERB you received in 2020.</p>
         </li>
       </ol>
-      
       <!--MUST REPAY-->
       <h2 id="noteligible">If you do not meet the conditions</h2>
       <p>You will have to <a href="https://www.canada.ca/en/revenue-agency/services/benefits/apply-for-cerb-with-cra/return-payment.html#h4">return or repay the CERB</a> payments you received.</p>
@@ -686,9 +658,7 @@ mark {
                   </div>
                   <div class="col-xs-8 col-sm-5 text-right">
                     <button type="submit" name="helpful" value="Yes" class="btn btn-primary" data-gc-analytics-wtph>Yes</button>
-                    <button type="button" class="btn btn-primary mrgn-lft-sm nojs-hide" data-wb-doaction="[									{&quot;action&quot;:&quot;removeClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-no&quot;,&quot;class&quot;:&quot;nojs-show&quot;},
-									{&quot;action&quot;:&quot;addClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-btn&quot;,&quot;class&quot;:&quot;hide&quot;}
-								]" data-gc-analytics-wtph-no>No</button>
+                    <button type="button" class="btn btn-primary mrgn-lft-sm nojs-hide" data-wb-doaction="[ {&quot;action&quot;:&quot;removeClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-no&quot;,&quot;class&quot;:&quot;nojs-show&quot;}, {&quot;action&quot;:&quot;addClass&quot;,&quot;source&quot;:&quot;.gc-pg-hlpfl-btn&quot;,&quot;class&quot;:&quot;hide&quot;} ]" data-gc-analytics-wtph-no>No</button>
                   </div>
                 </div>
               </div>
@@ -788,46 +758,6 @@ mark {
     </div>
   </div>
 </footer>
-<script type="text/javascript">_satellite.pageBottom();</script> 
-<script src="https://www.canada.ca/etc.clientlibs/clientlibs/granite/jquery.min.js"></script> 
-<script src="https://www.canada.ca/etc.clientlibs/clientlibs/granite/utils.min.js"></script> 
-<script src="https://www.canada.ca/etc/designs/canada/clientlib-publish.min.js"></script> 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-<script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script> 
-<script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/theme.min.js"></script> 
-<script>
-/*Binds a navigation button for keyboard/screen readers to skip to the section navigation menu at the top of the template page */
-		(function( $, document, wb ) {
-	"use strict";
-if($('.gcnav-menu').length> 0){
-	var pgLang = $("html").prop("lang");
-	/*Language change */
-	switch( pgLang.toLowerCase() ){
-		case "fr":
-			var gcNav = 'Passer au menu de navigation de la section'
-			break;
-		case "en":
-		default:
-			var gcNav = 'Skip to section navigation menu'
-			break;
-		}
-	
-	/*HTML code to inject */
-	$( "#wb-tphp" ).prepend('<li class="wb-slc"><a class="wb-sl" href="#gcnav-menu-header">' + gcNav + '</a></li>' );
-}
-})( jQuery, document, wb );		
-</script> 
-<script>
-         $(".action-checkbox").change(function(){
-         if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-         $("#action-msg1").removeClass("hidden").addClass("visible");
-         $("#action-no-msg").addClass("hidden").removeClass("visible");
-         }
-         if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
-         $("#action-msg1").addClass("hidden").removeClass("visible");
-         $("#action-no-msg").removeClass("hidden").addClass("visible");
-         }
-         })         
-</script>
+<script type="text/javascript">_satellite.pageBottom();</script> <script src="https://www.canada.ca/etc.clientlibs/clientlibs/granite/jquery.min.js"></script> <script src="https://www.canada.ca/etc.clientlibs/clientlibs/granite/utils.min.js"></script> <script src="https://www.canada.ca/etc/designs/canada/clientlib-publish.min.js"></script> <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script> <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/theme.min.js"></script> <script> /*Binds a navigation button for keyboard/screen readers to skip to the section navigation menu at the top of the template page */ (function( $, document, wb ) { "use strict"; if($('.gcnav-menu').length> 0){ var pgLang = $("html").prop("lang"); /*Language change */ switch( pgLang.toLowerCase() ){ case "fr": var gcNav = 'Passer au menu de navigation de la section' break; case "en": default: var gcNav = 'Skip to section navigation menu' break; } /*HTML code to inject */ $( "#wb-tphp" ).prepend('<li class="wb-slc"><a class="wb-sl" href="#gcnav-menu-header">' + gcNav + '</a></li>' ); } })( jQuery, document, wb ); </script> <script> $(".action-checkbox").change(function(){ if ($('.action-checkbox:checked').length == $('.action-checkbox').length) { $("#action-msg1").removeClass("hidden").addClass("visible"); $("#action-no-msg").addClass("hidden").removeClass("visible"); } if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) { $("#action-msg1").addClass("hidden").removeClass("visible"); $("#action-no-msg").removeClass("hidden").addClass("visible"); } }) </script>
 </body>
 </html>
