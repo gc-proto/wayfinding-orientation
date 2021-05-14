@@ -29,6 +29,7 @@ Filter by keywords to find work roles and personal situations that may be exempt
 
 Follow the links for your situation or role to check the details for exemptions. For some, you must be performing work within a certain amount of time, or be providing a very specific type of service.
 
+{::nomarkdown type='html'}
 <details>
 	<summary>Medical and health care </summary>
 	<table class="wb-filter table">
@@ -145,6 +146,7 @@ Follow the links for your situation or role to check the details for exemptions.
 <details>
 	<summary>Driving or flying (transit) through Canada</summary>
 </details>
+{:/}
 
 ## Detailed exemption lists
 
@@ -152,6 +154,7 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 
 ### Pre-entry test exemption details
 
+{::nomarkdown type='html'}
 <details>
 	<summary id="exempt-pre-entry-general">Resolved COVID-19, children, transit through Canada</summary>
 	<p>There are only a limited number of exceptions where an individual is not required to do post-border testing:</p>
@@ -216,9 +219,11 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 		</li>
 	</ul>
 </details>
+{:/}
 
 ### Arrival test exemption details
 
+{::nomarkdown type='html'}
 <details>
 	<summary id="exempt-arrival-general">Resolved COVID-19, children, exempt from quarantine</summary>
 	<ul>
@@ -254,7 +259,7 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 	</ul>
 </details>
 <details>
-	<summary><span id="alternate-testing">Alternative arrival testing</summary>
+	<summary>Alternative arrival testing</summary>
 	<p>Some circumstances allow for alternative testing protocols upon arrival.</p>
 	<p>A government representative will provide further instruction on arrival for testing.</p>
 	<ul>
@@ -269,10 +274,11 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 		</li>
 	</ul>
 </details>
-
+{:/}
 
 ### Hotel stopover exemption details
 
+{::nomarkdown type='html'}
 <details>
 	<summary id="exempt-hotel-general">Resolved COVID-19, children, require support</summary>
 	<p>Air travellers are exempt from the 3-night hotel stay if they're:</p>
@@ -334,9 +340,11 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 		<li>9618: Labourers in fish and seafood processing</li>
 	</ul>
 </details>
+{:/}
 
 ### Quarantine exemption details
 
+{::nomarkdown type='html'}
 <details>
 	<summary id="exempt-quarantine-medical">Medical and health care</summary>
 	<ul>
@@ -422,16 +430,14 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 		<li><strong>National interest</strong> - a person or any person in a class of persons whose presence in Canada is determined by the Minister of Foreign Affairs, the Minister of Citizenship and Immigration or the Minister of Public Safety and Emergency Preparedness to be in the national interest, as long as the person complies with any conditions imposed on them by the relevant Minister to minimize the risk of introduction or spread of COVID-19</li>
 		<li><strong>Land border crossing</strong> - a person who enters Canada in a vehicle at a land border crossing in the following circumstances, as long as the person or passengers remained in the vehicle while outside Canada:
 			<ul>
-				<li>the person was denied entry to the United States at the land border crossing <br>or
-				</li>
+				<li>the person was denied entry to the United States at the land border crossing <br>or</li>
 				<li>the person entered the territory of the United States but did not seek legal entry to the United States at the land border crossing</li>
 			</ul>
 		</li>
 		<li><strong>Provincial and territorial projects</strong> - a person who, under an arrangement entered into between the Minister of Health and the minister responsible for health care in the province where the person enters Canada, is participating in a project to gather information to inform the development of quarantine requirements other than those set out in this Order, as long as the person complies with any conditions imposed on them by the Minister of Health to minimize the risk of introduction or spread of COVID-19</li>
 		<li><strong>Amateur sports</strong> - a person who enters Canada to take part in an international single sport event that has been authorized by the Deputy Minister of Canadian Heritage (a high-performance athlete or someone engaged in an essential role in relation to that event, affiliated with a national organization responsible for that sport), as long as the person complies with any conditions imposed on them to minimize the risk of introduction or spread of COVID-19</li>
 	</ul>
-	<p>For more information, go to the <a href="https://www.canada.ca/en/public-health/corporate/mandate/about-agency/acts-regulations/list-acts-regulations.html">List of Acts and Regulations</a> and look for information on the <cite>Quarantine Act</cite>, the Emergency Orders, and the Chief Public Health Officer (CPHO) Group Exemptions that may apply.
-	</p>
+	<p>For more information, go to the <a href="https://www.canada.ca/en/public-health/corporate/mandate/about-agency/acts-regulations/list-acts-regulations.html">List of Acts and Regulations</a> and look for information on the <cite>Quarantine Act</cite>, the Emergency Orders, and the Chief Public Health Officer (CPHO) Group Exemptions that may apply.</p>
 </details>
 <details>
 	<summary><span id="compassionate">Compassionate reasons: limited release for funerals, to care for someone, or for end-of-life visit</span></summary>
@@ -439,3 +445,4 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 	<p>Some provinces and territories may not allow for limited release from quarantine for compassionate reasons. This means that even if you receive approval from the Public Health Agency of Canada a province or territory may have additional restrictions. In the event of conflicting requirements between federal restrictions and provincial or territorial travel restrictions, you must comply with those that are the most stringent.</p>
 	<p>To apply for compassionate entry and limited release from quarantine for compassionate reasons, see <a href="/travel-covid/travel-restrictions/compassion">Caring for others, funerals and support</a>.</p>
 </details>
+{:/}
