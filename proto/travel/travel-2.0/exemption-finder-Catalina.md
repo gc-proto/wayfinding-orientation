@@ -23,132 +23,133 @@ Find out if your work or personal situation are exempt from quarantine or testin
 **Exempt means that you don't have to follow certain requirements**. For example, if you are exempt from quarantine, you don't need to quarantine for 14 days after entering Canada or stay at a government-authorized hotel.
 
 
-<h2>Find out who is exempt for quarantine, hotel, and testing</h2>
-<p>Filter by keywords to find work roles and personal situations that may be exempt from quarantine, or from COVID-19 testing either before or after your entry into Canada. </p>
-<p>Follow the links for your situation or role to check the details for exemptions. For some, you must be performing work within a certain amount of time, or be providing a very specific type of service.</p>
-		<details>
-			<summary>Medical and health care </summary>
-			<table class="wb-filter table">
-				<caption>Filter by keywords for your situation</caption>
-				<thead>
-					<tr>
-						<th>Situation</th>
-						<th>Quarantine and hotel</th>
-						<th>Pre-entry test</th>
-						<th>Arrival test</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="rowgroup" class="h4" colspan="3">Receiving medical treatment</th>
-					</tr>
-					<tr>
-						<td>Entering Canada for treatment</td>
-						<td><a href="#exempt-quarantine-medical">Exempt:
-								Essential medical services</a></td>
-						<td>Not exempt</td>
-						<td>Exempt</td>
-					</tr>
-					<tr>
-						<td>Leaving and returning to Canada after treatment in another country - one person may
-							accompany</td>
-						<td><a href="#exempt-quarantine-medical">Exempt: Essential medical treatment</a>
-						</td>
-						<td><a href="exempt-pre-entry-medical">Exempt:
-								Essential medical treatment</a></td>
-						<td>Exempt</td>
-					</tr>
+## Find out who is exempt for quarantine, hotel, and testing
 
-				<tbody>
-					<tr>
-						<th scope="rowgroup" class="h4" colspan="3">Providing health services</th>
-					</tr>
-					<tr>
-						<td>Licensed health care practioners entering Canada to work</td>
-						<td><a href="#exempt-quarantine-medical">Exempt: Health
-								care practitioner</a></td>
-						<td>Not exempt</td>
-						<td>Exempt</td>
-					</tr>
-					<tr>
-						<td>Student in a health field</td>
-						<td><a href="#exempt-quarantine-medical">Exempt: Student in a health field</a></td>
-						<td>Not exempt</td>
-						<td>Exempt</td>
-					</tr>
-					<tr>
-						<td>Medical evacuation</td>
-						<td><a href="#exempt-pre-entry-medical">Exempt: Medical evacuation</a></td>
-						<td><a href="#exempt-quarantine-medical">Exempt: Medical transport </a>
-						</td>
-						<td>Exempt</td>
-					</tr>
-				</tbody>
-			</table>
-		</details>
-		<details>
-			<summary>Essential work and services</summary>
-			<table class="wb-filter table">
-				<caption>Filter by keywords for your role</caption>
-				<thead>
-					<tr>
-						<th>Role</th>
-						<th>Quarantine and hotel exemption</th>
-						<th>Pre-entry test exemption</th>
-						<th>Arrival test exemption</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Crew members on any aircraft, shipping vessel or train and people entering Canada to become a crew member</td>
-						<td><a href="#exempt-quarantine-essential">Exempt: Essential
-								work</a></td>
-						<td><a href="#exempt-pre-entry-essential">Exempt: Essential service </a></td>
-						<td>Exempt per quarantine</td>
-					</tr>
-					<tr>
-						<td>Trade and transportation - truck and transport drivers moving goods or repatriating human
-							remains, bus, taxi and limousine drivers moving people </td>
-						<td><a href="#exempt-quarantine-essential">Exempt: Essential
-							service</a></td>
-						<td></td>
-						<td>Exempt per quarantine</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><a href="#exempt-quarantine-essential">Exempt: Essential
-							service</a></td>
-						<td>Not exempt</td>
-						<td>Exempt per quarantine</td>
-					</tr>
-					<tr>
-						<td>Emergency service providers who return from providing services in another country -
-							firefighters, peace officers, paramedics</td>
-							<td><a href="#exempt-quarantine-essential">Exempt: Essential
-								service</a></td>
-						<td></td>
-						<td>Exempt</td>
-					</tr>
-					<tr>
-						<td>Government officials escorting persons to or from Canada for a legal process such as
-							deportation, extradition or international transfer of offenders</td>
-							<td><a href="#exempt-quarantine-essential">Exempt: Essential
-								service</a></td>
-						<td>?</td>
-						<td>?</td>
-					</tr>
-					<tr>
-						<td>Government officials performing work duties, including law, border, immigration enforcement,
-							national security activities</td>
-							<td><a href="#exempt-quarantine-essential">Exempt: Essential
-								service</a></td>
-						<td>?</td>
-						<td>?</td>
-					</tr>
-				</tbody>
-			</table>
-		</details>
+Filter by keywords to find work roles and personal situations that may be exempt from quarantine, or from COVID-19 testing either before or after your entry into Canada.
 
+Follow the links for your situation or role to check the details for exemptions. For some, you must be performing work within a certain amount of time, or be providing a very specific type of service.
+
+<details>
+	<summary>Medical and health care </summary>
+	<table class="wb-filter table">
+		<caption>Filter by keywords for your situation</caption>
+		<thead>
+			<tr>
+				<th>Situation</th>
+				<th>Quarantine and hotel</th>
+				<th>Pre-entry test</th>
+				<th>Arrival test</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="rowgroup" class="h4" colspan="3">Receiving medical treatment</th>
+			</tr>
+			<tr>
+				<td>Entering Canada for treatment</td>
+				<td><a href="#exempt-quarantine-medical">Exempt:
+						Essential medical services</a></td>
+				<td>Not exempt</td>
+				<td>Exempt</td>
+			</tr>
+			<tr>
+				<td>Leaving and returning to Canada after treatment in another country - one person may
+					accompany</td>
+				<td><a href="#exempt-quarantine-medical">Exempt: Essential medical treatment</a>
+				</td>
+				<td><a href="exempt-pre-entry-medical">Exempt:
+						Essential medical treatment</a></td>
+				<td>Exempt</td>
+			</tr>
+		<tbody>
+			<tr>
+				<th scope="rowgroup" class="h4" colspan="3">Providing health services</th>
+			</tr>
+			<tr>
+				<td>Licensed health care practioners entering Canada to work</td>
+				<td><a href="#exempt-quarantine-medical">Exempt: Health
+						care practitioner</a></td>
+				<td>Not exempt</td>
+				<td>Exempt</td>
+			</tr>
+			<tr>
+				<td>Student in a health field</td>
+				<td><a href="#exempt-quarantine-medical">Exempt: Student in a health field</a></td>
+				<td>Not exempt</td>
+				<td>Exempt</td>
+			</tr>
+			<tr>
+				<td>Medical evacuation</td>
+				<td><a href="#exempt-pre-entry-medical">Exempt: Medical evacuation</a></td>
+				<td><a href="#exempt-quarantine-medical">Exempt: Medical transport </a>
+				</td>
+				<td>Exempt</td>
+			</tr>
+		</tbody>
+	</table>
+</details>
+<details>
+	<summary>Essential work and services</summary>
+	<table class="wb-filter table">
+		<caption>Filter by keywords for your role</caption>
+		<thead>
+			<tr>
+				<th>Role</th>
+				<th>Quarantine and hotel exemption</th>
+				<th>Pre-entry test exemption</th>
+				<th>Arrival test exemption</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Crew members on any aircraft, shipping vessel or train and people entering Canada to become a crew member</td>
+				<td><a href="#exempt-quarantine-essential">Exempt: Essential
+						work</a></td>
+				<td><a href="#exempt-pre-entry-essential">Exempt: Essential service </a></td>
+				<td>Exempt per quarantine</td>
+			</tr>
+			<tr>
+				<td>Trade and transportation - truck and transport drivers moving goods or repatriating human
+					remains, bus, taxi and limousine drivers moving people </td>
+				<td><a href="#exempt-quarantine-essential">Exempt: Essential
+					service</a></td>
+				<td></td>
+				<td>Exempt per quarantine</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="#exempt-quarantine-essential">Exempt: Essential
+					service</a></td>
+				<td>Not exempt</td>
+				<td>Exempt per quarantine</td>
+			</tr>
+			<tr>
+				<td>Emergency service providers who return from providing services in another country -
+					firefighters, peace officers, paramedics</td>
+					<td><a href="#exempt-quarantine-essential">Exempt: Essential
+						service</a></td>
+				<td></td>
+				<td>Exempt</td>
+			</tr>
+			<tr>
+				<td>Government officials escorting persons to or from Canada for a legal process such as
+					deportation, extradition or international transfer of offenders</td>
+					<td><a href="#exempt-quarantine-essential">Exempt: Essential
+						service</a></td>
+				<td>?</td>
+				<td>?</td>
+			</tr>
+			<tr>
+				<td>Government officials performing work duties, including law, border, immigration enforcement,
+					national security activities</td>
+					<td><a href="#exempt-quarantine-essential">Exempt: Essential
+						service</a></td>
+				<td>?</td>
+				<td>?</td>
+			</tr>
+		</tbody>
+	</table>
+</details>
 <details>
 	<summary>Family and children</summary>
 </details>
@@ -159,100 +160,85 @@ Find out if your work or personal situation are exempt from quarantine or testin
 	<summary>Driving or flying (transit) through Canada</summary>
 </details>
 
-		<h2>Detailed exemption lists</h2>
-<p>Check the details of any exemptions that apply to you, to ensure you fully meet the criteria.</p>
+## Detailed exemption lists
+Check the details of any exemptions that apply to you, to ensure you fully meet the criteria.
 
-		<h3 id="pre-entry-details">Pre-entry test exemption details</h3>
-		<details>
-			<summary><span id="exempt-pre-entry-general">Resolved COVID-19, children, transit through
-					Canada</span></summary>
-			<p>There are only a limited number of exceptions where an individual is not required to do post-border
-				testing:</p>
+### Pre-entry test exemption details
+
+<details>
+	<summary><span id="exempt-pre-entry-general">Resolved COVID-19, children, transit through Canada</span></summary>
+	<p>There are only a limited number of exceptions where an individual is not required to do post-border
+		testing:</p>
+	<ul>
+		<li><strong>Resolved COVID-19 infection</strong> - persons who have molecular test proof to show they had a positive COVID-19 test taken between 14-90 days before travel</li>
+		<li><strong>Children</strong> - children who are four years of age or younger (children who are five on the day of their travel must have proof of a negative COVID-19 test)</li>
+		<li><strong>Transit through Canada</strong> - transiting passengers who are only flying through Canada to reach another country</li>
+	</ul>
+</details>
+<details>
+	<summary>
+		<span= id="exempt-pre-entry-medical">Medical and health care</span>
+	</summary>
+	<ul>
+		<li><strong>Medical treatments - </strong>persons who must leave and return to Canada to receive essential medical services in another country. One person may accompany them. They must have:</p>
 			<ul>
-				<li><strong>Resolved COVID-19 infection</strong> - persons who have molecular test proof to show they
-					had a positive COVID-19 test taken between 14-90 days before travel</li>
-				<li><strong>Children</strong> - children who are four years of age or younger (children who are five on
-					the day of their travel must have proof of a negative COVID-19 test)</li>
-				<li><strong>Transit through Canada</strong> - transiting passengers who are only flying through Canada
-					to reach another country</li>
+				<li>written evidence from a licensed health care practitioner in Canada indicating services or treatments outside Canada are essential; and</li>
+				<li>written evidence from a licensed health care practitioner in the foreign country indicating services or treatments were provided in that country</li>
 			</ul>
-		</details>
-
-		<details>
-			<summary>
-				<span= id="exempt-pre-entry-medical">Medical and health care</span>
-			</summary>
+		</li>
+		<li><strong>Medical evacuation</strong> - Persons who boarded a medical evacuation flight for medical purposes if the urgency of the medical situation does not permit a COVID-19 molecular test to be administered to the person before boarding the aircraft for the flight to Canada</li>
+	</ul>
+</details>
+<details>
+<summary><span= id="exempt-pre-entry-essential">Essential work</span></summary>
+	<ul>
+		<li><strong>Essential service provider</strong> as determined by the Chief Public Health Officer</li>
+		<li><strong>Trade and transportation</strong> – persons who are:
 			<ul>
-				<li><strong>Medical treatments - </strong>persons who must leave and return to Canada to receive
-					essential medical services in another country. One person may accompany them. They must have:</p>
-					<ul>
-						<li>written evidence from a licensed health care practitioner in Canada indicating services or
-							treatments outside Canada are essential; and</li>
-						<li>written evidence from a licensed health care practitioner in the foreign country indicating
-							services or treatments were provided in that country</li>
-					</ul>
-				</li>
-				<li><strong>Medical evacuation</strong> - Persons who boarded a medical evacuation flight for medical
-					purposes if the urgency of the medical situation does not permit a COVID-19 molecular test to be
-					administered to the person before boarding the aircraft for the flight to Canada </li>
+				<li>persons in the trade or transportation sector who are important for the movement of goods or people, including truck drivers and crew members on any aircraft, shipping vessel or train, and that cross the border while performing their duties or for the purpose of performing their duties</li>
 			</ul>
-		</details>
-
-		<details>
-			<summary>
-				<span= id="exempt-pre-entry-essential">Essential work</span>
-			</summary>
-
+		</li>
+		<li><strong>Emergency services</strong> – persons who are:
 			<ul>
-				<li><strong>Essential service provider</strong> as determined by the Chief Public Health Officer</li>
-				<li><strong>Trade and transportation</strong> – persons who are:
-					<ul>
-						<li>persons in the trade or transportation sector who are important for the movement of goods or people, including truck drivers and crew members on any aircraft, shipping vessel or train, and that cross the border while performing their duties or for the purpose of performing their duties</li>
-					</ul>
-				</li>
-				<li><strong>Emergency services</strong> – persons who are:
-					<ul>
-						<li>firefighters, peace officers, and paramedics, who return from providing such services in
-							another country and are required to provide their services within 14 days of their return to
-							Canada</li>
-						<li>permitted to work in Canada under paragraph 186(t) of the Immigration and Refugee Protection
-							Regulations who enter for the purpose of providing those services</li>
-					</ul>
-				</li>
-				<li><strong>Government Officials</strong> – employees of the Government of Canada or a foreign
-					government, including border services officers, immigration enforcement officers, law enforcement
-					and correctional officers, who are escorting individuals travelling to Canada or from Canada
-					pursuant to a legal process such as deportation, extradition or international transfer of offenders</li>
-				<li><strong>Law enforcement officer, border enforcement officer, or immigration enforcement
-						officer</strong> - Officials of the Government of Canada, a provincial or a foreign government,
-					including law enforcement, border enforcement, and immigration enforcement officers, who enter
-					Canada for the purposes of law, border or immigration enforcement, or national security activities
-					that support active investigations, ensure continuity of enforcement operations or activities, or
-					transfer information or evidence pursuant to, or in support, of a legal process, and who are
-					required to provide their services within 14 days of entry and have reasonable rationales for the
-					immediacy of the work and the inability to plan for a 14 day quarantine</li>
-				<li><strong>Crew members</strong> - a person who:
-					<ul>
-						<li>is a crew member as defined in subsection 101.01(1) of the Canadian Aviation Regulations or
-							a person who enters Canada only to become such a crew member</li>
-						<li>is a member of a crew as defined in subsection 3(1) of the Immigration and Refugee
-							Protection Regulations who is re-entering Canada</li>
-						<li>is re-entering Canada after having left to undertake mandatory training relating to the
-							operation of a vehicle</li>
-					</ul>
-				</li>
-				<li><strong>Canadian Armed Forces</strong> - a member of the <strong>Canadian Armed Forces</strong> who
-					enters Canada for the purpose of performing their duties</li>
-				<li><strong>Visiting forces</strong> - visiting force air crew entering Canada for the purpose of
-					performing mission-essential duties as a member of that force</li>
+				<li>firefighters, peace officers, and paramedics, who return from providing such services in
+					another country and are required to provide their services within 14 days of their return to
+					Canada</li>
+				<li>permitted to work in Canada under paragraph 186(t) of the Immigration and Refugee Protection
+					Regulations who enter for the purpose of providing those services</li>
 			</ul>
-		</details>
-
-		<details>
-			<summary>
-				<span= id="exempt-pre-entry-special">Other special circumstances</span>
-			</summary>
-
+		</li>
+		<li><strong>Government Officials</strong> – employees of the Government of Canada or a foreign
+			government, including border services officers, immigration enforcement officers, law enforcement
+			and correctional officers, who are escorting individuals travelling to Canada or from Canada
+			pursuant to a legal process such as deportation, extradition or international transfer of offenders</li>
+		<li><strong>Law enforcement officer, border enforcement officer, or immigration enforcement
+				officer</strong> - Officials of the Government of Canada, a provincial or a foreign government,
+			including law enforcement, border enforcement, and immigration enforcement officers, who enter
+			Canada for the purposes of law, border or immigration enforcement, or national security activities
+			that support active investigations, ensure continuity of enforcement operations or activities, or
+			transfer information or evidence pursuant to, or in support, of a legal process, and who are
+			required to provide their services within 14 days of entry and have reasonable rationales for the
+			immediacy of the work and the inability to plan for a 14 day quarantine</li>
+		<li><strong>Crew members</strong> - a person who:
+			<ul>
+				<li>is a crew member as defined in subsection 101.01(1) of the Canadian Aviation Regulations or
+					a person who enters Canada only to become such a crew member</li>
+				<li>is a member of a crew as defined in subsection 3(1) of the Immigration and Refugee
+					Protection Regulations who is re-entering Canada</li>
+				<li>is re-entering Canada after having left to undertake mandatory training relating to the
+					operation of a vehicle</li>
+			</ul>
+		</li>
+		<li><strong>Canadian Armed Forces</strong> - a member of the <strong>Canadian Armed Forces</strong> who
+			enters Canada for the purpose of performing their duties</li>
+		<li><strong>Visiting forces</strong> - visiting force air crew entering Canada for the purpose of
+			performing mission-essential duties as a member of that force</li>
+	</ul>
+</details>
+<details>
+	<summary>
+		<span= id="exempt-pre-entry-special">Other special circumstances</span>
+	</summary>
 			<ul>
 				<li><strong>National interest</strong> - a person or member of a group whose presence in Canada, as
 					determined by the Minister of Health, is in the national interest</li>
@@ -274,10 +260,8 @@ Find out if your work or personal situation are exempt from quarantine or testin
 			</ul>
 		</details>
 
-
-		<h3 id="exempt-arrival-details">Arrival test exemption details</h3>
-
-		<details>
+### Arrival test exemption details
+<details>
 			<summary>
 				<span= id="exempt-arrival-general">Resolved COVID-19, children, exempt from quarantine</span>
 			</summary>
@@ -300,7 +284,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 					immediate family members of those persons</li>
 			</ul>
 		</details>
-
 		<details>
 			<summary>
 				<span= id="exempt-arrival-medical">Medical</span>
@@ -311,7 +294,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 					administered to the person before boarding the aircraft for the flight to Canada </li>
 			</ul>
 		</details>
-
 		<details>
 			<summary>
 				<span= id="exempt-arrival-special">Other special circumstances</span>
@@ -329,7 +311,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 				</li>
 			</ul>
 		</details>
-
 		<details>
 			<summary><span id="alternate-testing">Alternative arrival testing</summary>
 			<p>Some circumstances allow for alternative testing protocols upon arrival.</p>
@@ -356,10 +337,8 @@ Find out if your work or personal situation are exempt from quarantine or testin
 		</details>
 
 
-
-		<h3 id="exempt-hotel-details">Hotel stopover exemption details</h3>
-
-		<details>
+### Hotel stopover exemption details
+<details>
 			<summary>
 				<span= id="exempt-hotel-general">Resolved COVID-19, children, require support</span>
 			</summary>
@@ -376,18 +355,14 @@ Find out if your work or personal situation are exempt from quarantine or testin
 					support for their mental or physical limitations</li>
 			</ul>
 		</details>
-
 	<details>
 		<summary><span= id="exempt-hotel-already">Exempt from other requirements</span></summary>
 		<p>Air travellers are exempt from the 3-night hotel stay if they're:</p>
-
 		<ul>
   			<li>already exempt from the arrival test requirement</li>
   			<li>already exempt from the quarantine requirement</li>
 		</ul>
 	</details>
-
-
 		<details>
 			<summary>
 				<span= id="exempt-hotel-tfw">Temporary Foreign Worker Program</span>
@@ -437,9 +412,8 @@ Find out if your work or personal situation are exempt from quarantine or testin
 			</ul>
 		</details>
 
-		<h3 id="exempt-quarantine-details">Quarantine exemption details</h3>
-
-		<details>
+### Quarantine exemption details
+<details>
 			<summary><span id="exempt-quarantine-medical">Medical and health care</span></summary>
 			<ul>
 				<li><strong>Essential medical services</strong> - a person who enters Canada for the purpose of
@@ -471,10 +445,8 @@ Find out if your work or personal situation are exempt from quarantine or testin
 							services or treatments were provided in that country</li>
 					</ul>
 				</li>
-
 			</ul>
 		</details>
-
 		<details>
 			<summary><span id="exempt-quarantine-essential">Essential work</span></summary>
 			<ul>
@@ -526,7 +498,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 								undertake mandatory training relating to the operation of a conveyance, and who are
 								required by their employer to return to work as members of a crew on a conveyance within
 								14 days of their return to Canada</li>
-
 							<li>A crew member as defined in subsection 101.01(1) of the Canadian Aviation Regulations or
 								a person who enters Canada only to become such a crew member</li>
 							<li>A member of a crew as defined in subsection 3(1) of the Immigration and Refugee
@@ -544,7 +515,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 								as the person remains onboard the vessel</strong></li>
 					</ul>
 		</details>
-
 		<details>
 			<summary><span id="exempt-quarantine-cross-border">Cross-border workers and trans-border, remote
 					cross-border or geographically constrained communities</span></summary>
@@ -575,7 +545,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 				</ul>
 			</ul>
 		</details>
-
 		<details>
 			<summary><span id="exempt-quarantine-students">Cross-border students and people driving them</span>
 			</summary>
@@ -605,7 +574,6 @@ Find out if your work or personal situation are exempt from quarantine or testin
 					escort the student to or from the institution and they wore a mask while outside the vehicle</li>
 			</ul>
 		</details>
-
 		<details>
 			<summary><span id="exempt-quarantine-custody">Cross-border custody arrangements</span></summary>
 			<ul>
@@ -619,10 +587,8 @@ Find out if your work or personal situation are exempt from quarantine or testin
 						child</strong> under the terms of a written agreement or court order regarding custody, access
 					or parenting, as long as the driver only left the vehicle while outside Canada, if at all, to escort
 					the dependent child to or from the vehicle and they wore a mask while outside the vehicle</li>
-
 			</ul>
 		</details>
-
 		<details>
 			<summary><span id="exempt-quarantine-special">Other special circumstances</span></summary>
 			<ul>
@@ -655,15 +621,12 @@ Find out if your work or personal situation are exempt from quarantine or testin
 					national organization responsible for that sport), as long as the person complies with any
 					conditions imposed on them to minimize the risk of introduction or spread of COVID-19</li>
 			</ul>
-
 			<p>For more information, go to the <a
 					href="https://www.canada.ca/en/public-health/corporate/mandate/about-agency/acts-regulations/list-acts-regulations.html">List
 					of Acts and Regulations</a> and look for information on the <cite>Quarantine Act</cite>, the
 				Emergency Orders, and the Chief Public Health Officer (CPHO) Group Exemptions that may apply.
 			</p>
-
 		</details>
-
 		<details>
 			<summary><span id="compassionate">Compassionate reasons: limited release for funerals, to care for someone,
 					or for end-of-life visit</span></summary>
