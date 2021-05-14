@@ -1,82 +1,29 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]>
-<html class="no-js lt-ie9" lang="en" dir="ltr">
-   <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
-<!--<![endif]-->
+---
+altLangPage: "#"
+breadcrumbs:
+  - title: "Travel"
+    link: "https://travel.gc.ca/"
+  - title: "Travel, testing, quarantine"
+    link: "../../travel-covid.html"
+css: https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css
+dateModified: "2021-05-14"
+lang: en
+layout: default
+pageclass: cnt-wdth-lmtd
+script: https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js
+title: Travel quarantine, hotel and testing exemptions
+---
 
-<head>
-	<meta charset="utf-8">
-	<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-	<title>COVID-19 Travel exemption finder – Canada.ca</title>
-	<meta content="width=device-width,initial-scale=1" name="viewport">
-	<!-- Meta data -->
-	<!-- Meta data-->
-	<!-- Load closure template scripts -->
-	<script type="text/javascript"
-		src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
-	<script type="text/javascript"
-		src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
-	<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
-	<link href="../../css/wizard.css" rel="stylesheet">
+There are travel restrictions in place at all border crossings to reduce the spread of COVID-19 by travellers entering Canada. If you aren't sure whether these restrictions apply to you, answer a few questions to:
 
+[Find out if you can enter Canada](https://travel.gc.ca/travel-covid/travel-restrictions/wizard-start)
 
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-	<!-- Write closure template -->
-	<script type="text/javascript">
-		document.write(wet.builder.refTop({
-		}));
-	</script>
-</head>
+Find out if your work or personal situation are exempt from quarantine or testing requirements.
 
-<body vocab="http://schema.org/" typeof="WebPage">
-	<div id="def-top">
-	</div>
-	<!-- Write closure template -->
-	<script type="text/javascript">
-		var defTop = document.getElementById("def-top");
-		defTop.outerHTML = wet.builder.top({
-			lngLinks: [{
-				lang: "fr",
-				href: "#",
-				text: "Français"
-			}],
-			breadcrumbs: [{
-				title: "Canada.ca",
-				href: "https://www.canada.ca/en.html"
-			}, {
-				title: "Travel",
-				href: "https://travel.gc.ca/"
-			}, {
-				title: "Travel, testing, quarantine",
-				href: "../../travel-covid.html"
-			}],
-			search: true,
-			siteMenu: true,
-			showPreContent: true
-		});
-	</script>
-
-	<style>
-		mark {
-			background-color: yellow !important;
-		}
-	</style>
-	<main role="main" property="mainContentOfPage" class="container">
-		<h1>XOXOXOXOXOX Travel quarantine, hotel and testing exemptions</h1>
-		<p>There are travel restrictions in place at all border crossings to reduce the spread of COVID-19 by travellers entering Canada. If you
-			aren't sure whether these restrictions apply to you, answer a few questions to:<br>
-			<a href="https://travel.gc.ca/travel-covid/travel-restrictions/wizard-start">Find out if you can enter
-				Canada</a>
-		</p>
-
-		<p>Find out if your work or personal situation are exempt from quarantine or testing requirements.</p>
-		<p><strong>Exempt means that you don't have to follow certain requirements</strong>. For example, if you are exempt from quarantine, you don't need to quarantine for 14 days after entering Canada or stay at a government-authorized hotel.</p>
+**Exempt means that you don't have to follow certain requirements**. For example, if you are exempt from quarantine, you don't need to quarantine for 14 days after entering Canada or stay at a government-authorized hotel.
 
 
-		<h2>Find out who is exempt for quarantine, hotel, and testing</h2>
+<h2>Find out who is exempt for quarantine, hotel, and testing</h2>
 <p>Filter by keywords to find work roles and personal situations that may be exempt from quarantine, or from COVID-19 testing either before or after your entry into Canada. </p>
 <p>Follow the links for your situation or role to check the details for exemptions. For some, you must be performing work within a certain amount of time, or be providing a very specific type of service.</p>
 		<details>
@@ -732,36 +679,3 @@
 				see <a href="/travel-covid/travel-restrictions/compassion">Caring for others, funerals and
 					support</a>. </p>
 		</details>
-
-
-		<div id="def-preFooter"></div>
-		<!-- Write closure template -->
-		<script type="text/javascript">
-			var defPreFooter = document.getElementById("def-preFooter");
-			defPreFooter.outerHTML = wet.builder.preFooter({
-				dateModified: "2020-05-29",
-				showPostContent: true,
-				showFeedback: true,
-				showShare: true
-			});
-		</script>
-	</main>
-	<div id="def-footer">
-	</div>
-	<!-- Write closure template -->
-	<script type="text/javascript">
-		var defFooter = document.getElementById("def-footer");
-		defFooter.outerHTML = wet.builder.footer({
-			showFooter: true,
-			showFeatures: true
-		});
-	</script>
-	<!-- Write closure template -->
-	<script type="text/javascript">
-		document.write(wet.builder.refFooter({
-		}));
-	</script>
-	<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
-</body>
-
-</html>
