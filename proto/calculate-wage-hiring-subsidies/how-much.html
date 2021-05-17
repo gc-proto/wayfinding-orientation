@@ -911,6 +911,12 @@ fieldset +.buttons {
                       <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
                     </div>
                   </div>
+                  <label class="col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for period 14 (line A of your p14 calculation)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-3">
+                    <div class="input-group"> 
+                      <input type="number" class="form-control text-right" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                    </div>
+                  </div>
                 </fieldset>
               </div>
               <a class="btn btn-default">Update your base remuneration</a>
@@ -918,7 +924,10 @@ fieldset +.buttons {
 
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
               <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
-              <p id="crhp-base-summary">Your <strong>base remuneration for the CRHP</strong> is <span class="crhp-base-rem h4">$0</span></p>
+              <div id="crhp-base-summary">
+                <p>Your <strong>base remuneration for the CRHP</strong> is <span class="crhp-base-rem h4">$0</span></p>
+                <p>You had <strong><span class="total-active-emps-14">0</span></strong> eligible active employees (not on paid leave) during the CRHP base period.</p>
+              </div>
               <p class="hidden" id="crhp-ineligible">Continue to the next step to calculate the CEWS only.</p>
             </div>
 
@@ -2121,15 +2130,13 @@ fieldset +.buttons {
         <p>For your claim for <strong class="claim-period"></strong>: </p>
         <ul class="lst-spcd">
           <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
-            <output class="h3 wb-calc nowrap" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
+            <output class="h3 wb-calc nowrap total-eligible-emps"></output>
             </strong></li>
           <li id="sum-ee-active3" class="hidden p59"><strong>Line A:</strong> Number of eligible active employees:
-            <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
-                  data-wb-calc='{"expr": "#p2c-ee-alt1 * 1"}'></output>
+            <output class="h3 wb-calc nowrap total-active-emps"></output>
           </li>
           <li id="sum-ee-lwp3" class="hidden p59"><strong>Line AA:</strong> Number of eligible employees on leave with pay:
-            <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
-                  data-wb-calc='{"expr": "#p2c-ee-alt1 * 2"}'></output>
+            <output class="h3 wb-calc nowrap total-furloughed-emps"></output>
           </li>
           <li><strong>Line B:</strong> Total eligible remuneration paid: <strong>
             <output class="h3 wb-calc nowrap cews-remuneration-total"></output>
@@ -2176,8 +2183,7 @@ fieldset +.buttons {
         <div class="alert alert-success provisional">
           <h3>Result</h3>
           <p><strong>Line H:</strong> The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
-            <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                    data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output>
+            <output class="h3 wb-calc nowrap total-calculated-cews"></output>
             </strong> This amount is subject to verification. </p>
         </div>
       </div>
@@ -2238,115 +2244,56 @@ fieldset +.buttons {
       </summary>
       <div class="crhp-no">
         <div id="crhp-statement">
-          <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>A to H</strong> when you complete your online application for CRHP.</p>
+          <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>300 to 510</strong> when you complete your online application for CRHP.</p>
           <p>For your claim for <strong class="claim-period"></strong>: </p>
           <ul class="lst-spcd">
-            <li class="p14"> <strong>Line 300:</strong> Number of eligible employees: <strong>
-              <output class="h3 wb-calc nowrap" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
+            <li> <strong>Line 300:</strong> Total Wage Subsidy amount (CEWS): <strong>
+              <output class="h3 wb-calc nowrap total-calculated-cews"></output>
               </strong> </li>
-            <li id="sum-ee-active2" class="hidden p59"><strong>Line A:</strong> Number of eligible active employees:
-              <output class="h3 wb-calc nowrap" for="p2c-ee-alt1"
-                  data-wb-calc='{"expr": "#p2c-ee-alt1 * 1"}'></output>
+            <li><strong>Line 400:</strong> Eligible active employees for the claim period:
+              <output class="h3 wb-calc nowrap total-active-emps"></output>
             </li>
-            <li id="sum-ee-lwp2" class="hidden p59"><strong>Line AA:</strong> Number of eligible employees on leave with pay:
-              <output class="h3 wb-calc nowrap" for="p2c-ee-alt2"
-                  data-wb-calc='{"expr": "#p2c-ee-alt1 * 2"}'></output>
+            <li><strong>Line 410:</strong> Eligible active employees for period 14 (base):
+              <output class="h3 wb-calc nowrap total-active-emps-14"></output>
             </li>
-            <li><strong>Line B:</strong> Total eligible remuneration paid: <strong>
-              <output class="h3 wb-calc nowrap" for="p2c-pyrl"
-                    data-wb-calc='{"expr": "#p2b-pyrl * 1", "format": "currency"}'></output>
+            <li><strong>Line 420:</strong> Current period remuneration (CRHP): <strong>
+              <output class="h3 wb-calc nowrap crhp-current-rem"></output>
               </strong> </li>
-            <li id="sum-rev2" class="hidden p59">Revenue drop and subsidy rate
-              <ul class="list-unstyled mrgn-lft-md">
-                <li class="p11-plus"><strong>Line c0:</strong> Revenue drop for the prior period:
-                  <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
-                </li>
-                <li><strong>Line c1:</strong> Revenue drop for the current period:
-                  <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
-                </li>
-                <li class="p10-"><strong>Line c2:</strong> Average revenue drop for the previous three months:
-                  <output class="h3 wb-calc nowrap" for="p2b-c2"></output>
-                </li>
-                <li><strong>Line c3:</strong> Subsidy rate used for active employees in the calculation of Line C:
-                  <output class="h3 wb-calc nowrap" for="p2b-c3"></output>
-                </li>
-              </ul>
+            <li><strong>Line 430:</strong> Period 14 remuneration (CRHP): <strong>
+              <output class="h3 wb-calc nowrap crhp-base-rem"></output>
+              </strong> </li>
+            <li><strong>Line 500:</strong> Revenue drop for the prior period:
+              <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
             </li>
-            <li><strong>Line C:</strong> Basic CRHP (including top-up, if applicable): <strong>
-              <output class="h3 wb-calc nowrap" for="p2c-cews"
-                    data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output>
-              </strong> </li>
-            <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
-              the claim period)</small>: <strong>
-              <output class="h3 wb-calc nowrap" for="p3-ei"
-                    data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output>
-              </strong> </li>
-            <li><strong>Line E:</strong> Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay <small>(for the claim period)</small>: <strong>
-              <output class="h3 wb-calc nowrap" for="p3-cpp"
-                    data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output>
-              </strong> </li>
-            <li class="p14"><strong>Line F:</strong> 10% Temporary Wage Subsidy for Employers reduction <small>(for the claim
-              period)</small>: <strong>
-              <output class="h3 wb-calc nowrap" for="p4-tws"
-                    data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output>
-              </strong> </li>
-            <li><strong>Line G:</strong> Amounts received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
-              the claim period)</small>: <strong>
-              <output class="h3 wb-calc nowrap" for="p4-wsb"
-                    data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output>
-              </strong> </li>
+            <li><strong>Line 510:</strong> Revenue drop for the current period:
+              <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
+            </li>
           </ul>
-          <div class="alert alert-success provisional">
-            <h3>Result</h3>
-            <p><strong>Line H:</strong> The <strong>total amount</strong> you will claim for the CRHP for this period is: <strong>
-              <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                    data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output>
-              </strong> This amount is subject to verification. </p>
-          </div>
         </div>
         <table class="table" id="crhp-statement-table">
-          <caption class="h5 mrgn-bttm-0">
-          Summary of CRHP calculation
-          </caption>
+          <caption class="h5 mrgn-bttm-0">Summary of CRHP calculation</caption>
           <tbody>
             <tr>
-              <th scope="row" class="h6">Basic CRHP <small class="nowrap">(Line C)</small></th>
-              <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews"
-                  data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output></td>
+              <th scope="row" class="h6">Current period remuneration for CRHP <small class="nowrap">(Line 420)</small></th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
-              <td class="text-right nowrap">+
-                <output class="h6 wb-calc nowrap" for="p3-ei"
-                  data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
+              <th scope="row" class="h6">(minus) Base remuneration for CRHP (period 14)<small class="nowrap">(Line 430)</small></th>
+              <td class="text-right nowrap">-
+                <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
-              <td class="text-right nowrap">+
-                <output class="h6 wb-calc nowrap" for="p3-cpp"
-                  data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output></td>
-            </tr>
-            <tr>
-              <th scope="row" class="h6">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
-                F)</small></th>
-              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                <output class="h6 wb-calc nowrap" for="p4-tws"
-                  data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output></td>
-            </tr>
-            <tr>
-              <th scope="row" class="h6">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
-              <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
-                <output class="h6 wb-calc nowrap" for="p4-wsb"
-                  data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output></td>
+              <th scope="row" class="h6">(multiplied by) CRHP rate for the claim period</th>
+              <td class="text-right nowrap"><abbr title="multiply" class="brdr-0">x</abbr>
+                <output class="h6 wb-calc nowrap crhp-rate"></output></td>
             </tr>
             <tr class="success">
-              <th scope="row" class="h6">Your CRHP claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-              <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                  data-wb-calc='{"expr": "#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
+              <th scope="row" class="h6">Your CRHP claim, subject to verification, is</th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap total-calculated-crhp"></output></td>
             </tr>
           </tbody>
         </table>
-        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
         <p class="hidden-print"><a href="#pp-crhp-statement" class="wb-lbx btn btn-default btn-lg"
               role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CRHP
           statement</span></span></a></p>
@@ -2997,11 +2944,13 @@ fieldset +.buttons {
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
           $(".claim-period-no").text(claimPeriod);
-          if (claimPeriod > 16) {
-            var crhpRateScale = [50, 50, 50, 40, 30, 20]
-            $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+          if ((revReduction >= 0.1 && claimPeriod > 17) || (revReduction > 0 && claimPeriod == 16)) {
+            var crhpRateScale = [50, 50, 50, 50, 40, 30, 20]
+            $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
+            crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 16]);
           } else {
             $(".crhp-rate").text(toPercent(0));
+            crhpRate = 0;
           }
         }
         //show/hide elements based on chosen claim period
@@ -3805,13 +3754,18 @@ fieldset +.buttons {
       });
       var totalCews = 0;
       var totalWages = 0;
+      var totalCrhp = 0;
       function calculateTotals() {
         var totalWagesPaid = 0;
         var cews = 0;
         var eligibleEmployees = 0;
+        var crhpRemuneration = 0;
+        var cewsBasic = 0;
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
+          crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+          cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
@@ -3843,7 +3797,101 @@ fieldset +.buttons {
         $(".total").html(toMoney.format(cews));
         totalCews = cews.toFixed(2);
         totalWages = totalWagesPaid.toFixed(2);
+        $('.basic-cews').text(toMoney.format(cewsBasic));
+
+        if ($("#claim-period option:selected").data("claim-period") >= 5) {
+          if ($("#claim-period option:selected").data("claim-period") >= 16) {
+            $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
+            totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+            $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
+          }
+
+          var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
+          var totalEmps = $("fieldset[id^='emp-']").length;
+          var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
+          //eligible active employees
+          $(".total-active-emps").val(Math.ceil(eligibleEmps));
+          //get eligible furloughed employees
+          $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
+
+
+
+          
+          
+          // $("#p2c-ee-alt2").trigger("change");
+          if ($("#p2c-ee-alt2").val() == 0) {
+            $("#p3-ei").prop("readonly", true);
+            $("#p3-ei").val("0.00");
+            $("#p3-cpp").prop("readonly", true);
+            $(".p3-ee-req").addClass("hidden");
+            $("#p3-cpp").val("0.00");
+            $(".no-lwp-disclaimer").removeClass("hidden");
+          } else {
+            $("#p3-ei").prop("readonly", false);
+            $("#p3-ei").val("");
+            $("#p3-cpp").prop("readonly", false);
+            $(".p3-ee-req").removeClass("hidden");
+            $("#p3-cpp").val("");
+            $(".no-lwp-disclaimer").addClass("hidden");
+          }
+          // var totalWages = $(".total").attr("data-total-wages");
+          $(".cews-remuneration-total").val(toMoney.format(totalWages));
+          // $("#p2c-pyrl").trigger("change");
+          // var totalCews = $(".total").attr("data-total-cews");
+          $(".total-calculated-cews").val(toMoney.format(totalCews));
+          // $("#p2c-cews").trigger("change");
+          if ($("#claim-period option:selected").data("claim-period") < 11) {
+          var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
+          } else {
+          var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
+          revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
+          }
+          $("#p2b-c0").val(revenuePriorDisplay);
+          $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
+          if ($("#claim-period option:selected").data("claim-period") < 11) {
+            var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
+          } else {
+            var revenueDisplay = Math.max(0, currentRevReduc * 100);
+            revenueDisplay = revenueDisplay.toFixed(2);
+          }
+          $("#p2b-c1").val(revenueDisplay);
+          $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
+          var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
+          $("#p2b-c2").val(threeMonthRevenueDisplay);
+          $("output[for='p2b-c2']").text(toPercent(threeMonthRevenueDisplay));
+          var cewsRateDisplay = cewsRate * 100;
+          cewsRateDisplay = cewsRateDisplay.toFixed(2);
+          $("#p2b-c3").val(cewsRateDisplay);
+          $("output[for='p2b-c3']").text(toPercent(cewsRateDisplay));
+
+
+
+        } else {
+          var eligibleEmployees = $("fieldset[id^='emp-']").length;
+          for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
+            if ($("#emp-smry-" + i).hasClass("hidden")) {
+              eligibleEmployees--;
+            }
+          }
+          $(".total-eligible-emps").val(Math.ceil(eligibleEmployees));
+
+          $(".cews-remuneration-total").val(toMoney.format(totalWages));
+          $(".total-calculated-cews").val(toMoney.format(totalCews));
+
+        }
+        // for (var i = 1; i < (numEmployeePanels + 1); i++) {
+        //   $("#wkone-" + i).blur();
+        //   $("#wktwo-" + i).blur();
+        //   $("#wkthree-" + i).blur();
+        //   $("#wkfour-" + i).blur();
+        // }
+
+
+        $('.current-crhp-remuneration').val(toMoney.format(totalWages));
+        $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
+
       }
+       
 
       /**
        * getWeeklyCEWS
@@ -4127,11 +4175,17 @@ fieldset +.buttons {
         }
       });
 
+      var baseCRHPRem = 0;
       //update the CRHP base amount summary
       $(document).on("blur", "#crhp-base-rem", function (event) {
-        var baseCRHPRem = zeroIfEmpty(parseFloat($('#crhp-base-rem').val()));
+        baseCRHPRem = zeroIfEmpty(parseFloat($('#crhp-base-rem').val()));
         $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
         calculateCRHP(); //Or maybe 'clear chrp'?
+      });
+      $(document).on("blur", "#crhp-base-active-emps", function (event) {
+        var baseCRHPEmps = zeroIfEmpty(parseFloat($('#crhp-base-active-emps').val()));
+        $('.total-active-emps-14').text(baseCRHPEmps);
+        // calculateCRHP(); //Or maybe 'clear chrp'?
       });
 
       function uploadDealcsv () {}; 
@@ -4189,7 +4243,8 @@ fieldset +.buttons {
             //   week2 = p14rate * Math.min(1129, parsedata[i][4], parsedata[i][2])
             //   week3 = p14rate * Math.min(1129, parsedata[i][5], parsedata[i][2])
             //   week4 = p14rate * Math.min(1129, parsedata[i][6], parsedata[i][2])
-            var baseCRHPRem = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
+            baseCRHPRem = 0;
+            var week1 = 0, week2 = 0, week3 = 0, week4 = 0;
             for(i = 1; i < parsedata.length; i++) { //for each employee
               if (parsedata[i][1] == "No") { //NAL employee
                 week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
@@ -4204,6 +4259,7 @@ fieldset +.buttons {
               }
               baseCRHPRem = baseCRHPRem + week1 + week2 + week3 + week4;
             }
+            $('.total-active-emps-14').text(parsedata.length - 1);
             $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
             calculateCRHP(); //Or maybe 'clear chrp'?
         }
@@ -4319,11 +4375,12 @@ fieldset +.buttons {
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
             } else {
-              var crhpRateScale = [50, 50, 50, 40, 30, 20]
-              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+              var crhpRateScale = [50, 50, 50, 50, 40, 30, 20]
+              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
-              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 17]);
+              console.log("crhpRateScale: " + crhpRateScale[claimPeriod - 16]);
+              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 16]);
               console.log("crhpRate: " + crhpRate);
             }
           } else {
@@ -4471,11 +4528,11 @@ fieldset +.buttons {
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
             } else {
-              var crhpRateScale = [50, 50, 50, 40, 30, 20]
-              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+              var crhpRateScale = [50, 50, 50, 50, 40, 30, 20]
+              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
-              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 17]);
+              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 16]);
             }
           } else {
             $(".greater-than-10-drop").removeClass("hidden");
@@ -4714,84 +4771,7 @@ fieldset +.buttons {
 			
      //Changed to target NEXT button instead of push to 2b button (might not be needed);
 			$(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
-				
         calculateTotals();
-        if ($("#claim-period option:selected").data("claim-period") >= 5) {
-          var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
-          var totalEmps = $("fieldset[id^='emp-']").length;
-          var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
-          //eligible active employees
-          $("#p2c-ee-alt1").val(Math.ceil(eligibleEmps));
-          $("#p2c-ee-alt1").trigger("change");
-          //get eligible furloughed employees
-          $("#p2c-ee-alt2").val(Math.ceil(totalEmps - eligibleEmps));
-          $("#p2c-ee-alt2").trigger("change");
-          if ($("#p2c-ee-alt2").val() == 0) {
-            $("#p3-ei").prop("readonly", true);
-            $("#p3-ei").val("0.00");
-            $("#p3-cpp").prop("readonly", true);
-            $(".p3-ee-req").addClass("hidden");
-            $("#p3-cpp").val("0.00");
-            $(".no-lwp-disclaimer").removeClass("hidden");
-          } else {
-            $("#p3-ei").prop("readonly", false);
-            $("#p3-ei").val("");
-            $("#p3-cpp").prop("readonly", false);
-            $(".p3-ee-req").removeClass("hidden");
-            $("#p3-cpp").val("");
-            $(".no-lwp-disclaimer").addClass("hidden");
-          }
-          // var totalWages = $(".total").attr("data-total-wages");
-          $("#p2c-pyrl").val(totalWages);
-          $("#p2c-pyrl").trigger("change");
-          // var totalCews = $(".total").attr("data-total-cews");
-          $("#p2c-cews").val(totalCews);
-          $("#p2c-cews").trigger("change");
-          if ($("#claim-period option:selected").data("claim-period") < 11) {
-          var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
-          } else {
-          var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
-          revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
-          }
-              $("#p2b-c0").val(revenuePriorDisplay);
-              $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
-              if ($("#claim-period option:selected").data("claim-period") < 11) {
-          var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
-          } else {
-          var revenueDisplay = Math.max(0, currentRevReduc * 100);
-          revenueDisplay = revenueDisplay.toFixed(2);
-          }
-          $("#p2b-c1").val(revenueDisplay);
-          $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
-          var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
-          $("#p2b-c2").val(threeMonthRevenueDisplay);
-          $("output[for='p2b-c2']").text(toPercent(threeMonthRevenueDisplay));
-          var cewsRateDisplay = cewsRate * 100;
-          cewsRateDisplay = cewsRateDisplay.toFixed(2);
-          $("#p2b-c3").val(cewsRateDisplay);
-          $("output[for='p2b-c3']").text(toPercent(cewsRateDisplay));
-        } else {
-          var eligibleEmployees = $("fieldset[id^='emp-']").length;
-          for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
-            if ($("#emp-smry-" + i).hasClass("hidden")) {
-              eligibleEmployees--;
-            }
-          }
-          $("#p2c-ee").val(eligibleEmployees);
-          $("#p2c-ee").trigger("change");
-          var totalWages = $(".total").attr("data-total-wages");
-          $("#p2c-pyrl").val(totalWages);
-          $("#p2c-pyrl").trigger("change");
-          var totalCews = $(".total").attr("data-total-cews");
-          $("#p2c-cews").val(totalCews);
-          $("#p2c-cews").trigger("change");
-        }
-        for (var i = 1; i < (numEmployeePanels + 1); i++) {
-          $("#wkone-" + i).blur();
-          $("#wktwo-" + i).blur();
-          $("#wkthree-" + i).blur();
-          $("#wkfour-" + i).blur();
-        }
       });
 
 
