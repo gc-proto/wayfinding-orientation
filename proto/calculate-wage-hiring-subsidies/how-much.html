@@ -120,11 +120,11 @@ fieldset +.buttons {
 		}'></div>
 <h2 class="h3 mrgn-tp-sm">On this page</h2>
 <ul>
-  <li><a href="#h-1">How the calculator helps you</a></li>
+  <!-- <li><a href="#h-1">How the calculator helps you</a></li> -->
   <li><a href="#h-2">Before you start the calculation</a></li>
   <li><a href="#h-3">Use the calculator</a></li>
 </ul>
-<h2 id="h-1">How the calculator helps you</h2>
+<!-- <h2 id="h-1">How the calculator helps you</h2>
 <p>Use this calculator to calculate amounts for both the Canada Emergency Wage Subsidy (CEWS) and the Canada Recovery Hiring Program (CRHP) to determine which one to apply for and the amounts to include in your application.</p>
 <ol>
   <li>Calculate your subsidy amount by entering employee pay information</li>
@@ -132,8 +132,8 @@ fieldset +.buttons {
   <li>Apply for the subsidy online through My Business Account, Represent a Client, or the Web Forms application using the information you printed</li>
 </ol>
 <p>You can currently use the calculator for claim periods 1 to . More periods will be added as they become available. </p>
-<!-- <p>The calculator has been updated to include <a href="cews-what-changes.html">changes to the period 8 to 10 top-up calculation finalized on November 17th</a>. It automatically applies the best subsidy rate you qualify for (including applying any safe harbour and deeming rules) based on information you enter. </p> -->
-<p>To understand the math behind the wage subsidy calculation, refer to <a href="how-much-version-math.html">how the subsidy is calculated</a>.</p>
+<p>The calculator has been updated to include <a href="cews-what-changes.html">changes to the period 8 to 10 top-up calculation finalized on November 17th</a>. It automatically applies the best subsidy rate you qualify for (including applying any safe harbour and deeming rules) based on information you enter. </p>
+<p>To understand the math behind the wage subsidy calculation, refer to <a href="how-much-version-math.html">how the subsidy is calculated</a>.</p> -->
 
   <h2 id="h-2">Before you start the calculation</h2>
   <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
@@ -835,7 +835,7 @@ fieldset +.buttons {
             
             <div class="hidden" id="crhp-base-q1">
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-                <legend class="small required"><span class="field-name">Have you already calculated your base remuneration for the CRHP?</span> <strong class="required">(required)</strong></legend>
+                <legend class="small required"><span class="field-name">Have you already calculated the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021 - CEWS period 14)?</span> <strong class="required">(required)</strong></legend>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="crhp-base-ready" value="Yes" id="crhp-base-yes" class="valid" aria-invalid="false" required="required">
@@ -866,60 +866,60 @@ fieldset +.buttons {
                     </li>
                   </ul>
                 </fieldset>
+
+                <div class="hidden" id="crhp-base-csv">
+                  <h3>Step 1: Remove any amounts given to employees on paid leave from the CSV</h3>
+                  <p>Remuneration for employees on paid leave is not included in the calculation of the total remuneration for the CRHP.</p>
+                  <p>The CSV download for CEWS calculations did not indicate which weeks were on paid leave. You will need to manually remove any amounts for weeks on paid leave from the CSV file before proceeding to step 2 to get a preferential base amount.</p>
+                  <h3>Step 2: Select your csv file from your device</h3>
+                  <p>Your period 14 base remuneration for CRHP will be calculated and you can save it for future period CRHP calculations.</p>
+                  <input type="file" id="p14csv" class="form-control" />
+                </div>
+                <div class="provisional alert alert-warning hidden" id="crhp-csv-parse-error">
+                  <h3>We could not parse the CSV</h3>
+                  <p>Ensure the:</p>
+                  <ul>
+                    <li>CSV is formatted and has the same headings as when you downloaded it</li>
+                    <li>It should not include any remuneration that was for paid leave employees</li>
+                    <li>If you are using a French CSV, use the French version of this calculator</li>
+                  </ul>
+                  <p>Correct the CSV and try again or can calculate your CRHP base remuneration using the manual method below.</p>
+                 </div>
+               </div>
+
+               <div class="hidden" id="crhp-base-manual">
+                <h3>Calculate your CRHP base remuneration</h3>
+                <p>The calculator has been updated as of <mark>Date this page is published</mark> to calculate a CRHP Base Remuneration amount in period 14.</p>
+                <p>This amount is not the same as the CEWS total remuneration line. You will need to redo your period 14 calculation to get this amount.</p>
+                <ol>
+                  <li>Go back to Step 1 of this calculator and select Period 14: March 14, 2021, to April 10, 2021.</li>
+                  <li>Complete the calculator for that time period.</li>
+                  <li>Save your CRHP Base Remuneration amount from the final summary. You can save this amount to reuse for all your future CRHP calculations.</li>
+                  <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
+                </ol>
               </div>
-
-              <div class="hidden" id="crhp-base-csv">
-                <h3>Step 1: Remove any amounts given to employees on paid leave from the CSV</h3>
-                <p>Remuneration for employees on paid leave is not included in the calculation of the total remuneration for the CRHP.</p>
-                <p>The CSV download for CEWS calculations did not indicate which weeks were on paid leave. You will need to manually remove any amounts for weeks on paid leave from the CSV file before proceeding to step 2 to get a preferential base amount.</p>
-                <h3>Step 2: Select your csv file from your device</h3>
-                <p>Your period 14 base remuneration for CRHP will be calculated and you can save it for future period CRHP calculations.</p>
-                <input type="file" id="p14csv" class="form-control" />
-              </div>
-
-              <div class="provisional alert alert-warning hidden" id="crhp-csv-parse-error">
-               <h3>We could not parse the CSV</h3>
-               <p>Ensure the:</p>
-               <ul>
-                 <li>CSV is formatted and has the same headings as when you downloaded it</li>
-                 <li>It should not include any remuneration that was for paid leave employees</li>
-                 <li>If you are using a French CSV, use the French version of this calculator</li>
-               </ul>
-               <p>Correct the CSV and try again or can calculate your CRHP base remuneration using the manual method below.</p>
-              </div>
-            </div>
-
-            <div class="hidden" id="crhp-base-manual">
-              <h3>Calculate your CRHP base remuneration</h3>
-              <p>The calculator has been updated as of <mark>Date this page is published</mark> to calculate a CRHP Base Remuneration amount in period 14.</p>
-              <p>This amount is not the same as the CEWS total remuneration line. You will need to redo your period 14 calculation to get this amount.</p>
-              <ol>
-                <li>Go back to Step 1 of this calculator and select Period 14: March 14, 2021, to April 10, 2021.</li>
-                <li>Complete the calculator for that time period.</li>
-                <li>Save your CRHP Base Remuneration amount from the final summary. You can save this amount to reuse for all your future CRHP calculations.</li>
-                <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
-              </ol>
-            </div>
-
-            <div class="hidden" id="crhp-base-input">
-              <div class="form-group row">
-                <fieldset>
-                  <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14, 2021, to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
-                  <label class="col-sm-12 control-label" for="crhp-base-rem">Base remuneration for the CRHP<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                  <div class="col-sm-6">
-                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                      <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+  
+              <div class="hidden" id="crhp-base-input">
+                <div class="form-group row">
+                  <fieldset>
+                    <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14, 2021, to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
+                    <label class="col-sm-12 control-label" for="crhp-base-rem">Remuneration for the base CRHP period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-6">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                      </div>
                     </div>
-                  </div>
-                  <label class="col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for period 14 (line A of your p14 calculation)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                  <div class="col-sm-3">
-                    <div class="input-group"> 
-                      <input type="number" class="form-control text-right" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                    <label class="col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for period 14 (line A of your p14 calculation)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> 
+                        <input type="number" class="form-control text-right" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                      </div>
                     </div>
-                  </div>
-                </fieldset>
+                  </fieldset>
+                </div>
+                <a class="btn btn-default">Update your base remuneration</a>
               </div>
-              <a class="btn btn-default">Update your base remuneration</a>
+
             </div>
 
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
@@ -2114,6 +2114,15 @@ fieldset +.buttons {
 	</div>
 <!---Start of results //-->
 <div class="hidden" id="results">
+
+  <p><strong>You have still not applied:</strong></p>
+  <ol>
+    <li>Print and keep the record of the <strong>subsidy summary that gives you a higher amount (<span class="subsidy-to-apply-for"></span>)</strong> using the print preview button at the bottom of the summary.</li>
+    <li>Then continue to How to apply beneath the summary.</li>
+  </ol>
+  <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it gives the higher subsidy for your circumstances. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
+  <p>After applying for the <span class="subsidy-to-apply-for"></span>, you might see further correspondence where your final <span class="subsidy-for-information"></span> amount is deemed $0.</p>
+
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
 		<p class="crhp-no">The total amount of CRHP you can claim is:  <output class="h3 wb-calc nowrap" for=""
@@ -2123,10 +2132,9 @@ fieldset +.buttons {
   <div class="tabpanels">
     <details id="details-panel1">
       <summary>CEWS total amount:<br class="hidden-sm hidden-xs">
-        <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output>
+        <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output> <span class="hidden cews-total-tab-fyi">(FYI)</span>
       </summary>
       <div id="cews-statement">
-        <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>A to H</strong> when you complete your online application for CEWS.</p>
         <p>For your claim for <strong class="claim-period"></strong>: </p>
         <ul class="lst-spcd">
           <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
@@ -2240,7 +2248,7 @@ fieldset +.buttons {
     </details>
     <details id="details-panel2">
       <summary>CRHP total amount:<br class="hidden-sm hidden-xs">
-        <output class="h3 wb-calc nowrap total-calculated-crhp">$0.00</output>
+        <output class="h3 wb-calc nowrap total-calculated-crhp">$0.00</output> <span class="hidden crhp-total-tab-fyi">(FYI)</span>
       </summary>
       <div class="crhp-no">
         <div id="crhp-statement">
@@ -2278,17 +2286,22 @@ fieldset +.buttons {
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(minus) Base remuneration for CRHP (period 14)<small class="nowrap">(Line 430)</small></th>
+              <th scope="row" class="h6">(minus) Base remuneration for CRHP (period 14) <small class="nowrap">(Line 430)</small></th>
               <td class="text-right nowrap">-
                 <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(multiplied by) CRHP rate for the claim period</th>
+              <th scope="row" class="h6">(equals) Incremental remuneration paid <small class="nowrap">(Line 440)</small></th>
+              <td class="text-right nowrap">=
+                <output class="h6 wb-calc nowrap crhp-incremental-rem"></output></td>
+            </tr>
+            <tr>
+              <th scope="row" class="h6">(multiplied by) CRHP subsidy rate <small class="nowrap">(Line 520)</small></th>
               <td class="text-right nowrap"><abbr title="multiply" class="brdr-0">x</abbr>
                 <output class="h6 wb-calc nowrap crhp-rate"></output></td>
             </tr>
             <tr class="success">
-              <th scope="row" class="h6">Your CRHP claim, subject to verification, is</th>
+              <th scope="row" class="h6">Your CRHP claim, subject to verification <small class="nowrap">(Line 600)</small></th>
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap total-calculated-crhp"></output></td>
             </tr>
           </tbody>
@@ -2319,7 +2332,7 @@ fieldset +.buttons {
     <p>All amounts are for the claim period unless otherwise noted.</p>
     <ul class="lst-spcd">
       <li>Claim period: <span class="claim-period h3">default</span></li>
-      <li id="sec-2" class="hidden">Eligible for the CRHP: <span class="h3 crhp-eligible">Unsure</span></li>
+      <li id="sec-2" class="hidden">Remuneration for the base CRHP period: <span class="h3 crhp-ineligible-tag">Ineligible</span><span class="h3 crhp-eligible-tag crhp-base-rem">$0.00</span></li>
       <li id="sec-3-a" class="hidden">Revenue drop
         <ul>
           <li>Previous period (Line c0): <span class="priorRevReduction h4 alt-bl-no hidden">0.00%</span><span class="priorRevReduction-alt h4 alt-bl-yes hidden">0.00%</span></li>
@@ -3798,12 +3811,20 @@ fieldset +.buttons {
         totalCews = cews.toFixed(2);
         totalWages = totalWagesPaid.toFixed(2);
         $('.basic-cews').text(toMoney.format(cewsBasic));
-
         if ($("#claim-period option:selected").data("claim-period") >= 5) {
           if ($("#claim-period option:selected").data("claim-period") >= 16) {
             $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
             totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
             $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
+            $('.current-crhp-remuneration').val(toMoney.format(totalWages));
+            // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
+            $('.crhp-incremental-rem').val(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
+          } else {
+            totalCrhp = 0;
+            $('.crhp-current-rem').text(toMoney.format(0)); 
+            $('.crhp-incremental-rem').text(toMoney.format(0)); 
+            $('.total-calculated-crhp').text(toMoney.format(0)); 
+            $('.crhp-incremental-rem').text(toMoney.format(0)); 
           }
 
           var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
@@ -3887,9 +3908,17 @@ fieldset +.buttons {
         // }
 
 
-        $('.current-crhp-remuneration').val(toMoney.format(totalWages));
-        $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
-
+        if ($("#claim-period option:selected").data("claim-period") >= 16 && totalCrhp > totalCews) {
+          $("#details-panel2-lnk").focus(); //default select the CRHP tab
+          $('.subsidy-to-apply-for').text('CRHP');
+          $('.subsidy-for-information').text('CEWS');
+          // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
+          // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+        } else {
+          $("#details-panel1-lnk").focus();
+          $('.subsidy-to-apply-for').text('CEWS');
+          $('.subsidy-for-information').text('CRHP');
+        }
       }
        
 
@@ -4136,12 +4165,16 @@ fieldset +.buttons {
         } else {
           if (target.name == "crhp-eligibility") {
             if (target.id == "elig-type-yes") {
+              $('.crhp-ineligible-tag').addClass("hidden");
+              $('.crhp-eligible-tag').removeClass("hidden");
               $('#crhp-base-q1').removeClass("hidden");
               $('#crhp-ineligible').addClass("hidden");
               $('#crhp-base-summary').removeClass("hidden");
               $("#crhp-eligible").removeClass("hidden");
               calculateCRHP();
             } else {
+              $('.crhp-ineligible-tag').removeClass("hidden");
+              $('.crhp-eligible-tag').addClass("hidden");
               $('#crhp-base-q1').addClass("hidden");
               $('#crhp-ineligible').removeClass("hidden");
               $('#crhp-base-summary').addClass("hidden");
