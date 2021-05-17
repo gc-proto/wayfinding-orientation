@@ -136,7 +136,7 @@ fieldset +.buttons {
 <p>To understand the math behind the wage subsidy calculation, refer to <a href="how-much-version-math.html">how the subsidy is calculated</a>.</p>
 
   <h2 id="h-2">Before you start the calculation</h2>
-  <p class="lead">Check these boxes to confirm you are prepared adbefore you start your calculations:</p>
+  <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
 
     <ul class="checkbox-lg checkbox-zebra">
       <li class="checkbox">
@@ -784,7 +784,7 @@ fieldset +.buttons {
             <optgroup label="CEWS">
               <option data-claim-period="16" value="2021-05-09--2021-06-05">Period 16: May 9, 2021, to June 5, 2021</option>
               <option data-claim-period="15" value="2021-04-11--2021-05-08">Period 15: April 11, 2021, to May 8, 2021</option>
-              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14 20, 2021, to April 10, 2021 (base CRHP remuneration calculation)</option>
+              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14, 2021, to April 10, 2021 (base CRHP remuneration calculation)</option>
               <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14, 2021, to March 13, 2021</option>
               <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, 2021, to February 13, 2021</option>
               <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
@@ -805,29 +805,17 @@ fieldset +.buttons {
     </fieldset>
     <fieldset id="questionaire" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Canada Recovery Hiring Program eligibility and base remuneration</span></legend>
-      <div class="panel-body hidden" id="no-crhp-message">
-        <div class="row">
+      <div class="panel-body">
+        <div class="row hidden" id="no-crhp-message">
           <div class="col-sm-8 col-md-9">
             <p>The CRHP is not available in claim period <span class="claim-period-no">(choose a claim period)</span>.</p>
             <p>Continue to the next to calculate the CEWS.</p>
           </div>
         </div>
-      </div>
-      <div class="panel-body" id="crhp-questions">
-        <div class="row">
+        <div class="row" id="crhp-questions">
           <div class="col-sm-8 col-md-9">
             <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
               <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program?</span> <strong class="required">(required)</strong></legend>
-              
-              <mark>We have a few options here...
-                <ul>
-                  <li>Add a pop-up with a list of CCPC related info</li>
-                  <li>Add 2-3 questions to walk people through the eligibility - ie, are you a corporation -> are you canadian controlled -> are you publically traded</li>
-                  <li>Provide a link (or ajax in a pop up) the Eligibility page for CRHP</li>
-                  <li>Another option coudl be to add checklist items to the Before you start checklist that check CCPC related stuff, or even add a separate little checklist in that section</li>
-                </ul>
-              </mark>
-              
               <details>
                 <summary>Eligibility requirements for the Canada Recovery Hiring Program</summary>
                 <p>To be eligible for the Canada Recovery Hiring Program (CRHP), you must meet all the CEWS eligibility. In addition, you are not eligible for the CRHP if you are a publicly listed or non-Canadian controlled corporation.</p>
@@ -835,82 +823,106 @@ fieldset +.buttons {
               </details>
               <ul class="list-unstyled lst-spcd-2">
                 <li class="radio">
-                  <input type="radio" name="bsn-eligibility" value="Yes" id="elig-type-yes" class="valid" aria-invalid="false" required="required">
+                  <input type="radio" name="crhp-eligibility" value="Yes" id="elig-type-yes" class="valid" aria-invalid="false" required="required">
                   <label for="elig-type-yes">Yes</label>
                 </li>
                 <li class="radio">
-                  <input type="radio" name="bsn-eligibility" value="No" id="elig-type-no" class="valid" aria-invalid="false" required="required">
+                  <input type="radio" name="crhp-eligibility" value="No" id="elig-type-no" class="valid" aria-invalid="false" required="required">
                   <label for="elig-type-no">No</label>
                 </li>
               </ul>
             </fieldset>
-            <div class="hidden well" id="crhp-ineligible">
-              <h3>You are ineligible for the CRHP</h3>
-              <p>Continue to the next step to calculate the CEWS.</p>
+            
+            <div class="hidden" id="crhp-base-q1">
+              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+                <legend class="small required"><span class="field-name">Have you already calculated your base remuneration for the CRHP?</span> <strong class="required">(required)</strong></legend>
+                <ul class="list-unstyled lst-spcd-2">
+                  <li class="radio">
+                    <input type="radio" name="crhp-base-ready" value="Yes" id="crhp-base-yes" class="valid" aria-invalid="false" required="required">
+                    <label for="crhp-base-yes">Yes</label>
+                  </li>
+                  <li class="radio">
+                    <input type="radio" name="crhp-base-ready" value="No" id="crhp-base-no" class="valid" aria-invalid="false" required="required">
+                    <label for="crhp-base-no">No</label>
+                  </li>
+                </ul>
+              </fieldset>
+
+              <div class="hidden" id="crhp-base-q2">
+                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+                  <legend class="small required"><span class="field-name">Did you save a CSV of your employee by employee data for your Period 14 calculation?</span> <strong class="required">(required)</strong></legend>
+                  <ul class="list-unstyled lst-spcd-2">
+                    <li class="radio">
+                      <input type="radio" name="crhp-csv" value="Yes" id="crhp-csv-yes" class="valid" aria-invalid="false" required="required">
+                      <label for="crhp-csv-yes">Yes</label>
+                    </li>
+                    <li class="radio">
+                      <input type="radio" name="crhp-csv" value="No" id="crhp-csv-no" class="valid" aria-invalid="false" required="required">
+                      <label for="crhp-csv-no">No</label>
+                    </li>
+                    <li class="radio">
+                      <input type="radio" name="crhp-csv" value="Did not calculate in Period 14" id="crhp-csv-no-calc" class="valid" aria-invalid="false" required="required">
+                      <label for="crhp-csv-no-calc">Did not calculate in Period 14</label>
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+
+              <div class="hidden" id="crhp-base-csv">
+                <h3>Step 1: Remove any amounts given to employees on paid leave from the CSV</h3>
+                <p>Remuneration for employees on paid leave is not included in the calculation of the total remuneration for the CRHP.</p>
+                <p>The CSV download for CEWS calculations did not indicate which weeks were on paid leave. You will need to manually remove any amounts for weeks on paid leave from the CSV file before proceeding to step 2 to get a preferential base amount.</p>
+                <h3>Step 2: Select your csv file from your device</h3>
+                <p>Your period 14 base remuneration for CRHP will be calculated and you can save it for future period CRHP calculations.</p>
+                <input type="file" id="p14csv" class="form-control" />
+              </div>
+
+              <div class="provisional alert alert-warning hidden" id="crhp-csv-parse-error">
+               <h3>We could not parse the CSV</h3>
+               <p>Ensure the:</p>
+               <ul>
+                 <li>CSV is formatted and has the same headings as when you downloaded it</li>
+                 <li>It should not include any remuneration that was for paid leave employees</li>
+                 <li>If you are using a French CSV, use the French version of this calculator</li>
+               </ul>
+               <p>Correct the CSV and try again or can calculate your CRHP base remuneration using the manual method below.</p>
+              </div>
             </div>
 
-            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-              <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program?</span> <strong class="required">(required)</strong></legend>
-              <details>
-                <summary>Eligibility requirements for the Canada Recovery Hiring Program</summary>
-                <p>To be eligible for the Canada REcovery Hiring Program (CRHP), you must meet all the CEWS eligibility. In addition, you are not eligible for the CRHP if you are a publicly listed or non-Canadian controlled corporation.</p>
-                <p>For more details, see <a href="#">Who can apply for the CRHP</a>.</p>
-              </details>
-              <ul class="list-unstyled lst-spcd-2">
-                <li class="radio">
-                  <input type="radio" name="bsn-eligibility" value="Yes" id="elig-type-yes" class="valid" aria-invalid="false" required="required">
-                  <label for="elig-type-yes">Yes</label>
-                </li>
-                <li class="radio">
-                  <input type="radio" name="bsn-eligibility" value="No" id="elig-type-no" class="valid" aria-invalid="false" required="required">
-                  <label for="elig-type-no">No</label>
-                </li>
-              </ul>
-            </fieldset>
+            <div class="hidden" id="crhp-base-manual">
+              <h3>Calculate your CRHP base remuneration</h3>
+              <p>The calculator has been updated as of <mark>Date this page is published</mark> to calculate a CRHP Base Remuneration amount in period 14.</p>
+              <p>This amount is not the same as the CEWS total remuneration line. You will need to redo your period 14 calculation to get this amount.</p>
+              <ol>
+                <li>Go back to Step 1 of this calculator and select Period 14: March 14, 2021, to April 10, 2021.</li>
+                <li>Complete the calculator for that time period.</li>
+                <li>Save your CRHP Base Remuneration amount from the final summary. You can save this amount to reuse for all your future CRHP calculations.</li>
+                <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
+              </ol>
+            </div>
 
-
-            <fieldset>
-              <legend class="mrgn-bttm-0">Enter your p14 base remuneration for the CRHP</legend>
-              <!-- <div class="clearfix"></div> -->
-              
-              <p><strong>Choose one of the following options:</strong></label>
-              <div class="cnjnctn-type-or mrgn-lft-lg">
-                <div class="cnjnctn-col">
-                  <h3>Option 1: Upload your period 14 employee by employee csv</h3>
-                  <p><strong>When to use:</strong> If you saved the csv version of your employee data from the online calculator when doing your period 14 CEWS calculation (this is not compatible with the calculator spreadsheet, which is a separate tool).</p>
-                  <p><strong>What to do:</strong> Select where your csv file is saved on your device. Your period 14 base remuneration for CRHP will be calculated in the step summary:</p>
-                  <input type="file" id="p14csv" />
-                </div>
-                <div class="cnjnctn-col">
-                  <h3>Option 2: Redo your calculation for period 14</h3>
-                  <p><strong>When to use:</strong> If you did not save a csv of your employee data, or did not apply for period 14 of the CEWS, you will need to complete a period 14 calculation using this online calculator to get your Period 14 base remuneration (for CRHP).</p>
-                  <p><strong>What to do:</strong> Enter your CRHP base remuneration amount from your period 14 calculation (and save it to reuse in future periods):</p>
-                  <div class="form-group row">
-                    <label class="col-sm-6 control-label" for="p14-base-rem">Base remuneration for the CRHP<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                    <div class="col-sm-6">
-                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right cews-rate-calc currency" name="p14-base-rem" id="p14-base-rem" size="10" placeholder="0.00">
-                      </div>
+            <div class="hidden" id="crhp-base-input">
+              <div class="form-group row">
+                <fieldset>
+                  <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14, 2021, to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
+                  <label class="col-sm-12 control-label" for="crhp-base-rem">Base remuneration for the CRHP<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
                     </div>
                   </div>
-                </div>
+                </fieldset>
               </div>
+              <a class="btn btn-default">Update your base remuneration</a>
+            </div>
 
-              <div class="well text-muted mrgn-tp-md">
-                <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
-                <p>Your <strong>base remuneration for the CRHP</strong> is <span class="crhp-base-rem h4">0%</span></p>
-              </div>
-
-            </fieldset>
-
+            <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
+              <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
+              <p id="crhp-base-summary">Your <strong>base remuneration for the CRHP</strong> is <span class="crhp-base-rem h4">$0</span></p>
+              <p class="hidden" id="crhp-ineligible">Continue to the next step to calculate the CEWS only.</p>
+            </div>
 
           </div>
-          
-          
-
-
-
-
           <div class="col-sm-4 col-md-3">
             <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
           </div>
@@ -1185,6 +1197,60 @@ fieldset +.buttons {
                           </div>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-06-no">June 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-06-no" id="2021-06-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-07-no">July 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-07-no" id="2021-07-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-08-no">August 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-08-no" id="2021-08-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-09-no">September 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-09-no" id="2021-09-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-10-no">October 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-10-no" id="2021-10-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-11-no">November 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-11-no" id="2021-11-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </fieldset>
@@ -1193,7 +1259,10 @@ fieldset +.buttons {
                   <ul class="small">
                     <li>Your <strong>current period revenue drop</strong> is <span class="currentRevReduction h4">0%</span></li>
                     <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction h4">0%</span></li>
-                    <p class="safe-harbour-hide">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate h4">0%</span></span></p>
+                    <div class="safe-harbour-hide">
+                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate h4">0%</span></span></p>
+                      <p class="less-than-10-drop">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
+                    </div>
                     <div class="p8-plus hidden">
                       <li>Your <strong>higher base revenue drop</strong> is <span class="rev-reduc-base h4">0%</span></li>
                       <li class="brdr-bttm">Your <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up h4">0%</span></li>
@@ -1210,6 +1279,10 @@ fieldset +.buttons {
                     period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span> </p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
+                  <div class="crhp-eligible">
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>
+                  </div>
                 </div>
               </div>
               <div class="alt-bl-yes hidden" id="alt-bl-yes">
@@ -1364,6 +1437,60 @@ fieldset +.buttons {
                           </div>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-06-yes">June 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-06-yes" id="2021-06-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-07-yes">July 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-07-yes" id="2021-07-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-08-yes">August 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-08-yes" id="2021-08-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-09-yes">September 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-09-yes" id="2021-09-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-10-yes">October 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-10-yes" id="2021-10-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-11-yes">November 2021<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc-alt currency"     name="2021-11-yes" id="2021-11-yes" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!-- Section to add days not operating during Jan-Feb -->
                     <div class="row">
@@ -1395,7 +1522,10 @@ fieldset +.buttons {
                   <ul class="small">
                     <li>Your <strong>current period revenue drop</strong> is <span class="currentRevReduction-alt h4">0%</span></li>
                     <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction-alt h4">0%</span></li>
-                    <p class="safe-harbour-hide">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span><span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate-alt h4" >0%</span></span></p>
+                    <div class="safe-harbour-hide">
+                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span><span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate-alt h4" >0%</span></span></p>
+                      <p class="less-than-10-drop">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
+                    </div>
                     <div class="p8-plus hidden">
                       <li>Your <strong>higher base revenue drop</strong> is <span class="rev-reduc-alt-base h4">0%</span></li>
                       <li class="brdr-bttm">Your <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up-alt h4" >0%</span></li>
@@ -1412,6 +1542,10 @@ fieldset +.buttons {
                     period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span></p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
+                  <div class="crhp-eligible">
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Because your revenue did not drop, you</span> revenue drop is less than 10%, your <strong>CRHP rate</strong> is <span class="h4 margn-tp-0">0%</span></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1446,7 +1580,7 @@ fieldset +.buttons {
                       <label for="arms-1">Is employee at arm's length?</label>
                       <p><a class="wb-lbx arms-length-def" role="button" aria-controls="armslength" href="#armslength">Arm's
                         length definition<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
-                      <select class="form-control" id="arms-1" data-updates="emp-arms-1">
+                      <select class="arms-length-select form-control" id="arms-1" data-updates="emp-arms-1">
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
@@ -1555,8 +1689,12 @@ fieldset +.buttons {
                         </tbody>
                         <tfoot>
                           <tr>
-                            <td>4-week total</td>
+                            <td>4-week total (CEWS)</td>
                             <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
+                          </tr>
+                          <tr>
+                            <td>Total remuneration (CRHP)</td>
+                            <td id="amt-crhp-rem-1">$0</td>
                           </tr>
                         </tfoot>
                       </table>
@@ -1576,9 +1714,8 @@ fieldset +.buttons {
                     </details>
                   </footer>
                 </fieldset>
-                <p class="mrgn-bttm-xl">
-                  <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add
-                  another employee</button>
+                <p class="mrgn-bttm-xl mrgn-tp-lg">
+                  <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
               <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Results for employees</p>
@@ -1977,8 +2114,7 @@ fieldset +.buttons {
   <div class="tabpanels">
     <details id="details-panel1">
       <summary>CEWS total amount:<br class="hidden-sm hidden-xs">
-        <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-	      data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'>$0.00</output>
+        <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output>
       </summary>
       <div id="cews-statement">
         <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>A to H</strong> when you complete your online application for CEWS.</p>
@@ -1996,8 +2132,7 @@ fieldset +.buttons {
                   data-wb-calc='{"expr": "#p2c-ee-alt1 * 2"}'></output>
           </li>
           <li><strong>Line B:</strong> Total eligible remuneration paid: <strong>
-            <output class="h3 wb-calc nowrap" for="p2c-pyrl"
-                    data-wb-calc='{"expr": "#p2b-pyrl * 1", "format": "currency"}'></output>
+            <output class="h3 wb-calc nowrap cews-remuneration-total"></output>
             </strong></li>
           <li id="sum-rev3" class="hidden p59">Revenue drop and subsidy rate
             <ul class="list-unstyled mrgn-lft-md">
@@ -2016,8 +2151,7 @@ fieldset +.buttons {
             </ul>
           </li>
           <li><strong>Line C:</strong> Basic CEWS (including top-up, if applicable): <strong>
-            <output class="h3 wb-calc nowrap" for="p2c-cews"
-                    data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output>
+            <output class="h3 wb-calc nowrap basic-cews"></output>
             </strong></li>
           <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
             the claim period)</small>: <strong>
@@ -2054,8 +2188,7 @@ fieldset +.buttons {
         <tbody>
           <tr>
             <th scope="row" class="h6">Basic CEWS <small class="nowrap">(Line C)</small></th>
-            <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews"
-                  data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output></td>
+            <td class="text-right nowrap"><output class="h6 wb-calc nowrap basic-cews"></output></td>
           </tr>
           <tr>
             <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
@@ -2084,8 +2217,7 @@ fieldset +.buttons {
           </tr>
           <tr class="success">
             <th scope="row" class="h6">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
-            <td class="text-right nowrap"><output class="h6 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
-                  data-wb-calc='{"expr": "#p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></td>
+            <td class="text-right nowrap"><output class="h6 wb-calc nowrap total-calculated-cews"></output></td>
           </tr>
         </tbody>
       </table>
@@ -2102,19 +2234,14 @@ fieldset +.buttons {
     </details>
     <details id="details-panel2">
       <summary>CRHP total amount:<br class="hidden-sm hidden-xs">
-        <output class="h3 wb-calc nowrap" for=""
-                    data-wb-calc='{}'>$0.00</output>
+        <output class="h3 wb-calc nowrap total-calculated-crhp">$0.00</output>
       </summary>
-      <div  class="crhp-yes">
-        <p>You cannot claim the CRHP as you are a publically traded company.</p>
-        <p>If you qualify, please apply for CEWS.</p>
-      </div>
       <div class="crhp-no">
         <div id="crhp-statement">
           <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>A to H</strong> when you complete your online application for CRHP.</p>
           <p>For your claim for <strong class="claim-period"></strong>: </p>
           <ul class="lst-spcd">
-            <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
+            <li class="p14"> <strong>Line 300:</strong> Number of eligible employees: <strong>
               <output class="h3 wb-calc nowrap" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
               </strong> </li>
             <li id="sum-ee-active2" class="hidden p59"><strong>Line A:</strong> Number of eligible active employees:
@@ -2503,58 +2630,6 @@ fieldset +.buttons {
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> 
 <!--Scripts by CXO149 May 2021 //--> 
 <script>
-	//Needed to show/hide calculator or spreadsheet....can probably be removed when doaction feature works again in AEM (GCWeb 9.3)//	
-		
-	$('#show-online-calc').on("click", function() 
-	{
-		
-	$(this).addClass("btn-primary");
- $("#show-sprdsht").removeClass("btn-primary").addClass("btn-default");	
-	$("#cal-calc").removeClass("hidden"); 
-		$("#cews-cal-opt1").addClass("hidden"); 	
-	}
-	);
-	$('#show-sprdsht').on("click", function() 
-	{
-	$(this).addClass("btn-primary");
-	 $("#show-online-calc").removeClass("btn-primary").addClass("btn-default");	
-	$("#cews-cal-opt1").removeClass("hidden"); 
-		$("#cal-calc").addClass("hidden"); 
-	}
-	);	
-//Passes value of publically traded question to summary//
-	$('input:radio[name="bsn-eligibility"]').change(
-    function(){		
-$('.crhp-eligible').text(
-		$(this).val())});
-//Next button clicks to show more of summary so far  (need to try and clean this up into an array//
-		$(document).on("click", ".steps-wrapper:nth-child(2) button:contains('Next')", function (event) {
-		
-			$('#sec-2').removeClass("hidden");
-							
-		});
-	$(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Next')", function (event) {
-		
-			$('#sec-3-a, #sec-3-b').removeClass("hidden");
-							
-		});
-		$(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
-		
-			$('#sec-4-a, #sec-4-b').removeClass("hidden");
-							
-		});
-		$(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
-		
-			$('#sec-5').removeClass("hidden");
-							
-		});
-	$(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
-		
-			$('#sec-6').removeClass("hidden");
-							
-		});	
-		</script> 
-<script>
     /**
      * EmployeeFormGenerator class
      * 
@@ -2911,34 +2986,50 @@ $('.crhp-eligible').text(
           rangeClaimNo = rangeClaim.substring(7, 8),
           startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
           endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
-
+        
+        // var endDateParts = endDateISO.split("-");
+        var claimMonth = getClaimMonth(rangeISO);
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
+        // var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
         if (!$("#claim-period option:selected:eq(0)")) {
           $('.claim-period').html("<time datetime=\"" + startDateISO + "\">" + startDateClaim + "</time>" + sep.claim[wb.lang] + "<time datetime=\"" + endDateISO + "\">" + endDateClaim + "</time>");
+          $(".crhp-rate").text(toPercent(0));
         } else {
           $('.claim-period').html($("#claim-period option:selected").text());
           $(".claim-period-no").text(claimPeriod);
+          if (claimPeriod > 16) {
+            var crhpRateScale = [50, 50, 50, 40, 30, 20]
+            $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+          } else {
+            $(".crhp-rate").text(toPercent(0));
+          }
         }
         //show/hide elements based on chosen claim period
 
-		//defaults
-		var nolongeravailablePeriod = "";
-		$('*[class*="nolongeravailable-1-"]').addClass("hidden");
-		if ($('*[class*="nolongeravailable-1-"]').length > 0) {
-			var nolongeravailable = $('*[class*="nolongeravailable-1-"]').attr('class');
-			nolongeravailable = nolongeravailable.split(" ");
-			$(nolongeravailable).each(function (i, element) {
-				if (nolongeravailable[i].indexOf("longeravailable-1-") > 0) {
-					nolongeravailablePeriod = nolongeravailable[i].split("-")[2];
-				}
-			});
-			if (claimPeriod <= nolongeravailablePeriod) {
-				$('*[class*="nolongeravailable-1-"]').removeClass("hidden");
-			}
-		}
+        //defaults
+        var nolongeravailablePeriod = "";
+        $('*[class*="nolongeravailable-1-"]').addClass("hidden");
+        if ($('*[class*="nolongeravailable-1-"]').length > 0) {
+          var nolongeravailable = $('*[class*="nolongeravailable-1-"]').attr('class');
+          nolongeravailable = nolongeravailable.split(" ");
+          $(nolongeravailable).each(function (i, element) {
+            if (nolongeravailable[i].indexOf("longeravailable-1-") > 0) {
+              nolongeravailablePeriod = nolongeravailable[i].split("-")[2];
+            }
+          });
+          if (claimPeriod <= nolongeravailablePeriod) {
+            $('*[class*="nolongeravailable-1-"]').removeClass("hidden");
+          }
+        }
 
 
-		//defaults
+		    //defaults
+        $("#2021-11-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-10-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-09-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-08-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-07-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-06-yes").closest("div.form-group").addClass("hidden");
         $("#2021-05-yes").closest("div.form-group").addClass("hidden");
         $("#2021-04-yes").closest("div.form-group").addClass("hidden");
         $("#2021-03-yes").closest("div.form-group").addClass("hidden");
@@ -2953,6 +3044,12 @@ $('.crhp-eligible').text(
         $("#2020-06-yes").closest("div.form-group").addClass("hidden");
         $("#2020-05-yes").closest("div.form-group").addClass("hidden");
         $("#2020-04-yes").closest("div.form-group").addClass("hidden");
+        $("#2021-11-no").closest("div.form-group").addClass("hidden");
+        $("#2021-10-no").closest("div.form-group").addClass("hidden");
+        $("#2021-09-no").closest("div.form-group").addClass("hidden");
+        $("#2021-08-no").closest("div.form-group").addClass("hidden");
+        $("#2021-07-no").closest("div.form-group").addClass("hidden");
+        $("#2021-06-no").closest("div.form-group").addClass("hidden");
         $("#2021-05-no").closest("div.form-group").addClass("hidden");
         $("#2021-04-no").closest("div.form-group").addClass("hidden");
         $("#2021-03-no").closest("div.form-group").addClass("hidden");
@@ -2985,9 +3082,21 @@ $('.crhp-eligible').text(
         $("#cal-sprsht-p7").addClass("hidden");
         $("#cal-sprsht-p9").addClass("hidden");
         $("#cal-sprsht-p11").addClass("hidden");
+        $("#no-crhp-message").addClass("hidden");
+        $("#crhp-questions").removeClass("hidden");
+        $(".crhp-eligible").removeClass("hidden");
+        $(".p18-plus").addClass("hidden");
+        $(".p17-only").addClass("hidden");
+
+        if (claimPeriod < 17) {
+          $("#no-crhp-message").removeClass("hidden");
+          $("#crhp-questions").addClass("hidden");
+          $(".crhp-eligible").addClass("hidden");
+        }
 
         switch (claimPeriod) {
-		  case 16:
+          case 22:
+            $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
@@ -2997,7 +3106,143 @@ $('.crhp-eligible').text(
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-11-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-10-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-11-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-11-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-10-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-10-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 21:
+            $(".p18-plus").removeClass("hidden");
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-10-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-10-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-10-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-09-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-09-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 20:
+            $(".p18-plus").removeClass("hidden");
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-08-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-09-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-09-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-08-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-08-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 19:
+            $(".p18-plus").removeClass("hidden"); 
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-08-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-07-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-08-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-08-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-07-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-07-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 18:
+            $(".p18-plus").removeClass("hidden");
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-07-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-06-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-07-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-07-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-06-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-06-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 17:
+            $(".p17-only").removeClass("hidden");
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
+            $(".p59").removeClass("hidden");
+            $(".p14").addClass("hidden");
+            $(".btn-cews-cal").removeClass("disabled");
+            $(".btn-cews-cal").prop("disabled", false);
+            $(".choose-claim-period").addClass("hidden");
+            $("#2021-06-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-05-yes").closest("div.form-group").removeClass("hidden");
+            $("#2021-06-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-06-no").closest("div.form-group").removeClass("hidden");
+            $("#2021-05-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-05-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 16:
+            $(".p7-and-before").addClass("hidden");
+            $(".p8-plus").addClass("hidden");
+            $(".p11-plus").removeClass("hidden");
+            $(".p10-").addClass("hidden");
+            $("#rate-reduction").removeClass("hidden");
+            $(".emp-lv").removeClass("hidden");
+            $("#p4-tws").prop("readonly", true);
+            $("#p4-tws").val("0.00");
+            $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3020,7 +3265,6 @@ $('.crhp-eligible').text(
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3043,7 +3287,6 @@ $('.crhp-eligible').text(
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3060,14 +3303,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3084,14 +3326,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3108,14 +3349,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
-			$(".p11-only").removeClass("hidden");
+            $(".p11-only").removeClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p11").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3132,7 +3372,7 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").removeClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
@@ -3140,7 +3380,6 @@ $('.crhp-eligible').text(
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $("#cal-sprsht-p9").removeClass("hidden");
-            $("#cal-sprsht-p11").addClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3163,14 +3402,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").removeClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p9").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3193,14 +3431,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").removeClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p7").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3223,14 +3460,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p7").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3253,14 +3489,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p5").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3283,14 +3518,13 @@ $('.crhp-eligible').text(
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").removeClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
             $("#p4-tws").prop("readonly", true);
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
-            $("#cal-sprsht-p5").removeClass("hidden");
             $(".p59").removeClass("hidden");
             $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
@@ -3316,9 +3550,8 @@ $('.crhp-eligible').text(
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").addClass("hidden");
-            $("#cal-sprdsht-p1-4").removeClass("hidden");
             $("#rate-reduction").addClass("hidden");
             $(".emp-lv").addClass("hidden");
             $("#p4-tws").prop("readonly", false);
@@ -3334,7 +3567,7 @@ $('.crhp-eligible').text(
             $(".p7-and-before").removeClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").addClass("hidden");
-			$(".p11-only").addClass("hidden");
+            $(".p11-only").addClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").addClass("hidden");
             $(".emp-lv").addClass("hidden");
@@ -3346,7 +3579,39 @@ $('.crhp-eligible').text(
             $(".btn-cews-cal").prop("disabled", true);
             $(".choose-claim-period").removeClass("hidden");
         }
+
+        //recalculate the summary based on the values that are already there
+        if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
+          calculateRevenueDrop();
+        } else if ($("#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
+          calculateRevenueDropAlt();
+        // } else {
+        //   NoCERSRate();
+        }
       });
+
+      /**
+      * NoCERSRate()
+      * Fill in default values of 0% when there's not enough information to determine the rate
+      */
+      function NoCEWSRate() {
+        cewsRate = 0;
+        crhpRate = 0;
+        $(".currentRevReduction").text(toPercent("0"));
+        $(".priorRevReduction").text(toPercent("0"));
+        $(".preferentialRevReduction").text(toPercent("0"));
+        $(".base-rate").text(toPercent("0"));
+        recalculateAllEmployees();
+      }
+
+      function recalculateAllEmployees() {
+        $(".arms-length-select").each(function (i, element) {
+          var parts = $(element).prop("id").split("-");
+          var employeeNumber = parts[parts.length - 1];
+          recalculateEmployeeAmounts(employeeNumber);
+        });
+        calculateTotals();
+      }
 
       // when the submit button is clicked
       $document.on("click", "#calculate", function (event) {
@@ -3387,54 +3652,63 @@ $('.crhp-eligible').text(
         var target = event.target;
         var parts = target.id.split("-");
         var employeeNumber = parts[parts.length - 1];
-        var unformattedValue = target.value.replace("$", "");
-        var claimPeriod = $("#claim-period option:selected").data("claim-period");
-        if (claimPeriod < 5) {
-          if (!checkEmployeeEligibility(target)) {
-            $("#emp-smry-" + employeeNumber).addClass("hidden");
-            $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
-            var updatedByElements = $("*[data-updated-by='" + target.id + "']");
-            $(updatedByElements).each(function (i, element) {
-              $(element).text(toMoney.format(0.00));
-            });
-          } else {
-            $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
-            $("#emp-smry-" + employeeNumber).removeClass("hidden");
-          }
-        }
+        recalculateEmployeeAmounts(employeeNumber);
+      });
 
-        var updateTarget = $("#" + $(target).attr("data-updates"));
-        //if the target is a select element, capitalize the first letter then update the target
-        if (target.nodeName == 'SELECT') {
-          var formattedVal = target.value.charAt(0).toUpperCase() + target.value.slice(1);
-          $(updateTarget).text(formattedVal);
-        } else if ($(target).is(":checkbox")) {
-          return;
-          //target was an input type=text
-        } else {
-          var baselineWage = parseFloat($("#baseline-" + employeeNumber).val());
-          var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
-          //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
-          var parts = target.id.match(/(wk)(one|two|three|four)-/g);
-          if (!parts) {
-            return;
+      function recalculateEmployeeAmounts(employeeNumber) {
+        var unformattedValue = [$("#wkone-" + employeeNumber).val().replace("$", ""), $("#wktwo-" + employeeNumber).val().replace("$", ""), $("#wkthree-" + employeeNumber).val().replace("$", ""), $("#wkfour-" + employeeNumber).val().replace("$", "")];
+        var claimPeriod = $("#claim-period option:selected").data("claim-period");
+        var outputFields = ['wkone-', 'wktwo-', 'wkthree-', 'wkfour-'];
+        var weeklyCews = {};
+        var crhpRem = {};
+        for (let i = 0; i < 4; ++i) {
+          if (claimPeriod < 5) {
+            if (!checkEmployeeEligibility($("#" + outputFields[i] + employeeNumber))) {
+              $("#emp-smry-" + employeeNumber).addClass("hidden");
+              $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
+              var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
+              $(updatedByElements).each(function (i, element) {
+                $(element).text(toMoney.format(0.00));
+              });
+            } else {
+              $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
+              $("#emp-smry-" + employeeNumber).removeClass("hidden");
+            }
           }
-          var weekNumber = parts[0];
-          var paidLeave = $("#" + weekNumber + "cb-" + employeeNumber).is(":checked");
+          $('#emp-arms-' + employeeNumber).text($("#arms-" + employeeNumber).val().charAt(0).toUpperCase() + $("#arms-" + employeeNumber).val().slice(1));
+          var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
+          var updateTarget = $('#' + $("#" + outputFields[i] + employeeNumber).attr("data-updates"));
+          //if the target is a select element, capitalize the first letter then update the target
+          var baselineWage = zeroIfEmpty($("#baseline-" + employeeNumber).val());
+            //get the wkX prefix of the input being updated, look for the leave w/ pay input with the same prefix
+          // var parts = outputFields[i].match(/(wk)(one|two|three|four)-/g);
+          var weekNumber = outputFields[i].substring(0, outputFields[i].indexOf("-"));
+          var paidLeave = $("#" + weekNumber + "-cb-" + employeeNumber).is(":checked");
+          if (paidLeave) {
+            crhpRem[i] = 0;
+          } else {
+            if (armsLength) {
+              crhpRem[i] = Math.min(1129, zeroIfEmpty(unformattedValue[i]));;
+            } else {
+              crhpRem[i] = Math.min(1129, baselineWage, zeroIfEmpty(unformattedValue[i]));
+            } 
+          }
           //get the weekly cews; if it's not an int or float, use 0
-          var weeklyCews = getWeeklyCEWS(armsLength, baselineWage, parseFloat(unformattedValue), paidLeave);
-          if (!isInt(weeklyCews) && !isFloat(weeklyCews)) {
+          weeklyCews[i] = getWeeklyCEWS(armsLength, baselineWage, zeroIfEmpty(unformattedValue[i]), paidLeave);
+          if (!isInt(weeklyCews[i]) && !isFloat(weeklyCews[i])) {
             weeklyCews = 0;
           }
           //format and update the targets using localized currency format
-          var formattedVal = toMoney.format(weeklyCews);
+          var formattedVal = toMoney.format(weeklyCews[i]);
           $(updateTarget).text(formattedVal);
-          var updatedByElements = $("*[data-updated-by='" + target.id + "']");
-          $(updatedByElements).each(function (i, element) {
-            $(element).text(toMoney.format(unformattedValue));
+          var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
+          $(updatedByElements).each(function (j, element) {
+            $(element).text(toMoney.format(formattedVal));
+            console.log("val: " + $(element).val());
           });
-          //update the total
-          if ($(updateTarget).data("updates")) {
+        }
+        // update the total
+        if ($(updateTarget).data("updates")) {
             /*
               update the target to the total column and get all elements that make up the total
             */
@@ -3444,8 +3718,13 @@ $('.crhp-eligible').text(
             var formattedTotal = toMoney.format(employeeCews);
             $(updateTarget).text(formattedTotal);
           }
-        }
-      });
+          //calculate the total eligible remuneration for CRHP, and plop to 'amt-crhp-rem-' + employeeNumber
+          var CRHPEmpRem = 0;
+          for (let i = 0; i < 4; ++i) {
+            CRHPEmpRem += crhpRem[i];
+          }
+          $("#amt-crhp-rem-" + employeeNumber).text(toMoney.format(CRHPEmpRem));
+      }
 
       //when the user clicks the remove button on an employee panel
       $(document).on("click", ".rm-emp", function(event) {
@@ -3524,6 +3803,8 @@ $('.crhp-eligible').text(
       $(document).on("click", "#showEmpTable", function (event) {
         calculateTotals();
       });
+      var totalCews = 0;
+      var totalWages = 0;
       function calculateTotals() {
         var totalWagesPaid = 0;
         var cews = 0;
@@ -3560,8 +3841,8 @@ $('.crhp-eligible').text(
         });
         $(".numEmps").text(eligibleEmployees);
         $(".total").html(toMoney.format(cews));
-        $(".total").attr("data-total-cews", cews.toFixed(2));
-        $(".total").attr("data-total-wages", totalWagesPaid.toFixed(2));
+        totalCews = cews.toFixed(2);
+        totalWages = totalWagesPaid.toFixed(2);
       }
 
       /**
@@ -3599,6 +3880,13 @@ $('.crhp-eligible').text(
               }
             }
             break;
+          case (period > 19): //no more paid leave after p19
+            if (paidLeave || cewsRate == 0) {
+              return 0;
+            } else {
+              return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+            }
+            break;
           case (period > 10): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
@@ -3616,7 +3904,7 @@ $('.crhp-eligible').text(
               }
             }
             break;
-          //period 9+
+          //periods 9 - 10
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
@@ -3742,6 +4030,42 @@ $('.crhp-eligible').text(
       }
 
 
+      //Needed to show/hide calculator or spreadsheet....can probably be removed when doaction feature works again in AEM (GCWeb 9.3)//	
+      $('#show-online-calc').on("click", function() {
+        $(this).addClass("btn-primary");
+        $("#show-sprdsht").removeClass("btn-primary").addClass("btn-default");	
+        $("#cal-calc").removeClass("hidden"); 
+        $("#cews-cal-opt1").addClass("hidden"); 	
+      });
+      $('#show-sprdsht').on("click", function() {
+        $(this).addClass("btn-primary");
+        $("#show-online-calc").removeClass("btn-primary").addClass("btn-default");	
+        $("#cews-cal-opt1").removeClass("hidden"); 
+        $("#cal-calc").addClass("hidden"); 
+      });	
+      //Passes value of publically traded question to summary//
+      // $('input:radio[name="bsn-eligibility"]').change(function(){		
+      //   $('.crhp-eligible').text(
+      //   $(this).val())
+      // });
+      //Next button clicks to show more of summary so far  (need to try and clean this up into an array//
+      $(document).on("click", ".steps-wrapper:nth-child(2) button:contains('Next')", function (event) {
+        $('#sec-2').removeClass("hidden");
+        calculateRevenueDrop();
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Next')", function (event) {
+        $('#sec-3-a, #sec-3-b').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
+        $('#sec-4-a, #sec-4-b').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
+        $('#sec-5').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
+        $('#sec-6').removeClass("hidden");
+      });	
+
       //Radio event listener
       $document.on("click", "input[type=radio]", function (event) {
         var target = event.target;
@@ -3761,8 +4085,134 @@ $('.crhp-eligible').text(
 						 $('.alt-bl-yes').addClass("hidden");
             calculateRevenueDropAlt();
           }
+        } else {
+          if (target.name == "crhp-eligibility") {
+            if (target.id == "elig-type-yes") {
+              $('#crhp-base-q1').removeClass("hidden");
+              $('#crhp-ineligible').addClass("hidden");
+              $('#crhp-base-summary').removeClass("hidden");
+              $("#crhp-eligible").removeClass("hidden");
+              calculateCRHP();
+            } else {
+              $('#crhp-base-q1').addClass("hidden");
+              $('#crhp-ineligible').removeClass("hidden");
+              $('#crhp-base-summary').addClass("hidden");
+              $("#crhp-eligible").addClass("hidden");
+              calculateCRHP(); //Or maybe 'clear chrp'?
+            }
+            $('#crhp-eligibility-summary').removeClass('hidden');
+          } else if (target.name == "crhp-base-ready") {
+            if (target.id == "crhp-base-yes") {
+              $('#crhp-base-q2').addClass("hidden");
+              $('#crhp-base-input').removeClass("hidden");
+              calculateCRHP();
+            } else {
+              $('#crhp-base-q2').removeClass("hidden");
+              $('#crhp-base-input').addClass("hidden");
+              calculateCRHP(); //Or maybe 'clear chrp'?
+            }
+          } else if (target.name == "crhp-csv") {
+            if (target.id == "crhp-csv-yes") {
+              $('#crhp-base-csv').removeClass("hidden");
+              $('#crhp-base-manual').addClass("hidden");
+              $('#crhp-base-input').addClass("hidden");
+              calculateCRHP();
+            } else {
+              $('#crhp-base-csv').addClass("hidden");
+              $('#crhp-base-manual').removeClass("hidden");
+              $('#crhp-base-input').removeClass("hidden");
+              calculateCRHP(); //Or maybe 'clear chrp'?
+            }
+          }
         }
       });
+
+      //update the CRHP base amount summary
+      $(document).on("blur", "#crhp-base-rem", function (event) {
+        var baseCRHPRem = zeroIfEmpty(parseFloat($('#crhp-base-rem').val()));
+        $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
+        calculateCRHP(); //Or maybe 'clear chrp'?
+      });
+
+      function uploadDealcsv () {}; 
+      /*------ Method for read uploded csv file ------*/
+      uploadDealcsv.prototype.getCsv = function(e) {
+          let input = document.getElementById('p14csv');
+          input.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                var myFile = this.files[0];
+                var reader = new FileReader();
+                reader.addEventListener('load', function (e) {
+                    let csvdata = e.target.result; 
+                    parseCsv.getParsecsvdata(csvdata); // calling function for parse csv data 
+                });
+                reader.readAsBinaryString(myFile);
+            }
+          });
+        }
+        /*------- Method for parse csv data and display --------------*/
+        uploadDealcsv.prototype.getParsecsvdata = function(data) {
+            let parsedata = [];
+            let newLinebrk = data.split("\n");
+            var i = 0;
+            for(i = 0; i < newLinebrk.length; i++) {
+                parsedata.push(newLinebrk[i].split(","))
+            }
+            if (document.documentElement.lang == "fr") { //check that column headings are correct
+              if (parsedata[0][1] != "Sansliendedépendance" || parsedata[0][2] != "Paieavantlacrise" || parsedata[0][3] != "Salairebruthebdomadairepourlapremièresemaine" || parsedata[0][4] != "Salairebruthebdomadairepourladeuxièmesemaine" || parsedata[0][5] != "Salairebruthebdomadairepourlatroisièmesemaine" || parsedata[0][6] != "Salairebruthebdomadairepourlaquatrièmesemaine" || parsedata[0][7] != "MontantdebaselaSSUCcalculée") {
+                $('#crhp-csv-parse-error').removeClass("hidden");
+                $('#crhp-base-manual').removeClass("hidden");
+                $('#crhp-base-input').removeClass("hidden");
+              } else {
+                $('#crhp-csv-parse-error').addClass("hidden");
+                $('#crhp-base-manual').addClass("hidden");
+                $('#crhp-base-input').addClass("hidden");
+              }
+            } else {
+              if (parsedata[0][1] != "Arm's length" || parsedata[0][2] != "Pre-crisis pay" || parsedata[0][3] != "Weekly gross pay for week 1" || parsedata[0][4] != "Weekly gross pay for week 2" || parsedata[0][5] != "Weekly gross pay for week 3" || parsedata[0][6] != "Weekly gross pay for week 4" || parsedata[0][7] != "Calculated basic CEWS amount") {
+                $('#crhp-csv-parse-error').removeClass("hidden");
+                $('#crhp-base-manual').removeClass("hidden");
+                $('#crhp-base-input').removeClass("hidden");
+              } else {
+                $('#crhp-csv-parse-error').addClass("hidden");
+                $('#crhp-base-manual').addClass("hidden");
+                $('#crhp-base-input').addClass("hidden");
+              }
+            }
+            var re = /[^\d.]/g;
+            // if (parsedata[i][1] == "No") { //NAL employee
+            //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(/[^\d.]\g,'')) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')))) 
+            // } else {
+            //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')))) 
+            // }
+            //   week1 = p14rate * Math.min(1129, parsedata[i][3], parsedata[i][2])
+            //   week2 = p14rate * Math.min(1129, parsedata[i][4], parsedata[i][2])
+            //   week3 = p14rate * Math.min(1129, parsedata[i][5], parsedata[i][2])
+            //   week4 = p14rate * Math.min(1129, parsedata[i][6], parsedata[i][2])
+            var baseCRHPRem = 0, week1 = 0, week2 = 0, week3 = 0, week4 = 0;
+            for(i = 1; i < parsedata.length; i++) { //for each employee
+              if (parsedata[i][1] == "No") { //NAL employee
+                week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+                week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+                week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+                week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+              } else { //Arm's length
+                week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')));
+                week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')));
+                week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')));
+                week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')));
+              }
+              baseCRHPRem = baseCRHPRem + week1 + week2 + week3 + week4;
+            }
+            $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
+            calculateCRHP(); //Or maybe 'clear chrp'?
+        }
+        var parseCsv = new uploadDealcsv();
+        parseCsv.getCsv();
+
+      function calculateCRHP() {
+        return;
+      };
 
       /**
        * calculate the cews rate reductions
@@ -3773,6 +4223,7 @@ $('.crhp-eligible').text(
       var claimPeriodRevReduction = 0;
       var topUpRate = 0;
       var cewsRate = 0;
+      var crhpRate = 0;
       var baseRate = 0;
       var threeMonthReduction = 0;
       $document.on("blur", ".cews-rate-calc", function(event) {calculateRevenueDrop()});
@@ -3841,10 +4292,10 @@ $('.crhp-eligible').text(
             priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
             currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           }
-		  if (claimPeriod > 10) {
-			revReduction = parseFloat(revReduction).toFixed(4);
-			threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
-		  }
+          if (claimPeriod > 10) {
+            revReduction = parseFloat(revReduction).toFixed(4);
+            threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
+          }
           //get the base rate
           baseRate = parseFloat(Math.max(getP5PlusBaseRate(revReduction), 0));
           //get the top-up rate
@@ -3853,13 +4304,33 @@ $('.crhp-eligible').text(
           } else {
             topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           }
-		  if (claimPeriod > 10) {
-			topUpRate = parseFloat(topUpRate).toFixed(4);
-			baseRate = parseFloat(baseRate).toFixed(4);
-		  }
+          if (claimPeriod > 10) {
+            topUpRate = parseFloat(topUpRate).toFixed(4);
+            baseRate = parseFloat(baseRate).toFixed(4);
+          }
           //calculate the overall rate
           cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
-		  cewsRate = parseFloat(cewsRate).toFixed(4);
+          cewsRate = parseFloat(cewsRate).toFixed(4);
+
+          if (claimPeriod > 16) {
+            if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
+              cewsRate = 0;
+              crhpRate = 0;
+              $(".greater-than-10-drop").addClass("hidden");
+              $(".less-than-10-drop").removeClass("hidden");
+            } else {
+              var crhpRateScale = [50, 50, 50, 40, 30, 20]
+              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+              $(".greater-than-10-drop").removeClass("hidden");
+              $(".less-than-10-drop").addClass("hidden");
+              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 17]);
+              console.log("crhpRate: " + crhpRate);
+            }
+          } else {
+            $(".greater-than-10-drop").removeClass("hidden");
+            $(".less-than-10-drop").addClass("hidden");
+          }
+
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           }
@@ -3881,7 +4352,7 @@ $('.crhp-eligible').text(
             $(".rev-drop-top-up").text(toPercent(roundPercDown(threeMonthReduction)));
             $(".currentRevReduction").text(toPercent(roundPercDown(currentRevReduc)));
             $(".priorRevReduction").text(toPercent(roundPercDown(priorRevReduc)));
-			$(".rev-reduc-base").text(toPercent(roundPercDown(revReduction)));
+            $(".rev-reduc-base").text(toPercent(roundPercDown(revReduction)));
           } else {
             var displayRevReducCurrent = currentRevReduc * 100;
             var displayPriorReducCurrent = priorRevReduc * 100;
@@ -3986,12 +4457,31 @@ $('.crhp-eligible').text(
             topUpRate = parseFloat(Math.max(getP5PlusTopUpRate(threeMonthReduction), 0));
           }
           if (claimPeriod > 10) {
-			topUpRate = parseFloat(topUpRate).toFixed(4);
-			baseRate = parseFloat(baseRate).toFixed(4);
-		  }
+            topUpRate = parseFloat(topUpRate).toFixed(4);
+            baseRate = parseFloat(baseRate).toFixed(4);
+          }
           //calculate the overall rate
           cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
-		  cewsRate = parseFloat(cewsRate).toFixed(4);
+          cewsRate = parseFloat(cewsRate).toFixed(4);
+
+          if (claimPeriod > 16) {
+            if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 16)) {
+              cewsRate = 0;
+              crhpRate = 0;
+              $(".greater-than-10-drop").addClass("hidden");
+              $(".less-than-10-drop").removeClass("hidden");
+            } else {
+              var crhpRateScale = [50, 50, 50, 40, 30, 20]
+              $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
+              $(".greater-than-10-drop").removeClass("hidden");
+              $(".less-than-10-drop").addClass("hidden");
+              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 17]);
+            }
+          } else {
+            $(".greater-than-10-drop").removeClass("hidden");
+            $(".less-than-10-drop").addClass("hidden");
+          }
+          
           if (cewsRate < 0.1) {
             $("#employees").addClass("hidden");
           }
@@ -4138,6 +4628,44 @@ $('.crhp-eligible').text(
         }
       }
 
+      /**
+       * getMonthNamesPlusYear()
+       *
+       * get the name of the claim month and previous month
+       *
+       * @param {iMonth} integer the month expressed as an integer
+       * YYYY-MM-DD--YYYY--MM-DD format
+       *
+       * @return {claimMonths} the 2 months that the CERS period overlaps
+       */
+      function getMonthNamesPlusYear(iMonth, claimPeriod) {
+        if (document.documentElement.lang == "fr") {
+          var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+        } else {
+          var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        }
+        var claimMonths = [monthNames[iMonth - 2], monthNames[iMonth - 1]];
+        if (iMonth == 1) {
+          if (document.documentElement.lang == "fr") {
+            claimMonths[0] = "décembre";
+          } else {
+            claimMonths[0] = "December";
+          }
+        }
+        //add years
+        if (claimPeriod < 4) {
+          claimMonths[0] = claimMonths[0] + ' 2020';
+          claimMonths[1] = claimMonths[1] + ' 2020';
+        } else if (claimPeriod == 4) {
+          claimMonths[0] = claimMonths[0] + ' 2020';
+          claimMonths[1] = claimMonths[1] + ' 2021';
+        } else {
+          claimMonths[0] = claimMonths[0] + ' 2021';
+          claimMonths[1] = claimMonths[1] + ' 2021';
+        }
+        return claimMonths;
+      }
+
       //update the employee wages summary when the arms length value is changed
       $(document).on("change", "select[id^='arms-']", function (event) {
         //get the employee number
@@ -4213,26 +4741,26 @@ $('.crhp-eligible').text(
             $("#p3-cpp").val("");
             $(".no-lwp-disclaimer").addClass("hidden");
           }
-          var totalWages = $(".total").attr("data-total-wages");
+          // var totalWages = $(".total").attr("data-total-wages");
           $("#p2c-pyrl").val(totalWages);
           $("#p2c-pyrl").trigger("change");
-          var totalCews = $(".total").attr("data-total-cews");
+          // var totalCews = $(".total").attr("data-total-cews");
           $("#p2c-cews").val(totalCews);
           $("#p2c-cews").trigger("change");
-		  if ($("#claim-period option:selected").data("claim-period") < 11) {
-			var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
-		  } else {
-			var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
-			revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
-		  }
-          $("#p2b-c0").val(revenuePriorDisplay);
-          $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
           if ($("#claim-period option:selected").data("claim-period") < 11) {
-			var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
-		  } else {
-			var revenueDisplay = Math.max(0, currentRevReduc * 100);
-			revenueDisplay = revenueDisplay.toFixed(2);
-		  }
+          var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
+          } else {
+          var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
+          revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
+          }
+              $("#p2b-c0").val(revenuePriorDisplay);
+              $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
+              if ($("#claim-period option:selected").data("claim-period") < 11) {
+          var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
+          } else {
+          var revenueDisplay = Math.max(0, currentRevReduc * 100);
+          revenueDisplay = revenueDisplay.toFixed(2);
+          }
           $("#p2b-c1").val(revenueDisplay);
           $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
           var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
@@ -4365,17 +4893,12 @@ $('.crhp-eligible').text(
        */
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-        var topUpMax = 0.25;
-
-        var topUpMultiplier = 1.25;
-        if (claimPeriod > 10) {
-          topUpMax = 0.35;
-          topUpMultiplier = 1.75;
-        }
-        if (topUpMultiplier * (reduction - 0.5) > topUpMax) {
-          return topUpMax;
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
+        var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.1];
+        if (topUpMultiplier[claimPeriod - 5] * (reduction - 0.5) > topUpMax[claimPeriod - 5]) {
+          return topUpMax[claimPeriod - 5];
         } else {
-          return topUpMultiplier * (reduction - 0.5);
+          return topUpMultiplier[claimPeriod - 5] * (reduction - 0.5);
         }
       }
 
@@ -4388,10 +4911,13 @@ $('.crhp-eligible').text(
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
         var period = $("#claim-period option:selected").data("claim-period");
-        if (scaleBase[period - 5] * revReduction > maxBase[period - 5]) {
+        if (period > 17) {
+          revReduction = revReduction - 0.1;
+        }
+        if (scaleBase[period - 5] * revReduction >= maxBase[period - 5]) {
           return maxBase[period - 5];
         } else {
           return scaleBase[period - 5] * revReduction;
@@ -4569,47 +5095,6 @@ $('.crhp-eligible').text(
           $("#action-no-msg").removeClass("hidden").addClass("visible");
         }
       })
-    </script>
-    <script>
-      function uploadDealcsv () {}; 
-
-      /*------ Method for read uploded csv file ------*/
-      uploadDealcsv.prototype.getCsv = function(e) {
-          let input = document.getElementById('p14csv');
-          input.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                var myFile = this.files[0];
-                var reader = new FileReader();
-                reader.addEventListener('load', function (e) {
-                    let csvdata = e.target.result; 
-                    parseCsv.getParsecsvdata(csvdata); // calling function for parse csv data 
-                });
-                reader.readAsBinaryString(myFile);
-            }
-          });
-        }
-        /*------- Method for parse csv data and display --------------*/
-        uploadDealcsv.prototype.getParsecsvdata = function(data) {
-            let parsedata = [];
-            let newLinebrk = data.split("\n");
-            for(let i = 0; i < newLinebrk.length; i++) {
-                parsedata.push(newLinebrk[i].split(","))
-            }
-
-            
-            $(".top-up-rate-alt").text(toPercent(roundPercDown(topUpRate)));
-
-
-            console.table(parsedata);
-            console.log(parsedata[0]);
-            console.log(parsedata[0][1])
-            console.log(parsedata.length)
-
-
-
-        }
-        var parseCsv = new uploadDealcsv();
-        parseCsv.getCsv();
     </script>
 </body>
 </html>
