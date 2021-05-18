@@ -63,6 +63,66 @@ fieldset +.buttons {
 	font-size: 1.3em;
 }
 	fieldset fieldset {min-width: 1px;}
+.ds-example {
+	margin-top: 15px;
+	border: 1px solid #e3e3e3;
+	box-shadow: 0px 0px 8px #e3e3e3;
+}
+.ds-example>.wb-tabs>.tabpanels {
+	background: #f9f9f9;
+}
+.ds-example>.wb-tabs>.tabpanels legend {
+	font-size: 80%;
+	font-weight: 700;
+	margin: 0 0 5px;
+}
+.ds-example>.wb-tabs>.tabpanels fieldset {
+	padding-top: 0;
+}
+.ds-example>.wb-tabs>.tabpanels>details>summary {
+	background: #fff;
+	border-radius: 0;
+}
+.ds-example>.wb-tabs [role=tablist]>li:focus, .ds-example>.wb-tabs [role=tablist]>li:hover {
+	background: #ddd;
+}
+.ds-example>.wb-tabs {
+	margin-bottom: 0;
+}
+.ds-example>.wb-tabs>.tabpanels>details {
+	margin-bottom: 0;
+}
+.ds-example .panel-body {
+	box-shadow: none;
+}
+
+@media screen and (max-width: 991px) {
+.ds-example>.wb-tabs .tgl-panel {
+	margin-top: 15px;
+}
+}
+
+@media screen and (min-width: 992px) {
+.ds-example>.wb-tabs>.tabpanels>details {
+	border: none;
+	padding: 15px;
+}
+.ds-example>.wb-tabs [role=tablist]>li {
+	border: none;
+	background: none;
+}
+.ds-example>.wb-tabs [role=tablist]>li.active a {
+	border-width: 0 0 4px;
+}
+.ds-example>.wb-tabs>.tabpanels>details {
+	padding: 30px;
+}
+.ds-example>.wb-tabs>.tabpanels>details {
+	background: #f9f9f9;
+	padding: 30px;
+	margin-bottom: 0;
+}
+}
 </style>
 </head>
 
@@ -2118,11 +2178,221 @@ fieldset +.buttons {
         </div>
       </div>
     </fieldset> -->
-    <button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your  total subsidy comparison</button>
+<fieldset id="results-fs" class="panel-default p-0" >
+      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Amount to claim on your application</span></legend>
+      <div class="panel-body">
+  <p><strong>You have still not applied:</strong></p>
+  <ol>
+    <li>Print and keep the record of the <strong>subsidy summary that gives you a higher amount (<span class="subsidy-to-apply-for"></span>)</strong> using the print preview button at the bottom of the summary.</li>
+    <li>Then continue to How to apply beneath the summary.</li>
+  </ol>
+  <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it gives the higher subsidy for your circumstances. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
+  <p>After applying for the <span class="subsidy-to-apply-for"></span>, you might see further correspondence where your final <span class="subsidy-for-information"></span> amount is deemed $0.</p>
+
+<!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+                    data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
+		<p class="crhp-no">The total amount of CRHP you can claim is:  <output class="h3 wb-calc nowrap" for=""
+                    data-wb-calc='{}'></output></p>
+		<p class="crhp-yes">You cannot claim the CRHP due to your business being a publically traded company.</p>//-->
+<div class="wb-tabs ignore-session">
+  <div class="tabpanels">
+    <details id="details-panel1">
+      <summary>CEWS total amount:<br class="hidden-sm hidden-xs">
+        <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output> <span class="hidden cews-total-tab-fyi">(FYI)</span>
+      </summary>
+      <div id="cews-statement">
+        <p>For your claim for <strong class="claim-period"></strong>: </p>
+        <ul class="lst-spcd">
+          <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
+            <output class="h3 wb-calc nowrap total-eligible-emps"></output>
+            </strong></li>
+          <li id="sum-ee-active3" class="hidden p59"><strong>Line A:</strong> Number of eligible active employees:
+            <output class="h3 wb-calc nowrap total-active-emps"></output>
+          </li>
+          <li id="sum-ee-lwp3" class="hidden p59"><strong>Line AA:</strong> Number of eligible employees on leave with pay:
+            <output class="h3 wb-calc nowrap total-furloughed-emps"></output>
+          </li>
+          <li><strong>Line B:</strong> Total eligible remuneration paid: <strong>
+            <output class="h3 wb-calc nowrap cews-remuneration-total"></output>
+            </strong></li>
+          <li id="sum-rev3" class="hidden p59">Revenue drop and subsidy rate
+            <ul class="list-unstyled mrgn-lft-md">
+              <li class="p11-plus"><strong>Line c0:</strong> Revenue drop for the prior period:
+                <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
+              </li>
+              <li><strong>Line c1:</strong> Revenue drop for the current period:
+                <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
+              </li>
+              <li class="p10-"><strong>Line c2:</strong> Average revenue drop for the previous three months:
+                <output class="h3 wb-calc nowrap" for="p2b-c2"></output>
+              </li>
+              <li><strong>Line c3:</strong> Subsidy rate used for active employees in the calculation of Line C:
+                <output class="h3 wb-calc nowrap" for="p2b-c3"></output>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Line C:</strong> Basic CEWS (including top-up, if applicable): <strong>
+            <output class="h3 wb-calc nowrap basic-cews"></output>
+            </strong></li>
+          <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
+            the claim period)</small>: <strong>
+            <output class="h3 wb-calc nowrap" for="p3-ei"
+                    data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output>
+            </strong></li>
+          <li><strong>Line E:</strong> Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay <small>(for the claim period)</small>: <strong>
+            <output class="h3 wb-calc nowrap" for="p3-cpp"
+                    data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output>
+            </strong></li>
+          <li class="p14"><strong>Line F:</strong> 10% Temporary Wage Subsidy for Employers reduction <small>(for the claim
+            period)</small>: <strong>
+            <output class="h3 wb-calc nowrap" for="p4-tws"
+                    data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output>
+            </strong></li>
+          <li><strong>Line G:</strong> Amounts received by eligible employees under ESDC’s Work-Sharing benefit program <small>(for
+            the claim period)</small>: <strong>
+            <output class="h3 wb-calc nowrap" for="p4-wsb"
+                    data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output>
+            </strong></li>
+        </ul>
+        <div class="alert alert-success provisional">
+          <h3>Result</h3>
+          <p><strong>Line H:</strong> The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
+            <output class="h3 wb-calc nowrap total-calculated-cews"></output>
+            </strong> This amount is subject to verification. </p>
+        </div>
+      </div>
+      <table class="table" id="cews-statement-table">
+        <caption class="h5 mrgn-bttm-0">
+        Summary of CEWS calculation
+        </caption>
+        <tbody>
+          <tr>
+            <th scope="row" class="h6">Basic CEWS <small class="nowrap">(Line C)</small></th>
+            <td class="text-right nowrap"><output class="h6 wb-calc nowrap basic-cews"></output></td>
+          </tr>
+          <tr>
+            <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
+            <td class="text-right nowrap">+
+              <output class="h6 wb-calc nowrap" for="p3-ei"
+                  data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
+          </tr>
+          <tr>
+            <th scope="row" class="h6">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
+            <td class="text-right nowrap">+
+              <output class="h6 wb-calc nowrap" for="p3-cpp"
+                  data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output></td>
+          </tr>
+          <tr>
+            <th scope="row" class="h6">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
+              F)</small></th>
+            <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+              <output class="h6 wb-calc nowrap" for="p4-tws"
+                  data-wb-calc='{"expr": "#p4-tws * 1", "format": "currency"}'></output></td>
+          </tr>
+          <tr>
+            <th scope="row" class="h6">(less) Work-Sharing benefit program received <small class="nowrap">(Line G)</small></th>
+            <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
+              <output class="h6 wb-calc nowrap" for="p4-wsb"
+                  data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output></td>
+          </tr>
+          <tr class="success">
+            <th scope="row" class="h6">Your CEWS claim, subject to verification, is <small class="nowrap">(Line H)</small></th>
+            <td class="text-right nowrap"><output class="h6 wb-calc nowrap total-calculated-cews"></output></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+      <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg"
+              role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS
+        statement</span></span></a></p>
+      <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no hidden">
+        <h3 class="wb-inv">Document navigation</h3>
+        <ul class="pager">
+          <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/how-apply.html" rel="next">How to apply for CEWS</a></li>
+        </ul>
+      </nav>
+    </details>
+    <details id="details-panel2">
+      <summary>CRHP total amount:<br class="hidden-sm hidden-xs">
+        <output class="h3 wb-calc nowrap total-calculated-crhp">$0.00</output> <span class="hidden crhp-total-tab-fyi">(FYI)</span>
+      </summary>
+      <div class="crhp-no">
+        <div id="crhp-statement">
+          <p class="lead"><strong>Print and keep this record using the print preview button below</strong>. You will need line amounts <strong>300 to 510</strong> when you complete your online application for CRHP.</p>
+          <p>For your claim for <strong class="claim-period"></strong>: </p>
+          <ul class="lst-spcd">
+            <li> <strong>Line 300:</strong> Total Wage Subsidy amount (CEWS): <strong>
+              <output class="h3 wb-calc nowrap total-calculated-cews"></output>
+              </strong> </li>
+            <li><strong>Line 400:</strong> Eligible active employees for the claim period:
+              <output class="h3 wb-calc nowrap total-active-emps"></output>
+            </li>
+            <li><strong>Line 410:</strong> Eligible active employees for period 14 (base):
+              <output class="h3 wb-calc nowrap total-active-emps-14"></output>
+            </li>
+            <li><strong>Line 420:</strong> Current period remuneration (CRHP): <strong>
+              <output class="h3 wb-calc nowrap crhp-current-rem"></output>
+              </strong> </li>
+            <li><strong>Line 430:</strong> Period 14 remuneration (CRHP): <strong>
+              <output class="h3 wb-calc nowrap crhp-base-rem"></output>
+              </strong> </li>
+            <li><strong>Line 500:</strong> Revenue drop for the prior period:
+              <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
+            </li>
+            <li><strong>Line 510:</strong> Revenue drop for the current period:
+              <output class="h3 wb-calc nowrap" for="p2b-c1"></output>
+            </li>
+          </ul>
+        </div>
+        <table class="table" id="crhp-statement-table">
+          <caption class="h5 mrgn-bttm-0">Summary of CRHP calculation</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="h6">Current period remuneration for CRHP <small class="nowrap">(Line 420)</small></th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
+            </tr>
+            <tr>
+              <th scope="row" class="h6">(minus) Base remuneration for CRHP (period 14) <small class="nowrap">(Line 430)</small></th>
+              <td class="text-right nowrap">-
+                <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
+            </tr>
+            <tr>
+              <th scope="row" class="h6">(equals) Incremental remuneration paid <small class="nowrap">(Line 440)</small></th>
+              <td class="text-right nowrap">=
+                <output class="h6 wb-calc nowrap crhp-incremental-rem"></output></td>
+            </tr>
+            <tr>
+              <th scope="row" class="h6">(multiplied by) CRHP subsidy rate <small class="nowrap">(Line 520)</small></th>
+              <td class="text-right nowrap"><abbr title="multiply" class="brdr-0">x</abbr>
+                <output class="h6 wb-calc nowrap crhp-rate"></output></td>
+            </tr>
+            <tr class="success">
+              <th scope="row" class="h6">Your CRHP claim, subject to verification <small class="nowrap">(Line 600)</small></th>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap total-calculated-crhp"></output></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+        <p class="hidden-print"><a href="#pp-crhp-statement" class="wb-lbx btn btn-default btn-lg"
+              role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CRHP
+          statement</span></span></a></p>
+        <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no hidden">
+          <h3 class="wb-inv">Document navigation</h3>
+          <ul class="pager">
+            <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/crhp-how-apply.html" rel="next">How to apply for CRHP</a></li>
+          </ul>
+        </nav>
+      </div>
+    </details>
+  </div>
+</div>
+</div>
+</fieldset>		  
+    <button id="calculate" class="btn btn-primary btn-lg hidden" type="submit">Calculate your  total subsidy comparison</button>
   </form>
 </div>
 	</div>
-<!---Start of results //-->
+<!---Start of results hidden for now//-->
 <div class="hidden" id="results">
 
   <p><strong>You have still not applied:</strong></p>
@@ -2130,11 +2400,11 @@ fieldset +.buttons {
     <li>Print and keep the record of the <strong>subsidy summary that gives you a higher amount (<span class="subsidy-to-apply-for"></span>)</strong> using the print preview button at the bottom of the summary.</li>
     <li>Then continue to How to apply beneath the summary.</li>
   </ol>
-<!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+<!-- hide this	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
 		<p class="crhp-no">The total amount of CRHP you can claim is:  <output class="h3 wb-calc nowrap" for=""
                     data-wb-calc='{}'></output></p>
-		<p class="crhp-yes">You cannot claim the CRHP due to your business being a publically traded company.</p>//-->
+		<p class="crhp-yes">You cannot claim the CRHP due to your business being a publically traded company.</p> /*until here
 <div class="wb-tabs ignore-session">
   <div class="tabpanels">
     <details id="details-panel1">
@@ -2338,7 +2608,7 @@ fieldset +.buttons {
   </div>
 </div>
 </div>	
-	<!--End of results//-->
+End of results//-->
 	<!--Start of overlays //-->
 <section id="calc-summary" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
@@ -3594,7 +3864,7 @@ fieldset +.buttons {
       }
 
       // when the submit button is clicked
-      $document.on("click", "#calculate", function (event) {
+      $document.on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         event.preventDefault();
         //remove the required attribute in all hidden elements
         $("[required]:hidden").each(function (i, element) {
