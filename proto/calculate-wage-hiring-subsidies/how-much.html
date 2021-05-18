@@ -2181,7 +2181,8 @@ fieldset +.buttons {
 <fieldset id="results-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Amount to claim on your application</span></legend>
       <div class="panel-body">
-  <p><strong>You have still not applied:</strong></p>
+	      <div class="alert alert-info provisional">
+  <p class="text-info"><strong>You have still not applied:</strong></p>
   <ol>
     <li>Print and keep the record of <span class="crhp-eligible">the <strong>subsidy summary that gives you a higher amount (</span><span class="subsidy-to-apply-for"></span><span class="crhp-eligible">)</span> <span class="crhp-ineligible">line amounts</span></strong> using the print preview button at the bottom of the summary.</li>
     <li>Then continue to How to apply beneath the summary.</li>
@@ -2194,7 +2195,7 @@ fieldset +.buttons {
     <h3>Your CRHP base amount for periods 17-22</h3>
     <p>Your base remuneration 
   </div>
-
+	      </div>
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
 		<p class="crhp-no">The total amount of CRHP you can claim is:  <output class="h3 wb-calc nowrap" for=""
@@ -2309,13 +2310,13 @@ fieldset +.buttons {
       </table>
       <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
       <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg" role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS statement</span></span></a></p>
-      <p class=""><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/how-apply.html" rel="next">How to apply for CEWS</a></li>
-      <!-- <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no hidden">
+    
+ <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no" id="cews-hta">
         <h3 class="wb-inv">Document navigation</h3>
         <ul class="pager">
           <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/how-apply.html" rel="next">How to apply for CEWS</a></li>
         </ul>
-      </nav> -->
+      </nav>
     </details>
     <details id="details-panel2">
       <summary>CRHP total amount:<br class="hidden-sm hidden-xs">
@@ -2385,7 +2386,7 @@ fieldset +.buttons {
         <p class="hidden-print"><a href="#pp-crhp-statement" class="wb-lbx btn btn-default btn-lg"
               role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CRHP
           statement</span></span></a></p>
-        <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no hidden">
+        <nav class="mrgn-bttm-lg mrgn-tp-lg" id="crhp-hta">
           <h3 class="wb-inv">Document navigation</h3>
           <ul class="pager">
             <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/crhp-how-apply.html" rel="next">How to apply for CRHP</a></li>
@@ -4220,6 +4221,8 @@ End of results//-->
           $('.subsidy-for-information').text('CEWS');
           $('#crhp-fyi-banner').addClass("hidden");
           $('#cews-fyi-banner').removeClass("hidden");
+	  $("#cews-hta").addClass("hidden");
+	  $("#crhp-hta").removeClass("hidden");	
           // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
           // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
         } else {
@@ -4228,6 +4231,8 @@ End of results//-->
           $('.subsidy-for-information').text('CRHP');
           $('#crhp-fyi-banner').removeClass("hidden");
           $('#cews-fyi-banner').addClass("hidden");
+	  $("#crhp-hta").addClass("hidden");
+	  $("#cews-hta").removeClass("hidden");	
         }
       }
        
