@@ -2977,7 +2977,7 @@ fieldset +.buttons {
           if ((revReduction >= 0.1 && claimPeriod > 17) || (revReduction > 0 && claimPeriod == 16)) {
             var crhpRateScale = [50, 50, 50, 50, 40, 30, 20]
             $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
-            crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 16]);
+            crhpRate = parseFloat("0." + crhpRateScale[claimPeriod - 16]);
           } else {
             $(".crhp-rate").text(toPercent(0));
             $('.crhp-eligible-tag').addClass("hidden");
@@ -4434,9 +4434,7 @@ fieldset +.buttons {
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
-              console.log("crhpRateScale: " + crhpRateScale[claimPeriod - 16]);
               crhpRate = parseFloat("0." + crhpRateScale[claimPeriod - 16]);
-              console.log("crhpRate: " + crhpRate);
             }
           } else {
             $(".greater-than-10-drop").removeClass("hidden");
@@ -4587,7 +4585,7 @@ fieldset +.buttons {
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 16]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
-              crhpRate = parseInt("0." + crhpRateScale[claimPeriod - 16]);
+              crhpRate = parseFloat("0." + crhpRateScale[claimPeriod - 16]);
             }
           } else {
             $(".greater-than-10-drop").removeClass("hidden");
