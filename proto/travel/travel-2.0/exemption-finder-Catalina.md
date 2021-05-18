@@ -1,22 +1,17 @@
 ---
-altLangPage: "#"
 breadcrumbs:
   - title: "Travel"
     link: "https://travel.gc.ca/"
   - title: "Travel, testing, quarantine"
     link: "../../travel-covid.html"
-css: https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css
 dateModified: "2021-05-14"
 lang: en
-layout: default
-pageclass: cnt-wdth-lmtd
-script: https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js
 title: Travel quarantine, hotel and testing exemptions
 ---
 
 There are travel restrictions in place at all border crossings to reduce the spread of COVID-19 by travellers entering Canada. If you aren't sure whether these restrictions apply to you, answer a few questions to:
 
-[Find out if you can enter Canada](https://travel.gc.ca/travel-covid/travel-restrictions/wizard-start)
+* [Find out if you can enter Canada](https://travel.gc.ca/travel-covid/travel-restrictions/wizard-start)
 
 Find out if your work or personal situation are exempt from quarantine or testing requirements.
 
@@ -31,7 +26,7 @@ Follow the links for your situation or role to check the details for exemptions.
 
 {::nomarkdown type='html'}
 <details>
-	<summary>Medical and health care </summary>
+	<summary>Medical and health care</summary>
 	<table class="wb-filter table">
 		<caption>Filter by keywords for your situation</caption>
 		<thead>
@@ -78,8 +73,7 @@ Follow the links for your situation or role to check the details for exemptions.
 			<tr>
 				<td>Medical evacuation</td>
 				<td><a href="#exempt-pre-entry-medical">Exempt: Medical evacuation</a></td>
-				<td><a href="#exempt-quarantine-medical">Exempt: Medical transport </a>
-				</td>
+				<td><a href="#exempt-quarantine-medical">Exempt: Medical transport</a></td>
 				<td>Exempt</td>
 			</tr>
 		</tbody>
@@ -101,11 +95,11 @@ Follow the links for your situation or role to check the details for exemptions.
 			<tr>
 				<td>Crew members on any aircraft, shipping vessel or train and people entering Canada to become a crew member</td>
 				<td><a href="#exempt-quarantine-essential">Exempt: Essential work</a></td>
-				<td><a href="#exempt-pre-entry-essential">Exempt: Essential service </a></td>
+				<td><a href="#exempt-pre-entry-essential">Exempt: Essential service</a></td>
 				<td>Exempt per quarantine</td>
 			</tr>
 			<tr>
-				<td>Trade and transportation - truck and transport drivers moving goods or repatriating human remains, bus, taxi and limousine drivers moving people </td>
+				<td>Trade and transportation - truck and transport drivers moving goods or repatriating human remains, bus, taxi and limousine drivers moving people</td>
 				<td><a href="#exempt-quarantine-essential">Exempt: Essential service</a></td>
 				<td></td>
 				<td>Exempt per quarantine</td>
@@ -167,7 +161,7 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 <details>
 	<summary id="exempt-pre-entry-medical">Medical and health care</summary>
 	<ul>
-		<li><strong>Medical treatments - </strong>persons who must leave and return to Canada to receive essential medical services in another country. One person may accompany them. They must have:</p>
+		<li><strong>Medical treatments</strong> - persons who must leave and return to Canada to receive essential medical services in another country. One person may accompany them. They must have:</p>
 			<ul>
 				<li>written evidence from a licensed health care practitioner in Canada indicating services or treatments outside Canada are essential; and</li>
 				<li>written evidence from a licensed health care practitioner in the foreign country indicating services or treatments were provided in that country</li>
@@ -242,7 +236,7 @@ Check the details of any exemptions that apply to you, to ensure you fully meet 
 <details>
 	<summary id="exempt-arrival-medical">Medical</summary>
 	<ul>
-		<li><strong>Medical evacuation</strong> - persons who boarded a medical evacuation flight for medical purposes if the urgency of the medical situation does not permit a COVID-19 molecular test to be administered to the person before boarding the aircraft for the flight to Canada </li>
+		<li><strong>Medical evacuation</strong> - persons who boarded a medical evacuation flight for medical purposes if the urgency of the medical situation does not permit a COVID-19 molecular test to be administered to the person before boarding the aircraft for the flight to Canada</li>
 	</ul>
 </details>
 <details>
