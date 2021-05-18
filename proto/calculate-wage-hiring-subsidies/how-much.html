@@ -817,8 +817,9 @@ fieldset +.buttons {
       <div class="panel-body">
         <div class="row hidden" id="no-crhp-message">
           <div class="col-sm-8 col-md-9">
-            <p>The CRHP is not available in claim period <span class="claim-period-no">(choose a claim period)</span>.</p>
-            <p>Continue to the next to calculate the CEWS.</p>
+            <!-- <div class="alert alert-info"> -->
+            <p class="mrgn-tp-lg">The CRHP is only available starting in claim period 17.</p>
+            <p>Continue to the next step to calculate the CEWS.</p>
           </div>
         </div>
         <div class="row" id="crhp-questions">
@@ -4135,7 +4136,9 @@ fieldset +.buttons {
         $(this).addClass("btn-primary");
         $("#show-sprdsht").removeClass("btn-primary").addClass("btn-default");	
         $("#cal-calc").removeClass("hidden"); 
-        $("#cews-cal-opt1").addClass("hidden"); 	
+        $("#cews-cal-opt1").addClass("hidden"); 
+        // $('#steps-example').reset();
+        $('#claim-period').prop('selectedIndex', 0);
       });
       $('#show-sprdsht').on("click", function() {
         $(this).addClass("btn-primary");
