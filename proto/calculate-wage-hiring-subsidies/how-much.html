@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Calculate your CEWS and CRHP subsidy amount – Canada.ca</title>
+<title>Calculate your CEWS or CRHP amount – Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <meta name="robots" content="noindex" />
 <!-- Meta data -->
@@ -154,7 +154,7 @@ fieldset +.buttons {
     });
   </script>
 <main property="mainContentOfPage" class="container">
-  <h1 property="name" id="wb-cont">Calculate your CEWS and CRHP subsidy amount</h1>
+  <h1 property="name" id="wb-cont">Calculate your CEWS or CRHP amount</h1>
 
   <div data-wb-urlmapping='{
 		"subsidy=cews":
@@ -186,11 +186,16 @@ fieldset +.buttons {
   <li><a href="#h-3">Use the calculator</a></li>
 </ul>
 <h2 id="h-1">Wage and hiring subsidies</h2>
-<p>Use this calculator to calculate amounts for both the Canada Emergency Wage Subsidy (CEWS) and the Canada Recovery Hiring Program (CRHP) to determine which one to apply for and the amounts to include in your application.</p>
-<p>If would like to learn more about the subsidies and check if you're eligible, see:</p>
+	<p>Use this calculator to:</p>
+	<ul>
+		<li>calculate amounts for both the Canada Emergency Wage Subsidy (CEWS) and the Canada Recovery Hiring Program (CRHP)</li>
+		<li>see which subsidy gives you the higher amount, so you know which one to apply for</li>
+		<li>get the line-by-line amounts you will need to enter in your application form</li>
+	</ul>
+<p>To learn more about the subsidies and check if you're eligible, refer to:</p>
 <ul>
-  <li><a href="">Canada Emergency Wage Subsidy (CEWS)</a></li>
-  <li><a href="">Canada Recovery Hiring Program (CRHP)</a></li>
+  <li><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/emergency-wage-subsidy.html">Canada Emergency Wage Subsidy (CEWS)</a></li>
+  <li><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/recovery-hiring-program.html">Canada Recovery Hiring Program (CRHP)</a></li>
 </ul>
 
 <!-- <h2 id="h-1">How the calculator helps you</h2>
@@ -212,7 +217,8 @@ fieldset +.buttons {
         <input type="checkbox" id="bfore1" class="action-checkbox">
         <label for="bfore1">You are an eligible employer during this claim period</label>
         <ul class="mrgn-lft-lg list-unstyled">
-          <li><a href="../wage-subsidy2/cews-who-apply.html">Who can apply</a></li>
+          <li><a href="../wage-subsidy/cews-who-apply.html">Who can apply for CEWS</a></li>
+		<li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
         </ul>
       </li>
       <li class="checkbox">
@@ -224,7 +230,8 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You know which of your employees are eligible for this claim period</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/cews-who-employees.html">Which of your employees qualify</a></li>
+              <li><a href="../wage-subsidy/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
+		<li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
             </ul>
           </div>
           <div class="cnjnctn-col">
@@ -232,7 +239,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You have access to their pay information</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
+              <li><a href="../wage-subsidy/who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
             </ul>
           </div>
         </div>
@@ -266,7 +273,7 @@ fieldset +.buttons {
       </li>
       <li class="checkbox">
         <input type="checkbox" id="bfore4" class="action-checkbox">
-        <label for="bfore4">You have  your monthly eligible revenue amounts from the current and previous year</label>
+        <label for="bfore4">You have your monthly eligible revenue amounts from the current period and prior to March, 2020</label>
       </li>
       <li class="checkbox">
         <input type="checkbox" id="bfore5" class="action-checkbox">
@@ -346,7 +353,7 @@ fieldset +.buttons {
 <div id="cews-cal-opt1" class="hidden" aria-live="polite">
   <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
   <div class="alert alert-warning provisional">
-    <p>All period spreadsheets now include every calculation field needed to apply. Using the online calculator is no longer required.</p>
+    <p>All claim period spreadsheets now include every calculation field needed to proceed directly to the application form. Using the online calculator after you use the spreadsheet to finalize your claim amount is no longer required.</p>
     <p>Please check that you made your calculations with the most recent version.</p>
   </div>
   <div class="wb-frmvld">
@@ -812,8 +819,8 @@ fieldset +.buttons {
     Google Sheets, Numbers or OpenOffice.)</p>
   <p><strong>Note:</strong> If you have an employee that also works for a related eligible
     employer, you may need to manually adjust the information you enter in the spreadsheet. The
-    combined total CEWS amount that can be claimed for that employee between yourself and any
-    related eligible employers for each week can't exceed $847. A related eligible employer is
+    combined total CEWS or CRHP amount that can be claimed for an employee between you and any
+    related eligible employers for each week can't exceed <!--$847-->the maximum amount for an employee. A related eligible employer is
     any eligible employer that you do not deal with on an arm’s-length basis.</p>
   <details>
     <summary>Example of an adjustment for an employee working for related entities</summary>
@@ -832,11 +839,11 @@ fieldset +.buttons {
 <details>
   <summary>Privacy statement: This calculator does not collect or store your information</summary>
   <p>The CRA is not collecting or retaining any of the information you enter on this page or in the calculation
-    spreadsheet. These amounts are only used to help you determine the amount of CEWS you may be eligible to
+    spreadsheet. These amounts are only used to help you determine the amount of CEWS or CRHP you may be eligible to
     claim. You may be required to provide a full list of your employees and their Social Insurance Numbers (SIN)
     for verification after you apply.</p>
 </details>
-<p><strong class="text-warning">Warning:</strong> This is an online calculator estimator, <strong>not the application</strong>, and does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
+<p><strong class="text-warning">Warning:</strong> This is an online calculator estimator, <strong>not the application</strong>. This page does not save any data, so you leave or refresh the page you may need to enter the information again.</p>
 <div class="wb-frmvld provisional wb-steps">
   <form action="#" method="get" id="steps-example" class="panel panel-default">
     <fieldset id="claim-period-fs" class="panel-default p-0" >
@@ -848,12 +855,12 @@ fieldset +.buttons {
           <select required id="claim-period" class="form-control input-lg">
             <option value=""> Select a claim period</option>
             <optgroup label="CEWS or CRHP">
-              <option data-claim-period="17" value="2021-06-06--2021-0703">Period 17: June 06, 2021, to July 03, 2021</option>
+              <option data-claim-period="17" value="2021-06-06--2021-0703">Period 17: June 6, 2021, to July 3, 2021</option>
             </optgroup>
             <optgroup label="CEWS">
               <option data-claim-period="16" value="2021-05-09--2021-06-05">Period 16: May 9, 2021, to June 5, 2021</option>
               <option data-claim-period="15" value="2021-04-11--2021-05-08">Period 15: April 11, 2021, to May 8, 2021</option>
-              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14, 2021, to April 10, 2021 (base CRHP remuneration calculation)</option>
+              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14, 2021, to April 10, 2021 (base remuneration period for CRHP)</option>
               <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14, 2021, to March 13, 2021</option>
               <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, 2021, to February 13, 2021</option>
               <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
@@ -873,7 +880,7 @@ fieldset +.buttons {
       </div>
     </fieldset>
     <fieldset id="questionaire" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Canada Recovery Hiring Program eligibility and base remuneration</span></legend>
+      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">CRHP eligibility and remuneration for the base period</span></legend>
       <div class="panel-body">
         <div class="row hidden" id="no-crhp-message">
           <div class="col-sm-8 col-md-9">
@@ -885,11 +892,11 @@ fieldset +.buttons {
         <div class="row" id="crhp-questions">
           <div class="col-sm-8 col-md-9">
             <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-              <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program?</span> <strong class="required">(required)</strong></legend>
+              <legend class="small required"><span class="field-name">Are you eligible for the CRHP?</span> <strong class="required">(required)</strong></legend>
               <details>
-                <summary>Eligibility requirements for the Canada Recovery Hiring Program</summary>
-                <p>To be eligible for the Canada Recovery Hiring Program (CRHP), you must meet all the CEWS eligibility. In addition, you are not eligible for the CRHP if you are a publicly listed or non-Canadian controlled corporation.</p>
-                <p>For more details, see <a href="#">Who can apply for the CRHP</a>.</p>
+                <summary>Eligibility requirements for the CRHP</summary>
+                <p>To be eligible for the CRHP, you must meet all the CEWS eligibility. In addition, you are not eligible for the CRHP if you are a corporation, unless you are a Canadian-Controlled Private Corporation (CCPC) or a co-operative corporation that is eligible for the <a href="">small business subsidy</a>.</p>
+                <p>For more details, see <a href="../crhp-who-apply.html">Who can apply for the CRHP</a>.</p>
               </details>
               <ul class="list-unstyled lst-spcd-2">
                 <li class="radio">
