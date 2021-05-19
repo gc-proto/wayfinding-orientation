@@ -860,7 +860,7 @@ fieldset +.buttons {
             <optgroup label="CEWS">
               <option data-claim-period="16" value="2021-05-09--2021-06-05">Period 16: May 9, 2021, to June 5, 2021</option>
               <option data-claim-period="15" value="2021-04-11--2021-05-08">Period 15: April 11, 2021, to May 8, 2021</option>
-              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14, 2021, to April 10, 2021 (base remuneration period for CRHP)</option>
+              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14, 2021, to April 10, 2021 (remuneration for CRHP)</option>
               <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14, 2021, to March 13, 2021</option>
               <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, 2021, to February 13, 2021</option>
               <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
@@ -895,7 +895,7 @@ fieldset +.buttons {
               <legend class="small required"><span class="field-name">Are you eligible for CRHP?</span> <strong class="required">(required)</strong></legend>
               <details>
                 <summary>Eligibility requirements for the CRHP</summary>
-                <p>To be eligible for CRHP, you must meet all the CEWS eligibility. In addition, you are not eligible for CRHP if you are a corporation, unless you are a Canadian-Controlled Private Corporation (CCPC) or a corporate co-operative that is eligible for the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4012/t2-corporation-income-tax-guide-chapter-4-page-4-t2-return.html#P2862_208254">small business subsidy</a>.</p>
+                <p>To be eligible for CRHP, you must meet all the eligibility criteria for CEWS. However, you are not eligible for CRHP if you are a corporation, unless you are a Canadian-Controlled Private Corporation (CCPC) or a corporate co-operative that is eligible for the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4012/t2-corporation-income-tax-guide-chapter-4-page-4-t2-return.html#P2862_208254">small business subsidy</a>.</p>
                 <p>For more details, see <a href="../crhp-who-apply.html">Who can apply for CRHP</a>.</p>
               </details>
               <ul class="list-unstyled lst-spcd-2">
@@ -977,12 +977,13 @@ fieldset +.buttons {
 
                <div class="hidden" id="crhp-base-manual">
                 <h3>Calculate your CRHP base remuneration</h3>
-                <p>The calculator has been updated as of <mark>[date this page is published]</mark> to calculate your CRHP base remuneration. CRHP base remuneration is the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021 - CEWS period 14).</p>
+                <p>The calculator has been updated as of <mark>[date this page is published]</mark> to calculate your CRHP base remuneration. CRHP base remuneration is the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021, which is CEWS period 14).</p>
 		       <p>This amount is <strong>not</strong> the same as the CEWS total remuneration. You will need to redo your period 14 calculation to get the CRHP amount.</p>
                 <ol>
                   <li>Go back to Step 1 of this calculator and select <strong>Period 14: March 14 to April 10, 2021</strong>.</li>
                   <li>Complete the calculator for claim period 14, following the instructions for that claim period.</li>
-			<li>Save your <strong>CRHP base remuneration</strong> amount from the final summary. Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
+			<li><strong>Save your CRHP base remuneration</strong> amount from the final summary.<br />
+				Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
                   <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
                 </ol>
               </div>	    
@@ -1013,8 +1014,8 @@ fieldset +.buttons {
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
               <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
               <div id="crhp-base-summary">
-                <p>Your <strong>base remuneration for the CRHP</strong> is <span class="crhp-base-rem h4">$0</span></p>
-                <p>You had <strong><span class="total-active-emps-14">0</span></strong> eligible active employees (employees not on paid leave) during the CRHP base period.</p>
+                <p>Your <strong>CRHP base remuneration</strong> is <span class="crhp-base-rem h4">$0</span></p>
+                <p>You had <strong><span class="total-active-emps-14">0</span></strong> eligible active employees (employees not on paid leave) during the base period for CRHP remuneration.</p>
               </div>
               <p class="hidden" id="crhp-ineligible">Continue to the next step to calculate the CEWS only.</p>
             </div>
@@ -2287,7 +2288,7 @@ fieldset +.buttons {
         <div class="alert alert-success provisional">
           <h3>Result</h3>
           <p><strong>Line H:</strong> The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
-            <output class="h3 wb-calc nowrap total-calculated-cews"></output>
+            <output class="h3 wb-calc nowrap total-calculated-cews"></output><br />
             </strong> This amount is subject to verification. </p>
         </div>
       </div>
@@ -2354,22 +2355,22 @@ fieldset +.buttons {
           </div>          
           <p>For your claim for <strong class="claim-period"></strong>: </p>
           <ul class="lst-spcd">
-            <li> <strong>Line 300:</strong> Total Wage Subsidy amount (CEWS): <strong>
+            <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period: <strong>
               <output class="h3 wb-calc nowrap total-calculated-cews"></output>
               </strong> </li>
             <li><strong>Line 400:</strong> Eligible active employees for the claim period:
               <output class="h3 wb-calc nowrap total-active-emps"></output>
             </li>
-            <li><strong>Line 410:</strong> Eligible active employees for period 14 (base):
+            <li><strong>Line 410:</strong> Eligible active employees for the base period (period 14):
               <output class="h3 wb-calc nowrap total-active-emps-14"></output>
             </li>
-            <li><strong>Line 420:</strong> Current period remuneration (CRHP): <strong>
+            <li><strong>Line 420:</strong> Total eligible remuneration for the claim period: <strong>
               <output class="h3 wb-calc nowrap crhp-current-rem"></output>
               </strong> </li>
-            <li><strong>Line 430:</strong> Period 14 remuneration (CRHP): <strong>
+            <li><strong>Line 430:</strong> Total eligible remuneration for the base period: <strong>
               <output class="h3 wb-calc nowrap crhp-base-rem"></output>
               </strong> </li>
-            <li><strong>Line 500:</strong> Revenue drop for the prior period:
+            <li><strong>Line 500:</strong> Revenue drop for the previous period:
               <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
             </li>
             <li><strong>Line 510:</strong> Revenue drop for the current period:
@@ -2385,7 +2386,7 @@ fieldset +.buttons {
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(minus) Base remuneration for CRHP (period 14) <small class="nowrap">(Line 430)</small></th>
+              <th scope="row" class="h6">(minus) Base remuneration for CRHP <small class="nowrap">(Line 430)</small></th>
               <td class="text-right nowrap">-
                 <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
             </tr>
