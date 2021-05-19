@@ -217,7 +217,7 @@ fieldset +.buttons {
         <input type="checkbox" id="bfore1" class="action-checkbox">
         <label for="bfore1">You are an eligible employer during this claim period</label>
         <ul class="mrgn-lft-lg list-unstyled">
-          <li><a href="../wage-subsidy/cews-who-apply.html">Who can apply for CEWS</a></li>
+          <li><a href="../wage-subsidy2/cews-who-apply.html">Who can apply for CEWS</a></li>
 		<li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
         </ul>
       </li>
@@ -230,7 +230,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You know which of your employees are eligible for this claim period</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
+              <li><a href="../wage-subsidy2/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
 		<li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
             </ul>
           </div>
@@ -239,7 +239,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You have access to their pay information</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy/who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
+              <li><a href="../wage-subsidy2/cews-who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
             </ul>
           </div>
         </div>
@@ -2229,7 +2229,7 @@ fieldset +.buttons {
         <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output> <span class="hidden cews-total-tab-fyi">(FYI)</span>
       </summary>
       <div id="cews-statement">
-        <div class="alert alert-danger provisional" id="cews-fyi-banner">
+        <div class="alert alert-danger provisional cews-fyi">
           <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
           <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
           <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
@@ -2293,7 +2293,7 @@ fieldset +.buttons {
                     data-wb-calc='{"expr": "#p4-wsb * 1", "format": "currency"}'></output>
             </strong></li>
         </ul>
-        <div class="alert alert-success provisional">
+        <div class="alert alert-success provisional crhp-fyi">
           <h3>Result</h3>
           <p><strong>Line H:</strong> The <strong>total amount</strong> you will claim for the CEWS for this period is: <strong>
             <output class="h3 wb-calc nowrap total-calculated-cews"></output><br />
@@ -2356,7 +2356,7 @@ fieldset +.buttons {
       </summary>
       <div class="crhp-no">
         <div id="crhp-statement">
-          <div class="alert alert-danger provisional" id="crhp-fyi-banner">
+          <div class="alert alert-danger provisional crhp-fyi">
             <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
             <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
             <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
@@ -2798,8 +2798,8 @@ End of results//-->
     <h2 class="modal-title">Print preview for CEWS statement</h2>
   </header>
   <div class="modal-body">
-    <div data-ajax-replace=" #cews-statement"></div>
-    <div data-ajax-replace=" #cews-statement-table"></div>
+    <div data-ajax-replace="#cews-statement"></div>
+    <div data-ajax-replace="#cews-statement-table"></div>
     <ul class="list-inline">
       <li>
         <button onclick="window.print()" class="btn btn-success btn-lg"><span
@@ -3943,6 +3943,16 @@ End of results//-->
         }
       });
 
+
+      function recalculateAllEmployees() {
+        $(".arms-length-select").each(function (i, element) {
+          var parts = $(element).prop("id").split("-");
+          var employeeNumber = parts[parts.length - 1];
+          recalculateEmployeeAmounts(employeeNumber);
+        });
+        calculateTotals();
+      }
+
       /**
        * update the employee wage summary
        */
@@ -4187,7 +4197,7 @@ End of results//-->
             $('.current-crhp-remuneration').val(toMoney.format(totalWages));
             // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
             $('.crhp-incremental-rem').val(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
-            $('.crhp-rate').val(toPercent(crhpRate));
+            $('.crhp-rate').val(toPercent(crhpRate * 100));
           } else {
             totalCrhp = 0;
             $('.crhp-current-rem').text(toMoney.format(0)); 
@@ -4276,8 +4286,8 @@ End of results//-->
           $("#details-panel2-lnk").focus(); //default select the CRHP tab
           $('.subsidy-to-apply-for').text('CRHP');
           $('.subsidy-for-information').text('CEWS');
-          $('#crhp-fyi-banner').addClass("hidden");
-          $('#cews-fyi-banner').removeClass("hidden");
+          $('.crhp-fyi').addClass("hidden");
+          $('.cews-fyi').removeClass("hidden");
           $("#cews-hta").addClass("hidden");
           $("#crhp-hta").removeClass("hidden");	
           // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
@@ -4286,8 +4296,8 @@ End of results//-->
           $("#details-panel1-lnk").focus();
           $('.subsidy-to-apply-for').text('CEWS');
           $('.subsidy-for-information').text('CRHP');
-          $('#crhp-fyi-banner').removeClass("hidden");
-          $('#cews-fyi-banner').addClass("hidden");
+          $('.crhp-fyi').removeClass("hidden");
+          $('.cews-fyi').addClass("hidden");
           $("#crhp-hta").addClass("hidden");
           $("#cews-hta").removeClass("hidden");	
         }
