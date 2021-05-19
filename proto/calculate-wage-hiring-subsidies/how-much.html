@@ -912,7 +912,7 @@ fieldset +.buttons {
             
             <div class="hidden" id="crhp-base-q1">
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-                <legend class="small required"><span class="field-name">Have you already calculated the total pay (eligible remuneration) paid to your active employees for the base period of March 14 to April 10, 2021 (CEWS period 14)?</span> <strong class="required">(required)</strong></legend>
+                <legend class="small required"><span class="field-name">Have you already calculated the total eligible remuneration paid to all your active employees for the base period of March 14 to April 10, 2021 (CRHP base remuneration)?</span> <strong class="required">(required)</strong></legend>
 		                  <ul class="list-unstyled mrgn-lft-lg">
               <li><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on
                 leave with pay&nbsp;<span class="far fa-question-circle"></span></a></li>
@@ -1036,18 +1036,18 @@ fieldset +.buttons {
         <div class="row">
           <div class="col-sm-8 col-md-9  mrgn-tp-md">
             <div class="cal-calc">
-              <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">Compare the baseline revenue <span class="nowrap">options<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+              <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">Compare the pre-crisis revenue <span class="nowrap">options<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                <legend class="small required" ><span class="field-name">Which baseline revenue comparison option will you use for this claim?</span> (You must use the same option as other CEWS or CERS claims.) <strong class="required">(required)</strong></legend>
+                <legend class="small required" ><span class="field-name">Which pre-crisis revenue comparison option will you use for this claim?</span> (You must use the same option as other CEWS, CERS, and CRHP claims.) <strong class="required">(required)</strong></legend>
                 <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false" required="required">
-                    <label for="rev-comp-yes">Compare month of previous year with claim month (e.g. July 2019 with July 2020)</label>
+                    <label for="rev-comp-yes">Compare claim month to same month in a prior year (e.g. June 2021 with June 2019)</label>
                   </li>
                   <li class="radio">
                     <input type="radio" name="rev-comp" id="rev-comp-no" class="valid" aria-invalid="false" required="required">
-                    <label for="rev-comp-no">Average of January and February 2020 (alternative baseline revenue) </label>
+                    <label for="rev-comp-no">Compare claim month to average of January and February 2020 (alternative prior reference period) </label>
                   </li>
                 </ul>
               </fieldset>
@@ -1059,7 +1059,7 @@ fieldset +.buttons {
                     commas,</strong> or a <strong>dollar sign</strong></p>
                   <div class="row">
                     <div class="col-md-6 brdr-rght">
-                      <p><strong>Previous year revenue</strong></p>
+                      <p><strong>Prior year revenue</strong></p>
                       <div class="form-group row">
                         <label class="col-sm-6 control-label" for="2019-03-no">March 2019<span class="wb-inv"> (do not include a
                           dollar sign, spaces or commas)</span></label>
@@ -1380,7 +1380,7 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="crhp-eligible">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>
                   </div>
                 </div>
@@ -1643,9 +1643,10 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="crhp-eligible">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
-                    <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Because your revenue did not drop, you</span> revenue drop is less than 10%, your <strong>CRHP rate</strong> is <span class="h4 margn-tp-0">0%</span></p>
-                  </div>
+                   <!-- <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Because your revenue did not drop, you</span> revenue drop is less than 10%, your <strong>CRHP rate</strong> is <span class="h4 margn-tp-0">0%</span></p>-->
+                      <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>                </div>
                 </div>
               </div>
             </div>
@@ -1665,7 +1666,7 @@ fieldset +.buttons {
               <fieldset id="employees" class="subfields">
                 <legend>Calculate your employee wages</legend>
                 <p>Include all your eligible employees.</p>
-                <p><strong>Note:</strong> If you want to change your revenue information above, do that step
+                <p><strong>Note:</strong> If you want to change any information above, do that step
                   before you begin calculating employee wages.</p>
                 <fieldset class="subfields" id="emp-1">
                   <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
@@ -2206,12 +2207,12 @@ fieldset +.buttons {
 	      <div class="alert alert-info provisional">
           <p class="text-info"><strong>You have still not applied:</strong></p>
           <ol>
-            <li>Print and keep the record of <span class="crhp-eligible">the <strong>subsidy summary that gives you a higher amount (</span><span class="subsidy-to-apply-for"></span><span class="crhp-eligible">)</span> <span class="crhp-ineligible">line amounts</span></strong> using the print preview button at the bottom of the summary.</li>
-            <li>Then continue to How to apply beneath the summary.</li>
+            <li>Print and keep the record of <span class="crhp-eligible">the <strong>summary of the subsidy that gives you a higher amount (</span><span class="subsidy-to-apply-for"></span><span class="crhp-eligible">)</span> <span class="crhp-ineligible">line amounts</span></strong> using the print preview button at the bottom of the summary.</li>
+		  <li>Continue to <strong>How to apply</strong> beneath the summary.</li>
           </ol>
-          <div class="crhp-eligible">
-            <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it gives the higher subsidy for this claim period. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
-            <p>After applying for the <span class="subsidy-to-apply-for"></span>, you might see further correspondence where your final <span class="subsidy-for-information"></span> amount is deemed $0, even if it shows a calculated amount.</p>
+          <div class="crhp-eligible mrgn-tp-md">
+            <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it results in the higher subsidy for this claim period. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
+            <p>Because you can only be eligible for one subsidy each claim period, after you apply for <span class="subsidy-to-apply-for"></span> you may receive a notice of determination from us that shows your <span class="subsidy-for-information"></span> amount as $0, even if it shows a calculated amount for comparison here.</p>
           </div>
 	      </div>
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
@@ -2227,7 +2228,7 @@ fieldset +.buttons {
       </summary>
       <div id="cews-statement">
         <div class="p14-crhp well text-muted mrgn-tp-md hidden">
-          <h3 class="mrgn-tp-0">CRHP Base Remuneration to use in periods 17 to 22</h3>
+          <h3 class="mrgn-tp-0">CRHP base remuneration to use in periods 17 to 22</h3>
           <p>Your <strong>base remuneration for the CRHP</strong> is <span class="p14-base-crhp-rem h4">$0</span></p>
           <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on paid leave) during the CRHP base period.</p>
           <p>You only need to calculate this once for all future CRHP calculations.</p>
@@ -2248,7 +2249,7 @@ fieldset +.buttons {
             </strong></li>
           <li id="sum-rev3" class="hidden p59">Revenue drop and subsidy rate
             <ul class="list-unstyled mrgn-lft-md">
-              <li class="p11-plus"><strong>Line c0:</strong> Revenue drop for the prior period:
+              <li class="p11-plus"><strong>Line c0:</strong> Revenue drop for the previous period:
                 <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
               </li>
               <li><strong>Line c1:</strong> Revenue drop for the current period:
@@ -2332,13 +2333,13 @@ fieldset +.buttons {
           </tr>
         </tbody>
       </table>
-      <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+      <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
       <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg" role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS statement</span></span></a></p>
     
  <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no" id="cews-hta">
         <h3 class="wb-inv">Document navigation</h3>
         <ul class="pager">
-          <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/how-apply.html" rel="next">How to apply for CEWS</a></li>
+          <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/cews-how-apply.html" rel="next">How to apply for CEWS</a></li>
         </ul>
       </nav>
     </details>
@@ -2350,8 +2351,8 @@ fieldset +.buttons {
         <div id="crhp-statement">
           <div class="alert alert-warning provisional" id="crhp-fyi-banner">
             <h3 class="h4 mrgn-tp-0 text-warning">You must apply for the <span class="h4 subsidy-to-apply-for"></span></h3>
-            <p>You can only apply for the higher subsidy for the claim period. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
-            <p>After applying for the <span class="subsidy-to-apply-for"></span>, you might see further correspondence where your final <span class="subsidy-for-information"></span> amount is deemed $0, even though we show you here what you would have gotten for comparison.</p>
+            <p>You can only apply for the subsidy that gives you the higher amount. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
+            <!--<p>After applying for the <span class="subsidy-to-apply-for"></span>, you might see further correspondence where your final <span class="subsidy-for-information"></span> amount is deemed $0, even though we show you here what you would have gotten for comparison.</p>-->
           </div>          
           <p>For your claim for <strong class="claim-period"></strong>: </p>
           <ul class="lst-spcd">
@@ -2406,7 +2407,7 @@ fieldset +.buttons {
             </tr>
           </tbody>
         </table>
-        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. The data is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
         <p class="hidden-print"><a href="#pp-crhp-statement" class="wb-lbx btn btn-default btn-lg"
               role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CRHP
           statement</span></span></a></p>
@@ -2422,7 +2423,7 @@ fieldset +.buttons {
 </div>
 </div>
 </fieldset>		  
-    <button id="calculate" class="btn btn-primary btn-lg hidden" type="submit">Calculate your  total subsidy comparison</button>
+    <button id="calculate" class="btn btn-primary btn-lg hidden" type="submit">Calculate your total subsidy comparison</button>
   </form>
 </div>
 	</div>
@@ -2646,14 +2647,14 @@ End of results//-->
 	<!--Start of overlays //-->
 <section id="calc-summary" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
-    <h2 class="modal-title">Summary of CEWS and CRHP online calculator</h2>
+    <h2 class="modal-title">Summary of online CEWS and CRHP calculator</h2>
   </header>
   <div class="modal-body">
     <p>Line numbers refer to comparable lines you must fill out in the application form for CEWS.</p>
     <p>All amounts are for the claim period unless otherwise noted.</p>
     <ul class="lst-spcd">
       <li>Claim period: <span class="claim-period h3">default</span></li>
-      <li id="sec-2" class="hidden">Remuneration for the base CRHP period: <span class="h3 crhp-ineligible-tag">Ineligible</span><span class="h3 crhp-eligible crhp-base-rem">$0.00</span></li>
+      <li id="sec-2" class="hidden">Remuneration for the CRHP base period: <span class="h3 crhp-ineligible-tag">Ineligible</span><span class="h3 crhp-eligible crhp-base-rem">$0.00</span></li>
       <li id="sec-3-a" class="hidden">Revenue drop
         <ul>
           <li>Previous period (Line c0): <span class="priorRevReduction h4 alt-bl-no hidden">0.00%</span><span class="priorRevReduction-alt h4 alt-bl-yes hidden">0.00%</span></li>
@@ -2887,7 +2888,7 @@ End of results//-->
   <script type="text/javascript">
       var defPreFooter = document.getElementById("def-preFooter");
       defPreFooter.outerHTML = wet.builder.preFooter({
-        dateModified: "2020-11-09",
+        dateModified: "2021-05-18",
         showPostContent: true,
         showFeedback: true,
         showShare: true
