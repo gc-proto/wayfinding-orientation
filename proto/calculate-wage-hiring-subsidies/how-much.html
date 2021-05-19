@@ -275,7 +275,7 @@ fieldset +.buttons {
         <input type="checkbox" id="bfore4" class="action-checkbox">
         <label for="bfore4">You have your monthly eligible revenue amounts from the current period and prior to March, 2020</label>
       </li>
-      <li class="checkbox">
+      <!-- <li class="checkbox">
         <input type="checkbox" id="bfore5" class="action-checkbox">
         <label for="bfore5"><strong>One of the following applies:</strong></label>
         <div class="cnjnctn-type-or mrgn-lft-lg">
@@ -294,14 +294,14 @@ fieldset +.buttons {
             </ul>
           </div>
         </div>
-      </li>
+      </li> -->
       <li class="checkbox">
-        <input type="checkbox" id="bfore6" class="action-checkbox">
-        <label for="bfore6"><strong>One of the following applies:</strong></label>
+        <input type="checkbox" id="bfore5" class="action-checkbox">
+        <label for="bfore5"><strong>One of the following applies:</strong></label>
         <div class="cnjnctn-type-or mrgn-lft-lg">
           <div class="cnjnctn-col">
             <p>
-              <label for="bfore6" class="p-0">You know the total amount your eligible employees received under the
+              <label for="bfore5" class="p-0">You know the total amount your eligible employees received under the
                 Work-Sharing benefit program through Employment Insurance for this claim period</label>
             </p>
             <ul class="list-unstyled mrgn-lft-lg">
@@ -311,7 +311,7 @@ fieldset +.buttons {
           </div>
           <div class="cnjnctn-col">
             <p>
-              <label for="bfore6" class="p-0">You did not participate in the Work-Sharing program (enter $0)</label>
+              <label for="bfore5" class="p-0">You did not participate in the Work-Sharing program (enter $0)</label>
             </p>
           </div>
         </div>
@@ -952,41 +952,41 @@ fieldset +.buttons {
                   <h3>Step 1: Edit the period 14 employee information CSV file to remove any amounts given to employees on paid leave</h3>
                   <p>Employees on paid leave cannot be included in the calculation for the CRHP.</p>
                   <p>If your CEWS claim included some amounts for employees who were on paid leave during the period, you will need to:</p>
-			<ul>
-				<li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
-				<li>manually change any amounts that relate to weeks where an employee was on paid leave to 0</li>
-				<li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
-			</ul>
+                  <ul>
+                    <li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
+                    <li>manually change any amounts that relate to weeks where an employee was on paid leave to 0</li>
+                    <li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
+                  </ul>
                   <h3>Step 2: Choose your edited period 14 CSV file from your device</h3>
                   <p>Your CRHP remuneration for the base period will be calculated using the file.</p>
                   <input type="file" id="p14csv" class="form-control" />
                 </div>
+                
                 <div class="provisional alert alert-warning hidden" id="crhp-csv-parse-error">
                   <h3>We could not understand the information in your CSV</h3>
                   <p>Make sure:</p>
                   <ul>
-			  <li>you chose the right file</li>
-			  <li>the file ends with .csv</li>
-			  <li>the file has the same headings and formatting as when you downloaded it</li>
+                    <li>you chose the right file</li>
+                    <li>the file ends with .csv</li>
+                    <li>the file has the same headings and formatting as when you downloaded it</li>
                     <li>the file does not include any remuneration that was for employees on paid leave</li>
                     <li>if you are using a French CSV, you are using the French version of this calculator</li>
                   </ul>
                   <p>Correct the CSV file and try again, or calculate your CRHP remuneration for the base period using the method below.</p>
                  </div>
-               </div>
 
-               <div class="hidden" id="crhp-base-manual">
-                <h3>Calculate your CRHP base remuneration</h3>
-                <p>The calculator has been updated as of <mark>[date this page is published]</mark> to calculate your CRHP base remuneration. CRHP base remuneration is the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021, which is CEWS period 14).</p>
-		       <p>This amount is <strong>not</strong> the same as the CEWS total remuneration. You will need to redo your period 14 calculation to get the CRHP amount.</p>
-                <ol>
-                  <li>Go back to Step 1 of this calculator and select <strong>Period 14: March 14 to April 10, 2021</strong>.</li>
-                  <li>Complete the calculator for claim period 14, following the instructions for that claim period.</li>
-			<li><strong>Save your CRHP base remuneration</strong> amount from the final summary.<br />
-				Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
-                  <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
-                </ol>
-              </div>	    
+                <div class="hidden" id="crhp-base-manual">
+                  <h3>Calculate your CRHP base remuneration</h3>
+                  <p>The calculator has been updated as of <mark>[date this page is published]</mark> to calculate your CRHP base remuneration. CRHP base remuneration is the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021, which is CEWS period 14).</p>
+                  <p>This amount is <strong>not</strong> the same as the CEWS total remuneration. You will need to redo your period 14 calculation to get the CRHP amount.</p>
+                  <ol>
+                    <li>Go back to Step 1 of this calculator and select <strong>Period 14: March 14 to April 10, 2021</strong>.</li>
+                    <li>Complete the calculator for claim period 14, following the instructions for that claim period.</li>
+                    <li><strong>Save your CRHP base remuneration</strong> amount from the final summary.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
+                    <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
+                  </ol>
+                </div>
+              </div>
   
               <div class="hidden" id="crhp-base-input">
                 <div class="form-group row">
@@ -4578,7 +4578,7 @@ End of results//-->
       var baseCRHPRem = 0;
       //update the CRHP base amount summary
       $(document).on("blur", "#crhp-base-rem", function (event) {
-        baseCRHPRem = zeroIfEmpty(parseFloat($('#crhp-base-rem').val()));
+        baseCRHPRem = zeroIfEmpty($('#crhp-base-rem').val());
         $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
         calculateTotals(); //Or maybe 'clear chrp'?
       });
