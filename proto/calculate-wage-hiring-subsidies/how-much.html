@@ -135,7 +135,7 @@ fieldset +.buttons {
       lngLinks: [{
 
         lang: "fr",
-        href: "../wage-subsidy2/cews-how-much-mt-fr.html",
+        href: "../wage-subsidy/cews-how-much-mt-fr.html",
         text: "Français"
       }],
       breadcrumbs: [{
@@ -207,7 +207,7 @@ fieldset +.buttons {
 </ol>
 <p>You can currently use the calculator for claim periods 1 to . More periods will be added as they become available. </p>
 <p>The calculator has been updated to include <a href="cews-what-changes.html">changes to the period 8 to 10 top-up calculation finalized on November 17th</a>. It automatically applies the best subsidy rate you qualify for (including applying any safe harbour and deeming rules) based on information you enter. </p>
-<p>To understand the math behind the wage subsidy calculation, refer to <a href="../wage-subsidy2/cews-how-much-version-math.html">how the subsidy is calculated</a>.</p> -->
+<p>To understand the math behind the wage subsidy calculation, refer to <a href="../wage-subsidy/cews-how-much-version-math.html">how the subsidy is calculated</a>.</p> -->
 
   <h2 id="h-2">Before you start the calculation</h2>
   <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
@@ -217,8 +217,8 @@ fieldset +.buttons {
         <input type="checkbox" id="bfore1" class="action-checkbox">
         <label for="bfore1">You are an eligible employer during this claim period</label>
         <ul class="mrgn-lft-lg list-unstyled">
-          <li><a href="../wage-subsidy2/cews-who-apply.html">Who can apply for CEWS</a></li>
-		<li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
+          <li><a href="../wage-subsidy/cews-who-apply.html">Who can apply for CEWS</a></li>
+          <li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
         </ul>
       </li>
       <li class="checkbox">
@@ -230,8 +230,8 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You know which of your employees are eligible for this claim period</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
-		<li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
+              <li><a href="../wage-subsidy/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
+              <li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
             </ul>
           </div>
           <div class="cnjnctn-col">
@@ -239,7 +239,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You have access to their pay information</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/cews-who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
+              <li><a href="../wage-subsidy/cews-who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
             </ul>
           </div>
         </div>
@@ -855,12 +855,17 @@ fieldset +.buttons {
           <select required id="claim-period" class="form-control input-lg">
             <option value=""> Select a claim period</option>
             <optgroup label="CEWS or CRHP">
-              <option data-claim-period="17" value="2021-06-06--2021-0703">Period 17: June 6 to July 3, 2021</option>
+              <!-- <option data-claim-period="22" value="2021-10-24--2021-11-20">Period 22: October 24 to November 11, 2021</option>
+              <option data-claim-period="21" value="2021-09-26--2021-10-23">Period 21: September 26 to October 23, 2021</option>
+              <option data-claim-period="20" value="2021-08-29--2021-09-25">Period 20: August 29 to September 25, 2021</option>
+              <option data-claim-period="19" value="2021-08-01--2021-08-22">Period 19: August 1 to August 28, 2021</option>
+              <option data-claim-period="18" value="2021-07-04--2021-07-31">Period 18: July 4 to July 31, 2021</option> -->
+              <option data-claim-period="17" value="2021-06-06--2021-07-03">Period 17: June 6 to July 3, 2021</option>
             </optgroup>
             <optgroup label="CEWS">
               <option data-claim-period="16" value="2021-05-09--2021-06-05">Period 16: May 9 to June 5, 2021</option>
               <option data-claim-period="15" value="2021-04-11--2021-05-08">Period 15: April 11 to May 8, 2021</option>
-              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14 to April 10, 2021 (remuneration for CRHP)</option>
+              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14 to April 10, 2021</option>
               <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14 to March 13, 2021</option>
               <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, to February 13, 2021</option>
               <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
@@ -951,13 +956,11 @@ fieldset +.buttons {
                   <h3>Step 1: Edit the period 14 employee information CSV file to remove any amounts given to employees on paid leave</h3>
                   <p>Employees on paid leave cannot be included in the calculation for the CRHP.</p>
                   <p>If your CEWS claim included some amounts for employees who were on paid leave during the period, you will need to:</p>
-
-			<ul>
-				<li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
-				<li>manually change any amounts that relate to weeks where an employee was on paid leave to $0</li>
-				<li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
-			</ul>
-
+                  <ul>
+                    <li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
+                    <li>manually change any amounts that relate to weeks where an employee was on paid leave to $0</li>
+                    <li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
+                  </ul>
                   <h3>Step 2: Choose your edited period 14 CSV file from your device</h3>
                   <p>Your remuneration for the CRHP base period will be calculated using the file.</p>
                   <input type="file" id="p14csv" class="form-control" />
@@ -2213,7 +2216,7 @@ fieldset +.buttons {
           </ol>
           <div class="crhp-eligible mrgn-tp-md">
             <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it results in the higher subsidy for this claim period. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
-            <p>Because you can only be eligible for one subsidy each claim period, after you apply for <span class="subsidy-to-apply-for"></span> you may receive a notice of determination from us that shows your <span class="subsidy-for-information"></span> amount as $0, even if it shows a calculated amount for comparison here.</p>
+            <p>Because you can only be eligible for one subsidy each claim period, after you apply for <span class="subsidy-to-apply-for"></span> you may receive a notice of determination from us that shows your <span class="subsidy-for-information"></span> amount as $0, even if it shows a calculated amount for comparison here. The legislation deems the lower amount to be nil.</p>
           </div>
 	      </div>
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
@@ -2229,7 +2232,7 @@ fieldset +.buttons {
       </summary>
       <div id="cews-statement">
         <div class="alert alert-danger provisional cews-fyi">
-          <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
+          <h3 class="h4 mrgn-tp-0 text-warning">Do not apply for the <span class="h4 subsidy-for-information"></span> this period</h3>
           <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
           <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
         </div>      
@@ -2356,7 +2359,7 @@ fieldset +.buttons {
       <div class="crhp-no">
         <div id="crhp-statement">
           <div class="alert alert-danger provisional crhp-fyi">
-            <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
+            <h3 class="h4 mrgn-tp-0 text-warning">Do not apply for the <span class="h4 subsidy-for-information"></span> this period</h3>
             <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
             <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
           </div>          
@@ -2393,7 +2396,7 @@ fieldset +.buttons {
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(minus) Base remuneration for CRHP <small class="nowrap">(Line 430)</small></th>
+              <th scope="row" class="h6">(minus) Base period remuneration for CRHP <small class="nowrap">(Line 430)</small></th>
               <td class="text-right nowrap">-
                 <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
             </tr>
@@ -2723,8 +2726,8 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Arm's length and non-arm's length</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #nonarm-cntnt">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#nonarm">Non-arm’s-length and arm’s-length eligible employees</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #nonarm-cntnt">
+    <p><a href="../wage-subsidy/cews-who-employees.html#nonarm">Non-arm’s-length and arm’s-length eligible employees</a></p>
   </div>
 </section>
 <section id="contributions" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -2732,8 +2735,8 @@ End of results//-->
     <h2 class="modal-title">Lines D and E - Employer’s EI, QPIP, CPP, and QPP premiums payable on salary paid to
       employees on leave with pay </h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #refund-contrib">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #refund-contrib">
+    <p><a href="../wage-subsidy/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
   </div>
 </section>
 <span class="mfp-hide">
@@ -2777,8 +2780,8 @@ End of results//-->
       program </h2>
   </header>
   <div class="modal-body">
-    <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #worksharing-cntnt"><a
-            href="../wage-subsidy2/cews-who-employees.html#worksharing-cntnt">Eligible employees participating in a Work-Sharing benefit
+    <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #worksharing-cntnt"><a
+            href="../wage-subsidy/cews-who-employees.html#worksharing-cntnt">Eligible employees participating in a Work-Sharing benefit
       program</a></div>
     <p>Enter the total amount received under the Work-Sharing program by your eligible employees during the period
       covered by this claim in the box for line G. </p>
@@ -2788,7 +2791,7 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Active employees and employees on leave with pay</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #leave-cntnt">
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #leave-cntnt">
     <p><a href="../hiring-program/crhp-who-employees.html#leave-cntnt">Active employees and employees on leave with pay</a></p>
   </div>
 </section>
@@ -2838,13 +2841,13 @@ End of results//-->
   </header>
   <div class="modal-body">
     <h3 class="mrgn-tp-sm">Baseline revenue and prior reference period options</h3>
-    <div data-ajax-replace="../wage-subsidy2/cews-how-much-reduction.html #basebaselinecalc-cntnt">
-      <p><a href="../wage-subsidy2/cews-how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
+    <div data-ajax-replace="../wage-subsidy/cews-how-much-reduction.html #basebaselinecalc-cntnt">
+      <p><a href="../wage-subsidy/cews-how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
         options</a></p>
     </div>
     <details>
       <summary>Example: Choosing a revenue comparison option</summary>
-      <div data-ajax-replace="../wage-subsidy2/cews-how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
+      <div data-ajax-replace="../wage-subsidy/cews-how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
     </details>
   </div>
 </section>
@@ -2852,8 +2855,8 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Pre-crisis pay (baseline remuneration)</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #baselineremuneration-cntnt">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #baselineremuneration-cntnt">
+    <p><a href="../wage-subsidy/cews-who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
   </div>
 </section>
 <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -2863,13 +2866,13 @@ End of results//-->
   </header>
   <div class="modal-body">
     <h3>Claim period pay per week</h3>
-    <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #week-cntnt">
-      <p><a href="../wage-subsidy2/cews-who-employees.html#week">Claim period pay per week</a></p>
+    <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #week-cntnt">
+      <p><a href="../wage-subsidy/cews-who-employees.html#week">Claim period pay per week</a></p>
     </div>
     <div class="emp-lv hidden">
       <h3>Active employees and employees on leave with pay</h3>
-      <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #leave-cntnt">
-        <p><a href="../wage-subsidy2/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
+      <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #leave-cntnt">
+        <p><a href="../wage-subsidy/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
       </div>
     </div>
   </div>
