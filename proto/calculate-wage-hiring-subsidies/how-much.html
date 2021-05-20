@@ -4198,12 +4198,12 @@ End of results//-->
         }
         $(".numEmps").text(eligibleEmployees);
         $(".total").html(toMoney.format(cews));
-        console.log("cews: " + cews);
-        console.log("p3-ei: " + zeroIfEmpty($("#p3-ei").val()));
-        console.log("p3-ei: " + zeroIfEmpty($("#p3-ei").value));
-        console.log($("#p3-ei"));
-        totalCews = cews + $("#p3-ei").val() + $("#p3-cpp").val() - $("#p4-tws").val() - $("#p4-wsb").val();
-        console.log(totalCews);
+        if (claimPeriod < 5) {
+          var tempWageSubAmount = zeroIfEmpty($("#p4-tws").val());
+        } else {
+          var tempWageSubAmount = 0;
+        }
+        totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
         totalCews = Math.max(0, totalCews.toFixed(2));
         totalWages = totalWagesPaid.toFixed(2);
         $('.basic-cews').text(toMoney.format(cewsBasic));
@@ -4232,21 +4232,21 @@ End of results//-->
           //get eligible furloughed employees
           $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
           // $("#p2c-ee-alt2").trigger("change");
-          if ($("#p2c-ee-alt2").val() == 0) {
-            $("#p3-ei").prop("readonly", true);
-            $("#p3-ei").val("0.00");
-            $("#p3-cpp").prop("readonly", true);
-            $(".p3-ee-req").addClass("hidden");
-            $("#p3-cpp").val("0.00");
-            $(".no-lwp-disclaimer").removeClass("hidden");
-          } else {
-            $("#p3-ei").prop("readonly", false);
-            $("#p3-ei").val("");
-            $("#p3-cpp").prop("readonly", false);
-            $(".p3-ee-req").removeClass("hidden");
-            $("#p3-cpp").val("");
-            $(".no-lwp-disclaimer").addClass("hidden");
-          }
+          // if ($("#p2c-ee-alt2").val() == 0) {
+          //   $("#p3-ei").prop("readonly", true);
+          //   $("#p3-ei").val("0.00");
+          //   $("#p3-cpp").prop("readonly", true);
+          //   $(".p3-ee-req").addClass("hidden");
+          //   $("#p3-cpp").val("0.00");
+          //   $(".no-lwp-disclaimer").removeClass("hidden");
+          // } else {
+          //   $("#p3-ei").prop("readonly", false);
+          //   $("#p3-ei").val("");
+          //   $("#p3-cpp").prop("readonly", false);
+          //   $(".p3-ee-req").removeClass("hidden");
+          //   $("#p3-cpp").val("");
+          //   $(".no-lwp-disclaimer").addClass("hidden");
+          // }
           // var totalWages = $(".total").attr("data-total-wages");
           $(".cews-remuneration-total").val(toMoney.format(totalWages));
           // $("#p2c-pyrl").trigger("change");
@@ -4535,6 +4535,7 @@ End of results//-->
       });
       $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         $('#sec-5').removeClass("hidden");
+        calculateTotals();
       });
       $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
         $('#sec-6').removeClass("hidden");
