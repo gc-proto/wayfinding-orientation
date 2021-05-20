@@ -917,10 +917,19 @@ fieldset +.buttons {
             
             <div class="hidden" id="crhp-base-q1">
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-                <legend class="small required"><span class="field-name">Have you already calculated the total eligible remuneration paid to all your active employees for the base period of March 14 to April 10, 2021 (CRHP base remuneration)?</span> <strong class="required">(required)</strong></legend>
-		                  <ul class="list-unstyled mrgn-lft-lg">
-              <li><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></li>
-            </ul>
+                <legend class="small required"><span class="field-name">Have you already calculated the CRHP base period remuneration?</span> <strong class="required">(required)</strong></legend>
+                <div class="provisional alert alert-info">
+                  <h3 class="h4">CRHP base period remuneration</h3>
+                  <p>The CRHP base period remuneration is the total eligible remuneration:</p>
+                  <ul>
+                    <li>paid to all your active employees (not on paid leave)</li>
+                    <li>limited to $1,129 per week</li>
+                    <li>between March 14 and April 10, 2021 (the same as CEWS Period 14)</li>
+                  </ul>
+                  <!-- <ul class="list-unstyled mrgn-lft-lg"> -->
+                    <p class="mrgn-tp-sm"><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></p>
+                  <!-- </ul> -->
+                </div>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="crhp-base-ready" value="Yes" id="crhp-base-yes" class="valid" aria-invalid="false" required="required">
@@ -996,16 +1005,16 @@ fieldset +.buttons {
                 <div class="form-group row">
                   <fieldset>
                     <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14 to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
-                    <label class="col-sm-12 control-label" for="crhp-base-rem">CRHP base remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
                       </div>
                     </div>
-                    <label class="col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for period 14 (line A of your calculation)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                    <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period (line A of your period 14 CEWS application)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> 
-                        <input type="number" class="form-control text-right" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
                       </div>
                     </div>
                   </fieldset>
@@ -1358,6 +1367,7 @@ fieldset +.buttons {
                     </div>
                   </div>
                 </fieldset>
+                <a class="btn btn-default">Update your revenue drop summary</a>
                 <div class="well text-muted mrgn-tp-md">
                   <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
                   <ul class="small">
@@ -1384,7 +1394,7 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="crhp-eligible">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0 crhp-rate"></span></p>
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>
                   </div>
                 </div>
@@ -1621,6 +1631,7 @@ fieldset +.buttons {
                   </div>
                   <hr>
                 </fieldset>
+                <a class="btn btn-default">Update your revenue drop summary</a>
                 <div class="well text-muted mrgn-tp-md">
                   <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
                   <ul class="small">
@@ -1649,7 +1660,7 @@ fieldset +.buttons {
                   <div class="crhp-eligible">
                    <!-- <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Because your revenue did not drop, you</span> revenue drop is less than 10%, your <strong>CRHP rate</strong> is <span class="h4 margn-tp-0">0%</span></p>-->
-                      <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                      <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0 crhp-rate"></span></p>
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>                </div>
                 </div>
               </div>
@@ -1916,7 +1927,7 @@ fieldset +.buttons {
                   premiums that you paid on salary to eligible employees on leave with pay <small>(for the claim
                   period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required p3-ee-req">(required)</strong> </label>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p3-ei">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p3-ei">
                 </div>
                 <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay (line AA) during this claim period.</p>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
@@ -1927,7 +1938,7 @@ fieldset +.buttons {
                   claim
                   period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required p3-ee-req">(required)</strong> </label>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p3-cpp">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p3-cpp">
                 </div>
                 <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay (line AA) during this claim period.</p>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
@@ -1940,7 +1951,7 @@ fieldset +.buttons {
                 <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                   Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p4-tws">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p4-tws">
                 </div>
                 <p id="p4-tws-disclaimer" class="small hidden text-danger">The amount for this claim period is $0
                   because the temporary subsidy has ended.</p>
@@ -1954,7 +1965,7 @@ fieldset +.buttons {
                 <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                   benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p4-wsb">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p4-wsb">
                 </div>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
               </div>
@@ -2231,7 +2242,7 @@ fieldset +.buttons {
       </summary>
       <div id="cews-statement">
         <div class="alert alert-danger provisional cews-fyi">
-          <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed nil for this period</h3>
+          <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed $0 for this period</h3>
           <p>You must complete the application for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
           <p>The <span class="subsidy-for-information"></span> calculation summary and calculated total is only here for your information but is not part of your application.</p>
         </div>      
@@ -2241,7 +2252,7 @@ fieldset +.buttons {
           <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on paid leave) during the CRHP base period.</p>
           <p>You only need to calculate this once for all future CRHP calculations.</p>
         </div>
-        <p><span class="cews-fyi">Calculation summary for your information:</span><span class="crhp-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
+        <p><span class="cews-fyi">Calculation summary for your information</span><span class="crhp-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
         <ul class="lst-spcd">
           <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
             <output class="h3 wb-calc nowrap total-eligible-emps"></output>
@@ -2358,11 +2369,11 @@ fieldset +.buttons {
       <div class="crhp-no">
         <div id="crhp-statement">
           <div class="alert alert-danger provisional crhp-fyi">
-            <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed nil for this period</h3>
+            <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed $0 for this period</h3>
             <p>You must complete the application for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
             <p>The <span class="subsidy-for-information"></span> calculation summary and calculated total is only here for your information but is not part of your application.</p>
           </div>   
-          <p><span class="crhp-fyi">Calculation summary for your information:</span><span class="cews-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
+          <p><span class="crhp-fyi">Calculation summary for your information</span><span class="cews-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
           <ul class="lst-spcd">
             <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period: <strong>
               <output class="h3 wb-calc nowrap total-calculated-cews"></output>
@@ -2370,7 +2381,7 @@ fieldset +.buttons {
             <li><strong>Line 400:</strong> Eligible active employees for the claim period:
               <output class="h3 wb-calc nowrap total-active-emps"></output>
             </li>
-            <li><strong>Line 410:</strong> Eligible active employees for the base period (period 14):
+            <li><strong>Line 410:</strong> Eligible active employees for the base period:
               <output class="h3 wb-calc nowrap total-active-emps-14"></output>
             </li>
             <li><strong>Line 420:</strong> Total eligible remuneration for the claim period: <strong>
@@ -4187,13 +4198,19 @@ End of results//-->
         }
         $(".numEmps").text(eligibleEmployees);
         $(".total").html(toMoney.format(cews));
-        totalCews = cews.toFixed(2);
+        console.log("cews: " + cews);
+        console.log("p3-ei: " + zeroIfEmpty($("#p3-ei").val()));
+        console.log("p3-ei: " + zeroIfEmpty($("#p3-ei").value));
+        console.log($("#p3-ei"));
+        totalCews = cews + $("#p3-ei").val() + $("#p3-cpp").val() - $("#p4-tws").val() - $("#p4-wsb").val();
+        console.log(totalCews);
+        totalCews = Math.max(0, totalCews.toFixed(2));
         totalWages = totalWagesPaid.toFixed(2);
         $('.basic-cews').text(toMoney.format(cewsBasic));
         if (claimPeriod >= 5) {
           if (claimPeriod > 16) {
             $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
-            totalCrhp = Math.max(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+            totalCrhp = Math.max(0, (crhpRemuneration - baseCRHPRem) * crhpRate);
             $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
             $('.current-crhp-remuneration').val(toMoney.format(totalWages));
             // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
@@ -4214,11 +4231,6 @@ End of results//-->
           $(".total-active-emps").val(Math.ceil(eligibleEmps));
           //get eligible furloughed employees
           $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
-
-
-
-          
-          
           // $("#p2c-ee-alt2").trigger("change");
           if ($("#p2c-ee-alt2").val() == 0) {
             $("#p3-ei").prop("readonly", true);
@@ -4601,7 +4613,7 @@ End of results//-->
         calculateTotals(); //Or maybe 'clear chrp'?
       });
       $(document).on("blur", "#crhp-base-active-emps", function (event) {
-        var baseCRHPEmps = zeroIfEmpty(parseFloat($('#crhp-base-active-emps').val()));
+        var baseCRHPEmps = zeroIfEmpty($('#crhp-base-active-emps').val());
         $('.total-active-emps-14').text(baseCRHPEmps);
         // calculateCRHP(); //Or maybe 'clear chrp'?
       });
