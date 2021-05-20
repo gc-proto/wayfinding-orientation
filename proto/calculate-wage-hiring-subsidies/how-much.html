@@ -4013,7 +4013,7 @@ End of results//-->
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
           $(updatedByElements).each(function (j, element) {
-            $(element).text(formattedVal);
+            $(element).text(toMoney.format(unformattedValue[i]));
           });
         }
         // update the total
