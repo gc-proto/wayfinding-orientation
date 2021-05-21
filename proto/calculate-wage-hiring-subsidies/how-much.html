@@ -985,11 +985,11 @@ fieldset +.buttons {
                 <legend class="small required"><span class="field-name">Have you already calculated the CRHP base period remuneration?</span> <strong class="required">(required)</strong></legend>
                 <div class="provisional alert alert-info">
                   <h3 class="h4">CRHP base period remuneration</h3>
-                  <p>The CRHP base period remuneration is the total eligible remuneration:</p>
+                  <p>The CRHP base period remuneration is:</p>
                   <ul>
-                    <li>paid to all your active employees (not on paid leave)</li>
-                    <li>limited to $1,129 per week</li>
-                    <li>between March 14 and April 10, 2021 (the same as CEWS Period 14)</li>
+                    <li>the total eligible remuneration paid to all your active employees (not on paid leave)</li>
+                    <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
+                    <li>limited to $1,129 per week, per employee</li>
                   </ul>
                   <!-- <ul class="list-unstyled mrgn-lft-lg"> -->
                     <p class="mrgn-tp-sm"><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></p>
@@ -1905,7 +1905,7 @@ fieldset +.buttons {
                   <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
-              <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Results by employee</p>
+              <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Employee summary</p>
               <ul class="list-unstyled">
                 <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download
                   and print employee calculations</a></li>
@@ -3991,7 +3991,6 @@ End of results//-->
         $(".arms-length-select").each(function (i, element) {
           var parts = $(element).prop("id").split("-");
           var employeeNumber = parts[parts.length - 1];
-          console.log("allEmps Num: " + employeeNumber);
           recalculateEmployeeAmounts(employeeNumber);
         });
         calculateTotals();
