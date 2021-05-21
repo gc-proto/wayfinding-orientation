@@ -1053,7 +1053,13 @@ fieldset +.buttons {
       <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Revenue drop and subsidy rate</span></legend>
       <div class="panel-body">
         <div class="row">
-          <div class="col-sm-8 col-md-9  mrgn-tp-md">
+          <div class="col-sm-8 col-md-9 mrgn-tp-md p14">
+            <div class="provisional alert alert-info">
+              <h3>To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
+              <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4>"></p>
+            </div>
+          </div>
+          <div class="col-sm-8 col-md-9 mrgn-tp-md p59">
             <div class="cal-calc">
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
                 <legend class="small required" ><span class="field-name">Which pre-crisis revenue comparison option will you use for this claim?</span> (You must use the same option as other CEWS, CERS, and CRHP claims.) <strong class="required">(required)</strong></legend>
@@ -1814,7 +1820,7 @@ fieldset +.buttons {
                             <td>4-week total (CEWS)</td>
                             <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
                           </tr>
-                          <tr>
+                          <tr class="p14-crhp p17-plus">
                             <td>Total remuneration (CRHP)</td>
                             <td id="amt-crhp-rem-1">$0</td>
                           </tr>
@@ -3401,12 +3407,15 @@ End of results//-->
         $(".crhp-eligible").removeClass("hidden");
         $(".p18-plus").addClass("hidden");
         $(".p17-only").addClass("hidden");
+        $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
           $("#crhp-questions").addClass("hidden");
           $(".crhp-eligible").addClass("hidden");
+        } else {
+          $(".p17-plus").removeClass("hidden");
         }
 
         switch (claimPeriod) {
@@ -3895,7 +3904,6 @@ End of results//-->
             $(".btn-cews-cal").prop("disabled", true);
             $(".choose-claim-period").removeClass("hidden");
         }
-
         //recalculate the summary based on the values that are already there
         if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
           calculateRevenueDrop();
@@ -3924,6 +3932,7 @@ End of results//-->
         $(".arms-length-select").each(function (i, element) {
           var parts = $(element).prop("id").split("-");
           var employeeNumber = parts[parts.length - 1];
+          console.log("allEmps Num: " + employeeNumber);
           recalculateEmployeeAmounts(employeeNumber);
         });
         calculateTotals();
@@ -3961,14 +3970,14 @@ End of results//-->
       });
 
 
-      function recalculateAllEmployees() {
-        $(".arms-length-select").each(function (i, element) {
-          var parts = $(element).prop("id").split("-");
-          var employeeNumber = parts[parts.length - 1];
-          recalculateEmployeeAmounts(employeeNumber);
-        });
-        calculateTotals();
-      }
+      // function recalculateAllEmployees() {
+      //   $(".arms-length-select").each(function (i, element) {
+      //     var parts = $(element).prop("id").split("-");
+      //     var employeeNumber = parts[parts.length - 1];
+      //     recalculateEmployeeAmounts(employeeNumber);
+      //   });
+      //   calculateTotals();
+      // }
 
       /**
        * update the employee wage summary
@@ -3987,20 +3996,8 @@ End of results//-->
         var outputFields = ['wkone-', 'wktwo-', 'wkthree-', 'wkfour-'];
         var weeklyCews = {};
         var crhpRem = {};
+        var p1to4eligibility = claimPeriod < 5 ? checkEmployeeEligibility(employeeNumber) : "true";
         for (let i = 0; i < 4; ++i) {
-          if (claimPeriod < 5) {
-            if (!checkEmployeeEligibility($("#" + outputFields[i] + employeeNumber))) {
-              $("#emp-smry-" + employeeNumber).addClass("hidden");
-              $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
-              var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
-              $(updatedByElements).each(function (i, element) {
-                $(element).text(toMoney.format(0.00));
-              });
-            } else {
-              $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
-              $("#emp-smry-" + employeeNumber).removeClass("hidden");
-            }
-          }
           $('#emp-arms-' + employeeNumber).text($("#arms-" + employeeNumber).val().charAt(0).toUpperCase() + $("#arms-" + employeeNumber).val().slice(1));
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           var updateTarget = $('#' + $("#" + outputFields[i] + employeeNumber).attr("data-updates"));
@@ -4022,7 +4019,15 @@ End of results//-->
           //get the weekly cews; if it's not an int or float, use 0
           weeklyCews[i] = getWeeklyCEWS(armsLength, baselineWage, zeroIfEmpty(unformattedValue[i]), paidLeave);
           if (!isInt(weeklyCews[i]) && !isFloat(weeklyCews[i])) {
-            weeklyCews = 0;
+            weeklyCews[i] = 0;
+          }
+          if (p1to4eligibility) {
+            $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
+            $("#emp-smry-" + employeeNumber).removeClass("hidden");
+          } else {
+            weeklyCews[i] = 0;
+            $("#emp-smry-" + employeeNumber).addClass("hidden");
+            $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
           }
           //format and update the targets using localized currency format
           var formattedVal = toMoney.format(weeklyCews[i]);
@@ -4418,19 +4423,15 @@ End of results//-->
       /**
        * determine if an employee has been paid $0 for two consecutive pays
        */
-      function checkEmployeeEligibility(element) {
+      function checkEmployeeEligibility(employeeNumber) {
         //get all inputs for this employees weekly wages
-        var classname = element.className.match(/emp-wkly-wage-\d/g);
-        if (classname == "") {
-          return;
-        }
+        var wages = [zeroIfEmpty($('#wkone-' + employeeNumber).val()), zeroIfEmpty($('#wktwo-' + employeeNumber).val()), zeroIfEmpty($('#wkthree-' + employeeNumber).val()), zeroIfEmpty($('#wkfour-' + employeeNumber).val())];
         var eligibility = true;
-        var wages = $("." + classname);
-        $(wages).each(function (i, element) {
-          if (parseFloat($(element).val()) == 0 && $(wages[i + 1]).val() == 0 && $(wages[i + 1]).val() != "") {
+        for (let i = 0; i < 3; i++) {
+          if (wages[i] == 0 && wages[i+1] == 0) {
             eligibility = false;
           }
-        });
+        }
         return eligibility;
       }
 
@@ -4868,6 +4869,7 @@ End of results//-->
           $(".rev-reduc-base").text(toPercent("0"));
           $(".cews-rate").text(toPercent("0"));
         }
+        recalculateAllEmployees();
       }
 
 
@@ -4928,10 +4930,10 @@ End of results//-->
           );
           currentRevReduc = (baseRev - claimMonthValue) / baseRev;
           priorRevReduc = (baseRev - prevClaimValue) / baseRev;
-		  if (claimPeriod > 10) {
-			revReduction = parseFloat(revReduction).toFixed(4);
-			threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
-		  }
+          if (claimPeriod > 10) {
+            revReduction = parseFloat(revReduction).toFixed(4);
+            threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
+          }
           //get the base rate
           baseRate = parseFloat(
             Math.max(getP5PlusBaseRate(revReduction), 0)
@@ -5019,6 +5021,7 @@ End of results//-->
           $(".rev-reduc-alt-base").text(toPercent(0));
           $(".cews-rate-alt").text(toPercent(0));
         }
+        recalculateAllEmployees();
       }
 
 
