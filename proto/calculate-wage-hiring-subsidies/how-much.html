@@ -4300,23 +4300,7 @@ End of results//-->
         // }
 
         if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
-          // $("#details-panel2-lnk").focus(); //default select the CRHP tab
-          $("#details-panel2-lnk").attr("tabindex", 0);
-          $("#details-panel2-lnk").attr("aria-selected", "true");
-          $("#details-panel2-lnk").parent().addClass("active");
-          $("#details-panel1-lnk").attr("tabindex", -1);
-          $("#details-panel1-lnk").attr("aria-selected", "false");
-          $("#details-panel1-lnk").parent().removeClass("active");
-          $("#details-panel-2").addClass("in");
-          $("#details-panel-2").removeClass("out");
-          $("#details-panel-2").removeClass("noheight");
-          $("#details-panel-2").attr("aria-hidden", "false");
-          $("#details-panel-2").attr("aria-expanded", "true");
-          $("#details-panel-1").removeClass("in");
-          $("#details-panel-1").addClass("out");
-          $("#details-panel-1").addClass("noheight");
-          $("#details-panel-1").attr("aria-hidden", "true");
-          $("#details-panel-1").attr("aria-expanded", "false");
+          $("#details-panel2-lnk").click(); //default select the CRHP tab
           $('.subsidy-to-apply-for').text('CRHP');
           $('.subsidy-for-information').text('CEWS');
           $('.crhp-fyi').addClass("hidden");
@@ -4326,23 +4310,7 @@ End of results//-->
           // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
           // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
         } else {
-          // $("#details-panel1-lnk").focus();
-          $("#details-panel1-lnk").attr("tabindex", 0);
-          $("#details-panel1-lnk").attr("aria-selected", "true");
-          $("#details-panel1-lnk").parent().addClass("active");
-          $("#details-panel2-lnk").attr("tabindex", -1);
-          $("#details-panel2-lnk").attr("aria-selected", "false");
-          $("#details-panel2-lnk").parent().removeClass("active");
-          $("#details-panel-1").addClass("in");
-          $("#details-panel-1").removeClass("out");
-          $("#details-panel-1").removeClass("noheight");
-          $("#details-panel-1").attr("aria-hidden", "false");
-          $("#details-panel-1").attr("aria-expanded", "true");
-          $("#details-panel-2").removeClass("in");
-          $("#details-panel-2").addClass("out");
-          $("#details-panel-2").addClass("noheight");
-          $("#details-panel-2").attr("aria-hidden", "true");
-          $("#details-panel-2").attr("aria-expanded", "false");
+          $("#details-panel1-lnk").click(); 
           $('.subsidy-to-apply-for').text('CEWS');
           $('.subsidy-for-information').text('CRHP');
           $('.crhp-fyi').removeClass("hidden");
