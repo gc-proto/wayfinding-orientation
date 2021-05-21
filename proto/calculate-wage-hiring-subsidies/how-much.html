@@ -2241,12 +2241,11 @@ fieldset +.buttons {
         <output class="h3 wb-calc nowrap total-calculated-cews">$0.00</output> <span class="hidden cews-total-tab-fyi">(FYI)</span>
       </summary>
       <div id="cews-statement">
-        <div class="alert alert-danger provisional cews-fyi">
-          <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed $0 for this period</h3>
-          <p>You must complete the application for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
-          <p>The <span class="subsidy-for-information"></span> calculation summary and calculated total is only here for your information but is not part of your application.</p>
-        </div>      
-        <div class="p14-crhp well text-muted mrgn-tp-md hidden">
+        <div class="alert alert-danger provisional crhp-fyi">
+          <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
+          <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
+        </div>   
+      <div class="p14-crhp well text-muted mrgn-tp-md hidden">
           <h3 class="mrgn-tp-0">CRHP base remuneration to use in periods 17 to 22</h3>
           <p>Your <strong>base remuneration for the CRHP</strong> is <span class="p14-base-crhp-rem h4">$0</span></p>
           <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on paid leave) during the CRHP base period.</p>
@@ -2369,13 +2368,12 @@ fieldset +.buttons {
       <div class="crhp-no">
         <div id="crhp-statement">
           <div class="alert alert-danger provisional crhp-fyi">
-            <h3 class="h4 mrgn-tp-0 text-warning">Your <span class="h4 subsidy-for-information"></span> amount is deemed $0 for this period</h3>
-            <p>You must complete the application for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
-            <p>The <span class="subsidy-for-information"></span> calculation summary and calculated total is only here for your information but is not part of your application.</p>
+            <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
+            <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
           </div>   
           <p><span class="crhp-fyi">Calculation summary for your information</span><span class="cews-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
           <ul class="lst-spcd">
-            <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period: <strong>
+            <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period<sup><a href="#line-300-footnote">1</a></sup>: <strong>
               <output class="h3 wb-calc nowrap total-calculated-cews"></output>
               </strong> </li>
             <li><strong>Line 400:</strong> Eligible active employees for the claim period:
@@ -2397,6 +2395,7 @@ fieldset +.buttons {
               <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
             </li>
           </ul>
+          <p class="small" id="line-300-footnote">1. You must enter the calculated line 300 CEWS amount on your CRHP application. If you receive CRHP, we will deem your CEWS for the period to be $0.</p>
         </div>
         <table class="table" id="crhp-statement-table">
           <caption class="h5 mrgn-bttm-0">Summary of CRHP calculation</caption>
