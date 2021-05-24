@@ -3195,6 +3195,7 @@ End of results//-->
       EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
+        var remTotalCell = $(frag).find("td[id$='amt-crhp-rem-1']");
         var numEmps = this.numberOfEmployees;
         var currencyPlaceholderValue = this.currencyPlaceholderValue;
         var indexRegex = this.employeeIndexRegex;
@@ -3209,7 +3210,12 @@ End of results//-->
           "id",
           $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
         );
+        $(remTotalCell).attr(
+          "id",
+          $(remTotalCell).attr("id").replace(indexRegex, "-" + numEmps)
+        );
         $(totalCell).text(currencyPlaceholderValue);
+        $(remTotalCell).text(currencyPlaceholderValue);
         $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
         $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
