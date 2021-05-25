@@ -1809,21 +1809,23 @@ fieldset +.buttons {
         }
         // update the total
         if ($(updateTarget).data("updates")) {
-            /*
-              update the target to the total column and get all elements that make up the total
-            */
-            updateTarget = $("#" + $(updateTarget).attr("data-updates"));
-            //get the total cews
-            var employeeCews = getEmployeeCews(employeeNumber, baselineWage);
-            var formattedTotal = toMoney.format(employeeCews);
-            $(updateTarget).text(formattedTotal);
-          }
+        /*
+            update the target to the total column and get all elements that make up the total
+        */
+        updateTarget = $("#" + $(updateTarget).attr("data-updates"));
+        //get the total cews
+        var employeeCews = getEmployeeCews(employeeNumber, baselineWage);
+        var formattedTotal = toMoney.format(employeeCews);
+        $(updateTarget).text(formattedTotal);
+        }
           //calculate the total eligible remuneration for CRHP, and plop to 'amt-crhp-rem-' + employeeNumber
-          var CRHPEmpRem = 0;
-          for (let i = 0; i < 4; ++i) {
-            CRHPEmpRem += crhpRem[i];
-          }
-          $("#amt-crhp-rem-" + employeeNumber).text(toMoney.format(CRHPEmpRem));
+        var CRHPEmpRem = 0;
+        for (let i = 0; i < 4; ++i) {
+        CRHPEmpRem += crhpRem[i];
+        }
+        $("#amt-crhp-rem-" + employeeNumber).text(toMoney.format(CRHPEmpRem));
+        $("#emp-ttl-" + employeeNumber).text(toMoney.format(CRHPEmpRem));
+        calculateTotals();
       }
 
       //when the user clicks the remove button on an employee panel
@@ -1942,7 +1944,6 @@ fieldset +.buttons {
           var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
           crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
-          cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
@@ -1961,138 +1962,126 @@ fieldset +.buttons {
           var totalCell = $("#emp-ttl-" + id);
           if (eligibility) {
             eligibleEmployees++;
-            var employeeCews = zeroIfEmpty(getEmployeeCews(id, baselineWage));
-            cews += employeeCews;
-            totalWagesPaid += zeroIfEmpty(getEmployeeTotalWages(id));
-            var formattedTotal = toMoney.format(Math.max(employeeCews, 0));
-            $("#emp-ttl-" + id).text(employeeCews);
-            $(totalCell).html(formattedTotal);
             eligibleCrhpRemuneration += zeroIfEmpty(getEmployeeTotalWagesCrhp(id, baselineWage, armsLength));
           } else {
             $(totalCell).html(toMoney.format(0.00));
           }
         });
-        if (claimPeriod == 14) {
-          $('.p14-base-crhp-rem').text(toMoney.format(eligibleCrhpRemuneration));
-          $('.p14-base-crhp-rem').text(toMoney.format(eligibleCrhpRemuneration));
-        }
         $(".numEmps").text(eligibleEmployees);
-        $(".total").html(toMoney.format(cews));
-        totalCews = cews.toFixed(2);
-        totalWages = totalWagesPaid.toFixed(2);
-        $('.basic-cews').text(toMoney.format(cewsBasic));
-        if (claimPeriod >= 5) {
-          if (claimPeriod > 16) {
-            $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
-            totalCrhp = Math.max(0, crhpRemuneration - baseCRHPRem) * crhpRate;
-            $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
-            $('.current-crhp-remuneration').val(toMoney.format(totalWages));
-            // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
-            $('.crhp-incremental-rem').val(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
-            $('.crhp-rate').val(toPercent(crhpRate));
-          } else {
-            totalCrhp = 0;
-            $('.crhp-current-rem').text(toMoney.format(0)); 
-            $('.crhp-incremental-rem').text(toMoney.format(0)); 
-            $('.total-calculated-crhp').text(toMoney.format(0)); 
-            $('.crhp-rate').text(toPercent(0)); 
-          }
+        $(".total").html(toMoney.format(eligibleCrhpRemuneration));
+        
+        // if (claimPeriod >= 5) {
+        //   if (claimPeriod > 16) {
+        //     $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
+        //     totalCrhp = Math.max(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+        //     $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
+        //     $('.current-crhp-remuneration').val(toMoney.format(totalWages));
+        //     // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
+        //     $('.crhp-incremental-rem').val(toMoney.format(Math.max(crhpRemuneration - baseCRHPRem, 0)));
+        //     $('.crhp-rate').val(toPercent(crhpRate));
+        //   } else {
+        //     totalCrhp = 0;
+        //     $('.crhp-current-rem').text(toMoney.format(0)); 
+        //     $('.crhp-incremental-rem').text(toMoney.format(0)); 
+        //     $('.total-calculated-crhp').text(toMoney.format(0)); 
+        //     $('.crhp-rate').text(toPercent(0)); 
+        //   }
 
-          var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
-          var totalEmps = $("fieldset[id^='emp-']").length;
-          var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
-          //eligible active employees
-          $(".total-active-emps").val(Math.ceil(eligibleEmps));
-          //get eligible furloughed employees
-          $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
+        //   var numWeeksLeaveWPay = $("input[id*='-cb-']:checked").length;
+        //   var totalEmps = $("fieldset[id^='emp-']").length;
+        //   var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
+        //   //eligible active employees
+        //   $(".total-active-emps").val(Math.ceil(eligibleEmps));
+        //   //get eligible furloughed employees
+        //   $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
 
 
 
           
           
-          // $("#p2c-ee-alt2").trigger("change");
-          if ($("#p2c-ee-alt2").val() == 0) {
-            $("#p3-ei").prop("readonly", true);
-            $("#p3-ei").val("0.00");
-            $("#p3-cpp").prop("readonly", true);
-            $(".p3-ee-req").addClass("hidden");
-            $("#p3-cpp").val("0.00");
-            $(".no-lwp-disclaimer").removeClass("hidden");
-          } else {
-            $("#p3-ei").prop("readonly", false);
-            $("#p3-ei").val("");
-            $("#p3-cpp").prop("readonly", false);
-            $(".p3-ee-req").removeClass("hidden");
-            $("#p3-cpp").val("");
-            $(".no-lwp-disclaimer").addClass("hidden");
-          }
-          // var totalWages = $(".total").attr("data-total-wages");
-          $(".cews-remuneration-total").val(toMoney.format(totalWages));
-          // $("#p2c-pyrl").trigger("change");
-          // var totalCews = $(".total").attr("data-total-cews");
-          $(".total-calculated-cews").val(toMoney.format(totalCews));
-          // $("#p2c-cews").trigger("change");
-          if (claimPeriod < 11) {
-          var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
-          } else {
-          var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
-          revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
-          }
-          $("#p2b-c0").val(revenuePriorDisplay);
-          $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
-          if (claimPeriod < 11) {
-            var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
-          } else {
-            var revenueDisplay = Math.max(0, currentRevReduc * 100);
-            revenueDisplay = revenueDisplay.toFixed(2);
-          }
-          $("#p2b-c1").val(revenueDisplay);
-          $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
-          var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
-          $("#p2b-c2").val(threeMonthRevenueDisplay);
-          $("output[for='p2b-c2']").text(toPercent(threeMonthRevenueDisplay));
-          var cewsRateDisplay = cewsRate * 100;
-          cewsRateDisplay = cewsRateDisplay.toFixed(2);
-          $("#p2b-c3").val(cewsRateDisplay);
-          $("output[for='p2b-c3']").text(toPercent(cewsRateDisplay));
-        } else {
-          $(".cews-remuneration-total").val(toMoney.format(totalWages));
-          $(".total-calculated-cews").val(toMoney.format(totalCews));
-        }
-        var eligibleEmployees = $("fieldset[id^='emp-']").length;
-        for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
-          if ($("#emp-smry-" + i).hasClass("hidden")) {
-            eligibleEmployees--;
-          }
-        }
-        $(".total-eligible-emps").text(Math.ceil(eligibleEmployees));
-        // for (var i = 1; i < (numEmployeePanels + 1); i++) {
-        //   $("#wkone-" + i).blur();
-        //   $("#wktwo-" + i).blur();
-        //   $("#wkthree-" + i).blur();
-        //   $("#wkfour-" + i).blur();
+        //   // $("#p2c-ee-alt2").trigger("change");
+        //   if ($("#p2c-ee-alt2").val() == 0) {
+        //     $("#p3-ei").prop("readonly", true);
+        //     $("#p3-ei").val("0.00");
+        //     $("#p3-cpp").prop("readonly", true);
+        //     $(".p3-ee-req").addClass("hidden");
+        //     $("#p3-cpp").val("0.00");
+        //     $(".no-lwp-disclaimer").removeClass("hidden");
+        //   } else {
+        //     $("#p3-ei").prop("readonly", false);
+        //     $("#p3-ei").val("");
+        //     $("#p3-cpp").prop("readonly", false);
+        //     $(".p3-ee-req").removeClass("hidden");
+        //     $("#p3-cpp").val("");
+        //     $(".no-lwp-disclaimer").addClass("hidden");
+        //   }
+        //   // var totalWages = $(".total").attr("data-total-wages");
+        //   $(".cews-remuneration-total").val(toMoney.format(totalWages));
+        //   // $("#p2c-pyrl").trigger("change");
+        //   // var totalCews = $(".total").attr("data-total-cews");
+        //   $(".total-calculated-cews").val(toMoney.format(totalCews));
+        //   // $("#p2c-cews").trigger("change");
+        //   if (claimPeriod < 11) {
+        //   var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
+        //   } else {
+        //   var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
+        //   revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
+        //   }
+        //   $("#p2b-c0").val(revenuePriorDisplay);
+        //   $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
+        //   if (claimPeriod < 11) {
+        //     var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
+        //   } else {
+        //     var revenueDisplay = Math.max(0, currentRevReduc * 100);
+        //     revenueDisplay = revenueDisplay.toFixed(2);
+        //   }
+        //   $("#p2b-c1").val(revenueDisplay);
+        //   $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
+        //   var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
+        //   $("#p2b-c2").val(threeMonthRevenueDisplay);
+        //   $("output[for='p2b-c2']").text(toPercent(threeMonthRevenueDisplay));
+        //   var cewsRateDisplay = cewsRate * 100;
+        //   cewsRateDisplay = cewsRateDisplay.toFixed(2);
+        //   $("#p2b-c3").val(cewsRateDisplay);
+        //   $("output[for='p2b-c3']").text(toPercent(cewsRateDisplay));
+        // } else {
+        //   $(".cews-remuneration-total").val(toMoney.format(totalWages));
+        //   $(".total-calculated-cews").val(toMoney.format(totalCews));
         // }
+        // var eligibleEmployees = $("fieldset[id^='emp-']").length;
+        // for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
+        //   if ($("#emp-smry-" + i).hasClass("hidden")) {
+        //     eligibleEmployees--;
+        //   }
+        // }
+        // $(".total-eligible-emps").text(Math.ceil(eligibleEmployees));
+        // // for (var i = 1; i < (numEmployeePanels + 1); i++) {
+        // //   $("#wkone-" + i).blur();
+        // //   $("#wktwo-" + i).blur();
+        // //   $("#wkthree-" + i).blur();
+        // //   $("#wkfour-" + i).blur();
+        // // }
 
 
-        if (claimPeriod > 16 && totalCrhp > totalCews) {
-          $("#details-panel2-lnk").focus(); //default select the CRHP tab
-          $('.subsidy-to-apply-for').text('CRHP');
-          $('.subsidy-for-information').text('CEWS');
-          $('#crhp-fyi-banner').addClass("hidden");
-          $('#cews-fyi-banner').removeClass("hidden");
-          $("#cews-hta").addClass("hidden");
-          $("#crhp-hta").removeClass("hidden");	
-          // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
-          // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
-        } else {
-          $("#details-panel1-lnk").focus();
-          $('.subsidy-to-apply-for').text('CEWS');
-          $('.subsidy-for-information').text('CRHP');
-          $('#crhp-fyi-banner').removeClass("hidden");
-          $('#cews-fyi-banner').addClass("hidden");
-          $("#crhp-hta").addClass("hidden");
-          $("#cews-hta").removeClass("hidden");	
-        }
+        // if (claimPeriod > 16 && totalCrhp > totalCews) {
+        //   $("#details-panel2-lnk").focus(); //default select the CRHP tab
+        //   $('.subsidy-to-apply-for').text('CRHP');
+        //   $('.subsidy-for-information').text('CEWS');
+        //   $('#crhp-fyi-banner').addClass("hidden");
+        //   $('#cews-fyi-banner').removeClass("hidden");
+        //   $("#cews-hta").addClass("hidden");
+        //   $("#crhp-hta").removeClass("hidden");	
+        //   // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
+        //   // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+        // } else {
+        //   $("#details-panel1-lnk").focus();
+        //   $('.subsidy-to-apply-for').text('CEWS');
+        //   $('.subsidy-for-information').text('CRHP');
+        //   $('#crhp-fyi-banner').removeClass("hidden");
+        //   $('#cews-fyi-banner').addClass("hidden");
+        //   $("#crhp-hta").addClass("hidden");
+        //   $("#cews-hta").removeClass("hidden");	
+        // }
       }
        
 
