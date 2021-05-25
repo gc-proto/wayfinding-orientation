@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Calculate your CRHP base remuneration – Canada.ca</title>
+<title>Calculate your CRHP base period remuneration – Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <meta name="robots" content="noindex" />
 <!-- Meta data -->
@@ -154,7 +154,7 @@ fieldset +.buttons {
     });
   </script>
     <main property="mainContentOfPage" class="container">
-    <h1 property="name" id="wb-cont">Calculate your CRHP base remuneration</h1>
+    <h1 property="name" id="wb-cont">Calculate your CRHP base period remuneration</h1>
 
     <div data-wb-urlmapping='{
         "subsidy=cews":
@@ -181,23 +181,23 @@ fieldset +.buttons {
     <h2 class="h3 mrgn-tp-sm">On this page</h2>
     <ul>
         <!-- <li><a href="#h-1">How the calculator helps you</a></li> -->
-        <li><a href="#h-1">When to calculate CRHP base remuneration</a>
-        <li><a href="#h-2">Calculate your base remuneration for the CRHP</a></li>
+        <li><a href="#h-1">When to calculate CRHP base period remuneration</a>
+        <li><a href="#h-2">Calculate your base period remuneration for the CRHP</a></li>
     </ul>
 
-    <h2 id="h-1">When to calculate CRHP base remuneration</h2>
-    <p>If you are eligible for the CRHP, you will need to calculate your base remuneration amount to use in period 17 to 22 calculations.</p>
+    <h2 id="h-1">When to calculate CRHP base period remuneration</h2>
+    <p>If you are eligible for the CRHP, you will need to calculate your base period remuneration amount to use in period 17 to 22 calculations.</p>
     <ul>
         <li><a href="../hiring-program/crhp-who-apply.html">Who can apply for the Canada Recovery Hiring Program</a></li>
     </ul>
-    <p>The CRHP base remuneration is your total eligible remuneration paid to all your active employees (employees not on leave with pay) for the base period of March 14 to April 10, 2021. There is a maximum of $1,129 to the weekly remuneration of an employee that can be included.</p>
+    <p>The CRHP base period remuneration is your total eligible remuneration paid to all your active employees (employees not on leave with pay) for the base period of March 14 to April 10, 2021. There is a maximum of $1,129 to the weekly remuneration of an employee that can be included.</p>
     <p>This amount is <strong>not</strong> the same as the CEWS total remuneration, which includes leave with pay and amounts over $1,129.</p>
     <h3>Only calculate once</h3>
     <p>Because the base period for CRHP remuneration is the same for all claim periods 17 to 22, you only need to calculate this once to use in all your future CRHP calculations.</p>
     <h3>Active eligible employees</h3>
-    <p>In addition to the CRHP base remuneration, you will also need to save the number of active eligible employees (not on leave with pay) during the base period for your future CRHP calculations.</p>
+    <p>In addition to the CRHP base period remuneration, you will also need to save the number of active eligible employees (not on leave with pay) during the base period for your future CRHP calculations.</p>
     
-    <h2 id="h-2">Calculate your base remuneration for the CRHP</h2>
+    <h2 id="h-2">Calculate your base period remuneration for the CRHP</h2>
     <div class="panel-body">
     <div class="row">
         <div class="col-sm-8 col-md-9  mrgn-tp-md">
@@ -388,11 +388,11 @@ fieldset +.buttons {
                 <th>Eligible employees (EE)</th>
                 <th>Arm's length</th>
                 <th>Pre-crisis pay</th>
-                <th>Eligible remuneration for week 1</th>
-                <th>Eligible remuneration for week 2</th>
-                <th>Eligible remuneration for week 3</th>
-                <th>Eligible remuneration for week 4</th>
-                <th>CRHP base remuneration</th>
+                <th>Weekly gross pay for week 1</th>
+                <th>Weekly gross pay for week 2</th>
+                <th>Weekly gross pay for week 3</th>
+                <th>Weekly gross pay for week 4</th>
+                <th>CRHP base period remuneration</th>
                 </tr>
             </thead>
             <tbody>
@@ -436,13 +436,13 @@ fieldset +.buttons {
     <div id="crhp-statement">
         <div class="alert alert-info provisional">
             <p class="text-info"><strong>Save your summary for period 17 to 22 calculations:</strong></p>
-            <p>Print and keep the record of the CRHP base remuneration amount to use in all calculations of the CRHP.</p>
+            <p>Print and keep the record of the CRHP base period remuneration amount to use in all calculations of the CRHP.</p>
             <p>Once you have saved your CRHP base period remuneration and active eligible employees, you can return to <a href="how-much.html">calculate your CEWS or CRHP</a>.</p>
         </div>
 <!-- 
         <div class="p14-crhp well text-muted mrgn-tp-md hidden">
-            <h3 class="mrgn-tp-0">CRHP base remuneration to use in periods 17 to 22</h3>
-            <p>Your <strong>base remuneration for the CRHP</strong> is <span class="p14-base-crhp-rem h4">$0</span></p>
+            <h3 class="mrgn-tp-0">CRHP base period remuneration to use in periods 17 to 22</h3>
+            <p>Your <strong>base period remuneration for the CRHP</strong> is <span class="p14-base-crhp-rem h4">$0</span></p>
             <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on leave with pay) during the CRHP base period.</p>
             <p>You only need to calculate this once for all future CRHP calculations.</p>
         </div> -->
@@ -1795,16 +1795,16 @@ fieldset +.buttons {
             } 
           }
           //get the weekly cews; if it's not an int or float, use 0
-          weeklyCews[i] = getWeeklyCEWS(armsLength, baselineWage, zeroIfEmpty(unformattedValue[i]), paidLeave);
-          if (!isInt(weeklyCews[i]) && !isFloat(weeklyCews[i])) {
-            weeklyCews = 0;
-          }
+        //   weeklyCews[i] = getWeeklyCEWS(armsLength, baselineWage, zeroIfEmpty(unformattedValue[i]), paidLeave);
+        //   if (!isInt(weeklyCews[i]) && !isFloat(weeklyCews[i])) {
+        //     weeklyCews = 0;
+        //   }
           //format and update the targets using localized currency format
           var formattedVal = toMoney.format(crhpRem[i]);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
           $(updatedByElements).each(function (j, element) {
-            $(element).text(formattedVal);
+            $(element).text(toMoney.format(unformattedValue[i]));
           });
         }
         // update the total
