@@ -988,17 +988,10 @@ fieldset +.buttons {
             
             <div class="hidden" id="crhp-base-q1">
               <h3>Enter your CRHP base period remuneration</h3>
+              <p><a class="wb-lbx" role="button" aria-controls="crhp-rem-definition" href="#crhp-rem-definition">CRHP base period remuneration <span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
               <div class="provisional alert alert-info">
-                <h3 class="h4">CRHP base period remuneration</h3>
-                <p>The CRHP base period remuneration is:</p>
-                <ul>
-                  <li>the total eligible remuneration paid to all your active employees (not on leave with pay)</li>
-                  <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
-                  <li>limited to $1,129 per week, per employee</li>
-                  <li>employees not at arm's length are further limited to the lower of their weekly or pre-crisis remuneration</li>
-                </ul>
-                <!-- <p>This is <strong>not</strong> the same as the CEWS total remuneration and was not provided as part of your CEWS period 14 summary, unless you calculated for period 14 after the latest update on <mark>date the calculator updated</mark></p> -->
-                <p>If you have not calculated the CRHP base period remuneration yet:</p>
+                <h3 class="h4">Calculate your CRHP base period remuneration</h3>
+                <p class="mrgn-tp-md">If you have not yet calculated the CRHP base period remuneration:</p>
                 <ol>
                   <li>Use the <a target="_blank" href="how-much-crhp-base.html">CRHP base period remuneration <span class="nowrap">calculator <span class="far fa-window-restore mrgn-lft-sm"></span></span></a></li>
                   <li>Once you're done, <strong>save your CRHP base period remuneration summary</strong>.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
@@ -1474,13 +1467,13 @@ fieldset +.buttons {
                     <li>Your <strong>current period revenue drop</strong> is <span class="currentRevReduction h4">0%</span></li>
                     <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction h4">0%</span></li>
                     <div class="safe-harbour-hide">
-                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(your revenue drop x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is <span class="top-up-rate h4">0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></p>
+                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is <span class="top-up-rate h4">0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></p>
                       <p class="less-than-10-drop hidden">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
                     </div>
                     <div class="p8-plus hidden">
                       <li>Your <strong>higher base revenue drop</strong> is <span class="rev-reduc-base h4">0%</span></li>
                       <li class="brdr-bttm">Your <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up h4">0%</span></li>
-                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher">0%</span>, your top-up rate is calculated as (your revenue drop - 50%) x <span class="scaleTopUp">0</span>, <span class="h4 mrgn-tp-0 top-up-rate">0%</span></p>
+                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher">0%</span>, your top-up rate is calculated as (your top up revenue drop - 50%) x <span class="scaleTopUp">0</span>), <span class="h4 mrgn-tp-0 top-up-rate">0%</span></p>
                     </div>
                     <div class="p7-and-before">
                       <p class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up h4">0%</span><span class="safe-harbour-hide">, your top-up rate is calculated as (your revenue drop - 50%) x <span class="scaleTopUp"></span>, <span class="h4 mrgn-tp-0 top-up-rate">0%</span></span></p>
@@ -2941,6 +2934,29 @@ End of results//-->
   </div>
   <div class="modal-footer hidden"> </div>
 </section>
+<section id="crhp-rem-definition" class="mfp-hide modal-dialog modal-content overlay-def">
+  <header class="modal-header">
+    <h2 class="modal-title">CRHP baseline remuneration</h2>
+  </header>
+  <div class="modal-body">
+    <h3 class="mrgn-tp-sm">Baseline revenue and prior reference period options</h3>
+    <div> 
+      <!-- data-ajax-replace="../wage-subsidy/how-much-reduction.html #basebaselinecalc-cntnt"> -->
+      <p>The CRHP base period remuneration is:</p>
+      <ul>
+        <li>the total eligible remuneration paid to all your active employees (not on leave with pay)</li>
+        <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
+        <li>limited to $1,129 per week, per employee</li>
+        <li>employees not at arm's length are further limited to the lower of their weekly or pre-crisis remuneration</li>
+      </ul>
+      <p>This is <strong>not</strong> the same as the CEWS total remuneration and was not provided as part of your CEWS period 14 summary, unless you calculated for period 14 after the latest update on <mark>date the calculator updated</mark></p>
+    </div>
+    <!-- <details>
+      <summary>Example: Choosing a revenue comparison option</summary>
+      <div data-ajax-replace="../wage-subsidy/how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
+    </details> -->
+  </div>
+</section>
 <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
     <h2 class="modal-title">Compare the baseline revenue options</h2>
@@ -3513,6 +3529,9 @@ $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
         $(".crhp-eligible").removeClass("hidden");
         $(".p18-plus").addClass("hidden");
         $(".p17-only").addClass("hidden");
+        $(".p18-only").addClass("hidden");
+        $(".p19-only").addClass("hidden");
+        $(".p20-only").addClass("hidden");
         $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
 
@@ -3576,6 +3595,7 @@ $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
+            $(".p20-only").removeClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
@@ -3595,7 +3615,8 @@ $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             break;
           case 19:
-            $(".p18-plus").removeClass("hidden"); 
+            $(".p18-plus").removeClass("hidden");
+            $(".p19-only").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
@@ -3618,6 +3639,7 @@ $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             break;
           case 18:
+            $(".p18-only").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
