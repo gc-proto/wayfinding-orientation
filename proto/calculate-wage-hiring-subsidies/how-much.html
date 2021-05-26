@@ -987,21 +987,75 @@ fieldset +.buttons {
             </fieldset>
             
             <div class="hidden" id="crhp-base-q1">
-              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-                <legend class="small required"><span class="field-name">Have you already calculated the CRHP base period remuneration?</span> <strong class="required">(required)</strong></legend>
-                <div class="provisional alert alert-info">
-                  <h3 class="h4">CRHP base period remuneration</h3>
-                  <p>The CRHP base period remuneration is:</p>
-                  <ul>
-                    <li>the total eligible remuneration paid to all your active employees (not on leave with pay)</li>
-                    <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
-                    <li>limited to $1,129 per week, per employee</li>
-                  </ul>
-                  <p>This is <strong>not</strong> the same as the CEWS total remuneration and was not provided as part of your CEWS period 14 summary, unless you calculated for period 14 after the latest update on <mark>date the calculator updated</mark></p>
-                  <!-- <ul class="list-unstyled mrgn-lft-lg"> -->
-                    <p class="mrgn-tp-sm"><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></p>
-                  <!-- </ul> -->
+              <h3>Enter your CRHP base period remuneration</h3>
+              <div class="provisional alert alert-info">
+                <h3 class="h4">CRHP base period remuneration</h3>
+                <p>The CRHP base period remuneration is:</p>
+                <ul>
+                  <li>the total eligible remuneration paid to all your active employees (not on leave with pay)</li>
+                  <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
+                  <li>limited to $1,129 per week, per employee</li>
+                  <li>employees not at arm's length are further limited to the lower of their weekly or pre-crisis remuneration</li>
+                </ul>
+                <!-- <p>This is <strong>not</strong> the same as the CEWS total remuneration and was not provided as part of your CEWS period 14 summary, unless you calculated for period 14 after the latest update on <mark>date the calculator updated</mark></p> -->
+                <p>If you have not calculated the CRHP base period remuneration yet:</p>
+                <ol>
+                  <li>Use the <a target="_blank" href="how-much-crhp-base.html">CRHP base period remuneration <span class="nowrap">calculator <span class="far fa-window-restore mrgn-lft-sm"></span></span></a></li>
+                  <li>Once you're done, <strong>save your CRHP base period remuneration summary</strong>.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
+                  <li>Enter the amount below and continue your calculation for <span class="claim-period"></span>.</li>
+                </ol>
+              </div>
+                <!-- <ul class="list-unstyled mrgn-lft-lg"> -->
+                  <!-- <p class="mrgn-tp-sm"><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></p> -->
+                <!-- </ul> -->
+              <div class="" id="crhp-base-input">
+                <div class="form-group row">
+                  <fieldset>
+                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                      </div>
+                    </div>
+                    <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> 
+                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                      </div>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="small">This is the same as line A of your period 14 CEWS application.</p>
+                    </div>
+                  </fieldset>
                 </div>
+                <a class="btn btn-default">Update your base remuneration</a>
+              </div>
+            </div>
+
+              <!-- <div class="form-group row">
+                <fieldset>
+                  <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                  <div class="col-sm-3">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                    </div>
+                  </div>
+                  <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                  <div class="col-sm-3">
+                    <div class="input-group"> 
+                      <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="small">This is the same as line A of your period 14 CEWS application.</p>
+                  </div>
+                </fieldset>
+              </div>
+              <a class="btn btn-default">Update your base remuneration</a>
+            </div> -->
+              <!-- <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+                <legend class="small required"><span class="field-name">Have you already calculated the CRHP base period remuneration?</span> <strong class="required">(required)</strong></legend>
+                
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="crhp-base-ready" value="Yes" id="crhp-base-yes" class="valid" aria-invalid="false" required="required">
@@ -1012,8 +1066,8 @@ fieldset +.buttons {
                     <label for="crhp-base-no">No</label>
                   </li>
                 </ul>
-              </fieldset>
-
+              </fieldset> -->
+<!-- 
               <div class="hidden" id="crhp-base-q2">
                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
                   <legend class="small required"><span class="field-name">Did you use CRA's online calculator for CEWS in period 14 and save your downloaded employee-by-employee information? (.CSV file type)</span> <strong class="required">(required)</strong></legend>
@@ -1058,44 +1112,11 @@ fieldset +.buttons {
                     <li>if you are using a French CSV, you are using the French version of this calculator</li>
                   </ul>
                   <p>Correct the CSV file and try again, or calculate your CRHP remuneration for the base period using the method below.</p>
-                 </div>
+                 </div> -->
 
-                <div class="hidden" id="crhp-base-manual">
-                  <h3>Calculate your CRHP base period remuneration</h3>
-                  <p>To calculate your CRHP base period remuneration and active eligible employees:</p>
-                  <ol>
-                    <li>Use the <a target="_blank" href="how-much-crhp-base.html">CRHP base period remuneration <span class="nowrap">calculator <span class="far fa-window-restore mrgn-lft-sm"></span></span></a></li>
-                    <li>Once you're done, <strong>save your CRHP base period remuneration summary</strong>.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
-                    <li>Enter the amount below and continue your calculation for <span class="claim-period"></span>.</li>
-                  </ol>
-                </div>
-              </div>
-  
-              <div class="hidden" id="crhp-base-input">
-                <div class="form-group row">
-                  <fieldset>
-                    <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14 to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
-                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                    <div class="col-sm-3">
-                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
-                      </div>
-                    </div>
-                    <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                    <div class="col-sm-3">
-                      <div class="input-group"> 
-                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
-                      </div>
-                    </div>
-                    <div class="col-sm-9">
-                      <p class="small">This is the same as line A of your period 14 CEWS application.</p>
-                    </div>
-                  </fieldset>
-                </div>
-                <a class="btn btn-default">Update your base remuneration</a>
-              </div>
-
-            </div>
+                <!-- <div class="hidden" id="crhp-base-manual"> -->
+                  
+              <!-- </div> -->
 
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
               <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
@@ -4676,28 +4697,30 @@ $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
               calculateTotals(); //Or maybe 'clear chrp'?
             }
             $('#crhp-eligibility-summary').removeClass('hidden');
-          } else if (target.name == "crhp-base-ready") {
-            if (target.id == "crhp-base-yes") {
-              $('#crhp-base-q2').addClass("hidden");
-              $('#crhp-base-input').removeClass("hidden");
-              calculateTotals();
-            } else {
-              $('#crhp-base-q2').removeClass("hidden");
-              $('#crhp-base-input').addClass("hidden");
-              calculateTotals(); //Or maybe 'clear chrp'?
-            }
-          } else if (target.name == "crhp-csv") {
-            if (target.id == "crhp-csv-yes") {
-              $('#crhp-base-csv').removeClass("hidden");
-              $('#crhp-base-manual').addClass("hidden");
-              $('#crhp-base-input').addClass("hidden");
-              calculateTotals();
-            } else {
-              $('#crhp-base-csv').addClass("hidden");
-              $('#crhp-base-manual').removeClass("hidden");
-              $('#crhp-base-input').removeClass("hidden");
-              calculateTotals(); //Or maybe 'clear chrp'?
-            }
+          // } else if (target.name == "crhp-base-ready") {
+          //   if (target.id == "crhp-base-yes") {
+          //     // $('#crhp-base-q2').addClass("hidden");
+          //     $('#crhp-base-manual').addClass("hidden");
+          //     $('#crhp-base-input').removeClass("hidden");
+          //     calculateTotals();
+          //   } else {
+          //     // $('#crhp-base-q2').removeClass("hidden");
+          //     $('#crhp-base-manual').removeClass("hidden");
+          //     $('#crhp-base-input').addClass("hidden");
+          //     calculateTotals(); //Or maybe 'clear chrp'?
+          //   }
+          // } else if (target.name == "crhp-csv") {
+          //   if (target.id == "crhp-csv-yes") {
+          //     $('#crhp-base-csv').removeClass("hidden");
+          //     $('#crhp-base-manual').addClass("hidden");
+          //     $('#crhp-base-input').addClass("hidden");
+          //     calculateTotals();
+          //   } else {
+          //     $('#crhp-base-csv').addClass("hidden");
+          //     $('#crhp-base-manual').removeClass("hidden");
+          //     $('#crhp-base-input').removeClass("hidden");
+          //     calculateTotals(); //Or maybe 'clear chrp'?
+          //   }
           }
         }
       });
