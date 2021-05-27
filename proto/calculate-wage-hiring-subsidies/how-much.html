@@ -1170,7 +1170,7 @@ fieldset +.buttons {
                     commas,</strong> or a <strong>dollar sign</strong></p>
                   <div class="row">
                     <div class="col-md-6 brdr-rght">
-                      <p><strong>Prior year revenue</strong></p>
+                      <p><strong>Pre-crisis revenue</strong></p>
                       <div class="form-group row">
                         <label class="col-sm-6 control-label" for="2019-03-no">March 2019<span class="wb-inv"> (do not include a
                           dollar sign, spaces or commas)</span></label>
@@ -1276,6 +1276,15 @@ fieldset +.buttons {
                         <div class="col-sm-6">
                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
                             <input type="number" class="form-control text-right cews-rate-calc currency"     name="2020-02-no" id="2020-02-no" size="10" placeholder="0.00">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2019-03-2-no">March 2019 (pre-crisis)<span class="wb-inv"> (do not include a
+                          dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cews-rate-calc currency" name="2019-03-2-no" id="2019-03-2-no" size="10" placeholder="0.00">
                           </div>
                         </div>
                       </div>
@@ -3526,6 +3535,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $("#2020-04-no").closest("div.form-group").addClass("hidden");
         $("#2019-04-no").closest("div.form-group").addClass("hidden");
         $("#2019-03-no").closest("div.form-group").addClass("hidden");
+        $("#2019-03-2-no").closest("div.form-group").addClass("hidden");
         $("#cal-sprdsht-p1-4").addClass("hidden");
         $("#cal-sprdsht-none").addClass("hidden");
         $("#cal-sprsht-p5").addClass("hidden");
@@ -3756,7 +3766,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2021-03-yes").closest("div.form-group").removeClass("hidden");
             $("#2021-02-yes").closest("div.form-group").removeClass("hidden");
             $("#2021-03-no").closest("div.form-group").removeClass("hidden");
-            $("#2019-03-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-03-2-no").closest("div.form-group").removeClass("hidden");
             $("#2021-02-no").closest("div.form-group").removeClass("hidden");
             $("#2020-02-no").closest("div.form-group").removeClass("hidden");
             break;
@@ -4867,6 +4877,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
+        if (claimPeriod == 13) { //use the other March 2019 input - display order swap
+          months2019Array[0] = months2019Array[0] + '-2';
+        }
         //get the previous month from the claim month
         var prevClaimMonth = claimMonth - 1;
         if (
