@@ -123,8 +123,8 @@ fieldset +.buttons {
 	margin-bottom: 0;
 }
 }
-.prev-wb-step
-	{cursor: pointer; touch-action: manipulation; user-select:none; text-decoration-line: underline;}
+.prev-wb-step .btn-lgnd
+	{ margin: 1px; text-decoration-line: underline;}
 .prev-wb-step:focus, .prev-wb-step:hover
 	{color: #0535d2;}	
 .prev-wb-step:focus 
@@ -964,6 +964,9 @@ fieldset +.buttons {
             <p class="mrgn-tp-lg">The CRHP is only available starting in claim period 17.</p>
             <p>Continue to the next step to calculate the CEWS.</p>
           </div>
+	<div class="col-sm-4 col-md-3">
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
+          </div>	
         </div>
         <div class="row" id="crhp-questions">
           <div class="col-sm-8 col-md-9">
@@ -1124,7 +1127,7 @@ fieldset +.buttons {
 
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Step 1</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
           </div>
         </div>
       </div>
@@ -1455,7 +1458,7 @@ fieldset +.buttons {
                           dollar sign, spaces or commas)</span></label>
                         <div class="col-sm-6">
                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                            <input type="number" class="form-control text-right cews-rate-calc currency"     name="2021-11-no" id="2021-11-no" size="10" placeholder="0.00">
+                            <input type="number" class="form-control text-right cews-rate-calc currency"  name="2021-11-no" id="2021-11-no" size="10" placeholder="0.00">
                           </div>
                         </div>
                       </div>
@@ -1761,7 +1764,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 and 2</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 and 2</span></a></p>
           </div>
         </div>
       </div>
@@ -1937,7 +1940,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 to 3</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
           </div>
         </div>
         <section id="ee-calculation-table" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
@@ -2064,7 +2067,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 to 4</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 4</span></a></p>
           </div>
         </div>
       </div>
@@ -3045,21 +3048,23 @@ End of results//-->
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> 
 <!--Scripts by CXO149 May 2021 //--> 
 <script>
-	$(document).on("click", ".steps-wrapper button", function (event) {
-			
-$("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").addClass("prev-wb-step");			
-$("legend.wb-steps-active").parents().nextAll().find("legend.panel-heading").removeClass("prev-wb-step");	
-	$("legend.wb-steps-active").removeClass("prev-wb-step");	 	
+$(document).on("click", ".steps-wrapper button", function (event) {
+	$("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").addClass("prev-wb-step");			
+	$("legend.wb-steps-active").parents().nextAll().find("legend.panel-heading").removeClass("prev-wb-step");	
+	$("legend.wb-steps-active").removeClass("prev-wb-step").attr("tabindex", "0");
+	$("legend:not(.wb-steps-active)").attr("tabindex", "-1");
+	//wrap with button
+	$("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").wrapInner("<button class='btn-link p-0 btn-lgnd' type='button'></button>");
+	$("fieldset legend.wb-steps-active").nextAll().addBack().find('.btn-lgnd').contents().unwrap();
+	$(".btn-lgnd .btn-lgnd").contents().unwrap(); 
 });
 $(document).on("click", ".prev-wb-step", function (event) { 
-$(this).addClass("wb-steps-active").removeClass("prev-wb-step");
-	
+	$(this).addClass("wb-steps-active").removeClass("prev-wb-step");
 	$(this).parent().parent().find("legend + div.panel-body.hidden, .buttons").removeClass("hidden");
 	$("legend.wb-steps-active").parents().nextAll().find(".wb-steps-active, legend.prev-wb-step").removeClass("wb-steps-active prev-wb-step");	
 	$("legend.wb-steps-active").parents().nextAll().find("legend + div.panel-body, .buttons").addClass("hidden");	
-	
 });		
-		</script>	
+</script>	
 <script>
     /**
      * EmployeeFormGenerator class
