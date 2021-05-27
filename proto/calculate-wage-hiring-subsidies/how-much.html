@@ -123,6 +123,12 @@ fieldset +.buttons {
 	margin-bottom: 0;
 }
 }
+.prev-wb-step
+	{cursor: pointer; touch-action: manipulation; user-select:none; text-decoration-line: underline;}
+.prev-wb-step:focus, .prev-wb-step:hover
+	{color: #0535d2;}	
+.prev-wb-step:focus 
+	{outline: 5px auto; outline-offset: -2px;}	
 </style>
 </head>
 
@@ -135,7 +141,7 @@ fieldset +.buttons {
       lngLinks: [{
 
         lang: "fr",
-        href: "../wage-subsidy2/cews-how-much-mt-fr.html",
+        href: "../wage-subsidy/cews-how-much-mt-fr.html",
         text: "Français"
       }],
       breadcrumbs: [{
@@ -207,7 +213,7 @@ fieldset +.buttons {
 </ol>
 <p>You can currently use the calculator for claim periods 1 to . More periods will be added as they become available. </p>
 <p>The calculator has been updated to include <a href="cews-what-changes.html">changes to the period 8 to 10 top-up calculation finalized on November 17th</a>. It automatically applies the best subsidy rate you qualify for (including applying any safe harbour and deeming rules) based on information you enter. </p>
-<p>To understand the math behind the wage subsidy calculation, refer to <a href="../wage-subsidy2/cews-how-much-version-math.html">how the subsidy is calculated</a>.</p> -->
+<p>To understand the math behind the wage subsidy calculation, refer to <a href="../wage-subsidy/cews-how-much-version-math.html">how the subsidy is calculated</a>.</p> -->
 
   <h2 id="h-2">Before you start the calculation</h2>
   <p class="lead">Check these boxes to confirm you are prepared before you start your calculations:</p>
@@ -217,8 +223,8 @@ fieldset +.buttons {
         <input type="checkbox" id="bfore1" class="action-checkbox">
         <label for="bfore1">You are an eligible employer during this claim period</label>
         <ul class="mrgn-lft-lg list-unstyled">
-          <li><a href="../wage-subsidy2/cews-who-apply.html">Who can apply for CEWS</a></li>
-		<li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
+          <li><a href="../wage-subsidy/cews-who-apply.html">Who can apply for CEWS</a></li>
+          <li><a href="../hiring-program/crhp-who-apply.html">Who can apply for CRHP</a></li>
         </ul>
       </li>
       <li class="checkbox">
@@ -230,8 +236,8 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You know which of your employees are eligible for this claim period</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
-		<li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
+              <li><a href="../wage-subsidy/cews-who-employees.html">Which of your employees qualify for CEWS</a></li>
+              <li><a href="../hiring-program/crhp-who-employees.html">Which of your employees qualify for CRHP</a></li>
             </ul>
           </div>
           <div class="cnjnctn-col">
@@ -239,7 +245,7 @@ fieldset +.buttons {
               <label for="bfore2" class="p-0">You have access to their pay information</label>
             </p>
             <ul class="mrgn-lft-lg list-unstyled">
-              <li><a href="../wage-subsidy2/cews-who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
+              <li><a href="../wage-subsidy/cews-who-employees.html#h-2">Determining employee pay (eligible remuneration)</a></li>
             </ul>
           </div>
         </div>
@@ -352,7 +358,7 @@ fieldset +.buttons {
 </div>
 <div id="cews-cal-opt1" class="hidden" aria-live="polite">
   <p class="h4 mrgn-tp-0">Calculation spreadsheet </p>
-  <div class="alert alert-warning provisional">
+  <div class="alert alert-info provisional">
     <p>All claim period spreadsheets now include every calculation field needed to proceed directly to the application form. Using the online calculator after you use the spreadsheet to finalize your claim amount is no longer required.</p>
     <p>Please check that you made your calculations with the most recent version.</p>
   </div>
@@ -363,32 +369,87 @@ fieldset +.buttons {
         <ul>
           <li>CEWS and CRHP
             <ul>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p17", "live": true}'>Period 17: June 6 to July 3, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p17", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 17: June 6 to July 3, 2021</li>
             </ul>
           </li>
           <li>CEWS only
             <ul>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 16: May 9 to June 5, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 15: April 11 to May 8, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 14: March 14 20 to April 10, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 13: February 14 to March 13, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 12: January 17 to February 13, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true}'>Period 11: December 20, 2020, to January 16, 2021</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p9", "live": true}'>Period 10: November 22 to December 19, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p9", "live": true}'>Period 9: October 25 to November 21, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p7", "live": true}'>Period 8: September 27 to October 24, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p7", "live": true}'>Period 7: August 30 to September 26, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p5", "live": true}'>Period 6: August 2 to August 29, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprsht-p5", "live": true}'>Period 5: July 5 to August 1, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true}'>Period 4: June 7 to July 4, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true}'>Period 3: May 10 to June 6, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true}'>Period 2: April 12 to May 9, 2020</li>
-              <li data-wb-fieldflow='{"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true}'>Period 1: March 15 to April 11, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 16: May 9 to June 5, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 15: April 11 to May 8, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 14: March 14 20 to April 10, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 13: February 14 to March 13, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 12: January 17 to February 13, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p11", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 11: December 20, 2020, to January 16, 2021</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p9", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": false}
+              ]'>Period 10: November 22 to December 19, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p9", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 9: October 25 to November 21, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p7", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 8: September 27 to October 24, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprsht-p7", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 7: August 30 to September 26, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true},
+                {"action": "toggle", "toggle": "#cal-sprsht-p5", "live": true}
+              ]'>Period 6: August 2 to August 29, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true},
+                {"action": "toggle", "toggle": "#cal-sprsht-p5", "live": true}
+              ]'>Period 5: July 5 to August 1, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 4: June 7 to July 4, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 3: May 10 to June 6, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 2: April 12 to May 9, 2020</li>
+              <li data-wb-fieldflow='[
+                {"action": "toggle", "toggle": "#cal-sprdsht-p1-4", "live": true},
+                {"action": "toggle", "toggle": "#spreadsheet-nolongeravailable", "live": true}
+              ]'>Period 1: March 15 to April 11, 2020</li>
             </ul>
           </li>
         </ul>
       </div>
     </form>
+  </div>
+  <div class="provisional alert alert-danger hidden" id="spreadsheet-nolongeravailable">
+    <p>This period is closed. <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-after-apply.html#change-1" target="_blank">Read more about application deadlines<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
+    <p>The calculator for this period is available for information purposes only.</p>
   </div>
   <div id="cal-sprdsht-none">
     <p class="mrgn-bttm-0">
@@ -404,7 +465,7 @@ fieldset +.buttons {
       <div class="table-responsive">
         <table class="table small">
           <caption class="wb-inv">
-          Version updates for the spreadsheet for period 11 to 16
+          Version updates for the spreadsheet for period 17 to 22
           </caption>
           <thead>
             <tr>
@@ -574,7 +635,7 @@ fieldset +.buttons {
               <td class="nowrap">Version<br class="visible-xs">
                 2020-5</td>
               <td><ul>
-                  <li>Updated list formatting on row 8 for paid leave</li>
+                  <li>Updated list formatting on row 8 for leave with pay</li>
                 </ul></td>
             </tr>
             <tr>
@@ -834,6 +895,12 @@ fieldset +.buttons {
     <p>The claim amount of WRL or EBL will need to be manually reduced by a total of $128 so
       that the total CEWS amount related to Mary does not exceed the $847 maximum for that week. </p>
   </details>
+  <h3>How to apply</h3>
+  <p>Once you have completed the spreadsheet calculations and have determined which subsidy to apply for:</p>
+  <ul>
+    <li><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/cews-how-apply.html">Apply for the CEWS</a></li>
+    <li><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/crhp-how-apply.html">Apply for the CRHP</a></li>
+  </ul>
 </div>	
 <div id="cal-calc" class="hidden"  aria-live="polite">
 <details>
@@ -847,7 +914,7 @@ fieldset +.buttons {
 <div class="wb-frmvld provisional wb-steps">
   <form action="#" method="get" id="steps-example" class="panel panel-default">
     <fieldset id="claim-period-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title" tabindex="0">Claim period</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Claim period</span></legend>
       <div class="panel-body">
         <div class="form-group">
           <label for="claim-period" class="control-label required mrgn-tp-md"><span class="field-name">Select the period
@@ -855,12 +922,17 @@ fieldset +.buttons {
           <select required id="claim-period" class="form-control input-lg">
             <option value=""> Select a claim period</option>
             <optgroup label="CEWS or CRHP">
-              <option data-claim-period="17" value="2021-06-06--2021-0703">Period 17: June 6 to July 3, 2021</option>
+              <!-- <option data-claim-period="22" value="2021-10-24--2021-11-20">Period 22: October 24 to November 11, 2021</option>
+              <option data-claim-period="21" value="2021-09-26--2021-10-23">Period 21: September 26 to October 23, 2021</option>
+              <option data-claim-period="20" value="2021-08-29--2021-09-25">Period 20: August 29 to September 25, 2021</option>
+              <option data-claim-period="19" value="2021-08-01--2021-08-22">Period 19: August 1 to August 28, 2021</option>
+              <option data-claim-period="18" value="2021-07-04--2021-07-31">Period 18: July 4 to July 31, 2021</option> -->
+              <option data-claim-period="17" value="2021-06-06--2021-07-03">Period 17: June 6 to July 3, 2021</option>
             </optgroup>
             <optgroup label="CEWS">
               <option data-claim-period="16" value="2021-05-09--2021-06-05">Period 16: May 9 to June 5, 2021</option>
               <option data-claim-period="15" value="2021-04-11--2021-05-08">Period 15: April 11 to May 8, 2021</option>
-              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14 to April 10, 2021 (remuneration for CRHP)</option>
+              <option data-claim-period="14" value="2021-03-14--2021-04-10">Period 14: March 14 to April 10, 2021</option>
               <option data-claim-period="13" value="2021-02-14--2021-03-13">Period 13: February 14 to March 13, 2021</option>
               <option data-claim-period="12" value="2021-01-17--2021-02-13">Period 12: January 17, to February 13, 2021</option>
               <option data-claim-period="11" value="2020-12-20--2021-01-16">Period 11: December 20, 2020, to January 16, 2021</option>
@@ -877,10 +949,14 @@ fieldset +.buttons {
             </optgroup>
           </select>
         </div>
+        <div class="provisional alert alert-danger hidden nolongeravailable-1-9">
+          <p>This period is closed. <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-after-apply.html#change-1" target="_blank">Read more about application deadlines<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
+          <p>The calculator for this period is available for information purposes only.</p>
+        </div>
       </div>
     </fieldset>
     <fieldset id="questionaire" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">CRHP eligibility and employee remuneration for the base period</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">CRHP eligibility and employee remuneration for the base period</span></legend>
       <div class="panel-body">
         <div class="row hidden" id="no-crhp-message">
           <div class="col-sm-8 col-md-9">
@@ -895,8 +971,8 @@ fieldset +.buttons {
               <legend class="small required"><span class="field-name">Are you eligible for the Canada Recovery Hiring Program (CRHP)?</span> <strong class="required">(required)</strong></legend>
               <details>
                 <summary>Eligibility requirements for the CRHP</summary>
-                <p>To be eligible for CRHP, you must meet all the eligibility criteria for CEWS. However, you are not eligible for CRHP if you are a corporation, unless you are a Canadian-Controlled Private Corporation (CCPC) or a corporate co-operative that is eligible for the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4012/t2-corporation-income-tax-guide-chapter-4-page-4-t2-return.html#P2862_208254">small business subsidy</a>.</p>
-                <p>For more details, see <a href="../crhp-who-apply.html">Who can apply for CRHP</a>.</p>
+                <p>To be eligible for CRHP, you must meet all the eligibility criteria for CEWS. However, you are not eligible for CRHP if you are a corporation, unless you are a Canadian-Controlled Private Corporation (CCPC) or a corporate co-operative that is eligible for the <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/publications/t4012/t2-corporation-income-tax-guide-chapter-4-page-4-t2-return.html#P2862_208254" target="_Blank">small business subsidy<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
+                <p>For more details, see <a href="../crhp-who-apply.html" target="_Blank">Who can apply for CRHP<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
               </details>
               <ul class="list-unstyled lst-spcd-2">
                 <li class="radio">
@@ -911,11 +987,68 @@ fieldset +.buttons {
             </fieldset>
             
             <div class="hidden" id="crhp-base-q1">
-              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-                <legend class="small required"><span class="field-name">Have you already calculated the total eligible remuneration paid to all your active employees for the base period of March 14 to April 10, 2021 (CRHP base remuneration)?</span> <strong class="required">(required)</strong></legend>
-		                  <ul class="list-unstyled mrgn-lft-lg">
-              <li><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></li>
-            </ul>
+              <h3>Enter your CRHP base period remuneration</h3>
+              <p><a class="wb-lbx" role="button" aria-controls="crhp-rem-definition" href="#crhp-rem-definition">CRHP base period remuneration <span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
+              <div class="provisional alert alert-info">
+                <h3 class="h4">Calculate your CRHP base period remuneration</h3>
+                <p class="mrgn-tp-md">If you have not yet completed a calculation for period 17 or later:</p>
+                <ol>
+                  <li>Use the <a target="_blank" href="how-much-crhp-base.html">CRHP base period remuneration <span class="nowrap">calculator <span class="far fa-window-restore mrgn-lft-sm"></span></span></a></li>
+                  <li>Once you're done, <strong>save your CRHP base period remuneration summary</strong>.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
+                  <li>Enter the amount below and continue your calculation for <span class="claim-period"></span>.</li>
+                </ol>
+              </div>
+                <!-- <ul class="list-unstyled mrgn-lft-lg"> -->
+                  <!-- <p class="mrgn-tp-sm"><a href="#lwp" aria-controls="lwp" class="wb-lbx" role="button">Active employees and employees on leave with pay&nbsp;<span class="far fa-question-circle"></span></a></p> -->
+                <!-- </ul> -->
+              <div class="" id="crhp-base-input">
+                <div class="form-group row">
+                  <fieldset>
+                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                      </div>
+                    </div>
+                    <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> 
+                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                      </div>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="small">This is the same as line A of your period 14 CEWS application.</p>
+                    </div>
+                  </fieldset>
+                </div>
+                <a class="btn btn-default">Update your base remuneration</a>
+              </div>
+            </div>
+
+              <!-- <div class="form-group row">
+                <fieldset>
+                  <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                  <div class="col-sm-3">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
+                    </div>
+                  </div>
+                  <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                  <div class="col-sm-3">
+                    <div class="input-group"> 
+                      <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="small">This is the same as line A of your period 14 CEWS application.</p>
+                  </div>
+                </fieldset>
+              </div>
+              <a class="btn btn-default">Update your base remuneration</a>
+            </div> -->
+              <!-- <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+                <legend class="small required"><span class="field-name">Have you already calculated the CRHP base period remuneration?</span> <strong class="required">(required)</strong></legend>
+                
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="crhp-base-ready" value="Yes" id="crhp-base-yes" class="valid" aria-invalid="false" required="required">
@@ -926,8 +1059,8 @@ fieldset +.buttons {
                     <label for="crhp-base-no">No</label>
                   </li>
                 </ul>
-              </fieldset>
-
+              </fieldset> -->
+<!-- 
               <div class="hidden" id="crhp-base-q2">
                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
                   <legend class="small required"><span class="field-name">Did you use CRA's online calculator for CEWS in period 14 and save your downloaded employee-by-employee information? (.CSV file type)</span> <strong class="required">(required)</strong></legend>
@@ -948,16 +1081,16 @@ fieldset +.buttons {
                 </fieldset>
 
                 <div class="hidden" id="crhp-base-csv">
+
                   <h3>Step 1: Edit the period 14 employee information CSV file to remove any amounts given to employees on paid leave</h3>
                   <p>Employees on paid leave cannot be included in the calculation for the CRHP.</p>
                   <p>If your CEWS claim included some amounts for employees who were on paid leave during the period, you will need to:</p>
 
-			<ol>
-				<li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
-				<li>manually change any amounts that relate to weeks where an employee was on paid leave to $0</li>
-				<li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
-			</ol>
-
+			            <ol>
+				            <li>open the period 14 employee information CSV file on your device (a spreadsheet program works best)</li>
+				            <li>manually change any amounts that relate to weeks where an employee was on paid leave to $0</li>
+				            <li>save the edited CSV file somewhere you will be able to find it for step 2, and for future CRHP claims</li>
+			            </ol>
                   <h3>Step 2: Choose your edited period 14 CSV file from your device</h3>
                   <p>Your remuneration for the CRHP base period will be calculated using the file.</p>
                   <input type="file" id="p14csv" class="form-control" />
@@ -970,60 +1103,28 @@ fieldset +.buttons {
                     <li>you chose the right file</li>
                     <li>the file ends with .csv</li>
                     <li>the file has the same headings and formatting as when you downloaded it</li>
-                    <li>the file does not include any remuneration that was for employees on paid leave</li>
+                    <li>the file does not include any remuneration that was for employees on leave with pay</li>
                     <li>if you are using a French CSV, you are using the French version of this calculator</li>
                   </ul>
                   <p>Correct the CSV file and try again, or calculate your CRHP remuneration for the base period using the method below.</p>
-                 </div>
+                 </div> -->
 
-                <div class="hidden" id="crhp-base-manual">
-                  <h3>Calculate your CRHP base remuneration</h3>
-                  <p>The calculator has been updated as of <mark>[date this page is published]</mark> to calculate your CRHP base remuneration. CRHP base remuneration is the total eligible remuneration you paid to all your active eligible employees during the base period for CRHP (March 14 to April 10, 2021, which is CEWS period 14).</p>
-                  <p>This amount is <strong>not</strong> the same as the CEWS total remuneration. You will need to redo your period 14 calculation to get the CRHP amount.</p>
-                  <ol>
-                    <li>Go back to Step 1 of this calculator and select <strong>Period 14: March 14 to April 10, 2021</strong>.</li>
-                    <li>Complete the calculator for claim period 14, following the instructions for that claim period.</li>
-                    <li><strong>Save your CRHP base remuneration</strong> amount from the final summary.<br />Because the base period for CRHP remuneration is the same for all claim periods, you can use this CRHP base remuneration amount for all your future CRHP calculations.</li>
-                    <li>Enter the amount below and continue your <span class="claim-period"></span> calculation.</li>
-                  </ol>
-                </div>
-              </div>
-  
-              <div class="hidden" id="crhp-base-input">
-                <div class="form-group row">
-                  <fieldset>
-                    <!-- <legend class="small required"><span class="field-name">Enter your base remuneration for the CRHP (March 14 to April 10, 2021)</span> <strong class="required">(required)</strong></legend> -->
-                    <label class="col-sm-12 control-label" for="crhp-base-rem">CRHP base remuneration<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                    <div class="col-sm-3">
-                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency" name="crhp-base-rem" id="crhp-base-rem" size="10" placeholder="0.00">
-                      </div>
-                    </div>
-                    <label class="col-sm-12 control-label" for="crhp-base-active-emps">Eligible active employees for period 14 (line A of your calculation)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                    <div class="col-sm-3">
-                      <div class="input-group"> 
-                        <input type="number" class="form-control text-right" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5" placeholder="0">
-                      </div>
-                    </div>
-                  </fieldset>
-                </div>
-                <a class="btn btn-default">Update your base remuneration</a>
-              </div>
-
-            </div>
+                <!-- <div class="hidden" id="crhp-base-manual"> -->
+                  
+              <!-- </div> -->
 
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
               <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
               <div id="crhp-base-summary">
                 <p>Your <strong>CRHP base remuneration</strong> is <span class="crhp-base-rem h4">$0</span></p>
-                <p>You had <strong><span class="total-active-emps-14">0</span></strong> eligible active employees (employees not on paid leave) during the base period for CRHP remuneration.</p>
+                <p>You had <strong><span class="total-active-emps-14">0</span></strong> eligible active employees (employees not on leave with pay) during the base period for CRHP remuneration.</p>
               </div>
               <p class="hidden" id="crhp-ineligible">Continue to the next step to calculate the CEWS only.</p>
             </div>
 
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Step 1</a></p>
           </div>
         </div>
       </div>
@@ -1032,15 +1133,21 @@ fieldset +.buttons {
 	  <!--EDITING PAUSED HERE-->
 
     <fieldset id="rev-drop-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Revenue drop and subsidy rate</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Revenue drop and subsidy rate</span></legend>
       <div class="panel-body">
         <div class="row">
-          <div class="col-sm-8 col-md-9  mrgn-tp-md">
+          <div class="col-sm-8 col-md-9 mrgn-tp-md p14">
+            <div class="provisional alert alert-info">
+              <h3>To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
+              <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4>"></p>
+            </div>
+          </div>
+          <div class="col-sm-8 col-md-9 mrgn-tp-md p59">
             <div class="cal-calc">
-              <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">Compare the pre-crisis revenue <span class="nowrap">options<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
                 <legend class="small required" ><span class="field-name">Which pre-crisis revenue comparison option will you use for this claim?</span> (You must use the same option as other CEWS, CERS, and CRHP claims.) <strong class="required">(required)</strong></legend>
                 <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
+                <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">Compare the pre-crisis revenue <span class="nowrap">options<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false" required="required">
@@ -1355,23 +1462,23 @@ fieldset +.buttons {
                     </div>
                   </div>
                 </fieldset>
+                <a class="btn btn-default">Update your revenue drop summary</a>
                 <div class="well text-muted mrgn-tp-md">
-                  <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
+                  <h3 class="mrgn-tp-0">Summary of step 3: Revenue drop and subsidy rates</h3>
                   <ul class="small">
                     <li>Your <strong>current period revenue drop</strong> is <span class="currentRevReduction h4">0%</span></li>
                     <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction h4">0%</span></li>
                     <div class="safe-harbour-hide">
-                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate h4">0%</span></span></p>
-                      <p class="less-than-10-drop">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
+                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is <span class="top-up-rate h4">0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></p>
+                      <p class="less-than-10-drop hidden">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
                     </div>
                     <div class="p8-plus hidden">
                       <li>Your <strong>higher base revenue drop</strong> is <span class="rev-reduc-base h4">0%</span></li>
                       <li class="brdr-bttm">Your <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up h4">0%</span></li>
-                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher">0%</span>, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate">0%</span></p>
+                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher">0%</span>, your top-up rate is calculated as (your top-up revenue drop - 50%) x <span class="scaleTopUp">0</span>), <span class="h4 mrgn-tp-0 top-up-rate">0%</span></p>
                     </div>
                     <div class="p7-and-before">
-                      <p class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the
-                        previous three months</strong> is <span class="rev-drop-top-up h4">0%</span><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate">0%</span></span></p>
+                      <p class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up h4">0%</span><span class="safe-harbour-hide">, your top-up rate is calculated as (your top-up revenue drop - 50%) x <span class="scaleTopUp"></span>, <span class="h4 mrgn-tp-0 top-up-rate">0%</span></span></p>
                     </div>
                   </ul>
                   <hr class="brdr-bttm">
@@ -1381,7 +1488,7 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="crhp-eligible">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                    <!-- <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0 crhp-rate"></span></p> -->
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>
                   </div>
                 </div>
@@ -1618,24 +1725,25 @@ fieldset +.buttons {
                   </div>
                   <hr>
                 </fieldset>
+                <a class="btn btn-default">Update your revenue drop summary</a>
                 <div class="well text-muted mrgn-tp-md">
-                  <h3 class="mrgn-tp-0">Summary of revenue drop and subsidy rates</h3>
+                  <h3 class="mrgn-tp-0">Summary of step 3: Revenue drop and subsidy rates</h3>
                   <ul class="small">
                     <li>Your <strong>current period revenue drop</strong> is <span class="currentRevReduction-alt h4">0%</span></li>
                     <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction-alt h4">0%</span></li>
                     <div class="safe-harbour-hide">
-                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span><span class="p11-plus hidden"> and your top-up rate is <span class="top-up-rate-alt h4" >0%</span></span></p>
-                      <p class="less-than-10-drop">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
+                      <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is  <span class="top-up-rate-alt h4" >0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></p>
+                      <p class="less-than-10-drop hidden">Because your revenue drop is less than 10%, your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></p>
                     </div>
                     <div class="p8-plus hidden">
                       <li>Your <strong>higher base revenue drop</strong> is <span class="rev-reduc-alt-base h4">0%</span></li>
                       <li class="brdr-bttm">Your <strong>average revenue drop for the previous three months</strong> is <span class="rev-drop-top-up-alt h4" >0%</span></li>
-                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher-alt">0%</span>, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></p>
+                      <p>Because the higher of these revenue drops is <span class="h4 rev-drop-top-up-higher-alt">0%</span>, your top-up rate is calculated as (your top-up revenue drop - 50%) x <span class="scaleTopUp">0</span>), <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></p>
                     </div>
                     <div class="p7-and-before">
                       <p class="mrgn-bttm-md"><span class="safe-harbour-hide">Because your</span><span class="safe-harbour-show hidden">Your</span> <strong>average revenue drop for the
                         previous three months</strong> is <span class="rev-drop-top-up-alt h4">0% 
-                        <!--average of 3 months 2019 divided by 3 months in 2020--></span><span class="safe-harbour-hide">, your top-up rate is <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></span></p>
+                        <!--average of 3 months 2019 divided by 3 months in 2020--></span><span class="safe-harbour-hide">, your top-up rate is calculated as (your top-up revenue drop - 50%) x <span class="scaleTopUp"></span>, <span class="h4 mrgn-tp-0 top-up-rate-alt">0%</span></span></p>
                     </div>
                   </ul>
                   <hr class="brdr-bttm">
@@ -1646,20 +1754,20 @@ fieldset +.buttons {
                   <div class="crhp-eligible">
                    <!-- <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is 10% or larger, your</span><span class="p17-only">Because your revenue did not drop, you</span> revenue drop is less than 10%, your <strong>CRHP rate</strong> is <span class="h4 margn-tp-0">0%</span></p>-->
-                      <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h4 margn-tp-0 crhp-rate"></span></p>
+                      <!-- <p class="mrgn-bttm-md greater-than-10-drop hidden"><span class="p18-plus">Because your revenue drop is 10% or more, your</span><span class="p17-only">Your</span> <strong>CRHP rate</strong> is <span class="h3 mrgn-tp-0 badge mrgn-bttm-0 crhp-rate"></span></p> -->
                     <p class="mrgn-bttm-md less-than-10-drop"><span class="p18-plus">Because your revenue drop is less than 10%, you</span><span class="p17-only">Because your revenue did not drop, you</span> <strong>do not qualify</strong> for the CRHP.</p>                </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 and 2</a></p>
           </div>
         </div>
       </div>
     </fieldset>
     <fieldset id="employees-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Employee pay</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Employee pay</span></legend>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-8 col-md-9  mrgn-tp-md">
@@ -1667,8 +1775,6 @@ fieldset +.buttons {
               <fieldset id="employees" class="subfields">
                 <legend>Calculate your employee wages</legend>
                 <p>Include all your eligible employees.</p>
-                <p><strong>Note:</strong> If you want to change any information above, do that step
-                  before you begin calculating employee wages.</p>
                 <fieldset class="subfields" id="emp-1">
                   <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
                   <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" type="button">Remove</button>
@@ -1773,19 +1879,19 @@ fieldset +.buttons {
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Week one</td>
+                            <td>Week one (CEWS)</td>
                             <td data-updates="amt-ttl-1" id="w1-amt-1">$0</td>
                           </tr>
                           <tr>
-                            <td>Week two</td>
+                            <td>Week two (CEWS)</td>
                             <td data-updates="amt-ttl-1" id="w2-amt-1">$0</td>
                           </tr>
                           <tr>
-                            <td>Week three</td>
+                            <td>Week three (CEWS)</td>
                             <td data-updates="amt-ttl-1" id="w3-amt-1">$0</td>
                           </tr>
                           <tr>
-                            <td>Week four</td>
+                            <td>Week four (CEWS)</td>
                             <td data-updates="amt-ttl-1" id="w4-amt-1">$0</td>
                           </tr>
                         </tbody>
@@ -1794,7 +1900,7 @@ fieldset +.buttons {
                             <td>4-week total (CEWS)</td>
                             <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
                           </tr>
-                          <tr>
+                          <tr class="p14-crhp p17-plus">
                             <td>Total remuneration (CRHP)</td>
                             <td id="amt-crhp-rem-1">$0</td>
                           </tr>
@@ -1820,7 +1926,7 @@ fieldset +.buttons {
                   <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
-              <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Results for employees</p>
+              <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Employee summary</p>
               <ul class="list-unstyled">
                 <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download
                   and print employee calculations</a></li>
@@ -1831,7 +1937,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 to 3</a></p>
           </div>
         </div>
         <section id="ee-calculation-table" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
@@ -1896,7 +2002,7 @@ fieldset +.buttons {
       </div>
     </fieldset>
     <fieldset id="prem-cont-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Premiums, contributions and deductions</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Premiums, contributions and deductions</span></legend>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-8 col-md-9">
@@ -1913,7 +2019,7 @@ fieldset +.buttons {
                   premiums that you paid on salary to eligible employees on leave with pay <small>(for the claim
                   period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required p3-ee-req">(required)</strong> </label>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p3-ei">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p3-ei">
                 </div>
                 <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay (line AA) during this claim period.</p>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
@@ -1924,7 +2030,7 @@ fieldset +.buttons {
                   claim
                   period)</small><span class="wb-inv"> (do not include a dollar sign or commas)</span></span> <strong class="required p3-ee-req">(required)</strong> </label>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p3-cpp">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p3-cpp">
                 </div>
                 <p class="small hidden text-danger no-lwp-disclaimer">You have no employees on leave with pay (line AA) during this claim period.</p>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
@@ -1937,7 +2043,7 @@ fieldset +.buttons {
                 <p><a href="#tempwage" aria-controls="tempwage" class="wb-lbx" role="button">10% Temporary Wage
                   Subsidy for Employers amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p4-tws">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p4-tws">
                 </div>
                 <p id="p4-tws-disclaimer" class="small hidden text-danger">The amount for this claim period is $0
                   because the temporary subsidy has ended.</p>
@@ -1951,20 +2057,20 @@ fieldset +.buttons {
                 <p><a href="#worksharing" aria-controls="worksharing" class="wb-lbx" role="button">Work-Sharing
                   benefit program amount&nbsp;<span class="far fa-question-circle"></span></a></p>
                 <div class="input-group col-md-5"> <span class="input-group-addon input-sm">$</span>
-                  <input required type="number" class="form-control input-lg text-right currency" id="p4-wsb">
+                  <input required type="number" class="form-control input-lg text-right currency required" id="p4-wsb">
                 </div>
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Review your summary</a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: Steps 1 to 4</a></p>
           </div>
         </div>
       </div>
     </fieldset>
     <!-- <fieldset id="deductions-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title" tabindex="0">Deductions</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Deductions</span></legend>
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-8 col-md-9 mrgn-tp-md">
@@ -2202,18 +2308,17 @@ fieldset +.buttons {
       </div>
     </fieldset> -->
 <fieldset id="results-fs" class="panel-default p-0" >
-      <legend class="panel-heading mrgn-bttm-0" tabindex="0"><span class="panel-title">Amount to claim on your application</span></legend>
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Amount to claim on your application</span></legend>
       <div class="panel-body">
         <div class="clearfix"></div>
 	      <div class="alert alert-info provisional">
           <p class="text-info"><strong>You have still not applied:</strong></p>
           <ol>
             <li>Print and keep the record of <span class="crhp-eligible">the <strong>summary of the subsidy that gives you a higher amount (</span><span class="subsidy-to-apply-for"></span><span class="crhp-eligible">)</span> <span class="crhp-ineligible">line amounts</span></strong> using the print preview button at the bottom of the summary.</li>
-		  <li>Continue to <strong>How to apply</strong> beneath the summary.</li>
+            <li>Continue to <strong>How to apply</strong> beneath the summary.</li>
           </ol>
           <div class="crhp-eligible mrgn-tp-md">
             <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as it results in the higher subsidy for this claim period. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
-            <p>Because you can only be eligible for one subsidy each claim period, after you apply for <span class="subsidy-to-apply-for"></span> you may receive a notice of determination from us that shows your <span class="subsidy-for-information"></span> amount as $0, even if it shows a calculated amount for comparison here.</p>
           </div>
 	      </div>
 <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
@@ -2229,17 +2334,16 @@ fieldset +.buttons {
       </summary>
       <div id="cews-statement">
         <div class="alert alert-danger provisional cews-fyi">
-          <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
-          <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
-          <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
-        </div>      
-        <div class="p14-crhp well text-muted mrgn-tp-md hidden">
+          <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
+          <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
+        </div>   
+      <div class="p14-crhp well text-muted mrgn-tp-md hidden">
           <h3 class="mrgn-tp-0">CRHP base remuneration to use in periods 17 to 22</h3>
           <p>Your <strong>base remuneration for the CRHP</strong> is <span class="p14-base-crhp-rem h4">$0</span></p>
-          <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on paid leave) during the CRHP base period.</p>
+          <p>You had <span class="total-eligible-emps h4">0</span> eligible active employees (not on leave with pay) during the CRHP base period.</p>
           <p>You only need to calculate this once for all future CRHP calculations.</p>
         </div>
-        <p>For your claim for <strong class="claim-period"></strong>: </p>
+        <p><span class="cews-fyi">Calculation summary for your information</span><span class="crhp-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
         <ul class="lst-spcd">
           <li class="p14"> <strong>Line A:</strong> Number of eligible employees: <strong>
             <output class="h3 wb-calc nowrap total-eligible-emps"></output>
@@ -2339,10 +2443,10 @@ fieldset +.buttons {
           </tr>
         </tbody>
       </table>
-      <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+      <p class="crhp-fyi">You are now ready to <strong>print these amounts</strong> so you can enter them into your wage subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
       <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg" role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CEWS statement</span></span></a></p>
     
- <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no" id="cews-hta">
+      <nav class="mrgn-bttm-lg mrgn-tp-lg crhp-no" id="cews-hta">
         <h3 class="wb-inv">Document navigation</h3>
         <ul class="pager">
           <li class="next"><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/cews-how-apply.html" rel="next">How to apply for CEWS</a></li>
@@ -2356,19 +2460,18 @@ fieldset +.buttons {
       <div class="crhp-no">
         <div id="crhp-statement">
           <div class="alert alert-danger provisional crhp-fyi">
-            <h3 class="h4 mrgn-tp-0 text-warning">You do not qualify for the <span class="h4 subsidy-for-information"></span> this period</h3>
-            <p>You must apply for the <span class="h4 subsidy-to-apply-for"></span> as that subsidy gives you the higher amount.</p>
-            <p>The <span class="subsidy-for-information"></span> calculation summary is only here for your information but is not part of your application.</p>
-          </div>          
-          <p>For your claim for <strong class="claim-period"></strong>: </p>
+            <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
+            <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
+          </div>   
+          <p><span class="crhp-fyi">Calculation summary for your information</span><span class="cews-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
           <ul class="lst-spcd">
-            <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period: <strong>
+            <li> <strong>Line 300:</strong> Amount eligible for CEWS for the claim period<sup><a href="#line-300-footnote">1</a></sup>: <strong>
               <output class="h3 wb-calc nowrap total-calculated-cews"></output>
               </strong> </li>
             <li><strong>Line 400:</strong> Eligible active employees for the claim period:
               <output class="h3 wb-calc nowrap total-active-emps"></output>
             </li>
-            <li><strong>Line 410:</strong> Eligible active employees for the base period (period 14):
+            <li><strong>Line 410:</strong> Eligible active employees for the base period:
               <output class="h3 wb-calc nowrap total-active-emps-14"></output>
             </li>
             <li><strong>Line 420:</strong> Total eligible remuneration for the claim period: <strong>
@@ -2384,6 +2487,7 @@ fieldset +.buttons {
               <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
             </li>
           </ul>
+          <p class="small" id="line-300-footnote">1. You must enter the calculated line 300 CEWS amount on your CRHP application. If you receive CRHP, we will deem your CEWS for the period to be $0.</p>
         </div>
         <table class="table" id="crhp-statement-table">
           <caption class="h5 mrgn-bttm-0">Summary of CRHP calculation</caption>
@@ -2393,7 +2497,7 @@ fieldset +.buttons {
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap crhp-current-rem"></output></td>
             </tr>
             <tr>
-              <th scope="row" class="h6">(minus) Base remuneration for CRHP <small class="nowrap">(Line 430)</small></th>
+              <th scope="row" class="h6">(minus) Base period remuneration for CRHP <small class="nowrap">(Line 430)</small></th>
               <td class="text-right nowrap">-
                 <output class="h6 wb-calc nowrap crhp-base-rem"></output></td>
             </tr>
@@ -2413,7 +2517,7 @@ fieldset +.buttons {
             </tr>
           </tbody>
         </table>
-        <p>You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
+        <p class="cews-fyi">You are now ready to <strong>print these amounts</strong> so you can enter them into your hiring subsidy application. Information is not saved on this page. If you leave this page without printing you will need to enter your information again.</p>
         <p class="hidden-print"><a href="#pp-crhp-statement" class="wb-lbx btn btn-default btn-lg"
               role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview<span class="wb-inv"> CRHP
           statement</span></span></a></p>
@@ -2678,21 +2782,21 @@ End of results//-->
       <li id="sec-4-a" class="hidden">Employees
         <ul>
           <li class="p14">Eligible  employees (Line A):
-            <output class="h4 wb-calc nowrap" for="p2c-ee" data-wb-calc='{"expr": "#p2c-ee * 1"}'></output>
+            <output class="h4 wb-calc nowrap total-eligible-emps"></output>
           </li>
           <li class="p59">Eligible active employees (Line A):
-            <output class="h4 wb-calc nowrap" for="p2c-ee-alt1" data-wb-calc='{"expr": "#p2c-ee-alt1 * 1"}'></output>
+            <output class="h4 wb-calc nowrap total-active-emps"></output>
           </li>
           <li class="p59">Eligible employees on leave with pay (Line AA):
-            <output class="h4 wb-calc nowrap" for="p2c-ee-alt2" data-wb-calc='{"expr": "#p2c-ee-alt1 * 2"}'></output>
+            <output class="h4 wb-calc nowrap total-furloughed-emps"></output>
           </li>
           <li>Eligible remuneration paid (Line B):
-            <output class="h4 wb-calc nowrap" for="p2c-pyrl" data-wb-calc='{"expr": "#p2b-pyrl * 1", "format": "currency"}'></output>
+            <output class="h4 wb-calc nowrap cews-remuneration-total"></output>
           </li>
         </ul>
       </li>
       <li id="sec-4-b" class="hidden">Basic CEWS (Line C):
-        <output class="h3 wb-calc nowrap" for="p2c-cews" data-wb-calc='{"expr": "#p2c-cews * 1", "format": "currency"}'></output>
+        <output class="h3 wb-calc nowrap basic-cews" for="p2c-cews"></output>
       </li>
       <li id="sec-5" class="hidden">Premiums and contributions
         <ul>
@@ -2723,8 +2827,8 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Arm's length and non-arm's length</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #nonarm-cntnt">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#nonarm">Non-arm’s-length and arm’s-length eligible employees</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #nonarm-cntnt">
+    <p><a href="../wage-subsidy/cews-who-employees.html#nonarm">Non-arm’s-length and arm’s-length eligible employees</a></p>
   </div>
 </section>
 <section id="contributions" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -2732,8 +2836,8 @@ End of results//-->
     <h2 class="modal-title">Lines D and E - Employer’s EI, QPIP, CPP, and QPP premiums payable on salary paid to
       employees on leave with pay </h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #refund-contrib">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #refund-contrib">
+    <p><a href="../wage-subsidy/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
   </div>
 </section>
 <span class="mfp-hide">
@@ -2777,8 +2881,8 @@ End of results//-->
       program </h2>
   </header>
   <div class="modal-body">
-    <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #worksharing-cntnt"><a
-            href="../wage-subsidy2/cews-who-employees.html#worksharing-cntnt">Eligible employees participating in a Work-Sharing benefit
+    <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #worksharing-cntnt"><a
+            href="../wage-subsidy/cews-who-employees.html#worksharing-cntnt">Eligible employees participating in a Work-Sharing benefit
       program</a></div>
     <p>Enter the total amount received under the Work-Sharing program by your eligible employees during the period
       covered by this claim in the box for line G. </p>
@@ -2788,7 +2892,7 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Active employees and employees on leave with pay</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #leave-cntnt">
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #leave-cntnt">
     <p><a href="../hiring-program/crhp-who-employees.html#leave-cntnt">Active employees and employees on leave with pay</a></p>
   </div>
 </section>
@@ -2832,19 +2936,43 @@ End of results//-->
   </div>
   <div class="modal-footer hidden"> </div>
 </section>
+<section id="crhp-rem-definition" class="mfp-hide modal-dialog modal-content overlay-def">
+  <header class="modal-header">
+    <h2 class="modal-title">CRHP baseline remuneration</h2>
+  </header>
+  <div class="modal-body">
+    <h3 class="mrgn-tp-sm">Eligible remuneration paid to active employees between March 14 to April 10, 2021</h3>
+    <div> 
+      <p>We need the amount you paid your employees during the base period (CRHP base period remuneration) to calculate how much the amount you pay eligible employees has increased since then.</p>
+      <!-- data-ajax-replace="../wage-subsidy/how-much-reduction.html #basebaselinecalc-cntnt"> -->
+      <p>The CRHP base period remuneration is:</p>
+      <ul>
+        <li>the total eligible remuneration paid to all your active employees (not on leave with pay)</li>
+        <li>from March 14 to April 10, 2021 (the same dates as CEWS period 14)</li>
+        <li>limited to $1,129 per week, per employee</li>
+        <li>employees not at arm's length are further limited to the lower of their weekly or pre-crisis remuneration</li>
+      </ul>
+      <p>This is <strong>not</strong> the same as the CEWS total remuneration and was not provided as part of your CEWS period 14 summary, unless you calculated for period 14 after the latest update on <mark>date the calculator updated</mark></p>
+    </div>
+    <!-- <details>
+      <summary>Example: Choosing a revenue comparison option</summary>
+      <div data-ajax-replace="../wage-subsidy/how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
+    </details> -->
+  </div>
+</section>
 <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
     <h2 class="modal-title">Compare the baseline revenue options</h2>
   </header>
   <div class="modal-body">
     <h3 class="mrgn-tp-sm">Baseline revenue and prior reference period options</h3>
-    <div data-ajax-replace="../wage-subsidy2/cews-how-much-reduction.html #basebaselinecalc-cntnt">
-      <p><a href="../wage-subsidy2/cews-how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
+    <div data-ajax-replace="../wage-subsidy/how-much-reduction.html #basebaselinecalc-cntnt">
+      <p><a href="../wage-subsidy/how-much-reduction.html#basebaselinecalc-cntnt">Baseline revenue and prior reference period
         options</a></p>
     </div>
     <details>
       <summary>Example: Choosing a revenue comparison option</summary>
-      <div data-ajax-replace="../wage-subsidy2/cews-how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
+      <div data-ajax-replace="../wage-subsidy/how-much-reduction.html #rev-drop-example-1-cntnt"> </div>
     </details>
   </div>
 </section>
@@ -2852,8 +2980,8 @@ End of results//-->
   <header class="modal-header">
     <h2 class="modal-title">Pre-crisis pay (baseline remuneration)</h2>
   </header>
-  <div class="modal-body" data-ajax-replace="../wage-subsidy2/cews-who-employees.html #baselineremuneration-cntnt">
-    <p><a href="../wage-subsidy2/cews-who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
+  <div class="modal-body" data-ajax-replace="../wage-subsidy/cews-who-employees.html #baselineremuneration-cntnt">
+    <p><a href="../wage-subsidy/cews-who-employees.html#baselineremuneration">Pre-crisis pay (baseline remuneration)</a></p>
   </div>
 </section>
 <section id="pay-claim" class="mfp-hide modal-dialog modal-content overlay-def">
@@ -2863,13 +2991,13 @@ End of results//-->
   </header>
   <div class="modal-body">
     <h3>Claim period pay per week</h3>
-    <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #week-cntnt">
-      <p><a href="../wage-subsidy2/cews-who-employees.html#week">Claim period pay per week</a></p>
+    <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #week-cntnt">
+      <p><a href="../wage-subsidy/cews-who-employees.html#week">Claim period pay per week</a></p>
     </div>
     <div class="emp-lv hidden">
       <h3>Active employees and employees on leave with pay</h3>
-      <div data-ajax-replace="../wage-subsidy2/cews-who-employees.html #leave-cntnt">
-        <p><a href="../wage-subsidy2/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
+      <div data-ajax-replace="../wage-subsidy/cews-who-employees.html #leave-cntnt">
+        <p><a href="../wage-subsidy/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
       </div>
     </div>
   </div>
@@ -2881,8 +3009,7 @@ End of results//-->
   <div class="modal-body">
     <p>These months are needed to calculate your revenue drops for the current period, prior period, and top-up
       period, using your chosen baseline.</p>
-    <p>Read more about <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span
-              class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a></p>
+    <p>Read more about <a href="who-apply.html#eligible-revenue" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a></p>
   </div>
 </section>
 	<!--End of overlays//-->
@@ -2917,6 +3044,22 @@ End of results//-->
   </script> 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> 
 <!--Scripts by CXO149 May 2021 //--> 
+<script>
+	$(document).on("click", ".steps-wrapper button", function (event) {
+			
+$("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").addClass("prev-wb-step");			
+$("legend.wb-steps-active").parents().nextAll().find("legend.panel-heading").removeClass("prev-wb-step");	
+	$("legend.wb-steps-active").removeClass("prev-wb-step");	 	
+});
+$(document).on("click", ".prev-wb-step", function (event) { 
+$(this).addClass("wb-steps-active").removeClass("prev-wb-step");
+	
+	$(this).parent().parent().find("legend + div.panel-body.hidden, .buttons").removeClass("hidden");
+	$("legend.wb-steps-active").parents().nextAll().find(".wb-steps-active, legend.prev-wb-step").removeClass("wb-steps-active prev-wb-step");	
+	$("legend.wb-steps-active").parents().nextAll().find("legend + div.panel-body, .buttons").addClass("hidden");	
+	
+});		
+		</script>	
 <script>
     /**
      * EmployeeFormGenerator class
@@ -3116,6 +3259,7 @@ End of results//-->
       EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
+        var remTotalCell = $(frag).find("td[id$='amt-crhp-rem-1']");
         var numEmps = this.numberOfEmployees;
         var currencyPlaceholderValue = this.currencyPlaceholderValue;
         var indexRegex = this.employeeIndexRegex;
@@ -3130,7 +3274,12 @@ End of results//-->
           "id",
           $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
         );
+        $(remTotalCell).attr(
+          "id",
+          $(remTotalCell).attr("id").replace(indexRegex, "-" + numEmps)
+        );
         $(totalCell).text(currencyPlaceholderValue);
+        $(remTotalCell).text(currencyPlaceholderValue);
         $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
         $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
@@ -3383,12 +3532,18 @@ End of results//-->
         $(".crhp-eligible").removeClass("hidden");
         $(".p18-plus").addClass("hidden");
         $(".p17-only").addClass("hidden");
+        $(".p18-only").addClass("hidden");
+        $(".p19-only").addClass("hidden");
+        $(".p20-only").addClass("hidden");
+        $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
           $("#crhp-questions").addClass("hidden");
           $(".crhp-eligible").addClass("hidden");
+        } else {
+          $(".p17-plus").removeClass("hidden");
         }
 
         switch (claimPeriod) {
@@ -3443,6 +3598,7 @@ End of results//-->
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
+            $(".p20-only").removeClass("hidden");
             $(".p10-").addClass("hidden");
             $("#rate-reduction").removeClass("hidden");
             $(".emp-lv").removeClass("hidden");
@@ -3462,7 +3618,8 @@ End of results//-->
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             break;
           case 19:
-            $(".p18-plus").removeClass("hidden"); 
+            $(".p18-plus").removeClass("hidden");
+            $(".p19-only").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
             $(".p11-plus").removeClass("hidden");
@@ -3485,6 +3642,7 @@ End of results//-->
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             break;
           case 18:
+            $(".p18-only").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
@@ -3878,6 +4036,12 @@ End of results//-->
             $(".choose-claim-period").removeClass("hidden");
         }
 
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
+        console.log(topUpMultiplier[claimPeriod - 5]);
+        $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+        $('.scaleBase').text(scaleBase[claimPeriod - 5]);
+
         //recalculate the summary based on the values that are already there
         if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
           calculateRevenueDrop();
@@ -3943,14 +4107,14 @@ End of results//-->
       });
 
 
-      function recalculateAllEmployees() {
-        $(".arms-length-select").each(function (i, element) {
-          var parts = $(element).prop("id").split("-");
-          var employeeNumber = parts[parts.length - 1];
-          recalculateEmployeeAmounts(employeeNumber);
-        });
-        calculateTotals();
-      }
+      // function recalculateAllEmployees() {
+      //   $(".arms-length-select").each(function (i, element) {
+      //     var parts = $(element).prop("id").split("-");
+      //     var employeeNumber = parts[parts.length - 1];
+      //     recalculateEmployeeAmounts(employeeNumber);
+      //   });
+      //   calculateTotals();
+      // }
 
       /**
        * update the employee wage summary
@@ -3969,20 +4133,8 @@ End of results//-->
         var outputFields = ['wkone-', 'wktwo-', 'wkthree-', 'wkfour-'];
         var weeklyCews = {};
         var crhpRem = {};
+        var p1to4eligibility = claimPeriod < 5 ? checkEmployeeEligibility(employeeNumber) : "true";
         for (let i = 0; i < 4; ++i) {
-          if (claimPeriod < 5) {
-            if (!checkEmployeeEligibility($("#" + outputFields[i] + employeeNumber))) {
-              $("#emp-smry-" + employeeNumber).addClass("hidden");
-              $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
-              var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
-              $(updatedByElements).each(function (i, element) {
-                $(element).text(toMoney.format(0.00));
-              });
-            } else {
-              $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
-              $("#emp-smry-" + employeeNumber).removeClass("hidden");
-            }
-          }
           $('#emp-arms-' + employeeNumber).text($("#arms-" + employeeNumber).val().charAt(0).toUpperCase() + $("#arms-" + employeeNumber).val().slice(1));
           var armsLength = $("#arms-" + employeeNumber).val().toLowerCase() == "yes" || $("#arms-" + employeeNumber).val().toLowerCase() == "oui" ? true : false;
           var updateTarget = $('#' + $("#" + outputFields[i] + employeeNumber).attr("data-updates"));
@@ -4004,14 +4156,22 @@ End of results//-->
           //get the weekly cews; if it's not an int or float, use 0
           weeklyCews[i] = getWeeklyCEWS(armsLength, baselineWage, zeroIfEmpty(unformattedValue[i]), paidLeave);
           if (!isInt(weeklyCews[i]) && !isFloat(weeklyCews[i])) {
-            weeklyCews = 0;
+            weeklyCews[i] = 0;
+          }
+          if (p1to4eligibility) {
+            $("#emp-no-elgbl-" + employeeNumber).addClass("hidden");
+            $("#emp-smry-" + employeeNumber).removeClass("hidden");
+          } else {
+            weeklyCews[i] = 0;
+            $("#emp-smry-" + employeeNumber).addClass("hidden");
+            $("#emp-no-elgbl-" + employeeNumber).removeClass("hidden");
           }
           //format and update the targets using localized currency format
           var formattedVal = toMoney.format(weeklyCews[i]);
           $(updateTarget).text(formattedVal);
           var updatedByElements = $("*[data-updated-by='" + outputFields[i] + employeeNumber + "']");
           $(updatedByElements).each(function (j, element) {
-            $(element).text(formattedVal);
+            $(element).text(toMoney.format(unformattedValue[i]));
           });
         }
         // update the total
@@ -4185,13 +4345,19 @@ End of results//-->
         }
         $(".numEmps").text(eligibleEmployees);
         $(".total").html(toMoney.format(cews));
-        totalCews = cews.toFixed(2);
+        if (claimPeriod < 5) {
+          var tempWageSubAmount = zeroIfEmpty($("#p4-tws").val());
+        } else {
+          var tempWageSubAmount = 0;
+        }
+        totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
+        totalCews = Math.max(0, totalCews.toFixed(2));
         totalWages = totalWagesPaid.toFixed(2);
         $('.basic-cews').text(toMoney.format(cewsBasic));
         if (claimPeriod >= 5) {
           if (claimPeriod > 16) {
             $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
-            totalCrhp = Math.max(0, crhpRemuneration - baseCRHPRem) * crhpRate;
+            totalCrhp = Math.max(0, (crhpRemuneration - baseCRHPRem) * crhpRate);
             $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
             $('.current-crhp-remuneration').val(toMoney.format(totalWages));
             // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
@@ -4212,27 +4378,22 @@ End of results//-->
           $(".total-active-emps").val(Math.ceil(eligibleEmps));
           //get eligible furloughed employees
           $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
-
-
-
-          
-          
           // $("#p2c-ee-alt2").trigger("change");
-          if ($("#p2c-ee-alt2").val() == 0) {
-            $("#p3-ei").prop("readonly", true);
-            $("#p3-ei").val("0.00");
-            $("#p3-cpp").prop("readonly", true);
-            $(".p3-ee-req").addClass("hidden");
-            $("#p3-cpp").val("0.00");
-            $(".no-lwp-disclaimer").removeClass("hidden");
-          } else {
-            $("#p3-ei").prop("readonly", false);
-            $("#p3-ei").val("");
-            $("#p3-cpp").prop("readonly", false);
-            $(".p3-ee-req").removeClass("hidden");
-            $("#p3-cpp").val("");
-            $(".no-lwp-disclaimer").addClass("hidden");
-          }
+          // if ($("#p2c-ee-alt2").val() == 0) {
+          //   $("#p3-ei").prop("readonly", true);
+          //   $("#p3-ei").val("0.00");
+          //   $("#p3-cpp").prop("readonly", true);
+          //   $(".p3-ee-req").addClass("hidden");
+          //   $("#p3-cpp").val("0.00");
+          //   $(".no-lwp-disclaimer").removeClass("hidden");
+          // } else {
+          //   $("#p3-ei").prop("readonly", false);
+          //   $("#p3-ei").val("");
+          //   $("#p3-cpp").prop("readonly", false);
+          //   $(".p3-ee-req").removeClass("hidden");
+          //   $("#p3-cpp").val("");
+          //   $(".no-lwp-disclaimer").addClass("hidden");
+          // }
           // var totalWages = $(".total").attr("data-total-wages");
           $(".cews-remuneration-total").val(toMoney.format(totalWages));
           // $("#p2c-pyrl").trigger("change");
@@ -4280,9 +4441,8 @@ End of results//-->
         //   $("#wkfour-" + i).blur();
         // }
 
-
-        if (claimPeriod > 16 && totalCrhp > totalCews) {
-          $("#details-panel2-lnk").focus(); //default select the CRHP tab
+        if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
+          $("#details-panel2-lnk").click(); //default select the CRHP tab
           $('.subsidy-to-apply-for').text('CRHP');
           $('.subsidy-for-information').text('CEWS');
           $('.crhp-fyi').addClass("hidden");
@@ -4292,7 +4452,7 @@ End of results//-->
           // $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
           // totalCrhp = Math.min(0, crhpRemuneration - baseCRHPRem) * crhpRate;
         } else {
-          $("#details-panel1-lnk").focus();
+          $("#details-panel1-lnk").click(); 
           $('.subsidy-to-apply-for').text('CEWS');
           $('.subsidy-for-information').text('CRHP');
           $('.crhp-fyi').removeClass("hidden");
@@ -4400,19 +4560,15 @@ End of results//-->
       /**
        * determine if an employee has been paid $0 for two consecutive pays
        */
-      function checkEmployeeEligibility(element) {
+      function checkEmployeeEligibility(employeeNumber) {
         //get all inputs for this employees weekly wages
-        var classname = element.className.match(/emp-wkly-wage-\d/g);
-        if (classname == "") {
-          return;
-        }
+        var wages = [zeroIfEmpty($('#wkone-' + employeeNumber).val()), zeroIfEmpty($('#wktwo-' + employeeNumber).val()), zeroIfEmpty($('#wkthree-' + employeeNumber).val()), zeroIfEmpty($('#wkfour-' + employeeNumber).val())];
         var eligibility = true;
-        var wages = $("." + classname);
-        $(wages).each(function (i, element) {
-          if (parseFloat($(element).val()) == 0 && $(wages[i + 1]).val() == 0 && $(wages[i + 1]).val() != "") {
+        for (let i = 0; i < 3; i++) {
+          if (wages[i] == 0 && wages[i+1] == 0) {
             eligibility = false;
           }
-        });
+        }
         return eligibility;
       }
 
@@ -4521,6 +4677,7 @@ End of results//-->
       });
       $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         $('#sec-5').removeClass("hidden");
+        calculateTotals();
       });
       $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
         $('#sec-6').removeClass("hidden");
@@ -4565,28 +4722,30 @@ End of results//-->
               calculateTotals(); //Or maybe 'clear chrp'?
             }
             $('#crhp-eligibility-summary').removeClass('hidden');
-          } else if (target.name == "crhp-base-ready") {
-            if (target.id == "crhp-base-yes") {
-              $('#crhp-base-q2').addClass("hidden");
-              $('#crhp-base-input').removeClass("hidden");
-              calculateTotals();
-            } else {
-              $('#crhp-base-q2').removeClass("hidden");
-              $('#crhp-base-input').addClass("hidden");
-              calculateTotals(); //Or maybe 'clear chrp'?
-            }
-          } else if (target.name == "crhp-csv") {
-            if (target.id == "crhp-csv-yes") {
-              $('#crhp-base-csv').removeClass("hidden");
-              $('#crhp-base-manual').addClass("hidden");
-              $('#crhp-base-input').addClass("hidden");
-              calculateTotals();
-            } else {
-              $('#crhp-base-csv').addClass("hidden");
-              $('#crhp-base-manual').removeClass("hidden");
-              $('#crhp-base-input').removeClass("hidden");
-              calculateTotals(); //Or maybe 'clear chrp'?
-            }
+          // } else if (target.name == "crhp-base-ready") {
+          //   if (target.id == "crhp-base-yes") {
+          //     // $('#crhp-base-q2').addClass("hidden");
+          //     $('#crhp-base-manual').addClass("hidden");
+          //     $('#crhp-base-input').removeClass("hidden");
+          //     calculateTotals();
+          //   } else {
+          //     // $('#crhp-base-q2').removeClass("hidden");
+          //     $('#crhp-base-manual').removeClass("hidden");
+          //     $('#crhp-base-input').addClass("hidden");
+          //     calculateTotals(); //Or maybe 'clear chrp'?
+          //   }
+          // } else if (target.name == "crhp-csv") {
+          //   if (target.id == "crhp-csv-yes") {
+          //     $('#crhp-base-csv').removeClass("hidden");
+          //     $('#crhp-base-manual').addClass("hidden");
+          //     $('#crhp-base-input').addClass("hidden");
+          //     calculateTotals();
+          //   } else {
+          //     $('#crhp-base-csv').addClass("hidden");
+          //     $('#crhp-base-manual').removeClass("hidden");
+          //     $('#crhp-base-input').removeClass("hidden");
+          //     calculateTotals(); //Or maybe 'clear chrp'?
+          //   }
           }
         }
       });
@@ -4599,7 +4758,7 @@ End of results//-->
         calculateTotals(); //Or maybe 'clear chrp'?
       });
       $(document).on("blur", "#crhp-base-active-emps", function (event) {
-        var baseCRHPEmps = zeroIfEmpty(parseFloat($('#crhp-base-active-emps').val()));
+        var baseCRHPEmps = zeroIfEmpty($('#crhp-base-active-emps').val());
         $('.total-active-emps-14').text(baseCRHPEmps);
         // calculateCRHP(); //Or maybe 'clear chrp'?
       });
@@ -4780,6 +4939,21 @@ End of results//-->
           cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
           cewsRate = parseFloat(cewsRate).toFixed(4);
 
+          $(".rate-formula-max").addClass("hidden");
+          $(".rate-formula-u70").addClass("hidden");
+          $(".rate-formula-u50").addClass("hidden");
+          $(".rate-formula-0").addClass("hidden");
+          if (revReduction == 0) {
+            $(".rate-formula-0").removeClass("hidden");
+          } else if (revReduction < 0.5) {
+            $(".rate-formula-u50").removeClass("hidden");
+          } else if (revReduction < 0.7) {
+            $(".rate-formula-u70").removeClass("hidden");
+          } else if (revReduction >= 0.7) {
+            console.log("hi?");
+            $(".rate-formula-max").removeClass("hidden");
+          }
+
           if (claimPeriod > 16) {
             if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
               cewsRate = 0;
@@ -4849,6 +5023,7 @@ End of results//-->
           $(".rev-reduc-base").text(toPercent("0"));
           $(".cews-rate").text(toPercent("0"));
         }
+        recalculateAllEmployees();
       }
 
 
@@ -4909,10 +5084,10 @@ End of results//-->
           );
           currentRevReduc = (baseRev - claimMonthValue) / baseRev;
           priorRevReduc = (baseRev - prevClaimValue) / baseRev;
-		  if (claimPeriod > 10) {
-			revReduction = parseFloat(revReduction).toFixed(4);
-			threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
-		  }
+          if (claimPeriod > 10) {
+            revReduction = parseFloat(revReduction).toFixed(4);
+            threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
+          }
           //get the base rate
           baseRate = parseFloat(
             Math.max(getP5PlusBaseRate(revReduction), 0)
@@ -4930,6 +5105,25 @@ End of results//-->
           //calculate the overall rate
           cewsRate = parseFloat(baseRate) + parseFloat(topUpRate);
           cewsRate = parseFloat(cewsRate).toFixed(4);
+
+          $(".rate-formula-max").addClass("hidden");
+          $(".rate-formula-u70").addClass("hidden");
+          $(".rate-formula-u50").addClass("hidden");
+          $(".rate-formula-0").addClass("hidden");
+          switch (true) {
+              case (revReduction == 0):
+                  $(".rate-formula-0").removeClass("hidden");
+                  break;
+              case (revReduction < 0.5):
+                  $(".rate-formula-u50").removeClass("hidden");
+                  break;
+              case (revReduction < 0.7):
+                  $(".rate-formula-u70").removeClass("hidden");
+                  break;
+              case (revReduction >= 0.7):
+                  $(".rate-formula-max").removeClass("hidden");
+                  break;
+          }
 
           if (claimPeriod > 16) {
             if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 16)) {
@@ -5000,6 +5194,7 @@ End of results//-->
           $(".rev-reduc-alt-base").text(toPercent(0));
           $(".cews-rate-alt").text(toPercent(0));
         }
+        recalculateAllEmployees();
       }
 
 
@@ -5285,6 +5480,7 @@ End of results//-->
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
         var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
         var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.1];
+        $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
         if (topUpMultiplier[claimPeriod - 5] * (reduction - 0.5) > topUpMax[claimPeriod - 5]) {
           return topUpMax[claimPeriod - 5];
         } else {
@@ -5304,6 +5500,7 @@ End of results//-->
         var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
         var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
         var period = $("#claim-period option:selected").data("claim-period");
+        $('.scaleBase').text(scaleBase[period - 5]);
         if (period > 17) {
           revReduction = revReduction - 0.1;
         }
