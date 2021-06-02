@@ -2321,11 +2321,11 @@ fieldset +.buttons {
       <div class="panel-body">
         <div class="clearfix"></div>
 	      <div id="not-qualify-either-alert" class="alert alert-danger provisional hidden">
-          <p class="text-info"><strong>You do not qualify</strong></p>
+          <h3 class="text-warning">You do not qualify</h3>
           <p>You do not qualify for either subsidy in <div class="claim-period"></div>.
 	      </div>
-        <div id="not-yet-apply-alert" class="alert alert-info provisional">
-          <p class="text-info"><strong>You must apply for the <span class="h4 subsidy-to-apply-for"></span>:</strong></p>
+        <div class="alert alert-info provisional not-yet-apply-alert">
+          <h3 class="text-info">You must apply for the <span class="h4 subsidy-to-apply-for"></span>:</h3>
           <p>You have still not applied. You must apply for the <span class="h4 subsidy-to-apply-for"></span> <span id="same-amount-from-both">if the two subsidies would give the same amount</span><span id="different-amount-from-both">as it results in the higher subsidy for this claim period</span>. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
           <ol>
             <li>Print and keep the record of <span class="crhp-eligible">the <strong>summary of the subsidy that gives you a higher amount (</span><span class="subsidy-to-apply-for"></span><span class="crhp-eligible">)</span> <span class="crhp-ineligible">line amounts</span></strong> using the print preview button at the bottom of the summary.</li>
@@ -2335,7 +2335,7 @@ fieldset +.buttons {
             
           </div> -->
 	      </div>
-<!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
+    <!--	<p class="mrgn-bttm-md">The total amount of CEWS you can claim is: <output class="h3 wb-calc nowrap" for="p2c-cews p3-ei p3-cpp p4-tws p4-wsb"
                     data-wb-calc='{"expr": "#p2c-ee + #p2-pyrl + #p3-ei + #p3-cpp - #p4-tws - #p4-wsb", "format": "currency"}'></output></p>
 		<p class="crhp-no">The total amount of CRHP you can claim is:  <output class="h3 wb-calc nowrap" for=""
                     data-wb-calc='{}'></output></p>
@@ -2348,7 +2348,7 @@ fieldset +.buttons {
       </summary>
       <div id="cews-no">
         <div id="cews-statement">
-          <div class="alert alert-danger provisional cews-fyi">
+          <div class="alert alert-danger provisional cews-fyi not-yet-apply-alert">
             <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
             <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
           </div>   
@@ -2475,7 +2475,7 @@ fieldset +.buttons {
       </summary>
       <div class="crhp-no">
         <div id="crhp-statement">
-          <div class="alert alert-danger provisional crhp-fyi">
+          <div class="alert alert-danger provisional crhp-fyi not-yet-apply-alert">
             <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the numbers for your application</h3>
             <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. You must apply for the subsidy that gives you the higher amount.</p>
           </div>   
@@ -4459,15 +4459,16 @@ $(document).on("click", ".prev-wb-step", function (event) {
         //   $("#wkthree-" + i).blur();
         //   $("#wkfour-" + i).blur();
         // }
-
+        
         if (totalCrhp <= 0 && totalCews <= 0) {
+          console.log("hi?")
           $("#not-qualify-either-alert").removeClass("hidden");
-          $("#not-yet-apply-alert").addClass("hidden");
+          $(".not-yet-apply-alert").addClass("hidden");
         } else if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
-          $("#not-yet-apply-alert").removeClass("hidden");
+          $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
           $('.subsidy-to-apply-for').text('CRHP');
           $('.subsidy-for-information').text('CEWS');
@@ -4492,7 +4493,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#different-amount-from-both").removeClass("hidden");
           }
           $("#not-qualify-either-alert").addClass("hidden");
-          $("#not-yet-apply-alert").removeClass("hidden");
+          $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
           $('.subsidy-to-apply-for').text('CEWS');
           $('.subsidy-for-information').text('CRHP');
@@ -5001,7 +5002,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
           } else if (revReduction < 0.7) {
             $(".rate-formula-u70").removeClass("hidden");
           } else if (revReduction >= 0.7) {
-            console.log("hi?");
             $(".rate-formula-max").removeClass("hidden");
           }
 
