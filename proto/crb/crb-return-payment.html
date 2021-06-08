@@ -912,7 +912,8 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
           
           <h2 id="h-2">How to return CRB to CRA</h2>
           <p>You can repay your CRB payment to the CRA online, by mail, or in person.</p>
-          <dl class="dl-horizontal brdr-0">
+			
+          <dl id="repayments-ajax" class="dl-horizontal brdr-0">
             <dt>
               <p class="mrgn-tp-0">Pay online</p>
             </dt>
@@ -925,10 +926,11 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details>
                 <summary>How to pay online with your CRA My Account</summary>
-                <p>After you sign into your CRA My Account,</p>
+                <p class="mrgn-tp-md">After you sign into your CRA My Account,</p>
                 <ol>
                   <li>Locate <strong>COVID-19 Support</strong></li>
                   <li>Select <strong>Send the money back</strong> to start your emergency support repayment</li>
+					<li>Keep a copy of your transaction receipt for your records</li>
                 </ol>
               </details>
               <p class="mrgn-bttm-0 mrgn-tp-md"><a class="btn btn-call-to-action mrgn-bttm-0" href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">Sign in to CRA My Account</a></p>
@@ -940,11 +942,13 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details>
                 <summary>How to pay online with CRA My Payment</summary>
-                <p>On <a href="https://gc-proto-cra.github.io/en/revenue-agency/services/e-services/payment-save-time-pay-online.html" target="_blank">Pay now with my Payment <i title="Opens in a new tab" class="far fa-window-restore"></i></a>,</p>
+                <p class="mrgn-tp-md">CRA My Payments lets you directly pay the CRA with your bank card.</p>
+				  <p>On <a href="https://gc-proto-cra.github.io/en/revenue-agency/services/e-services/payment-save-time-pay-online.html" target="_blank">Pay now with my Payment <i title="Opens in a new tab" class="far fa-window-restore"></i></a>,</p>
                 <ol>
                   <li>Select the <strong>Pay now</strong> button to open the payment process </li>
                   <li>In Step 1, select <strong>Individual</strong><strong> income tax (T1)</strong> as your payment type </li>
                   <li>Then select <strong>Canada emergency benefit repayment</strong> as your payment allocation and follow the instructions </li>
+					<li>Keep a copy of your transaction receipt for your records</li>
                 </ol>
               </details>
               <p class="mrgn-tp-lg h3"><strong>Online banking:</strong></p>
@@ -954,9 +958,9 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details>
                 <summary>How to pay using your online banking service</summary>
-                <p>Sign in to your financial institution’s online service,</p>
+                <p class="mrgn-tp-md">Sign in to your financial institution’s online service,</p>
                 <ol>
-                  <li>Under "Add a payee", look for an option such as <strong>CRA (revenue) – Canada emergency benefit repayment</strong> or <strong>CEB repayment</strong> to repay a CRA-administered COVID-19 benefit</li>
+                  <li>Under "Add a payee", look for an option such as <strong>Canada emergency benefit repayment</strong> or <strong>CEB repayment</strong> to repay a CRA-administered COVID-19 benefit</li>
                   <li>Enter your 9-digit social insurance number (SIN) as the CRA account number</li>
                 </ol>
               </details>
@@ -969,7 +973,7 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details class="mrgn-bttm-lg">
                 <summary>How to pay online with PaySimply</summary>
-                <p>PaySimply is a CRA third-party service provider (service fees apply).</p>
+                <p class="mrgn-tp-md">PaySimply is a CRA third-party service provider (service fees apply).</p>
                 <p> On the <a href="https://www.paysimply.ca/cra/">PaySimply</a> welcome page, </p>
                 <ol>
                   <li>Select <strong>Canada Emergency Benefit Repayment</strong> to start</li>
@@ -989,22 +993,24 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details class="mrgn-bttm-lg">
                 <summary>How to pay from your Canadian bank account</summary>
-                <p>Send a cheque or money order. Cash is not accepted.</p>
+                <p class="mrgn-tp-md">Send a cheque or money order. Cash is not accepted.</p>
                 <ol>
                   <li>Make the cheque or money order payable to <strong>Receiver General for Canada</strong> </li>
-                  <li>Indicate it is for <strong>Repayment of CRB</strong></li>
+                  <li>Indicate the name of the benefit you are repaying</li>
                   <li>Indicate which eligibility period you are repaying</li>
                   <li>Include your Social Insurance Number (SIN) </li>
                   <li>Mail the cheque or money order to:
                     <ul class="lst-none">
-                      <li>Revenue Processing – Repayment of CRB<br>
+                      <li>Revenue Processing – Repayment of CEB<br>
                         Sudbury Tax Centre <br>
                         1050 Notre Dame Avenue <br>
                         Sudbury ON P3A 0C3<br>
                       </li>
                     </ul>
                   </li>
+					
                 </ol>
+				  <p>If your payment is not honoured, the CRA will charge a fee.</p>
                 <div class="well well-sm">
                   <p>If you have the original cheque, you may return it by mail.</p>
                   <p>Be sure to include:</p>
@@ -1012,6 +1018,7 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
                     <li>The reason for returning the cheque ("not entitled" or "overpayment")</li>
                     <li>Your Social Insurance Number (SIN) </li>
                   </ol>
+					
                 </div>
               </details>
             </dd>
@@ -1026,11 +1033,12 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
               </ul>
               <details>
                 <summary>How to pay at a Canada Post location with a QR code</summary>
-                <p>Create a <abbr title="quick response">QR</abbr> code and visit a Canada Post location (service fees apply)</p>
+                <p class="mrgn-tp-md">Create a <abbr title="quick response">QR</abbr> code and visit a Canada Post location (service fees apply)</p>
                 <ol>
                   <li><a href="https://www.canada.ca/en/revenue-agency/corporate/about-canada-revenue-agency-cra/pay-canada-post.html">Create a QR code</a></li>
                   <li>Bring your code to a Canada Post outlet to make your payment </li>
                 </ol>
+				  
               </details>
             </dd>
           </dl>
@@ -1120,7 +1128,7 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
         <dl id="wb-dtmd">
           <dt>Date modified:</dt>
           <dd>
-            <time property="dateModified">2021-04-28</time>
+            <time property="dateModified">2021-06-08</time>
           </dd>
         </dl>
       </div>
