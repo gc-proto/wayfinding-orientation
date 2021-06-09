@@ -2587,6 +2587,7 @@
               var parts = $(element).prop("id").split("-");
               var locationNumber = parts[parts.length - 1];
               //While we are getting all the locations in the form...
+              expenseFieldHideShow(locationNumber);
               var periodOptions = [
                 $('#date-chooser-tax-' + locationNumber + ' option:selected').data("calc-method"),
                 $('#date-chooser-insurance-' + locationNumber + ' option:selected').data("calc-method"),
@@ -2599,7 +2600,7 @@
                   $(".monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
                   $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
                   $(".period-not-4-yearly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
-                } else if (periodOptions[i] == "month") {
+                } else if (periodOptions[i] == "month" && claimPeriod != 11 && claimPeriod != 12) {
                   $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
                   $(".monthly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
                   $(".not-monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
@@ -2667,7 +2668,7 @@
               $(".monthly-" + rentType + "-" + locationNumber).addClass("hidden");
               $(".period-4-yearly-" + rentType + "-" + locationNumber).removeClass("hidden");
               $(".period-not-4-yearly-" + rentType + "-" + locationNumber).addClass("hidden");
-            } else if (calcOption == "month") {
+            } else if (calcOption == "month" && claimPeriod != 11 && claimPeriod != 12) {
               $(".period-4-yearly-" + rentType + "-" + locationNumber).addClass("hidden");
               $(".not-monthly-" + rentType + "-" + locationNumber).addClass("hidden");
               $(".monthly-" + rentType + "-" + locationNumber).removeClass("hidden");
@@ -2710,17 +2711,23 @@
                 "0",
                 $('#lease-one-' + locationNumber).val().replace("$", "")
               ]
-              var unformattedValueTwo = [
-                $('#rent-two-' + locationNumber).val().replace("$", ""),
-                "0",
-                "0",
-                "0",
-                $('#lease-two-' + locationNumber).val().replace("$", "")
-              ]
-              //subdivide the amounts by the days in the period and add them for the total expense line
-              for (let i = 0; i < unformattedValueOne.length; ++i) {
-                calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[0] / monthMaxDays[0]) +
-                              (zeroIfEmpty(unformattedValueTwo[i]) * monthDays[1] / monthMaxDays[1]));
+              if (claimPeriod == 11 || claimPeriod == 12) {
+                for (let i = 0; i < unformattedValueOne.length; ++i) {
+                  calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[1] / monthMaxDays[1]));
+                }
+              } else {
+                var unformattedValueTwo = [
+                  $('#rent-two-' + locationNumber).val().replace("$", ""),
+                  "0",
+                  "0",
+                  "0",
+                  $('#lease-two-' + locationNumber).val().replace("$", "")
+                ]
+                //subdivide the amounts by the days in the period and add them for the total expense line
+                for (let i = 0; i < unformattedValueOne.length; ++i) {
+                  calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[0] / monthMaxDays[0]) +
+                                (zeroIfEmpty(unformattedValueTwo[i]) * monthDays[1] / monthMaxDays[1]));
+                }
               }
             } else if ($('#rent-cers-period-' + locationNumber).is(":visible")) { //value for 28 day period
               var unformattedValueOne = [
@@ -2796,15 +2803,23 @@
                     } else {
                       calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) / 365 * 28);
                     }
-                  } else if (periodOption[i] == 'month' ) {
-                    var rentExpenseTypes = ["0", "tax", "insurance", "interest", "lease"];
-                    var proMonth1 = zeroIfEmpty($('#month-one-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
-                    var proMonth2 = zeroIfEmpty($('#month-two-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
-                    if (proMonth1 == 0 && proMonth2 == 0) {
-                      calculatedExpense.push(0);
+                  } else if (periodOption[i] == 'month') {
+                    if (claimPeriod == 11 || claimPeriod == 12) {
+                      if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
+                        calculatedExpense.push(0);
+                      } else {
+                        calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) * monthDays[1] / monthMaxDays[1]);
+                      }
                     } else {
-                      calculatedExpense.push((proMonth1 * monthDays[0] / monthMaxDays[0]) +
-                                  (proMonth2 * monthDays[1] / monthMaxDays[1]));
+                      var rentExpenseTypes = ["0", "tax", "insurance", "interest", "lease"];
+                      var proMonth1 = zeroIfEmpty($('#month-one-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
+                      var proMonth2 = zeroIfEmpty($('#month-two-' + rentExpenseTypes[i] + '-own-' + locationNumber).val().replace("$", ""));
+                      if (proMonth1 == 0 && proMonth2 == 0) {
+                        calculatedExpense.push(0);
+                      } else {
+                        calculatedExpense.push((proMonth1 * monthDays[0] / monthMaxDays[0]) +
+                                    (proMonth2 * monthDays[1] / monthMaxDays[1]));
+                      }
                     }
                   } else if (periodOption[i] == 'period' ) {
                     if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
@@ -2985,9 +3000,9 @@
             if (calcMethod == "month") {
               $('.date-' + expenseType + '-dates-' + locationNumber).addClass("hidden");
               if (document.documentElement.lang == "fr") {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour un mois calendaire");
+                $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour " + startDateISO + " à " + endDateISO);
               } else {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("payment for one calendar month");
+                $('.date-' + expenseType + '-from-' + locationNumber).text("payment for " + startDateISO + " to " + endDateISO);
               }
               var endDateParts = endDateISO.split("-");
               var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
@@ -3023,12 +3038,17 @@
 
 
           function expenseFieldHideShow(locationNumber) {
+            var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
             //unhide calc method form based on the dropdown selection
             if ($('#choose-own-or-rent-message-' + locationNumber).is(":hidden")) { //ensure an own or rent option is selected first
               if (calcMethod == "month") {
+                if (claimPeriod == 11 || claimPeriod == 12) { //only 1 month
+                  $('.month-two-' + locationNumber).addClass("hidden");
+                } else {
+                  $('.month-two-' + locationNumber).removeClass("hidden");
+                }
                 $('.month-one-' + locationNumber).removeClass("hidden");
-                $('.month-two-' + locationNumber).removeClass("hidden");
                 $('.cers-period-' + locationNumber).addClass("hidden");
               } else if (calcMethod == "period") {
                 $('.month-one-' + locationNumber).addClass("hidden");
