@@ -2995,19 +2995,21 @@
               $('#'+ expenseType +'-date-' + locationNumber).addClass("hidden");
               return;
             }
+            
             var startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
                 endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
             if (calcMethod == "month") {
               $('.date-' + expenseType + '-dates-' + locationNumber).addClass("hidden");
-              if (document.documentElement.lang == "fr") {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour " + startDateISO + " à " + endDateISO);
-              } else {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("payment for " + startDateISO + " to " + endDateISO);
-              }
               var endDateParts = endDateISO.split("-");
               var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
               var startDate = claimMonths[0];
               var endDate = claimMonths[1];
+              if (document.documentElement.lang == "fr") {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour " + endDate);
+              } else {
+                $('.date-' + expenseType + '-from-' + locationNumber).text("payment for " + endDate);
+              }
+              
             } else {
               $('.date-' + expenseType + '-dates-' + locationNumber).removeClass("hidden");
               if (document.documentElement.lang == "fr") {
