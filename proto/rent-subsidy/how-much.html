@@ -2713,7 +2713,7 @@
               ]
               if (claimPeriod == 11 || claimPeriod == 12) {
                 for (let i = 0; i < unformattedValueOne.length; ++i) {
-                  calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[1] / monthMaxDays[1]));
+                  calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * 28 / monthMaxDays[1]));
                 }
               } else {
                 var unformattedValueTwo = [
@@ -2808,7 +2808,7 @@
                       if (unformattedValueOne[i] == "0" || unformattedValueOne[i] == "" || unformattedValueOne[i] === null) {
                         calculatedExpense.push(0);
                       } else {
-                        calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) * monthDays[1] / monthMaxDays[1]);
+                        calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]) * 28 / monthMaxDays[1]);
                       }
                     } else {
                       var rentExpenseTypes = ["0", "tax", "insurance", "interest", "lease"];
