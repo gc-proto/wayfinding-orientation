@@ -1326,7 +1326,7 @@ fieldset +.buttons {
                     <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
                   </div>
                   <div class="p17-only hidden">
-                    <p class="mrgn-bttm-md 10drop">Because your revenue drop is just above 0%, you qualify for the CRHP but not for the CEWS.</p>
+                    <p class="mrgn-bttm-md 10drop hidden">Because your revenue drop is just above 0%, you qualify for the CRHP even if you have a 0% CEWS rate.</p>
                     <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                   </div>
                 </div>
@@ -1594,7 +1594,7 @@ fieldset +.buttons {
                     <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
                   </div>
                   <div class="p17-only hidden">
-                    <p class="mrgn-bttm-md 10drop">Because your revenue drop is just above 0%, you qualify for the CRHP but not for the CEWS.</p>
+                    <p class="mrgn-bttm-md 10drop hidden">Because your revenue drop is just above 0%, you qualify for the CRHP even if you have a 0% CEWS rate.</p>
                     <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                   </div>
                 </div>
@@ -1932,7 +1932,8 @@ fieldset +.buttons {
                           </tr>
                         </tbody>
                       </table>
-                      <p class="text-muted crhp-eligible">This employee's 4-week amount used for calculation of the CRHP overall pay increase is <span id="amt-crhp-rem-1">$0</span></p>
+                      <p class="text-muted crhp-eligible">Eligible remuneration for the CRHP: <span id="amt-crhp-rem-1">$0</span></p>
+                      <p class="small tex-muted crhp-eligible">Note: The CRHP amount you could receive is only calculated on the total remuneration of all employees at the end of the calculator in step 6.</p>
                     </details>
                   </footer>
                 </fieldset>
@@ -3107,6 +3108,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         this.biWeekly = 2;
         this.templateId = "emp-1";
         this.armsLengthId = "arms-";
+        this.crhpRemId = "amt-crhp-rem-";
         this.baselineId = "baseline-"
         this.employeeNumberClass = "employeeNumber";
         this.removeablePanelClass = "extra-emp-pnl";
@@ -3180,6 +3182,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         this.updateTableIds(frag);
         this.openAccordion(frag);
         this.updateSummaryHeading(frag);
+        this.updateCRHPRem(frag);
         return frag;
       }
 
@@ -3284,7 +3287,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
       EmployeeFormGenerator.prototype.updateTableIds = function (frag) {
         var tds = $(frag).find("td[id$='-amt-1']");
         var totalCell = $(frag).find("td[id$='ttl-1']");
-        var remTotalCell = $(frag).find("td[id$='amt-crhp-rem-1']");
+        // var remTotalCell = $(frag).find("td[id$='amt-crhp-rem-1']");
         var numEmps = this.numberOfEmployees;
         var currencyPlaceholderValue = this.currencyPlaceholderValue;
         var indexRegex = this.employeeIndexRegex;
@@ -3299,12 +3302,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           "id",
           $(totalCell).attr("id").replace(indexRegex, "-" + numEmps)
         );
-        $(remTotalCell).attr(
-          "id",
-          $(remTotalCell).attr("id").replace(indexRegex, "-" + numEmps)
-        );
+        // $(remTotalCell).attr(
+        //   "id",
+        //   $(remTotalCell).attr("id").replace(indexRegex, "-" + numEmps)
+        // );
         $(totalCell).text(currencyPlaceholderValue);
-        $(remTotalCell).text(currencyPlaceholderValue);
+        // $(remTotalCell).text(currencyPlaceholderValue);
         $(frag).find("#emp-no-elgbl-1").attr("id", "emp-no-elgbl-" + this.numberOfEmployees);
         $(frag).find("#emp-smry-1").attr("id", "emp-smry-" + this.numberOfEmployees);
       }
@@ -3327,6 +3330,14 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(heading).removeClass("ee-name-1");
         $(heading).addClass("ee-name-" + this.numberOfEmployees);
         $(heading).text("Employee " + this.numberOfEmployees);
+      }
+
+      EmployeeFormGenerator.prototype.updateCRHPRem = function(frag) {
+        var remCRHP = $(frag).find(
+          "#" + this.crhpRemId + "1"
+        );
+        $(remCRHP).attr("id", $(remCRHP).attr("id").replace(this.employeeIndexRegex, "-" + this.numberOfEmployees));
+        $(remCRHP).text(this.currencyPlaceholderValue);
       }
 
       return EmployeeFormGenerator;
@@ -5054,12 +5065,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if ((revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) || (revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17)) {
+            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else {
+            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -5067,6 +5078,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $(".rate-formula-0").addClass("hidden");
                   $(".rate-formula-u50").removeClass("hidden");
                 }
+              } else {
+                $(".10drop").addClass("hidden");
               }
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
               $(".greater-than-10-drop").removeClass("hidden");
@@ -5234,14 +5247,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $(".rate-formula-max").removeClass("hidden");
                   break;
           }
-
           if (claimPeriod > 16) {
-            if ((revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) || (revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17)) {
+            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else {
+            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -5249,6 +5261,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $(".rate-formula-0").addClass("hidden");
                   $(".rate-formula-u50").removeClass("hidden");
                 }
+              } else {
+                $(".10drop").addClass("hidden");
               }
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
               $(".greater-than-10-drop").removeClass("hidden");
