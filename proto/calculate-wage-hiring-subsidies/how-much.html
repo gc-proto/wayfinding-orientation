@@ -911,7 +911,7 @@ fieldset +.buttons {
     claim. You may be required to provide a full list of your employees and their Social Insurance Numbers (SIN)
     for verification after you apply.</p>
 </details>
-<p><strong class="text-warning">Warning:</strong> This is an online calculator estimator, <strong>not the application</strong>. This page does not save any data, so you leave or refresh the page you may need to enter the information again.</p>
+<p><strong class="text-warning">Warning:</strong> This is an online calculator estimator, <strong>not the application</strong>. This page does not save any data, so if you leave or refresh the page you may need to enter the information again.</p>
 <div class="wb-frmvld provisional wb-steps">
   <form action="#" method="get" id="steps-example" class="panel panel-default">
     <fieldset id="claim-period-fs" class="panel-default p-0" >
@@ -1322,10 +1322,11 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is 10% or larger, your revenue drop qualifies for the CRHP and the CEWS</span></p>
-                    <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is less than 10%, you do not qualify for either the CRHP or the CEWS.</p>
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong></p>
+                    <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
                   </div>
                   <div class="p17-only hidden">
+                    <p class="mrgn-bttm-md 10drop">Because your revenue drop is just above 0%, you qualify for the CRHP but not for the CEWS.</p>
                     <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                   </div>
                 </div>
@@ -1589,8 +1590,12 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
-                    <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is 10% or larger, your revenue drop qualifies for the CRHP and CEWS</span></p>
-                    <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is less than 10%, you do not qualify for either the CRHP or the CEWS.</p>
+                    <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong></p>
+                    <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
+                  </div>
+                  <div class="p17-only hidden">
+                    <p class="mrgn-bttm-md 10drop">Because your revenue drop is just above 0%, you qualify for the CRHP but not for the CEWS.</p>
+                    <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                   </div>
                 </div>
               </div>
@@ -1912,10 +1917,6 @@ fieldset +.buttons {
                             <td>4-week total (CEWS)</td>
                             <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
                           </tr>
-                          <tr class="p14-crhp p17-plus">
-                            <td>Total remuneration (CRHP)</td>
-                            <td id="amt-crhp-rem-1">$0</td>
-                          </tr>
                         </tfoot>
                       </table>
                       <table id="emp-no-elgbl-1" class="table table-condensed small text-muted hidden">
@@ -1931,6 +1932,7 @@ fieldset +.buttons {
                           </tr>
                         </tbody>
                       </table>
+                      <p class="text-muted crhp-eligible">This employee's 4-week amount used for calculation of the CRHP overall pay increase is <span id="amt-crhp-rem-1">$0</span></p>
                     </details>
                   </footer>
                 </fieldset>
@@ -4095,7 +4097,16 @@ $(document).on("click", ".prev-wb-step", function (event) {
       }
 
       // when the submit button is clicked
-      $document.on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
+
+      
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
+        validationCheck(event);
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Suivant')", function (event) {
+        validationCheck(event);
+      });
+      
+      function validationCheck(event) {
         event.preventDefault();
         //remove the required attribute in all hidden elements
         $("[required]:hidden").each(function (i, element) {
@@ -4123,7 +4134,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           $("#results").removeClass("hidden");
         }
-      });
+      }
 
 
       // function recalculateAllEmployees() {
@@ -4420,19 +4431,30 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $(".total-calculated-cews").val(toMoney.format(totalCews));
           // $("#p2c-cews").trigger("change");
           if (claimPeriod < 11) {
-          var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
-          } else {
-          var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
-          revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
-          }
-          $("#p2b-c0").val(revenuePriorDisplay);
-          $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
-          if (claimPeriod < 11) {
+            var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
             var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
+          } else if (claimPeriod == 17 && revReduction <= 0) {
+            if (revReductionCRHPcur > 0) {
+              var revenuePriorDisplay = 0.01;
+            }
+            if (revReductionCRHPprev > 0) {
+              var revenueDisplay = 0.01;
+            }
+          } else if (claimPeriod > 17 && revReduction <= 10) {
+            if (revReductionCRHPcur > 10) {
+              var revenuePriorDisplay = 10.01;
+            }
+            if (revReductionCRHPprev > 10) {
+              var revenueDisplay = 10.01;
+            }
           } else {
+            var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
+            revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
             var revenueDisplay = Math.max(0, currentRevReduc * 100);
             revenueDisplay = revenueDisplay.toFixed(2);
           }
+          $("#p2b-c0").val(revenuePriorDisplay);
+          $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
           $("#p2b-c1").val(revenueDisplay);
           $("output[for='p2b-c1']").text(toPercent(revenueDisplay));
           var threeMonthRevenueDisplay = Math.max(0, roundPercDown(threeMonthReduction));
@@ -4461,7 +4483,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
         // }
         
         if (totalCrhp <= 0 && totalCews <= 0) {
-          console.log("hi?")
           $("#not-qualify-either-alert").removeClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
         } else if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
@@ -4718,17 +4739,34 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $('#sec-2-a, #sec-2-b').removeClass("hidden");
         calculateRevenueDrop();
       });
+      $(document).on("click", ".steps-wrapper:nth-child(2) button:contains('Suivant')", function (event) {
+        $('#sec-2-a, #sec-2-b').removeClass("hidden");
+        calculateRevenueDrop();
+      });
       $(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Next')", function (event) {
         $('#sec-3').removeClass("hidden");
       });
+      $(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Suivant')", function (event) {
+        $('#sec-3').removeClass("hidden");
+      });
       $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
+        $('#sec-4-a, #sec-4-b').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Suivant')", function (event) {
         $('#sec-4-a, #sec-4-b').removeClass("hidden");
       });
       $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         $('#sec-5').removeClass("hidden");
         calculateTotals();
       });
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Suivant')", function (event) {
+        $('#sec-5').removeClass("hidden");
+        calculateTotals();
+      });
       $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
+        $('#sec-6').removeClass("hidden");
+      });	
+      $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Suivant')", function (event) {
         $('#sec-6').removeClass("hidden");
       });	
 
@@ -4896,6 +4934,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
       var currentRevReduc = 0;
       var priorRevReduc = 0;
       var revReduction = 0;
+      var revReductionCRHPcur = 0;
+      var revReductionCRHPprev = 0;
       var claimPeriodRevReduction = 0;
       var topUpRate = 0;
       var cewsRate = 0;
@@ -4971,6 +5011,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
             priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
             currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
           }
+          if (claimPeriod > 16) {
+            revReductionCRHPcur = roundPercUp(currentRevReduc);
+            revReductionCRHPprev = roundPercUp(priorRevReduc);
+          }
           if (claimPeriod > 10) {
             revReduction = parseFloat(revReduction).toFixed(4);
             threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
@@ -5006,13 +5050,20 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
+            if ((revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) || (revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17)) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
             } else {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
+              if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
+                $(".10drop").removeClass("hidden");
+                if (revReduction == 0) {
+                  $(".rate-formula-0").addClass("hidden");
+                  $(".rate-formula-u50").removeClass("hidden");
+                }
+              }
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
@@ -5135,6 +5186,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           );
           currentRevReduc = (baseRev - claimMonthValue) / baseRev;
           priorRevReduc = (baseRev - prevClaimValue) / baseRev;
+          if (claimPeriod > 16) {
+            revReductionCRHPcur = roundPercUp(currentRevReduc);
+            revReductionCRHPprev = roundPercUp(priorRevReduc);
+          }
           if (claimPeriod > 10) {
             revReduction = parseFloat(revReduction).toFixed(4);
             threeMonthReduction = parseFloat(threeMonthReduction).toFixed(4);
@@ -5177,13 +5232,20 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if ((revReduction < 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 16)) {
+            if ((revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) || (revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17)) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
             } else {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
+              if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
+                $(".10drop").removeClass("hidden");
+                if (revReduction == 0) {
+                  $(".rate-formula-0").addClass("hidden");
+                  $(".rate-formula-u50").removeClass("hidden");
+                }
+              }
               $(".crhp-rate").text(toPercent(crhpRateScale[claimPeriod - 17]));
               $(".greater-than-10-drop").removeClass("hidden");
               $(".less-than-10-drop").addClass("hidden");
@@ -5317,6 +5379,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
         return perc;
       }
 
+      function roundPercUp(perc) {
+        perc = perc * 10000;
+        perc = Math.ceil(perc);
+        perc = perc / 100;
+        return perc;
+      }
+
       /**
       * Apply the transforms necessary for FR vs EN syntax of percentages
       */
@@ -5427,6 +5496,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
 			
      //Changed to target NEXT button instead of push to 2b button (might not be needed);
 			$(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
+        calculateTotals();
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Suivant')", function (event) {
         calculateTotals();
       });
 
