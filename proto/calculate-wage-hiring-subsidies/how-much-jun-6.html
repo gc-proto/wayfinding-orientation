@@ -184,14 +184,29 @@ fieldset +.buttons {
 				"class": "hidden"
 			}] 
 		}'></div>
-    <h2 class="h3 mrgn-tp-sm">On this page</h2>
-    <ul>
-      <li><a href="#h-1">When to use the calculator</a></li>
-      <!-- <li><a href="#h-1">Eligibility and details on the subsidies</a> -->
-      <li><a href="#h-2">Before you start the calculation</a></li>
-      <li><a href="#h-3">Use the calculator</a></li>
-    </ul>
-    
+    <div class="row">
+      <div class="col-sm-4 pull-right">
+        <div class="well-sm brdr-rds-0 panel panel-default">
+          <div class="panel-body">
+            <p class="h3 mrgn-tp-0"><span class="fas fa-directions fa-flip-horizontal"></span> Return to:</p>
+            <ul>
+              <li><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/emergency-wage-subsidy.html">CEWS</a></li>
+              <li><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/recovery-hiring-program.html">CRHP</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 pull-left">
+        <h2 class="h3 mrgn-tp-sm">On this page</h2>
+        <ul>
+          <li><a href="#h-1">When to use the calculator</a></li>
+          <!-- <li><a href="#h-1">Eligibility and details on the subsidies</a> -->
+          <li><a href="#h-2">Before you start the calculation</a></li>
+          <li><a href="#h-3">Use the calculator</a></li>
+        </ul>
+      </div>
+    </div>
+
     <h2 id="h-1">When to use the calculator</h2>
       <p>Use this calculator to:</p>
       <ul>
@@ -199,11 +214,6 @@ fieldset +.buttons {
         <li>see which subsidy gives you the higher amount, so you know which one to apply for</li>
         <li>get the line-by-line amounts you will need to enter in the application form</li>
       </ul>
-    <!-- <p>To learn more about the subsidies and check if you're eligible, refer to:</p>
-    <ul>
-      <li><a href="http://test.canada.ca/covid-19-guidance/proto/wage-subsidy/emergency-wage-subsidy.html">Canada Emergency Wage Subsidy (CEWS)</a></li>
-      <li><a href="http://test.canada.ca/covid-19-guidance/proto/hiring-program/recovery-hiring-program.html">Canada Recovery Hiring Program (CRHP)</a></li>
-    </ul> -->
 
 <!-- <h2 id="h-1">How the calculator helps you</h2>
 <p>Use this calculator to calculate amounts for both the Canada Emergency Wage Subsidy (CEWS) and the Canada Recovery Hiring Program (CRHP) to determine which one to apply for and the amounts to include in your application.</p>
@@ -970,9 +980,9 @@ fieldset +.buttons {
           <div class="col-sm-8 col-md-9 mrgn-tp-md p59">
             <div class="cal-calc">
               <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                <legend class="small required" ><span class="field-name">Which pre-crisis revenue comparison option will you use for this claim?</span> (You must use the same option as other CEWS, CERS, and CRHP claims.) <strong class="required">(required)</strong></legend>
+                <legend class="small required" ><span class="field-name">Which pre-crisis revenue comparison option do you use for your CEWS, CERS or CRHP claims?</span> <strong class="required">(required)</strong></legend>
                 <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
-                <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">Compare the pre-crisis revenue <span class="nowrap">options<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+                <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">If you haven't claimed before, choose a pre-crisis revenue comparison <span class="nowrap">option<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false" required="required">
@@ -4353,7 +4363,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
-          crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+          if (document.documentElement.lang == "fr") {
+            crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9,]/g, ''));
+          } else {
+            crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+          }
           cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
@@ -4455,11 +4469,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
             if (revReductionCRHPprev > 0) {
               var revenueDisplay = 0.01;
             }
-          } else if (claimPeriod > 17 && revReduction <= 10) {
-            if (revReductionCRHPcur > 10) {
+          } else if (claimPeriod > 17 && revReduction <= 0.1) {
+            if (revReductionCRHPcur > 0.1) {
               var revenuePriorDisplay = 10.01;
             }
-            if (revReductionCRHPprev > 10) {
+            if (revReductionCRHPprev > 0.1) {
               var revenueDisplay = 10.01;
             }
           } else {
@@ -4500,14 +4514,25 @@ $(document).on("click", ".prev-wb-step", function (event) {
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
+          $('.crhp-no .hidden-print a').removeClass('btn-default');
+          $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
+          $('#cews-no .hidden-print a').removeClass('btn-default');
+          $('#cews-no .hidden-print a').removeClass('btn-call-to-action');
+          $('.crhp-no .hidden-print a').addClass('btn-default');
+          $('#cews-no .hidden-print a').addClass('btn-default');
         } else if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
-          $('.subsidy-to-apply-for').text('CRHP');
-          $('.subsidy-for-information').text('CEWS');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('PEREC');
+            $('.subsidy-for-information').text('SSUC');
+          } else {
+            $('.subsidy-to-apply-for').text('CRHP');
+            $('.subsidy-for-information').text('CEWS');
+          }
           $('.crhp-fyi').addClass("hidden");
           $('.cews-fyi').removeClass("hidden");
           $("#cews-hta").addClass("hidden");
@@ -4531,8 +4556,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
-          $('.subsidy-to-apply-for').text('CEWS');
-          $('.subsidy-for-information').text('CRHP');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('SSUC');
+            $('.subsidy-for-information').text('PEREC');
+          } else {
+            $('.subsidy-to-apply-for').text('CEWS');
+            $('.subsidy-for-information').text('CRHP');
+          }
           $('.crhp-fyi').removeClass("hidden");
           $('.cews-fyi').addClass("hidden");
           $("#crhp-hta").addClass("hidden");
@@ -4567,19 +4597,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
         switch (true) {
           //period 1-4
           case (period < 5):
-            return oldFormula(armsLength, weeklyAmount, baselineAmount)
+            return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             break;
           // period 5-7
           case (period < 7):
             if (paidLeave) {
-              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+              return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             } else {
               if (cewsRate == 0) {
                 return 0;
               } else if (revReduction >= 0.3) {
-                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate));
+                return parseFloat(Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate)).toFixed(2));
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
@@ -4587,13 +4617,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
             if (paidLeave || cewsRate == 0) {
               return 0;
             } else {
-              return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+              return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
             }
             break;
           case (period > 10): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 595)));
+                return parseFloat(Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 595))).toFixed(2));
               }
               else
               {
@@ -4603,7 +4633,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
@@ -4611,7 +4641,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 573)));
+                return parseFloat(Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 573))).toFixed(2));
               }
               else
               {
@@ -4621,19 +4651,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
           //period 7+
           case (period > 6):
             if (paidLeave) {
-              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+              return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             } else {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
@@ -5065,12 +5095,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -5248,12 +5278,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   break;
           }
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
