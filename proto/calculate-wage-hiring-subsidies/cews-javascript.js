@@ -1283,7 +1283,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $("#dataset-filter > tbody > tr").each(function (i, element) {
           var id = $(element).prop("id").split("emp")[1];
           var eligibility = true;
-          crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+          if (document.documentElement.lang == "fr") {
+            crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9,]/g, ''));
+          } else {
+            crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+          }
           cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
@@ -1430,6 +1434,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
+          $('.crhp-no .hidden-print a').removeClass('btn-default');
+          $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
+          $('#cews-no .hidden-print a').removeClass('btn-default');
+          $('#cews-no .hidden-print a').removeClass('btn-call-to-action');
+          $('.crhp-no .hidden-print a').addClass('btn-default');
+          $('#cews-no .hidden-print a').addClass('btn-default');
         } else if (claimPeriod > 16 && totalCrhp > totalCews && !$("#details-panel2-lnk").parent().hasClass("hidden")) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
@@ -1497,19 +1507,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
         switch (true) {
           //period 1-4
           case (period < 5):
-            return oldFormula(armsLength, weeklyAmount, baselineAmount)
+            return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             break;
           // period 5-7
           case (period < 7):
             if (paidLeave) {
-              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+              return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             } else {
               if (cewsRate == 0) {
                 return 0;
               } else if (revReduction >= 0.3) {
-                return Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate));
+                return parseFloat(Math.max(oldFormula(armsLength, weeklyAmount, baselineAmount), newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate)).toFixed(2));
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
@@ -1517,13 +1527,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
             if (paidLeave || cewsRate == 0) {
               return 0;
             } else {
-              return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+              return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
             }
             break;
           case (period > 10): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 595)));
+                return parseFloat(Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 595))).toFixed(2));
               }
               else
               {
@@ -1533,7 +1543,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
@@ -1541,7 +1551,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           case (period > 8): //paid leave changes
             if (paidLeave) {
               if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
-                return Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 573)));
+                return parseFloat(Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 573))).toFixed(2));
               }
               else
               {
@@ -1551,19 +1561,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
           //period 7+
           case (period > 6):
             if (paidLeave) {
-              return oldFormula(armsLength, weeklyAmount, baselineAmount);
+              return parseFloat(oldFormula(armsLength, weeklyAmount, baselineAmount).toFixed(2));
             } else {
               if (cewsRate == 0) {
                 return 0;
               } else {
-                return Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0);
+                return parseFloat(Math.max(newFormula(armsLength, weeklyAmount, baselineAmount, cewsRate), 0).toFixed(2));
               }
             }
             break;
