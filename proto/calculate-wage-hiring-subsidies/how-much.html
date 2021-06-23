@@ -4526,8 +4526,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
-          $('.subsidy-to-apply-for').text('CRHP');
-          $('.subsidy-for-information').text('CEWS');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('PEREC');
+            $('.subsidy-for-information').text('SSUC');
+          } else {
+            $('.subsidy-to-apply-for').text('CRHP');
+            $('.subsidy-for-information').text('CEWS');
+          }
           $('.crhp-fyi').addClass("hidden");
           $('.cews-fyi').removeClass("hidden");
           $("#cews-hta").addClass("hidden");
@@ -4551,8 +4556,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
-          $('.subsidy-to-apply-for').text('CEWS');
-          $('.subsidy-for-information').text('CRHP');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('SSUC');
+            $('.subsidy-for-information').text('PEREC');
+          } else {
+            $('.subsidy-to-apply-for').text('CEWS');
+            $('.subsidy-for-information').text('CRHP');
+          }
           $('.crhp-fyi').removeClass("hidden");
           $('.cews-fyi').addClass("hidden");
           $("#crhp-hta").addClass("hidden");

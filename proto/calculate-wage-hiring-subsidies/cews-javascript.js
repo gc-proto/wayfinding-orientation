@@ -1389,11 +1389,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
             if (revReductionCRHPprev > 0) {
               var revenueDisplay = 0.01;
             }
-          } else if (claimPeriod > 17 && revReduction <= 10) {
-            if (revReductionCRHPcur > 10) {
+          } else if (claimPeriod > 17 && revReduction <= 0.1) {
+            if (revReductionCRHPcur > 0.1) {
               var revenuePriorDisplay = 10.01;
             }
-            if (revReductionCRHPprev > 10) {
+            if (revReductionCRHPprev > 0.1) {
               var revenueDisplay = 10.01;
             }
           } else {
@@ -1446,8 +1446,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
-          $('.subsidy-to-apply-for').text('CRHP');
-          $('.subsidy-for-information').text('CEWS');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('PEREC');
+            $('.subsidy-for-information').text('SSUC');
+          } else {
+            $('.subsidy-to-apply-for').text('CRHP');
+            $('.subsidy-for-information').text('CEWS');
+          }
           $('.crhp-fyi').addClass("hidden");
           $('.cews-fyi').removeClass("hidden");
           $("#cews-hta").addClass("hidden");
@@ -1471,8 +1476,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#not-qualify-either-alert").addClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
-          $('.subsidy-to-apply-for').text('CEWS');
-          $('.subsidy-for-information').text('CRHP');
+          if (document.documentElement.lang == "fr") {
+            $('.subsidy-to-apply-for').text('SSUC');
+            $('.subsidy-for-information').text('PEREC');
+          } else {
+            $('.subsidy-to-apply-for').text('CEWS');
+            $('.subsidy-for-information').text('CRHP');
+          }
           $('.crhp-fyi').removeClass("hidden");
           $('.cews-fyi').addClass("hidden");
           $("#crhp-hta").addClass("hidden");
@@ -2005,12 +2015,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -2188,12 +2198,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   break;
           }
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
