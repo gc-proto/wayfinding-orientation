@@ -430,7 +430,7 @@
             <p><strong>Warning:</strong> This calculator does not save any data and if you leave or refresh this page you may need to enter the information again.</p>
           </div>
     <div class="wb-frmvld">
-            <form method="get" class="mrgn-bttm-lg" id="cews-cal">
+      <form method="get" class="mrgn-bttm-lg" id="cews-cal">
         <ol class="lst-stps">
                 <li id="stp1">
             <fieldset>
@@ -512,11 +512,11 @@
                 <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
                         <div class="col-md-12">
                     <label for="affiliated-split" class="required">Percentage of the $300,000 expense limit that you agreed to claim<span class="wb-inv"> (do not include a
-                      dollar sign, spaces or commas)</span><strong class="required">(required)</strong></label>
+                      dollar sign, spaces or commas)</span> <strong class="required">(required)</strong></label>
                   </div>
                         <div class="col-md-6">
                     <div class="input-group"> <span class="input-group-addon input-sm">%</span>
-                            <input type="number" class="form-control text-right percentage" id="affiliated-split" max="100" min="0">
+                            <input type="number" class="form-control text-right percentage" id="affiliated-split" max="100" min="0" required>
                           </div>
                   </div>
                       </div>
@@ -572,19 +572,20 @@
                   </div>
                         <p><strong>Note: </strong>If you choose to use the alternative prior reference period (January and February 2020), you need to check the "prior reference period" election box when completing your CERS application form.</p>
                       </details>
-                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                        <legend>Which baseline revenue comparison option will you use for this claim?</legend>
+                      <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                        <legend class="required">Which pre-crisis revenue comparison option do you use for your CEWS, CERS or CRHP claims? <strong class="required">(required)</strong></legend>
+                        <p><a class="wb-lbx" role="button" aria-controls="baseline-optns" href="#baseline-optns">If you haven't claimed before, choose a pre-crisis revenue comparison <span class="nowrap">option<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                         <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
                         <ul class="list-unstyled lst-spcd-2">
-                    <li class="radio">
-                            <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false">
+                          <li class="radio">
+                            <input type="radio" name="rev-comp" id="rev-comp-yes" class="valid" aria-invalid="false" required="required">
                             <label for="rev-comp-yes">Compare month of previous year with claim month (e.g. July 2019 with July 2020) </label>
                           </li>
-                    <li class="radio">
+                          <li class="radio">
                             <input type="radio" name="rev-comp" id="rev-comp-no" class="valid" aria-invalid="false">
                             <label for="rev-comp-no">Average of January and February 2020 (alternative baseline revenue) </label>
                           </li>
-                  </ul>
+                        </ul>
                       </fieldset>
                 
                 <!-- <div class="wb-fieldflow" data-wb-fieldflow='{"isoptional": true, "noForm": true }'>
@@ -599,11 +600,11 @@
                                  </ul>
                               </div> -->
                 
-                <div class="provisional alert alert-warning">
+                <!-- <div class="provisional alert alert-warning">
                         <p>You must use the same option for all future CERS claims.</p>
                         <p>If you have also claimed the CEWS, you must use the same method you used for the base CEWS for periods 5 or later.</p>
-                      </div>
-              </fieldset>
+                      </div>-->
+              </fieldset> 
                     <div class="hidden" id="alt-bl-no">
                 <fieldset>
                         <legend class="mrgn-bttm-0">Enter your eligible revenue for the following months</legend>
@@ -977,7 +978,7 @@
                               spaces or commas)</span><strong class="required">(required)</strong></label>
                           </div>
                                 <div class="col-xs-6">
-                            <input type="number" class="form-control text-right" id="jan-feb-closed-days" max="59" min="0">
+                            <input type="number" class="form-control text-right" id="jan-feb-closed-days" max="59" min="0" required>
                           </div>
                               </div>
                       </div>
@@ -1138,21 +1139,21 @@
                             <p id="lock-down-eligible-1" class="hidden">Because your location was closed due to imposed COVID-19 restrictions for <span id="top-up-days-1" class="h4">0</span> days, your lockdown support rate is <span class="h4 mrgn-tp-0 top-up-rate-1">0%</span></p>
                           </div>
                                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                            <legend>Do you rent or own this property?</legend>
+                            <legend class="required">Do you rent or own this property?<strong class="required">(required)</strong></legend>
                             <ul class="list-unstyled lst-spcd-2">
-                                    <li class="radio">
-                                <input type="radio" name="owner-location-1" id="owner-location-no-1">
+                              <li class="radio">
+                                <input type="radio" name="owner-location-1" id="owner-location-no-1" required="required">
                                 <label for="owner-location-no-1">Rent</label>
                               </li>
-                                    <li class="radio">
+                              <li class="radio">
                                 <input type="radio" name="owner-location-1" id="owner-location-yes-1">
                                 <label for="owner-location-yes-1">Own</label>
                               </li>
                                   </ul>
                           </fieldset>
-                                <div id="choose-own-or-rent-message-1" class="provisional alert alert-danger">
-                            <p>First select whether you own or rent this property</p>
-                          </div>
+                                <!-- <div id="choose-own-or-rent-message-1" class="provisional alert alert-danger">
+                                  <p>First select whether you own or rent this property</p>
+                                </div> -->
                                 <div class="rent-location-1 hidden">
                             <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                                     <div class="col-sm-12">
@@ -1753,6 +1754,24 @@
           </div>
   </section>
         
+
+  <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
+    <header class="modal-header">
+      <h2 class="modal-title">Compare the pre-crisis revenue options</h2>
+    </header>
+    <div class="modal-body">
+      <h3 class="mrgn-tp-sm">Pre-crisis revenue and prior reference period options</h3>
+      <div data-ajax-replace="../wage-subsidy/how-much-reduction.html#basebaselinecalc-cntnt">
+        <p><a href="../wage-subsidy/how-much-reduction.html#basebaselinecalc-cntnt">Pre-crisis revenue and prior reference period options</a></p>
+      </div>
+      <details>
+        <summary>Example: Choosing a revenue comparison option</summary>
+        <div data-ajax-replace="../wage-subsidy/how-much-reduction.html#rev-drop-example-1-cntnt"> </div>
+      </details>
+    </div>
+  </section>
+
+
         <!--This is not relevant for the estimated range output--<p>[Save or copy the result of your calculation to enter when you apply for the benefit.]</p>-->
         
         <div id="def-preFooter"></div>
@@ -2638,14 +2657,17 @@
             //find all required fields that were left empty
             for (let i = 0; i < $($elms).length; i++) {
               var $elm = $($elms).eq(i);
-              if ($elm.val() == "") {
+              if (($elm.val() == "" && $elm.attr('type') != "radio") || ($elm.attr('type') == "radio" && $('input[name="'+$elm[0].name+'"]:checked').length == 0)) {
                 $emptyElms.push($elm);
                 count++;
               }
             }
+
+
+            
             //if WET4 already has errors, scroll to those
-            if ($("#errors-default")[0]) {
-              $('html, body').animate({ scrollTop: $("#errors-default").offset().top }, 'slow');
+            if ($("#errors-cews-cal")[0]) {
+              $('html, body').animate({ scrollTop: $("#errors-cews-cal").offset().top }, 'slow');
               //scroll to the FIRST element that failed custom validation
             } else if ($emptyElms[0]) {
               $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
