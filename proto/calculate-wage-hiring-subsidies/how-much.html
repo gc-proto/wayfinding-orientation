@@ -5853,13 +5853,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
         }
       })
     </script>
-	<script>
-$(document).one( "wb-contentupdated", function( event, data ){
+<script>
+$('.wb-lbx').one( 'click', function( event){
 if (document.documentElement.lang.toLowerCase() === "en"){
-$('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+$('.modal-content a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
 };
 if (document.documentElement.lang.toLowerCase() === "fr"){
-$('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+$('.modal-content a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
 };	
 });
 </script>
