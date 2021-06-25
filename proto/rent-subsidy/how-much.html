@@ -4010,5 +4010,17 @@
 		}
 
       </script>
+      <script>
+        $(function(){
+        $('.wb-lbx').one( 'click', function( event){
+        if (document.documentElement.lang.toLowerCase() === "en"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+        };
+        if (document.documentElement.lang.toLowerCase() === "fr"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+        };	
+        });
+        });
+        </script>
 </body>
 </html>
