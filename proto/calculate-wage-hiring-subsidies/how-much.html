@@ -5854,7 +5854,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
       })
     </script>
 	<script>
-$('.modal-content').on( 'wb-contentupdated', function( event, data ){
+$('.modal-content').one( 'wb-contentupdated', function( event, data ){
 if (document.documentElement.lang.toLowerCase() === 'en'){
 $('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
 };
