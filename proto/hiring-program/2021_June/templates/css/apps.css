@@ -1,0 +1,124 @@
+@import url("./font-awesome-4.7.0/css/font-awesome.css");
+
+/**
+ * Override to help labels behave properly when a field has 
+ * multiple errors.
+ * This class will be re-evaluated with every upgrade to the WET version
+ */
+.label-error {
+    white-space:normal;
+    display: block;
+    text-align: left;
+    font-size: 100%;    
+}
+
+/**  
+ * Override to make the legend appear similar to input labels
+ * This class will need to be re-evaluated with every upgrade to the WET version
+ */
+legend {
+    font-weight: 700;
+    font-size: 100%;
+    padding-bottom: 4px;  /* This will ensure that the line is not over the error message box*/
+}
+
+
+/** suppress expansion of URLs and abbreviations in printed view */
+@media print {
+    a[href]:after {
+        content: ""; 
+    }
+    abbr[title]:after {
+        content: ""; 
+    }
+    
+    /*
+     * Fix for the Canada.ca theme so that the side menu isn't printed
+     */
+    #wb-sec {
+        display: none !important; 
+    }
+}
+
+
+/**
+ * For a fieldset associated with a group of text input fields aligned horizontally 
+ * we want to get rid of the bottom border, so that the legend looks like a normal
+ * label.    
+ */
+fieldset[class~=no-border] {
+    border-top: 0;
+}
+
+/**
+ * The basic WET form-inline class is wrapped in a media query that prevents it
+ * from having any effect in widths below 768px.
+ * This form-inline-xs class is just a duplicate of form-inline without the 
+ * query wrapper.  Make sure you really do have enough horizontal space
+ * on extra-small screens if you're going to use it. 
+ */
+.form-inline-xs .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle; }
+.form-inline-xs .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle; }
+.form-inline-xs .form-control-static {
+    display: inline-block; }
+.form-inline-xs .input-group {
+    display: inline-table;
+    vertical-align: middle; }
+  .form-inline-xs .input-group .input-group-addon, .form-inline-xs .input-group .input-group-btn, .form-inline-xs .input-group .form-control {
+      width: auto; }
+.form-inline-xs .input-group > .form-control {
+    width: 100%; }
+.form-inline-xs .control-label {
+    margin-bottom: 0;
+    vertical-align: middle; }
+.form-inline-xs .radio, .form-inline-xs .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle; }
+  .form-inline-xs .radio label, .form-inline-xs .checkbox label {
+      padding-left: 0; }
+.form-inline-xs .radio input[type="radio"], .form-inline-xs .checkbox input[type="checkbox"] {
+    position: relative;
+    margin-left: 0; }
+.form-inline-xs .has-feedback .form-control-feedback {
+    top: 0; }
+ 
+
+/**
+ * For name/value pair layout, as per CRA usability guidelines.       
+ */
+.dl-horizontal-cra dt {
+    text-align: left;
+    font-weight: normal;
+    border: none;
+    padding: 0;
+}
+
+.dl-horizontal-cra dd {
+    font-weight: bold; 
+    border: none;
+    padding: 0;
+}
+
+#scrnid-cra dd, #scrnid-cra dt {
+    display: inline;
+    font-weight: 400;
+    margin-right: 0;  
+}
+
+@media screen and (max-width: 991px) {
+    header .brand object {
+        margin-top: 10px;
+    }
+}
+
+
+
+

@@ -1,0 +1,298 @@
+/***************************************************************
+ * View returns and Notice of Assessment and Reassessment page *
+ ***************************************************************/
+/*** Tabs ***/
+#vmrTabs {
+    margin: 0;
+    padding: 0;
+    padding: 0 0 1px;
+    border-style: solid;
+    border-color: #666;
+    border-width: 1px 1px 0;
+    font-size: 12px;
+}
+#vmrTabs table,
+#vmrTabs ul {
+    display: table;
+	behavior: url(/gol-ged/mima/cmr/pub/scripts/display-table.htc);
+	-dt-display: table;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#vmrTabs li,
+#vmrTabs td {
+	margin: 0;
+    display: table-cell;
+	-dt-display: table-cell;
+    padding: 3px;
+    border: 1px solid #666;
+    text-align: center;
+    font-weight: bold;
+    color: #000; 
+    background-color: #fff;
+}
+#vmrTabs li.tabsBottom {
+	border-style: solid;
+	border-color: #666666;
+	border-width: 1px 1px 2px 1px;
+}
+#vmrTabs ul.tab
+#vmrTabs a:link, #vmrTabs a:visited {
+    color: #039;
+    display: block;
+    font-weight: bold;
+    text-decoration: underline;
+}
+vcmrTabs a:hover {
+    color: #c00;
+    text-decoration: none;
+}
+#vmrTabs li.tabSelected {
+	border-bottom: 1px solid #ccccff;;
+    background-color: #ccccff;
+}
+#vmrTabs .tabLabel1, #vmrTabs .tabLabel2 {
+    display: block;
+}
+ 
+table#viewReturnsTable {
+	width: 100%;
+	border-collapse: collapse;
+} 
+#viewReturnsTable th {
+	padding: 3px;
+    text-align: left;
+    font-size: 140%;
+}
+#viewReturnsTable td {
+	padding: 3px;
+	vertical-align: top; 
+	font-weight: bold;
+}
+th.yearOfReturnHeader {
+    width: 10%;
+}
+.yearOfReturn {
+    width: 10%;
+    text-align: left;
+}
+th.statusOfReturnHeader {
+    width: 25%;
+}
+.statusOfReturn {
+    width: 25%;
+    text-align: left;
+    padding-left: 5%;
+}
+th.NoticeOfAssessmentHeader {
+    width: 40%;
+}
+.noticeOfAssessment {
+    width: 40%;
+    text-align: left;
+    padding-left: 5%;
+}
+th.dateProcessedHeader {
+    width: 25%;
+}
+
+/***********************************
+ * Working Area                    *
+ ***********************************/
+#vmrArea {
+	background: #ccccff; 
+	width: 100%; 
+	border-style: solid; 
+	border-color: #666666; 
+	border-width: 0px 1px 1px 1px;
+	margin-top: -1px;
+    width: 598px;
+    overflow: hidden;} /* container here to correct box model differences between browsers */
+	
+#vmrArea #displayArea {
+	background: #ccccff; 
+	margin: 0px; 
+	padding: 0px 12px 12px; 
+	border-style: solid; 
+	border-color: #666666; 
+	border-width: 0px 1px 0px 1px;
+	min-height: 330px;
+	height: 100%;
+}
+div.displayArea {background: #ccccff;}
+
+#vmrArea .functLinks {
+	text-align: right; 
+	border-style: solid; 
+	border-color: #666666; 
+    border-width: 0px 1px 0px 1px;
+    padding: 22px 12px 6px 8px;
+}
+#vmrArea #displayArea .section,
+#vmrArea #displayArea .schedule {
+	padding: 1em 0;
+}
+
+#vmrArea .section h2,
+#vmrArea .schedule h2 {
+	margin: 10px 0 0 0;
+	padding: 0 0 0 4px;
+    color: #000099;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+#vmrArea .schedule h2 .scheduleName {
+	display: inline-block;
+	width: 72%;
+	vertical-align: top;
+}
+
+#vmrArea .schedule h2 .scheduleNumber {
+	display: inline-block;
+	width: 26%;
+	text-align: right;
+	vertical-align: top;
+}
+
+#vmrArea .section h2 .sectionName {
+	display: inline-block;
+    width: 72%;
+    vertical-align: top;
+}	
+
+#vmrArea .section h2 .formNameHeader {
+	display: inline-block;
+    width: 26%;
+	text-align: right;
+	vertical-align: top;
+}
+
+#vmrArea .section h3 {
+	color: #000099; 
+	font-weight: normal; 
+	font: 100% Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	padding: 15px 0px 4px 5px;
+}
+
+#vmrArea table.vmrTable {
+	margin: 0 0 15px;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#vmrArea .vmrTable col.colDesc {}
+#vmrArea .vmrTable col.colAmount {width: 10em;}
+#vmrArea .vmrTable col.colLine {width: 4.8em;}
+#vmrArea .vmrTable th {
+	text-align: right;
+	padding: 10px 4px 0;
+}
+#vmrArea .vmrTable div.lineNum {
+	display: block;
+    margin: 0 0 -1px 0; 
+    padding: 2px; 
+    border: 1px solid #000;
+    font-weight: bold;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#vmrArea .vmrTable td {
+	padding: 10px 4px 1px;
+	border-bottom: 1px solid #000;
+	vertical-align: bottom;
+}
+
+#vmrArea .vmrTable td:first-child {text-align: left;} /* Desc */
+#vmrArea .vmrTable td:first-child + td {padding: 5px 4px 0px; text-align: center;} /* Line */
+#vmrArea .vmrTable td:first-child + td + td {text-align: right;} 	/* Amount or Previous Amount*/
+#vmrArea .vmrTable td:first-child + td + td + td {text-align: right;}    /* Revised Amount */
+#vmrArea .vmrTable td:last-child {padding-bottom: 0; padding-right: 2px;}
+
+#vmrArea .vmrTable div.lineNum {background-color: #fff; color: #000;}
+
+.topOfPage {text-align: right; margin: 2px 0;}
+
+.topOfPage .topLink a:link , 
+.topOfPage .topLink a:visited  { text-decoration: none; color: #039;}
+.topLink {
+	text-align: center;
+	display: inline-block;
+	font-size: 0.85em;
+}
+
+/***********************************
+ * Ident Box                       *
+ ***********************************/
+#ident {border: 1px solid black; padding: 3px 12px; height: auto;}
+#ident h2 {text-align: left; margin: 0px 0px 10px 0px; font-size: 110%;}
+#ident .row {
+	margin: .2em 0;
+	padding: 3px 5px;
+}
+#ident .row .groupCell {
+	width: 32%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#ident .value {
+	font-weight: bold;
+}
+
+/***********************************
+ * Carryover                       *
+ ***********************************/
+.carryover { 
+	margin-top: 12px;
+   
+}
+.carryover .carryoverSection {margin-bottom: 15px;}
+
+.carryover .carryoverSection h3 {
+    padding: 0;
+    color: #000099;
+    font-size: 90%;
+    font-weight: bold;
+    text-align: left;
+}
+.carryover .carryoverSection table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.carryover .carryoverSection table th {
+	font-size: 0.85em;
+    text-align: right;
+    padding: 1px 4px;
+    vertical-align: top;
+}
+.carryover .carryoverSection table tbody th:first-child { vertical-align: bottom; }
+
+.carryover .carryoverSection table th span{
+	display: block;
+    margin: 2px -3px -1px 0; 
+    padding: 2px;
+    border: 1px solid #000;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff; 
+    color: #000;
+}
+.carryover .carryoverSection table th.coYear {
+    width: 3em;
+}
+.carryover .carryoverSection table td {
+    text-align: right;
+    padding: 10px 4px 1px;
+    border-bottom: 1px solid #000;
+    font-size: 0.85em;
+    vertical-align: bottom;
+}
+#sectionNav {margin: 14px 0 2px; text-align: left;}
+#sectionNav label {
+	font-weight: bold;
+	font-size: 90%;
+}
+#sectionNavId {width: 100%;}

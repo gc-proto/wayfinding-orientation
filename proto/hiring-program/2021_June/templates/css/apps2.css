@@ -1,0 +1,34 @@
+/**
+ * Override to help labels behave properly when a field has 
+ * multiple errors.
+ 
+ * This class will be re-evaluated with every upgrade to the WET version
+*/
+.label-error {
+    white-space:normal;
+    display: block;
+    text-align: left;
+}
+
+/**  
+ * Override to make the legend appear similar to input labels
+ * This class will need to be re-evaluated with every upgrade to the WET version
+*/
+legend {
+    font-weight: 700;
+    font-size: 100%;
+    padding-bottom: 4px;  /* This will ensure that the line is not over the error message box*/
+}
+
+
+/*! suppress expansion of URLs and abbreviations in printed view */
+@media print {
+    a[href]:after {
+        content: ""; 
+    }
+    abbr[title]:after {
+        content: ""; 
+    }
+}
+
+

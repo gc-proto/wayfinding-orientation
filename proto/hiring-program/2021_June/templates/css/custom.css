@@ -1,0 +1,628 @@
+@import url('myba.css');
+
+/**
+/* !!! NOTE:
+/* All template css definitions should go to myba.css. 
+/* The custom.css should only definitions for mbsl only.
+*/
+
+.mfp-bg { opacity:.4; filter:alpha(opacity=40) }
+
+.overlay-def header {
+    background-color: #2572b4;
+}
+
+
+
+/* ================= MyBA Ribbon START =============== */
+#brand-text-mybaRibbon {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#brand-container-myba {
+	background: #26374a none repeat scroll 0 0;
+	box-shadow: 0px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+#brand-text-myba {
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#brand-text-rac {
+	font-size: 26px;  /* H2 size */
+	font-weight: bold;
+}
+
+#brand-text-myba-client {
+    /* font-size: 1.1em; */
+    color: #FFFFFF;
+    /* font-size: 19px; */
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+#brand-text-myba-bn {
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#brand-text-myba-mailDoc{
+	font-size: 16px;
+	font-weight: bold;
+	min-height: 25px;
+	line-height: 1;
+	margin-top: 25px;
+ 	margin-bottom: -10px;
+ 	padding: 8px 0 0px 33px;
+}
+
+/* MyBA Ribbon: vertical line */
+
+.vertical-line {
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 0;
+    padding: 0;
+    height: 70px;
+    border-color: #FFFFFF;
+}
+
+.vertical-line2 {
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 0;
+    padding: 0;
+    height: 60px;
+    border-color: rgba(0,0,0,0);
+}
+
+.ribbon-shift-left {
+	margin-left: -10px;
+}
+
+.ribbon-padright-custom {
+	padding-right: 5px;
+}
+
+/* MyBA Ribbon: menu links to stay active */
+.mybaNavLink a:visited {color: #21435e; }
+.mybaNavLink a:hover {color: #0535D2; }
+
+.mybaNavLink ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+}
+
+/* MyBA Ribbon: add spacing between glyphicon and link text */
+.mybaNavLink .fa:before { margin-right: 5px; }
+
+/* MyAccount Ribbon: custom icons */
+.icon-size-lg { 
+	font-size: 2.5em;
+	margin-right: 5px;
+}
+.icon-size-md { 
+	font-size: 1.5em;
+	margin-right: 3px;
+}
+.icon-size-nm { 
+	font-size: 16px;
+}
+
+.badge-danger {
+ 	background-color:#bc3331;
+	border-color:#6b1d1c
+}
+
+.icon-mail-txt{
+	line-height: 13px;
+	font-size: 12px; 
+	font-weight: 600; 
+}
+
+.icon-doc-txt{
+	line-height: 13px;
+	font-size: 12px; 
+	font-weight: 600; 
+}
+
+.icon-profile-txt{
+	line-height: 13px;
+	font-size: 12px; 
+	font-weight: 600; 
+	padding-top: 5px;
+}
+
+.icon-doc-txt, .icon-profile-txt{
+	display: flex;
+}
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 991px){
+	#brand-text-myba-client {
+		padding: 0px 0 0px 12px;
+		min-height: 15px;
+	}
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 991px){
+	#brand-text-myba-bn {
+		padding: 0px 0 0px 12px;
+		min-height: 15px;
+	}
+}
+
+@media (max-width: 991px){
+	#brand-text-mybaRibbon {
+    font-size: 18px;
+	}
+	#brand-text-myba-client {
+	font-size: 16px;
+	}
+}
+
+/* for iPad pro only*/
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	
+	#brand-text-myba-bn {
+		padding: 0px;
+		min-height: 15px;
+	}
+	#brand-text-mybaRibbon {
+    	font-size: 18px;
+	}
+	#brand-text-myba-client {
+		font-size: 16px;
+	}
+	.icon-mail-txt, .icon-doc-txt, .icon-profile-txt{
+		font-size: 11.5px;
+	}
+}
+/* for iPad pro only*/
+@media only screen 
+  and (min-device-width: 1366px) 
+  and (max-device-width: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  	#brand-text-myba-bn {
+		padding: 0px 0 0px 12px;
+		min-height: 15px;
+	}
+	#brand-text-mybaRibbon {
+    	font-size: 18px;
+	}
+	#brand-text-myba-client {
+		font-size: 16px;
+	}
+
+	.icon-mail-txt, .icon-doc-txt, .icon-profile-txt{
+		font-size: 11.5px;
+	}
+}
+
+/*
+* TODO: This class may be used for mail counter in Ribbon later
+*
+@media (max-width: 767px){	
+.badge-mailcount-xs {
+	Re-adjust the Mail counter when screen switched to mobile size.
+	top: 0px;
+	margin-left: -25px;
+	position: absolute;
+
+	bottom: auto;
+	}
+} 
+*/
+
+/* Adjustments for mobile screens
+@media (max-width: 479px){
+	#brand-container-myba {
+		background: #c4dcf2 none repeat scroll 0 0;
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+
+	#brand-text-myba {
+		font-size: 18px;
+		line-height: 1.4375;
+		/*color: #335075; */
+	}
+	
+	#brand-text-rac {
+		font-size: 18px;
+		line-height: 1.4375;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	
+}
+/* === MyAccount Ribbon Branding END === */
+
+/* MyBA ribbon specific styles */
+.ribbon-rac-width {
+	wdith: 20%;
+}
+
+.ribbon-top-margin {
+	margin-top: 40px;
+}
+
+.ribbon-client {
+	padding-left: 70px;
+}
+
+.fontsize-CDE-FR {
+	font-size: 12.6px;
+}
+
+.fontsize-SD-FR {
+	font-size: 12.9px;
+}
+
+.fontsize-CS-FR {
+	font-size: 13.9px;
+}
+
+.ribbon-cont-vcenter {
+    line-height: 58px;
+}
+
+
+.ribbon-cont-vcenter p {
+    line-height: normal;
+    vertical-align: middle;
+    color: #ffffff;
+}
+
+.ribbon-cont-vcenter2 {
+	line-height: 58px;	
+}
+
+.ribbon-cont-vcenter2 p {
+    line-height: normal;
+    color: #ffffff;
+    margin-top: 15px;
+    /* line-height: 18px; */
+}
+
+.ribbon-cont-vcenter2 a:link, .ribbon-cont-vcenter2 a:hover, .ribbon-cont-vcenter2 a:visited, .ribbon-cont-vcenter2 a:active { 
+	color: #FFFFFF; 
+	text-decoration: none;
+}
+
+.ribbon-client-mrgn-tp-sm {
+	margin-top: 7.5px;
+}
+
+.mrgn-lft-xs {
+	margin-left: 4px;
+}
+
+#ribbon-client-container {
+	background: #F2F2F2 none repeat scroll 0 0;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 479px){
+	#ribbon-client-container {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	
+}
+
+/* custom adjustments to make print view more user friendly */
+@media print {
+	
+	.ribbon-client-mrgn-tp-sm {
+		margin-top: 0px !important;
+	}
+	
+	#print-xs-hidden {
+		display: table-cell !important;
+	}
+	
+	#taxReturnsTabId > .tgl-panel {
+		display: table-cell !important;
+	}
+	
+	#accountsPaymentsTabId > .tgl-panel{
+		display: table-cell !important;
+	}
+	
+	#benefitsCreditsId > .tgl-panel {
+		display: table-cell !important;
+	}
+	
+	#rrspSavingsId > .tgl-panel {
+		display: table-cell !important;
+	}
+	
+	.tabpanels {
+		min-height: 0px !important;
+	}
+	
+	.visible-print-ff {
+		display: inline !important;
+	}
+}
+
+#-----------------------------------
+#-----------------------------from MAPortal.css
+.mybaHeadingRow {margin: 1em 0 1em;}
+.mybaHeading {display: inline-block; width: 100%; margin: 0;}
+.mybaHeading h1 {margin: 0;}
+
+.mybaHeading div {line-height: 1.1; font-size: 115%; color: #767676;}
+.mybaHeading h1 + div {margin-top: 3px;}
+
+#------------------------------from myaccount.css
+
+.well-help {
+	text-align: right;
+	padding: 0;
+}
+
+.well-pp {
+	box-shadow: 2px 3px 6px rgba(0,0,0,0.25);
+	background-color: #F2F2F2;
+}
+
+/* 
+.well-display {
+	display:inline-block; 
+	break-inside: avoid;
+} 
+*/
+
+/*  PSL 43062, Spring 2019  */
+
+.brand-envira {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 5px;
+	width: 90%;
+	color: green;
+	transform: rotateY(180deg);
+}
+
+.single-line-wrap{
+	display:inline-block; 
+	vertical-align: text-top;
+}
+
+.line-dark{
+      margin: 3px -20px 20px !important; 
+      border-top: 1px solid #000 !important;
+}
+
+/*PSL43040 */
+/*Remove this css class for PSL46122, Fall 2020*/
+/*.mybaccount-overviewbg {background-color:#F9F9F9;} */
+
+.overview-tablink {
+	font-weight: bold; 
+}
+
+.well-applink {
+	font-weight: bold; 
+}
+
+.custom-details {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	padding-bottom: 0px !important;
+	border-radius: 0px !important;
+}
+
+.custom-summary {
+	border-radius: 0px !important;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+details[open]>summary {
+	background-color: #335075;
+    color: #fff;
+}
+
+details {
+    margin-bottom: 0px;
+}
+
+
+/* Adjust spacing between tab link and font-awesome */
+/* .overview-tablink .fa:before { margin-left: 5px; }
+/* Adjust spacing between link to sub-app and font-awesome */
+.well-applink .fa:before { margin-left: 5px; }
+
+/* This avoid-break class is used to combine whole elements in one block.*/
+.avoid-break{
+	display:inline-block;  
+    margin-top: 10px;	       
+}
+
+/* --- The following definitions are only used for "dl-col-4" class to control BN # and BN name wrapping issues in such bninfo.jsp files --- */
+/* --- start Description Lists ( adding grids to the WET default class )--- */
+                
+@media all and (min-width:768px){
+
+/* Width of dl is 100% to span over the entire width, and margin top to give space between heading and the content */       
+        .dl-col-4,
+        .dl-col-5,
+        .dl-col-6,
+        .dl-col-7,
+        .dl-col-8,
+        .dl-col-9,
+        .dl-col-10 {
+            width:100%;
+            margin-top:15px;
+        }
+        
+/* No padding classes */    
+        .nopadding dd, .nopadding dt
+        {
+            padding-bottom:0px;
+            padding-top:0px;
+        }
+        
+/* Width of dl based on grid system */      
+    
+        .dl-col-4 > dt {
+            width: 33.3333333333%;
+        }
+                
+        .dl-col-5 > dt{
+            width: 41.6666666667%;
+        }
+       
+        .dl-col-6 > dt {
+            width: 50%;
+        }
+        
+        .dl-col-7 > dt {
+            width: 58.3333333333%;
+        }
+        
+        .dl-col-8 > dt {
+            width: 66.6666666667%;
+        }
+        
+        .dl-col-9 > dt {
+            width: 75%;
+        }
+        
+        .dl-col-10 > dt {
+            width: 83.3333333333%;
+        }
+}
+/* --- end Description Lists --- */
+
+/* .fa-2x {
+    font-size: 1.5em;
+} */
+
+.iconLabel {
+	vertical-align: middle;
+}
+.ribbon-profile-left {
+	margin-left:-30px;
+}
+/* .ribbon-vertical-left {
+	margin-left: -15px;
+} */
+.ribbon-nopadding { 
+	padding-right: 0;
+	padding-left: 0;	
+}
+
+/* .ribbon-vertical-right {
+	margin-left: 15px;
+} */
+
+.hide {
+	display: none;
+}
+.legalName:hover + .hide {
+	display: block;
+	color: black;
+}
+
+/* Overwrite the mail counter number font size **/
+.badge, .badge-danger, .badge-mailcount-xs {
+	font-size: 11px;
+}
+/* --- The following definitions are only used for "dl-col-4" class to control BN # and BN name wrapping issues in such bninfo.jsp files --- */
+/* --- start Description Lists ( adding grids to the WET default class )--- */
+                
+@media all and (min-width:768px){
+
+/* Width of dl is 100% to span over the entire width, and margin top to give space between heading and the content */       
+        .dl-col-4,
+        .dl-col-5,
+        .dl-col-6,
+        .dl-col-7,
+        .dl-col-8,
+        .dl-col-9,
+        .dl-col-10 {
+            width:100%;
+            margin-top:15px;
+        }
+        
+/* No padding classes */    
+        .nopadding dd, .nopadding dt
+        {
+            padding-bottom:0px;
+            padding-top:0px;
+        }
+        
+/* Width of dl based on grid system */      
+    
+        .dl-col-4 > dt {
+            width: 33.3333333333%;
+        }
+                
+        .dl-col-5 > dt{
+            width: 41.6666666667%;
+        }
+       
+        .dl-col-6 > dt {
+            width: 50%;
+        }
+        
+        .dl-col-7 > dt {
+            width: 58.3333333333%;
+        }
+        
+        .dl-col-8 > dt {
+            width: 66.6666666667%;
+        }
+        
+        .dl-col-9 > dt {
+            width: 75%;
+        }
+        
+        .dl-col-10 > dt {
+            width: 83.3333333333%;
+        }
+}
+/* --- end Description Lists --- */
+
+/** add legal name tooltip attribute to display full legal name*/
+a.legalname-tooltip, a.legalname-tooltip:hover, a.legalname-tooltip:visited {
+    color: #FFFFFF;
+}
+
+.form-control {
+min-height: 37px;
+height: auto;
+}

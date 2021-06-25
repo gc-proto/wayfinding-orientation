@@ -1,0 +1,182 @@
+/**
+ * RRSP-style
+ */
+ table.infoAttn {
+     border: 2px solid black;
+     border-spacing: 10px;
+     	
+ }
+ td   {padding: 6px;}
+ 
+table.infoAttn#RRSPunusedDedn,
+table.infoAttn#RRSPdedn {
+    margin: 2em 0 0;
+}
+#RRSPpastLimits {
+    padding: 1em .5em;
+}
+#RRSPpastLimits table {
+    margin: 1.5em 0 1.5em;
+}
+#RRSPpastLimits table a:visited {
+    color: #039;
+}
+#RRSPpastLimits table th {
+    font-weight: normal;
+}
+#RRSPpastLimits table th a {
+    font-weight: bold;
+}
+
+
+
+.RRSPcalc .asterisk {
+    font-weight: bold !important;
+    color: #CC0000 !important;
+    text-decoration: none !important;
+}
+.RRSPcalc .parentheticalNotice {
+	font-style: italic;
+}
+/*
+ * Use this class for all RRSP calculation tables
+ */
+.RRSPcalc table {
+    /* basic RRSP style calculation worksheet table */
+    width: 89%;
+    margin: 0;
+    border-collapse: collapse;
+}
+.RRSPcalc > table {
+    /*border: 1px solid #999;*/
+}
+.RRSPcalc.singleData  table {
+    /* only one on the page */
+    margin: 2em 0 2em;
+}
+.RRSPcalc.multiData table {
+    /* several on the page */
+    margin: 0 0 .7em;
+}
+.multiData h2 {
+    /* headers for multiple tables */
+    margin: 1.5em 0 .5em;
+}
+.RRSPcalc table col.RRSPcalcDescription {
+}
+.RRSPcalc table col.RRSPcalcOperation {
+    width: 1em;
+}
+.RRSPcalc table col.RRSPcalcAmount {
+    width: 7em;
+}
+.RRSPcalc table caption {
+    text-align: left;
+    padding: 0 0 1em;
+}
+.RRSPcalc table thead {
+    /* top column tables headers 
+     To hide thead, add "hidden" class 
+     to it's containing row in markup */
+}
+.RRSPcalc table tr.hidden th {
+    font-size: 1px;
+}
+.RRSPcalc table th {
+    /* Basic row headers */
+    font-weight: normal;
+    text-align: left;
+    padding: .2em .4em;
+    vertical-align: bottom;
+}
+.RRSPcalc table td {
+    /* Basic cells */
+    text-align: right;
+    padding: .2em .4em;
+    vertical-align: bottom;
+}
+
+.RRSPcalc table tr.total {
+}
+.RRSPcalc table tr.total th {
+    /* basic total row header */
+    text-align: left;
+}
+.RRSPcalc table tr.total th,
+.RRSPcalc table tr.total td {
+    /* basic total row header/cells */
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.RRSPcalc table tr.total {
+    /* sub-total row */
+}
+.RRSPcalc table tr.subtotal th {
+    /* basic sub-total row header */
+    text-align: right;
+    font-weight: bold;
+}
+.RRSPcalc table.RRSPcomplex > tbody > tr.subtotal th {
+    /* RRSPcomplex table, sub-total row header
+     * This style will not affect sub-tables */
+    text-align: left;
+    font-weight: normal;
+}
+.RRSPcalc table.RRSPcomplex tr.subtotal th.generic {
+    /* RRSPcomplex table, sub-total row header
+     * alternate generic style */
+    text-align: right;
+    font-weight: bold;
+    padding-right: 2em;
+}
+.RRSPcalc table tr.subtotal th,
+.RRSPcalc table tr.subtotal td {
+}
+.RRSPcalc table tr.subtotal td,
+.RRSPcalc table tr.total td {
+    /* result line */
+    border-top: .1em solid #222;
+}
+
+/* Sub-calculation sub-tables */
+.RRSPcalc table tr.subCalculation table {
+    /* sub-calculation table */
+    width: 91%;
+    margin: 1em 1.5em 0;
+}
+
+.RRSPcalc table tr.subCalculation > td:first-child,
+.RRSPcalc table tr.subCalculation > th {
+    /* main table, sub-calculation cell */
+    padding: .5em 1em;
+    padding: 0;
+}
+.RRSPcalc table tr.subCalculation > th {
+/*     background: url("../images/formrightarrow.gif") no-repeat scroll 99% 108px transparent; */
+    background-position: 99% 93%;
+    padding-bottom: 3px;
+}
+.RRSPcalc table tr.subCalculation > td {
+    /* main table, other cells in sub-calculation row */
+    padding-bottom: 9px;
+}
+.RRSPcalc table tr.subCalculation table tr.subtotal th {
+    /* sub-calculation table, sub-total line, header */
+    font-weight: bold;
+    text-align: left;
+    
+}
+.RRSPcalc table tr.subCalculation table tr.subtotal td,
+.RRSPcalc table tr.subCalculation table tr.subtotal th {
+    /* sub-calculation table, sub-total line */
+    padding-bottom: .2em;
+}
+
+
+div.left ul.nav li.menucontent {
+	/*line-height: 1.4em;*/
+}
+
+.rrspAmount {
+    white-space: nowrap;
+}
