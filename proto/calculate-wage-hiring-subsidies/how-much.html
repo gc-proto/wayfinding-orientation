@@ -5854,12 +5854,16 @@ $(document).on("click", ".prev-wb-step", function (event) {
       })
     </script>
 	<script>
-	$('.wb-lbx').on('click', function() {
-	$('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (opens in new window)</span><span class="mrgn-lft-sm fas fa-window-restore"></span>');
-		
-	});
+$( document ).on( "wb-ready.wb", function( event ) {
+if (document.documentElement.lang.toLowerCase() === "en"){
+$('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+};
+if (document.documentElement.lang.toLowerCase() === "fr"){
+$('.modal-content a').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+};	
+});
+</script>
 
-	</script>
 		
 </body>
 </html>
