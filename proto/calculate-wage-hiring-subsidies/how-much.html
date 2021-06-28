@@ -4999,7 +4999,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
-        if (claimPeriod == 13) { //use the other March 2019 input - display order swap
+        if (claimPeriod == 14) { //use the other March 2019 input - display order swap
           months2019Array[0] = months2019Array[0] + '-2';
         }
         //get the previous month from the claim month
@@ -5097,8 +5097,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $(".rate-formula-max").removeClass("hidden");
           }
 
-          console.log("revReductionCRHPcur: " + revReductionCRHPcur);
-          console.log("revReductionCRHPprev: " + revReductionCRHPprev);
           if (claimPeriod > 16) {
             if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
