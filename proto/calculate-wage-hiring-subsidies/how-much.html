@@ -2414,7 +2414,7 @@ fieldset +.buttons {
               </ul>
             </li>
             <li><strong>Line C:</strong> Basic CEWS (including top-up, if applicable): <strong>
-              <output class="h3 wb-calc nowrap basic-cews"></output>
+              <output class="h3 wb-calc nowrap total"></output>
               </strong></li>
             <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
               the claim period)</small>: <strong>
@@ -2450,7 +2450,7 @@ fieldset +.buttons {
           <tbody>
             <tr>
               <th scope="row" class="h6">Basic CEWS <small class="nowrap">(Line C)</small></th>
-              <td class="text-right nowrap"><output class="h6 wb-calc nowrap basic-cews"></output></td>
+              <td class="text-right nowrap"><output class="h6 wb-calc nowrap total"></output></td>
             </tr>
             <tr>
               <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
@@ -2837,7 +2837,7 @@ End of results//-->
         </ul>
       </li>
       <li id="sec-4-b" class="hidden">Basic CEWS (Line C):
-        <output class="h3 wb-calc nowrap basic-cews" for="p2c-cews"></output>
+        <output class="h3 wb-calc nowrap total" for="p2c-cews"></output>
       </li>
       <li id="sec-5" class="hidden">Premiums and contributions
         <ul>
@@ -4371,7 +4371,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         var cews = 0;
         var eligibleEmployees = 0;
         var crhpRemuneration = 0;
-        var cewsBasic = 0;
+        // var cewsBasic = 0;
         var eligibleCrhpRemuneration = 0;
         var claimPeriod = $("#claim-period option:selected").data("claim-period");
         $("#dataset-filter > tbody > tr").each(function (i, element) {
@@ -4379,10 +4379,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           var eligibility = true;
           if (document.documentElement.lang == "fr") {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9,]/g, ''));
-            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9,]/g, ''));
+            // cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9,]/g, ''));
           } else {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
-            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
+            // cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           }
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
@@ -4427,7 +4427,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
         totalCews = Math.max(0, totalCews.toFixed(2));
         totalWages = totalWagesPaid.toFixed(2);
-        $('.basic-cews').text(toMoney.format(cewsBasic));
+        // $('.basic-cews').text(toMoney.format(cewsBasic));
         if (claimPeriod >= 5) {
           if (claimPeriod > 16) {
             $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
