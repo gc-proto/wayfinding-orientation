@@ -1285,10 +1285,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
           var eligibility = true;
           if (document.documentElement.lang == "fr") {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9,]/g, ''));
+            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9,]/g, ''));
           } else {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           }
-          cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
@@ -1390,10 +1391,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
               var revenueDisplay = 0.01;
             }
           } else if (claimPeriod > 17 && revReduction <= 0.1) {
-            if (revReductionCRHPcur > 0.1) {
+            if (revReductionCRHPcur > 10) {
               var revenuePriorDisplay = 10.01;
             }
-            if (revReductionCRHPprev > 0.1) {
+            if (revReductionCRHPprev > 10) {
               var revenueDisplay = 10.01;
             }
           } else {
@@ -1916,7 +1917,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         //Get claim months function??
         var monthsArray = getClaimMonths(claimMonth, claimPeriod);
         var months2019Array = getClaimMonths2019(claimMonth, claimPeriod);
-        if (claimPeriod == 13) { //use the other March 2019 input - display order swap
+        if (claimPeriod == 14) { //use the other March 2019 input - display order swap
           months2019Array[0] = months2019Array[0] + '-2';
         }
         //get the previous month from the claim month
@@ -2015,12 +2016,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -2198,12 +2199,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   break;
           }
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 0.1 && revReductionCRHPprev <= 0.1 && claimPeriod > 17) {
+            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
               $(".less-than-10-drop").removeClass("hidden");
-            } else if (((revReductionCRHPcur > 0.1 || revReductionCRHPprev > 0.1) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
+            } else if (((revReductionCRHPcur > 10 || revReductionCRHPprev > 10) && claimPeriod > 17) || ((revReductionCRHPcur > 0 || revReductionCRHPprev > 0) && claimPeriod == 17)) {
               var crhpRateScale = [50, 50, 50, 40, 30, 20]
               if ((revReduction <= 0.1 && claimPeriod > 17) || (revReduction <= 0 && claimPeriod == 17)) {
                 $(".10drop").removeClass("hidden");
@@ -2761,6 +2762,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
       });
     });
   </script> 
+  <script>
+
+      $(".action-checkbox").change(function () {
+        if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
+          $("#action-msg1").removeClass("hidden").addClass("visible");
+          $("#action-no-msg").addClass("hidden").removeClass("visible");
+        }
+        if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
+          $("#action-msg1").addClass("hidden").removeClass("visible");
+          $("#action-no-msg").removeClass("hidden").addClass("visible");
+        }
+      })
+    </script>
   <script>
 
       $(".action-checkbox").change(function () {

@@ -4368,10 +4368,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
           var eligibility = true;
           if (document.documentElement.lang == "fr") {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9,]/g, ''));
+            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9,]/g, ''));
           } else {
             crhpRemuneration = crhpRemuneration + zeroIfEmpty($('#amt-crhp-rem-' + id).text().replace(/[^0-9.]/g, ''));
+            cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           }
-          cewsBasic = cewsBasic + zeroIfEmpty($('#amt-ttl-' + id).text().replace(/[^0-9.]/g, ''));
           //determine the eligibility
           if ($("#emp-smry-" + id).hasClass("hidden")) {
             eligibility = false;
