@@ -1,3 +1,12 @@
+<script type="text/javascript"> 
+  $(document).bind("mobileinit", function () {
+      // jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
+      // when navigating from a mobile to a non-mobile page), especially when going back, hence disabling it.
+      $.extend($.mobile, {
+          ajaxEnabled: false
+      });
+  }); 
+</script>
 <script>
 $(document).on("click", ".steps-wrapper button", function (event) {
 	$("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").addClass("prev-wb-step");			
@@ -1339,9 +1348,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $('.crhp-current-rem').text(toMoney.format(crhpRemuneration)); 
             totalCrhp = Math.max(0, (crhpRemuneration - baseCRHPRem) * crhpRate);
             $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
-            $('.current-crhp-remuneration').val(toMoney.format(totalWages));
+            $('.current-crhp-remuneration').html(toMoney.format(totalWages));
             // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
-            $('.crhp-incremental-rem').val(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
+            $('.crhp-incremental-rem').html(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
             $('.crhp-rate').val(toPercent(crhpRate * 100));
           } else {
             totalCrhp = 0;
@@ -1355,9 +1364,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
           var totalEmps = $("fieldset[id^='emp-']").length;
           var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
           //active eligible employees
-          $(".total-active-emps").val(Math.ceil(eligibleEmps));
+          $(".total-active-emps").html(Math.ceil(eligibleEmps));
           //get eligible furloughed employees
-          $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
+          $(".total-furloughed-emps").html(Math.ceil(totalEmps - eligibleEmps));
           // $("#p2c-ee-alt2").trigger("change");
           // if ($("#p2c-ee-alt2").val() == 0) {
           //   $("#p3-ei").prop("readonly", true);
@@ -1375,10 +1384,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           //   $(".no-lwp-disclaimer").addClass("hidden");
           // }
           // var totalWages = $(".total").attr("data-total-wages");
-          $(".cews-remuneration-total").val(toMoney.format(totalWages));
+          $(".cews-remuneration-total").html(toMoney.format(totalWages));
           // $("#p2c-pyrl").trigger("change");
           // var totalCews = $(".total").attr("data-total-cews");
-          $(".total-calculated-cews").val(toMoney.format(totalCews));
+          $(".total-calculated-cews").html(toMoney.format(totalCews));
           // $("#p2c-cews").trigger("change");
           if (claimPeriod < 11) {
             var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
@@ -1415,8 +1424,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#p2b-c3").val(cewsRateDisplay);
           $("output[for='p2b-c3']").text(toPercent(cewsRateDisplay));
         } else {
-          $(".cews-remuneration-total").val(toMoney.format(totalWages));
-          $(".total-calculated-cews").val(toMoney.format(totalCews));
+          $(".cews-remuneration-total").html(toMoney.format(totalWages));
+          $(".total-calculated-cews").html(toMoney.format(totalCews));
         }
         var eligibleEmployees = $("fieldset[id^='emp-']").length;
         for (var i = 1; i < $("fieldset[id^='emp-']").length; i++) {
@@ -2775,16 +2784,17 @@ $(document).on("click", ".prev-wb-step", function (event) {
         }
       })
     </script>
-  <script>
-
-      $(".action-checkbox").change(function () {
-        if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-          $("#action-msg1").removeClass("hidden").addClass("visible");
-          $("#action-no-msg").addClass("hidden").removeClass("visible");
-        }
-        if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
-          $("#action-msg1").addClass("hidden").removeClass("visible");
-          $("#action-no-msg").removeClass("hidden").addClass("visible");
-        }
-      })
-    </script>
+	
+<!---Adds target=_blank and text/icon to ajaxed hyperlinks //-->	
+<script>
+  $(function(){
+    $('.wb-lbx').one( 'click', function( event){
+      if (document.documentElement.lang.toLowerCase() === "en"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+      };
+      if (document.documentElement.lang.toLowerCase() === "fr"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+      };	
+    });
+  });
+</script>
