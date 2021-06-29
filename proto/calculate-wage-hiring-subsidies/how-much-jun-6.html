@@ -10,9 +10,9 @@
 
 <!-- Load closure template scripts -->
 
-<script type="text/javascript"
+<script 
     src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/soyutils.js"></script>
-<script type="text/javascript"
+<script 
     src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/wet-en.js"></script>
 <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet" />
 <link href="../css/cews.css" rel="stylesheet" />
@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 <!-- Write closure template -->
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refTop({
     }));
   </script>
@@ -135,7 +135,7 @@ fieldset +.buttons {
 <body vocab="http://schema.org/" typeof="WebPage">
 <div id="def-top"> </div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defTop = document.getElementById("def-top");
     defTop.outerHTML = wet.builder.top({
       lngLinks: [{
@@ -353,7 +353,7 @@ fieldset +.buttons {
         <li>expect to complete your calculation now</li>
       </ul>
     </div>
-    <a href="#cal-calc" type="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</a>
+    <a href="#cal-calc" role="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</a>
   </div>
   <div class="cnjnctn-col">
     <div class="eqht-trgt">
@@ -363,7 +363,7 @@ fieldset +.buttons {
         <li>want to save your calculation and come back to it later</li>
       </ul>
     </div>
-    <a href="#cews-cal-opt1" type="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</a>
+    <a href="#cews-cal-opt1" role="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</a>
   </div>
 </div>
 <div id="cews-cal-opt1" class="hidden" aria-live="polite">
@@ -972,7 +972,7 @@ fieldset +.buttons {
         <div class="row">
           <div class="col-sm-8 col-md-9 mrgn-tp-md p14">
             <div class="provisional alert alert-info">
-              <h3>To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
+              <p class="h3">To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
               <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4>"></p>
             </div>
           </div>
@@ -1329,7 +1329,7 @@ fieldset +.buttons {
                   <hr class="brdr-bttm">
                   <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
                     rate)</span> for claim period <span class="claim-period-no">(choose a claim
-                    period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span> </p>
+                    period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span> </p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
@@ -1599,7 +1599,7 @@ fieldset +.buttons {
                   </div>
                   <hr class="brdr-bttm">
                   <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim
-                    period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span></p>
+                    period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span></p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
@@ -1675,13 +1675,13 @@ fieldset +.buttons {
                     <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration (March 14 to April 10, 2021)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10">
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" >
                       </div>
                     </div>
                     <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Active eligible employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> 
-                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps" size="5">
+                        <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps">
                       </div>
                     </div>
                     <div class="col-sm-9">
@@ -1808,7 +1808,7 @@ fieldset +.buttons {
                 <p>Include all your eligible employees.</p>
                 <fieldset class="subfields" id="emp-1">
                   <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
-                  <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" type="button">Remove</button>
+                  <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" >Remove</button>
                   <div class="clearfix"></div>
                   <div class="panel-body">
                     <div class="form-group">
@@ -1952,7 +1952,7 @@ fieldset +.buttons {
                   </footer>
                 </fieldset>
                 <p class="mrgn-bttm-xl mrgn-tp-lg">
-                  <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
+                  <button class="btn btn-default"  id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
               <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Employee summary</p>
@@ -1960,7 +1960,7 @@ fieldset +.buttons {
                 <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download
                   and print employee calculations</a></li>
                 <!--<li class="mrgn-tp-md">
-      <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the next step</button>
+      <button role="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the next step</button>
     </li>//-->
               </ul>
             </div>
@@ -1975,10 +1975,11 @@ fieldset +.buttons {
           </header>
           <div class="modal-body">
             <p class="mrgn-bttm-md">
-              <button type="button" class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
+              <button  class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
             </p>
             <div class="table-responsive">
-              <table class="table table-bordered table-condensed small" id="dataset-filter" summary="Remuneration calculations for claim period">
+              <table class="table table-bordered table-condensed small" id="dataset-filter">
+                <caption class="wb-inv">Remuneration calculations for claim period</caption>
                 <thead>
                   <tr>
                     <th>Eligible employees (EE)</th>
@@ -2022,7 +2023,7 @@ fieldset +.buttons {
                 <button onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span     class="glyphicon glyphicon-print"></span> Print this summary</button>
               </li>
               <li class="pull-right">
-                <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" type="button">Close<span class="wb-inv"> overlay</span></button>
+                <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" >Close<span class="wb-inv"> overlay</span></button>
               </li>
             </ul>
           </div>
@@ -2264,7 +2265,7 @@ fieldset +.buttons {
             <hr class="brdr-bttm">
             <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
               rate)</span> for claim period <span class="claim-period-no">(choose a claim
-              period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span> </p>
+              period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span> </p>
             <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
               rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
           </div>
@@ -2286,7 +2287,7 @@ fieldset +.buttons {
             </ul>
             <hr class="brdr-bttm">
             <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim
-              period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span></p>
+              period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span></p>
             <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
               rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
           </div>
@@ -2340,19 +2341,19 @@ fieldset +.buttons {
         </div>
       </div>
     </fieldset> -->
-<fieldset id="results-fs" class="panel-default p-0" >
+    <fieldset id="results-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Amount to claim on your application</span></legend>
       <div class="panel-body">
         <div class="clearfix"></div>
 	      <div id="not-qualify-either-alert" class="alert alert-danger provisional hidden">
           <h3 class="text-warning">You do not qualify</h3>
-          <p>You do not qualify for either subsidy in <div class="claim-period"></div></p>
+          <p>You do not qualify for either subsidy in <div class="claim-period"></div>.</p>
 	      </div>
         <div class="alert alert-info provisional not-yet-apply-alert">
           <h3 class="text-info">Apply for the <span class="h4 subsidy-to-apply-for"></span> with the amounts in this summary:</h3>
           <p class="crhp-eligible">You have still not applied. Apply for the <span class="h4 subsidy-to-apply-for"></span> <strong><span id="same-amount-from-both">if the two subsidies would give the same amount</span><span id="different-amount-from-both">as it results in the higher subsidy for this claim period</span></strong>. The <span class="subsidy-for-information"></span> calculation summary is only here for your information.</p>
           <ol>
-            <li>Print and keep the record of <span class="crhp-eligible">your <strong><span class="subsidy-to-apply-for"></span> summary</span></strong> using the print preview button at the bottom.</li>
+            <li>Print and keep the record of <span class="crhp-eligible">your <strong><span class="subsidy-to-apply-for"></span> summary</strong></span> using the print preview button at the bottom.</li>
             <li>Continue to <strong>How to apply</strong> beneath the summary.</li>
           </ol>
           <!-- <div class="crhp-eligible mrgn-tp-md">
@@ -2880,41 +2881,41 @@ End of results//-->
     <p><a href="../wage-subsidy/cews-who-employees.html#leave">Active employees and employees on leave with pay</a></p>
   </div>
 </section>
-<span class="mfp-hide">
-<section id="tempwage" class="modal-dialog modal-content overlay-def">
-  <header class="modal-header">
-    <h2 class="modal-title">10% Temporary Wage Subsidy for Employers reduction</h2>
-  </header>
-  <div class="modal-body">
-    <p class="lead">Line F –10% Temporary Wage Subsidy for Employers reduction</p>
-    <p><strong>For claim periods 5 and later</strong>, the amount for this line will be 0.</p>
-    <p><strong>For periods 1 to 4</strong>, you will need to calculate the amount of your 10% Temporary Wage
-      Subsidy (a separate
-      program) that applies to this CEWS claim period before you enter it at Line F.</p>
-    <p>Generally, the 10% Temporary Wage Subsidy for Employers is equal to:</p>
-    <p class="mrgn-lft-md"><strong>10% of the remuneration you paid from March 18 to June 19, 2020, up to $1,375
-      for
-      each eligible employee</strong></p>
-    <p>The total maximum of the temporary subsidy is $25,000 per employer.</p>
-    <p>CEWS and the 10% Temporary Wage Subsidy for Employers are intended to provide total support of up to 75%,
-      not
-      75% + 10%. If you are eligible for both wage subsidies for a claim period, any amount you calculate under
-      the
-      10% Temporary Wage Subsidy for Employers in the period will reduce the amount available for you to claim
-      under
-      the CEWS in that same period.</p>
-    <p>You may choose to have the 10% Temporary Wage Subsidy be less than 10% of the remuneration you paid so that
-      you can receive a higher amount of Canada Emergency Wage Subsidy. If you enter 0 as your amount for the 10%
-      Temporary Wage Subsidy for Employers in your CEWS application, the CEWS will be determined as if you are
-      electing 0% as the prescribed percentage for 10% Temporary Wage Subsidy for Employers, and are requesting
-      the
-      maximum amount of CEWS instead.</p>
-    <p>Read more: <a
-              href="/content/canadasite/en/revenue-agency/services/subsidy/temporary-wage-subsidy.html">Temporary Wage
-      Subsidy for Employers</a></p>
-  </div>
-</section>
-</span>
+<div class="mfp-hide">
+  <section id="tempwage" class="modal-dialog modal-content overlay-def">
+    <header class="modal-header">
+      <h2 class="modal-title">10% Temporary Wage Subsidy for Employers reduction</h2>
+    </header>
+    <div class="modal-body">
+      <p class="lead">Line F –10% Temporary Wage Subsidy for Employers reduction</p>
+      <p><strong>For claim periods 5 and later</strong>, the amount for this line will be 0.</p>
+      <p><strong>For periods 1 to 4</strong>, you will need to calculate the amount of your 10% Temporary Wage
+        Subsidy (a separate
+        program) that applies to this CEWS claim period before you enter it at Line F.</p>
+      <p>Generally, the 10% Temporary Wage Subsidy for Employers is equal to:</p>
+      <p class="mrgn-lft-md"><strong>10% of the remuneration you paid from March 18 to June 19, 2020, up to $1,375
+        for
+        each eligible employee</strong></p>
+      <p>The total maximum of the temporary subsidy is $25,000 per employer.</p>
+      <p>CEWS and the 10% Temporary Wage Subsidy for Employers are intended to provide total support of up to 75%,
+        not
+        75% + 10%. If you are eligible for both wage subsidies for a claim period, any amount you calculate under
+        the
+        10% Temporary Wage Subsidy for Employers in the period will reduce the amount available for you to claim
+        under
+        the CEWS in that same period.</p>
+      <p>You may choose to have the 10% Temporary Wage Subsidy be less than 10% of the remuneration you paid so that
+        you can receive a higher amount of Canada Emergency Wage Subsidy. If you enter 0 as your amount for the 10%
+        Temporary Wage Subsidy for Employers in your CEWS application, the CEWS will be determined as if you are
+        electing 0% as the prescribed percentage for 10% Temporary Wage Subsidy for Employers, and are requesting
+        the
+        maximum amount of CEWS instead.</p>
+      <p>Read more: <a
+                href="/content/canadasite/en/revenue-agency/services/subsidy/temporary-wage-subsidy.html">Temporary Wage
+        Subsidy for Employers</a></p>
+    </div>
+  </section>
+</div>
 <section id="worksharing" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
     <h2 class="modal-title">Line G - Amounts received by eligible employees under ESDC's Work-Sharing benefit
@@ -2950,7 +2951,7 @@ End of results//-->
       </li>
       <li class="pull-right">
         <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
-              type="button">Close<span class="wb-inv"> overlay</span></button>
+              >Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
   </div>
@@ -2970,7 +2971,7 @@ End of results//-->
       </li>
       <li class="pull-right">
         <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
-              type="button">Close<span class="wb-inv"> overlay</span></button>
+              >Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
   </div>
@@ -3047,7 +3048,7 @@ End of results//-->
   <div class="modal-body">
     <p>These months are needed to calculate your revenue drops for the current period, prior period, and top-up
       period, using your chosen baseline.</p>
-    <p>Read more about <a href="../hiring-program/crhp-who-apply.html" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a></p>
+    <p>Read more about <a href="../hiring-program/crhp-who-apply.html" target="_blank">eligible <span class="nowrap">revenue<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></a></p>
   </div>
 </section>
 	<!--End of overlays//-->
@@ -3056,7 +3057,7 @@ End of results//-->
 
   <div id="def-preFooter"></div>
   <!-- Write closure template --> 
-  <script type="text/javascript">
+  <script>
       var defPreFooter = document.getElementById("def-preFooter");
       defPreFooter.outerHTML = wet.builder.preFooter({
         dateModified: "2021-05-18",
@@ -3068,7 +3069,7 @@ End of results//-->
 </main>
 <div id="def-footer"></div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defFooter = document.getElementById("def-footer");
     defFooter.outerHTML = wet.builder.footer({
       showFooter: true,
@@ -3076,13 +3077,13 @@ End of results//-->
     });
   </script> 
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refFooter({
     }));
   </script> 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> 
 <!--Scripts by CXO149 May 2021 //--> 
-<script type="text/javascript"> 
+<script> 
   $(document).bind("mobileinit", function () {
       // jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
       // when navigating from a mobile to a non-mobile page), especially when going back, hence disabling it.
