@@ -463,7 +463,7 @@ fieldset +.buttons {
   </div>
   <div id="cal-sprdsht-none">
     <p class="mrgn-bttm-0">
-      <button class="btn btn-primary btn-lg" disabled>Download the spreadsheet (Excel)</button>
+      <button type="button" class="btn btn-primary btn-lg" disabled>Download the spreadsheet (Excel)</button>
       <br>
       Please select a claim period to download the spreadsheet</p>
   </div>
@@ -973,7 +973,7 @@ fieldset +.buttons {
           <div class="col-sm-8 col-md-9 mrgn-tp-md p14">
             <div class="provisional alert alert-info">
               <p class="h3">To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
-              <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4>"></p>
+              <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4"></p>
             </div>
           </div>
           <div class="col-sm-8 col-md-9 mrgn-tp-md p59">
@@ -1808,7 +1808,7 @@ fieldset +.buttons {
                 <p>Include all your eligible employees.</p>
                 <fieldset class="subfields" id="emp-1">
                   <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
-                  <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" >Remove</button>
+                  <button type="button" class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" >Remove</button>
                   <div class="clearfix"></div>
                   <div class="panel-body">
                     <div class="form-group">
@@ -1952,7 +1952,7 @@ fieldset +.buttons {
                   </footer>
                 </fieldset>
                 <p class="mrgn-bttm-xl mrgn-tp-lg">
-                  <button class="btn btn-default"  id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
+                  <button type="button" class="btn btn-default" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
               <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Employee summary</p>
@@ -1975,7 +1975,7 @@ fieldset +.buttons {
           </header>
           <div class="modal-body">
             <p class="mrgn-bttm-md">
-              <button  class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
+              <button type="button"  class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
             </p>
             <div class="table-responsive">
               <table class="table table-bordered table-condensed small" id="dataset-filter">
@@ -2020,10 +2020,10 @@ fieldset +.buttons {
             </div>
             <ul class="list-inline">
               <li>
-                <button onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span     class="glyphicon glyphicon-print"></span> Print this summary</button>
+                <button type="button" onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span     class="glyphicon glyphicon-print"></span> Print this summary</button>
               </li>
               <li class="pull-right">
-                <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" >Close<span class="wb-inv"> overlay</span></button>
+                <button type="button" title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" >Close<span class="wb-inv"> overlay</span></button>
               </li>
             </ul>
           </div>
@@ -2946,11 +2946,11 @@ End of results//-->
     <div data-ajax-replace="#cews-statement-table"></div>
     <ul class="list-inline">
       <li>
-        <button onclick="window.print()" class="btn btn-success btn-lg"><span
+        <button type="button" onclick="window.print()" class="btn btn-success btn-lg"><span
                 class="glyphicon glyphicon-print"></span> Print this statement</button>
       </li>
       <li class="pull-right">
-        <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
+        <button type="button" title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
               >Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
@@ -2966,11 +2966,11 @@ End of results//-->
     <div data-ajax-replace=" #crhp-statement-table"></div>
     <ul class="list-inline">
       <li>
-        <button onclick="window.print()" class="btn btn-success btn-lg"><span
+        <button type="button" onclick="window.print()" class="btn btn-success btn-lg"><span
                 class="glyphicon glyphicon-print"></span> Print this statement</button>
       </li>
       <li class="pull-right">
-        <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
+        <button type="button" title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
               >Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
@@ -5747,7 +5747,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
     });
     // TODO: Escape commas and whitespaces in input[type=number] in IE and Edge(Trident)
 
-
     //fix for duplicated popup trigger
     $(document).on("click", ".arms-length-def", function (event) {
       showPopup("armslength");
@@ -5840,6 +5839,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
         ]);
       })(jQuery, wb);
     }
+
+    
+
 
     $(document).on("blur", "input[id^='ee-name-']", function(event) {
       var className = $(event.target).prop("id");
