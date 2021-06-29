@@ -4448,7 +4448,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           var totalEmps = $("fieldset[id^='emp-']").length;
           var eligibleEmps = totalEmps - (0.25 * numWeeksLeaveWPay);
           //active eligible employees
-          $(".total-active-emps").text(Math.ceil(eligibleEmps));
+          $(".total-active-emps").html(Math.ceil(eligibleEmps));
           // $(".total-active-emps").val(Math.ceil(eligibleEmps));
           //get eligible furloughed employees
           $(".total-furloughed-emps").val(Math.ceil(totalEmps - eligibleEmps));
