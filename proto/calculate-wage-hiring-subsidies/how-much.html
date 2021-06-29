@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 <!-- Write closure template -->
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refTop({
     }));
   </script>
@@ -135,7 +135,7 @@ fieldset +.buttons {
 <body vocab="http://schema.org/" typeof="WebPage">
 <div id="def-top"> </div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defTop = document.getElementById("def-top");
     defTop.outerHTML = wet.builder.top({
       lngLinks: [{
@@ -353,7 +353,7 @@ fieldset +.buttons {
         <li>expect to complete your calculation now</li>
       </ul>
     </div>
-    <a href="#cal-calc" type="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</a>
+    <a href="#cal-calc" role="button" id="show-online-calc" class="btn btn-default mrgn-tp-md btn-block" >Online calculator</a>
   </div>
   <div class="cnjnctn-col">
     <div class="eqht-trgt">
@@ -363,7 +363,7 @@ fieldset +.buttons {
         <li>want to save your calculation and come back to it later</li>
       </ul>
     </div>
-    <a href="#cews-cal-opt1" type="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</a>
+    <a href="#cews-cal-opt1" role="button" id="show-sprdsht" class="btn btn-default mrgn-tp-md btn-block" >Downloadable calculation spreadsheet</a>
   </div>
 </div>
 <div id="cews-cal-opt1" class="hidden" aria-live="polite">
@@ -972,7 +972,7 @@ fieldset +.buttons {
         <div class="row">
           <div class="col-sm-8 col-md-9 mrgn-tp-md p14">
             <div class="provisional alert alert-info">
-              <h3>To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
+              <p class="h3">To qualify you must have a revenue drop of 15% for period 1 and 30% for periods 2 to 4</p>
               <p data-ajax-replace="cews-how-revenue-drop-subsidy-rate-calculated.html #ajax-1-4>"></p>
             </div>
           </div>
@@ -1329,7 +1329,7 @@ fieldset +.buttons {
                   <hr class="brdr-bttm">
                   <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
                     rate)</span> for claim period <span class="claim-period-no">(choose a claim
-                    period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span> </p>
+                    period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span> </p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
@@ -1599,7 +1599,7 @@ fieldset +.buttons {
                   </div>
                   <hr class="brdr-bttm">
                   <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim
-                    period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span></p>
+                    period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span></p>
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
@@ -1675,7 +1675,7 @@ fieldset +.buttons {
                     <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration (March 14 to April 10, 2021)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" size="10">
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" >
                       </div>
                     </div>
                     <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Active eligible employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
@@ -1808,7 +1808,7 @@ fieldset +.buttons {
                 <p>Include all your eligible employees.</p>
                 <fieldset class="subfields" id="emp-1">
                   <legend class="col-xs-7 col-sm-9 mrgn-tp-md"><span class="fas fa-user"></span> Eligible employee <span class="employeeNumber">1</span></legend>
-                  <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" type="button">Remove</button>
+                  <button class="col-xs-4 col-sm-2 btn btn-xs btn-danger pull-right rm-emp hidden mrgn-rght-md mrgn-tp-md" role="button">Remove</button>
                   <div class="clearfix"></div>
                   <div class="panel-body">
                     <div class="form-group">
@@ -1952,7 +1952,7 @@ fieldset +.buttons {
                   </footer>
                 </fieldset>
                 <p class="mrgn-bttm-xl mrgn-tp-lg">
-                  <button class="btn btn-default" type="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
+                  <button class="btn btn-default" role="button" id="addemp"><span class="fas fa-plus-circle"></span> Add another employee</button>
                 </p>
               </fieldset>
               <p class="h3 mrgn-tp-sm brdr-tp"><span class="fas fa-users"></span> Employee summary</p>
@@ -1960,7 +1960,7 @@ fieldset +.buttons {
                 <li class="mrgn-tp-md"><a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download
                   and print employee calculations</a></li>
                 <!--<li class="mrgn-tp-md">
-      <button type="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the next step</button>
+      <button role="button" id="transfer-data" class="btn btn-primary">Calculate and send data to the next step</button>
     </li>//-->
               </ul>
             </div>
@@ -1975,10 +1975,11 @@ fieldset +.buttons {
           </header>
           <div class="modal-body">
             <p class="mrgn-bttm-md">
-              <button type="button" class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
+              <button role="button" class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
             </p>
             <div class="table-responsive">
-              <table class="table table-bordered table-condensed small" id="dataset-filter" summary="Remuneration calculations for claim period">
+              <table class="table table-bordered table-condensed small" id="dataset-filter">
+                <caption class="wb-inv">Remuneration calculations for claim period</caption>
                 <thead>
                   <tr>
                     <th>Eligible employees (EE)</th>
@@ -2022,7 +2023,7 @@ fieldset +.buttons {
                 <button onclick="window.print()" class="btn btn-success btn-lg hidden-print"><span     class="glyphicon glyphicon-print"></span> Print this summary</button>
               </li>
               <li class="pull-right">
-                <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" type="button">Close<span class="wb-inv"> overlay</span></button>
+                <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss" role="button">Close<span class="wb-inv"> overlay</span></button>
               </li>
             </ul>
           </div>
@@ -2264,7 +2265,7 @@ fieldset +.buttons {
             <hr class="brdr-bttm">
             <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
               rate)</span> for claim period <span class="claim-period-no">(choose a claim
-              period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span> </p>
+              period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span> </p>
             <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
               rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
           </div>
@@ -2286,7 +2287,7 @@ fieldset +.buttons {
             </ul>
             <hr class="brdr-bttm">
             <p>Your <strong>overall CEWS rate</strong> <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim
-              period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" id="">0%</span></p>
+              period)</span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span></p>
             <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
               rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
           </div>
@@ -2950,7 +2951,7 @@ End of results//-->
       </li>
       <li class="pull-right">
         <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
-              type="button">Close<span class="wb-inv"> overlay</span></button>
+              role="button">Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
   </div>
@@ -2970,7 +2971,7 @@ End of results//-->
       </li>
       <li class="pull-right">
         <button title="Close overlay" class="btn btn-sm btn-default pull-right popup-modal-dismiss"
-              type="button">Close<span class="wb-inv"> overlay</span></button>
+              role="button">Close<span class="wb-inv"> overlay</span></button>
       </li>
     </ul>
   </div>
@@ -3056,7 +3057,7 @@ End of results//-->
 
   <div id="def-preFooter"></div>
   <!-- Write closure template --> 
-  <script type="text/javascript">
+  <script>
       var defPreFooter = document.getElementById("def-preFooter");
       defPreFooter.outerHTML = wet.builder.preFooter({
         dateModified: "2021-05-18",
@@ -3068,7 +3069,7 @@ End of results//-->
 </main>
 <div id="def-footer"></div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defFooter = document.getElementById("def-footer");
     defFooter.outerHTML = wet.builder.footer({
       showFooter: true,
@@ -3076,13 +3077,13 @@ End of results//-->
     });
   </script> 
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refFooter({
     }));
   </script> 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script> 
 <!--Scripts by CXO149 May 2021 //--> 
-<script type="text/javascript"> 
+<script> 
   $(document).bind("mobileinit", function () {
       // jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
       // when navigating from a mobile to a non-mobile page), especially when going back, hence disabling it.
@@ -5871,16 +5872,16 @@ $(document).on("click", ".prev-wb-step", function (event) {
 	
 <!---Adds target=_blank and text/icon to ajaxed hyperlinks //-->	
 <script>
-$(function(){
-$('.wb-lbx').one( 'click', function( event){
-if (document.documentElement.lang.toLowerCase() === "en"){
-$('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
-};
-if (document.documentElement.lang.toLowerCase() === "fr"){
-$('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
-};	
-});
-});
+  $(function(){
+    $('.wb-lbx').one( 'click', function( event){
+      if (document.documentElement.lang.toLowerCase() === "en"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (open in new window)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+      };
+      if (document.documentElement.lang.toLowerCase() === "fr"){
+        $('.modal-content [data-ajax-replace] a:not([target=_blank])').attr('target', '_blank').append('<span class="wb-inv"> (s&#39;ouvre dans une nouvelle fenêtre)</span><span class="mrgn-lft-sm far fa-window-restore"></span>');
+      };	
+    });
+  });
 </script>
 		
 </body>
