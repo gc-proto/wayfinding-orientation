@@ -4477,25 +4477,26 @@ $(document).on("click", ".prev-wb-step", function (event) {
           if (claimPeriod < 11) {
             var revenuePriorDisplay = Math.max(0, roundPercDown(priorRevReduc));
             var revenueDisplay = Math.max(0, roundPercDown(currentRevReduc));
-          } else if (claimPeriod == 17 && revReduction <= 0) {
-            if (revReductionCRHPcur > 0) {
-              var revenuePriorDisplay = 0.01;
-            }
-            if (revReductionCRHPprev > 0) {
-              var revenueDisplay = 0.01;
-            }
-          } else if (claimPeriod > 17 && revReduction <= 0.1) {
-            if (revReductionCRHPcur > 10) {
-              var revenuePriorDisplay = 10.01;
-            }
-            if (revReductionCRHPprev > 10) {
-              var revenueDisplay = 10.01;
-            }
           } else {
             var revenuePriorDisplay = Math.max(0, priorRevReduc * 100);
             revenuePriorDisplay = revenuePriorDisplay.toFixed(2);
             var revenueDisplay = Math.max(0, currentRevReduc * 100);
             revenueDisplay = revenueDisplay.toFixed(2);
+            if (claimPeriod == 17 && revReduction <= 0) {
+              if (revReductionCRHPcur > 0) {
+              var revenueDisplay = 0.01;
+              }
+              if (revReductionCRHPprev > 0) {
+                var revenuePriorDisplay = 0.01;
+              }
+            } else if (claimPeriod > 17 && revReduction <= 0.1) {
+              if (revReductionCRHPcur > 10) {
+                var revenueDisplay = 10.01;
+              }
+              if (revReductionCRHPprev > 10) {
+                var revenuePriorDisplay = 10.01;
+              }
+            }
           }
           $("#p2b-c0").val(revenuePriorDisplay);
           $("output[for='p2b-c0']").text(toPercent(revenuePriorDisplay));
