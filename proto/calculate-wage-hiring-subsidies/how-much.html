@@ -2464,7 +2464,7 @@ fieldset +.buttons {
                 <output class="h6 wb-calc nowrap" for="p3-cpp"
                     data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output></td>
             </tr>
-            <tr>
+            <tr class="p14">
               <th scope="row" class="h6">(less) 10% Temporary Wage Subsidy for Employers claim <small class="nowrap">(Line
                 F)</small></th>
               <td class="text-right nowrap"><abbr title="negative" class="brdr-0">-</abbr>
@@ -5234,7 +5234,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
           //get the value of the previous month
           var prevClaimValue = zeroIfEmpty($("#" + monthsArray[1] + "-yes").val());
           //get the avg of the revenue from the last three months
-          if (claimPeriod < 10) {
+
+          if (claimPeriod < 11) {
             var threeMoAgo = zeroIfEmpty($("#" + monthsArray[3] + "-yes").val());
             var twoMoAgo = zeroIfEmpty($("#" + monthsArray[2] + "-yes").val());
             var threeMonthAvg = (threeMoAgo + twoMoAgo + prevClaimValue) / 3;
