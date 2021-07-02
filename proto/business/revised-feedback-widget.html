@@ -252,7 +252,7 @@
                     <section class="gc-pg-hlpfl provisional">
                         <div class="well mrgn-bttm-0">
                             <form id="gc-pg-hlpfl-frm" action="#" method="post" autocomplete="off">
-                                <input type="hidden" name="institutionopt" value="IIIInstitution acronym - required - must use same value EN and FR">
+                                <input type="hidden" name="institutionopt" value="Institution acronym - required - must use same value EN and FR">
                                 <input type="hidden" name="themeopt" value="Theme - required - must use same value EN and FR">
                                 <input type="hidden" name="language" value="Language - required - use EN or FR">
                                 <input type="hidden" name="pageTitle" value="Page title EN - required">
@@ -349,28 +349,62 @@
     </script>
     <!-- START SCRIPT PAGE FEEDBACK WIDGET -->
     <script>
-        $(document).on("wb-ready.wb", function() {
-            $("#btnno").click(function(e) {
-                $(".gc-pg-hlpfl-no").removeClass("nojs-show");
-                $(".gc-pg-hlpfl-btn").addClass("hide");
-                $("#helpful").val("No");
-            });
-            $("#gc-pg-hlpfl-frm").submit(function(e) {
-                e.preventDefault();
-                $(".gc-pg-hlpfl-thnk").removeClass("hide");
-                $("#gc-pg-hlpfl-frm").addClass("hide nojs-show");
-                $.ajax({
-                    url: 'https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm',
-                    type: 'POST',
-                    dataType: 'text',
-                    data: $('form#gc-pg-hlpfl-frm').serialize(),
-                    success: function(data) {},
-                    error: function(xhr, status, err) {
-                        console.log(xhr.responseText);
+        (function($, windows, wb) {
+                "use strict";
+                var componentName = "gc-pg-hlpfl",
+                    selector = "." + componentName,
+                    initEvent = "wb-init" + selector,
+                    $document = wb.doc,
+                    regex = {
+                        phoneNumber: /(\+\d{1,2}\s?)?1?\-?\.?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}/im,
+                        sin: /(\d{3}\s*\d{3}\s*\d{3}|\d{3}\D*\d{3}\D*\d{3})/im,
+                        postalCode: /[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d/im,
+                        email: /([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})/im
+                    },
+                    init = function(event) {
+                        var elm = wb.init(event, componentName, selector),
+                            $elm;
+                        if (elm) {
+                            $elm = $(elm);
+                            $elm.trigger("keyup");
+                            $elm.trigger("submit");
+                            $elm.trigger("click");
+                            wb.ready($elm, componentName);
+                        }
+                    };
+                $document.on("keyup", selector + " textarea", function(event) {
+                    var textValue = event.target.value,
+                        $warning = $("#warning");
+                    if (textValue.match(regex.phoneNumber) || textValue.match(regex.sin) || textValue.match(regex.postalCode) || textValue.match(regex.email)) {
+                        $warning.removeClass("hidden").animate();
+                    } else {
+                        $warning.addClass("hidden");
                     }
                 });
-            });
-        });
+                $document.on("click", selector + " #btnno", function() {
+                    $(".gc-pg-hlpfl-no").removeClass("nojs-show");
+                    $(".gc-pg-hlpfl-btn").addClass("hide");
+                    $("#helpful").val("No");
+                });
+                $document.on("submit", selector + " #gc-pg-hlpfl-frm", function(event) {
+                    var elm = event.currentTarget,
+                        $elm = $(elm);
+                    event.preventDefault();
+                    $(".gc-pg-hlpfl-thnk").removeClass("hide");
+                    $elm.addClass("hide nojs-show");
+                    $.ajax({
+                        url: "https://pagesuccessemailqueue.azurewebsites.net/api/QueueProblemForm",
+                        type: "POST",
+                        dataType: "text",
+                        data: $elm.serialize(),
+                        success: function(data) {},
+                        error: function(xhr, status, err) {
+                            console.log(xhr.responseText);
+                        }
+                    });
+                });
+                $document.on("timerpoke.wb " + initEvent, selector, init);
+                wb.add(selector);
     </script>
     <!-- END SCRIPT PAGE FEEDBACK WIDGET -->
 
