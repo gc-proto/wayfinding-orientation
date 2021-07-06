@@ -2394,83 +2394,83 @@ fieldset +.buttons {
         // calculateCRHP(); //Or maybe 'clear chrp'?
       });
 
-      function uploadDealcsv () {}; 
-      /*------ Method for read uploded csv file ------*/
-      uploadDealcsv.prototype.getCsv = function(e) {
-          let input = document.getElementById('p14csv');
-          input.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                var myFile = this.files[0];
-                var reader = new FileReader();
-                reader.addEventListener('load', function (e) {
-                    let csvdata = e.target.result; 
-                    parseCsv.getParsecsvdata(csvdata); // calling function for parse csv data 
-                });
-                reader.readAsBinaryString(myFile);
-            }
-          });
-        }
-        /*------- Method for parse csv data and display --------------*/
-        uploadDealcsv.prototype.getParsecsvdata = function(data) {
-            let parsedata = [];
-            let newLinebrk = data.split("\n");
-            var i = 0;
-            for(i = 0; i < newLinebrk.length; i++) {
-                parsedata.push(newLinebrk[i].split(","))
-            }
-            if (document.documentElement.lang == "fr") { //check that column headings are correct
-              if (parsedata[0][1] != "Sansliendedépendance" || parsedata[0][2] != "Paieavantlacrise" || parsedata[0][3] != "Salairebruthebdomadairepourlapremièresemaine" || parsedata[0][4] != "Salairebruthebdomadairepourladeuxièmesemaine" || parsedata[0][5] != "Salairebruthebdomadairepourlatroisièmesemaine" || parsedata[0][6] != "Salairebruthebdomadairepourlaquatrièmesemaine" || parsedata[0][7] != "MontantdebaselaSSUCcalculée") {
-                $('#crhp-csv-parse-error').removeClass("hidden");
-                $('#crhp-base-manual').removeClass("hidden");
-                $('#crhp-base-input').removeClass("hidden");
-              } else {
-                $('#crhp-csv-parse-error').addClass("hidden");
-                $('#crhp-base-manual').addClass("hidden");
-                $('#crhp-base-input').addClass("hidden");
-              }
-            } else {
-              if (parsedata[0][1] != "Arm's length" || parsedata[0][2] != "Pre-crisis pay" || parsedata[0][3] != "Weekly gross pay for week 1" || parsedata[0][4] != "Weekly gross pay for week 2" || parsedata[0][5] != "Weekly gross pay for week 3" || parsedata[0][6] != "Weekly gross pay for week 4" || parsedata[0][7] != "Calculated basic CEWS amount") {
-                $('#crhp-csv-parse-error').removeClass("hidden");
-                $('#crhp-base-manual').removeClass("hidden");
-                $('#crhp-base-input').removeClass("hidden");
-              } else {
-                $('#crhp-csv-parse-error').addClass("hidden");
-                $('#crhp-base-manual').addClass("hidden");
-                $('#crhp-base-input').addClass("hidden");
-              }
-            }
-            var re = /[^\d.]/g;
-            // if (parsedata[i][1] == "No") { //NAL employee
-            //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(/[^\d.]\g,'')) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')))) 
-            // } else {
-            //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')))) 
-            // }
-            //   week1 = p14rate * Math.min(1129, parsedata[i][3], parsedata[i][2])
-            //   week2 = p14rate * Math.min(1129, parsedata[i][4], parsedata[i][2])
-            //   week3 = p14rate * Math.min(1129, parsedata[i][5], parsedata[i][2])
-            //   week4 = p14rate * Math.min(1129, parsedata[i][6], parsedata[i][2])
-            baseCRHPRem = 0;
-            var week1 = 0, week2 = 0, week3 = 0, week4 = 0;
-            for(i = 1; i < parsedata.length; i++) { //for each employee
-              if (parsedata[i][1] == "No") { //NAL employee
-                week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
-                week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
-                week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
-                week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
-              } else { //Arm's length
-                week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')));
-                week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')));
-                week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')));
-                week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')));
-              }
-              baseCRHPRem = baseCRHPRem + week1 + week2 + week3 + week4;
-            }
-            $('.total-active-emps-14').text(parsedata.length - 1);
-            $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
-            calculateTotals(); //Or maybe 'clear chrp'?
-        }
-        var parseCsv = new uploadDealcsv();
-        parseCsv.getCsv();
+      // function uploadDealcsv () {}; 
+      // /*------ Method for read uploded csv file ------*/
+      // uploadDealcsv.prototype.getCsv = function(e) {
+      //     let input = document.getElementById('p14csv');
+      //     input.addEventListener('change', function() {
+      //       if (this.files && this.files[0]) {
+      //           var myFile = this.files[0];
+      //           var reader = new FileReader();
+      //           reader.addEventListener('load', function (e) {
+      //               let csvdata = e.target.result; 
+      //               parseCsv.getParsecsvdata(csvdata); // calling function for parse csv data 
+      //           });
+      //           reader.readAsBinaryString(myFile);
+      //       }
+      //     });
+      //   }
+      //   /*------- Method for parse csv data and display --------------*/
+      //   uploadDealcsv.prototype.getParsecsvdata = function(data) {
+      //       let parsedata = [];
+      //       let newLinebrk = data.split("\n");
+      //       var i = 0;
+      //       for(i = 0; i < newLinebrk.length; i++) {
+      //           parsedata.push(newLinebrk[i].split(","))
+      //       }
+      //       if (document.documentElement.lang == "fr") { //check that column headings are correct
+      //         if (parsedata[0][1] != "Sansliendedépendance" || parsedata[0][2] != "Paieavantlacrise" || parsedata[0][3] != "Salairebruthebdomadairepourlapremièresemaine" || parsedata[0][4] != "Salairebruthebdomadairepourladeuxièmesemaine" || parsedata[0][5] != "Salairebruthebdomadairepourlatroisièmesemaine" || parsedata[0][6] != "Salairebruthebdomadairepourlaquatrièmesemaine" || parsedata[0][7] != "MontantdebaselaSSUCcalculée") {
+      //           $('#crhp-csv-parse-error').removeClass("hidden");
+      //           $('#crhp-base-manual').removeClass("hidden");
+      //           $('#crhp-base-input').removeClass("hidden");
+      //         } else {
+      //           $('#crhp-csv-parse-error').addClass("hidden");
+      //           $('#crhp-base-manual').addClass("hidden");
+      //           $('#crhp-base-input').addClass("hidden");
+      //         }
+      //       } else {
+      //         if (parsedata[0][1] != "Arm's length" || parsedata[0][2] != "Pre-crisis pay" || parsedata[0][3] != "Weekly gross pay for week 1" || parsedata[0][4] != "Weekly gross pay for week 2" || parsedata[0][5] != "Weekly gross pay for week 3" || parsedata[0][6] != "Weekly gross pay for week 4" || parsedata[0][7] != "Calculated basic CEWS amount") {
+      //           $('#crhp-csv-parse-error').removeClass("hidden");
+      //           $('#crhp-base-manual').removeClass("hidden");
+      //           $('#crhp-base-input').removeClass("hidden");
+      //         } else {
+      //           $('#crhp-csv-parse-error').addClass("hidden");
+      //           $('#crhp-base-manual').addClass("hidden");
+      //           $('#crhp-base-input').addClass("hidden");
+      //         }
+      //       }
+      //       var re = /[^\d.]/g;
+      //       // if (parsedata[i][1] == "No") { //NAL employee
+      //       //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(/[^\d.]\g,'')) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')))) 
+      //       // } else {
+      //       //   p14rate = total / (Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,''))) + Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')))) 
+      //       // }
+      //       //   week1 = p14rate * Math.min(1129, parsedata[i][3], parsedata[i][2])
+      //       //   week2 = p14rate * Math.min(1129, parsedata[i][4], parsedata[i][2])
+      //       //   week3 = p14rate * Math.min(1129, parsedata[i][5], parsedata[i][2])
+      //       //   week4 = p14rate * Math.min(1129, parsedata[i][6], parsedata[i][2])
+      //       baseCRHPRem = 0;
+      //       var week1 = 0, week2 = 0, week3 = 0, week4 = 0;
+      //       for(i = 1; i < parsedata.length; i++) { //for each employee
+      //         if (parsedata[i][1] == "No") { //NAL employee
+      //           week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+      //           week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+      //           week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+      //           week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')), zeroIfEmpty(parsedata[i][2].replace(re,'')));
+      //         } else { //Arm's length
+      //           week1 = Math.min(1129, zeroIfEmpty(parsedata[i][3].replace(re,'')));
+      //           week2 = Math.min(1129, zeroIfEmpty(parsedata[i][4].replace(re,'')));
+      //           week3 = Math.min(1129, zeroIfEmpty(parsedata[i][5].replace(re,'')));
+      //           week4 = Math.min(1129, zeroIfEmpty(parsedata[i][6].replace(re,'')));
+      //         }
+      //         baseCRHPRem = baseCRHPRem + week1 + week2 + week3 + week4;
+      //       }
+      //       $('.total-active-emps-14').text(parsedata.length - 1);
+      //       $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
+      //       calculateTotals(); //Or maybe 'clear chrp'?
+      //   }
+      //   var parseCsv = new uploadDealcsv();
+      //   parseCsv.getCsv();
 
       /**
        * calculate the cews rate reductions

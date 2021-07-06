@@ -1872,7 +1872,7 @@
               "7-days-fr-wording-",
               "7-days-gap-",
               "top-up-days-",
-              "choose-own-or-rent-message-",
+              // "choose-own-or-rent-message-",
               "lock-down-period-",
               "rent-amt-",
               "tax-amt-",
@@ -2102,6 +2102,8 @@
               var idUpdateElement = $(frag).find(
                 "#" + this.idUpdates[i] + "1"
               );
+              console.log(this.idUpdates[i]);
+              console.log(idUpdateElement);
               $(idUpdateElement).attr("id", $(idUpdateElement).attr("id").replace(this.locationIndexRegex, "-" + this.numberOfLocations));
               // if there is also an associated ariadescribedby, update that too
               var ariaUpdateElement = $(frag).find(
@@ -2194,7 +2196,7 @@
             $(frag).find('#lock-down-eligible-' + numLocs).addClass("hidden");
             $(frag).find('.rent-location-' + numLocs).addClass("hidden");
             $(frag).find('.own-location-' + numLocs).addClass("hidden");
-            $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
+            // $(frag).find('#choose-own-or-rent-message-' + numLocs).removeClass("hidden");
             //open the accordion for the summary details and close on the other ones
             var accordion = $(frag).find("details").each(function (i, element) {
               $(element).removeAttr("open");
@@ -2966,11 +2968,11 @@
               if (target.id == 'owner-location-yes-' + locationNumber) {
                 $('.own-location-'+locationNumber).removeClass("hidden");
                 $('.rent-location-'+locationNumber).addClass("hidden");
-                $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
+                // $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
               } else if (target.id == 'owner-location-no-' + locationNumber) {
                 $('.own-location-'+locationNumber).addClass("hidden");
                 $('.rent-location-'+locationNumber).removeClass("hidden");
-                $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
+                // $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
               } 
               expenseFieldHideShow(locationNumber);
             } else if (target.name == "rev-comp") {
@@ -3065,7 +3067,7 @@
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             var calcMethod = $("#calc-method-" + locationNumber + " option:selected").data("calc-method");
             //unhide calc method form based on the dropdown selection
-            if ($('#choose-own-or-rent-message-' + locationNumber).is(":hidden")) { //ensure an own or rent option is selected first
+            // if ($('#choose-own-or-rent-message-' + locationNumber).is(":hidden")) { //ensure an own or rent option is selected first
               if (calcMethod == "month") {
                 if (claimPeriod == 11 || claimPeriod == 12) { //only 1 month
                   $('.month-two-' + locationNumber).addClass("hidden");
@@ -3079,7 +3081,7 @@
                 $('.month-two-' + locationNumber).addClass("hidden");
                 $('.cers-period-' + locationNumber).removeClass("hidden");
               }
-            }
+            // }
             recalculateLocationAmounts(locationNumber);
           }
 
