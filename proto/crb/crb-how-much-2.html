@@ -703,7 +703,7 @@ ol.lst-stps>li, .lst-stps>.lst-item {
       <li><a href="crb-periods-apply.html">Periods you can apply for<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
       <li><a href="crb-how-apply.html">How to apply<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a> </li>
       <li><a href="crb-getting-payments.html">Keep getting your payments<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
-      <li><a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-impact-taxes.html">Impact on your taxes<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
+      <li><a href="crb-impact-taxes.html">Impact on your taxes<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
       <li><a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-return-payment.html">Return a payment<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
       <li><a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-contact.html">Contact us about CRB<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
     </ul>
@@ -736,7 +736,7 @@ ol.lst-stps>li, .lst-stps>.lst-item {
 
 <h2 id="h-2">Changes to CRB amounts for period 22</h2>
 <p>Your CRB amount may change based on how many periods you've applied for, or if your first time applying for the CRB is for period 22 (July 18 to 31, 2021) or a later period.</p>
-<div class="row mrgn-bttm-md mrgn-tp-lg">
+<!--div class="row mrgn-bttm-md mrgn-tp-lg">
   <div class="col-xs-12">
     <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
       <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fa-stack fa-fw pull-left"><span class="fas fa-sync-alt fa-stack-2x "></span><span class="fas fa-dollar-sign fa-stack-1x"></span></span></span></div>
@@ -953,11 +953,10 @@ ol.lst-stps>li, .lst-stps>.lst-item {
       </tbody>
     </table>
   </div>
-</section>
+</section--> 
 
-<!-- TESTING --> 
-<br>
-<br>
+<!-- TESTING -->
+
 <div class="row mrgn-bttm-md mrgn-tp-lg">
 <div class="col-xs-12">
 <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
@@ -1003,7 +1002,7 @@ ol.lst-stps>li, .lst-stps>.lst-item {
         <p class="checkbox-label"><strong>How many CRB periods have you already applied for?</strong></p>
         <ul class="checkbox-lg checkbox-zebra">
           <li class="checkbox" id="all">
-            <input type="checkbox" id="c0" class="action-checkbox cb-dmm">
+            <input type="checkbox" id="c0" class="all-checkbox cb-dmm">
             <label for="c0">Select all periods to date</label>
           </li>
           <li class="checkbox" id="p1">
@@ -1131,14 +1130,26 @@ ol.lst-stps>li, .lst-stps>.lst-item {
             <label for="c25"> Period 25: 
               August 29 to September 11, 2021 </label>
           </li>
-          <li class="checkbox" id="p25">
+          <li class="checkbox" id="p26">
             <input type="checkbox" id="c26" class="action-checkbox cb-dmm">
             <label for="c26"> Period 26: 
               September 12 to September 25, 2021 </label>
           </li>
         </ul>
+        <p>Total number of periods: <span id="total"></span></p>
       </section>
-      
+      <div class="alert alert-success hidden provisional" id="action-msg1">
+        <h3>Message 1</h3>
+        <p>Less than 21 periods.</p>
+      </div>
+      <div class="alert alert-success hidden provisional" id="action-msg2">
+        <h3>Message 2</h3>
+        <p>Between 21 and 25 periods.</p>
+      </div>
+      <div class="alert alert-success hidden provisional" id="action-msg3">
+        <h3>Message 3</h3>
+        <p>25 periods or more.</p>
+      </div>
       <!-- END OF TEST --> 
       
       <!--form>
@@ -1300,9 +1311,9 @@ if($('.gcnav-menu').length> 0){
 </script> 
 
 <!--CHECKBOX SCRIPT--> 
-<script>
-		var startDate = new Date("2020-10-12"); //YYYY-MM-DD
-		var endDate = new Date("2021-10-04"); //YYYY-MM-DD
+<!--script>
+		var startDate = new Date("2020-10-12T06:00:00"); //YYYY-MM-DD T HH:mm:ss
+		var endDate = new Date("2021-09-27T06:00:00"); //YYYY-MM-DD T HH:mm:ss
 		
 		//function to create date arrays
 		var getDateArray = function(start, end) {
@@ -1327,6 +1338,60 @@ if($('.gcnav-menu').length> 0){
 		}
 		removeDate(dateArr);
 		
+	</script--> 
+
+<!-- COUNT PERIODS & DISPLAY MESSAGES --> 
+<script>
+		
+         $(".action-checkbox").change(function(){
+         
+		document.getElementById("total").innerHTML = $('.action-checkbox:checked').length
+			 
+		 if ($('.action-checkbox:checked').length <= 21) {
+         $("#action-msg1").removeClass("hidden").addClass("visible");
+         $("#action-msg2").addClass("hidden").removeClass("visible");
+		 $("#action-msg3").addClass("hidden").removeClass("visible");
+         }
+         if (($('.action-checkbox:checked').length > 21) && ($('.action-checkbox:checked').length < 25)) {         
+         $("#action-msg1").addClass("hidden").removeClass("visible");
+		 $("#action-msg2").removeClass("hidden").addClass("visible");
+		 $("#action-msg3").addClass("hidden").removeClass("visible");
+         }
+		 if ($('.action-checkbox:checked').length >= 25) {
+         $("#action-msg2").addClass("hidden").removeClass("visible");
+		 $("#action-msg1").addClass("hidden").removeClass("visible");
+	     $("#action-msg3").removeClass("hidden").addClass("visible"); 
+			
+         }
+		if ($('.action-checkbox:checked').length = $('.action-checkbox').length){
+				$(".all-checkbox").attr('checked',true);
+		} 
+		if ($('.action-checkbox:checked').length < $('.action-checkbox').length){
+				$(".all-checkbox").attr('checked',false);
+		} 
+         })
+         
+      </script> 
+<!-- SELECT ALL --> 
+<script>
+	$(".all-checkbox").change(function(){
+	if ($('.all-checkbox:checked').length = 1){
+		$(".action-checkbox").attr('checked',true);
+	}
+	else{
+		$(".action-checkbox").attr('checked',false);
+	}
+	})
+	
+	</script> 
+<script>
+	$(".all-checkbox").change(function(){
+	if ($('.all-checkbox:checked').length < 1){
+		$(".action-checkbox").attr('checked',false);
+	}
+	
+	})
+	
 	</script> 
 
 <!--END OF CHECKBOX SCRIPT--> 
