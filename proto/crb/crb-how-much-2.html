@@ -596,25 +596,61 @@ ol.lst-stps>li, .lst-stps>.lst-item {
 	border: 1px solid #e3e3e3;
 	box-shadow: 0px 0px 10px #ddd;
 }
-/* add scrollbar to section */
-section.scrll {
+
+/* custom scrollbars for field flow section */
+/* ff scrollbar */
+.scrll {
+  scrollbar-width: 18px;
+  scrollbar-color: #143c5f #f0f0fb;
+}
+
+/* webkit scrollbar */
+.scrll {
 	height: 400px;
 	overflow: auto;		
 }
 .scrll::-webkit-scrollbar {
-  width: 12px;
+  width: 18px;
 }
 .scrll::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;	
+  border-radius: 8px;
 }
 .scrll::-webkit-scrollbar-thumb {
-  background-color: #31708f;
+  background-color: #143c5f;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);	
+  padding-top: 3px;
 }
 .scrll::-webkit-scrollbar-track-piece {
-  background-color: #e0e0eb;
-}	
+  background-color: #bbb;
+}
+.scrll::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: #2572b4;
+}
+/* buttons */
+.scrll::-webkit-scrollbar-button:single-button {
+  background-color: #bbb;
+  display: block;
+  border-style: solid;
+  height: 14px;
+  width: 18px;
+}
+/* up */
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 10px 8px;
+  border-color: transparent transparent #303030 transparent;
+}
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #2572b4 transparent;
+}
+/* down */
+.scrll::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 10px 0 8px;
+  border-color: #303030 transparent transparent transparent;
+}
+.scrll::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #2572b4 transparent transparent transparent;
+}
 /* fix font size in checkboxes 
 also line 275 changed to 10px to accomodate new spacing */
 li.checkbox label {
