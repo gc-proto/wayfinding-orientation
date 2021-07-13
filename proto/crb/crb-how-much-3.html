@@ -599,7 +599,7 @@ ol.lst-stps>li, .lst-stps>.lst-item {
 /* add scrollbar to section */
 section.scrll {
 	height: 400px;
-	overflow: auto;		
+	overflow: auto;
 }
 /* fix font size in checkboxes 
 also line 275 changed to 10px to accomodate new spacing */
@@ -765,7 +765,7 @@ li.checkbox label {
                     <p><strong>You will receive the reduced amount.</strong></p>
                     <div class="mrgn-tp-md">
                       <p>You may receive $600 (<strong>$540</strong> after taxes withheld) for a 2-week period until the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>).</p>
-			<p>Your 2019 or 2020 taxes must be filed before you can apply for the CRB. </p>
+                      <p>Your 2019 or 2020 taxes must be filed before you can apply for the CRB. </p>
                     </div>
                   </div>
                   <div id="retro" class="hidden alert alert-warning alert1">
@@ -773,7 +773,6 @@ li.checkbox label {
                     <div class="mrgn-tp-md">
                       <p>If you are eligible for period 21 (July 4 to 17, 2021) or an earlier period, apply for those periods first. Periods remain open for 60 days after the period ends. You may receive $1,000 (<strong>$900</strong> after taxes withheld) for each 2-week period until the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>).</p>
                     </div>
-                    
                     <div class="mrgn-tp-md">
                       <p>If the first period you apply for is period 22 (July 18 to 31, 2021) or later, you may receive $600 (<strong>$540</strong> after taxes withheld) for the 2-week period. To apply for the CRB, your 2019 or 2020 taxes must be filed. </p>
                     </div>
@@ -900,37 +899,18 @@ li.checkbox label {
                     <p class="lead mrgn-tp-md">Total number of periods: <span id="total"></span></p>
                     <button type="button" class="btn btn-primary mrgn-bttm-md" id="b1" onClick="changeMessage()">Check how much you can get</button>
                   </section>
-                  <!-- CHECKBOX ANSWERS -->
-                  <div class="alert alert-success hidden provisional alert1" id="action-msg1">
-                    <p><strong>You may receive the original amount for the first 21 periods.</strong></p>
+                  <!-- CHECKBOX ANSWERS --> 
+                  
+                  <!-- No periods selected -->
+                  <div class="alert alert-info hidden provisional alert1" id="action-msg0">
+                    <p><strong>You did not select any periods.</strong></p>
                     <div class="mrgn-tp-md">
-                      <p>You may receive $1,000 (<strong>$900</strong> after taxes withheld) for a 2-week period until you reach 21 periods (42 weeks).</p>
-                    </div>
-                    <div class="mrgn-tp-md">
-                      <p>After 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB. Your CRB payments will be $600 (<strong>$540</strong> after taxes withheld) until you reach the maximum of 25 periods.</p>
-                    </div>
-                    <div class="mrgn-tp-md">
-                      <p>The last CRB period is <a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>.</p>
+                      <p>Select the CRB periods you have already applied for to see how much you can get.</p>
                     </div>
                   </div>
-                  <div class="alert alert-warning hidden provisional alert1" id="action-msg2">
-                    <p><strong>You will receive the reduced amount.</strong></p>
-                    <div class="mrgn-tp-md">
-                      <p>You may receive $600 (<strong>$540</strong> after taxes withheld) for a 2-week period until either:</p>
-                    </div>
-                    <ul>
-                      <li>you reach the maximum of 25 periods (50 weeks)</li>
-                      <li>the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>)</li>
-                    </ul>
-			  <p>If you apply for more than 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB.</p>
-                  </div>
-                  <div class="alert alert-danger hidden provisional alert1" id="action-msg3">
-                    <p><strong>You have reached the benefit limit.</strong></p>
-                    <div class="mrgn-tp-md">
-                      <p>You cannot receive any more CRB payments. You've reached the maximum 25 periods (50 weeks).</p>
-                    </div>
-                  </div>
-                  <div class="alert alert-warning hidden provisional alert1" id="action-msg4">
+                  
+                  <!-- No periods selected before period 22 -->
+                  <div class="alert alert-warning hidden provisional alert1" id="action-msg1">
                     <p><strong>You will receive the reduced amount.</strong></p>
                     <div class="mrgn-tp-md">
                       <p>You did not select period 21 (July 4 to 17, 2021) or an earlier period.</p>
@@ -940,14 +920,82 @@ li.checkbox label {
                       <li>you reach the maximum of 25 periods (50 weeks)</li>
                       <li>the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>)</li>
                     </ul>
-			  <p>If you apply for more than 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB.</p>
+                    <div class="mrgn-tp-md">
+                      <p>If you apply for more than 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB.</p>
+                    </div>
                   </div>
-					<!--END OF CHECKBOX ANSWERS-->
+                  
+                  <!-- Between 1 and 18 periods selected -->
+                  <div class="alert alert-success hidden provisional alert1" id="action-msg2">
+                    <p><strong>You may receive the original amount for the first 21 periods.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>You may receive $1000 (<strong>$900</strong> after taxes withheld) for a 2-week period until you reach 21 periods (42 weeks).</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>After 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB. Your CRB payments will be $600 (<strong>$540</strong> after taxes withheld) until you reach the maximum of 25 periods.</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>The last CRB period is <a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Between 19 and 20 periods selected -->
+                  <div class="alert alert-success hidden provisional alert1" id="action-msg3">
+                    <p><strong>You may receive the original amount for the first 21 periods.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>You may receive $1000 (<strong>$900</strong> after taxes withheld) for a 2-week period until you reach 21 periods (42 weeks).</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>After 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB. Your CRB payments will be $600 (<strong>$540</strong> after taxes withheld) until you reach the maximum of 25 periods.</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>The last CRB period is <a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Exactly 21 periods selected -->
+                  <div class="alert alert-success hidden provisional alert1" id="action-msg4">
+                    <p><strong>This is the last period where you may receive the original amount.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>You may receive $1000 (<strong>$900</strong> after taxes withheld) for a 2-week period until you reach 21 periods (42 weeks).</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>After 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB. Your CRB payments will be $600 (<strong>$540</strong> after taxes withheld) until you reach the maximum of 25 periods.</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>The last CRB period is <a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- Between 22 and 24 periods selected -->
+                  <div class="alert alert-warning hidden provisional alert1" id="action-msg5">
+                    <p><strong>You will receive the reduced amount.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>You may receive $600 (<strong>$540</strong> after taxes withheld) for a 2-week period until either:</p>
+                    </div>
+                    <ul>
+                      <li>you reach the maximum of 25 periods (50 weeks)</li>
+                      <li>the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>)</li>
+                    </ul>
+                    <div class="mrgn-tp-md">
+                      <p>If you apply for more than 21 periods, your 2019 or 2020 taxes must be filed to continue receiving the CRB.</p>
+                    </div>
+                  </div>
+                  
+                  <!-- 25 or more periods selected -->
+                  <div class="alert alert-danger hidden provisional alert1" id="action-msg6">
+                    <p><strong>You have reached the benefit limit.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>You cannot receive any more CRB payments. You've reached the maximum 25 periods (50 weeks).</p>
+                    </div>
+                  </div>
+                  
+                  <!--END OF CHECKBOX ANSWERS--> 
                 </div>
               </div>
             </div>
           </div>
-        </div>        
+        </div>
         <!-- END OF FF -->
         <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
           <h3 class="wb-inv">Document navigation</h3>
@@ -1033,7 +1081,7 @@ li.checkbox label {
 </script> 
 
 <!--CHECKBOX SCRIPTS--> 
-<!--REMOVE PERIODS THAT AREN'T OPEN-->
+<!--REMOVE PERIODS THAT AREN'T OPEN--> 
 <!--script> 
   var startDate = new Date("2020-10-12T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/
   var endDate = new Date("2021-09-27T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/ 
@@ -1064,10 +1112,13 @@ li.checkbox label {
 <!-- COUNT PERIODS & DISPLAY MESSAGES --> 
 <script>
 	function clearMessages(){
+		$("#action-msg0").addClass("hidden").removeClass("visible");
 		$("#action-msg1").addClass("hidden").removeClass("visible");
 		$("#action-msg2").addClass("hidden").removeClass("visible");
 		$("#action-msg3").addClass("hidden").removeClass("visible");
-		$("#action-msg4").addClass("hidden").removeClass("visible");		
+		$("#action-msg4").addClass("hidden").removeClass("visible");
+		$("#action-msg5").addClass("hidden").removeClass("visible");	
+		$("#action-msg6").addClass("hidden").removeClass("visible");	
 	}
 	
 	function countBoxes(){
@@ -1096,22 +1147,36 @@ li.checkbox label {
 	})
 
 	function changeMessage(){		
-		if (($('.action-checkbox:checked').length <= 21) && ($('.b422:checked').length >= 1)) {
+		countBoxes()
+		if ($('.action-checkbox:checked').length == 0){
 				clearMessages();
-				$("#action-msg1").removeClass("hidden").addClass("visible");
+				$("#action-msg0").removeClass("hidden").addClass("visible"); 
 		}
-		if (($('.action-checkbox:checked').length > 21) && ($('.action-checkbox:checked').length < 25)) {
+		if (($('.action-checkbox:checked').length >= 1) && ($('.b422:checked').length == 0)){
+				clearMessages();
+				$("#action-msg1").removeClass("hidden").addClass("visible"); 
+		}
+		if (($('.action-checkbox:checked').length >= 1) && ($('.action-checkbox:checked').length < 19) && ($('.b422:checked').length >= 1)) {
 				clearMessages();
 				$("#action-msg2").removeClass("hidden").addClass("visible");
 		}
-		if ($('.action-checkbox:checked').length >= 25) {
+		if (($('.action-checkbox:checked').length >= 19) && ($('.action-checkbox:checked').length < 21) && ($('.b422:checked').length >= 1)) {
 				clearMessages();
 				$("#action-msg3").removeClass("hidden").addClass("visible");
 		}
-		if (($('.action-checkbox:checked').length <= 21) && ($('.b422:checked').length == 0)){
+		if (($('.action-checkbox:checked').length == 21) && ($('.b422:checked').length >= 1)) {
 				clearMessages();
-				$("#action-msg4").removeClass("hidden").addClass("visible"); 
+				$("#action-msg4").removeClass("hidden").addClass("visible");
 		}
+		if (($('.action-checkbox:checked').length > 21) && ($('.action-checkbox:checked').length < 25)) {
+				clearMessages();
+				$("#action-msg5").removeClass("hidden").addClass("visible");
+		}
+		if ($('.action-checkbox:checked').length >= 25) {
+				clearMessages();
+				$("#action-msg6").removeClass("hidden").addClass("visible");
+		}
+		
 	}	
 </script> 
 <!--END OF CHECKBOX SCRIPT--> 
