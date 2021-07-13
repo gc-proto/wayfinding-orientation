@@ -1672,16 +1672,16 @@ fieldset +.buttons {
               <div class="" id="crhp-base-input">
                 <div class="form-group row">
                   <fieldset>
-                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration (March 14 to April 10, 2021)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                    <div class="col-sm-3">
-                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" >
-                      </div>
-                    </div>
                     <label class="required col-sm-12 control-label" for="crhp-base-active-emps">Active eligible employees for the base period<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                     <div class="col-sm-3">
                       <div class="input-group"> 
                         <input type="number" class="form-control text-right required" name="crhp-base-active-emps" id="crhp-base-active-emps">
+                      </div>
+                    </div>
+                    <label class="required col-sm-12 control-label" for="crhp-base-rem">CRHP base period remuneration (March 14 to April 10, 2021)<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                    <div class="col-sm-3">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right currency required" name="crhp-base-rem" id="crhp-base-rem" >
                       </div>
                     </div>
                     <div class="col-sm-9">
@@ -1784,10 +1784,15 @@ fieldset +.buttons {
             <div class="well text-muted mrgn-tp-md hidden" id="crhp-eligibility-summary">
               <h3 class="mrgn-tp-0">Summary of CRHP base remuneration</h3>
               <div id="crhp-base-summary">
-                <p>Your <strong>CRHP base remuneration</strong> (March 14 to April 10, 2021) is <span class="crhp-base-rem h4">$0</span></p>
                 <p>You had <strong><span class="total-active-emps-14">0</span></strong> active eligible employees (employees not on leave with pay) during the base period for CRHP (March 14 to April 10).</p>
+                <p>Your <strong>CRHP base remuneration</strong> (March 14 to April 10, 2021) is <span class="crhp-base-rem h4">$0</span></p>
               </div>
               <p class="hidden" id="crhp-ineligible">Continue to the next step to calculate the CEWS only.</p>
+              <div class="provisional alert alert-danger hidden" id="crhp-base-over-max">
+                <h4>CRHP base period remuneration is too high</h4>
+                <p>Your entered remuneration is too high for the number of indicated employees during the CRHP base period.</p>
+                <p>To calculate your CRHP base period remuneration, use the <a target="_blank" href="how-much-crhp-base.html">CRHP base period remuneration <span class="nowrap">calculator <span class="far fa-window-restore mrgn-lft-sm"></span></span></a>.</p>
+              </div>
             </div>
 
           </div>
@@ -4903,13 +4908,29 @@ $(document).on("click", ".prev-wb-step", function (event) {
       $(document).on("blur", "#crhp-base-rem", function (event) {
         baseCRHPRem = zeroIfEmpty($('#crhp-base-rem').val());
         $('.crhp-base-rem').text(toMoney.format(baseCRHPRem));
+        validateCRHPBaseRem();
         calculateTotals(); //Or maybe 'clear chrp'?
       });
       $(document).on("blur", "#crhp-base-active-emps", function (event) {
         var baseCRHPEmps = zeroIfEmpty($('#crhp-base-active-emps').val());
         $('.total-active-emps-14').text(baseCRHPEmps);
-        // calculateCRHP(); //Or maybe 'clear chrp'?
+        validateCRHPBaseRem();
       });
+
+      function validateCRHPBaseRem() {
+        var baseCRHPEmps = zeroIfEmpty($('#crhp-base-active-emps').val());
+        if (baseCRHPEmps * 1129 < baseCRHPRem) {
+          $('#crhp-base-summary').addClass("hidden");
+          $('#crhp-base-over-max').removeClass("hidden");
+          $(".steps-wrapper:nth-child(3) button:contains('Next')").addClass("disabled");
+          $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", true);
+        } else {
+          $('#crhp-base-summary').removeClass("hidden");
+          $('#crhp-base-over-max').addClass("hidden");
+          $(".steps-wrapper:nth-child(3) button:contains('Next')").removeClass("disabled");
+          $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", false);
+        }
+      }
 
       // function uploadDealcsv () {}; 
       // /*------ Method for read uploded csv file ------*/
