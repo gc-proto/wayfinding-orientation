@@ -602,18 +602,19 @@ section.scrll {
 	overflow: auto;		
 }
 .scrll::-webkit-scrollbar {
-  width: 1em;
+  width: 12px;
 }
 .scrll::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;	
 }
 .scrll::-webkit-scrollbar-thumb {
   background-color: #31708f;
-  outline: 1px solid #31708f;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);	
 }
-.scrll::-webkit-scrollbar-button {
-  background-color: darkgrey;
-}
+.scrll::-webkit-scrollbar-track-piece {
+  background-color: #e0e0eb;
+}	
 /* fix font size in checkboxes 
 also line 275 changed to 10px to accomodate new spacing */
 li.checkbox label {
