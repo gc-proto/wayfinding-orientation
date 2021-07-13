@@ -599,7 +599,7 @@ ol.lst-stps>li, .lst-stps>.lst-item {
 /* add scrollbar to section */
 section.scrll {
 	height: 400px;
-	overflow: auto;
+	overflow: auto;		
 }
 /* fix font size in checkboxes 
 also line 275 changed to 10px to accomodate new spacing */
@@ -730,7 +730,7 @@ li.checkbox label {
         <p>You may receive $600 (<strong>$540</strong> after taxes withheld) for each 2-week period until the CRB ends.</p>
         <h2 id="h-2">Changes to CRB amounts for period 22</h2>
         <p>Your CRB amount may change based on how many periods you've applied for, or if your first time applying for the CRB is for period 22 (July 18 to 31, 2021) or a later period.</p>
-        <!-- TESTING -->
+        <!-- START OF FF -->
         <div class="row mrgn-bttm-md mrgn-tp-lg">
           <div class="col-xs-12">
             <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
@@ -779,13 +779,13 @@ li.checkbox label {
                       <p>If the first period you apply for is period 22 (July 18 to 31, 2021) or later, you may receive $600 (<strong>$540</strong> after taxes withheld) for the 2-week period.</p>
                     </div>
                   </div>
-                  <!-- CHECKBOXES -->
+                  <!-- START OF CHECKBOXES -->
                   <section id="checkboxes" class="hidden">
                     <p class="checkbox-label"><strong>How many CRB periods have you already applied for?</strong></p>
                     <div class="panel panel-default">
                       <ul class="checkbox-lg">
                         <li class="checkbox" id="all">
-                          <input type="checkbox" id="c0" class="all-checkbox cb-dmm">
+                          <input type="checkbox" id="c0" class="all-checkbox cb-dmm" onChange="toggleAll()">
                           <label for="c0">Select all periods to date</label>
                         </li>
                       </ul>
@@ -899,7 +899,7 @@ li.checkbox label {
                       </section>
                     </div>
                     <p class="lead mrgn-tp-md">Total number of periods: <span id="total"></span></p>
-                    <button type="button" class="btn btn-primary mrgn-bttm-md" id="b1" onClick="checkPeriods()">Check how much you can get</button>
+                    <button type="button" class="btn btn-primary mrgn-bttm-md" id="b1" onClick="changeMessage()">Check how much you can get</button>
                   </section>
                   <!-- CHECKBOX ANSWERS -->
                   <div class="alert alert-success hidden provisional alert1" id="action-msg1">
@@ -941,13 +941,13 @@ li.checkbox label {
                       <li>the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 26</a>)</li>
                     </ul>
                   </div>
+					<!--END OF CHECKBOX ANSWERS-->
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- END OF TEST --> <!--form> <select class="form-control" multiple="multiple"> <option type="checkbox"> Period 1: September 27 to October 10, 2020 </option> <option> Period 2: October 11 to October 24, 2020 </option> <option> Period 3: October 25 to November 7, 2020 </option> <option> Period 4: November 8 to November 21, 2020 </option> <option> Period 5: November 22 to December 5, 2020 </option> <option> Period 6: December 6 to December 19, 2020 </option> <option> Period 7: December 20 to January 2, 2021 </option> <option> Period 8: January 3 to January 16, 2021 </option> <option> Period 9: January 17 to January 30, 2021 </option> <option> Period 10: January 31 to February 13, 2021 </option> <option> Period 11: February 14 to February 27, 2021 </option> <option> Period 12: February 28 to March 13, 2021 </option> <option> Period 13: March 14 to March 27, 2021 </option> <option> Period 14: March 28 to April 10, 2021 </option> <option> Period 15: April 11 to April 24, 2021 </option> <option> Period 16: April 25 to May 8, 2021 </option> <option> Period 17: May 9 to May 22, 2021 </option> <option> Period 18: May 23 to June 5, 2021 </option> <option> Period 19: June 6 to June 19, 2021 </option> <option> Period 20: June 20 to July 3, 2021 </option> <option> Period 21: July 4 to July 17, 2021 </option> <option> Period 22: July 18 to July 31, 2021 </option> <option> Period 23: August 1 to August 14, 2021 </option> <option> Period 24: August 15 to August 28, 2021 </option> <option> Period 25: August 29 to September 11, 2021 </option> <option> Period 26: September 12 to September 25, 2021 </option> </select> </form-->
+        </div>        
+        <!-- END OF FF -->
         <nav role="navigation" class="mrgn-bttm-lg mrgn-tp-lg">
           <h3 class="wb-inv">Document navigation</h3>
           <ul class="pager">
@@ -1031,9 +1031,9 @@ li.checkbox label {
   })(jQuery, document, wb);
 </script> 
 
-<!--CHECKBOX SCRIPT> 
-<!--script> 
-/*COMMENTED OUT SO WE CAN TEST OTHER SCRIPTS*/
+<!--CHECKBOX SCRIPTS--> 
+<!--REMOVE PERIODS THAT AREN'T OPEN-->
+<script> 
   var startDate = new Date("2020-10-12T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/
   var endDate = new Date("2021-09-27T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/ 
   /*function to create date arrays*/
@@ -1048,86 +1048,71 @@ li.checkbox label {
   }
   var dateArr = getDateArray(startDate, endDate); 
   /*function to remove periods that aren't open*/
-  var removeDate = function (dateArray) {
-    for (var i = 1; i <= dateArray.length; i++) {
+  var removeDate = function (dateArray) {    
+	  for (var i = 0; i <= (dateArray.length); i++) {
+	  var checkboxID = "p" + (i+1);
       diff = (dateArray[i] - Date.now()) / 8.64e+7;
       if (diff >= 0) {
-        document.getElementById("p" + i).remove();
+        document.getElementById(checkboxID).remove();		  
       }
     }
   }
   removeDate(dateArr);
-</script--> 
+</script> 
 
 <!-- COUNT PERIODS & DISPLAY MESSAGES --> 
-<script> 
-	/* Checkboxes */
+<script>
+	function clearMessages(){
+		$("#action-msg1").addClass("hidden").removeClass("visible");
+		$("#action-msg2").addClass("hidden").removeClass("visible");
+		$("#action-msg3").addClass("hidden").removeClass("visible");
+		$("#action-msg4").addClass("hidden").removeClass("visible");		
+	}
+	
+	function countBoxes(){
+		document.getElementById("total").innerHTML = $(".action-checkbox:checked").length;	
+	}	
+	
+	function toggleAll(){
+		if ($(".all-checkbox").prop("checked")) {
+			$(".action-checkbox").prop("checked",true);}
+		else {
+			$(".action-checkbox").prop("checked",false);}
+		countBoxes()
+		clearMessages();
+		}
+  	
 	$(".action-checkbox").change(function () {
-		/*Count periods*/
-		document.getElementById("total").innerHTML = $('.action-checkbox:checked').length		
+		countBoxes()	
+		clearMessages();
 		/*Reset "select all" checkbox*/
-		if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-			$(".all-checkbox").attr('checked', true);
+		if ($(".action-checkbox:checked").length == $(".action-checkbox").length) {
+			$(".all-checkbox").prop("checked", true);
 		}
-		if ($('.action-checkbox:checked').length < $('.action-checkbox').length) {
-			$(".all-checkbox").attr('checked', false);
-		}
-		/*Remove message*/
-		$("#action-msg1").addClass("hidden").removeClass("visible");
-		$("#action-msg2").addClass("hidden").removeClass("visible");
-		$("#action-msg3").addClass("hidden").removeClass("visible");
-		$("#action-msg4").addClass("hidden").removeClass("visible");
+		if ($(".action-checkbox:checked").length < $(".action-checkbox").length) {
+			$(".all-checkbox").prop("checked", false);
+		}		
 	})
-</script> 
-<script>
-	$(".all-checkbox").change(function () {
-		/* Select All */
-		if ($('.all-checkbox:checked').length === 1) {
-			$('.action-checkbox').attr('checked', true);
-		}
-		/* Select None */
-		else if ($('.all-checkbox:checked').length === 0) {
-			$('.action-checkbox').attr('checked', false);
-		}
-		/*Count periods*/
-		document.getElementById("total").innerHTML = $('.action-checkbox:checked').length;	
-		/*Remove message*/
-		$("#action-msg1").addClass("hidden").removeClass("visible");
-		$("#action-msg2").addClass("hidden").removeClass("visible");
-		$("#action-msg3").addClass("hidden").removeClass("visible");
-		$("#action-msg4").addClass("hidden").removeClass("visible");
-	})	
-</script> 
-<script>
-	function checkPeriods(){		
-		/*Change message*/
+
+	function changeMessage(){		
 		if (($('.action-checkbox:checked').length <= 21) && ($('.b422:checked').length >= 1)) {
+				clearMessages();
 				$("#action-msg1").removeClass("hidden").addClass("visible");
-				$("#action-msg2").addClass("hidden").removeClass("visible");
-				$("#action-msg3").addClass("hidden").removeClass("visible");
-				$("#action-msg4").addClass("hidden").removeClass("visible"); 
 		}
 		if (($('.action-checkbox:checked').length > 21) && ($('.action-checkbox:checked').length < 25)) {
-				$("#action-msg1").addClass("hidden").removeClass("visible");
+				clearMessages();
 				$("#action-msg2").removeClass("hidden").addClass("visible");
-				$("#action-msg3").addClass("hidden").removeClass("visible");
-				$("#action-msg4").addClass("hidden").removeClass("visible"); 
 		}
 		if ($('.action-checkbox:checked').length >= 25) {
-				$("#action-msg2").addClass("hidden").removeClass("visible");
-				$("#action-msg1").addClass("hidden").removeClass("visible");
+				clearMessages();
 				$("#action-msg3").removeClass("hidden").addClass("visible");
-				$("#action-msg4").addClass("hidden").removeClass("visible"); 
 		}
 		if (($('.action-checkbox:checked').length <= 21) && ($('.b422:checked').length == 0)){
-				$("#action-msg1").addClass("hidden").removeClass("visible");
-				$("#action-msg2").addClass("hidden").removeClass("visible");
-				$("#action-msg3").addClass("hidden").removeClass("visible");
+				clearMessages();
 				$("#action-msg4").removeClass("hidden").addClass("visible"); 
 		}
 	}	
 </script> 
-
 <!--END OF CHECKBOX SCRIPT--> 
 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
