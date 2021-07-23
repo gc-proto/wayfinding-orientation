@@ -1147,7 +1147,8 @@ li.checkbox label {
 	  var checkboxID = "p" + (i+1);
       diff = (dateArray[i] - Date.now()) / 8.64e+7;
       if (diff >= 0) {
-        document.getElementById(checkboxID).remove();		  
+        var closedPeriod = document.getElementById(checkboxID);
+        $(closedPeriod).remove();		  
       }
     }
   }
