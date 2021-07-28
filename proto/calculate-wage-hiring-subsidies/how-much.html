@@ -4922,13 +4922,23 @@ $(document).on("click", ".prev-wb-step", function (event) {
         if (baseCRHPEmps * 1129 < baseCRHPRem) {
           $('#crhp-base-summary').addClass("hidden");
           $('#crhp-base-over-max').removeClass("hidden");
-          $(".steps-wrapper:nth-child(3) button:contains('Next')").addClass("disabled");
-          $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", true);
+          if (document.documentElement.lang == "fr") {
+            $(".steps-wrapper:nth-child(3) button:contains('Suivant')").addClass("disabled");
+            $(".steps-wrapper:nth-child(3) button:contains('Suivant')").attr("disabled", true);
+          } else {
+            $(".steps-wrapper:nth-child(3) button:contains('Next')").addClass("disabled");
+            $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", true);
+          }
         } else {
           $('#crhp-base-summary').removeClass("hidden");
           $('#crhp-base-over-max').addClass("hidden");
-          $(".steps-wrapper:nth-child(3) button:contains('Next')").removeClass("disabled");
-          $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", false);
+          if (document.documentElement.lang == "fr") {
+            $(".steps-wrapper:nth-child(3) button:contains('Suivant')").removeClass("disabled");
+            $(".steps-wrapper:nth-child(3) button:contains('Suivant')").attr("disabled", false);
+          } else {
+            $(".steps-wrapper:nth-child(3) button:contains('Next')").removeClass("disabled");
+            $(".steps-wrapper:nth-child(3) button:contains('Next')").attr("disabled", false);
+          }
         }
       }
 

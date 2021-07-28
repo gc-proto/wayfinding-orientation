@@ -3853,6 +3853,7 @@
           function getRentSubsidyRate(revReduction) {
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
             var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
+            var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.1];
             var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
             var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.5];
             $("#rate-formula-max").addClass("hidden");
@@ -3863,7 +3864,7 @@
             $(".less-than-10-drop").addClass("hidden");
             if (revReduction > 0.7) {
               $("#rate-formula-max").removeClass("hidden");
-              return 0.65;
+              return maxBase[claimPeriod - 1] + maxTopUp[claimPeriod - 1];
             } else if (revReduction > 0.5) {
               $("#rate-formula-u70").removeClass("hidden");
               return scaleTopUp[claimPeriod - 1] * (revReduction - 0.5) + maxBase[claimPeriod - 1];
