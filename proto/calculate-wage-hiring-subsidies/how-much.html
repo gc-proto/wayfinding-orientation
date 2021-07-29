@@ -5142,7 +5142,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
-            if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
+            if ((revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17) || (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17)) {
               cewsRate = 0;
               crhpRate = 0;
               $(".greater-than-10-drop").addClass("hidden");
