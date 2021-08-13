@@ -2392,8 +2392,14 @@
             } else {
               $('.claim-period').html($("#claim-period option:selected").text());
               $(".claim-period-no").text(claimPeriod);
-              $('.claim-month-one').text(claimMonths[0]);
-              $('.claim-month-two').text(claimMonths[1]);
+              if (claimPeriod > 10 && claimPeriod < 13) {
+                $('.claim-month-one').text(claimMonths[1]);
+                $('.claim-month-two').text(claimMonths[1]);
+              } else {
+                $('.claim-month-one').text(claimMonths[0]);
+                $('.claim-month-two').text(claimMonths[1]);
+              }
+             
               $('.prior-reference-month').text(priorReferenceMonth[1]); //this should give the month/year of the prior reference period
 
               //date in format 202x-xx-xx
