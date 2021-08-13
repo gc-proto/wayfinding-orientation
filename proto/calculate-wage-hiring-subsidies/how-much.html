@@ -2395,11 +2395,13 @@ fieldset +.buttons {
           <div class="alert alert-danger provisional cews-fyi not-yet-apply-alert">
             <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the line amounts for your application</h3>
             <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. Apply for the subsidy that gives you the higher amount.</p>
-          </div>   
-          <div class="p18-19">
-            <div class="less-than-10-drop hidden mrgn-tp-md alert alert-warning provisional">
-              <h3 class="h4">Contact us to apply in your situation</h3>
-              <p>Please call us at 1-800-959-5525 to apply for CEWS for this claim period. For claim periods 18 and 19, the online application is temporarily unable to accept claims with a revenue drop of 10% or less.</p>
+          </div>
+          <div class="contact-to-apply-p18-19">
+            <div class="p18-19">
+              <div class="less-than-10-drop hidden mrgn-tp-md alert alert-warning provisional">
+                <h3 class="h4">Contact us to apply in your situation</h3>
+                <p>Please call us at 1-800-959-5525 to apply for CEWS for this claim period. For claim periods 18 and 19, the online application is temporarily unable to accept claims with a revenue drop of 10% or less.</p>
+              </div>
             </div>
           </div>
           <div class="p14-crhp well text-muted mrgn-tp-md hidden">
@@ -4564,6 +4566,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
+          $(".contact-to-apply-p18-19").addClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
           $('.crhp-no .hidden-print a').removeClass('btn-default');
           $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
@@ -4575,6 +4578,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
+          $(".contact-to-apply-p18-19").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
           if (document.documentElement.lang == "fr") {
@@ -4605,6 +4609,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#different-amount-from-both").removeClass("hidden");
           }
           $("#not-qualify-either-alert").addClass("hidden");
+          $(".contact-to-apply-p18-19").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
           if (document.documentElement.lang == "fr") {
