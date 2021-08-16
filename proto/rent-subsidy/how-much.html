@@ -1013,7 +1013,7 @@
                                 <div class="clearfix"></div>
                                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                             <legend>Does the location qualify for lockdown support?</legend>
-                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
+                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx lockdown-details" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
 
                             <ul class="list-unstyled lst-spcd-2">
                                     <li class="radio">
@@ -1901,18 +1901,23 @@
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            if (document.documentElement.lang == "fr") {
+              var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement ";
+              var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Dépenses admissibles ";
+            } else {
+              var SummaryOne = "Learn about lockdown support eligibility criteria ";
+              var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Eligible expenses ";
+            }
             if (!isChromium) {
-              if (document.documentElement.lang == "fr") {
-                var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
-                  var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              } else {
-                var SummaryOne = "Learn about lockdown support eligibility criteria";
-                  var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              }
-              this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
+              
+              //this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
               this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
               this.clearInitializedDatePickers(frag);
             }
+            this.clearInitializedLightbox(frag, "lockdown-details", SummaryOne);
+            this.clearInitializedLightbox(frag, "eligible-exp", SummaryThree);
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -2054,6 +2059,27 @@
             $(newExHide).attr("class", summaryClass);
             $(newExHide).html(summaryText);
             $(frag).find("."+summaryClass).replaceWith(newExHide);
+          }
+
+          /**
+           * clearInitializedLightbox
+           *
+           * replace an expand hide summary element with an uninitialized version for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedLightbox = function (frag, lightboxClass, lightboxText) {
+            //create new summary element for the top up expand hide
+            var newLightbox = document.createElement("a");
+            var questionIcon = document.createElement("span");
+            $(newLightbox).attr("href", $(frag).find("."+lightboxClass).attr("href"))
+            $(newLightbox).attr("aria-controls", "lwp");
+            $(newLightbox).attr("class", "wb-lbx");
+            $(newLightbox).attr("role", "button");
+            $(newLightbox).html(lightboxText);
+            $(questionIcon).attr("class", "far fa-question-circle");
+            $(newLightbox).append(questionIcon);
+            $(frag).find("."+lightboxClass).replaceWith(newLightbox);
           }
 
 
