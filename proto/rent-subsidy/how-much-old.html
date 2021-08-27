@@ -476,38 +476,6 @@
                         <div data-ajax-replace="who-apply.html #affiliated"></div>
                       </div>
                     </section>
-                    
-                    <!-- <a href="#ee-calculation-table" aria-controls="ee-calculation-table" class="wb-lbx lbx-modal btn btn-default" role="button" id="showEmpTable">Review, download and print employee calculations</a>
-                    <details>
-                      <summary>Find out if you have affiliated entities</summary>
-                      <div data-ajax-replace="who-apply.html #affiliated"></div>
-                    </details> -->
-
-
-
-                    <!--
-                           <p><a href="#affiliated-entities" aria-controls="lwp" class="wb-lbx" role="button">Find out if you have affiliated businesses or entities<span class="far fa-question-circle"></span></a></p>
-                           <section id="affiliated-entities" class="mfp-hide modal-dialog modal-content overlay-def">
-                              <header class="modal-header">
-                                 <h2 class="modal-title">Affiliated businesses or entities</h2>
-                              </header>
-                              <div class="modal-body">
-                                <p>An affiliated entity is an organization that:</p>
-                                <ul>
-                                <li>controls another entity (directly or indirectly)</li>
-                                <li>is controlled by another entity (directly or indirectly)</li>
-                                <li>is under common control alongside another entity</li>
-                                </ul>
-
-                                <p>Although the rules can be complicated, some examples include:</p>
-                                <ul>
-                                <li>you run your business activities through more than one entity (corporations, trusts or partnerships)</li>
-                                <li>you and your spouse each own or operate a business, directly or through a corporation or other entity </li>
-                                <li>the entity through which your business or activities are conducted is owned or controlled by people who own or control other entities </li>
-                                </ul>
-                              </div>
-                           </section>
-                         -->
                     <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                 <legend>Do you have affiliated entities that are also applying for CERS for this claim period?</legend>
                 <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
@@ -599,7 +567,7 @@
                         <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces,
                           commas,</strong> or a <strong>dollar sign</strong> </p>
                         <div class="row">
-                          <div class="col-md-6 brdr-rght">
+                    <div class="col-md-6 brdr-rght">
                             <p><strong>Pre-crisis revenue</strong></p>
                             <div class="form-group row">
                               <label class="col-sm-6 control-label" for="2019-03-no">March 2019<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
@@ -1045,30 +1013,8 @@
                                 <div class="clearfix"></div>
                                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                             <legend>Does the location qualify for lockdown support?</legend>
-                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
-                            
-                            
-                            <!-- <details>
-                                    <summary class="lockdown-details">Learn about lockdown support eligibility criteria</summary>
-                                    <div class="data-ajax" data-ajax-replace=" #lockdown-eligibility"> </div>
-                                    
-                                                <p>Lockdown support (the top-up) is applied on a location by location basis.</p>
-                                                <p>The business location must meet all the following conditions to qualify for the top up:</p>
-                                                <ul class="fa-ul">
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the business was forced to cease some or all of its activities in the location for at least one week as a result of a <strong>COVID related public health order</strong></li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the public health order is limited based on: geographical boundaries, type of business or other activity, or risks associated with a particular location</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the order came from a federal, provincial or municipal government, or a local health authority</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the <strong>activities the business was restricted from carrying out</strong> must account for at least approximately 25% of total revenues at that location during the 'prior reference period' (either the relevant month in 2019, or January and February of 2020)</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>activities at the location must not already be restricted as a direct result of a failure to comply with a previous public health order or decision</li>
-                                                  <li><span class="fas fa-check text-success fa-li"></span>the business qualifies for a base CERS subsidy rate more than 0% for the period</li>
-                                                </ul>
-                                                <p>Note that the public health order must be a cessation of activities. Ordered reduction in operating hours or capacity, or similar restriction such as the following would not qualify:</p>
-                                                <ul class="fa-ul">
-                                                  <li><span class="fas fa-times text-danger fa-li"></span>a restriction on how the activity is performed (e.g., mask requirement for indoor dining servers)</li>
-                                                  <li><span class="fas fa-times text-danger fa-li"></span>a restriction on the time during which the activity may be performed (e.g., a required reduction in service hours)</li>
-                                                  <li><span class="fas fa-times text-danger fa-li"></span>any other restrictions that do not specifically require a cease of activities (e.g., a requirement to reducing seating capacity for indoor dining services</li>
-                                                </ul>
-                                  </details>-->
+                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx lockdown-details" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
+
                             <ul class="list-unstyled lst-spcd-2">
                                     <li class="radio">
                                 <input type="radio" name="lock-down-1" id="lock-down-yes-1">
@@ -1140,113 +1086,90 @@
                                 <!-- <div id="choose-own-or-rent-message-1" class="provisional alert alert-danger">
                                   <p>First select whether you own or rent this property</p>
                                 </div> -->
-                                <div class="rent-location-1 hidden">
-                            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
-                                    <div class="col-sm-12">
-                                <label for="calc-method-1">Are your rent and any rental income for this location paid monthly? </label>
-                                <select class="form-control input-lg valid" id="calc-method-1">
-                                        <option data-calc-method="month">Yes - calculate monthly</option>
-                                        <option data-calc-method="period">No - manually input 28 day amounts</option>
-                                      </select>
-                              </div>
-                                  </fieldset>
-                                  <div class="alert alert-info provisional month-one-1 mrgn-tp-md mrgn-bttm-0">
-                                    <p>If you choose the monthly option, your rent for each month will be <strong>prorated</strong> for the days that fall within the <strong>28 day claim period</strong>.</p>
-                                    <p>If your expense payment periods don't align with the monthly option, choose the CERS period (28 days) option</p>
-                                 </div>
-                                 <!-- <div class="row">
-                                    <div class="col-md-6 brdr-rght">
-                                      <p><strong>Pre-crisis revenue</strong></p>
-                                      <div class="form-group row">
-                                        <label class="col-sm-6 control-label" for="2019-03-no">March 2019<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-                                        <div class="col-sm-6">
-                                          <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                            <input type="number" class="form-control text-right cers-rate-calc currency" name="2019-03-no" id="2019-03-no" placeholder="0.00">
-                                          </div>
+                              <div class="rent-location-1 hidden">
+                                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
+                                  <div class="col-sm-12">
+                                    <label for="calc-method-1">Are your rent and any rental income for this location paid monthly? </label>
+                                    <select class="form-control input-lg valid" id="calc-method-1">
+                                      <option data-calc-method="month">Yes - calculate monthly</option>
+                                      <option data-calc-method="period">No - manually input 28 day amounts</option>
+                                    </select>
+                                  </div>
+                                </fieldset>
+                                <div class="alert alert-info provisional month-one-1 mrgn-tp-md mrgn-bttm-0">
+                                  <p>If you choose the monthly option, your rent for each month will be <strong>prorated</strong> for the days that fall within the <strong>28 day claim period</strong>.</p>
+                                  <p>If your expense payment periods don't align with the monthly option, choose the CERS period (28 days) option</p>
+                               </div>
+                               <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+                               <div class="row">
+                                  <fieldset class="col-md-6">
+                                     <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
+                                     <div class="clearfix"></div>
+                                     <div class="form-group mrgn-bttm-0 month-one-1">
+                                        <div>
+                                           <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right currency rent-expense-1" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
+                                           </div>
+                                           <p id="rent-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
                                         </div>
-                                      </div> -->
-                                 <p class="small text-muted mrgn-bttm-0" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
-                                 <div class="row">
-                                    <fieldset class="col-md-6">
-                                       <legend class="mrgn-bttm-0 month-one-1">Monthly eligible expenses for <span class="claim-month-one">month 1</span></legend>
-                                       <div class="clearfix"></div>
-                                       <!--
-                                          <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p>
-                                          -->
-                                       <!-- *****
-                                          Month one rent starts here
-                                          ***** -->
-                                       <div class="form-group mrgn-bttm-0 month-one-1">
-                                          <div class="">
-                                             <label for="rent-one-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                             <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right currency rent-expense-1" id="rent-one-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-one-date-1">
-                                             </div>
-                                             <p id="rent-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                          <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                          <div class="">
-                                             <label for="lease-one-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                             <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
-                                             </div>
-                                             <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
-                                          </div>
-                                       </div>
-                                    </fieldset>
-                                    <!-- *****
-                                       Month two rent starts here
-                                       ***** -->
-                                    <div class="month-two-1 brdr-lft">
-                                       <fieldset class="col-md-6">
-                                          <legend class="mrgn-bttm-0">Monthly eligible expenses for <span class="claim-month-two">month 2</span></legend>
-                                          <!-- <p>Your rent for the month will be prorated for the days that fall within the 28 day claim period.</p> -->
-                                          <div class="form-group mrgn-bttm-0">
-                                             <div class="">
-                                                <label for="rent-two-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                   <input type="number" class="form-control text-right rent-expense-1 currency" id="rent-two-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-two-date-1">
-                                                </div>
-                                                <p id="rent-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
-                                             </div>
-                                             <div class="clearfix"></div>
-                                             <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                             <div class="">
-                                                <label for="lease-two-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                   <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-two-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-two-date-1">
-                                                </div>
-                                                <p id="lease-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
-                                             </div>
-                                          </div>
-                                       </fieldset>
-                                    </div>
-                                 </div>
-                                 <div class="cers-period-1 hidden">
-                                    <fieldset>
-                                       <legend class="mrgn-bttm-0 mrgn-tp-lg">Monthly eligible expenses for the claim period</legend>
-                                       <div class="form-group row mrgn-bttm-0">
-                                          <div class="col-md-6 col-sm-12">
-                                             <label for="rent-cers-period-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                             <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right rent-expense-1 currency valid" id="rent-cers-period-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-cers-period-date-1">
-                                             </div>
-                                             <p id="rent-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
-                                          </div>
-                                          <div class="clearfix"></div>
-                                          <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
-                                          <div class="col-md-6 col-sm-12">
-                                             <label for="lease-cers-period-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
-                                             <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                                                <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-cers-period-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-cers-period-date-1">
-                                             </div>
-                                             <p id="lease-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
-                                          </div>
-                                       </div>
-                                    </fieldset>
-                                 </div>
-                                </div>
+                                        <div class="clearfix"></div>
+                                        <div>
+                                           <label for="lease-one-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right currency rent-expense-1" id="lease-one-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-one-date-1">
+                                           </div>
+                                           <p id="lease-one-date-1" class="text-muted small">from <span class="date-month-one-start">[Start]</span> to <span class="date-month-one-end">[End]</span></p>
+                                        </div>
+                                     </div>
+                                  </fieldset>
+                                  <div class="month-two-1 brdr-lft">
+                                     <fieldset class="col-md-6">
+                                        <legend class="mrgn-bttm-0">Monthly eligible expenses for <span class="claim-month-two">month 2</span></legend>
+                                        <div class="form-group mrgn-bttm-0">
+                                           <div>
+                                              <label for="rent-two-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                 <input type="number" class="form-control text-right rent-expense-1 currency" id="rent-two-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-two-date-1">
+                                              </div>
+                                              <p id="rent-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
+                                           </div>
+                                           <div class="clearfix"></div>
+                                           <div>
+                                              <label for="lease-two-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                              <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                                 <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-two-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-two-date-1">
+                                              </div>
+                                              <p id="lease-two-date-1" class="text-muted small">from <span class="date-month-two-start">[Start]</span> to <span class="date-month-two-end">[End]</span></p>
+                                           </div>
+                                        </div>
+                                     </fieldset>
+                                  </div>
+                               </div>
+                               <div class="cers-period-1 hidden">
+                                  <fieldset>
+                                     <legend class="mrgn-bttm-0 mrgn-tp-lg">Monthly eligible expenses for the claim period</legend>
+                                     <div class="form-group row mrgn-bttm-0">
+                                        <div class="col-md-6 col-sm-12">
+                                           <label for="rent-cers-period-1">Rent<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right rent-expense-1 currency valid" id="rent-cers-period-1" placeholder="0.00" data-updates="rent-amt-1" aria-describedby="rent-cers-period-date-1">
+                                           </div>
+                                           <p id="rent-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <!-- <p>Expenses <span class="fas fa-minus"></span></p> -->
+                                        <div class="col-md-6 col-sm-12">
+                                           <label for="lease-cers-period-1">Rental income<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> </label>
+                                           <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                              <input type="number" class="form-control text-right rent-expense-1 currency" id="lease-cers-period-1" placeholder="0.00" data-updates="lease-amt-1" aria-describedby="lease-cers-period-date-1">
+                                           </div>
+                                           <p id="lease-cers-period-date-1" class="text-muted small">from <span class="date-cers-period-start">[Start]</span> to <span class="date-cers-period-end">[End]</span></p>
+                                        </div>
+                                     </div>
+                                  </fieldset>
+                               </div>
+                               </div>
                                 <style>
                                               fieldset {border:none;}
                                             </style>
@@ -1978,18 +1901,23 @@
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            if (document.documentElement.lang == "fr") {
+              var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement ";
+              var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Dépenses admissibles ";
+            } else {
+              var SummaryOne = "Learn about lockdown support eligibility criteria ";
+              var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Eligible expenses ";
+            }
             if (!isChromium) {
-              if (document.documentElement.lang == "fr") {
-                var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
-                  var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              } else {
-                var SummaryOne = "Learn about lockdown support eligibility criteria";
-                  var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              }
-              this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
+              
+              //this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
               this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
               this.clearInitializedDatePickers(frag);
             }
+            this.clearInitializedLightbox(frag, "lockdown-details", SummaryOne);
+            this.clearInitializedLightbox(frag, "eligible-exp", SummaryThree);
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -2131,6 +2059,27 @@
             $(newExHide).attr("class", summaryClass);
             $(newExHide).html(summaryText);
             $(frag).find("."+summaryClass).replaceWith(newExHide);
+          }
+
+          /**
+           * clearInitializedLightbox
+           *
+           * replace an expand hide summary element with an uninitialized version for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedLightbox = function (frag, lightboxClass, lightboxText) {
+            //create new summary element for the top up expand hide
+            var newLightbox = document.createElement("a");
+            var questionIcon = document.createElement("span");
+            $(newLightbox).attr("href", $(frag).find("."+lightboxClass).attr("href"))
+            $(newLightbox).attr("aria-controls", "lwp");
+            $(newLightbox).attr("class", "wb-lbx " + lightboxClass);
+            $(newLightbox).attr("role", "button");
+            $(newLightbox).html(lightboxText);
+            $(questionIcon).attr("class", "far fa-question-circle");
+            $(newLightbox).append(questionIcon);
+            $(frag).find("."+lightboxClass).replaceWith(newLightbox);
           }
 
 
