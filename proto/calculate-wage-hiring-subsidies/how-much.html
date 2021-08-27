@@ -2083,6 +2083,10 @@ fieldset +.buttons {
               selected period. Enter
               $0 if not applicable. </p>
             <div class="mrgn-lft-md">
+              <div class="alert alert-info provisional">
+                <h4>Any contributions claimed might need to be repaid</h4>
+                <p>A proposed change announced on July 30, 2021, would remove the ability to claim CPP, QPP, EI and QPIP amounts for claim periods 20 and later. Although you may claim the amount based on the current rules rather than the upcoming change, once the proposed legislation becomes law, you would need to repay any excess amount you have received with interest applied. You can choose to leave these 2 contribution lines as 0, to avoid being in a situation where you would need to repay.</p>
+              </div>
               <div class="form-group">
                 <label class="control-label required" for="p3-ei"><span class="field-name">Total EI and QPIP
                   premiums that you paid on salary to eligible employees on leave with pay <small>(for the claim
@@ -3496,11 +3500,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("output[for='" + $elmId + "']").html(value * 1);
           };
         }
-        if (claimPeriod > 20) { //p21 differences
-          total = ($("#p2c-cews").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
-        } else {
+        // if (claimPeriod > 20) { //p21 differences
+        //   total = ($("#p2c-cews").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        // } else {
           total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
-        }
+        // }
         if (total < 0) {
           $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
         } else {
@@ -3689,7 +3693,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             break;
           case 21:
-            $(".p21-hide").addClass("hidden");
+            // $(".p21-hide").addClass("hidden");
              //change the values to 0
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
