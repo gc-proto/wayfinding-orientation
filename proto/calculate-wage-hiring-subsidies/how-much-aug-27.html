@@ -2395,11 +2395,13 @@ fieldset +.buttons {
           <div class="alert alert-danger provisional cews-fyi not-yet-apply-alert">
             <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the line amounts for your application</h3>
             <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. Apply for the subsidy that gives you the higher amount.</p>
-          </div>   
-          <div class="p18-19">
-            <div class="less-than-10-drop hidden mrgn-tp-md alert alert-warning provisional">
-              <h3 class="h4">Contact us to apply in your situation</h3>
-              <p>Please call us at 1-800-959-5525 to apply for CEWS for this claim period. For claim periods 18 and 19, the online application is temporarily unable to accept claims with a revenue drop of 10% or less.</p>
+          </div>
+          <div class="contact-to-apply-p18-19">
+            <div class="p18-19">
+              <div class="less-than-10-drop hidden mrgn-tp-md alert alert-warning provisional">
+                <h3 class="h4">Contact us to apply in your situation</h3>
+                <p>Please call us at 1-800-959-5525 to apply for CEWS for this claim period. For claim periods 18 and 19, the online application is temporarily unable to accept claims with a revenue drop of 10% or less.</p>
+              </div>
             </div>
           </div>
           <div class="p14-crhp well text-muted mrgn-tp-md hidden">
@@ -3623,6 +3625,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p20-only").addClass("hidden");
         $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
+        $(".p18-19").addClass("hidden");
+        $(".p20-21").addClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
@@ -3657,6 +3661,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             break;
           case 21:
+            $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
@@ -3680,6 +3685,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
             break;
           case 20:
+            $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
             $(".p8-plus").addClass("hidden");
@@ -3704,6 +3710,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             break;
           case 19:
+            $(".p18-19").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p19-only").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3728,6 +3735,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             break;
           case 18:
+            $(".p18-19").removeClass("hidden");
             $(".p18-only").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -4449,7 +4457,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           var tempWageSubAmount = 0;
         }
-        totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
+        if (revReduction > 0.1 || (revReduction > 0 && claimPeriod < 20) || claimPeriod < 5)  {
+          totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
+        } else {
+          totalCews = 0;
+        }
         totalCews = Math.max(0, totalCews.toFixed(2));
         totalWages = totalWagesPaid.toFixed(2);
         // $('.basic-cews').text(toMoney.format(cewsBasic));
@@ -4460,7 +4472,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $('.total-calculated-crhp').text(toMoney.format(totalCrhp)); 
             $('.current-crhp-remuneration').html(toMoney.format(totalWages));
             // $('.p14-crhp-remuneration').val(toMoney.format(totalWages));
-            $('.crhp-incremental-rem').html(toMoney.format(Math.max(totalWages - baseCRHPRem, 0)));
+            $('.crhp-incremental-rem').html(toMoney.format(Math.max(eligibleCrhpRemuneration - baseCRHPRem, 0)));
             $('.crhp-rate').val(toPercent(crhpRate * 100));
           } else {
             totalCrhp = 0;
@@ -4554,6 +4566,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
+          $(".contact-to-apply-p18-19").addClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
           $('.crhp-no .hidden-print a').removeClass('btn-default');
           $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
@@ -4565,6 +4578,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
+          $(".contact-to-apply-p18-19").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
           if (document.documentElement.lang == "fr") {
@@ -4595,6 +4609,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#different-amount-from-both").removeClass("hidden");
           }
           $("#not-qualify-either-alert").addClass("hidden");
+          $(".contact-to-apply-p18-19").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
           if (document.documentElement.lang == "fr") {
@@ -4663,7 +4678,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             break;
           case (period > 10): //paid leave changes
             if (paidLeave) {
-              if (cewsRate > 0 && (armsLength || baselineAmount > 0)) {
+              if (revReduction > 0 && (armsLength || baselineAmount > 0)) {
                 return parseFloat(Math.min(weeklyAmount, Math.max(500, Math.min(0.55 * baselineAmount, 595))).toFixed(2));
               }
               else
@@ -5151,8 +5166,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $(".rate-formula-u70").addClass("hidden");
           $(".rate-formula-u50").addClass("hidden");
           $(".rate-formula-0").addClass("hidden");
+          $(".more-than-zero-revdrop").removeClass("hidden");
           if (revReduction == 0) {
             $(".rate-formula-0").removeClass("hidden");
+            $(".more-than-zero-revdrop").addClass("hidden");
           } else if (revReduction < 0.5) {
             $(".rate-formula-u50").removeClass("hidden");
           } else if (revReduction < 0.7) {
@@ -5331,9 +5348,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $(".rate-formula-u70").addClass("hidden");
           $(".rate-formula-u50").addClass("hidden");
           $(".rate-formula-0").addClass("hidden");
+          $(".more-than-zero-revdrop").removeClass("hidden");
           switch (true) {
               case (revReduction == 0):
                   $(".rate-formula-0").removeClass("hidden");
+                  $(".more-than-zero-revdrop").addClass("hidden");
                   break;
               case (revReduction < 0.5):
                   $(".rate-formula-u50").removeClass("hidden");
@@ -5357,6 +5376,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
                 $(".10drop").removeClass("hidden");
                 if (revReduction == 0) {
                   $(".rate-formula-0").addClass("hidden");
+                  $(".more-than-zero-revdrop").removeClass("hidden");
                   $(".rate-formula-u50").removeClass("hidden");
                 }
               } else {
