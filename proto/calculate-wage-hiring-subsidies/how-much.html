@@ -932,8 +932,8 @@ fieldset +.buttons {
           <select required id="claim-period" class="form-control input-lg">
             <option value=""> Select a claim period</option>
             <optgroup label="CEWS or CRHP">
-              <!-- <option data-claim-period="22" value="2021-10-24--2021-11-20">Period 22: October 24 to November 11, 2021</option>
-              <option data-claim-period="21" value="2021-09-26--2021-10-23">Period 21: September 26 to October 23, 2021</option> -->
+              <!-- <option data-claim-period="22" value="2021-10-24--2021-11-20">Period 22: October 24 to November 11, 2021</option> -->
+              <option data-claim-period="21" value="2021-09-26--2021-10-23">Period 21: September 26 to October 23, 2021</option>
               <option data-claim-period="20" value="2021-08-29--2021-09-25">Period 20: August 29 to September 25, 2021</option>
               <option data-claim-period="19" value="2021-08-01--2021-08-22">Period 19: August 1 to August 28, 2021</option>
               <option data-claim-period="18" value="2021-07-04--2021-07-31">Period 18: July 4 to July 31, 2021</option>
@@ -2057,7 +2057,7 @@ fieldset +.buttons {
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Premiums, contributions and deductions for the CEWS</span></legend>
       <div class="panel-body">
         <div class="row">
-          <div class="col-sm-8 col-md-9">
+          <div class="col-sm-8 col-md-9 21-hide">
             <p class="h3">Premiums and contributions</p>
             <p>Enter the total employer-paid amount of <a href="#contributions" aria-controls="contributions"
                     class="wb-lbx" role="button">premiums or contributions&nbsp;<span
@@ -2089,6 +2089,8 @@ fieldset +.buttons {
                 <p class="small text-muted" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
               </div>
             </div>
+          </div>
+          <div class="col-sm-8 col-md-9">
             <p class="h3">Deductions</p>
             <div class="mrgn-lft-md">
               <div class="form-group p14">
@@ -2443,12 +2445,12 @@ fieldset +.buttons {
             <li><strong>Line C:</strong> Basic CEWS (including top-up, if applicable): <strong>
               <output class="h3 wb-calc nowrap total"></output>
               </strong></li>
-            <li><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
+            <li class="p21-hide"><strong>Line D:</strong> Employer’s EI and QPIP premiums payable on salary paid to employees on leave with pay <small>(for
               the claim period)</small>: <strong>
               <output class="h3 wb-calc nowrap" for="p3-ei"
                       data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output>
               </strong></li>
-            <li><strong>Line E:</strong> Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay <small>(for the claim period)</small>: <strong>
+            <li class="p21-hide"><strong>Line E:</strong> Employer’s CPP and QPP contributions payable on salary paid to employees on leave with pay <small>(for the claim period)</small>: <strong>
               <output class="h3 wb-calc nowrap" for="p3-cpp"
                       data-wb-calc='{"expr": "#p3-cpp * 1", "format": "currency"}'></output>
               </strong></li>
@@ -2479,13 +2481,13 @@ fieldset +.buttons {
               <th scope="row" class="h6">Basic CEWS <small class="nowrap">(Line C)</small></th>
               <td class="text-right nowrap"><output class="h6 wb-calc nowrap total"></output></td>
             </tr>
-            <tr>
+            <tr class="p21-hide">
               <th scope="row" class="h6">(add) EI and QPIP share <small class="nowrap">(Line D)</small></th>
               <td class="text-right nowrap">+
                 <output class="h6 wb-calc nowrap" for="p3-ei"
                     data-wb-calc='{"expr": "#p3-ei * 1", "format": "currency"}'></output></td>
             </tr>
-            <tr>
+            <tr class="p21-hide">
               <th scope="row" class="h6">(add) CPP and QPP share <small class="nowrap">(Line E)</small></th>
               <td class="text-right nowrap">+
                 <output class="h6 wb-calc nowrap" for="p3-cpp"
@@ -3627,6 +3629,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p14-crhp").addClass("hidden");
         $(".p18-19").addClass("hidden");
         $(".p20-21").addClass("hidden");
+        $(".21-hide").removeClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
@@ -3661,6 +3664,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             break;
           case 21:
+            $(".21-hide").addClass("hidden");
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -4130,9 +4134,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $(".choose-claim-period").removeClass("hidden");
         }
 
-        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.75, 0.5];
         $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
         $('.scaleBase').text(scaleBase[claimPeriod - 5]);
 
         //recalculate the summary based on the values that are already there
@@ -5737,8 +5741,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
        */
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
-        var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.1];
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.75, 0.5];
+        var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.15, 0.1];
         $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
         if (topUpMultiplier[claimPeriod - 5] * (reduction - 0.5) > topUpMax[claimPeriod - 5]) {
           return topUpMax[claimPeriod - 5];
@@ -5756,8 +5760,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
         var period = $("#claim-period option:selected").data("claim-period");
         $('.scaleBase').text(scaleBase[period - 5]);
         if (period > 17) {
