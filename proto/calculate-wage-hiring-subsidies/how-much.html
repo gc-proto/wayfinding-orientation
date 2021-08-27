@@ -2073,7 +2073,7 @@ fieldset +.buttons {
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Premiums, contributions and deductions for the CEWS</span></legend>
       <div class="panel-body">
         <div class="row">
-          <div class="col-sm-8 col-md-9 21-hide">
+          <div class="col-sm-8 col-md-9 p21-hide">
             <p class="h3">Premiums and contributions</p>
             <p>Enter the total employer-paid amount of <a href="#contributions" aria-controls="contributions"
                     class="wb-lbx" role="button">premiums or contributions&nbsp;<span
@@ -3496,8 +3496,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("output[for='" + $elmId + "']").html(value * 1);
           };
         }
-
-        total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        if (claimPeriod > 20) { //p21 differences
+          total = ($("#p2c-cews").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        } else {
+          total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        }
         if (total < 0) {
           $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
         } else {
@@ -3548,10 +3551,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $('.crhp-eligible-tag').addClass("hidden");
             crhpRate = 0;
           }
-          if (claimPeriod < 17) {
-            $("#details-panel2-lnk").parent().addClass("hidden");
-          } else {
-            $("#details-panel2-lnk").parent().removeClass("hidden");
+          if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+            if (claimPeriod < 17) {
+              $("#details-panel2-lnk").parent().addClass("hidden");
+            } else {
+              $("#details-panel2-lnk").parent().removeClass("hidden");
+            }
           }
         }
         //show/hide elements based on chosen claim period
@@ -3635,7 +3640,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $("#cal-sprsht-p11").addClass("hidden");
         $("#no-crhp-message").addClass("hidden");
         $("#crhp-questions").removeClass("hidden");
-        $(".crhp-eligible").removeClass("hidden");
+        if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+          $(".crhp-eligible").removeClass("hidden");
+        }
         $(".p18-plus").addClass("hidden");
         $(".p17-only").addClass("hidden");
         $(".p18-only").addClass("hidden");
@@ -3645,12 +3652,15 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p14-crhp").addClass("hidden");
         $(".p18-19").addClass("hidden");
         $(".p20-21").addClass("hidden");
-        $(".21-hide").removeClass("hidden");
+        $(".p21-hide").removeClass("hidden");
+        $(".p14").addClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
           $("#crhp-questions").addClass("hidden");
-          $(".crhp-eligible").addClass("hidden");
+          if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+            $(".crhp-eligible").addClass("hidden");
+          }
         } else {
           $(".p17-plus").removeClass("hidden");
         }
@@ -3668,7 +3678,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3680,7 +3689,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             break;
           case 21:
-            $(".21-hide").addClass("hidden");
+            $(".p21-hide").addClass("hidden");
+             //change the values to 0
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3693,7 +3703,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3718,7 +3727,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3743,7 +3751,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3768,7 +3775,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3791,7 +3797,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3813,7 +3818,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3835,7 +3839,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3858,7 +3861,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3881,7 +3883,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3904,7 +3905,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3927,7 +3927,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3951,7 +3950,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws-disclaimer").removeClass("hidden");
             $("#cal-sprsht-p9").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3980,7 +3978,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4009,7 +4006,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4038,7 +4034,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4067,7 +4062,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4096,7 +4090,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
