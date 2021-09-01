@@ -1349,15 +1349,15 @@ fieldset +.buttons {
                   <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
-                    <div class="p18-19 hidden">
+                    <div class="p18-21 hidden">
                       <div class="more-than-zero-revdrop">
                         <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for the CRHP, but your employees on leave with pay may still qualify for the CEWS.</p>
                       </div>
                       <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                     </div>
-                    <div class="p20-21 hidden">
+                    <!-- <div class="p20-21 hidden">
                       <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
-                    </div>
+                    </div> -->
                     <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
                   </div>
                   <div class="p17-only hidden">
@@ -1628,15 +1628,15 @@ fieldset +.buttons {
                     rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
                   <div class="p18-plus">
                     <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong></p>
-                    <div class="p18-19 hidden">
+                    <div class="p18-21 hidden">
                       <div class="more-than-zero-revdrop">
                         <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for the CRHP, but your employees on leave with pay may still qualify for the CEWS.</p>
                       </div>
                       <p class="mrgn-bttm-md rate-formula-0">Because you do not have a revenue drop, you do not qualify for either the CRHP or the CEWS.</p>
                     </div>
-                    <div class="p20-21 hidden">
+                    <!-- <div class="p20-21 hidden">
                       <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
-                    </div>
+                    </div> -->
                     <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
                   </div>
                   <div class="p17-only hidden">
@@ -2083,7 +2083,7 @@ fieldset +.buttons {
               selected period. Enter
               $0 if not applicable. </p>
             <div class="mrgn-lft-md">
-              <div class="alert alert-info provisional">
+              <div class="p20-21 alert alert-info provisional">
                 <h4>Any contributions claimed might need to be repaid</h4>
                 <p>A proposed change announced on July 30, 2021, would remove the ability to claim CPP, QPP, EI and QPIP amounts for claim periods 20 and later. Although you may claim the amount based on the current rules rather than the upcoming change, once the proposed legislation becomes law, you would need to repay any excess amount you have received with interest applied. You can choose to leave these 2 contribution lines as 0, to avoid being in a situation where you would need to repay.</p>
               </div>
@@ -2418,8 +2418,8 @@ fieldset +.buttons {
             <h3 class="h4 mrgn-tp-0 text-warning">Go to the <span class="subsidy-to-apply-for"></span> tab to get the line amounts for your application</h3>
             <p>The <span class="subsidy-for-information"></span> amount is <strong>less than</strong> <span class="subsidy-to-apply-for"></span> for this claim period. Apply for the subsidy that gives you the higher amount.</p>
           </div>
-          <div class="contact-to-apply-p18-19">
-            <div class="p18-19">
+          <div class="contact-to-apply-p18-21">
+            <div class="p18-21">
               <div class="less-than-10-drop hidden mrgn-tp-md alert alert-warning provisional">
                 <h3 class="h4">Contact us to apply in your situation</h3>
                 <p>Please call us at 1-800-959-5525 to apply for CEWS for this claim period. For claim periods 18 and 19, the online application is temporarily unable to accept claims with a revenue drop of 10% or less.</p>
@@ -3654,7 +3654,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p20-only").addClass("hidden");
         $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
-        $(".p18-19").addClass("hidden");
+        $(".p18-21").addClass("hidden");
         $(".p20-21").addClass("hidden");
         $(".p21-hide").removeClass("hidden");
         $(".p14").addClass("hidden");
@@ -3695,6 +3695,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           case 21:
             // $(".p21-hide").addClass("hidden");
              //change the values to 0
+            $(".p18-21").removeClass("hidden");
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3718,6 +3719,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
             break;
           case 20:
+            $(".p18-21").removeClass("hidden");
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3742,7 +3744,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             break;
           case 19:
-            $(".p18-19").removeClass("hidden");
+            $(".p18-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p19-only").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3766,7 +3768,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             break;
           case 18:
-            $(".p18-19").removeClass("hidden");
+            $(".p18-21").removeClass("hidden");
             $(".p18-only").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -4474,7 +4476,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           var tempWageSubAmount = 0;
         }
-        if (revReduction > 0.1 || (revReduction > 0 && claimPeriod < 20) || claimPeriod < 5)  {
+        if (revReduction > 0.1 || (revReduction > 0 && claimPeriod < 22) || claimPeriod < 5)  {
           totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
         } else {
           totalCews = 0;
@@ -4583,7 +4585,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
-          $(".contact-to-apply-p18-19").addClass("hidden");
+          $(".contact-to-apply-p18-21").addClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
           $('.crhp-no .hidden-print a').removeClass('btn-default');
           $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
@@ -4595,7 +4597,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
-          $(".contact-to-apply-p18-19").removeClass("hidden");
+          $(".contact-to-apply-p18-21").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
           if (document.documentElement.lang == "fr") {
@@ -4626,7 +4628,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#different-amount-from-both").removeClass("hidden");
           }
           $("#not-qualify-either-alert").addClass("hidden");
-          $(".contact-to-apply-p18-19").removeClass("hidden");
+          $(".contact-to-apply-p18-21").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
           if (document.documentElement.lang == "fr") {
