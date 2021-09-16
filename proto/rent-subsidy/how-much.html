@@ -438,21 +438,22 @@
                     <div class="form-group">
                 <label for="claim-period" class="control-label required"><span class="field-name">Select the period you are claiming for</span> <strong class="required">(required)</strong></label>
                 <select required id="claim-period" class="form-control input-lg">
-                        <option value=""> Select a claim period</option>
-                        <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
-                        <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
-                        <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
-                        <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
-                        <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
-                        <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
-                        <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14 20, 2021, to April 10, 2021</option>
-                        <option data-claim-period="8" value="2021-04-11--2021-05-08">Period 8: April 11, 2021, to May 8, 2021</option>
-                        <option data-claim-period="9" value="2021-05-09--2021-06-05">Period 9: May 9, 2021, to June 5, 2021</option>
-                        <option data-claim-period="10" value="2021-06-06--2021-07-03">Period 10: June 6, 2021, to July 3, 2021</option>
-                        <option data-claim-period="11" value="2021-07-04--2021-07-31">Period 11: July 4, 2021, to July 31, 2021</option>
-                        <option data-claim-period="12" value="2021-08-01--2021-08-28">Period 12: August 1, 2021, to August 28, 2021</option>
-                        <option data-claim-period="13" value="2021-08-29--2021-09-25">Period 13: August 29, 2021, to September 25, 2021</option>
-                      </select>
+                  <option value=""> Select a claim period</option>
+                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
+                  <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
+                  <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
+                  <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
+                  <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
+                  <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
+                  <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14 20, 2021, to April 10, 2021</option>
+                  <option data-claim-period="8" value="2021-04-11--2021-05-08">Period 8: April 11, 2021, to May 8, 2021</option>
+                  <option data-claim-period="9" value="2021-05-09--2021-06-05">Period 9: May 9, 2021, to June 5, 2021</option>
+                  <option data-claim-period="10" value="2021-06-06--2021-07-03">Period 10: June 6, 2021, to July 3, 2021</option>
+                  <option data-claim-period="11" value="2021-07-04--2021-07-31">Period 11: July 4, 2021, to July 31, 2021</option>
+                  <option data-claim-period="12" value="2021-08-01--2021-08-28">Period 12: August 1, 2021, to August 28, 2021</option>
+                  <option data-claim-period="13" value="2021-08-29--2021-09-25">Period 13: August 29, 2021, to September 25, 2021</option>
+                  <option data-claim-period="14" value="2021-09-26--2021-10-23">Period 14: September 26, 2021, to October 23, 2021</option>
+                </select>
               </div>
                   </fieldset>
             <hr class="brdr-bttm">
@@ -780,6 +781,14 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group row">
+                              <label class="col-sm-6 control-label" for="2021-10-no">October 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                              <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                  <input type="number" class="form-control text-right cers-rate-calc currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </fieldset>
@@ -908,10 +917,20 @@
                       <div class="form-group row">
                         <label class="col-sm-6 control-label" for="2021-09-yes">September 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
                         <div class="col-sm-6">
-                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                          <div class="input-group"> 
+                            <span class="input-group-addon input-sm">$</span>
                             <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-09-yes" id="2021-09-yes" placeholder="0.00">
                           </div>
-                              </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-10-yes">October 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> 
+                            <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-10-yes" id="2021-10-yes" placeholder="0.00">
+                          </div>
+                        </div>
                       </div>
                             <!-- Section to add days not operating during Jan-Feb -->
                             <div class="form-group row">
@@ -1013,7 +1032,7 @@
                                 <div class="clearfix"></div>
                                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp">
                             <legend>Does the location qualify for lockdown support?</legend>
-                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
+                            <p><a href="#lockdown-details" aria-controls="lwp" class="wb-lbx lockdown-details" role="button">Learn about lockdown support eligibility criteria<span class="far fa-question-circle"></span></a></p>
 
                             <ul class="list-unstyled lst-spcd-2">
                                     <li class="radio">
@@ -1901,18 +1920,23 @@
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            if (document.documentElement.lang == "fr") {
+              var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement ";
+              var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Dépenses admissibles ";
+            } else {
+              var SummaryOne = "Learn about lockdown support eligibility criteria ";
+              var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              var SummaryThree = "Eligible expenses ";
+            }
             if (!isChromium) {
-              if (document.documentElement.lang == "fr") {
-                var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement : ";
-                  var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              } else {
-                var SummaryOne = "Learn about lockdown support eligibility criteria";
-                  var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              }
-              this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
+              
+              //this.clearInitializedExpandHide(frag, "lockdown-details", SummaryOne);
               this.clearInitializedExpandHide(frag, "location-details", SummaryTwo);
               this.clearInitializedDatePickers(frag);
             }
+            this.clearInitializedLightbox(frag, "lockdown-details", SummaryOne);
+            this.clearInitializedLightbox(frag, "eligible-exp", SummaryThree);
             this.setUpdatesAndUpdatedByData(frag);
             this.visualDefaults(frag);
             return frag;
@@ -2054,6 +2078,27 @@
             $(newExHide).attr("class", summaryClass);
             $(newExHide).html(summaryText);
             $(frag).find("."+summaryClass).replaceWith(newExHide);
+          }
+
+          /**
+           * clearInitializedLightbox
+           *
+           * replace an expand hide summary element with an uninitialized version for WET
+           *
+           * @param {DOMDocumentFragment} frag the cloned templateId
+          */
+          LocationFormGenerator.prototype.clearInitializedLightbox = function (frag, lightboxClass, lightboxText) {
+            //create new summary element for the top up expand hide
+            var newLightbox = document.createElement("a");
+            var questionIcon = document.createElement("span");
+            $(newLightbox).attr("href", $(frag).find("."+lightboxClass).attr("href"))
+            $(newLightbox).attr("aria-controls", "lwp");
+            $(newLightbox).attr("class", "wb-lbx " + lightboxClass);
+            $(newLightbox).attr("role", "button");
+            $(newLightbox).html(lightboxText);
+            $(questionIcon).attr("class", "far fa-question-circle");
+            $(newLightbox).append(questionIcon);
+            $(frag).find("."+lightboxClass).replaceWith(newLightbox);
           }
 
 
@@ -2345,6 +2390,7 @@
             $("#rate-reduction").removeClass("hidden");
 
             //Defaults
+            $("#2021-10-yes").closest("div.form-group").addClass("hidden");
             $("#2021-09-yes").closest("div.form-group").addClass("hidden");
             $("#2021-08-yes").closest("div.form-group").addClass("hidden");
             $("#2021-07-yes").closest("div.form-group").addClass("hidden");
@@ -2359,6 +2405,7 @@
             $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").addClass("hidden");
 
+            $("#2021-10-no").closest("div.form-group").addClass("hidden");
             $("#2021-09-no").closest("div.form-group").addClass("hidden");
             $("#2021-08-no").closest("div.form-group").addClass("hidden");
             $("#2021-07-no").closest("div.form-group").addClass("hidden");
@@ -2393,6 +2440,15 @@
             }
 
             switch (claimPeriod) {
+              case 14:
+                $("#2021-10-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-10-no").closest("div.form-group").removeClass("hidden");
+                $("#2019-10-no").closest("div.form-group").removeClass("hidden");
+                $("#2021-09-no").closest("div.form-group").removeClass("hidden");
+                $("#2019-09-no").closest("div.form-group").removeClass("hidden");
+                $("#table-prd tr:not('#clm-pr-13')").addClass("hidden");
+                break;
               case 13:
                 $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
                 $("#2021-08-yes").closest("div.form-group").removeClass("hidden");
@@ -3784,10 +3840,10 @@
            */
           function getRentSubsidyRate(revReduction) {
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
-            var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
-            var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.1];
-            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
-            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.5];
+            var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
+            var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.15, 0.1];
+            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
+            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.75, 0.5];
             $("#rate-formula-max").addClass("hidden");
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
