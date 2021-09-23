@@ -3509,8 +3509,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("output[for='" + $elmId + "']").html(value * 1);
           };
         }
-
-        total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        // if (claimPeriod > 20) { //p21 differences
+        //   total = ($("#p2c-cews").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        // } else {
+          total = ($("#p2c-cews").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
+        // }
         if (total < 0) {
           $("[for='p2c-cews p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
         } else {
@@ -3561,10 +3564,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $('.crhp-eligible-tag').addClass("hidden");
             crhpRate = 0;
           }
-          if (claimPeriod < 17) {
-            $("#details-panel2-lnk").parent().addClass("hidden");
-          } else {
-            $("#details-panel2-lnk").parent().removeClass("hidden");
+          if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+            if (claimPeriod < 17) {
+              $("#details-panel2-lnk").parent().addClass("hidden");
+            } else {
+              $("#details-panel2-lnk").parent().removeClass("hidden");
+            }
           }
         }
         //show/hide elements based on chosen claim period
@@ -3648,7 +3653,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $("#cal-sprsht-p11").addClass("hidden");
         $("#no-crhp-message").addClass("hidden");
         $("#crhp-questions").removeClass("hidden");
-        $(".crhp-eligible").removeClass("hidden");
+        if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+          $(".crhp-eligible").removeClass("hidden");
+        }
         $(".p18-plus").addClass("hidden");
         $(".p17-only").addClass("hidden");
         $(".p18-only").addClass("hidden");
@@ -3656,13 +3663,17 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p20-only").addClass("hidden");
         $(".p17-plus").addClass("hidden");
         $(".p14-crhp").addClass("hidden");
-        $(".p18-19").addClass("hidden");
+        $(".p18-21").addClass("hidden");
         $(".p20-21").addClass("hidden");
+        $(".p21-hide").removeClass("hidden");
+        $(".p14").addClass("hidden");
 
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
           $("#crhp-questions").addClass("hidden");
-          $(".crhp-eligible").addClass("hidden");
+          if ($('#elig-type-yes' + ':checked').length == 0 && $('#elig-type-no' + ':checked').length == 0) {
+            $(".crhp-eligible").addClass("hidden");
+          }
         } else {
           $(".p17-plus").removeClass("hidden");
         }
@@ -3680,7 +3691,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3692,6 +3702,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-10-no").closest("div.form-group").removeClass("hidden");
             break;
           case 21:
+            // $(".p21-hide").addClass("hidden");
+             //change the values to 0
+            $(".p18-21").removeClass("hidden");
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3704,7 +3717,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3716,6 +3728,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-09-no").closest("div.form-group").removeClass("hidden");
             break;
           case 20:
+            $(".p18-21").removeClass("hidden");
             $(".p20-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3729,7 +3742,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3741,7 +3753,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-08-no").closest("div.form-group").removeClass("hidden");
             break;
           case 19:
-            $(".p18-19").removeClass("hidden");
+            $(".p18-21").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p19-only").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3754,7 +3766,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3766,7 +3777,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2019-07-no").closest("div.form-group").removeClass("hidden");
             break;
           case 18:
-            $(".p18-19").removeClass("hidden");
+            $(".p18-21").removeClass("hidden");
             $(".p18-only").removeClass("hidden");
             $(".p18-plus").removeClass("hidden");
             $(".p7-and-before").addClass("hidden");
@@ -3779,7 +3790,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3802,7 +3812,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3824,7 +3833,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3846,7 +3854,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3869,7 +3876,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3892,7 +3898,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3915,7 +3920,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3938,7 +3942,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3962,7 +3965,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws-disclaimer").removeClass("hidden");
             $("#cal-sprsht-p9").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -3991,7 +3993,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4020,7 +4021,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4049,7 +4049,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4078,7 +4077,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4107,7 +4105,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#p4-tws").val("0.00");
             $("#p4-tws-disclaimer").removeClass("hidden");
             $(".p59").removeClass("hidden");
-            $(".p14").addClass("hidden");
             $(".btn-cews-cal").removeClass("disabled");
             $(".btn-cews-cal").prop("disabled", false);
             $(".choose-claim-period").addClass("hidden");
@@ -4161,9 +4158,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $(".choose-claim-period").removeClass("hidden");
         }
 
-        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.75, 0.5];
         $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
         $('.scaleBase').text(scaleBase[claimPeriod - 5]);
 
         //recalculate the summary based on the values that are already there
@@ -4488,7 +4485,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           var tempWageSubAmount = 0;
         }
-        if (revReduction > 0.1 || (revReduction > 0 && claimPeriod < 20) || claimPeriod < 5)  {
+        if (revReduction > 0.1 || (revReduction > 0 && claimPeriod < 22) || claimPeriod < 5)  {
           totalCews = cews + zeroIfEmpty($("#p3-ei").val()) + zeroIfEmpty($("#p3-cpp").val()) - tempWageSubAmount - zeroIfEmpty($("#p4-wsb").val());
         } else {
           totalCews = 0;
@@ -4597,7 +4594,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         
         if (totalCrhp <= 0 && totalCews <= 0) {
           $("#not-qualify-either-alert").removeClass("hidden");
-          $(".contact-to-apply-p18-19").addClass("hidden");
+          $(".contact-to-apply-p18-21").addClass("hidden");
           $(".not-yet-apply-alert").addClass("hidden");
           $('.crhp-no .hidden-print a').removeClass('btn-default');
           $('.crhp-no .hidden-print a').removeClass('btn-call-to-action');
@@ -4609,7 +4606,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#same-amount-from-both").addClass("hidden");
           $("#different-amount-from-both").removeClass("hidden");
           $("#not-qualify-either-alert").addClass("hidden");
-          $(".contact-to-apply-p18-19").removeClass("hidden");
+          $(".contact-to-apply-p18-21").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel2-lnk").click(); //default select the CRHP tab
           if (document.documentElement.lang == "fr") {
@@ -4640,7 +4637,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#different-amount-from-both").removeClass("hidden");
           }
           $("#not-qualify-either-alert").addClass("hidden");
-          $(".contact-to-apply-p18-19").removeClass("hidden");
+          $(".contact-to-apply-p18-21").removeClass("hidden");
           $(".not-yet-apply-alert").removeClass("hidden");
           $("#details-panel1-lnk").click(); 
           if (document.documentElement.lang == "fr") {
@@ -5768,8 +5765,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
        */
       function getP5PlusTopUpRate(reduction) {
         var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.5];
-        var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.1];
+        var topUpMultiplier = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.25, 0.75, 0.75, 0.5];
+        var topUpMax = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0.25, 0.15, 0.15, 0.1];
         $('.scaleTopUp').text(topUpMultiplier[claimPeriod - 5]);
         if (topUpMultiplier[claimPeriod - 5] * (reduction - 0.5) > topUpMax[claimPeriod - 5]) {
           return topUpMax[claimPeriod - 5];
@@ -5787,8 +5784,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
        */
       function getP5PlusBaseRate(revReduction) {
         //max base and period for P5+
-        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
-        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+        var maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
+        var scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
         var period = $("#claim-period option:selected").data("claim-period");
         $('.scaleBase').text(scaleBase[period - 5]);
         if (period > 17) {
