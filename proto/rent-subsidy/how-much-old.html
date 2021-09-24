@@ -438,21 +438,22 @@
                     <div class="form-group">
                 <label for="claim-period" class="control-label required"><span class="field-name">Select the period you are claiming for</span> <strong class="required">(required)</strong></label>
                 <select required id="claim-period" class="form-control input-lg">
-                        <option value=""> Select a claim period</option>
-                        <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
-                        <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
-                        <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
-                        <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
-                        <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
-                        <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
-                        <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14 20, 2021, to April 10, 2021</option>
-                        <option data-claim-period="8" value="2021-04-11--2021-05-08">Period 8: April 11, 2021, to May 8, 2021</option>
-                        <option data-claim-period="9" value="2021-05-09--2021-06-05">Period 9: May 9, 2021, to June 5, 2021</option>
-                        <option data-claim-period="10" value="2021-06-06--2021-07-03">Period 10: June 6, 2021, to July 3, 2021</option>
-                        <option data-claim-period="11" value="2021-07-04--2021-07-31">Period 11: July 4, 2021, to July 31, 2021</option>
-                        <option data-claim-period="12" value="2021-08-01--2021-08-28">Period 12: August 1, 2021, to August 28, 2021</option>
-                        <option data-claim-period="13" value="2021-08-29--2021-09-25">Period 13: August 29, 2021, to September 25, 2021</option>
-                      </select>
+                  <option value=""> Select a claim period</option>
+                  <option data-claim-period="1" value="2020-09-27--2020-10-24">Period 1: September 27, 2020, to October 24, 2020</option>
+                  <option data-claim-period="2" value="2020-10-25--2020-11-21">Period 2: October 25, 2020, to November 21, 2020</option>
+                  <option data-claim-period="3" value="2020-11-22--2020-12-19">Period 3: November 22, 2020, to December 19, 2020</option>
+                  <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
+                  <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
+                  <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
+                  <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14 20, 2021, to April 10, 2021</option>
+                  <option data-claim-period="8" value="2021-04-11--2021-05-08">Period 8: April 11, 2021, to May 8, 2021</option>
+                  <option data-claim-period="9" value="2021-05-09--2021-06-05">Period 9: May 9, 2021, to June 5, 2021</option>
+                  <option data-claim-period="10" value="2021-06-06--2021-07-03">Period 10: June 6, 2021, to July 3, 2021</option>
+                  <option data-claim-period="11" value="2021-07-04--2021-07-31">Period 11: July 4, 2021, to July 31, 2021</option>
+                  <option data-claim-period="12" value="2021-08-01--2021-08-28">Period 12: August 1, 2021, to August 28, 2021</option>
+                  <option data-claim-period="13" value="2021-08-29--2021-09-25">Period 13: August 29, 2021, to September 25, 2021</option>
+                  <option data-claim-period="14" value="2021-09-26--2021-10-23">Period 14: September 26, 2021, to October 23, 2021</option>
+                </select>
               </div>
                   </fieldset>
             <hr class="brdr-bttm">
@@ -780,6 +781,14 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="form-group row">
+                              <label class="col-sm-6 control-label" for="2021-10-no">October 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                              <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                                  <input type="number" class="form-control text-right cers-rate-calc currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </fieldset>
@@ -908,10 +917,20 @@
                       <div class="form-group row">
                         <label class="col-sm-6 control-label" for="2021-09-yes">September 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
                         <div class="col-sm-6">
-                                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                          <div class="input-group"> 
+                            <span class="input-group-addon input-sm">$</span>
                             <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-09-yes" id="2021-09-yes" placeholder="0.00">
                           </div>
-                              </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-6 control-label" for="2021-10-yes">October 2021<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                        <div class="col-sm-6">
+                          <div class="input-group"> 
+                            <span class="input-group-addon input-sm">$</span>
+                            <input type="number" class="form-control text-right cers-rate-calc-alt currency" name="2021-10-yes" id="2021-10-yes" placeholder="0.00">
+                          </div>
+                        </div>
                       </div>
                             <!-- Section to add days not operating during Jan-Feb -->
                             <div class="form-group row">
