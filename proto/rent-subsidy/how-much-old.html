@@ -2390,6 +2390,7 @@
             $("#rate-reduction").removeClass("hidden");
 
             //Defaults
+            $("#2021-10-yes").closest("div.form-group").addClass("hidden");
             $("#2021-09-yes").closest("div.form-group").addClass("hidden");
             $("#2021-08-yes").closest("div.form-group").addClass("hidden");
             $("#2021-07-yes").closest("div.form-group").addClass("hidden");
@@ -2404,6 +2405,7 @@
             $("#2020-10-yes").closest("div.form-group").addClass("hidden");
             $("#2020-09-yes").closest("div.form-group").addClass("hidden");
 
+            $("#2021-10-no").closest("div.form-group").addClass("hidden");
             $("#2021-09-no").closest("div.form-group").addClass("hidden");
             $("#2021-08-no").closest("div.form-group").addClass("hidden");
             $("#2021-07-no").closest("div.form-group").addClass("hidden");
@@ -2438,6 +2440,15 @@
             }
 
             switch (claimPeriod) {
+              case 14:
+                $("#2021-10-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
+                $("#2021-10-no").closest("div.form-group").removeClass("hidden");
+                $("#2019-10-no").closest("div.form-group").removeClass("hidden");
+                $("#2021-09-no").closest("div.form-group").removeClass("hidden");
+                $("#2019-09-no").closest("div.form-group").removeClass("hidden");
+                $("#table-prd tr:not('#clm-pr-13')").addClass("hidden");
+                break;
               case 13:
                 $("#2021-09-yes").closest("div.form-group").removeClass("hidden");
                 $("#2021-08-yes").closest("div.form-group").removeClass("hidden");
@@ -2551,11 +2562,11 @@
                 break;
               default:
             }
-            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.5];
+            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.75, 0.5];
             $('.scaleTopUp').text(scaleTopUp[claimPeriod - 1]);
-            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
+            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
             $('.scaleBase').text(scaleBase[claimPeriod - 1]);
-            var maxBase = [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 35, 25, 10];
+            var maxBase = [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 35, 25, 25, 10];
             $('.maxBase').text(toPercent(maxBase[claimPeriod - 1]));
 
             //recalculate the summary based on the values that are already there
@@ -3829,10 +3840,10 @@
            */
           function getRentSubsidyRate(revReduction) {
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
-            var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.1];
-            var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.1];
-            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.25];
-            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.5];
+            var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
+            var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.15, 0.1];
+            var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
+            var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.75, 0.5];
             $("#rate-formula-max").addClass("hidden");
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
