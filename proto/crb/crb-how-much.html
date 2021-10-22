@@ -942,15 +942,15 @@ li.checkbox label {
                             <label for="c25"> Period 25: August 29 to September 11, 2021 </label>
                           </li>
                           <li class="checkbox" id="p26">
-                            <input type="checkbox" id="c26" class="action-checkbox cb-dmm">
+                            <input type="checkbox" id="c26" class="action-checkbox cb-dmm after26">
                             <label for="c26"> Period 26: September 12 to September 25, 2021 </label>
                           </li>
                           <li class="checkbox" id="p27">
-                            <input type="checkbox" id="c27" class="action-checkbox cb-dmm">
+                            <input type="checkbox" id="c27" class="action-checkbox cb-dmm after26">
                             <label for="c27"> Period 27: September 26 to October 9, 2021 </label>
                           </li>
                           <li class="checkbox" id="p28">
-                            <input type="checkbox" id="c28" class="action-checkbox cb-dmm">
+                            <input type="checkbox" id="c28" class="action-checkbox cb-dmm after26">
                             <label for="c28"> Period 28: October 10 to October 23, 2021 </label>
                           </li>
                         </ul>
@@ -1043,6 +1043,20 @@ li.checkbox label {
                     <p><strong>You have reached the benefit limit.</strong></p>
                     <div class="mrgn-tp-md">
                       <p>You cannot receive any more CRB payments. You've reached the maximum 27 periods (54 weeks).</p>
+                    </div>
+                  </div>
+                  
+                  <!-- No periods selected before period 26 -->
+                  <div class="alert alert-warning hidden provisional alert1" id="action-msg7">
+                    <p><strong>You will receive the reduced amount.</strong></p>
+                    <div class="mrgn-tp-md">
+                      <p>Since you did not apply for period 21 (July 4 to 17, 2021) or an earlier period, you may receive $600 (<strong>$540</strong> after taxes withheld) for a 2-week period until the CRB ends (<a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-periods-apply.html#h-2">period 28</a>).</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>You may not be eligible to apply for period 28 if the number of weeks you received EI regular benefits and the number of weeks you received the CRB adds up to more than 54 weeks.</p>
+                    </div>
+                    <div class="mrgn-tp-md">
+                      <p>You must file your 2019 or 2020 taxes before you can apply for the CRB. </p>
                     </div>
                   </div>
                   
@@ -1175,7 +1189,8 @@ li.checkbox label {
 		$("#action-msg3").addClass("hidden").removeClass("visible");
 		$("#action-msg4").addClass("hidden").removeClass("visible");
 		$("#action-msg5").addClass("hidden").removeClass("visible");	
-		$("#action-msg6").addClass("hidden").removeClass("visible");	
+		$("#action-msg6").addClass("hidden").removeClass("visible");
+		$("#action-msg7").addClass("hidden").removeClass("visible");
 	}
 	
 	function countBoxes(){
@@ -1232,6 +1247,10 @@ li.checkbox label {
 		if ($('.action-checkbox:checked').length >= 27) {
 				clearMessages();
 				$("#action-msg6").removeClass("hidden").addClass("visible");
+		}
+		if (($('.action-checkbox:checked').length) == ($('.after26:checked').length)) {
+				clearMessages();
+				$("#action-msg7").removeClass("hidden").addClass("visible");
 		}
 		
 	}	
