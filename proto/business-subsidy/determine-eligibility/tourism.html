@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" dir="ltr"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Find out what COVID-19 wage or rent subsidy you qualify for: Tourism or hospitality - Canada.ca</title>
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<!-- Meta data-->
+		<!-- Load closure template scripts -->
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/soyutils.js"></script>
+		<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_30/cdts/compiled/wet-en.js"></script>
+		<link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet">
+		<link href="https://design.canada.ca/css/checkbox-radio.css" rel="stylesheet">
+
+
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			document.write(wet.builder.refTop({
+			}));
+		</script>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<div id="def-top">
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defTop = document.getElementById("def-top");
+			defTop.outerHTML = wet.builder.top({
+				lngLinks: [{
+					lang: "fr",
+					href: "travel-advice-fr.html",
+					text: "Français"
+				}],
+				breadcrumbs: [{
+					title: "Canada.ca",
+					href: "https://www.canada.ca/en.html"
+				},{
+					title: "Business and industry",
+					href: "https://www.canada.ca/en/services/business.html"
+				},{
+					title: "Managing your business during COVID-19",
+					href: "https://www.canada.ca/en/services/business/maintaining-your-business.html"
+				},{
+					title: "Wage and rent subsidies",
+					href: "../index.html"
+				},{
+					title: "Determine eligibility",
+					href: "start-organization.html"
+				}],
+				search: true,
+				siteMenu: true,
+				showPreContent: true
+			});
+</script>
+
+<main role="main" property="mainContentOfPage" class="container">
+
+<p class="lead mrgn-tp-md mrgn-bttm-0 text-muted">Find out what COVID-19 wage or rent subsidy you qualify for</p>
+<h1 class="gc-thickline mrgn-tp-0">Tourism or hospitality</h1>
+
+
+<div class="wb-frmvld">
+	<div id="select-tourism">
+		<legend id="tourism-legend" class="h3"><span class="field-name">Are you part of the tourism or hospitality industries?</span></legend>
+		<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+
+			<mark>What is considered part of the tourism industry? Pop-up</mark>
+
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="tourism" type="radio" name="tourism" value="tourism">
+				<label for="tourism">Yes</label>
+			</li>
+			<li class="radio">
+				<input id="hardest-hit" type="radio" name="tourism" value="tourism">
+				<label for="hardest-hit">No</label>
+			</li>
+		</ul>
+		<div class="row">
+			<div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+				<button id="continue" class="btn btn-primary btn-block mrgn-bttm-md">Next</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p><a class="btn btn-link" href="start-organization.html">Start over</a></p>
+
+<div id="def-preFooter">
+</div>
+<!-- Write closure template -->
+<script type="text/javascript">
+	var defPreFooter = document.getElementById("def-preFooter");
+	defPreFooter.outerHTML = wet.builder.preFooter({
+		dateModified: "2020-03-13",
+		showPostContent: true,
+		showFeedback: true,
+		showShare: true
+	});
+</script>
+		</main>
+		<div id="def-footer">
+
+		</div>
+		<!-- Write closure template -->
+		<script type="text/javascript">
+			var defFooter = document.getElementById("def-footer");
+			defFooter.outerHTML = wet.builder.footer({
+				showFooter: true,
+				showFeatures: true
+			});
+		</script>
+		<!-- Write closure template -->
+				<script type="text/javascript">
+			document.write(wet.builder.refFooter({
+			}));
+		</script>
+		<script src="https://test.canada.ca/covid-19-guidance/proto/js/contact-link-swap.js"></script>
+		<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+		<script src="https://gc-proto.github.io/child-canada-benefit-2/post-validation/GCWeb/js/checkboxes.js"></script>
+		<script src="./validator.js"></script>
+		<script>
+			$(document).ready(function(){		
+				//Capture changes
+				// $("#select-org").change(function(field){
+				// 	localStorage.setItem("ccpc", field.target.value);
+				// });
+				$('#error1').addClass("hidden");
+			});
+
+			$("#continue").click(function(){
+				// VALIDATION
+				var top = [50000,""];
+				var next = $('input[name="tourism"]:checked').val();
+				if (next != null){
+					window.location.href = "./" + next + ".html"
+				} else {
+					top = validateElement("tourism-legend", "error1", "Please indicate if you are part of tourism or hospitality", top);
+					document.getElementById(top[1]).scrollIntoView();
+				}
+			});
+		</script>
+	</body>
+</html>

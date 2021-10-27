@@ -5152,19 +5152,19 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
           if (claimMonth2019Value == 0) {
             revReduction = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
-            priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
+            priorRevReduc = Math.max(0, (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value);
             currentRevReduc = 0;
           } else if (prevClaim2019Value == 0) {
             revReduction = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
             priorRevReduc = 0;
-            currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+            currentRevReduc = Math.max(0, (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value);
           } else {
             revReduction = Math.max(
               (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value,
               (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value
             );
-            priorRevReduc = (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value;
-            currentRevReduc = (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value;
+            priorRevReduc = Math.max(0, (prevClaim2019Value - prevClaim2020Value) / prevClaim2019Value);
+            currentRevReduc = Math.max(0, (claimMonth2019Value - claimMonth2020Value) / claimMonth2019Value);
           }
           if (claimPeriod > 16) {
             revReductionCRHPcur = roundPercUp(currentRevReduc);
@@ -5344,8 +5344,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
             (baseRev - claimMonthValue) / baseRev,
             (baseRev - prevClaimValue) / baseRev
           );
-          currentRevReduc = (baseRev - claimMonthValue) / baseRev;
-          priorRevReduc = (baseRev - prevClaimValue) / baseRev;
+          currentRevReduc = Math.max(0, (baseRev - claimMonthValue) / baseRev);
+          priorRevReduc = Math.max(0, (baseRev - prevClaimValue) / baseRev);
           if (claimPeriod > 16) {
             revReductionCRHPcur = roundPercUp(currentRevReduc);
             revReductionCRHPprev = roundPercUp(priorRevReduc);
