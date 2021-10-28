@@ -1066,11 +1066,22 @@ li.checkbox label {
                     </div>
                   </div>
                   
+                  <!-- Period 28 only -->
+                  <div class="alert alert-warning hidden provisional alert1" id="action-msg9">
+                    <p><strong>Period 28 is the last period for the CRB.</strong></p>
+                    <p>If you are eligible for period 28 (October 10 to 23, 2021), you can apply for it until December 22, 2021. You must file your 2019 or 2020 taxes before you can apply for the CRB. </p>
+                    <div class="mrgn-tp-md">
+                      <p>Since you did not apply for period 21 (July 4 to 17, 2021) or an earlier period, you may receive $600 (<strong>$540</strong> after taxes withheld) for th 2-week period.</p>
+                    </div>
+                  </div>
+                  
                   <!-- Period 28 selected (AJAX) -->
                   <div class="hidden">
-                    <section id="action-msg8">
-                      <p><strong>Period 28 is the last period for the CRB.</strong></p>
-                      <p>If you are eligible for period 28 (October 10 to 23, 2021), you can apply for it until December 22, 2021.</p>
+                    <section id="action-msg8" class="panel panel-default">
+                      <div class="panel-body">
+                        <p><strong>Period 28 is the last period for the CRB.</strong></p>
+                        <p>If you are eligible for period 28 (October 10 to 23, 2021), you can apply for it until December 22, 2021.</p>
+                      </div>
                     </section>
                   </div>
                   
@@ -1262,6 +1273,10 @@ li.checkbox label {
 		}
 		if($('.p28:checked').length == 1){				
 				$(".msg28").removeClass("hidden").addClass("visible")		
+		}
+		if (($('.action-checkbox:checked').length == 1) && ($('.p28:checked').length == 1)){
+				clearMessages();
+				$("#action-msg9").removeClass("hidden").addClass("visible"); 
 		}
 	}
 		
