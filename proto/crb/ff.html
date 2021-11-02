@@ -811,8 +811,9 @@ li.checkbox label {
         <li><a href="https://www.canada.ca/en/revenue-agency/services/benefits/recovery-benefit/crb-contact.html">Contact us about CRB<span class="wb-inv">: Canada Recovery Benefit (CRB)</span></a></li>
       </ul>
       <h4>Custom variable test</h4>
-      <p>Repaid benefit in <span class="year-repaid">XXX</span></p>
-      <p>Received benefit in <span class="year-received">YYY</span></p>
+      <p>Received benefit in <span class="year-received">YYYY</span></p>
+      <p>Repaid benefit in <span class="year-repaid">XXXX</span></p>
+      <p>Claim benefit in <span class="year-claimed">ZZZZ</span></p>
       <div class="hidden-sm hidden-xs" data-ajax-replace="https://www.canada.ca/content/canadasite/en/revenue-agency/services/benefits/recovery-benefit.html#related-menu"> </div>
     </nav>
   </section>
@@ -831,182 +832,142 @@ li.checkbox label {
     <div class="col-xs-12">
       <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
         <div class="pstn-lft-xs pstn-tp-xs"><span class="fa-stack fa-fw mrgn-lft-sm text-info"> <span class="fas fa-square fa-stack-2x fa-inverse"></span> <span class="fa-stack fa-fw pull-left"><span class="fas fa-sync-alt fa-stack-2x"></span><span class="fas fa-dollar-sign fa-stack-1x"></span></span></span></div>
-        <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="determine">How repayments can impact your taxes</h3>
+        <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="determine">Find out how repayments impact your taxes</h3>
         <div class="clearfix"></div>
         <div class="mrgn-lft-lg">
           <div class="wb-frmvld fieldflow-lg"> 
-            <!--form>
-              <div class="wb-fieldflow" data-wb-fieldflow="{&quot;renderas&quot;:&quot;radio&quot;, &quot;reset&quot;: { &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;:&quot;.alert1,#crb-when-repay,#crb-when-receive&quot;, &quot;class&quot;: &quot;hidden&quot;}, &quot;noForm&quot;: true, &quot;noreqlabel&quot;: true}">
-                <div class="wb-fieldflow-header">
-                  <p class="wb-fieldflow-label">Which benefit did you repay?</p>
-                </div>
-                <ul>
-                  <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#cerb-answer&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">CERB</li>
-                  <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#cesb-answer&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">CESB</li>
-                  <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#crb-when-repay&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">CRB, CRCB, or CRSB</li>
-                  <!--li>No
-                          <div class="wb-fieldflow-sub" data-wb-fieldflow="{&quot;renderas&quot;:&quot;radio&quot;, &quot;reset&quot;: { &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;:&quot;.alert1,#checkboxes&quot;, &quot;class&quot;: &quot;hidden&quot;}, &quot;noreqlabel&quot;: true}">
-                            <div class="wb-fieldflow-header">
-                              <p class="wb-fieldflow-label">Are you eligible to apply for period&nbsp;21 (July&nbsp;4 to 17, 2021) or an earlier period?</p>
-                            </div>
-                            <ul>
-                              <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#retro&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
-                              <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#reduced&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">No</li>
-                            </ul>
-                          </div>
-                        </li>
-                </ul>
-              </div>
-            </form--> 
-            <!-- FF ANSWERS >
-            <div id="cerb-answer" class="hidden alert alert-success alert1">
-              <p>ADD MORE QUESTIONS FOR CERB!</p>
-            </div>
-            <div id="cesb-answer" class="hidden alert alert-success alert1">
-              <p>ADD MORE QUESTIONS FOR CESB!</p>
-            </div--> 
             
             <!-- WHICH BENEFIT CHECKBOXES -->
             <section id="which-benefit">
-              <p class="checkbox-label mrgn-bttm-0"><strong>Which benefit did you repay?</strong></p>
+              <p class="checkbox-label mrgn-bttm-0"><strong>Which benefit are you repaying?</strong></p>
               <ul class="checkbox-lg">
                 <li class="checkbox" id="cerb">
-                  <input type="checkbox" id="benefit1" class="action-checkbox0 cerb">
-                  <label for="benefit1">CERB or CESB</label>
+                  <input type="checkbox" id="benefit1" class="benefit-checkbox cerb">
+                  <label for="benefit1">CERB</label>
+                </li>
+                <li class="checkbox" id="cesb">
+                  <input type="checkbox" id="benefit2" class="benefit-checkbox cesb">
+                  <label for="benefit2">CESB</label>
                 </li>
                 <li class="checkbox" id="crb">
-                  <input type="checkbox" id="benefit2" class="action-checkbox0 crb">
-                  <label for="benefit2">CRB, CRCB, or CRSB</label>
+                  <input type="checkbox" id="benefit3" class="benefit-checkbox crb">
+                  <label for="benefit3">CRB</label>
+                </li>
+                <li class="checkbox" id="crcb">
+                  <input type="checkbox" id="benefit4" class="benefit-checkbox crcb">
+                  <label for="benefit4">CRCB or CRSB</label>
                 </li>
               </ul>
-              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b0" onclick="changeMessage0()">Next</button>
+              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b0" onclick="changeMessageBenefit()">Next</button>
             </section>
             <!--END OF WHICH BENEFIT --> 
             
-            <!-- CRB WHEN REPAY CHECKBOXES -->
-            <section id="crb-when-repay" class="hidden">
-              <p class="checkbox-label mrgn-bttm-0"><strong>When did you repay the CRB?</strong></p>
-              <p class="small text-muted mrgn-tp-0">Select all of the calendar years where you made a repayment.</p>
+            <!-- WHEN REPAY CHECKBOXES -->
+            <section id="when-repay" class="hidden">
+              <p class="checkbox-label mrgn-bttm-0"><strong>When are you repaying the benefit amount?</strong></p>
+              <p class="small text-muted mrgn-tp-0">Select all calendar years for your repayments.</p>
               <ul class="checkbox-lg">
                 <li class="checkbox" id="repay2020">
-                  <input type="checkbox" id="repay1" class="action-checkbox repay2020">
+                  <input type="checkbox" id="repay1" class="repay-checkbox repay2020">
                   <label for="repay1">2020</label>
                 </li>
                 <li class="checkbox" id="repay2021">
-                  <input type="checkbox" id="repay2" class="action-checkbox repay2021">
+                  <input type="checkbox" id="repay2" class="repay-checkbox repay2021">
                   <label for="repay2">2021</label>
                 </li>
                 <li class="checkbox" id="repay2022">
-                  <input type="checkbox" id="repay3" class="action-checkbox repay2022">
+                  <input type="checkbox" id="repay3" class="repay-checkbox repay2022">
                   <label for="repay3">2022</label>
                 </li>
                 <li class="checkbox" id="repay2023">
-                  <input type="checkbox" id="repay4" class="action-checkbox repay2023">
+                  <input type="checkbox" id="repay4" class="repay-checkbox repay2023">
                   <label for="repay4">2023 or later</label>
                 </li>
               </ul>
-              <p class="small text-muted">Number of years selected: <span id="total"></span></p>
-              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b1" onclick="changeMessage()">Next</button>
+              <!--p class="small text-muted">Number of years selected: <span id="repay-total"></span></p-->
+              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b1" onclick="changeMessageRepay()">Next</button>
             </section>
-            <!--END OF CRB WHEN REPAY --> 
-            <!-- CRB WHEN RECEIVE CHECKBOXES -->
-            <section id="crb-when-receive" class="hidden">
-              <p class="checkbox-label"><strong>When did you receive the CRB that you repaid?</strong></p>
-              <p class="small text-muted mrgn-tp-0">Select the calendar years where you received the benefit.</p>
+            <!--END OF WHEN REPAY --> 
+            
+            <!-- WHEN RECEIVE CHECKBOXES -->
+            <section id="when-receive" class="hidden">
+              <p class="checkbox-label"><strong>When did you receive the benefit amount?</strong></p>
+              <p class="small text-muted mrgn-tp-0">Select the date range when you received the benefit that you are paying back.</p>
               <ul class="checkbox-lg">
                 <li class="checkbox" id="rec1">
-                  <input type="checkbox" id="rec2020" class="action-checkbox2 receive2020">
+                  <input type="checkbox" id="rec2020" class="receive-checkbox receive2020">
                   <label for="rec2020">September 27 to December 31, 2020</label>
                 </li>
                 <li class="checkbox" id="rec2">
-                  <input type="checkbox" id="rec2021" class="action-checkbox2 receive2021">
+                  <input type="checkbox" id="rec2021" class="receive-checkbox receive2021">
                   <label for="rec2021">January 1 to December 31, 2021</label>
                 </li>
                 <li class="checkbox" id="rec3">
-                  <input type="checkbox" id="rec2022" class="action-checkbox2 receive2022">
+                  <input type="checkbox" id="rec2022" class="receive-checkbox receive2022">
                   <label for="rec2022">January 1 to 19, 2022</label>
                 </li>
               </ul>
-              <p class="small text-muted">Number of years selected: <span id="total2"></span></p>
-              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b2" onclick="changeMessage2()"><!--i class="fas fa-calculator mrgn-rght-sm"></i-->Next</button>
+              <!--p class="small text-muted">Number of years selected: <span id="receive-total"></span></p-->
+              <button type="button" class="btn btn-primary btn-lg mrgn-bttm-md" id="b2" onclick="changeMessageReceive()">Next</button>
             </section>
-            
             <!--END OF CRB WHEN RECEIVE --> 
             
-            <!-- ANOTHER FF -->
-            <form id="crb-when-claim" class="hidden">
+            <!-- WHEN CLAIM RADIO BUTTONS -->
+            <form id="when-claim" class="hidden">
               <div class="wb-fieldflow" data-wb-fieldflow="{&quot;renderas&quot;:&quot;radio&quot;, &quot;reset&quot;: { &quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;:&quot;.alert1&quot;, &quot;class&quot;: &quot;hidden&quot;}, &quot;noForm&quot;: true, &quot;noreqlabel&quot;: true}">
                 <div class="wb-fieldflow-header">
                   <p class="wb-fieldflow-label">When do you want to claim the deduction?</p>
                 </div>
                 <ul>
-                  <li id="year-rep" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#action-msg1&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the year I repaid the benefit</li>
-                  <li id="years-rep" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#action-msg3&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the years I repaid the benefit</li>
-                  <li id="year-rec" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#action-msg2&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the year I recieved the benefit</li>
-                  <li id="years-rec" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#action-msg4&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the years I recieved the benefit</li>
-                  <li id="split" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#action-msg5&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Split the deduction between multiple tax years</li>
+                  <li id="year-rep" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#repaid-msg&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the year I repaid the benefit</li>
+                  <li id="years-rep" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#repaid-msg&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the years I repaid the benefit</li>
+                  <li id="year-rec" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#received-msg&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the year I received the benefit</li>
+                  <li id="years-rec" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#received-msg&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">In the years I received the benefit</li>
+                  <li id="split" data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#split-msg&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Split the deduction between multiple tax years</li>
                 </ul>
               </div>
             </form>
+            <!-- END OF WHEN CLAIM --> 
             
             <!-- START OF FF ANSWERS --> 
             
+            <!-- Nothing selected for which benefit -->
+            <div class="alert alert-info hidden alert1" id="error-msg1">
+              <p>Select which benefit you are repaying to continue.</p>
+            </div>
             <!-- Nothing selected for year repaid-->
-            <div class="alert alert-danger hidden provisional alert1" id="action-msg0">
-              <p>You cannot claim the deduction if you did not make a repayment. Select the years above where you made a repayment.</p>
+            <div class="alert alert-info hidden alert1" id="error-msg2">
+              <p>Select the years when you made repayments. You cannot claim a deduction if you did not make a repayment.</p>
             </div>
             <!-- Nothing selected for year received -->
-            <div class="alert alert-danger hidden provisional alert1" id="action2-msg0">
-              <p>You cannot claim the deduction if you did not recieve the CRB. Select the years above where you recieved the CRB that you repaid.</p>
+            <div class="alert alert-info hidden alert1" id="error-msg3">
+              <p>Select the years when you received the benefit amount that you paying back. You cannot claim a deduction if you did not receive any benefits.</p>
             </div>
-            <!-- Claim deduction in year repaid -->
-            <div class="alert alert-success hidden provisional alert1" id="action-msg1">
-              <h2 class="h3">No action needed</h2>
-              <p>You repaid in <span class="year-repaid">the same year you received the benefit</span>.</p>
-              <p>Use your T4A to file your taxes.</p>
-            </div>
-            <!-- Claim deduction in year recieved -->
             
-            <div id="action-msg2" class="hidden alert alert-warning alert1">
-              <p>Claim the amount on your <span class="year-received">year you received the benefit</span> tax return instead of your <span class="year-repaid">year you repaid the benefit</span> tax return.</p>
-              <p>If you have already filed, you can change your <span class="year-received">previous</span> tax return using:</p>
-              <ul>
-                <li>Form T1-Adj</li>
-                <li>ReFILE</li>
-                <li>???</li>
-              </ul>
+            <!-- Claim deduction in year repaid -->
+            <div class="alert alert-success hidden alert1" id="repaid-msg">
+              <p>The repayment<span class="years-repaid">s</span> you made in <span class="year-repaid">XXXX</span> will be reflected on your <span class="year-repaid">XXXX</span> T4A slip<span class="years-repaid">s</span>. Use this amount to claim the deduction on line 23200 of your <span class="year-repaid">XXXX</span> tax return<span class="years-repaid">s</span>.</p>
             </div>
-            <!-- Claim deduction in years repaid (only recieved for 1 year) -->
-            <div class="alert alert-success hidden provisional alert1" id="action-msg3">
-              <h2 class="h3">No action needed</h2>
-              <p>You repaid in <span class="years-repaid">the same years you received the benefit</span>.</p>
-              <p>Use your T4A's to file your taxes to claim the deduction in the years you repaid.</p>
-            </div>
-            <!-- Claim deduction in years received (only repaid for 1 year) -->
-            <div class="alert alert-warning hidden provisional alert1" id="action-msg4">
-              <p>Claim the amount on your <span class="years-received">years you received the benefit</span> tax returns instead of your <span class="year-repaid">year you repaid the benefit</span> tax return.</p>
-              <p>If you have already filed, you can change your <span class="years-received">previous</span> tax returns using:</p>
-              <ul>
-                <li>Form T1-Adj</li>
-                <li>ReFILE</li>
-                <li>???</li>
-              </ul>
-              <ul class="small text-muted">
-                <li>Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
-                <li>Your deduction for 2021 cannot be more than the amount you repaid for 2021</li>
-                <li>Your deduction for 2022 cannot be more than the amount you repaid for 2022</li>
-                <li>Your total deductions cannot be more than what you repaid</li>
-              </ul>
-            </div>
-            <!-- Split deduction between multiple years -->
-            <div id="action-msg5" class="hidden alert alert-warning alert1">
-              <p>You can split the deduction between the all of the years you made repayments and the years you received the benefits.</p>
-              <p>Your repayments should have been reflected on your <span class="years-repaid">years you repaid</span> T4A slips.</p>
-              <p>You can choose to:</p>
-              <ul>
-                <li>claim the full deduction(s) on your XXX and XXX tax return</li>
-                <li>split the deduction(s) between your 2020, 2021 and 2022 tax returns</li>
-              </ul>
+            
+            <!-- Claim deduction in year received -->
+            <div class="alert alert-warning hidden alert1" id="received-msg">
+              <p>The repayment<span class="years-repaid">s</span> you made in <span class="year-repaid">XXXX</span> will be reflected on your <span class="year-repaid">XXXX</span> T4A slip<span class="years-repaid">s</span>.</p>
+              <p>You can deduct this amount on your <span class="year-received">YYYY</span> tax return<span class="years-received">s</span> instead of your <span class="year-repaid">XXXX</span> tax return<span class="years-repaid">s</span>.</p>
+              <p>If you have already filed, you can change your <span class="year-received">YYYY</span> tax return<span class="years-received">s</span>:</p>
+              <dl class="dl-horizontal brdr-0">
+                <dt>Online</dt>
+                <dd>
+                  <p>Use Change My Return in CRA My Account.</p>
+                  <p><a data-gc-analytics-customclick="CRA|ARC:CRB button click:Sign-In to your CRA My Account button" href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" class="btn btn-call-to-action">Sign-in to your CRA My Account</a> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" class="mrgn-lft-md">Register</a> </p>
+                  <p><a href="https://www.canada.ca/en/revenue-agency/services/e-services/cra-login-services/hours-service.html">Hours of service for CRA My Account</a></p>
+                  <p>You can also use <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-businesses/refile-online-t1-adjustments-efile-service-providers.html">ReFILE</a> to change your return.</p>
+                </dd>
+                <dt>By mail</dt>
+                <dd>
+                  <p>Complete <a href="https://www.canada.ca/en/revenue-agency/services/forms-publications/forms/t1-adj.html">Form T1-ADJ T1 Adjustment Request</a> and send it to us.</p>
+                  <p>Include all supporting documents for the change, including those for the original assessment, unless you have already sent them to the CRA</p>
+                </dd>
+              </dl>
               <p class="small text-muted mrgn-tp-md">The following conditions apply:</p>
               <ul class="small text-muted">
                 <li>Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
@@ -1015,6 +976,21 @@ li.checkbox label {
                 <li>Your total deductions cannot be more than what you repaid</li>
               </ul>
             </div>
+            
+            <!-- Split deduction between multiple years -->
+            <div class="alert alert-danger hidden alert1" id="split-msg">
+              <p>You can split the deduction between the year<span class="years-repaid">s</span> you made repayment<span class="years-repaid">s</span> and the year<span class="years-received">s</span> you received the benefits.</p>
+              <p>Your repayment<span class="years-repaid">s</span> should have been reflected on your <span class="year-repaid">XXXX</span> T4A slip<span class="years-repaid">s</span>.</p>
+              <p>You can split the deduction<span class="years-repaid">s</span> between your <span class="year-claimed">ZZZZ</span> tax returns</p>
+              <p class="small text-muted mrgn-tp-md">The following conditions apply:</p>
+              <ul class="small text-muted">
+                <li>Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
+                <li>Your deduction for 2021 cannot be more than the amount you repaid for 2021</li>
+                <li>Your deduction for 2022 cannot be more than the amount you repaid for 2022</li>
+                <li>Your total deductions cannot be more than what you repaid</li>
+              </ul>
+            </div>
+            
             <!-- END OF FF ANSWERS --> 
           </div>
         </div>
@@ -1221,10 +1197,17 @@ if($('.gcnav-menu').length> 0){
 <script>
 	var yearRec	
 	var yearRepay	
+	var yearClaim
+	var yearsRec
+	var yearsRepay
 	
 	function clearMessages(){
 		$(".alert1").addClass("hidden").removeClass("visible");
 	}	
+	
+	function countBoxes(totalID,checkboxClass){
+		document.getElementById(totalID).innerHTML = $(checkboxClass+":checked").length;	
+	}
 	
 	function hideByID(itemID){
 		$(itemID).addClass("hidden").removeClass("visible");
@@ -1232,8 +1215,9 @@ if($('.gcnav-menu').length> 0){
 	
 	function showByID(itemID){
 		$(itemID).addClass("visible").removeClass("hidden");
-	}
+	}		
 	
+	/*Update options for when-claim fieldflow*/
 	function changeChildrenByID(itemID,showFirst,showSecond,showThird,hideFourth,hideFifth,hideSixth){
 		$(itemID).children().eq(showFirst).addClass("visible").removeClass("hidden");
 		$(itemID).children().eq(showSecond).addClass("visible").removeClass("hidden");
@@ -1241,123 +1225,144 @@ if($('.gcnav-menu').length> 0){
 		$(itemID).children().eq(hideFourth).addClass("hidden").removeClass("visible");
 		$(itemID).children().eq(hideFifth).addClass("hidden").removeClass("visible");
 		$(itemID).children().eq(hideSixth).addClass("hidden").removeClass("visible");
+	}
+	
+	/*Set custom variables*/
+	function setYears(checkBox1,checkBox2,checkLength,year1,year2,yearLength,plural,years,messageID){
+		if (($('.'+checkBox1+'-checkbox:checked').length == checkLength) && ($('.'+checkBox2+'-checkbox:checked').length == checkLength) && ($('.'+checkBox1+year1+':checked').length == yearLength) && ($('.'+checkBox2+year2+':checked').length == yearLength)){
+			showByID(messageID);
+			if(checkBox1 == "repay" && checkBox2 == "repay"){
+			yearRepay = years;
+			yearsRepay = plural;
+			}
+			if(checkBox1 == "receive" && checkBox2 == "receive"){
+			yearRec = years;
+			yearsRec = plural;
+			}			
+		}
 	}	
 	
-	function countBoxes(totalID,checkboxClass){
-		document.getElementById(totalID).innerHTML = $(checkboxClass+":checked").length;	
-	}	
+	/*update conditions*/
 	
-	$(".action-checkbox0").change(function () {			
+	/*update split claim variable*/
+	
+	/*which-benefit*/
+	$(".benefit-checkbox").change(function () {			
 		clearMessages();
-		$(".action-checkbox").prop("checked", false);
-		hideByID("#crb-when-repay");
-		hideByID("#crb-when-receive");
-		hideByID("#crb-when-claim");
+		$(".repay-checkbox").prop("checked", false);
+		hideByID("#when-repay");
+		hideByID("#when-receive");
+		hideByID("#when-claim");
 		showByID("#b0");
 		showByID("#b1");
 		showByID("#b2");		
 	})
 	
-	$(".action-checkbox").change(function () {
-		countBoxes("total",".action-checkbox");	
+	/*when-repay*/
+	$(".repay-checkbox").change(function () {
+		//countBoxes("repay-total",".repay-checkbox");	
 		clearMessages();
-		$(".action-checkbox2").prop("checked", false);
-		hideByID("#crb-when-receive");
-		hideByID("#crb-when-claim");
+		$(".receive-checkbox").prop("checked", false);
+		hideByID("#when-receive");
+		hideByID("#when-claim");
 		showByID("#b1");
 		showByID("#b2");		
 	})
 	
-	$(".action-checkbox2").change(function () {
-		countBoxes("total2",".action-checkbox2");	
+	/*when-receive*/
+	$(".receive-checkbox").change(function () {
+		//countBoxes("receive-total",".receive-checkbox");	
 		clearMessages();		
-		hideByID("#crb-when-claim");
+		hideByID("#when-claim");
 		showByID("#b2");
 	})
 	
-	function compareYears(repayDate,receiveDate,messageID){
-		if (($('.action-checkbox:checked').length == 1) && ($('.repay'+repayDate+':checked').length == 1) && ($('.action-checkbox2:checked').length == 1) && ($('.receive'+receiveDate+':checked').length == 1)){showByID(messageID);yearRec = receiveDate;}
-	}
-	
-	function changeMessage0(){	
+	/*which-benefit*/
+	function changeMessageBenefit(){	
 		clearMessages();
 		hideByID("#b0");		
 		/*0 selected*/
-		if ($('.action-checkbox0:checked').length == 0){showByID("#action0-msg0");} //error
-		/*CRB selected*/
-		//if ($('.crb:checked').length == 1){showByID("#rec3");showByID("#rec2");showByID("#rec1");}
-		/*CRB not selected*/
-		//if (($('.action-checkbox0:checked').length >= 1) && ($('.crb:checked').length == 0)){hideByID("#rec3");hideByID("#rec2");hideByID("#rec1");}
-		/*Show next step*/	
-		if ($('.action-checkbox0:checked').length >= 1){showByID("#crb-when-repay");}		
-	}	
+		if ($('.benefit-checkbox:checked').length == 0){showByID("#error-msg1");} //error
+		/*1 or more selected*/		
+		if ($('.benefit-checkbox:checked').length >= 1){showByID("#when-repay");}	
+		/*set year recieved for CERB & CESB*/
+		if (($('.crb:checked').length == 0) && ($('.crcb:checked').length == 0)){yearRec="2020";}
+		else{yearRec="YYYY";}
+		yearsRec="";
+		$(".year-received").html(yearRec);
+		$(".years-received").html(yearsRec);
+	}		
 	
-	function changeMessage(){		
-		countBoxes("total",".action-checkbox");	
-		clearMessages();
+	/*when-repay*/
+	function changeMessageRepay(){			
+		clearMessages();		
 		hideByID("#b1");		
 		/*0 selected*/
-		if ($('.action-checkbox:checked').length == 0){showByID("#action-msg0");} //error
+		setYears("repay","repay","0","2020","2020","0","","XXXX","#error-msg2");
 		/*1 selected*/
-		if (($('.action-checkbox:checked').length == 1) && ($('.repay2020:checked').length == 1)){showByID("#action-msg1");yearRepay = "2020";} //same years
-		if (($('.action-checkbox:checked').length == 1) && ($('.repay2021:checked').length == 1)){yearRepay = "2021";}
-		if (($('.action-checkbox:checked').length == 1) && ($('.repay2022:checked').length == 1)){yearRepay = "2022";}
-		if (($('.action-checkbox:checked').length == 1) && ($('.repay2023:checked').length == 1)){showByID("#action-msg1");yearRepay = "2023 or later";} //same years
+		setYears("repay","repay","1","2020","2020","1","","2020","#repaid-msg"); //same years
+		setYears("repay","repay","1","2021","2021","1","","2021",""); 
+		setYears("repay","repay","1","2022","2022","1","","2022",""); 
+		setYears("repay","repay","1","2023","2023","1","","2023 or later","#repaid-msg"); //same years
 		/*2 selected*/
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2020:checked').length == 1) && ($('.repay2021:checked').length == 1)){yearRepay = "2020 and 2021";}
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2020:checked').length == 1) && ($('.repay2022:checked').length == 1)){yearRepay = "2020 and 2022";}
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2020:checked').length == 1) && ($('.repay2023:checked').length == 1)){yearRepay = "2020 and 2023";}
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2021:checked').length == 1) && ($('.repay2022:checked').length == 1)){yearRepay = "2021 and 2022";}
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2021:checked').length == 1) && ($('.repay2023:checked').length == 1)){yearRepay = "2021 and 2023";}
-		if (($('.action-checkbox:checked').length == 2) && ($('.repay2022:checked').length == 1) && ($('.repay2023:checked').length == 1)){yearRepay = "2022 and 2023";}
+		setYears("repay","repay","2","2020","2021","1","s","2020 and 2021",""); 
+		setYears("repay","repay","2","2020","2022","1","s","2020 and 2022","");
+		setYears("repay","repay","2","2020","2023","1","s","2020 and 2023 or later",""); 
+		setYears("repay","repay","2","2021","2022","1","s","2021 and 2022",""); 
+		setYears("repay","repay","2","2021","2023","1","s","2021 and 2023 or later",""); 
+		setYears("repay","repay","2","2022","2023","1","s","2022 and 2023 or later",""); 
 		/*3 selected*/
-		if (($('.action-checkbox:checked').length == 3) && ($('.repay2023:checked').length == 0)){yearRepay = "2020, 2021, and 2022";}
-		if (($('.action-checkbox:checked').length == 3) && ($('.repay2022:checked').length == 0)){yearRepay = "2020, 2021, and 2023";}
-		if (($('.action-checkbox:checked').length == 3) && ($('.repay2021:checked').length == 0)){yearRepay = "2020, 2022, and 2023";}
-		if (($('.action-checkbox:checked').length == 3) && ($('.repay2020:checked').length == 0)){yearRepay = "2021, 2022, and 2023";}
+		setYears("repay","repay","3","2023","2023","0","s","2020, 2021, and 2022",""); 
+		setYears("repay","repay","3","2022","2022","0","s","2020, 2021, and 2023 or later",""); 
+		setYears("repay","repay","3","2021","2021","0","s","2020, 2022, and 2023 or later",""); 
+		setYears("repay","repay","3","2020","2020","0","s","2021, 2022, and 2023 or later",""); 
 		/*4 selected*/
-		if ($('.action-checkbox:checked').length == 4){yearRepay = "2020, 2021, 2022, and 2023";}
-		/*Show next step*/
-		if ($('.crb:checked').length == 0){showByID("#crb-when-claim");}
-		else{
-			if ((($('.action-checkbox:checked').length == 1) && (($('.repay2021:checked').length == 1) || ($('.repay2022:checked').length == 1))) || ($('.action-checkbox:checked').length >= 2)){showByID("#crb-when-receive");showByID("#rec3");}
-			if (($('.repay2022:checked').length == 0) && ($('.repay2023:checked').length == 0)){hideByID("#rec3");}	
-		}
+		setYears("repay","repay","4","2020","2020","1","s","2020, 2021, 2022, and 2023 or later","");		
 		/*Set custom repayment variable*/
 		$(".year-repaid").html(yearRepay);
-		$(".years-repaid").html(yearRepay);
-	}	
+		$(".years-repaid").html(yearsRepay);
+		/*Show when-claim CERB/CESB*/
+		if ((($('.crb:checked').length == 0) && ($('.crcb:checked').length == 0) && ($('.repay2020:checked').length == 0) && ($('.repay2023:checked').length == 0))){			
+			if ($('.repay-checkbox:checked').length == 1){changeChildrenByID("#when-claim .radio","0","2","4","1","3","null");}
+			if ($('.repay-checkbox:checked').length > 1){changeChildrenByID("#when-claim .radio","1","2","4","0","3","null");}
+			showByID("#when-claim");}
+		/*Show when-receive CRB/CRCB/CRSB*/
+		else{			
+			if ((($('.repay-checkbox:checked').length == 1) && (($('.repay2021:checked').length == 1) || ($('.repay2022:checked').length == 1))) || ($('.repay-checkbox:checked').length >= 2)){showByID("#when-receive");showByID("#rec3");}
+			if ((($('.repay2022:checked').length == 0) && ($('.repay2023:checked').length == 0)) || ($('.crcb:checked').length == 0)){hideByID("#rec3");}
+		}		
+	}
 	
-	function changeMessage2(){		
-		countBoxes("total2",".action-checkbox2");
+	/*when-receive*/
+	function changeMessageReceive(){	
 		clearMessages();
 		hideByID("#b2");
 		/*0 selected*/
-		if ($('.action-checkbox2:checked').length == 0){showByID("#action2-msg0");} //error
+		setYears("receive","receive","0","2020","2020","0","","YYYY","#error-msg3");
 		/*1 selected*/
-		if (($('.action-checkbox2:checked').length == 1) && ($('.receive2020:checked').length == 1)){yearRec = "2020";} 
-		if (($('.action-checkbox2:checked').length == 1) && ($('.receive2021:checked').length == 1)){yearRec = "2021";}
-		if (($('.action-checkbox2:checked').length == 1) && ($('.receive2022:checked').length == 1)){yearRec = "2022";}
+		setYears("receive","receive","1","2020","2020","1","","2020",""); 
+		setYears("receive","receive","1","2021","2021","1","","2021",""); 
+		setYears("receive","receive","1","2022","2022","1","","2022","");
 		/*2 selected*/
-		if (($('.action-checkbox2:checked').length == 2) && ($('.receive2022:checked').length == 0)){yearRec = "2020 and 2021";}
-		if (($('.action-checkbox2:checked').length == 2) && ($('.receive2021:checked').length == 0)){yearRec = "2020 and 2022";}
-		if (($('.action-checkbox2:checked').length == 2) && ($('.receive2020:checked').length == 0)){yearRec = "2021 and 2022";}		
+		setYears("receive","receive","2","2020","2021","1","s","2020 and 2021",""); 
+		setYears("receive","receive","2","2020","2022","1","s","2020 and 2022",""); 
+		setYears("receive","receive","2","2021","2022","1","s","2021 and 2022",""); 
 		/*3 selected*/
-		if ($('.action-checkbox2:checked').length == 3){yearRec = "2020, 2021, and 2022";}
-		/*Show next step (1 option selected)*/			
-		if (($('.action-checkbox:checked').length == 1) && ($('.action-checkbox2:checked').length == 1)){changeChildrenByID("#crb-when-claim .radio","0","2","4","1","3","null");}
-		compareYears("2021","2020","#crb-when-claim"); 
-		compareYears("2021","2021","#action-msg1"); //same years
-		compareYears("2022","2020","#crb-when-claim");
-		compareYears("2022","2021","#crb-when-claim");
-		compareYears("2022","2022","#action-msg1"); //same years
-		/*Show next step (multiple options selected)*/	
-		if (($('.action-checkbox:checked').length == 1) && ($('.action-checkbox2:checked').length > 1)){showByID("#crb-when-claim");changeChildrenByID("#crb-when-claim .radio","0","3","4","1","2","null");}
-		if (($('.action-checkbox:checked').length > 1) && ($('.action-checkbox2:checked').length == 1)){showByID("#crb-when-claim");changeChildrenByID("#crb-when-claim .radio","1","2","4","0","3","null");}
-		if (($('.action-checkbox:checked').length > 1) && ($('.action-checkbox2:checked').length > 1)){showByID("#crb-when-claim");changeChildrenByID("#crb-when-claim .radio","1","3","4","0","2","null");}
+		setYears("receive","receive","3","2020","2020","1","s","2020, 2021, and 2022","");
 		/*Set custom received variable*/
 		$(".year-received").html(yearRec);
-		$(".years-received").html(yearRec);
+		$(".years-received").html(yearsRec);
+		/*Show next step (1 option selected)*/		
+		if (($('.repay-checkbox:checked').length == 1) && ($('.receive-checkbox:checked').length == 1)){changeChildrenByID("#when-claim .radio","0","2","4","1","3","null");}
+		setYears("repay","receive","1","2021","2020","1","","2021","#when-claim"); 
+		setYears("repay","receive","1","2021","2021","1","","2022","#repaid-msg"); //same years
+		setYears("repay","receive","1","2022","2020","1","","2021","#when-claim"); 
+		setYears("repay","receive","1","2022","2021","1","","2021","#when-claim"); 
+		setYears("repay","receive","1","2022","2022","1","","2021","#repaid-msg"); //same years		
+		/*Show next step (multiple options selected)*/	
+		if (($('.repay-checkbox:checked').length == 1) && ($('.receive-checkbox:checked').length > 1)){showByID("#when-claim");changeChildrenByID("#when-claim .radio","0","3","4","1","2","null");}
+		if (($('.repay-checkbox:checked').length > 1) && ($('.receive-checkbox:checked').length == 1)){showByID("#when-claim");changeChildrenByID("#when-claim .radio","1","2","4","0","3","null");}
+		if (($('.repay-checkbox:checked').length > 1) && ($('.receive-checkbox:checked').length > 1)){showByID("#when-claim");changeChildrenByID("#when-claim .radio","1","3","4","0","2","null");}		
 	}
 </script> 
 <!--END OF CHECKBOX SCRIPT-->
