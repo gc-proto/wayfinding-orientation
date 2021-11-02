@@ -3359,6 +3359,45 @@ End of results//-->
     </details> -->
   </div>
 </section>
+
+<section id="12-month-calculator" class="mfp-hide modal-dialog modal-content overlay-def">
+  <header class="modal-header">
+    <h2 class="modal-title">Calculate your 12 month revenue decline</h2>
+  </header>
+  <div class="modal-body">
+    <h3 class="h2">Which pre-crisis revenue comparison options did you use for your past subsidy applications</h3>
+    <p>If you did not apply for one of these periods and never made this decision, you can decide on an option now.</p>
+    
+    <legend class="mrgn-tp-md required" ><span class="field-name">CEWS periods 1 to 4 (March 15th to July 4th, 2020)</span> <strong class="required">(required)</strong></legend>
+    <select required id="rev-comp-1-4" class="form-control input-lg">
+      <option value=""> Select a comparison option</option>
+      <option value="regular">Compare claim month to same month in a prior year</option>
+      <option value="alternate">Compare claim month to average of January and February 2020</option>
+    </select>
+
+    <legend class="mrgn-tp-md required" ><span class="field-name">CEWS periods 5 to 13, CERS and CRHP</span> <strong class="required">(required)</strong></legend>
+    <select required id="rev-comp-5-plus" class="form-control input-lg">
+      <option value=""> Select a comparison option</option>
+      <option value="regular">Compare claim month to same month in a prior year</option>
+      <option value="alternate">Compare claim month to average of January and February 2020</option>
+    </select>
+
+    <legend class="mrgn-tp-md required" ><span class="field-name">CEWS and CRHP periods 14 to 17 or CERS periods 7 to 10 (March 14th to July 3rd, 2021)</span> <strong class="required">(required)</strong></legend>
+    <details>
+      <summary>What is the period 14 to 17 exception?</summary>
+      <p>A special provision was made available to retroactively use the alternate baseline revenue comparison method during periods 7 to 10 if you were using the regular method.</p>
+    </details>
+    <select required id="rev-comp-14-17" class="form-control input-lg">
+      <option value=""> Select a comparison option</option>
+      <option value="regular">Compare claim month to same month in a prior year</option>
+      <option value="alternate">Compare claim month to average of January and February 2020</option>
+    </select>
+
+    <h3></h3>
+  </div>
+</section>
+
+
 <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
     <h2 class="modal-title">Compare the pre-crisis revenue options</h2>
@@ -3891,7 +3930,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
         }
 
-
 		    //defaults
         $("#2022-05-yes").closest("div.form-group").addClass("hidden");
         $("#2022-04-yes").closest("div.form-group").addClass("hidden");
@@ -3982,7 +4020,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p14").addClass("hidden");
         $(".p59").addClass("hidden");
 
-
         if (claimPeriod > 4) {
           $(".p59").removeClass("hidden");
           $(".emp-lv").removeClass("hidden");
@@ -3994,24 +4031,20 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           $(".p14").removeClass("hidden");
         }
-
         if (claimPeriod > 6) {
           $(".btn-cews-cal").removeClass("disabled");
           $(".btn-cews-cal").prop("disabled", false);
         }
-
         if (claimPeriod < 8) {
           $(".p7-and-before").removeClass("hidden");
         } else if (claimPeriod < 11) {
           $(".p8-plus").removeClass("hidden");
         }
-
         if (claimPeriod < 11) {
           $(".p10-").removeClass("hidden");
         } else {
           $(".p11-plus").removeClass("hidden");
         }
-
         if (claimPeriod < 17) {
           $("#no-crhp-message").removeClass("hidden");
           $("#crhp-questions").addClass("hidden");
@@ -4021,7 +4054,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           $(".p17-plus").removeClass("hidden");
         }
-
         if (claimPeriod < 18) {
           $(".p18-plus").addClass("hidden");
         } else {
@@ -4033,7 +4065,6 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
           $(".p18-plus").removeClass("hidden");
         }
-
         if (claimPeriod < 22) {
           $(".p1-17").removeClass("hidden");
           $(".p22-plus").addClass("hidden");
@@ -4044,6 +4075,14 @@ $(document).on("click", ".prev-wb-step", function (event) {
 
         switch (claimPeriod) {
           case 28:
+            $("#2022-05-yes").closest("div.form-group").removeClass("hidden");
+            $("#2022-04-yes").closest("div.form-group").removeClass("hidden");
+            $("#2022-05-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-05-no").closest("div.form-group").removeClass("hidden");
+            $("#2022-04-no").closest("div.form-group").removeClass("hidden");
+            $("#2019-04-no").closest("div.form-group").removeClass("hidden");
+            break;
+          case 27:
             $("#2022-04-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-03-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-04-no").closest("div.form-group").removeClass("hidden");
@@ -4051,7 +4090,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2022-03-no").closest("div.form-group").removeClass("hidden");
             $("#2019-03-no").closest("div.form-group").removeClass("hidden");
             break;
-          case 27:
+          case 26:
             $("#2022-03-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-02-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-03-no").closest("div.form-group").removeClass("hidden");
@@ -4059,21 +4098,13 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $("#2022-02-no").closest("div.form-group").removeClass("hidden");
             $("#2019-02-no").closest("div.form-group").removeClass("hidden");
             break;
-          case 26:
+          case 25:
             $("#2022-02-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-01-yes").closest("div.form-group").removeClass("hidden");
             $("#2022-02-no").closest("div.form-group").removeClass("hidden");
             $("#2019-02-no").closest("div.form-group").removeClass("hidden");
             $("#2022-01-no").closest("div.form-group").removeClass("hidden");
             $("#2019-01-no").closest("div.form-group").removeClass("hidden");
-            break;
-          case 25:
-            $("#2022-01-yes").closest("div.form-group").removeClass("hidden");
-            $("#2021-12-yes").closest("div.form-group").removeClass("hidden");
-            $("#2022-01-no").closest("div.form-group").removeClass("hidden");
-            $("#2019-01-no").closest("div.form-group").removeClass("hidden");
-            $("#2021-12-no").closest("div.form-group").removeClass("hidden");
-            $("#2019-12-no").closest("div.form-group").removeClass("hidden");
             break;
           case 24:
             $("#2022-01-yes").closest("div.form-group").removeClass("hidden");
