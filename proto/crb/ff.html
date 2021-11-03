@@ -968,13 +968,7 @@ li.checkbox label {
                   <p>Include all supporting documents for the change, including those for the original assessment, unless you have already sent them to the CRA</p>
                 </dd>
               </dl>
-              <p class="small text-muted mrgn-tp-md">The following conditions apply:</p>
-              <ul class="small text-muted">
-                <li>Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
-                <li>Your deduction for 2021 cannot be more than the amount you repaid for 2021</li>
-                <li>Your deduction for 2022 cannot be more than the amount you repaid for 2022</li>
-                <li>Your total deductions cannot be more than what you repaid</li>
-              </ul>
+              <section data-ajax-replace="#conditions">test</section>
             </div>
             
             <!-- Split deduction between multiple years -->
@@ -982,13 +976,16 @@ li.checkbox label {
               <p>You can split the deduction between the year<span class="years-repaid">s</span> you made repayment<span class="years-repaid">s</span> and the year<span class="years-received">s</span> you received the benefits.</p>
               <p>Your repayment<span class="years-repaid">s</span> should have been reflected on your <span class="year-repaid">XXXX</span> T4A slip<span class="years-repaid">s</span>.</p>
               <p>You can split the deduction<span class="years-repaid">s</span> between your <span class="year-claimed">ZZZZ</span> tax returns</p>
-              <p class="small text-muted mrgn-tp-md">The following conditions apply:</p>
-              <ul class="small text-muted">
-                <li>Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
-                <li>Your deduction for 2021 cannot be more than the amount you repaid for 2021</li>
-                <li>Your deduction for 2022 cannot be more than the amount you repaid for 2022</li>
-                <li>Your total deductions cannot be more than what you repaid</li>
-              </ul>
+              <section id="conditions">
+                <p class="small text-muted mrgn-tp-md">The following conditions apply:</p>
+                <ul class="small text-muted">
+                  <li class="con2020">Your deduction for 2020 cannot be more than the amount you repaid for 2020</li>
+                  <li class="con2021">Your deduction for 2021 cannot be more than the amount you repaid for 2021</li>
+                  <li class="con2022">Your deduction for 2022 cannot be more than the amount you repaid for 2022</li>
+                  <li class="con2023">The amount you repaid in 2023 or later cannot be deducted from a previous tax year</li>
+                  <li>Your total deductions cannot be more than what you repaid</li>
+                </ul>
+              </section>
             </div>
             
             <!-- END OF FF ANSWERS --> 
@@ -1240,53 +1237,50 @@ if($('.gcnav-menu').length> 0){
 			yearsRec = plural;
 			}			
 		}
-	}	
+	}
 	
-	/*update conditions*/
-	
-	/*update split claim variable*/
+	/*Set custom variable for split claims*/
+	function setClaim(){
+		yearClaim = yearRepay + " " + yearRec;
+		yearClaim = yearClaim.replace(/ or later|and |,/g,"").split(" ").sort();
+		yearClaim = Array.from([...new Set(yearClaim)]);	
+		yearClaim.splice(-1,0,"and")
+		yearClaim = yearClaim.toString().replace(/,/g,", ").replace(/2023/g,"2023 or later").replace(/, and,/g," and");
+		$(".year-claimed").html(yearClaim);	
+	}
 	
 	/*which-benefit*/
-	$(".benefit-checkbox").change(function () {			
-		clearMessages();
+	$(".benefit-checkbox").change(function () {
 		$(".repay-checkbox").prop("checked", false);
-		hideByID("#when-repay");
-		hideByID("#when-receive");
-		hideByID("#when-claim");
-		showByID("#b0");
-		showByID("#b1");
-		showByID("#b2");		
+		hideByID(".alert1,#when-repay,#when-receive,#when-claim");
+		showByID("#b0,#b1,#b2");	
 	})
 	
 	/*when-repay*/
 	$(".repay-checkbox").change(function () {
-		//countBoxes("repay-total",".repay-checkbox");	
-		clearMessages();
+		//countBoxes("repay-total",".repay-checkbox");
 		$(".receive-checkbox").prop("checked", false);
-		hideByID("#when-receive");
-		hideByID("#when-claim");
-		showByID("#b1");
-		showByID("#b2");		
+		hideByID(".alert1,#when-receive,#when-claim");
+		showByID("#b1,#b2");				
 	})
 	
 	/*when-receive*/
 	$(".receive-checkbox").change(function () {
-		//countBoxes("receive-total",".receive-checkbox");	
-		clearMessages();		
-		hideByID("#when-claim");
+		//countBoxes("receive-total",".receive-checkbox");
+		hideByID(".alert1,#when-claim");
 		showByID("#b2");
 	})
 	
 	/*which-benefit*/
 	function changeMessageBenefit(){	
 		clearMessages();
-		hideByID("#b0");		
+		hideByID("#b0,.con2020,.con2021,.con2022");		
 		/*0 selected*/
 		if ($('.benefit-checkbox:checked').length == 0){showByID("#error-msg1");} //error
 		/*1 or more selected*/		
 		if ($('.benefit-checkbox:checked').length >= 1){showByID("#when-repay");}	
 		/*set year recieved for CERB & CESB*/
-		if (($('.crb:checked').length == 0) && ($('.crcb:checked').length == 0)){yearRec="2020";}
+		if (($('.crb:checked').length == 0) && ($('.crcb:checked').length == 0)){yearRec="2020";showByID(".con2020");}
 		else{yearRec="YYYY";}
 		yearsRec="";
 		$(".year-received").html(yearRec);
@@ -1307,20 +1301,21 @@ if($('.gcnav-menu').length> 0){
 		/*2 selected*/
 		setYears("repay","repay","2","2020","2021","1","s","2020 and 2021",""); 
 		setYears("repay","repay","2","2020","2022","1","s","2020 and 2022","");
-		setYears("repay","repay","2","2020","2023","1","s","2020 and 2023 or later",""); 
+		setYears("repay","repay","2","2020","2023","1","s","2020 and 2023 or later",".con2023"); 
 		setYears("repay","repay","2","2021","2022","1","s","2021 and 2022",""); 
-		setYears("repay","repay","2","2021","2023","1","s","2021 and 2023 or later",""); 
-		setYears("repay","repay","2","2022","2023","1","s","2022 and 2023 or later",""); 
+		setYears("repay","repay","2","2021","2023","1","s","2021 and 2023 or later",".con2023"); 
+		setYears("repay","repay","2","2022","2023","1","s","2022 and 2023 or later",".con2023"); 
 		/*3 selected*/
 		setYears("repay","repay","3","2023","2023","0","s","2020, 2021, and 2022",""); 
-		setYears("repay","repay","3","2022","2022","0","s","2020, 2021, and 2023 or later",""); 
-		setYears("repay","repay","3","2021","2021","0","s","2020, 2022, and 2023 or later",""); 
-		setYears("repay","repay","3","2020","2020","0","s","2021, 2022, and 2023 or later",""); 
+		setYears("repay","repay","3","2022","2022","0","s","2020, 2021, and 2023 or later",".con2023"); 
+		setYears("repay","repay","3","2021","2021","0","s","2020, 2022, and 2023 or later",".con2023"); 
+		setYears("repay","repay","3","2020","2020","0","s","2021, 2022, and 2023 or later",".con2023"); 
 		/*4 selected*/
-		setYears("repay","repay","4","2020","2020","1","s","2020, 2021, 2022, and 2023 or later","");		
+		setYears("repay","repay","4","2020","2020","1","s","2020, 2021, 2022, and 2023 or later",".con2023");		
 		/*Set custom repayment variable*/
 		$(".year-repaid").html(yearRepay);
 		$(".years-repaid").html(yearsRepay);
+		setClaim();
 		/*Show when-claim CERB/CESB*/
 		if ((($('.crb:checked').length == 0) && ($('.crcb:checked').length == 0) && ($('.repay2020:checked').length == 0) && ($('.repay2023:checked').length == 0))){			
 			if ($('.repay-checkbox:checked').length == 1){changeChildrenByID("#when-claim .radio","0","2","4","1","3","null");}
@@ -1332,26 +1327,28 @@ if($('.gcnav-menu').length> 0){
 			if ((($('.repay2022:checked').length == 0) && ($('.repay2023:checked').length == 0)) || ($('.crcb:checked').length == 0)){hideByID("#rec3");}
 		}		
 	}
+
 	
 	/*when-receive*/
 	function changeMessageReceive(){	
-		clearMessages();
-		hideByID("#b2");
+		clearMessages();		
+		hideByID("#b2,.con2020,.con2021,.con2022");
 		/*0 selected*/
 		setYears("receive","receive","0","2020","2020","0","","YYYY","#error-msg3");
 		/*1 selected*/
-		setYears("receive","receive","1","2020","2020","1","","2020",""); 
-		setYears("receive","receive","1","2021","2021","1","","2021",""); 
-		setYears("receive","receive","1","2022","2022","1","","2022","");
+		setYears("receive","receive","1","2020","2020","1","","2020",".con2020"); 
+		setYears("receive","receive","1","2021","2021","1","","2021",".con2021"); 
+		setYears("receive","receive","1","2022","2022","1","","2022",".con2022");
 		/*2 selected*/
-		setYears("receive","receive","2","2020","2021","1","s","2020 and 2021",""); 
-		setYears("receive","receive","2","2020","2022","1","s","2020 and 2022",""); 
-		setYears("receive","receive","2","2021","2022","1","s","2021 and 2022",""); 
+		setYears("receive","receive","2","2020","2021","1","s","2020 and 2021",".con2020,.con2021"); 
+		setYears("receive","receive","2","2020","2022","1","s","2020 and 2022",".con2020,.con2022"); 
+		setYears("receive","receive","2","2021","2022","1","s","2021 and 2022",".con2021,.con2022"); 
 		/*3 selected*/
-		setYears("receive","receive","3","2020","2020","1","s","2020, 2021, and 2022","");
+		setYears("receive","receive","3","2020","2020","1","s","2020, 2021, and 2022",".con2020,.con2021,.con2022");
 		/*Set custom received variable*/
 		$(".year-received").html(yearRec);
 		$(".years-received").html(yearsRec);
+		setClaim();
 		/*Show next step (1 option selected)*/		
 		if (($('.repay-checkbox:checked').length == 1) && ($('.receive-checkbox:checked').length == 1)){changeChildrenByID("#when-claim .radio","0","2","4","1","3","null");}
 		setYears("repay","receive","1","2021","2020","1","","2021","#when-claim"); 
