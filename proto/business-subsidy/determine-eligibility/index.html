@@ -4,15 +4,534 @@
 	<head>
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Tourism and Hospitality Recovery Program (THRP)– Canada.ca</title>
+		<title>Determine if you are eligible - Wage and rent subsidies – Canada.ca</title>
 		<meta content="width=device-width,initial-scale=1" name="viewport">
 
 	</head>
 	
 
 <main role="main" property="mainContentOfPage" class="container  experimental">
-  <p><a href="start-organization.html">1 page per question</a></p>
-  <p><a href="fieldflow.html">Fieldflow - 1 question at a time</a></p>
+   <h1 property="name" id="wb-cont" dir="ltr" class="wb-inv">Determine if you are eligible - Wage and rent subsidies</h1>
+  <div aria-hidden="true">
+    <p class="lead mrgn-tp-md mrgn-bttm-0 text-muted">Wage and rent subsidies</p>
+    <h1 class="gc-thickline mrgn-tp-0">Determine if you are eligible</h1>
+  </div>
+  <div class="alert alert-warning" id="old-browser">
+    <p>Your browser may not work properly with this eligibility finder. Please update your browser, or try a different one.</p>
+  </div>
+  <div class="cnjnctn-type-or cnjnctn-sm" id="intro-text">
+    <div class="cnjnctn-col">
+      <h2 class="h4 mrgn-tp-sm text-muted">Answer a few questions to see if you may be eligibile for subsidies<span class="wb-inv">: Option 1 of 2</span></h2>
+      <p>You will be asked a few questions to find out which current COVID-19 subsidies your business may be eligible for as of claim period 22 (claims that cover October 24, 2021, and later).</p>
+      <p class="mrgn-tp-lg mrgn-bttm-md"><a href="#start-question" role="button" class="btn btn-primary btn-lg" data-wb-doaction='[{"action": "addClass", "source": "#intro-text", "class": "hidden"}, {"action": "removeClass", "source": "#wizard", "class": "hidden"}]'><span class="h3">Start answering a few questions</span></a></p>
+    </div>
+    <div class="cnjnctn-col">
+      <h2 class="h4 mrgn-tp-sm text-muted">Read who can apply to see if you may be eligible for subsidies<span class="wb-inv">: Option 2 of 2</span></h2>
+      <p>You can read the full  eligibility criteria for all subsidies, including eligibility for earlier periods of the CEWS, CERS and CRHP:</p>
+      <ul>
+        <li><a  href="https://test.canada.ca/covid-19-guidance/proto/business-subsidy/rent-subsidy/who-apply.html">Who can apply for rent subsidies</a> </li>
+        <li><a href="https://test.canada.ca/covid-19-guidance/proto/business-subsidy/wage-subsidy/who-apply.html">Who can apply for wage subsidies</a> </li>
+      </ul>
+    </div>
+  </div>
+  <div aria-live="polite">
+    <div class="row hidden" id="wizard">
+      <div class="col-md-8">
+        <p id="start-question" class="wb-inv">Start of questions</p>
+        <div id="question-1" class="questions">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q1-yes q1-no"}}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 1: Questions about your eligible employees</p>
+                  <p class="wb-fieldflow-label"><span class="h3">1. Did you have any eligible employees working for you during the claim period?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>What are considered eligible employees</summary>
+                    <p>Content can be ajax'd to here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-1", "class": "hidden"}, {"action": "removeClass", "source": "#question-2", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q1-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-1, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#question-2, #answer-A", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q1-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-2" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q2-yes q2-no"}}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 2: Questions about your business location(s)</p>
+                  <p class="wb-fieldflow-label"><span class="h3">2. Do you have eligible property expenses?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>What are considered eligible property expenses</summary>
+                    <p>Content can be ajax'd to here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-2", "class": "hidden"}, {"action": "removeClass", "source": "#question-3", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q2-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-2, #do-qualify-rent", "class": "hidden"}, {"action": "removeClass", "source": "#results.q1-no, #answer-B, #question-3.q1-yes", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q2-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-3" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true,"reset": { "action": "addClass", "source":".q1-desc", "class": "hidden" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">3. What type of business, charity, or non-profit are you?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>Details about some of the types of organizations</summary>
+                    <details>
+                      <summary>Organizations that are exempt from income tax</summary>
+                      <p>Eligibile organizations exempt from income tax are (will be ajax'd):</p>
+                      <ul>
+                        <li>non-profit organizations</li>
+                        <li>agricultural organizations</li>
+                        <li>boards of trade</li>
+                        <li>chambers of commerce</li>
+                        <li>non-profit corporations for scientific research and experimental development</li>
+                        <li>labour organizations or societies</li>
+                        <li>benevolent or fraternal benefit societies or orders</li>
+                      </ul>
+                    </details>
+                    <details>
+                      <summary>Certain Indigenous government-owned corporations that carry on a business</summary>
+                      <p>Ajax content here</p>
+                    </details>
+                    <details>
+                      <summary>Private schools or private colleges</summary>
+                      <p>Ajax content here</p>
+                    </details>
+                    <details>
+                      <summary>Public institutions</summary>
+                      <p>Examples include (will be ajax'd):</p>
+                      <ul>
+                        <li>municipalities or local governments</li>
+                        <li>crown corporations</li>
+                        <li>public universities</li>
+                        <li>public colleges</li>
+                        <li>public schools</li>
+                        <li>hospitals</li>
+                      </ul>
+                    </details>
+                    <details>
+                      <summary>Trusts</summary>
+                      <p>Examples include (will be ajax'd):</p>
+                      <ul>
+                        <li>municipalities or local governments</li>
+                        <li>crown corporations</li>
+                        <li>public universities</li>
+                        <li>public colleges</li>
+                        <li>public schools</li>
+                        <li>hospitals</li>
+                      </ul>
+                    </details>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Individuals other than a trust (such as a sole proprietor)</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-3a", "class": "hidden"}]'>Corporations that are not exempt from income tax (Part I of the Income Tax Act)</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Registered charity</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#desc-1", "class": "hidden", "live": true}]'>Organizations that a exempt from income tax (Part I of the Income Tax Act)</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-3b", "class": "hidden"}]'>Partnerships</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#desc-2", "class": "hidden", "live": true}]'>Certain Indigenous government-owned corporations that carry on a business</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Registered Canadian amateur athletic associations</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Registered journalism organizations</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#desc-3", "class": "hidden", "live": true}]'>Private schools or private colleges</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3, #do-qualify-rent, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-C", "class": "hidden"}, {"action": "removeClass", "source": "#desc-4", "class": "hidden", "live": true}]'>Public institutions</li>
+                </ul>
+              </div>
+              <!--might need to add ARIA //-->
+              <div id="desc-1" class="q1-desc well brd-rds-0 hidden">
+                <details>
+                  <summary>An organization that is exempt from income tax</summary>
+                  <p>Examples include (will be ajax'd):</p>
+                  <ul>
+                    <li>non-profit organizations</li>
+                    <li>agricultural organizations</li>
+                    <li>boards of trade</li>
+                    <li>chambers of commerce</li>
+                    <li>non-profit corporations for scientific research and experimental development</li>
+                    <li>labour organizations or societies</li>
+                    <li>benevolent or fraternal benefit societies or orders</li>
+                  </ul>
+                </details>
+              </div>
+              <div id="desc-2" class="q1-desc well brd-rds-0 hidden">
+                <details>
+                  <summary>A certain Indigenous government-owned corporation that carries on a business</summary>
+                  <p>Ajax content here</p>
+                </details>
+              </div>
+              <div id="desc-3" class="q1-desc well brd-rds-0 hidden">
+                <details>
+                  <summary>A private school or private college</summary>
+                  <p>Ajax content here</p>
+                </details>
+              </div>
+              <div id="desc-4" class="q1-desc well brd-rds-0 hidden">
+                <details>
+                  <summary>A public institution</summary>
+                  <p>Examples include (will be ajax'd):</p>
+                  <ul>
+                    <li>municipalities or local governments</li>
+                    <li>crown corporations</li>
+                    <li>public universities</li>
+                    <li>public colleges</li>
+                    <li>public schools</li>
+                    <li>hospitals</li>
+                  </ul>
+                </details>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" >
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-3a" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q3a-yes q3a-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">3a. Are you a Canadian-controlled private corporation or a cooperative corporation eligible to claim the small business deduction?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>More information</summary>
+                    <p>Add/Ajax more info here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3a", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3a-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3a, #chrp-wage", "class": "hidden"}, {"action": "removeClass", "source": "#question-4, #answer-M", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3a-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-3b" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q3b-yes q3b-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">3b. Does at least 50% of your partnership consist of these CEWS eligible entities (or are at least 50% of the interests in the partnership held by CEWS eligible entities)?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>CEWS eligible entities</summary>
+                    <p>Add/Ajax more info here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3b", "class": "hidden"}, {"action": "removeClass", "source": "#question-3c", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3b-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3b, #do-qualify-rent, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-D", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3b-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-3c" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q3c-yes q3c-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">3c. Does at least 50% of your partnership consist of these CRHP eligible entities (or are at least 50% of the interests in the partnership held by CRHP eligible entities)?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>CRHP eligible entities</summary>
+                    <p>Add/Ajax more info here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3c", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3c-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3c, #chrp-wage", "class": "hidden"}, {"action": "removeClass", "source": "#question-4, #answer-M", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3c-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-4" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q4-yes q4-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">4. Did you have a CRA payroll account on March 15, 2020?</span></p>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#question-4a", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-4a" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q4a-yes q4a-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">4a. Did another person or partnership make remittances on your behalf?</span></p>
+                  <details class="mrgn-bttm-lg">
+                    <summary>More information</summary>
+                    <p>Add/Ajax more info here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4a", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q5a-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4a", "class": "hidden"}, {"action": "removeClass", "source": "#question-4b", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4a-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-4b" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q4b-yes q4b-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">4b. Did you purchase all (or almost all) of another person's or partnership's business assets?</span></p>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4b", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4b-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4b, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#question-4c, #results.q1-yes #answer-L", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4b-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-4c" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q4c-yes q4c-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">4c. Did you have a CRA business number (BN) on September 27, 2020? </span></p>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4c", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4c-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4c, #do-qualify-wage, #do-qualify-rent", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-E", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4c-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-5" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q5-yes q5-no" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 3: Questions about your business operations</p>
+                  <p class="wb-fieldflow-label"><span class="h3">5. Are you in the tourism or hospitality industry?</span></p>
+                  <details>
+                    <summary>Common businesses in the tourism or hospitality industry</summary>
+                    <p>Examples include:</p>
+                    <ul>
+                      <li>hotels</li>
+                      <li>restaurants</li>
+                      <li>bars and nightclubs</li>
+                      <li>festivals</li>
+                      <li>travel agencies</li>
+                      <li>tour operators</li>
+                      <li>convention centres</li>
+                      <li>convention and trade show organizers</li>
+                    </ul>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-5", "class": "hidden"}, {"action": "removeClass", "source": "#question-6", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q5-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-5", "class": "hidden"}, {"action": "removeClass", "source": "#question-6", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q5-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-6" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q6-50plus q6-40-50 q6-10-40 q6-10less" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 4: Questions about your revenue</p>
+                  <p class="wb-fieldflow-label"><span class="h3">6. What is your claim period revenue drop?</span></p>
+                  <details>
+                    <summary>I don't know my claim period revenue drop</summary>
+                    <p>If you don't know how to calculate your claim period revenue drop, you can follow how the <a href="#" target="_blank">claim period revenue drop is <span class="nowrap">calculated<span class="wb-inv"> opens in a new window</span><span class="far fa-window-restore mrgn-lft-sm"></span></span></a></p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6", "class": "hidden"}, {"action": "removeClass", "source": "#question-7", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q6-50plus", "live": true}]'>50% or higher</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #hhbrp-wage, #hhbrp-rent", "class": "hidden"}, {"action": "removeClass", "source": "#question-7.q5-yes, #question-8.q5-no, #results.q6-40-50 #answer-G", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q6-40-50", "live": true}]'>40% to 49.99%</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #results:is(.q3a-no, .q3c-no, .q4b-no) #do-qualify-wage, #do-qualify-rent, #thrp-wage, #hhbrp-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #results.q6-10-40 :is(#answer-G, #answer-I)", "class": "hidden"},  {"action": "addClass", "source": ".questions, #results", "class": "q6-10-40", "live": true}]'>10.01% to 39.99%</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #do-qualify-wage, #do-qualify-rent", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-F", "class": "hidden"}]'>10% or less</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-7" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q7-50plus q7-40-50 q7-40less" }}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 4: Questions about your revenue</p>
+                  <p class="wb-fieldflow-label"><span class="h3">7. What is your 12-month average revenue drop from March 2020 to February 2021?</span></p>
+                  <details>
+                    <summary>I don't know my 12-month average revenue drop</summary>
+                    <p>If you don't know how to calculate your 12-month average revenue drop, you can follow how the <a href="#" target="_blank">12-month average revenue drop is <span class="nowrap">calculated<span class="wb-inv"> opens in a new window</span><span class="far fa-window-restore mrgn-lft-sm"></span></span></a></p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-7", "class": "hidden"}, {"action": "removeClass", "source": "#results.q5-yes:is(.q6-50plus, .q6-40-50), #question-8.q5-no", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q7-50plus", "live": true}]'>50% or higher</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-7, #hhbrp-wage, #hhbrp-rent", "class": "hidden"}, {"action": "removeClass", "source": "#results.q5-yes, #results #answer-H", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q7-40-50", "live": true}]'>40% to 49.99%</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-7, #hhbrp-wage, #hhbrp-rent", "class": "hidden"}, {"action": "removeClass", "source": "#question-8, #results #answer-H", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q7-40less", "live": true}]'>39.99% or less</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+        <div id="question-8" class="questions hidden">
+          <div class="wb-frmvld">
+            <form>
+              <div class="wb-fieldflow" data-wb-fieldflow='{"renderas": "radio", "noForm": true, "gcChckbxrdio":true, "noreqlabel": true, "reset": {"action": "removeClass", "source": "#results, .questions", "class": "q8-yes q8-no"}}'>
+                <div class="wb-fieldflow-header">
+                  <p class="h2 mrgn-bttm-lg">Section 4: Questions about your revenue</p>
+                  <p class="wb-fieldflow-label"><span class="h3">8. Was any location of your business subject to a qualifying public health restriction that lasted at least 7 days within the claim period, and did the activities that were restricted account for a loss of at least 25% of your business' total revenue?</span></p>
+                  <details>
+                    <summary>What is considered a qualifying public health restriction</summary>
+                    <p>AJAX content here</p>
+                  </details>
+                </div>
+                <ul>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-8", "class": "hidden"}, {"action": "removeClass", "source": "#results", "class": "hidden"}, {"action": "addClass", "source": "#results, #questions", "class": "q8-yes", "live": true}]'>Yes</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-8, #results, #results.q5-no :is(#thrp-wage, #thrp-rent), #results.q5-no:not(.q7-50plus) #do-qualify-rent, #results:is(.q3a-no, .q3c-no).q5-no:not(.q6-50plus) #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #results.q5-yes.q7-40less #answer-J, #results.q5-no #answer-K", "class": "hidden"}, {"action": "addClass", "source": "#results", "class": "q8-no", "live": true}]'>No</li>
+                </ul>
+              </div>
+              <input class="btn btn-primary btn-lg mrgn-bttm-md" type="submit" value="Next" />
+              <br>
+              <a href="?" class="btn btn-link btn-lg">Start over</a>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div aria-live="assertive">
+        <div id="results" class="hidden">
+          <h2>Results</h2>
+          <!--Do not qualify for wage //-->
+          <div id="answer-A" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-A: You do not seem to qualify for any wage subsidy because you do not have any employees.</p>
+          </div>
+          <div id="answer-B" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-B: You do not seem to qualify for any rent subsidy because you do not have any qualifying property expenses. </p>
+          </div>
+          <div id="answer-C" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-C: Public institutions are not eligible for these subsidies.</p>
+          </div>
+          <div id="answer-D" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-D: You do not seem to qualify for any wage or rent subsidy because at least 50% of your partnership must consist of eligible entities (or are at least 50% of the interests in the partnership must be held by eligible entities) to be eligible for these subsidies.</p>
+          </div>
+          <div id="answer-E" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-E: You do not seem to qualify for any wage or rent subsidy because you must have met either the payroll or business number requirements.</p>
+          </div>
+          <div id="answer-F" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-F: You do not seem to qualify for any wage or rent subsidy because your current-period revenue drop is not at least 10%.</p>
+          </div>
+          <div id="answer-G" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-G: You do not seem to qualify for the HHBRP because your claim period revenue drop is not at least 50%.</p>
+          </div>
+          <div id="answer-H" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-H: You do not seem to qualify for the HHBRP because your 12-month average revenue drop is not at least 50%.</p>
+          </div>
+          <div id="answer-I" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-I: You do not seem to qualify for the THRP because your claim period revenue drop is not at least 40%.</p>
+          </div>
+          <div id="answer-J" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-J: You do not seem to qualify for the THRP because to qualify through being in the tourism or hospitality industry you must have a 12-month average revenue drop of 40% or higher, or also have been subject to at least 7 days of a qualifying public health restriction within the claim period. </p>
+          </div>
+          <div id="answer-K" class="answers hidden">
+            <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-K: You do not seem to qualify for the THRP because if you are not in the tourism or hospitality industry, and you were not subject to at least 7 days of a qualifying public health restriction within the claim period, you do not qualify for this rate. </p>
+          </div>
+          <section id="not-qualify-wage">
+            <div id="answer-L" class="answers hidden">
+              <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-L: You do not seem to qualify for any wage subsidy because you did not meet the payroll account qualification.</p>
+            </div>
+            <div id="answer-M" class="answers hidden">
+              <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-M: You do not seem to qualify for the CRHP because your business type is not eligible.</p>
+            </div>
+          </section>
+          </section>
+          <!--Qualify for Wage //-->
+          <section id="do-qualify-wage">
+            <p><span class="h3"><span class="glyphicon glyphicon-ok-circle text-success"></span></span> You may qualify for a <strong>wage subsidy</strong> for this claim period through <strong>one</strong> of the following:</p>
+            <ul>
+              <li id="chrp-wage">Canada Hiring Recovery Program (CHRP)</li>
+              <li id="thrp-wage">Tourism and Hospitality Recovery Program (THRP)</li>
+              <li id="hhbrp-wage">Hardest-Hit Business Recovery Program (HHBRP)</li>
+            </ul>
+            <p>Proceed to the <a href="#"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>wage subsidy calculator</a> to  find your claim amount.</p>
+          </section>
+          <!--Qualify for Rent //-->
+          <section id="do-qualify-rent">
+            <p><span class="h3"><span class="glyphicon glyphicon-ok-circle text-success"></span></span> You may qualify for a <strong>rent subsidy</strong> for this claim period through <strong>one</strong> of the following:</p>
+            <ul>
+              <li id="thrp-rent">Tourism and Hospitality Recovery Program (THRP)</li>
+              <li id="hhbrp-rent">Hardest-Hit Business Recovery Program (HHBRP)</li>
+            </ul>
+            <p>Proceed to the <a href="#"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>rent subsidy calculator</a> to find your claim amount.</p>
+          </section>
+          <p><a href="?" class="btn btn-link btn-lg">Start over</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+	
+	
+	<!--
+	<p><a href="start-organization.html">1 page per question</a></p>
+  <p><a href="fieldflow.html">Fieldflow - 1 question at a time</a></p>//-->
 
   <div id="def-preFooter">
 </div>
