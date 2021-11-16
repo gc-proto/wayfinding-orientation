@@ -3569,6 +3569,7 @@
                 }
                 //get the higher rev reduction
                 revReduction = Math.max(currentRevReduc, priorRevReduc);
+                console.log(revReduction);
               } else {
                 NoCERSRate();
                 return;
@@ -3578,8 +3579,10 @@
               //Moving the round down to before the cersRate is calculated:
               // revReduction = roundPercDown(revReduction);
               revReduction = revReduction.toFixed(4); //rounding to nearest instead
+              console.log(revReduction);
               //get the base rate
               cersRate = parseFloat(Math.max(getRentSubsidyRate(revReduction), 0));
+              console.log("cersRate: " + cersRate);
               //round to nearest
               cersRate = cersRate * 100;
               cersRate = cersRate.toFixed(2);
@@ -3590,6 +3593,7 @@
               priorRevReduc = priorRevReduc.toFixed(4) * 100;
               revReduction = revReduction * 100;
 
+              console.log("cersRate: " + cersRate);
               $(".currentRevReduction").text(toPercent(currentRevReduc.toFixed(2)));
               $(".priorRevReduction").text(toPercent(priorRevReduc.toFixed(2)));
               $(".preferentialRevReduction").text(toPercent(revReduction.toFixed(2)));

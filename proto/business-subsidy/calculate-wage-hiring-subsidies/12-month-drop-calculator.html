@@ -191,580 +191,586 @@ fieldset +.buttons {
     <h2 id="h-2">Calculate your 12-month revenue drop</h2>
     <p>You must use the same comparison methods for the 12 month revenue drop calculation as you used for your CEWS and CERS claims.</p>
 
-    <ol class="lst-stps">
-      <li id="stp1">
-        <h3>Comparison method for periods 1 to 4</h3>
-        <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-          <legend class="mrgn-tp-md required" ><span class="field-name">Which pre-crisis revenue comparison option did you use to calculate eligibility for CEWS periods 1 to 4 (March 15th to July 4th, 2020)?</span> <strong class="required">(required)</strong></legend>
-          <p>You must ensure that your choice is consistent with your eligibility for any of these periods you applied for. If you did not apply for any of them, you can decide on an option now.</p>
-          <ul class="list-unstyled lst-spcd-2">
-            <li class="radio">
-              <input type="radio" name="rev-comp-1-4" value="Yes" id="rev-comp-1-4-regular" class="valid" aria-invalid="false" required="required">
-              <label for="rev-comp-1-4-regular">Compare claim month to same month in a prior year</label>
-            </li>
-            <li class="radio">
-              <input type="radio" name="rev-comp-1-4" value="No" id="rev-comp-1-4-alternate" class="valid" aria-invalid="false" required="required">
-              <label for="rev-comp-1-4-alternate">Compare claim month to average of January and February 2020</label>
-            </li>
-          </ul>
-        </fieldset>
-      </li>
-      <li id="stp2">
-        <h3>Average your revenue drops for March to June</h3>
-        <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
-        <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
-        <div id="p1-4-none" class="row">
-          <div class="col-md-12 alert alert-warning provisional">
-            <p>You must select a comparison method in <a href="#stp1">step 1</a> to proceed.</p>
-          </div>
-        </div>
-        <div id="p1-4-Jan" class="row hidden">
-          <div class="col-md-12">
-            <p class="h3">Pre-crisis revenue</p>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-01-no">January 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-01-no" id="2020-01-no" placeholder="0.00">
+    <div class="wb-frmvld provisional">
+      <form action="#" method="get">
+        <ol class="lst-stps">
+          <li id="stp1">
+            <h3>Comparison method for periods 1 to 4</h3>
+            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+              <legend class="mrgn-tp-md required" ><span class="field-name">Which pre-crisis revenue comparison option did you use to calculate eligibility for CEWS periods 1 to 4 (March 15th to July 4th, 2020)?</span> <strong class="required">(required)</strong></legend>
+              <p>You must ensure that your choice is consistent with your eligibility for any of these periods you applied for. If you did not apply for any of them, you can decide on an option now.</p>
+              <ul class="list-unstyled lst-spcd-2">
+                <li class="radio">
+                  <input type="radio" name="rev-comp-1-4" value="Yes" id="rev-comp-1-4-regular" class="valid" aria-invalid="false" required="required">
+                  <label for="rev-comp-1-4-regular">Compare claim month to same month in a prior year</label>
+                </li>
+                <li class="radio">
+                  <input type="radio" name="rev-comp-1-4" value="No" id="rev-comp-1-4-alternate" class="valid" aria-invalid="false" required="required">
+                  <label for="rev-comp-1-4-alternate">Compare claim month to average of January and February 2020</label>
+                </li>
+              </ul>
+            </fieldset>
+          </li>
+          <li id="stp2">
+            <h3>Average your revenue drops for March to June</h3>
+            <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
+            <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+            <fieldset>
+              <div id="p1-4-none" class="row">
+                <div class="col-md-12 alert alert-warning provisional">
+                  <p>You must select a comparison method in <a href="#stp1">step 1</a> to proceed.</p>
+                </div>
+              </div>
+              <div class="p1-4-Jan row hidden">
+                <div class="col-md-12">
+                  <p class="h3">Pre-crisis revenue</p>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group row">
+                    <label class="col-sm-6 control-label" for="2020-01-1-4">January 2020<span class="wb-inv"> (do not include a
+                      dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-6">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-01-1-4" id="2020-01-1-4" placeholder="0.00">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-6 control-label" for="2020-02-1-4">February 2020<span class="wb-inv"> (do not include a
+                      dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-6">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right revenue-drop-month currency" min="0"  name="2020-02-1-4" id="2020-02-1-4" placeholder="0.00">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="p1-4-months row hidden">
+                <div class="col-md-4 p1-4-2019 hidden">
+                  <p class="h3 hidden-xs hidden-sm">Pre-crisis revenue</p>
+                </div>
+                <div class="col-md-4">
+                  <p class="h3">Monthly revenue</p>
+                </div>
+                <div class="col-md-4 hidden-xs hidden-sm">
+                  <p class="h3">Monthly drop</p>
+                </div>
+              </div>
+              <div class="p1-4-months row hidden ">
+                <div class="col-md-4 p1-4-2019 hidden">
+                  <div class="form-group row">
+                    <label class="col-sm-6 control-label" for="2019-03-yes">March 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                      dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-6">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-03-yes" id="2019-03-yes" placeholder="0.00">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 ">
+                  <div class="form-group row">
+                    <label class="col-sm-6 control-label" for="2020-03-yes">March 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                    <div class="col-sm-6">
+                      <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                        <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-03-yes" id="2020-03-yes" placeholder="0.00">
+                      </div>
+                    </div>
+                    <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                      <label for="2020-03-operations">
+                        <input id="2020-03-operations" type="checkbox" value="">
+                        Not in operation (seasonal)<span class="wb-inv"> in March 2020</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="text-muted">
+                    <p>March drop: <strong><span class="03-drop">0.00%</span></strong></p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <hr class="p1-4-2019 hidden" />
+            <div class="p1-4-months row hidden ">
+              <div class="col-md-4 p1-4-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-04-yes">April 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-04-yes" id="2019-04-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-04-yes">April 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-04-yes" id="2020-04-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-04-operations">
+                      <input id="2020-04-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in April 2020</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-muted">
+                  <p>April drop: <strong><span class="04-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-02-no">February 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency"  name="2020-02-no" id="2020-02-no" placeholder="0.00">
+            <hr class="p1-4-2019 hidden" />
+            <div class="p1-4-months row hidden ">
+              <div class="col-md-4 p1-4-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-05-yes">May 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-05-yes" id="2019-05-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-05-yes">May 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-05-yes" id="2020-05-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-05-operations">
+                      <input id="2020-05-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in May 2020</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>May drop: <strong><span class="05-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="p1-4-months row hidden">
-          <div class="col-md-4 p1-4-2019 hidden">
-            <p class="h3 hidden-xs hidden-sm">Pre-crisis revenue</p>
-          </div>
-          <div class="col-md-4">
-            <p class="h3">Monthly revenue</p>
-          </div>
-          <div class="col-md-4 hidden-xs hidden-sm">
-            <p class="h3">Monthly drop</p>
-          </div>
-        </div>
-        <div class="p1-4-months row hidden ">
-          <div class="col-md-4 p1-4-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-03-no">March 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-03-no" id="2019-03-no" placeholder="0.00">
+            <hr class="p1-4-2019 hidden" />
+            <div class="p1-4-months row hidden ">
+              <div class="col-md-4 p1-4-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-06-yes">June 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-06-yes" id="2019-06-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-06-yes">June 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-06-yes" id="2020-06-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-06-operations">
+                      <input id="2020-06-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in June 2020</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>June drop: <strong><span class="06-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-03-no">March 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-03-no" id="2020-03-no" placeholder="0.00">
+            <hr class="p1-4-2019 hidden" />
+          </li>
+          <li id="stp3">
+            <h3>Comparison method for periods 5 to 13</h3>
+            <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
+              <legend class="mrgn-tp-md required" ><span class="field-name">Which pre-crisis revenue comparison option did you use to calculate eligibility for CEWS periods 5 to 13 or CERS periods 1 to 6 (July 5th to March 13th, 2021)?</span> <strong class="required">(required)</strong></legend>
+              <p>If you applied for any of these periods, ensure that your choice is consistent with past applications and CEWS and CERS rate calculations. If you did not apply for these periods, you can decide on an option now.</p>
+              <ul class="list-unstyled lst-spcd-2">
+                <li class="radio">
+                  <input type="radio" name="rev-comp-5-13" value="Yes" id="rev-comp-5-13-regular" class="valid" aria-invalid="false" required="required">
+                  <label for="rev-comp-5-13-regular">Compare claim month to same month in a prior year</label>
+                </li>
+                <li class="radio">
+                  <input type="radio" name="rev-comp-5-13" value="No" id="rev-comp-5-13-alternate" class="valid" aria-invalid="false" required="required">
+                  <label for="rev-comp-5-13-alternate">Compare claim month to average of January and February 2020</label>
+                </li>
+              </ul>
+            </fieldset>
+          </li>
+          <li id="stp4">
+            <h3>Average your revenue drops for July to February</h3>
+            <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
+            <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
+            <div id="p5-13-none" class="row">
+              <div class="col-md-12 alert alert-warning provisional">
+                <p>You must select a comparison method in <a href="#stp3">step 3</a> to proceed.</p>
+              </div>
+            </div>
+            <div class="p5-13-Jan row hidden">
+              <div class="col-md-12">
+                <p class="h3">Pre-crisis revenue</p>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-01-5-13">January 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-01-5-13" id="2020-01-5-13" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-03-operations">
-                  <input id="2020-03-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in March 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="text-muted">
-              <p>March drop: <strong><span class="03-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p1-4-2019 hidden" />
-        <div class="p1-4-months row hidden ">
-          <div class="col-md-4 p1-4-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-04-no">April 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-04-no" id="2019-04-no" placeholder="0.00">
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-04-no">April 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-04-no" id="2020-04-no" placeholder="0.00">
-                </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-04-operations">
-                  <input id="2020-04-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in April 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="text-muted">
-              <p>April drop: <strong><span class="04-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p1-4-2019 hidden" />
-        <div class="p1-4-months row hidden ">
-          <div class="col-md-4 p1-4-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-05-no">May 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-05-no" id="2019-05-no" placeholder="0.00">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-02-yes">February 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0"  name="2020-02-5-13" id="2020-02-5-13" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-05-no">May 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-05-no" id="2020-05-no" placeholder="0.00">
+            <div class="p5-13-months row hidden">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <p class="h3 hidden-xs hidden-sm">Pre-crisis revenue</p>
+              </div>
+              <div class="col-md-4">
+                <p class="h3">Monthly revenue</p>
+              </div>
+              <div class="col-md-4 hidden-xs hidden-sm">
+                <p class="h3">Monthly drop</p>
+              </div>
+            </div>
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-07-yes">July 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-07-yes" id="2019-07-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-05-operations">
-                  <input id="2020-05-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in May 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>May drop: <strong><span class="05-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p1-4-2019 hidden" />
-        <div class="p1-4-months row hidden ">
-          <div class="col-md-4 p1-4-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-06-no">June 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-06-no" id="2019-06-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-07-yes">July 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-07-yes" id="2020-07-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-07-operations">
+                      <input id="2020-07-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in July 2020</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-06-no">June 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-06-no" id="2020-06-no" placeholder="0.00">
-                </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-06-operations">
-                  <input id="2020-06-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in June 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>June drop: <strong><span class="06-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p1-4-2019 hidden" />
-      </li>
-      <li id="stp3">
-        <h3>Comparison method for periods 5 to 13</h3>
-        <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
-          <legend class="mrgn-tp-md required" ><span class="field-name">Which pre-crisis revenue comparison option did you use to calculate eligibility for CEWS periods 5 to 13 or CERS periods 1 to 6 (July 5th to March 13th, 2021)?</span> <strong class="required">(required)</strong></legend>
-          <p>If you applied for any of these periods, ensure that your choice is consistent with past applications and CEWS and CERS rate calculations. If you did not apply for these periods, you can decide on an option now.</p>
-          <ul class="list-unstyled lst-spcd-2">
-            <li class="radio">
-              <input type="radio" name="rev-comp-5-13" value="Yes" id="rev-comp-5-13-regular" class="valid" aria-invalid="false" required="required">
-              <label for="rev-comp-5-13-regular">Compare claim month to same month in a prior year</label>
-            </li>
-            <li class="radio">
-              <input type="radio" name="rev-comp-5-13" value="No" id="rev-comp-5-13-alternate" class="valid" aria-invalid="false" required="required">
-              <label for="rev-comp-5-13-alternate">Compare claim month to average of January and February 2020</label>
-            </li>
-          </ul>
-        </fieldset>
-      </li>
-      <li id="stp4">
-        <h3>Average your revenue drops for July to February</h3>
-        <p><a class="wb-lbx" role="button" aria-controls="eligible-rev" href="#eligible-rev">Eligible revenue<span class="mrgn-lft-sm far fa-question-circle"></span></a></p>
-        <p class="small text-muted mrgn-tp-lg" aria-hidden="true">Do not include <strong>spaces, commas,</strong> or a <strong>dollar sign</strong></p>
-        <div id="p5-13-none" class="row">
-          <div class="col-md-12 alert alert-warning provisional">
-            <p>You must select a comparison method in <a href="#stp3">step 3</a> to proceed.</p>
-          </div>
-        </div>
-        <div id="p5-13-Jan" class="row hidden">
-          <div class="col-md-12">
-            <p class="h3">Pre-crisis revenue</p>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-01-no">January 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-01-no" id="2020-01-no" placeholder="0.00">
+              <div class="col-md-4">
+                <div class="text-muted">
+                  <p>July drop: <strong><span class="07-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-02-no">February 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency"  name="2020-02-no" id="2020-02-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-08-yes">August 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-08-yes" id="2019-08-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-08-yes">August 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-08-yes" id="2020-08-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-08-operations">
+                      <input id="2020-08-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in August 2020</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-muted">
+                  <p>August drop: <strong><span class="08-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="p5-13-months row hidden">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <p class="h3 hidden-xs hidden-sm">Pre-crisis revenue</p>
-          </div>
-          <div class="col-md-4">
-            <p class="h3">Monthly revenue</p>
-          </div>
-          <div class="col-md-4 hidden-xs hidden-sm">
-            <p class="h3">Monthly drop</p>
-          </div>
-        </div>
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-07-no">July 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-07-no" id="2019-07-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-09-yes">September 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-09-yes" id="2019-09-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-09-yes">September 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-09-yes" id="2020-09-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-09-operations">
+                      <input id="2020-09-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in September 2020</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>September drop: <strong><span class="09-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-07-no">July 2020<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-07-no" id="2020-07-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-10-yes">October 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-10-yes" id="2019-10-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-07-operations">
-                  <input id="2020-07-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in July 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="text-muted">
-              <p>July drop: <strong><span class="07-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-08-no">August 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-08-no" id="2019-08-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-10-yes">October 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-10-yes" id="2020-10-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-10-operations">
+                      <input id="2020-10-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in October 2020</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-08-no">August 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-08-no" id="2020-08-no" placeholder="0.00">
-                </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-08-operations">
-                  <input id="2020-08-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in August 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="text-muted">
-              <p>August drop: <strong><span class="08-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-09-no">September 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-09-no" id="2019-09-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>October drop: <strong><span class="10-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-09-no">September 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-09-no" id="2020-09-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-11-yes">November 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-11-yes" id="2019-11-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-09-operations">
-                  <input id="2020-09-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in September 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>September drop: <strong><span class="09-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-10-no">October 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-10-no" id="2019-10-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-11-yes">November 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-11-yes" id="2020-11-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-11-operations">
+                      <input id="2020-11-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in November 2020</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-10-no">October 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-10-no" id="2020-10-no" placeholder="0.00">
-                </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-10-operations">
-                  <input id="2020-10-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in October 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>October drop: <strong><span class="10-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-11-no">November 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-11-no" id="2019-11-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>November drop: <strong><span class="11-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-11-no">November 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-11-no" id="2020-11-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2019-12-yes">December 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2019-12-yes" id="2019-12-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-11-operations">
-                  <input id="2020-11-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in November 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>November drop: <strong><span class="11-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2019-12-no">December 2019 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2019-12-no" id="2019-12-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-12-yes">December 2020<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-12-yes" id="2020-12-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2020-12-operations">
+                      <input id="2020-12-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in December 2020</span>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2020-12-no">December 2020<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2020-12-no" id="2020-12-no" placeholder="0.00">
-                </div>
-              </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2020-12-operations">
-                  <input id="2020-12-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in December 2020</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>December drop: <strong><span class="12-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2021-10-no">January 2020 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>December drop: <strong><span class="12-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2021-10-no">January 2021<span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-01-yes">January 2020 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-01-yes" id="2020-01-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2021-10-operations">
-                  <input id="2021-10-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in January 2021</span>
-                </label>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2021-01-yes">January 2021<span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2021-01-yes" id="2021-01-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2021-01-operations">
+                      <input id="2021-01-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in January 2021</span>
+                    </label>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>January drop: <strong><span class="01-drop">0.00%</span></strong></p>
-            </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-        <div class="p5-13-months row hidden ">
-          <div class="col-md-4 p5-13-2019 hidden">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2021-10-no">February 2020 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>January drop: <strong><span class="01-drop">0.00%</span></strong></p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="form-group row">
-              <label class="col-sm-6 control-label" for="2021-10-no">February 2021 <span class="wb-inv"> (do not include a
-                dollar sign, spaces or commas)</span></label>
-              <div class="col-sm-6">
-                <div class="input-group"> <span class="input-group-addon input-sm">$</span>
-                  <input type="number" class="form-control text-right revenue-drop-month currency" name="2021-10-no" id="2021-10-no" placeholder="0.00">
+            <hr class="p5-13-2019 hidden" />
+            <div class="p5-13-months row hidden ">
+              <div class="col-md-4 p5-13-2019 hidden">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2020-02-yes">February 2020 <span class="visible-xs visible-sm">(Pre-crisis revenue)</span><span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2020-02-yes" id="2020-02-yes" placeholder="0.00">
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
-                <label for="2021-10-operations">
-                  <input id="2021-10-operations" type="checkbox" value="">
-                  Not in operation (seasonal)<span class="wb-inv"> in February 2021</span>
-                </label>
+              <div class="col-md-4 ">
+                <div class="form-group row">
+                  <label class="col-sm-6 control-label" for="2021-02-yes">February 2021 <span class="wb-inv"> (do not include a
+                    dollar sign, spaces or commas)</span></label>
+                  <div class="col-sm-6">
+                    <div class="input-group"> <span class="input-group-addon input-sm">$</span>
+                      <input type="number" class="form-control text-right revenue-drop-month currency" min="0" name="2021-02-yes" id="2021-02-yes" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
+                    <label for="2021-02-operations">
+                      <input id="2021-02-operations" type="checkbox" value="">
+                      Not in operation (seasonal)<span class="wb-inv"> in February 2021</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="text-muted">
+                  <p>February drop: <strong><span class="02-drop">0.00%</span></strong></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="text-muted">
-              <p>February drop: <strong><span class="02-drop">0.00%</span></strong></p>
+            <hr class="p5-13-2019 hidden" />
+          </li>
+          <li id="stp5">
+            <p class="h3 mrgn-tp-sm brdr-tp">Your 12-month revenue drop summary</p>
+            <div class="well text-muted mrgn-tp-md">
+              <h3 class="mrgn-tp-0">Result</h3>
+              <p>Your 12-month revenue drop is <span class="h4 12-month-drop">0.00%</span> (average of the revenue drops for all months during which you were operating).</p>
             </div>
-          </div>
-        </div>
-        <hr class="p5-13-2019 hidden" />
-      </li>
-      <li id="stp5">
-        <p class="h3 mrgn-tp-sm brdr-tp">Your 12-month revenue drop summary</p>
-        <div class="well text-muted mrgn-tp-md">
-          <h3 class="mrgn-tp-0">Result</h3>
-          <p>Your 12-month revenue drop is <span class="h4 12-month-drop">0.00%</span>.</p>
-        </div>
-        <p class="h3 mrgn-tp-sm brdr-tp">Calculation summary</p>
-        <ul class="list-unstyled">
-          <li class="mrgn-tp-md"><a href="#12-month-calculation-table" aria-controls="12-month-calculation-table" class="wb-lbx lbx-modal btn btn-primary" role="button" id="showEmpTable">Review, download and print your 12-month revenue drop summary</a></li>
-        </ul>
-        <div class="alert alert-info provisional">
-          <p class="text-info"><strong>Save your 12-month revenue drop summary for periods 22 to 28 THRP and HHBRP calculations:</strong></p>
-          <p>Print and keep the record of the CRHP base period remuneration amount to use in future calculations of the wage or rent subsidies.</p>
-          <p>You can then go back to Step 2 of the <a href="how-much.html">wage subsidy calculator</a> or <a href="../rent-subsidy/how-much.html">rent subsidy calculator</a> to input your 12 month revenue drop and continue to calculate your subsidy for claim periods 22 and onward.</p>
-        </div>
-      </li>
-    </ol>
+            <p class="h3 mrgn-tp-sm brdr-tp">Calculation summary</p>
+            <ul class="list-unstyled">
+              <li class="mrgn-tp-md"><a href="#12-month-calculation-table" aria-controls="12-month-calculation-table" class="wb-lbx lbx-modal btn btn-primary" role="button" id="showEmpTable">Review, download and print your 12-month revenue drop summary</a></li>
+            </ul>
+            <div class="alert alert-info provisional mrgn-tp-md">
+              <p class="text-info"><strong>Save your 12-month revenue drop summary for periods 22 to 28 THRP and HHBRP calculations:</strong></p>
+              <p>Print and keep the record of the CRHP base period remuneration amount to use in future calculations of the wage or rent subsidies.</p>
+              <p>You can then go back to Step 2 of the <a href="how-much.html">wage subsidy calculator</a> or <a href="../rent-subsidy/how-much.html">rent subsidy calculator</a> to input your 12 month revenue drop and continue to calculate your subsidy for claim periods 22 and onward.</p>
+            </div>
+          </li>
+        </ol>
+      </form>
+    </div>
 
 
 
@@ -788,76 +794,76 @@ fieldset +.buttons {
             </thead>
             <tbody>
               <tr>
-                <td><span>March</span></td>
-                <td data-updated-by="2019-03-no"></td>
-                <td data-updated-by="2020-03-no"></td>
-                <td data-updated-by="03-drop"></td>
+                <td><span>March <span class="03-not-operating hidden">(not in operation)</span></td>
+                <td><span class="p1-4-Jan hidden">Alternate baseline</span><span class="p1-4-2019">$<span data-updated-by="2019-03-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-03-yes">0.00</span></td>
+                <td><span class="03-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>April</span></td>
-                <td data-updated-by="2019-04-no"></td>
-                <td data-updated-by="2020-04-no"></td>
-                <td data-updated-by="04-drop"></td>
+                <td><span>April <span class="04-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p1-4-Jan hidden">Alternate baseline</span><span class="p1-4-2019">$<span data-updated-by="2019-04-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-04-yes">0.00</span></td>
+                <td><span class="04-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>May</span></td>
-                <td data-updated-by="2019-05-no"></td>
-                <td data-updated-by="2020-05-no"></td>
-                <td data-updated-by="05-drop"></td>
+                <td><span>May <span class="05-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p1-4-Jan hidden">Alternate baseline</span><span class="p1-4-2019">$<span data-updated-by="2019-05-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-05-yes">0.00</span></td>
+                <td><span class="05-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>June</span></td>
-                <td data-updated-by="2019-06-no"></td>
-                <td data-updated-by="2020-06-no"></td>
-                <td data-updated-by="06-drop"></td>
+                <td><span>June <span class="06-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p1-4-Jan hidden">Alternate baseline</span><span class="p1-4-2019">$<span data-updated-by="2019-06-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-06-yes">0.00</span></td>
+                <td><span class="06-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>July</span></td>
-                <td data-updated-by="2019-07-no"></td>
-                <td data-updated-by="2020-07-no"></td>
-                <td data-updated-by="07-drop"></td>
+                <td><span>July <span class="07-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-07-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-07-yes">0.00</span></td>
+                <td><span class="07-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>August</span></td>
-                <td data-updated-by="2019-08-no"></td>
-                <td data-updated-by="2020-08-no"></td>
-                <td data-updated-by="08-drop"></td>
+                <td><span>August <span class="08-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-08-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-08-yes">0.00</span></td>
+                <td><span class="08-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>September</span></td>
-                <td data-updated-by="2019-09-no"></td>
-                <td data-updated-by="2020-09-no"></td>
-                <td data-updated-by="09-drop"></td>
+                <td><span>September <span class="09-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-09-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-09-yes">0.00</span></td>
+                <td><span class="09-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>October</span></td>
-                <td data-updated-by="2019-10-no"></td>
-                <td data-updated-by="2020-10-no"></td>
-                <td data-updated-by="10-drop"></td>
+                <td><span>October <span class="10-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-10-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-10-yes">0.00</span></td>
+                <td><span class="10-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>November</span></td>
-                <td data-updated-by="2019-11-no"></td>
-                <td data-updated-by="2020-11-no"></td>
-                <td data-updated-by="11-drop"></td>
+                <td><span>November <span class="11-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-11-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-11-yes">0.00</span></td>
+                <td><span class="11-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>December</span></td>
-                <td data-updated-by="2019-12-no"></td>
-                <td data-updated-by="2020-12-no"></td>
-                <td data-updated-by="12-drop"></td>
+                <td><span>December <span class="12-not-operating hidden">(not in operation)</span></span></td>
+                <td><span class="p5-13-Jan hidden">Alternate baseline</span><span class="p5-13-2019">$<span data-updated-by="2019-12-yes">0.00</span></span></td>
+                <td>$<span data-updated-by="2020-12-yes">0.00</span></td>
+                <td><span class="12-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>January</span></td>
-                <td data-updated-by="2020-01-no"></td>
-                <td data-updated-by="2021-01-no"></td>
-                <td data-updated-by="01-drop"></td>
+                <td><span>January <span class="01-not-operating hidden">(not in operation)</span></span></td>
+                <td>$<span data-updated-by="2020-01-yes">0.00</span></td>
+                <td>$<span data-updated-by="2021-01-yes">0.00</span></td>
+                <td><span class="01-drop">0.00%</span></td>
               </tr>
               <tr>
-                <td><span>February</span></td>
-                <td data-updated-by="2020-02-no"></td>
-                <td data-updated-by="2021-02-no"></td>
-                <td data-updated-by="02-drop"></td>
+                <td><span>February <span class="02-not-operating hidden">(not in operation)</span></span></td>
+                <td>$<span data-updated-by="2020-02-yes">0.00</span></td>
+                <td>$<span data-updated-by="2021-02-yes">0.00</span></td>
+                <td><span class="02-drop">0.00%</span></td>
               </tr>
             </tbody>
             <tfoot>
@@ -865,7 +871,7 @@ fieldset +.buttons {
                 <td><strong>Months not operating in 2020:</strong> <span class="months-not-operating"></span></td>
                 <td></td>
                 <td></td>
-                <td><strong>12 month revenue drop:</strong> <span class="12-month-drop h3"></span></td>
+                <td><strong>12 month average revenue drop:</strong> <span class="12-month-drop h3">0.00%</span></td>
               </tr>
             </tfoot>
             </table>
@@ -1017,12 +1023,12 @@ fieldset +.buttons {
       // Plugin event handlers
       $document.on("change", "input", function (event) {
         var target = event.target;
-        $('input[data-updated-by]').each(function() {
-          console.log("$(this).data('updated-by'): " + $(this).data('updated-by'));
-          if ($(this).data('updated-by') == target.id) {
-            $(this).text(target.val());
-          }
-        });
+        var parts = target.id.split("-");
+        $('[data-updated-by='+ target.id +']').text(target.value);
+        if (parts[0] == "2020" && (parts[1] == "01" || parts[1] == "02")) {
+          $('input[id^=2020-'+ parts[1] +'-]').val(target.value);
+          $('[data-updated-by=2020-' + parts[1] +'-yes]').text(target.value);
+        }
       });
 
       $document.on("click", "input[type=radio]", function (event) {
@@ -1032,17 +1038,17 @@ fieldset +.buttons {
         if (target.name == "rev-comp-1-4") {
           if (target.id == "rev-comp-1-4-regular") {
             $('.p1-4-months').removeClass("hidden");
-            $('#p1-4-Jan').addClass("hidden");
+            $('.p1-4-Jan').addClass("hidden");
             $('.p1-4-2019').removeClass("hidden");
             $('#p1-4-none').addClass("hidden");
           } else if (target.id == "rev-comp-1-4-alternate") {
             $('.p1-4-months').removeClass("hidden");
-            $('#p1-4-Jan').removeClass("hidden");
+            $('.p1-4-Jan').removeClass("hidden");
             $('.p1-4-2019').addClass("hidden");
             $('#p1-4-none').addClass("hidden");
           } else {
             $('.p1-4-months').addClass("hidden");
-            $('#p1-4-Jan').addClass("hidden");
+            $('.p1-4-Jan').addClass("hidden");
             $('.p1-4-2019').addClass("hidden");
             $('#p1-4-none').removeClass("hidden");
           }
@@ -1050,17 +1056,17 @@ fieldset +.buttons {
         } else if (target.name == "rev-comp-5-13") {
           if (target.id == "rev-comp-5-13-regular") {
             $('.p5-13-months').removeClass("hidden");
-            $('#p5-13-Jan').addClass("hidden");
+            $('.p5-13-Jan').addClass("hidden");
             $('.p5-13-2019').removeClass("hidden");
             $('#p5-13-none').addClass("hidden");
           } else if (target.id == "rev-comp-5-13-alternate") {
             $('.p5-13-months').removeClass("hidden");
-            $('#p5-13-Jan').removeClass("hidden");
+            $('.p5-13-Jan').removeClass("hidden");
             $('.p5-13-2019').addClass("hidden");
             $('#p5-13-none').addClass("hidden");
           } else {
             $('.p5-13-months').addClass("hidden");
-            $('#p5-13-Jan').addClass("hidden");
+            $('.p5-13-Jan').addClass("hidden");
             $('.p5-13-2019').addClass("hidden");
             $('#p5-13-none').removeClass("hidden");
           }
@@ -1075,11 +1081,13 @@ fieldset +.buttons {
         if (parts[2] == "operations") {
           if ($('#' + target.id + ':checked').length > 0) {
             //disable the input fields
-            $("#2019-" + parts[1] + "-no").prop('disabled', true);
-            $("#2020-" + parts[1] + "-no").prop('disabled', true);
+            $("#2019-" + parts[1] + "-yes").prop('disabled', true);
+            $("#2020-" + parts[1] + "-yes").prop('disabled', true);
+            $("." + parts[1] + "-not-operating").removeClass("hidden");
           } else {
-            $("#2019-" + parts[1] + "-no").prop('disabled', false);
-            $("#2020-" + parts[1] + "-no").prop('disabled', false);
+            $("#2019-" + parts[1] + "-yes").prop('disabled', false);
+            $("#2020-" + parts[1] + "-yes").prop('disabled', false);
+            $("." + parts[1] + "-not-operating").addClass("hidden");
           }
           calculateTwelveMonthDrop();
         }
@@ -1108,11 +1116,13 @@ fieldset +.buttons {
           // console.log("i: " + i);
           monthlyOperations[i] = $("#" + year + "-" + pad(i, 2) + "-operations:checked").length;
           if ((i > 2 && i < 7 && $('#rev-comp-1-4-regular:checked').length > 0) || ((i < 3 || i > 6) && $('#rev-comp-5-13-regular:checked').length > 0)){
-            priorYRev = zeroIfEmpty($("#" + priorYear + "-" + pad(i, 2) + "-no").val());
-          } else if ((i > 2 && i < 7 && $('#rev-comp-1-4-alternate:checked').length > 0) || ((i < 3 || i > 6) && $('#rev-comp-5-13-alternate:checked').length > 0)) {
-            priorYRev = (zeroIfEmpty($("#2020-01-no").val()) + zeroIfEmpty($("#2020-02-no").val())) / 2;
+            priorYRev = zeroIfEmpty($("#" + priorYear + "-" + pad(i, 2) + "-yes").val());
+          } else if (i > 2 && i < 7 && $('#rev-comp-1-4-alternate:checked').length > 0) {
+            priorYRev = (zeroIfEmpty($("#2020-01-1-4").val()) + zeroIfEmpty($("#2020-02-1-4").val())) / 2;
+          } else if ((i < 3 || i > 6) && $('#rev-comp-5-13-alternate:checked').length > 0) {
+            priorYRev = (zeroIfEmpty($("#2020-01-5-13").val()) + zeroIfEmpty($("#2020-02-5-13").val())) / 2;
           }
-          curYRev = zeroIfEmpty($("#" + year + "-" + pad(i, 2) + "-no").val());
+          curYRev = zeroIfEmpty($("#" + year + "-" + pad(i, 2) + "-yes").val());
           if (monthlyOperations[i] > 0 || priorYRev == 0) {
             if (monthlyOperations[i] > 0) {
               monthlyOperationsSum++;
