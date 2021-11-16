@@ -862,9 +862,9 @@ fieldset +.buttons {
             </tbody>
             <tfoot>
               <tr>
+                <td><strong>Months not operating in 2020:</strong> <span class="months-not-operating"></span></td>
                 <td></td>
-                <td><span class="wb-inv">-</span></td>
-                <td><span class="wb-inv">-</span></td>
+                <td></td>
                 <td><strong>12 month revenue drop:</strong> <span class="12-month-drop h3"></span></td>
               </tr>
             </tfoot>
@@ -1013,8 +1013,17 @@ fieldset +.buttons {
             wb.ready($elm, componentName);
           }
         };
-
+        
       // Plugin event handlers
+      $document.on("change", "input", function (event) {
+        var target = event.target;
+        $('input[data-updated-by]').each(function() {
+          console.log("$(this).data('updated-by'): " + $(this).data('updated-by'));
+          if ($(this).data('updated-by') == target.id) {
+            $(this).text(target.val());
+          }
+        });
+      });
 
       $document.on("click", "input[type=radio]", function (event) {
         var target = event.target;
@@ -1096,7 +1105,7 @@ fieldset +.buttons {
             year = "2020";
             priorYear = "2019";
           }
-          console.log("i: " + i);
+          // console.log("i: " + i);
           monthlyOperations[i] = $("#" + year + "-" + pad(i, 2) + "-operations:checked").length;
           if ((i > 2 && i < 7 && $('#rev-comp-1-4-regular:checked').length > 0) || ((i < 3 || i > 6) && $('#rev-comp-5-13-regular:checked').length > 0)){
             priorYRev = zeroIfEmpty($("#" + priorYear + "-" + pad(i, 2) + "-no").val());
@@ -1115,12 +1124,13 @@ fieldset +.buttons {
             monthlyDropsSum+= monthlyDrops[i];
             $("." + pad(i, 2) + "-drop").text(toPercent(monthlyDrops[i] * 100));
           }
-          console.log("monthlyDrops[i]: " + monthlyDrops[i]);
+          // console.log("monthlyDrops[i]: " + monthlyDrops[i]);
         }
-        console.log("monthlyOperationsSum: " + monthlyOperationsSum);
-        console.log("monthlyDropsSum: " + monthlyDropsSum);
+        // console.log("monthlyOperationsSum: " + monthlyOperationsSum);
+        // console.log("monthlyDropsSum: " + monthlyDropsSum);
         var twelveMonthDrop = monthlyDropsSum / (12 - monthlyOperationsSum);
         $(".12-month-drop").text(toPercent(twelveMonthDrop * 100));
+        $(".months-not-operating").text(monthlyOperationsSum);
       }
 
 
