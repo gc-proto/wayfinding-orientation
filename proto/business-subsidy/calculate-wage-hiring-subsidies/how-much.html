@@ -1068,6 +1068,74 @@ fieldset +.buttons {
     </fieldset>
 
     <fieldset id="rev-drop-fs" class="panel-default p-0" >
+      <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">12-month average revenue drop</span></legend>
+      <div class="panel-body">
+
+        <div class="row hidden p1-21">
+          <div class="col-sm-8 col-md-9">
+            <!-- <div class="alert alert-info"> -->
+            <p class="mrgn-tp-lg">You do not need a 12-month average revenue drop for Periods 1 to 21.</p>
+            <p>Continue to the next step to calculate the CEWS<span class="p17-plus hidden"> and CRHP</span>.</p>
+          </div>
+	        <div class="col-sm-4 col-md-3">
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
+          </div>	
+        </div>
+
+        <div class="row hidden p22-plus">
+          <div class="col-sm-8 col-md-9 mrgn-tp-md">
+            <div class="">
+              <p>To apply for either the THRP or the HHBRP, you must calculate your 12-month average revenue drop. You only need to calculate this once. The same 12-month average revenue drop is used to qualify for the THRP and HHBRP in periods 22 to 28.</p>
+              <!-- <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
+                <legend class="small required" ><span class="field-name">Have you already calculated your 12-month average revenue drop?</span> <strong class="required">(required)</strong></legend>
+                <ul class="list-unstyled lst-spcd-2">
+                  <li class="radio">
+                    <input type="radio" name="12-month-calculated" id="12-month-calculated-yes" class="valid" aria-invalid="false" required="required">
+                    <label for="12-month-calculated-yes">Yes</label>
+                  </li>
+                  <li class="radio">
+                    <input type="radio" name="12-month-calculated" id="12-month-calculated-no" class="valid" aria-invalid="false" required="required">
+                    <label for="12-month-calculated-no">No</label>
+                  </li>
+                </ul>
+              </fieldset>
+               -->
+              <!-- <div id="enter-12-month" class="hidden"> -->
+                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
+                  <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
+                  <div id="12-month-decline-input">
+                    <div class="form-group row">
+                      <fieldset>
+                        <label class="required col-sm-12 control-label" for="12-month-decline">What is your 12-month average revenue drop<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
+                        <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p>
+                        <!-- <p><a class="wb-lbx" role="button" aria-controls="12-month-calculator" href="#12-month-calculator"><span class="fas fa-calculator"></span> Calculate your 12-month revenue <span class="nowrap">decline<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p> -->
+                        <div class="col-sm-4">
+                          <div class="input-group">
+                            <input type="number" class="form-control text-right currency required" name="12-month-decline" id="12-month-decline" max="100">
+                            <span class="input-group-addon input-sm">%</span>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <a class="btn btn-default">Check if your 12-month average revenue drop qualifies</a>
+                  </div>
+                </fieldset>
+              <!-- </div> -->
+            </div>
+            <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
+              <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
+              <p>You have indicated your 12-month average revenue drop is <span class="h4 twelveMonthDecline"></span>.</p>
+              <p>Your 12-month average revenue drop is one component of your eligibility for the THRP and HHBRP for periods 22 to 28. Continue to the next step to continue your calculation.</p>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-3">
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset id="rev-drop-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">THRP and HHBRP eligibility and the 12-month average revenue drop</span></legend>
       <div class="panel-body">
 
@@ -1078,207 +1146,115 @@ fieldset +.buttons {
             <p>Continue to the next step to calculate the CEWS<span class="p17-plus hidden"> and CRHP</span>.</p>
           </div>
 	        <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
           </div>	
         </div>
 
+        <!-- 
+        if u40 - ask PHR
+          if yes - THRP
+          if no - CRHP only
+        else - ask Tourism or Hospitality
+          if yes - THRP
+          if no: ask PHR
+            if yes - THRP
+            if no - HHBRP
 
-<!--  ALTERNATE ORDER
-
-        <fieldset id="rev-drop-fs" class="panel-default p-0" >
-          <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">THRP and HHBRP eligibility and the 12-month average revenue drop</span></legend>
-          <div class="panel-body">
-    
-            <div class="row hidden p1-21">
-              <div class="col-sm-8 col-md-9">
-                <p class="mrgn-tp-lg">There were no additional qualifications in this period for THRP or HHBRP.</p>
-                <p>Continue to the next step to calculate the CEWS<span class="p17-plus hidden"> and CRHP</span>.</p>
-              </div>
-              <div class="col-sm-4 col-md-3">
-                <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
-              </div>	
-            </div>
-    
-            <div class="row hidden p22-plus">
-              <div class="col-sm-8 col-md-9 mrgn-tp-md">
-                <p>Answer a few questions to determine if you qualify for the THRP or HHBRP in periods 22 to 28.</p>
-                <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                  <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying tourism or hospitality entity?</span> <strong class="required">(required)</strong></legend>
-                  <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">Definition for the tourism or hospitality <span class="nowrap">industry<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
-                  <ul class="list-unstyled lst-spcd-2">
-                    <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-yes" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-yes">Yes - tourism or hospitality</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-no" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-no">No</label>
-                    </li>
-                    <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-na" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-na">I don't know - answer a few questions to find out</label>
-                    </li>
-                  </ul>
-                </fieldset>
-    
-                <div id="q3-check-12-month" class="hidden">
-                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                    <div id="12-month-decline-input">
-                      <div class="form-group row">
-                        <fieldset>
-                          <label class="required col-sm-12 control-label" for="12-month-decline">What is your 12-month average revenue drop<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                          <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p>
-                          <div class="col-sm-4">
-                            <div class="input-group">
-                              <input type="number" class="form-control text-right currency required" name="12-month-decline" id="12-month-decline" max="100">
-                              <span class="input-group-addon input-sm">%</span>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </div>
-                      <a class="btn btn-default">Check if your 12-month average revenue drop qualifies</a>
-                    </div>
-                  </fieldset>
-                </div>
-    
-                <div class="">
-                  <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                    <legend class="small required" ><span class="field-name">Was at least one of your locations subject to a qualifying public health restriction that lasted at least 7 days during <span class="claim-period"></span>?</span> <strong class="required">(required)</strong></legend>
-                    <p><a class="wb-lbx" role="button" aria-controls="qualifying-lockdown" href="#qualifying-lockdown">What is a qualifying <span class="nowrap">lockdown<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
-                    <ul class="list-unstyled lst-spcd-2">
-                      <li class="radio">
-                        <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-yes" class="valid" aria-invalid="false" required="required">
-                        <label for="qualifying-lockdown-yes">Yes</label>
-                      </li>
-                      <li class="radio">
-                        <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-no" class="valid" aria-invalid="false" required="required">
-                        <label for="qualifying-lockdown-no">No</label>
-                      </li>
-                    </ul>
-                  </fieldset>
-    
-                <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
-                  <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
-                  
-                  
-                  <p class="eligible-thrp-lockdown-tourism hidden">Even though you're not part of the tourism and hospitality sector, you may still qualify for the THRP as <strong>you were affected by a qualifying lockdown for at least 7 days</strong> during the claim period in one of your locations.</p>
-                  <p class="eligible-thrp-lockdown-drop hidden">Even though you do not meet the 12-month average revenue drop requirement as a part of the tourism and hospitality sector, as <strong>you were affected by a qualifying lockdown for at least 7 days</strong> during the claim period in one of your locations, you may still qualify for the THRP.</p>
-    
-    
-    
-                  <p class="eligible-thrp-12-month hidden">As you are <strong>part of the tourism industry</strong> and have a 12-month average revenue drop of 40% or greater, you may qualify for the THRP.</p>
-                  <p class="eligible-hhbrp-12-month hidden">As you are not part of the tourism industry but have a 12-month average revenue drop of 50% or greater, you may qualify for the HHBRP.</p>
-                  <p class="ineligible-thrp-hhbrp hidden">You do not qualify for the THRP or the HHBRP as your revenue drop is too low and you were not affected by a qualifying public health order.</p>
-                  <p class="ineligible-thrp-hhbrp hidden">Continue to the next step to determine if you qualify for the CRHP.</p>
-                  <p class="thrp-not-enough-data">Answer the questions above to determine if you qualify for the THRP or HHBRP.</p>
-                </div>
-              </div>
-              <div class="col-sm-4 col-md-3">
-                <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
-              </div>
-            </div>
-          </div>
-        </fieldset> -->
-
-
+        -->
 
         <div class="row hidden p22-plus">
           <div class="col-sm-8 col-md-9 mrgn-tp-md">
             <div class="">
               <p>To qualify for the THRP or the HRBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period.</p>
-              <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                <legend class="small required" ><span class="field-name">Was at least one of your locations subject to a qualifying public health restriction that lasted at least 7 days during <span class="claim-period"></span>?</span> <strong class="required">(required)</strong></legend>
-                <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
-                <p><a class="wb-lbx" role="button" aria-controls="qualifying-lockdown" href="#qualifying-lockdown">What is a qualifying public health <span class="nowrap">restriction<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+              <fieldset id="q1-tourism-hospitality" class="provisional gc-chckbxrdio chckbxrdio-grp ">
+                <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying entity in the tourism, hospitality, arts or recreation sectors?</span> <strong class="required">(required)</strong></legend>
+                <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">What is considered part of tourism, hospitality, arts or <span class="nowrap">recreation?<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
-                    <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-yes" class="valid" aria-invalid="false" required="required">
-                    <label for="qualifying-lockdown-yes">Yes</label>
+                    <input type="radio" name="tourism-hospitality" id="tourism-hospitality-yes" class="valid" aria-invalid="false" required="required">
+                    <label for="tourism-hospitality-yes">Yes</label>
                   </li>
                   <li class="radio">
-                    <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-no" class="valid" aria-invalid="false" required="required">
-                    <label for="qualifying-lockdown-no">No</label>
+                    <input type="radio" name="tourism-hospitality" id="tourism-hospitality-no" class="valid" aria-invalid="false" required="required">
+                    <label for="tourism-hospitality-no">No</label>
                   </li>
+                  <!-- <li class="radio">
+                    <input type="radio" name="tourism-hospitality" id="tourism-hospitality-dunno" class="valid" aria-invalid="false" required="required">
+                    <label for="tourism-hospitality-dunno">I don't know - answer a few questions to find out</label>
+                  </li> -->
                 </ul>
+
+                <!-- <table class="wb-tables table-striped table-hover" data-wb-tables="{ &quot;paging&quot;: false, &quot;info&quot;: true  }">
+                  <thead>
+                    <tr>
+                      <th>Tourism or hospitality category</th>
+                      <th>Description</th>
+                      <th class="hidden">Department</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Hotels</td>
+                      <td>Establishments primarily engaged in providing short-term lodging in facilities known as hotels. These establishments provide suites or guest rooms within a multi-storey or high-rise structure, accessible from the interior only, and they generally offer guests a range of complementary services and amenities, such as food and beverage services, parking, laundry services, swimming pools and exercise rooms, and conference and convention facilities.</td>
+                      <td class="hidden">
+                        <ul>
+                          <li>hotel management services (i.e., providing management and operating staff to run hotel)</li>
+                          <li>hotels (except casino hotels) with integrated health spa facilities</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Food service contractors</td>
+                      <td>Establishments primarily engaged in supplying food services under contract for a specific period of time.</td>
+                      <td class="hidden">
+                        <ul>
+                          <li>cafeterias, industrial</li>
+                          <li>food services under contract for airlines, railways, institutions</li>
+                          <li>school cafeteria service</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Musical theatre and opera companies</td>
+                      <td>Establishments primarily engaged in supplying food services under contract for a specific period of time.</td>
+                      <td class="hidden">
+                        <ul>
+                          <li>cafeterias, industrial</li>
+                          <li>food services under contract for airlines, railways, institutions</li>
+                          <li>school cafeteria service</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> -->
               </fieldset>
 
-              <div id="q2-check-tourism" class="hidden">
+              <div id="q2-check-lockdown" class="hidden mrgn-tp-lg">
                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                  <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying tourism or hospitality entity?</span> <strong class="required">(required)</strong></legend>
+                  <legend class="small required" ><span class="field-name">Was at least one of your locations subject to a qualifying public health restriction that lasted at least 7 days during <span class="claim-period"></span>?</span> <strong class="required">(required)</strong></legend>
                   <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
-                  <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">Definition for the tourism or hospitality <span class="nowrap">industry<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+                  <p><a class="wb-lbx" role="button" aria-controls="qualifying-lockdown" href="#qualifying-lockdown">What is a qualifying public health <span class="nowrap">restriction<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                   <ul class="list-unstyled lst-spcd-2">
                     <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-yes" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-yes">Yes - tourism or hospitality</label>
+                      <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-yes" class="valid" aria-invalid="false" required="required">
+                      <label for="qualifying-lockdown-yes">Yes</label>
                     </li>
                     <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-no" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-no">No</label>
+                      <input type="radio" name="qualifying-lockdown" id="qualifying-lockdown-no" class="valid" aria-invalid="false" required="required">
+                      <label for="qualifying-lockdown-no">No</label>
                     </li>
-                    <!-- <li class="radio">
-                      <input type="radio" name="tourism-hospitality" id="tourism-hospitality-dunno" class="valid" aria-invalid="false" required="required">
-                      <label for="tourism-hospitality-dunno">I don't know - answer a few questions to find out</label>
-                    </li> -->
                   </ul>
-
-                  <table class="wb-tables table-striped table-hover" data-wb-tables="{ &quot;paging&quot;: false, &quot;info&quot;: true  }">
-                    <thead>
-                      <tr>
-                        <th>Tourism or hospitality category</th>
-                        <th>Description</th>
-                        <th class="hidden">Department</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Hotels</td>
-                        <td>Establishments primarily engaged in providing short-term lodging in facilities known as hotels. These establishments provide suites or guest rooms within a multi-storey or high-rise structure, accessible from the interior only, and they generally offer guests a range of complementary services and amenities, such as food and beverage services, parking, laundry services, swimming pools and exercise rooms, and conference and convention facilities.</td>
-                        <td class="hidden">
-                          <ul>
-                            <li>hotel management services (i.e., providing management and operating staff to run hotel)</li>
-                            <li>hotels (except casino hotels) with integrated health spa facilities</li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Food service contractors</td>
-                        <td>Establishments primarily engaged in supplying food services under contract for a specific period of time.</td>
-                        <td class="hidden">
-                          <ul>
-                            <li>cafeterias, industrial</li>
-                            <li>food services under contract for airlines, railways, institutions</li>
-                            <li>school cafeteria service</li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Musical theatre and opera companies</td>
-                        <td>Establishments primarily engaged in supplying food services under contract for a specific period of time.</td>
-                        <td class="hidden">
-                          <ul>
-                            <li>cafeterias, industrial</li>
-                            <li>food services under contract for airlines, railways, institutions</li>
-                            <li>school cafeteria service</li>
-                          </ul>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-
                 </fieldset>
-              
-                <div id="q3-check-12-month" class="hidden">
+              </div>
+                <!-- <div id="q3-check-12-month" class="hidden">
                   <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
-                    <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
+                    //this location closed for over 1 week during the period due to a COVID-19 public health restriction?
                     <div id="12-month-decline-input">
                       <div class="form-group row">
                         <fieldset>
                           <label class="required col-sm-12 control-label" for="12-month-decline">What is your 12-month average revenue drop<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
                           <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p>
-                            <!-- <a class="wb-lbx" role="button" aria-controls="12-month-calculator" href="#12-month-calculator"><span class="fas fa-calculator"></span> Calculate your 12-month revenue <span class="nowrap">decline<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p> -->
+                            //<a class="wb-lbx" role="button" aria-controls="12-month-calculator" href="#12-month-calculator"><span class="fas fa-calculator"></span> Calculate your 12-month revenue <span class="nowrap">decline<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                           <div class="col-sm-4">
                             <div class="input-group">
                               <input type="number" class="form-control text-right currency required" name="12-month-decline" id="12-month-decline" max="100">
@@ -1290,8 +1266,8 @@ fieldset +.buttons {
                       <a class="btn btn-default">Check if your 12-month average revenue drop qualifies</a>
                     </div>
                   </fieldset>
-                </div>
-              </div>
+                </div> 
+              </div> -->
               <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
                 <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
                 <p class="eligible-thrp-lockdown hidden">Because <strong>you were affected by a qualifying public health restriction</strong>, you may qualify for the THRP.</p>
@@ -1304,7 +1280,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Step 1</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 and 2</span></a></p>
           </div>
         </div>
       </div>
@@ -1325,7 +1301,7 @@ fieldset +.buttons {
             </div>
           </div>
 	        <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 and 2</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
           </div>	
         </div>
         <div class="row" id="crhp-questions">
@@ -1407,11 +1383,12 @@ fieldset +.buttons {
 
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 and 2</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
           </div>
         </div>
       </div>
     </fieldset>
+
     <fieldset id="rev-drop-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Revenue drop and subsidy rate</span></legend>
       <div class="panel-body">
@@ -1423,7 +1400,7 @@ fieldset +.buttons {
             <p>Based on your previous answers, you are not eligible for a wage subsidy in <span class="claim-period"></span>.</p>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 and 2</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 4</span></a></p>
           </div>	
         </div>
       
@@ -2212,7 +2189,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 4</span></a></p>
           </div>
         </div>
       </div>
@@ -2398,7 +2375,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 4</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 5</span></a></p>
           </div>
         </div>
         <section id="ee-calculation-table" class="mfp-hide modal-dialog modal-content overlay-def wb-popup-full">
@@ -2537,7 +2514,7 @@ fieldset +.buttons {
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 5</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 6</span></a></p>
           </div>
         </div>
       </div>
@@ -2700,7 +2677,7 @@ fieldset +.buttons {
                   </div>   
                   <p><span class="crhp-fyi">Calculation summary for your information</span><span class="cews-fyi">Enter the following lines in your application for <strong class="claim-period"></strong></span>:</p>
                   <ul class="lst-spcd">
-                    <li> <strong>Line 300:</strong> Amount calculated for <span class="line-c-cews">CEWS</span> for the claim period<sup><a href="#line-300-footnote">1</a></sup>: <strong>
+                    <li class="p1-21"> <strong>Line 300:</strong> Amount calculated for <span class="line-c-cews">CEWS</span> for the claim period<sup><a href="#line-300-footnote">1</a></sup>: <strong>
                       <output class="h3 wb-calc nowrap total-calculated-cews"></output>
                       </strong> </li>
                     <li><strong>Line 400:</strong> Active eligible employees for the claim period:
@@ -2722,7 +2699,7 @@ fieldset +.buttons {
                       <output class="h3 wb-calc nowrap" for="p2b-c0"></output>
                     </li>
                   </ul>
-                  <p class="small" id="line-300-footnote">1. You must enter the calculated line 300 <span class="elWageP">CEWS</span> amount on your CRHP application. If you receive CRHP, we will deem your <span class="elWageP">CEWS</span> for the period to be $0.</p>
+                  <p class="small class="p1-21" id="line-300-footnote">1. You must enter the calculated line 300 <span class="elWageP">CEWS</span> amount on your CRHP application. If you receive CRHP, we will deem your <span class="elWageP">CEWS</span> for the period to be $0.</p>
                 </div>
                 <table class="table" id="crhp-statement-table">
                   <caption class="h5 mrgn-bttm-0">Summary of CRHP calculation</caption>
@@ -3125,6 +3102,14 @@ $(document).on("click", ".prev-wb-step", function (event) {
 	$(this).parent().parent().find("legend + div.panel-body.hidden, .buttons").removeClass("hidden");
 	$("legend.wb-steps-active").parents().nextAll().find(".wb-steps-active, legend.prev-wb-step").removeClass("wb-steps-active prev-wb-step");	
 	$("legend.wb-steps-active").parents().nextAll().find("legend + div.panel-body, .buttons").addClass("hidden");	
+  
+  $("legend.wb-steps-active").parents().nextAll().each(function( index ) {
+    console.log("Each nextall $(this): ");
+    console.log($(this));
+    // const wrapperNode = document.querySelector('h1')
+    // wrapperNode.replaceWith(...wrapperNode.childNodes)
+  });
+  
 });		
 </script>	
 <script>
@@ -4822,10 +4807,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           // if (target.id == "tourism-hospitality-continue") { //continue
           //   $('#q3-check-12-month').addClass("hidden");
           // } else { //yes or no
-            $('#q3-check-12-month').removeClass("hidden");
+          //$('#q3-check-12-month').removeClass("hidden");
           //}
           thrpHhbrpSummary();
-          $('#crhp-eligibility-summary').removeClass('hidden');
+          // $('#crhp-eligibility-summary').removeClass('hidden');
         }
       });
 
@@ -4855,20 +4840,52 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $('.hhbrp-specific').addClass("hidden");
         } else {
           var twelveMonthDecline = zeroIfEmpty($('#12-month-decline').val());
-          $(".twelveMonthDecline").text(toPercent(toPercent(twelveMonthDecline)));
-          if ($('#qualifying-lockdown-yes:checked').length == 0) { //no lockdown
-            $('#q2-check-tourism').removeClass("hidden");
-            elWageP = 0;
-            $('.thrp-specific').addClass("hidden");
-            $('.hhbrp-specific').addClass("hidden");
-            $('.thrp-hhbrp-eligible').addClass("hidden");
-            $('.eligible-thrp-lockdown').addClass("hidden"); //hide lockdown
-            if ($('#tourism-hospitality-yes:checked').length == 1) { //they are tourism and hospitality industry
-              $('.thrp-not-enough-data').addClass("hidden");
-              $('.eligible-hhbrp-12-month').addClass("hidden");
-              if (twelveMonthDecline >= 40) {
-                $('.eligible-thrp-12-month').removeClass("hidden");
-                $('.ineligible-thrp-hhbrp').addClass("hidden");
+          $(".twelveMonthDecline").text(toPercent(twelveMonthDecline));
+          $('#q1-tourism-hospitality').addClass("hidden");
+          $('#q2-check-lockdown').addClass("hidden");
+          $('.eligible-thrp-lockdown').addClass("hidden"); //hide all by default
+          $('.eligible-thrp-12-month').addClass("hidden");
+          $('.eligible-hhbrp-12-month').addClass("hidden");
+          $('.ineligible-thrp-hhbrp').addClass("hidden");
+          $('.thrp-not-enough-data').addClass("hidden");
+          $('.thrp-hhbrp-eligible').addClass("hidden");
+          $('.thrp-specific').addClass("hidden");
+          $('.hhbrp-specific').addClass("hidden");
+          if (twelveMonthDecline < 40) { //only possibly eligible through lockdown
+            $('#q2-check-lockdown').removeClass("hidden");
+            if ($('#qualifying-lockdown-yes:checked').length > 0) {
+              $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
+              elWageP = 1;
+              $('.thrp-specific').removeClass("hidden");
+              $('.hhbrp-specific').addClass("hidden");
+              if (document.documentElement.lang == "fr") {
+                $('.elWageP').text("PRTA");
+              } else {
+                $('.elWageP').text("THRP");
+              }
+              $('.thrp-hhbrp-eligible').removeClass("hidden");
+            } else if ($('#qualifying-lockdown-no:checked').length > 0) {
+              elWageP = 0;
+              $('.ineligible-thrp-hhbrp').removeClass("hidden");
+            } else { //neither selected
+              $('.thrp-not-enough-data').removeClass("hidden");
+            }
+          } else { //12-month >= 40 - might qualify
+            $('#q1-tourism-hospitality').removeClass("hidden");
+            if ($('#tourism-hospitality-yes:checked').length > 0) { //they are THRP
+              $('.eligible-thrp-12-month').removeClass("hidden");
+              elWageP = 1;
+              $('.thrp-specific').removeClass("hidden");
+              if (document.documentElement.lang == "fr") {
+                $('.elWageP').text("PRTA");
+              } else {
+                $('.elWageP').text("THRP");
+              }
+              $('.thrp-hhbrp-eligible').removeClass("hidden");
+            } else if ($('#tourism-hospitality-no:checked').length > 0) { //not tourism/hospitality
+              $('#q2-check-lockdown').removeClass("hidden");
+              if ($('#qualifying-lockdown-yes:checked').length > 0) {
+                $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
                 elWageP = 1;
                 $('.thrp-specific').removeClass("hidden");
                 $('.hhbrp-specific').addClass("hidden");
@@ -4878,61 +4895,27 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $('.elWageP').text("THRP");
                 }
                 $('.thrp-hhbrp-eligible').removeClass("hidden");
-              } else {
-                $('.ineligible-thrp-hhbrp').removeClass("hidden");
-                $('.eligible-thrp-12-month').addClass("hidden");
-                elWageP = 0;
-                $('.thrp-hhbrp-eligible').addClass("hidden");
-                $('.thrp-specific').addClass("hidden");
-                $('.hhbrp-specific').addClass("hidden");
-              }
-            } else if ($('#tourism-hospitality-no:checked').length == 1) {
-              $('.thrp-not-enough-data').addClass("hidden");
-              $('.eligible-thrp-12-month').addClass("hidden");
-              if (twelveMonthDecline >= 50) {
-                $('.eligible-hhbrp-12-month').removeClass("hidden");
-                $('.ineligible-thrp-hhbrp').addClass("hidden");
-                elWageP = 2;
-                $('.thrp-specific').addClass("hidden");
-                $('.hhbrp-specific').removeClass("hidden");
-                if (document.documentElement.lang == "fr") {
-                  $('.elWageP').text("PREPDT");
+              } else if ($('#qualifying-lockdown-no:checked').length > 0) {
+                if (twelveMonthDecline < 50) {
+                  elWageP = 0;
+                  $('.ineligible-thrp-hhbrp').removeClass("hidden");
                 } else {
-                  $('.elWageP').text("HHBRP");
+                  $('.eligible-hhbrp-12-month').removeClass("hidden");
+                  elWageP = 2;
+                  $('.hhbrp-specific').removeClass("hidden");
+                  if (document.documentElement.lang == "fr") {
+                    $('.elWageP').text("PREPDT");
+                  } else {
+                    $('.elWageP').text("HHBRP");
+                  }
+                  $('.thrp-hhbrp-eligible').removeClass("hidden");
                 }
-                $('.thrp-hhbrp-eligible').removeClass("hidden");
-              } else {
-                $('.ineligible-thrp-hhbrp').removeClass("hidden");
-                $('.eligible-hhbrp-12-month').addClass("hidden");
-                elWageP = 0;
-                $('.thrp-hhbrp-eligible').addClass("hidden");
-                $('.thrp-specific').addClass("hidden");
-                $('.hhbrp-specific').addClass("hidden");
+              } else { //neither selected
+                $('.thrp-not-enough-data').removeClass("hidden");
               }
-            } else {
-              $('.ineligible-thrp-hhbrp').addClass("hidden");
+            } else { //hasn't indicated tourism/hospitality yet
               $('.thrp-not-enough-data').removeClass("hidden");
-              elWageP = 0;
-              $('.thrp-specific').addClass("hidden");
-              $('.hhbrp-specific').addClass("hidden");
             }
-          } else {
-            $('#q2-check-tourism').addClass("hidden");
-            $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
-            $('.eligible-thrp-12-month').addClass("hidden"); //hide the rest
-            $('.eligible-hhbrp-12-month').addClass("hidden");
-            $('.ineligible-thrp-hhbrp').addClass("hidden");
-            $('.thrp-not-enough-data').addClass("hidden");
-            $('.thrp-hhbrp-eligible').removeClass("hidden");
-            // $('.thrp-not-enough-data').addClass("hidden");
-            elWageP = 1;
-            if (document.documentElement.lang == "fr") {
-              $('.elWageP').text("PRTA");
-            } else {
-              $('.elWageP').text("THRP");
-            }
-            $('.thrp-specific').removeClass("hidden");
-            $('.hhbrp-specific').addClass("hidden");
           }
         }
         checkWageEligibility();
