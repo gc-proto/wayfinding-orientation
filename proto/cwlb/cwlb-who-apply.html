@@ -126,13 +126,124 @@
     <!-- AJAX ALERT - DO NOT REMOVE --> 
     <!-- <section data-ajax-replace="https://www.canada.ca/content/dam/cra-arc/includes/cwlb-alert.txt#eng"></section> -->
     
-    <p>If you are eligible for the Canada Worker Lockdown Benefit (CWLB), you can receive $300 ($270 after taxes withheld) for each 1-week period.</p>
+    <p>If you are eligible for the Canada Worker Lockdown Benefit (CWLB), you can receive $300 (<strong>$270</strong> after taxes withheld) for each 1-week period.</p>
     <p>To apply for the CWLB, you must meet all the eligibility criteria and be employed or self-employed on the day before your first application period.</p>
     <section>
       <h2 id="h-1">Eligibility criteria</h2>
       <p class="lead">To be eligible for the CWLB, you must meet all the following conditions for the 1-week period you're applying for:</p>
       <section>
         <ul class="checkbox-lg checkbox-zebra">
+          <li class="checkbox">
+            <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
+            <label for="eg3">You reside in Canada</label>
+            <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>Definition </summary>
+              <p>You live and have a home in Canada, but do not have to be a citizen or a permanent resident.</p>
+            </details>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
+            <label for="eg4">You were present in Canada</label>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
+            <label for="eg6">You are at least 15 years old</label>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
+            <label for="eg5">You have a valid Social Insurance Number (SIN)</label>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg20" class="action-checkbox cb-dmm">
+            <label for="eg20">Your public health authority has declared a lockdown due to COVID-19 in your region (dependent on your postal code) for at least 2 consecutive weeks</label>
+            <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>What is considered a lockdown</summary>
+              <ul class="fa-ul">
+                <li><span class="fas fa-check text-success fa-li"></span> Definition of a lockdown
+                  <ul>
+                    <li>...</li>
+                  </ul>
+                </li>
+                <li><span class="fas fa-times text-danger fa-li"></span> Which restrictions are not considered a lockdown
+                  <ul>
+                    <li>...</li>
+                  </ul>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg21" class="action-checkbox cb-dmm">
+            <label for="eg21">Your place of work (based on postal code) is closed in a designated lockdown zone and you are not able to work from home</label>
+            <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>What is considered your primary/physical workplace</summary>
+              <p>...</p>
+            </details>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
+            <label for="eg7">You earned at least <span class="nowrap">$5,000</span> in 2020, 2021, or in the 12&nbsp;months before the date you apply from any of the following sources:</label>
+            <ul class="std-blt lst-spcd">
+              <li>
+                <label for="eg7">employment income (total or gross pay)</label>
+              </li>
+              <li>
+                <label for="eg7">net <span class="nowrap">self-employment</span> income (after deducting expenses) </label>
+              </li>
+              <li>
+                <label for="eg7">maternity and parental benefits from EI or similar QPIP benefits</label>
+              </li>
+              <li>
+                <label for="eg7">regular or special benefits from EI <s>if your EI claim began on or after September&nbsp;27,&nbsp;2020</s></label>
+              </li>
+              <li>
+                <label for="eg7">amounts from other <span class="nowrap">COVID-19</span> benefits:</label>
+                <ul>
+                  <li>
+                    <label for="eg7">Canada Emergency Response Benefit (CERB)</label>
+                  </li>
+                  <li>
+                    <label for="eg7">Canada Emergency Student Benefit (CESB)</label>
+                  </li>
+                  <li>
+                    <label for="eg7">Canada Recovery Benefit (CRB)</label>
+                  </li>
+                  <li>
+                    <label for="eg7">Canada Recovery Caregiving Benefit (CRCB)</label>
+                  </li>
+                  <li>
+                    <label for="eg7">Canada Recovery Sickness Benefit (CRSB)</label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>What counts towards the <span class="nowrap">$5,000</span></summary>
+              <ul class="fa-ul">
+                <li><span class="fas fa-check text-success fa-li"></span> <strong>Counts as income:</strong>
+                  <ul>
+                    <li>All employment or self-employment income, including:
+                      <ul>
+                        <li>tips</li>
+                        <li>non-eligible dividends</li>
+                        <li>honoraria (nominal amounts paid to volunteers)</li>
+                        <li>royalties  (payments to artists)</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><span class="fas fa-times text-danger fa-li"></span> <strong>Does not count as income:</strong>
+                  <ul>
+                    <li>disability benefits</li>
+                    <li>student loans, bursaries or scholarships</li>
+                    <li>social assistance or family support payments </li>
+                    <li>Canada Pension Plan (CPP), Québec Pension Plan (QPP), or other pension income</li>
+                    <li>Old Age Security (OAS) payments</li>
+                  </ul>
+                </li>
+              </ul>
+            </details>
+          </li>
           <li class="checkbox">
             <input type="checkbox" id="eg13" class="action-checkbox cb-dmm">
             <label for="eg13"><strong>During the period you're applying for:</strong></label>
@@ -145,29 +256,31 @@
                 <label for="eg13">you had a <span class="nowrap">50%</span> reduction in your average weekly income compared to the previous year due to <span class="nowrap">COVID-19</span> </label>
               </li>
             </ul>
-            <details class="mrgn-lft-lg">
+            <details class="mrgn-lft-md mrgn-tp-md">
               <summary>How to calculate the <span class="nowrap">50%</span> reduction </summary>
               <p>The 50% reduction is  based on your average weekly employment or net <span class="nowrap">self-employment</span> income from the previous year.</p>
               <ul>
-                <li>For periods in 2020, use either 2019 or the previous 12 months</li>
-                <li>For periods in 2021, use 2019, 2020, or the previous 12 months</li>
+                <li>For periods in 2021, use either 2020 or the previous 12 months</li>
+                <li>For periods in 2022, use 2021, 2020, or the previous 12 months</li>
               </ul>
               <p>You will need to check that you meet this criteria for every period you apply for.</p>
               <p><span class="fas fa-calculator text-muted"></span> <strong>Example:</strong></p>
-              <p><strong>2020, 2019, or the last 12&nbsp;months </strong></p>
-              <p class="mrgn-lft-lg"><strong>$26, 000</strong> (employment and self-employment income in 2019, 2020, or the last 12&nbsp;months)</p>
+              <p><strong>2021, 2020, or the last 12&nbsp;months </strong></p>
+              <p class="mrgn-lft-lg"><strong>$26, 000</strong> (employment and self-employment income in 2020, 2021, or the last 12&nbsp;months)</p>
               <p class="mrgn-lft-lg"><span class="nowrap"><strong>÷  52</strong></span> </p>
-              <p class="mrgn-lft-lg"><span class="nowrap"><strong>=</strong> <strong>$500</strong></span> (average weekly income in 2019, 2020, or the last <span class="nowrap">12 months</span>)</p>
+              <p class="mrgn-lft-lg"><span class="nowrap"><strong>=</strong> <strong>$500</strong></span> (average weekly income in 2020, 2021, or the last <span class="nowrap">12 months</span>)</p>
               <p class="mrgn-lft-lg"><span class="nowrap"><strong>÷ </strong> <strong>&nbsp;&nbsp;2</strong></span></p>
-              <p class="mrgn-lft-lg"><span class="nowrap"><strong>=</strong> <strong>$250 </strong></span>(50% of the average weekly income in 2019, 2020, or the last <span class="nowrap">12 months</span>)</p>
-              <p><strong>CWLB <span class="nowrap">2-week</span> period</strong></p>
-              <p class="mrgn-lft-lg"><strong>$100</strong> (employment  and self-employment income for the CWLB period)</p>
-              <p class="mrgn-lft-lg"><span class="nowrap"><strong>÷ </strong> <strong>&nbsp;&nbsp;2</strong></span></p>
+              <p class="mrgn-lft-lg"><span class="nowrap"><strong>=</strong> <strong>$250 </strong></span>(50% of the average weekly income in 2020, 2021, or the last <span class="nowrap">12 months</span>)</p>
+              <s>
+              <p><strong>CWLB <span class="nowrap">1-week</span> period</strong></p>
+              <p class="mrgn-lft-lg"><strong>$50</strong> (employment  and self-employment income for the CWLB period)</p>
+              <p class="mrgn-lft-lg"><span class="nowrap"><strong>÷ </strong> <strong>&nbsp;&nbsp;1</strong></span></p>
               <p class="mrgn-lft-lg"><span class="nowrap"><strong>=</strong> <strong>$50 </strong></span>(average weekly income for the CWLB period)</p>
-              <p>Your average weekly income  for the CWLB period must be less than 50% of your average weekly income in 2019, 2020, or the last <span class="nowrap">12 months</span> for periods in 2021.</p>
-              <p> In this example, since $50 (average weekly income for the CWLB period) is less than $250 (50% of  the average weekly income in 2019, 2020, or the last <span class="nowrap">12 months</span>), the individual would  meet this criteria.</p>
+              </s>
+              <p>Your average weekly income  for the CWLB period must be less than 50% of your average weekly income in 2020, 2021, or the last <span class="nowrap">12 months</span> for periods in 2022.</p>
+              <p> In this example, since $50 (average weekly income for the CWLB period) is less than $250 (50% of  the average weekly income in 2020, 2021, or the last <span class="nowrap">12 months</span>), the individual would  meet this criteria.</p>
             </details>
-            <details class="mrgn-lft-lg">
+            <details class="mrgn-lft-md">
               <summary>What is included in employment or self-employment income</summary>
               <p>For this calculation, self-employment income is your revenue minus any expenses incurred to earn the <span class="nowrap">self-employment</span> revenue.</p>
               <p> Employment and/or self-employment income includes, among other things: </p>
@@ -199,7 +312,7 @@
                 <label for="eg1">Canada Recovery Lockdown Benefit (CRCB)</label>
               </li>
               <li>
-                <label for="eg1">short-term disability benefits</label>
+                <label for="eg1"><s>short-term disability benefits</s></label>
               </li>
               <li>
                 <label for="eg1">Employment Insurance (EI) benefits</label>
@@ -210,122 +323,18 @@
             </ul>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
-            <label for="eg2">You were <strong>not eligible</strong> for EI benefits</label>
-            <details class="mrgn-lft-lg">
-              <summary>Find out if you qualify for EI benefits </summary>
-              <p>You may qualify  for EI benefits if you have accumulated the required number of hours  of insurable employment.   If you do not have the minimum number of hours, you may be eligible for the CWLB.</p>
-              <p>To determine your EI eligibility, you should make an EI claim before you apply for the CWLB. </p>
-              <p>Details: <a href="https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html">Apply for EI regular benefits</a></p>
-            </details>
-            <details class="mrgn-lft-lg">
-              <summary>If you recently exhausted your EI benefits</summary>
-              <p>You may be eligible for the CWLB if you no longer qualify for EI benefits. You must meet all the CWLB eligibility criteria to apply.</p>
-              <p>If you worked during your EI claim, you may be able to establish a new EI claim. To determine your EI eligibility, you should make an EI claim before you apply for the CWLB. </p>
-              <p>Details: <a href="cwlb-transition-ei.html">Transitioning from EI to the CWLB</a></p>
-            </details>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-            <label for="eg3">You reside in Canada</label>
-            <details class="mrgn-lft-lg">
-              <summary>Definition </summary>
-              <p>You live and have a home in Canada, but do not have to be a citizen or a permanent resident. </p>
-            </details>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
-            <label for="eg4">You were present in Canada</label>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
-            <label for="eg6">You are at least 15 years old</label>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
-            <label for="eg5">You have a valid Social Insurance Number (SIN)</label>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
-            <label for="eg7">You earned at least <span class="nowrap">$5,000</span> in 2019, 2020, or in the 12&nbsp;months before the date you apply from any of the following sources: </label>
-            <ul class="std-blt lst-spcd">
-              <li>
-                <label for="eg7">employment income (total or gross pay)</label>
-              </li>
-              <li>
-                <label for="eg7">net <span class="nowrap">self-employment</span> income (after deducting expenses) </label>
-              </li>
-              <li>
-                <label for="eg7">maternity and parental benefits from EI or similar QPIP benefits</label>
-              </li>
-              <li>
-                <label for="eg7">regular or special benefits from EI if your EI claim began on or after September&nbsp;27,&nbsp;2020 </label>
-              </li>
-            </ul>
-            <details class="mrgn-lft-lg">
-              <summary>What counts towards the <span class="nowrap">$5,000</span></summary>
-              <ul class="fa-ul">
-                <li><span class="fas fa-check text-success fa-li"></span> <strong>Counts as income:</strong>
-                  <ul>
-                    <li>All employment or self-employment income, including:
-                      <ul>
-                        <li>tips</li>
-                        <li>non-eligible dividends</li>
-                        <li>honoraria (nominal amounts paid to volunteers)</li>
-                        <li>royalties  (payments to artists)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><span class="fas fa-times text-danger fa-li"></span> <strong>Does not count as income:</strong>
-                  <ul>
-                    <!--<li>EI regular benefits</li>-->
-                    <li>disability benefits</li>
-                    <li>student loans, bursaries or scholarships</li>
-                    <li>social assistance or family support payments </li>
-                    <li>Canada Pension Plan (CPP), Québec Pension Plan (QPP), or other pension income</li>
-                    <li>Old Age Security (OAS) payments</li>
-                    <li>amounts from other <span class="nowrap">COVID-19</span> benefits:
-                      <ul>
-                        <li>Canada Emergency Response Benefit (CERB)</li>
-                        <li>Canada Emergency Student Benefit (CESB)</li>
-                        <li>Canada Recovery Benefit (CRB)</li>
-                        <li>Canada Recovery Caregiving Benefit (CRCB)</li>
-                        <li>Canada Recovery Sickness Benefit (CRSB)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li class="checkbox">
             <input type="checkbox" id="eg8" class="action-checkbox cb-dmm">
-            <label for="eg8">You have not quit your job or reduced your hours voluntarily on or after <span class="nowrap">September 27, 2020</span>, unless it was reasonable to do so</label>
-            <details class="mrgn-lft-lg">
+            <label for="eg8">You have not quit your job or reduced your hours voluntarily on or after <s><span class="nowrap">September 27, 2020</span></s> the lockdown began, unless it was reasonable to do so</label>
+            <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Penalty</summary>
-              <p>If you voluntarily quit your job on or after September 27, 2020, you will not be eligible to receive the CWLB.</p>
-            </details>
-          </li>
-          <li class="checkbox">
-            <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
-            <label for="eg9">You were seeking work during the period, either as an employee or in self-employment</label>
-            <details class="mrgn-lft-lg">
-              <summary>Provincial course exception</summary>
-              <p>If you attended a course, program, or training referred to you by a provincial government or provincial body during the 2-week period, you may be eligible for the CWLB if you also meet all the other eligibility criteria.</p>
-            </details>
-            <details class="mrgn-lft-lg">
-              <summary>You may work while receiving the CWLB</summary>
-              <p>You may earn employment or self-employment income while you receive the CWLB. But the CWLB has an income threshold of <span class="nowrap">$38,000</span>.</p>
-              <p>You will have to reimburse <span class="nowrap">$0.50</span> for every dollar of net income you earn above <span class="nowrap">$38,000</span> on your income tax return for that year (2020 or 2021). You will not have to pay back more than your benefit amount for that year.</p>
-              <p>We encourage you to consult <a href="https://www.jobbank.gc.ca/findajob/resources/cerb">Job Bank</a>, Canada's national employment service that offers tools to help with your job search.</p>
+              <p>If you voluntarily quit your job, you will not be eligible to receive the CWLB.</p>
             </details>
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg10" class="action-checkbox cb-dmm">
-            <label for="eg10">You have not turned down reasonable work during the 2-week period you're applying for</label>
+            <label for="eg10">You have not turned down reasonable work during the 1-week period you're applying for</label>
             <!--insert new ex-hide here-->
-            <details class="mrgn-lft-lg">
+            <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Penalty for refusing work</summary>
               <p>If you refuse reasonable work, you will automatically lose 5 periods (10 weeks) of the CWLB eligibility periods. You must also wait 5&nbsp;periods (10&nbsp;weeks) before you can re-apply. If you refuse work again, you will face the penalty again.</p>
             </details>
@@ -333,7 +342,7 @@
           <li class="checkbox">
             <input type="checkbox" id="eg11" class="action-checkbox cb-dmm">
             <label for="eg11">You were not self-isolating or in quarantine due to international travel </label>
-            <details class="mrgn-lft-lg">
+            <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Exceptions</summary>
               <p>This does not apply to you if you were isolating because:</p>
               <ul>
@@ -346,18 +355,41 @@
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
-            <label for="eg12">You filed a 2019 or 2020 tax return</label>
-            <details class="mrgn-lft-lg">
-              <summary>Exception</summary>
-              <p>Your 2019 or 2020 tax return is not required <strong>only</strong> if:</p>
-              <ul class="std-blt lst-spcd">
-                <li>you applied for less than 21 periods since September 27, 2020</li>
-                <p><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">and</span></span></p>
-                <li>you applied for period 21 (July 4 to 17, 2021) or an earlier period</li>
-              </ul>
-              <p>To confirm your number of CWLB periods, you can <a href="https://www.canada.ca/en/revenue-agency/services/benefits/worker-lockdown-benefit/cwlb-periods-apply.html#checkboxes">select the periods you applied for</a> or check in <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html">CRA My Account</a>, under "COVID-19 Support Payment Application Details".</p>
-            </details>
+            <label for="eg12">You filed your 2020 tax return</label>
           </li>
+          
+          <!--li class="checkbox">
+            <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
+            <label for="eg2">You were <strong>not eligible</strong> for EI benefits</label>
+              <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>Find out if you qualify for EI benefits </summary>
+              <p>You may qualify  for EI benefits if you have accumulated the required number of hours  of insurable employment.   If you do not have the minimum number of hours, you may be eligible for the CWLB.</p>
+              <p>To determine your EI eligibility, you should make an EI claim before you apply for the CWLB. </p>
+              <p>Details: <a href="https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html">Apply for EI regular benefits</a></p>
+            </details>
+              <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>If you recently exhausted your EI benefits</summary>
+              <p>You may be eligible for the CWLB if you no longer qualify for EI benefits. You must meet all the CWLB eligibility criteria to apply.</p>
+              <p>If you worked during your EI claim, you may be able to establish a new EI claim. To determine your EI eligibility, you should make an EI claim before you apply for the CWLB. </p>
+              <p>Details: <a href="cwlb-transition-ei.html">Transitioning from EI to the CWLB</a></p>
+            </details>
+          </li--> 
+          
+          <!--li class="checkbox">
+            <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
+            <label for="eg9">You were seeking work during the period, either as an employee or in self-employment</label>
+              <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>Provincial course exception</summary>
+              <p>If you attended a course, program, or training referred to you by a provincial government or provincial body during the 1-week period, you may be eligible for the CWLB if you also meet all the other eligibility criteria.</p>
+            </details>
+              <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>You may work while receiving the CWLB</summary>
+              <p>You may earn employment or self-employment income while you receive the CWLB. But the CWLB has an income threshold of <span class="nowrap">$38,000</span>.</p>
+              <p>You will have to reimburse <span class="nowrap">$0.50</span> for every dollar of net income you earn above <span class="nowrap">$38,000</span> on your income tax return for that year (2020 or 2021). You will not have to pay back more than your benefit amount for that year.</p>
+              <p>We encourage you to consult <a href="https://www.jobbank.gc.ca/findajob/resources/cerb">Job Bank</a>, Canada's national employment service that offers tools to help with your job search.</p>
+            </details>
+          </li-->
+          
         </ul>
         <div class="alert alert-warning provisional" id="action-no-msg">
           <p>You need all of the above to be eligible for the CWLB.</p>
@@ -367,8 +399,7 @@
         <div class="alert alert-success hidden provisional" id="action-msg1">
           <h3>You meet the criteria </h3>
           <div>
-            <p>If you meet all of the above criteria, you can get <span class="nowrap">$1,000</span> ($900 after taxes withheld) or $600 ($540 after taxes withheld) for each 2-week period, depending on when you start applying for the benefit.</p>
-            <p class="mrgn-tp-md"><a href="https://www.canada.ca/en/revenue-agency/services/benefits/worker-lockdown-benefit/cwlb-how-much.html#h-2">Your CWLB amount may change for period 22 and later periods</a></p>
+            <p>If you meet all of the above criteria, you can get $300 ($270 after taxes withheld) or $600 ($540 after taxes withheld) for each 1-week period.</p>
             <p class="mrgn-tp-md">The CRA may ask you to provide additional information if your application needs further validation.</p>
           </div>
         </div>
