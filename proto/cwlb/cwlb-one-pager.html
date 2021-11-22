@@ -146,7 +146,6 @@
             <div id="answers0">
               <div id="answer0-1" class="hidden alert alert-success alert0 provisional">
                 <p>Great. This information is required to process your application.</p>
-                
                 <div class="mrgn-tp-md">
                   <p>Next, go to: <a href="#confirm-registration"><span class="nowrap"><span class="fa-stack fa-xs mrgn-rght-sm"><span class="far fa-circle fa-stack-2x"></span><span class="far fa-user-circle fa-stack-2x"></span></span>Confirm</span> you are currently registered with the CRA</a>.</p>
                 </div>
@@ -156,7 +155,7 @@
                 <p>For information on how to file, go to: <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/get-ready-taxes.html">Get ready to do your taxes</a>.</p>
                 <!--<div class="mrgn-tp-md">
                   <p>Next, go to: <a href="#confirm-registration"><span class="nowrap"><span class="fa-stack fa-xs mrgn-rght-sm"><span class="far fa-circle fa-stack-2x"></span><span class="far fa-user-circle fa-stack-2x"></span></span>Confirm</span> you are currently registered with the CRA</a>.</p>
-                </div>-->
+                </div>--> 
               </div>
             </div>
           </div>
@@ -173,7 +172,16 @@
             <div class="wb-frmvld fieldflow-lg">
               <form>
                 <div class="wb-fieldflow" data-wb-fieldflow="{&quot;noForm&quot;: true, &quot;isoptional&quot;: true, &quot;renderas&quot;:&quot;radio&quot;, &quot;reset&quot;: {&quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.alert1&quot;, &quot;class&quot;: &quot;hidden&quot;}}">
-                  <p>Have you applied for the Canada Emergency Response Benefit (CERB), Canada Emergency Student Benefit (CESB), or any of the Canada recovery benefits with the CRA before?</p>
+                  <div class="wb-fieldflow-header">
+                    <p class="wb-fieldflow-label">Have you applied for any of the <a class="wb-lbx" title="CRA COVID-19 benefits" aria-controls="covid19" href="#covid19">COVID-19 benefits with the CRA<i class="fa fa-question-circle mrgn-lft-sm"></i></a></p>
+                    <!--div class="mrgn-tp-md">						
+                      <p class="text-muted small"> Canada Emergency Response Benefit (CERB)<br>
+                        Canada Emergency Student Benefit (CESB)<br>
+                        Canada Recovery Benefit (CRB)<br>
+                        Canada Recovery Caregiving Benefit (CRCB)<br>
+                        Canada Recovery Sickness Benefit (CRSB) </p>
+                    </div--> 
+                  </div>
                   <ul>
                     <li data-wb-fieldflow="{&quot;action&quot;: &quot;append&quot;, &quot;source&quot;: &quot;#have-acct&quot;}">Yes</li>
                     <li> No
@@ -196,14 +204,14 @@
                                     </ul>
                                   </div>
                                 </li>
-                                <li> No
-                                  <div class="wb-fieldflow-sub" data-wb-fieldflow="{&quot;renderas&quot;: &quot;radio&quot;, &quot;isoptional&quot;: true, &quot;reset&quot;: {&quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.alert1&quot;, &quot;class&quot;: &quot;hidden&quot;}}">
+                                <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer1-5&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">No 
+                                  <!--div class="wb-fieldflow-sub" data-wb-fieldflow="{&quot;renderas&quot;: &quot;radio&quot;, &quot;isoptional&quot;: true, &quot;reset&quot;: {&quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.alert1&quot;, &quot;class&quot;: &quot;hidden&quot;}}">
                                     <p>Have you filed an income tax return for the 2020 calendar year?</p>
                                     <ul>
                                       <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer1-5&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">Yes</li>
                                       <li data-wb-fieldflow="{&quot;action&quot;: &quot;removeClass&quot;, &quot;source&quot;: &quot;#answer1-6&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}">No </li>
                                     </ul>
-                                  </div>
+                                  </div--> 
                                 </li>
                               </ul>
                             </div>
@@ -249,19 +257,38 @@
               </div>
             </div>
             <div id="answer1-5" class="hidden alert alert-info alert1 provisional">
-              <p>To apply for the CWLB online when application opens, you will need to register a <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" target="_blank" rel="noopener">CRA My <span class="nowrap">Account<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
+              <p>You will need to register for a <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" target="_blank" rel="noopener">CRA My <span class="nowrap">Account<span class="far fa-window-restore mrgn-lft-sm mrgn-rght-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a> to apply online when application opens for the CWLB.</p>
             </div>
             <div id="answer1-6" class="hidden alert alert-info alert1 provisional">
-               <p>You must file your 2020 taxes before you can apply for the CWLB.</p>
-                <p>For information on how to file, go to: <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/get-ready-taxes.html">Get ready to do your taxes</a>.</p>
+              <p>You must file your 2020 taxes before you can apply for the CWLB.</p>
+              <p>For information on how to file, go to: <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/get-ready-taxes.html">Get ready to do your taxes</a>.</p>
             </div>
             <div id="answer1-7" class="hidden alert alert-warning alert1 provisional">
-              <p>You must file your 2020 taxes before you can apply for the CWLB. For more information on how to file, go to: <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/get-ready-taxes.html">Get ready to do your taxes</a> or call <strong><span class="nowrap">1-800-959-8281</span></strong>.</p>
+              <p><strong>You must file your 2020 taxes to be eligible for the CWLB.</strong></p>
+              <p>You will be able to register for a <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" target="_blank" rel="noopener">CRA My <span class="nowrap">Account<span class="far fa-window-restore mrgn-lft-sm mrgn-rght-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a> after your return has been assesed.</p>
+              <p>When application opens, you will be able to apply for the CWLB online through your CRA My Account or by phone.</p>
+              
+              <!--For more information on how to file, go to: <a href="https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax/get-ready-taxes.html">Get ready to do your taxes</a> or call <strong><span class="nowrap">1-800-959-8281</span></strong>.</p--> 
             </div>
           </div>
         </div>
       </div>
     </div>
+    <section class="mfp-hide modal-dialog modal-content overlay-def" id="covid19">
+      <header class="modal-header">
+        <h3 class="modal-title">COVID-19 benefits with the CRA</h3>
+      </header>
+      <div class="modal-body">
+        <h4 class="mrgn-tp-sm">Have you applied for any of the COVID-19 benefits with the CRA?</h4>
+        <ul>
+          <li>Canada Emergency Response Benefit (CERB) with CRA</li>
+          <li>Canada Emergency Student Benefit (CESB)</li>
+          <li>Canada Recovery Benefit (CRB)</li>
+          <li>Canada Recovery Caregiving Benefit (CRCB)</li>
+          <li>Canada Recovery Sickness Benefit (CRSB) </li>
+        </ul>
+      </div>
+    </section>
     <div class="row mrgn-bttm-md">
       <div class="col-xs-12">
         <div class="brdr-lft mrgn-lft-md mrgn-tp-sm">
@@ -269,7 +296,7 @@
           <h3 class="pull-left mrgn-tp-0 mrgn-lft-lg h3 text-info" id="deposit">Set up direct deposit</h3>
           <div class="clearfix"></div>
           <div class="mrgn-lft-lg">
-            <p>Direct deposit payments take about 3&nbsp;to 5&nbsp;business days. A cheque takes about 10&nbsp;to 12&nbsp;business days.</p>
+            <p>Direct deposit payments will take about 3&nbsp;to 5&nbsp;business days. A cheque takes about 10&nbsp;to 12&nbsp;business days.</p>
             <div class="wb-frmvld fieldflow-lg">
               <form>
                 <div class="wb-fieldflow" data-wb-fieldflow="{&quot;noForm&quot;: true, &quot;isoptional&quot;: true, &quot;renderas&quot;:&quot;radio&quot;, &quot;reset&quot;: {&quot;action&quot;: &quot;addClass&quot;, &quot;source&quot;: &quot;.alert2, #bank-redir&quot;, &quot;class&quot;: &quot;hidden&quot;, &quot;live&quot;: true}}">
@@ -290,7 +317,7 @@
             <div class="answers2">
               <div id="answer2-1" class="alert alert-success hidden alert2 provisional">
                 <p>Great.</p>
-                <p>Direct deposit payments take about 3&nbsp;to 5&nbsp;business days.</p>
+                <p>Direct deposit payments will take about 3&nbsp;to 5&nbsp;business days.</p>
               </div>
               <div id="answer2-2" class="alert alert-info hidden alert2 provisional">
                 <p>Your mailing address must be up to date:</p>
@@ -298,7 +325,7 @@
                   <li><strong>Online:</strong> Confirm it's up to date in your <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals.html" target="_blank">CRA My <span class="nowrap">Account<span class="far fa-window-restore mrgn-lft-sm"></span></span><span class="wb-inv"> (opens in new window)</span></a> under "Personal profile"</li>
                   <li><strong>By phone:</strong> Call <a href="tel:18009598281" class="hidden-md hidden-lg nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-800-959-8281</a><strong class="hidden-xs hidden-sm nowrap"><span class="fas fa-phone fa-flip-horizontal"></span>1-800-959-8281</strong></li>
                 </ul>
-                <p class="mrgn-tp-lg"><strong>Reminder:</strong> Direct deposit payments take about 3&nbsp;to&nbsp;5 business days. A cheque takes about 10&nbsp;to 12&nbsp;business days.</p>
+                <p class="mrgn-tp-lg"><strong>Reminder:</strong> Direct deposit payments will take about 3&nbsp;to&nbsp;5 business days. A cheque will take about 10&nbsp;to 12&nbsp;business days.</p>
               </div>
               <div id="answer2-3" class="alert alert-info hidden alert2 provisional">
                 <p>To set up or change your direct deposit information with the CRA, have your financial institution securely update your information:</p>
@@ -316,8 +343,9 @@
     </div>
     <h2 id="h-2">When you can apply</h2>
     <p><span class="far fa-clock mrgn-rght-md"></span>Applications for the CWLB will open on <strong>[date]</strong>.</p>
-    <p>You may start applying on the <strong>first Monday after the <span class="nowrap">1-week</span> period</strong> you're applying for has ended. Applications do not renew automatically. </p>
-    <p>You must apply for each period separately. You may apply for any period you are eligible for that is open for application, including <strong>up to 60&nbsp;days after</strong> the period has ended.</p>
+    <p>The CWLB is available only when a government authority has designated a public health COVID-19 lockdown in your province or territory, or region. </p>
+    <p>You may start applying on the <strong>first Monday after the <span class="nowrap">1-week</span> period</strong> you're applying for has ended. </p>
+    <p>Applications do not renew automatically. You must apply for each period separately. You may apply for any period you are eligible for that is open for application.</p>
   </div>
   <div class="container">
     <div class="row row-no-gutters mrgn-tp-xl">
