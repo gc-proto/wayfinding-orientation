@@ -191,7 +191,7 @@ display:none;
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Registered Canadian amateur athletic association</li>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}]'>Registered journalism organization</li>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3", "class": "hidden"}, {"action": "removeClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#desc-3", "class": "hidden", "live": true}]'>Private school or private college</li>
-                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3, #do-qualify-rent, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-C", "class": "hidden"}, {"action": "removeClass", "source": "#desc-4", "class": "hidden", "live": true}]'>Public institution</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3, #do-qualify-rent, #do-qualify-wage, .answers", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-C", "class": "hidden"}, {"action": "removeClass", "source": "#desc-4", "class": "hidden", "live": true}]'>Public institution</li>
                 </ul>
               </div>
               <!--might need to add ARIA //-->
@@ -303,7 +303,7 @@ display:none;
                 </div>
                 <ul>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3b", "class": "hidden"}, {"action": "removeClass", "source": "#question-3c", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3b-yes", "live": true}]'>Yes</li>
-                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3b, #do-qualify-rent, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-D", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3b-no", "live": true}]'>No</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-3b, #do-qualify-rent, #do-qualify-wage, .answers", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-D", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q3b-no", "live": true}]'>No</li>
                 </ul>
               </div>
               <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});">Next<span class="wb-inv">, after answering question about partnership consisting of eligible entities</span></button></li>
@@ -413,7 +413,7 @@ display:none;
                 </div>
                 <ul>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4b", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4b-yes", "live": true}]'>Yes</li>
-                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4b, #do-qualify-wage", "class": "hidden"}, {"action": "removeClass", "source": "#question-4c, #results.q1-yes #answer-L", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4b-no", "live": true}]'>No</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4b, #do-qualify-wage, #answer-A", "class": "hidden"}, {"action": "removeClass", "source": "#question-4c.q2-yes, #results.q2-no, #results #answer-L", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4b-no", "live": true}]'>No</li>
                 </ul>
               </div>
               <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});">Next<span class="wb-inv">, after answering question purchasing a partnership's business assets</span></button></li>
@@ -431,7 +431,7 @@ display:none;
                 </div>
                 <ul>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4c", "class": "hidden"}, {"action": "removeClass", "source": "#question-5", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4c-yes", "live": true}]'>Yes</li>
-                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4c, #do-qualify-wage, #do-qualify-rent, #results.q4b-no #answer-L", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-E", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4c-no", "live": true}]'>No</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4c, #do-qualify-wage, #do-qualify-rent, .answers", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-E", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4c-no", "live": true}]'>No</li>
                 </ul>
               </div>
               <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});">Next<span class="wb-inv">, after answering question about having a business number</span></button></li>
@@ -481,7 +481,7 @@ display:none;
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6", "class": "hidden"}, {"action": "removeClass", "source": "#question-7", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q6-50plus", "live": true}]'>50% or higher</li>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #hhbrp-wage, #hhbrp-rent", "class": "hidden"}, {"action": "removeClass", "source": "#question-7.q5-yes, #question-8.q5-no, #results.q6-40-50 #answer-G", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q6-40-50", "live": true}]'>40% to 49.99%</li>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #results:is(.q3a-no, .q3c-no, .q4b-no) #do-qualify-wage, #do-qualify-rent, #thrp-wage, #hhbrp-wage", "class": "hidden"}, {"action": "removeClass", "source": "#results, #results.q6-10-40 :is(#answer-G, #answer-I)", "class": "hidden"},  {"action": "addClass", "source": ".questions, #results", "class": "q6-10-40", "live": true}]'>10.01% to 39.99%</li>
-                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #do-qualify-wage, #do-qualify-rent", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-F", "class": "hidden"}]'>10% or less</li>
+                  <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-6, #do-qualify-wage, #do-qualify-rent, .answers", "class": "hidden"}, {"action": "removeClass", "source": "#results, #answer-F", "class": "hidden"}]'>10% or less</li>
                 </ul>
               </div>
               <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});">Next<span class="wb-inv">, after answering question about your claim period revenue drop</span></button></li>
@@ -603,9 +603,8 @@ display:none;
             <div id="answer-M" class="answers hidden">
               <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-M: You do not seem to qualify for the CRHP because your business type is not eligible.</p>
             </div>
-        </section>
-        
-          <p><a href="" class="btn btn-link btn-lg">Start over</a></p>
+        </section> 
+          <p>You can <a href="" class="btn btn-link btn-lg">Start over</a> if you need to choose a different response, or to review the full list of eligibility criteria.</p>
         </div>
       </div>
     </div>
@@ -672,3 +671,5 @@ display:none;
 			});
 		</script>
 	</body>
+
+</html>
