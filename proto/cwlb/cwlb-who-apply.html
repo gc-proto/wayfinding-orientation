@@ -126,8 +126,8 @@
     <!-- AJAX ALERT - DO NOT REMOVE --> 
     <!-- <section data-ajax-replace="https://www.canada.ca/content/dam/cra-arc/includes/cwlb-alert.txt#eng"></section> -->
     
-    <p>If you meet all the eligibility criteria for the Canada Worker Lockdown Benefit (CWLB), you can receive $300 (<strong>$270</strong> after taxes withheld) for each 1-week period.</p>
-   
+    <p class="lead">If you meet all the eligibility criteria for the Canada Worker Lockdown Benefit (CWLB), you can receive $300 (<strong>$270</strong> after taxes withheld) for each 1-week period.</p>
+    <p class="lead">The CWLB is available only when a government authority has designated a public health COVID-19 <a href="cwlb-regions.html">lockdown in your region, province or territory</a>.</p>
     <section>
       <h2 id="h-1">Eligibility criteria</h2>
       <p class="lead">To be eligible for the CWLB, you must meet all the following conditions for the 1-week period you're applying for:</p>
@@ -135,28 +135,32 @@
         <ul class="checkbox-lg checkbox-zebra">
           <li class="checkbox">
             <input type="checkbox" id="eg1" class="action-checkbox cb-dmm">
-            <label for="eg1">You were residing and present in Canada</label>
+            <label for="eg1">You reside in Canada</label>
             <details class="mrgn-lft-md mrgn-tp-md">
-              <summary>What we mean by residing in Canada</summary>
+              <summary>Definition</summary>
               <p>You live and have a home in Canada, but do not have to be a citizen or a permanent resident.</p>
             </details>
           </li>
-          <!--li class="checkbox">
-            <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
-            <label for="eg4">You were present in Canada</label>
-          </li-->
           <li class="checkbox">
             <input type="checkbox" id="eg2" class="action-checkbox cb-dmm">
-            <label for="eg2">You are at least 15 years old</label>
+            <label for="eg2">You were present in Canada</label>
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg3" class="action-checkbox cb-dmm">
-            <label for="eg3">You have a valid Social Insurance Number (SIN)</label>
+            <label for="eg3">You are at least 15 years old</label>
           </li>
           <li class="checkbox">
             <input type="checkbox" id="eg4" class="action-checkbox cb-dmm">
-            <label for="eg4">Your public health authority has declared a lockdown due to COVID-19 in your region (dependent on your postal code) for at least 2 consecutive weeks</label>
+            <label for="eg4">You have a valid Social Insurance Number (SIN)</label>
+          </li>
+          <li class="checkbox">
+            <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
+            <label for="eg5">The Government of Canada has designated a COVID-19 lockdown region where you live or work</label>
             <details class="mrgn-lft-md mrgn-tp-md">
+              <summary>Find out if your region is eligible</summary>
+              <p>...</p>
+            </details>
+            <!--details class="mrgn-lft-md mrgn-tp-md">
               <summary>What is considered a lockdown</summary>
               <ul class="fa-ul">
                 <li><span class="fas fa-check text-success fa-li"></span> Definition of a lockdown
@@ -173,49 +177,46 @@
             </details>
             <details class="mrgn-lft-md">
               <summary>Who can authorize a lockdown</summary>
-            </details>
+            </details--> 
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg5" class="action-checkbox cb-dmm">
-            <label for="eg5">Your place of work (based on postal code) is closed in a designated lockdown zone and you are not able to work from home</label>
+            <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
+            <label for="eg6">Your place of work (based on postal code) is closed in a designated lockdown zone and you are not able to work from home</label>
             <details class="mrgn-lft-md mrgn-tp-md">
               <summary>What is considered your primary/physical workplace</summary>
               <p>...</p>
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg6" class="action-checkbox cb-dmm">
-            <label for="eg6">You earned at least <span class="nowrap">$5,000</span> in 2020, 2021, or in the 12&nbsp;months before the date you apply from any of the following sources:</label>
+            <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
+            <label for="eg7">You earned at least <span class="nowrap">$5,000</span> in 2020, 2021, or in the 12&nbsp;months before the date you apply from any of the following sources:</label>
             <ul class="std-blt lst-spcd">
               <li>
-                <label for="eg6">employment income (total or gross pay)</label>
+                <label for="eg7">employment income (total or gross pay)</label>
               </li>
               <li>
-                <label for="eg6">net <span class="nowrap">self-employment</span> income (after deducting expenses) </label>
+                <label for="eg7">net <span class="nowrap">self-employment</span> income (after deducting expenses) </label>
               </li>
               <li>
-                <label for="eg6">maternity and parental benefits from EI or similar QPIP benefits</label>
+                <label for="eg7">maternity and parental benefits from EI or similar QPIP benefits</label>
               </li>
               <li>
-                <label for="eg6">regular or special benefits from EI</label>
+                <label for="eg7">regular or special benefits from EI</label>
               </li>
               <li>
-                <label for="eg6">amounts from other <span class="nowrap">COVID-19</span> benefits:</label>
+                <label for="eg7">amounts from other <span class="nowrap">COVID-19</span> benefits:</label>
                 <ul>
                   <li>
-                    <label for="eg6">Canada Emergency Response Benefit (CERB)</label>
+                    <label for="eg7">Canada Emergency Response Benefit (CERB)</label>
                   </li>
                   <li>
-                    <label for="eg6">Canada Emergency Student Benefit (CESB)</label>
+                    <label for="eg7">Canada Recovery Benefit (CRB)</label>
                   </li>
                   <li>
-                    <label for="eg6">Canada Recovery Benefit (CRB)</label>
+                    <label for="eg7">Canada Recovery Caregiving Benefit (CRCB)</label>
                   </li>
                   <li>
-                    <label for="eg6">Canada Recovery Caregiving Benefit (CRCB)</label>
-                  </li>
-                  <li>
-                    <label for="eg6">Canada Recovery Sickness Benefit (CRSB)</label>
+                    <label for="eg7">Canada Recovery Sickness Benefit (CRSB)</label>
                   </li>
                 </ul>
               </li>
@@ -242,21 +243,22 @@
                     <li>social assistance or family support payments </li>
                     <li>Canada Pension Plan (CPP), Québec Pension Plan (QPP), or other pension income</li>
                     <li>Old Age Security (OAS) payments</li>
+                    <li>Canada Emergency Student Benefit (CESB)</li>
                   </ul>
                 </li>
               </ul>
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg7" class="action-checkbox cb-dmm">
-            <label for="eg7"><strong>During the period you're applying for:</strong></label>
+            <input type="checkbox" id="eg8" class="action-checkbox cb-dmm">
+            <label for="eg8"><strong>During the period you're applying for:</strong></label>
             <ul class="std-blt lst-spcd">
               <li>
-                <label for="eg7">you were not employed or <span class="nowrap">self-employed</span> for reasons related to <span class="nowrap">COVID-19</span></label>
+                <label for="eg8">you were not employed or <span class="nowrap">self-employed</span> for reasons related to <span class="nowrap">COVID-19</span></label>
               </li>
               <p><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">or</span></span></p>
               <li>
-                <label for="eg7">you had a <span class="nowrap">50%</span> reduction in your average weekly income compared to the previous year due to <span class="nowrap">COVID-19</span> </label>
+                <label for="eg8">you had a <span class="nowrap">50%</span> reduction in your average weekly income compared to the previous year due to <span class="nowrap">COVID-19</span> </label>
               </li>
             </ul>
             <details class="mrgn-lft-md mrgn-tp-md">
@@ -305,45 +307,45 @@
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg8" class="action-checkbox cb-dmm">
-            <label for="eg8">You <strong>did not apply for or receive</strong> any of the following:</label>
+            <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
+            <label for="eg9">You <strong>did not apply for or receive</strong> any of the following:</label>
             <ul class="std-blt lst-spcd">
               <li>
-                <label for="eg8">Canada Recovery Sickness Benefit (CRSB)</label>
+                <label for="eg9">Canada Recovery Sickness Benefit (CRSB)</label>
               </li>
               <li>
-                <label for="eg8">Canada Recovery Lockdown Benefit (CRCB)</label>
+                <label for="eg9">Canada Recovery Lockdown Benefit (CRCB)</label>
               </li>
               <li>
-                <label for="eg8">short-term disability benefits</label>
+                <label for="eg9">short-term disability benefits</label>
               </li>
               <li>
-                <label for="eg8">Employment Insurance (EI) benefits</label>
+                <label for="eg9">Employment Insurance (EI) benefits</label>
               </li>
               <li>
-                <label for="eg8">Québec Parental Insurance Plan (QPIP) benefits</label>
+                <label for="eg9">Québec Parental Insurance Plan (QPIP) benefits</label>
               </li>
             </ul>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg9" class="action-checkbox cb-dmm">
-            <label for="eg9">You have not quit your job or reduced your hours voluntarily on or after the lockdown began, unless it was reasonable to do so</label>
+            <input type="checkbox" id="eg10" class="action-checkbox cb-dmm">
+            <label for="eg10">You have not quit your job or reduced your hours voluntarily on or after the lockdown began, unless it was reasonable to do so</label>
             <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Penalty</summary>
               <p>If you voluntarily quit your job, you will not be eligible to receive the CWLB.</p>
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg10" class="action-checkbox cb-dmm">
-            <label for="eg10">You have not turned down reasonable work or failed to return to work during the 1-week period you're applying for</label>
+            <input type="checkbox" id="eg11" class="action-checkbox cb-dmm">
+            <label for="eg11">You have not turned down reasonable work or failed to return to work during the 1-week period you're applying for</label>
             <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Penalty for refusing work</summary>
               <p><s>If you refuse reasonable work, you will automatically lose 5 periods (10 weeks) of the CWLB eligibility periods. You must also wait 5&nbsp;periods (10&nbsp;weeks) before you can re-apply. If you refuse work again, you will face the penalty again.</s></p>
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg11" class="action-checkbox cb-dmm">
-            <label for="eg11">You were not self-isolating or in quarantine due to international travel </label>
+            <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
+            <label for="eg12">You were not self-isolating or in quarantine due to international travel </label>
             <details class="mrgn-lft-md mrgn-tp-md">
               <summary>Exceptions</summary>
               <p>This does not apply to you if you were isolating because:</p>
@@ -356,13 +358,14 @@
             </details>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg12" class="action-checkbox cb-dmm">
-            <label for="eg12">You filed your 2020 tax return</label>
+            <input type="checkbox" id="eg13" class="action-checkbox cb-dmm">
+            <label for="eg13">You filed your 2020 tax return</label>
           </li>
           <li class="checkbox">
-            <input type="checkbox" id="eg13" class="action-checkbox cb-dmm">
-            <label for="eg13">
+            <input type="checkbox" id="eg14" class="action-checkbox cb-dmm">
+            <label for="eg14">
             <p>You will file your 2021 tax return by December 31, 2022 if you recieve a lockdown benefit in 2021.</p>
+            <p><span class="fa-stack fa-fw text-muted"> <span class="fas fa-circle fa-stack-2x"></span><span class="fa-stack-1x fa-inverse">and</span></span></p>
             <p>You will file your 2021 and 2022 tax returns by December 31, 2023 if you recieve a lockdown benefit in 2022.</p>
             </label>
           </li>
