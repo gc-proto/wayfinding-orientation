@@ -540,9 +540,47 @@ display:none;
         </div>
    
       <div aria-live="assertive">
-        <div id="results" class="hidden">
+       <div id="results" class="hidden mrgn-rght-md">
+    <h2>Results</h2>
+    <ul class="fa-ul lst-spcd" role="presentation">
+      <li id="do-qualify-wage"><span class="fa-li mrgn-rght-sm far fa-check-circle fa-2x text-success"></span>You may qualify for a <strong>wage subsidy</strong> for this claim period through the:
+        <ul>
+          <li id="chrp-wage">Canada Recovery Hiring Program (CRHP)</li>
+          <li id="thrp-wage">Tourism and Hospitality Recovery Program (THRP)<span class="llp-eligibility hidden"> based on your eligibility of the local lockdown program</span></li>
+          <li id="hhbrp-wage">Hardest-Hit Business Recovery Program (HHBRP)</li>
+        </ul>
+      </li>
+      <li>You may only claim one wage subsidy each claim period, whichever gives you the highest amount.</li>
+      <li>Proceed to the <a href="#" class="nowrap"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>wage subsidy calculator</a> to  find the amount you may apply for.</li>
+      <li id="do-qualify-rent"><span class="fa-li mrgn-rght-sm far fa-check-circle fa-2x text-success"></span>You may qualify for a <strong>rent subsidy</strong> for this claim period through the:
+        <ul>
+          <li id="thrp-rent">Tourism and Hospitality Recovery Program (THRP)<span class="llp-eligibility hidden"> based on your eligibility of the local lockdown program</span></li>
+          <li id="hhbrp-rent">Hardest-Hit Business Recovery Program (HHBRP)</li>
+        </ul>
+      </li>
+      <li>You may only claim one rent subsidy each claim period, whichever gives you the higher amount.</li>
+      <li>Proceed to the <a href="#" class="nowrap"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>rent subsidy calculator</a> to find the amount you may apply for.</li>
+      <li id="answer-A" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-A: You do not seem to qualify for any wage subsidy because you do not have any employees.</li>
+      <li id="answer-B" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-B: You do not seem to qualify for any rent subsidy because you do not have any qualifying property expenses.</li>
+      <li id="answer-C" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-C: Public institutions are not eligible for these subsidies.</li>
+      <li id="answer-D" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-D: You do not seem to qualify for any wage or rent subsidy because at least 50% of your partnership must consist of eligible entities (or at least 50% of the interests in the partnership must be held by eligible entities) to be eligible for these subsidies.</li>
+      <li id="answer-E" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-E: You do not seem to qualify for any wage or rent subsidy because you do not meet either the payroll or business number requirements.</li>
+      <li id="answer-F" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-F: You do not seem to qualify for any wage or rent subsidy for this claim period because your claim period revenue drop is not over 10%.</li>
+      <li id="answer-G" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-G: You do not seem to qualify for the HHBRP for this claim period because your claim period revenue drop is not at least 50%.</li>
+      <li id="answer-H" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-H: You do not seem to qualify for the HHBRP because your 12-month average revenue drop is not at least 50%.</li>
+      <li id="answer-I" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-I: You do not seem to qualify for the THRP for this claim period because your claim period revenue drop is not at least 40%.</li>
+      <li id="answer-J" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-J: You do not seem to qualify for the THRP because to qualify through being in the tourism or hospitality industry you must have a 12-month average revenue drop of 40% or higher, or also have been subject to at least 7 days of a qualifying public health restriction within the claim period.</li>
+      <li id="answer-K" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-K: You do not seem to qualify for the THRP because you must either be in the tourism or hospitality industry or subject to at least 7 days of a qualifying public health restriction within the claim period to be eligible.</li>
+      <li id="answer-L" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-L: You do not seem to qualify for any wage subsidy because you did not meet the payroll account qualification.</li>
+      <li id="answer-M" class="hidden"><span class="fa-li mrgn-rght-sm far fa-times-circle fa-2x text-danger"></span>A-M: You do not seem to qualify for the CRHP because your business type is not eligible.</li>
+      <li><span class="fa-li mrgn-rght-sm fas fa-redo-alt fa-2x text-danger"></span>You can <a href="?">Start over</a> if you need to choose a different response, or to review the full list of eligibility criteria.</li>
+    </ul>
+  </div>
+	      
+	      <!--
+	      <div id="results" class="hidden">
           <h2>Results</h2>
-		  <!--Qualify for Wage //-->
+	
           <section id="do-qualify-wage" class="mrgn-bttm-lg">
             <p><span class="h3"><span class="glyphicon glyphicon-ok-circle text-success"></span></span> You may qualify for a <strong>wage subsidy</strong> for this claim period through the:</p>
             <ul>
@@ -552,7 +590,7 @@ display:none;
             </ul>
             <p>You may only claim one wage subsidy each claim period, whichever gives you the highest amount. <br>Proceed to the <a href="#" class="nowrap"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>wage subsidy calculator</a> to  find the amount you may apply for.</p>
           </section>
-          <!--Qualify for Rent //-->
+        
           <section id="do-qualify-rent" class="mrgn-bttm-lg">
             <p><span class="h3"><span class="glyphicon glyphicon-ok-circle text-success"></span></span> You may qualify for a <strong>rent subsidy</strong> for this claim period through the:</p>
             <ul>
@@ -561,7 +599,7 @@ display:none;
             </ul>
             <p>You may only claim one rent subsidy each claim period, whichever gives you the higher amount. <br>Proceed to the <a href="#" class="nowrap"><span class="fas fa-calculator fa-lg text-muted mrgn-rght-sm"></span>rent subsidy calculator</a> to find the amount you may apply for.</p>
           </section>
-          <!--Do not qualify for wage //-->
+        
  
 		<div id="answer-A" class="answers hidden">
             <p><span class="h3"><span class="glyphicon glyphicon-remove-circle text-danger"></span></span> A-A: You do not seem to qualify for any wage subsidy because you do not have any employees.</p>
@@ -605,7 +643,7 @@ display:none;
             </div>
         </section> 
           <p>You can <a href="?">Start over</a> if you need to choose a different response, or to review the full list of eligibility criteria.</p>
-        </div>
+        </div>//-->
       </div>
     </div>
   </div>
