@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Calculate your 12-month revenue drop – Canada.ca</title>
+<title>Calculate your 12-month average revenue drop – Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport" />
 <meta name="robots" content="noindex" />
 <!-- Meta data -->
@@ -152,7 +152,7 @@ fieldset +.buttons {
     });
   </script>
     <main property="mainContentOfPage" class="container">
-    <h1 property="name" id="wb-cont">Calculate your 12-month revenue drop</h1>
+    <h1 property="name" id="wb-cont">Calculate your 12-month average revenue drop</h1>
 
     <div data-wb-urlmapping='{
         "subsidy=cews":
@@ -179,15 +179,15 @@ fieldset +.buttons {
     <h2 class="h3 mrgn-tp-sm">On this page</h2>
     <ul>
         <!-- <li><a href="#h-1">How the calculator helps you</a></li> -->
-        <!-- <li><a href="#h-1">What is the 12-month revenue drop</a></li> -->
-        <li><a href="#h-1">When to calculate the 12-month revenue drop</a></li>
+        <!-- <li><a href="#h-1">What is the 12-month average revenue drop</a></li> -->
+        <li><a href="#h-1">When to calculate the 12-month average revenue drop</a></li>
         <li><a href="#h-2">Differences with the claim period revenue drop calculations</a></li>
-        <li><a href="#h-3">Calculate your 12-month revenue drop</a></li>
+        <li><a href="#h-3">Calculate your 12-month average revenue drop</a></li>
     </ul>
 
-    <h2 id="h-1">When to calculate the 12-month revenue drop</h2>
+    <h2 id="h-1">When to calculate the 12-month average revenue drop</h2>
     <p>You only need to calculate the 12-month average revenue drop <strong>one time</strong>. You will use the same 12-month average revenue drop for all of your claims from 22 onward.</p>
-    <p>For details on the math behind the calculation, refer to <a href="#">how the 12-month revenue drop is calculated</a>.</p>
+    <p>For details on the math behind the calculation, refer to <a href="#">how the 12-month average revenue drop is calculated</a>.</p>
 
     <!-- <h2 id="h-2">Differences with the claim period calculation</h2> -->
     <h2 id="h-2">Differences with the claim period revenue drop calculations</h2>
@@ -195,7 +195,7 @@ fieldset +.buttons {
       <dt>Include revenue increases</dt>
       <dd>You must include revenue for all months during which you operated. This includes for revenue increases, which are included in the average revenue drop.</dd>
       <dt>Deeming rule does not apply</dt>
-      <dd>Unlike the claim period revenue drop, there is no deeming rule provision for the 12-month revenue drop. You must include revenue drop figures for each reference period.</dd>
+      <dd>Unlike the claim period revenue drop, there is no deeming rule provision for the 12-month average revenue drop. You must include revenue drop figures for each reference period.</dd>
       <!-- <dt>Calculate each month's drop separately</dt>
       <dd>The calculation is the average of all monthly revenue drops, exluding months when you were not in operation. You must calculate each month's revenue drop separately, then average them.</dd> -->
     </dl>
@@ -203,9 +203,9 @@ fieldset +.buttons {
     <p>You must include revenue for all months during which you operated. This includes for revenue increases, which are included in the average revenue drop.</p>
 
     <h3>The deeming rule does not apply</h3>
-    <p>Unlike the claim period revenue drop, there is no deeming rule provision for the 12-month revenue drop. You must include revenue drop figures for each reference period.</p> -->
+    <p>Unlike the claim period revenue drop, there is no deeming rule provision for the 12-month average revenue drop. You must include revenue drop figures for each reference period.</p> -->
 
-    <h2 id="h-3">Calculate your 12-month revenue drop</h2>
+    <h2 id="h-3">Calculate your 12-month average revenue drop</h2>
     <p>You must use the same comparison methods for the 12 month revenue drop calculation as you used for your CEWS and CERS claims.</p>
 
     <div class="wb-frmvld provisional">
@@ -226,6 +226,28 @@ fieldset +.buttons {
                   <label for="rev-comp-1-4-alternate">Compare claim month to average of January and February 2020</label>
                 </li>
               </ul>
+            </fieldset>
+            <fieldset class="p1-4-Jan hidden">
+              <!-- Section to add days not operating during Jan-Feb -->
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="checkbox provisional gc-chckbxrdio pull-right">
+                    <input id="jan-feb-closed" type="checkbox" checked="checked"/>
+                    <label for="jan-feb-closed">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div id="jan-feb-closed-inputs" class="mrgn-bttm-lg hidden">
+                <div class="form-group row mrgn-bttm-0">
+                  <div class="col-md-12">
+                    <label for="jan-feb-closed-days" class="required">Days you were not in business during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
+                  </div>
+                  <div class="col-xs-6">
+                    <input type="number" class="form-control text-right" id="jan-feb-closed-days" max="59" min="0" required>
+                  </div>
+                </div>
+              </div>
             </fieldset>
           </li>
           <li id="stp2">
@@ -434,6 +456,28 @@ fieldset +.buttons {
                   <label for="rev-comp-5-13-alternate">Compare claim month to average of January and February 2020</label>
                 </li>
               </ul>
+            </fieldset>
+            <fieldset class="p5-13-Jan hidden">
+              <!-- Section to add days not operating during Jan-Feb -->
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <div class="checkbox provisional gc-chckbxrdio pull-right">
+                    <input id="jan-feb-closed-2" type="checkbox" checked="checked"/>
+                    <label for="jan-feb-closed-2">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div id="jan-feb-closed-2-inputs" class="mrgn-bttm-lg hidden">
+                <div class="form-group row mrgn-bttm-0">
+                  <div class="col-md-12">
+                    <label for="jan-feb-closed-days-2" class="required">Days you were not in business during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
+                  </div>
+                  <div class="col-xs-6">
+                    <input type="number" class="form-control text-right" id="jan-feb-closed-days-2" max="59" min="0" required>
+                  </div>
+                </div>
+              </div>
             </fieldset>
           </li>
           <li id="stp4">
@@ -774,16 +818,16 @@ fieldset +.buttons {
           <li id="stp5">
             <p class="h3 mrgn-tp-sm">Result</p>
             <div class="well text-muted mrgn-tp-md">
-              <h3 class="mrgn-tp-0">Your 12-month revenue drop summary</h3>
-              <p>Your 12-month revenue drop is <span class="h4 12-month-drop">0.00%</span>.</p>
-              <p>The 12-month revenue drop is calculated as the average of all your monthly revenue drops during which you were operating.</p>
+              <h3 class="mrgn-tp-0">Your 12-month average revenue drop summary</h3>
+              <p>Your 12-month average revenue drop is <span class="h4 12-month-drop">0.00%</span>.</p>
+              <p>The 12-month average revenue drop is calculated as the average of all your monthly revenue drops during which you were operating.</p>
             </div>
             <p class="h3 mrgn-tp-sm brdr-tp">Calculation summary</p>
             <ul class="list-unstyled">
-              <li class="mrgn-tp-md"><a href="#12-month-calculation-table" aria-controls="12-month-calculation-table" class="wb-lbx lbx-modal btn btn-primary" role="button" id="showEmpTable">Review, download and print your 12-month revenue drop summary</a></li>
+              <li class="mrgn-tp-md"><a href="#12-month-calculation-table" aria-controls="12-month-calculation-table" class="wb-lbx lbx-modal btn btn-primary" role="button" id="showEmpTable">Review, download and print your 12-month average revenue drop summary</a></li>
             </ul>
             <div class="alert alert-info provisional mrgn-tp-md">
-              <p class="text-info"><strong>Save your 12-month revenue drop summary for periods 22 to 28 THRP and HHBRP calculations:</strong></p>
+              <p class="text-info"><strong>Save your 12-month average revenue drop summary for periods 22 to 28 THRP and HHBRP calculations:</strong></p>
               <p>Print and keep the record of the CRHP base period remuneration amount to use in future calculations of the wage or rent subsidies.</p>
               <p>You can then go back to Step 2 of the <a href="how-much.html">wage subsidy calculator</a> or <a href="../rent-subsidy/how-much.html">rent subsidy calculator</a> to input your 12 month revenue drop and continue to calculate your subsidy for claim periods 22 and onward.</p>
             </div>
@@ -889,7 +933,7 @@ fieldset +.buttons {
             <tfoot>
               <tr>
                 <td><strong>Months not operating in 2020:</strong> <span class="months-not-operating"></span></td>
-                <td></td>
+                <td><strong>Days not operating in Jan-Feb:</strong> <span data-updated-by="jan-feb-closed-days"></span></td>
                 <td></td>
                 <td><strong>12 month average revenue drop:</strong> <span class="12-month-drop h3">0.00%</span></td>
               </tr>
@@ -1044,6 +1088,9 @@ fieldset +.buttons {
         if (parts[0] == "2020" && (parts[1] == "01" || parts[1] == "02")) {
           $('input[id^=2020-'+ parts[1] +'-]').val(target.value);
           $('[data-updated-by=2020-' + parts[1] +'-yes]').text(target.value);
+        } else if (parts[0] == "jan" && parts[2] == "closed") { //jan-feb-closed-days and closed-days-2
+          $('input[id^=jan-feb-closed-days]').val(target.value);
+          $('[data-updated-by=jan-feb-closed-days]').text(target.value); //for summary
         }
       });
 
@@ -1105,10 +1152,16 @@ fieldset +.buttons {
             $("#2020-" + parts[1] + "-yes").prop('disabled', false);
             $("." + parts[1] + "-not-operating").addClass("hidden");
           }
-          calculateTwelveMonthDrop();
+        } else if (target.id == "jan-feb-closed" || target.id == "jan-feb-closed-2") {
+          if ($('#' + target.id + '-inputs').is(":hidden")) {
+            $('#' + target.id + '-inputs').removeClass("hidden");
+          } else {
+            $('#' + target.id + '-inputs').addClass("hidden");
+          }
         }
+        calculateTwelveMonthDrop();
       });
-      
+
       //on input
       $document.on("change", ".revenue-drop-month", function (event) {calculateTwelveMonthDrop();});
 
