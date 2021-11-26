@@ -933,7 +933,7 @@ fieldset +.buttons {
             <tfoot>
               <tr>
                 <td><strong>Months not operating in 2020:</strong> <span class="months-not-operating"></span></td>
-                <td><strong>Days not operating in Jan-Feb:</strong> <span data-updated-by="jan-feb-closed-days"></span></td>
+                <td><span class="pAny-Jan hidden"><strong>Days not operating in Jan-Feb:</strong> <span data-updated-by="jan-feb-closed-days"></span></span></td>
                 <td></td>
                 <td><strong>12 month average revenue drop:</strong> <span class="12-month-drop h3">0.00%</span></td>
               </tr>
@@ -1089,6 +1089,9 @@ fieldset +.buttons {
           $('input[id^=2020-'+ parts[1] +'-]').val(target.value);
           $('[data-updated-by=2020-' + parts[1] +'-yes]').text(target.value);
         } else if (parts[0] == "jan" && parts[2] == "closed") { //jan-feb-closed-days and closed-days-2
+          if (target.value == "on") {
+            target.value = 0;
+          }
           $('input[id^=jan-feb-closed-days]').val(target.value);
           $('[data-updated-by=jan-feb-closed-days]').text(target.value); //for summary
           calculateTwelveMonthDrop();
@@ -1188,6 +1191,11 @@ fieldset +.buttons {
         var priorYear = "";
         var priorYRev = 0;
         var janFebDays = zeroIfEmpty($('#jan-feb-closed-days').val());
+        if ($('#jan-feb-closed-inputs').is(":visible") || $('#jan-feb-closed-2-inputs').is(":visible")) { //either of the days fields are visible
+          $('.pAny-Jan').removeClass("hidden");
+        } else {
+          $('.pAny-Jan').addClass("hidden");
+        }
         for (let i = 1; i <= 12; i++) {
           if (i < 3) {
             year = "2021";
