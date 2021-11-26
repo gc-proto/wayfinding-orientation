@@ -1091,6 +1091,7 @@ fieldset +.buttons {
         } else if (parts[0] == "jan" && parts[2] == "closed") { //jan-feb-closed-days and closed-days-2
           $('input[id^=jan-feb-closed-days]').val(target.value);
           $('[data-updated-by=jan-feb-closed-days]').text(target.value); //for summary
+          calculateTwelveMonthDrop();
         }
       });
 
@@ -1154,9 +1155,21 @@ fieldset +.buttons {
           }
         } else if (target.id == "jan-feb-closed" || target.id == "jan-feb-closed-2") {
           if ($('#' + target.id + '-inputs').is(":hidden")) {
-            $('#' + target.id + '-inputs').removeClass("hidden");
+            $('#jan-feb-closed-inputs').removeClass("hidden");
+            $('#jan-feb-closed-2-inputs').removeClass("hidden");
+            if (target.id == "jan-feb-closed") {
+              $('#jan-feb-closed-2').prop('checked', false);
+            } else {
+              $('#jan-feb-closed').prop('checked', false); 
+            }
           } else {
-            $('#' + target.id + '-inputs').addClass("hidden");
+            $('#jan-feb-closed-inputs').addClass("hidden");
+            $('#jan-feb-closed-2-inputs').addClass("hidden");
+            if (target.id == "jan-feb-closed") {
+              $('#jan-feb-closed-2').prop('checked', true);
+            } else {
+              $('#jan-feb-closed').prop('checked', true); 
+            }
           }
         }
         calculateTwelveMonthDrop();
@@ -1174,6 +1187,7 @@ fieldset +.buttons {
         var curYRev = 0;
         var priorYear = "";
         var priorYRev = 0;
+        var janFebDays = zeroIfEmpty($('#jan-feb-closed-days').val());
         for (let i = 1; i <= 12; i++) {
           if (i < 3) {
             year = "2021";
@@ -1188,8 +1202,14 @@ fieldset +.buttons {
             priorYRev = zeroIfEmpty($("#" + priorYear + "-" + pad(i, 2) + "-yes").val());
           } else if (i > 2 && i < 7 && $('#rev-comp-1-4-alternate:checked').length > 0) {
             priorYRev = (zeroIfEmpty($("#2020-01-1-4").val()) + zeroIfEmpty($("#2020-02-1-4").val())) / 2;
+            if ($('#jan-feb-closed-inputs:checked').length == 0) {
+              priorYRev = priorYRev * 60 / (60 - janFebDays);
+            }
           } else if ((i < 3 || i > 6) && $('#rev-comp-5-13-alternate:checked').length > 0) {
             priorYRev = (zeroIfEmpty($("#2020-01-5-13").val()) + zeroIfEmpty($("#2020-02-5-13").val())) / 2;
+            if ($('#jan-feb-closed-inputs:checked').length == 0) {
+              priorYRev = priorYRev * 60 / (60 - janFebDays);
+            }
           }
           curYRev = zeroIfEmpty($("#" + year + "-" + pad(i, 2) + "-yes").val());
           if (monthlyOperations[i] > 0) {
