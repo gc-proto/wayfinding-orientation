@@ -1060,7 +1060,7 @@ fieldset +.buttons {
             </optgroup>
           </select>
         </div>
-        <div class="provisional alert alert-danger hidden nolongeravailable-1-9">
+        <div class="provisional alert alert-danger hidden nolongeravailable-1-16">
           <p>This period is closed. <a href="/en/revenue-agency/services/subsidy/emergency-wage-subsidy/cews-after-apply.html#change-1" target="_blank">Read more about application deadlines<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
           <p>The calculator for this period is available for information purposes only.</p>
         </div>
@@ -1117,15 +1117,15 @@ fieldset +.buttons {
                         </div>
                       </fieldset>
                     </div>
-                    <a class="btn btn-default">Check if your 12-month average revenue drop qualifies</a>
+                    <a class="btn btn-default">Update your 12-month average revenue drop</a>
                   </div>
                 </fieldset>
               <!-- </div> -->
             </div>
-            <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
-              <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
-              <p>You have indicated your 12-month average revenue drop is <span class="h4 twelveMonthDecline"></span>.</p>
-              <p>Your 12-month average revenue drop is one component of your eligibility for the THRP and HHBRP for periods 22 to 28. Continue to the next step to continue your calculation.</p>
+            <div class="well text-muted mrgn-tp-md" id="12-month-summary">
+              <h3 class="mrgn-tp-0">Summary of your 12-month average revenue drop</h3>
+              <p>You have indicated your 12-month average revenue drop is <span class="h4 twelveMonthDecline">0.00%</span>.</p>
+              <p>Your 12-month average revenue drop is one component of your eligibility for the THRP and HHBRP for periods 22 to 28. Continue to the next step to answer a few more questions related to THRP and HHBRP eligibility.</p>
             </div>
           </div>
           <div class="col-sm-4 col-md-3">
@@ -1142,11 +1142,11 @@ fieldset +.buttons {
         <div class="row hidden p1-21">
           <div class="col-sm-8 col-md-9">
             <!-- <div class="alert alert-info"> -->
-            <p class="mrgn-tp-lg">There were no additional qualifications in this period for THRP or HHBRP.</p>
+            <p class="mrgn-tp-lg">THRP and HHBRP are not available before period 22.</p>
             <p>Continue to the next step to calculate the CEWS<span class="p17-plus hidden"> and CRHP</span>.</p>
           </div>
 	        <div class="col-sm-4 col-md-3">
-            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 3</span></a></p>
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 2</span></a></p>
           </div>	
         </div>
 
@@ -1167,8 +1167,8 @@ fieldset +.buttons {
             <div class="">
               <p>To qualify for the THRP or the HRBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period.</p>
               <fieldset id="q1-tourism-hospitality" class="provisional gc-chckbxrdio chckbxrdio-grp ">
-                <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying entity in the tourism, hospitality, arts or recreation sectors?</span> <strong class="required">(required)</strong></legend>
-                <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">What is considered part of tourism, hospitality, arts or <span class="nowrap">recreation?<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
+                <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying entity in the tourism, hospitality, arts, entertainment, or recreation sectors?</span> <strong class="required">(required)</strong></legend>
+                <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">What sectors are considered part of tourism, hospitality, arts, entertainment, or <span class="nowrap">recreation?<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
                 <ul class="list-unstyled lst-spcd-2">
                   <li class="radio">
                     <input type="radio" name="tourism-hospitality" id="tourism-hospitality-yes" class="valid" aria-invalid="false" required="required">
@@ -1271,7 +1271,7 @@ fieldset +.buttons {
               <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
                 <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
                 <p class="eligible-thrp-lockdown hidden">Because <strong>you were affected by a qualifying public health restriction</strong>, you may qualify for the THRP.</p>
-                <p class="eligible-thrp-12-month hidden">Because you are <strong>part of the tourism and hospitality recovery industries</strong> and have a 12-month average revenue drop of 40% or greater, you may qualify for the THRP.</p>
+                <p class="eligible-thrp-12-month hidden">Because you are a <strong>qualifying tourism and hospitality recovery industries</strong> and have a 12-month average revenue drop of 40% or greater, you may qualify for the THRP.</p>
                 <p class="eligible-hhbrp-12-month hidden">Because you have a 12-month average revenue drop of 50% or greater, you may qualify for the HHBRP.</p>
                 <p class="ineligible-thrp-hhbrp hidden">You do not qualify for the THRP or the HHBRP because your 12-month average revenue drop is too low and you were not affected by a qualifying public health restriction.</p>
                 <p class="ineligible-thrp-hhbrp hidden">Continue to the next step to determine if you qualify for the CRHP.</p>
@@ -1806,8 +1806,8 @@ fieldset +.buttons {
                       <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction h4">0%</span></li>
                     </ul>
                     <div class="safe-harbour-hide small">
-                      <p class="greater-than-10-drop mrgn-lft-lg">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, <span class="p22-plus">your revenue drop qualifies for the CRHP <span class="thrp-hhbrp-eligible">and the <span class="elWageP">THRP</span></span></span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is <span class="top-up-rate h4">0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></span>.</p>
-                      <p class="less-than-10-drop hidden mrgn-lft-lg">Because your revenue drop is less than 10%, <span class="p22-plus">you do not qualify for any subsidy this claim period.</span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></span>.</p>
+                      <p class="greater-than-10-drop mrgn-lft-lg hidden">Because the higher of these revenue drops is <span class="h4 mrgn-tp-0 rev-reduc-base">0%</span>, <span class="p22-plus">your revenue drop qualifies for <span class="crhp-eligible"> the CRHP <span class="thrp-hhbrp-revd-ineligible">but not the <span class="elWageP">THRP</span></span><span class="thrp-hhbrp-revd-eligible">and </span></span><span class="thrp-hhbrp-revd-eligible"> the <span class="elWageP">THRP</span></span><span class="crhp-ineligible-tag hidden"><span class="thrp-hhbrp-revd-ineligible">none of the available subsidies this period</span></span></span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0 base-rate">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is <span class="top-up-rate h4">0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></span>.</p>
+                      <p class="less-than-10-drop mrgn-lft-lg">Because your revenue drop is less than 10%, <span class="p22-plus">you do not qualify for any subsidy this claim period</span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></span>.</p>
                     </div>
                     <div class="p1-21 hidden">
                       <ul class="p8-plus hidden">
@@ -1837,7 +1837,9 @@ fieldset +.buttons {
                       <!-- <div class="p20-21 hidden">
                         <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
                       </div> -->
-                      <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
+                      <div class="crhp-eligible">
+                        <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
+                      </div>
                     </div>
                     <div class="p17-only hidden">
                       <p class="mrgn-bttm-md 10drop hidden">Because your revenue drop is just above 0%, you qualify for the CRHP even if you have a 0% CEWS rate.</p>
@@ -2145,8 +2147,8 @@ fieldset +.buttons {
                       <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction-alt h4">0%</span></li>
                     </ul>
                     <div class="safe-harbour-hide small">
-                      <p class="greater-than-10-drop mrgn-lft-lg">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, <span class="p22-plus">your revenue drop qualifies for the CRHP <span class="thrp-hhbrp-eligible">and the <span class="elWageP">CEWS</span></span></span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is  <span class="top-up-rate-alt h4" >0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></span>.</p>
-                      <p class="less-than-10-drop hidden mrgn-lft-lg">Because your revenue drop is less than 10%, <span class="p22-plus">you do not qualify for any subsidy this claim period.</span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></span>.</p>
+                      <p class="greater-than-10-drop hidden mrgn-lft-lg">Because the higher of these revenue drops is <span class="h4 rev-reduc-alt-base">0%</span>, <span class="p22-plus">your revenue drop qualifies for <span class="crhp-eligible"> the CRHP <span class="thrp-hhbrp-revd-ineligible">but not the <span class="elWageP">THRP</span></span><span class="thrp-hhbrp-revd-eligible">and </span></span><span class="thrp-hhbrp-revd-eligible"> the <span class="elWageP">THRP</span></span><span class="crhp-ineligible-tag hidden"><span class="thrp-hhbrp-revd-ineligible">none of the available subsidies this period</span></span></span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0  base-rate-alt">0%</span> <span class="rate-formula-max rate-formula-u70 hidden">(the maximum)</span><span class="rate-formula-u50 rate-formula-0">(<span class="p18-plus">(</span>your revenue drop <span class="p18-plus">- 10%) </span>x <span class="scaleBase"></span>)</span> <span class="p11-plus hidden"> and your top up rate is  <span class="top-up-rate-alt h4" >0%</span> (<span class="rate-formula-max hidden">the maximum</span><span class="rate-formula-u70 rate-formula-u50 rate-formula-0">(your revenue drop - 50%) x <span class="scaleTopUp"></span></span>)</span></span>.</p>
+                      <p class="less-than-10-drop mrgn-lft-lg">Because your revenue drop is less than 10%, <span class="p22-plus">you do not qualify for any subsidy this claim period</span><span class="p1-21">your base rate is <span class="h4 mrgn-tp-0">0%</span> and your top-up rate is <span class="h4">0%</span></span>.</p>
                     </div>
                     <div class="p1-21 hidden">
                       <ul class="p8-plus hidden">
@@ -2177,7 +2179,11 @@ fieldset +.buttons {
                       <!-- <div class="p20-21 hidden">
                         <p class="mrgn-bttm-md less-than-10-drop">Because your revenue drop is 10% or less, <strong>you do not qualify</strong> for either the CRHP or the CEWS.</p>
                       </div> -->
-                      <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
+
+
+                      <div class="crhp-eligible">
+                        <p class="mrgn-bttm-md greater-than-10-drop hidden">Because your revenue drop is larger than 10%, your revenue drop <strong>qualifies for the CRHP</strong>.</p>
+                      </div>
                     </div>
                     <div class="p17-only hidden">
                       <p class="mrgn-bttm-md 10drop hidden">Because your revenue drop is just above 0%, you qualify for the CRHP even if you have a 0% CEWS rate.</p>
@@ -2244,10 +2250,10 @@ fieldset +.buttons {
                       <legend class="mrgn-bttm-0">Eligible remuneration (pay) in respect of the claim period <span class="claim-period"></span> </legend>
                       <p><a class="wb-lbx pay-claim-def" role="button" aria-controls="pay-claim" href="#pay-claim">Claim period pay per week<span class="emp-lv hidden"> and active
                         employees or employees on leave with pay</span>&nbsp;<span class="far fa-question-circle"></span></a></p>
-                      <div class="provisional alert alert-info p22-plus">
+                      <!-- <div class="provisional alert alert-info p22-plus">
                         <h3 class="h4">Do not include leave with pay</h3>
                         <p class="small">Remuneration to employees on leave with pay is not included in calculations for CRHP, THRP or HHBRP.</p>
-                      </div>
+                      </div> -->
                       <div class="form-group row mrgn-tp-lg mrgn-bttm-0">
                         <div class="col-md-3">
                           <label for="wkone-1">Week one<span class="wb-inv"> (do not include a
@@ -2759,7 +2765,8 @@ fieldset +.buttons {
     <p>All amounts are for the claim period unless otherwise noted.</p>
     <ul class="lst-spcd">
       <li>Claim period: <span class="claim-period h3">default</span></li>
-      <li id="sec-2-c" class="hidden">12-month average revenue drop: <span class="h3 ineligible-thrp-hhbrp">Ineligible</span><span class="h3 thrp-hhbrp-eligible twelveMonthDecline hidden">0%</span></li>
+      <li id="sec-2-c" class="hidden">12-month average revenue drop: <span class="h3 twelveMonthDecline">0.00%</span>
+      <li id="sec-2-d" class="hidden">THRP and HHBRP eligibility: <span class="h3 ineligible-thrp-hhbrp">Ineligible</span><span class="h3 eligible-thrp-lockdown hidden">THRP (Lockdown)</span><span class="h3 eligible-thrp-12-month">THRP</span><span class="h3 eligible-hhbrp-12-month">HHBRP</span></li>
       <li id="sec-3" class="hidden">CRHP base period remuneration (March 14 to April 10): <span class="h3 crhp-ineligible-tag">Ineligible</span><span class="h3 crhp-eligible crhp-base-rem">$0.00</span></li>
       <li id="sec-2-a" class="hidden">Revenue drop
         <ul>
@@ -3641,8 +3648,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $("#p4-tws-disclaimer").removeClass("hidden");
           $("#rate-reduction").removeClass("hidden");
           $(".choose-claim-period").addClass("hidden");
+          $(".emp-lv").removeClass("hidden");
           if (claimPeriod < 22) {
-            $(".emp-lv").removeClass("hidden");
             $(".p5-21").removeClass("hidden");
           }
         } else {
@@ -4026,12 +4033,11 @@ $(document).on("click", ".prev-wb-step", function (event) {
       }
 
       // when the submit button is clicked
-
       
-      $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
+      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Next')", function (event) {
         validationCheck(event);
       });
-      $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Suivant')", function (event) {
+      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Suivant')", function (event) {
         validationCheck(event);
       });
       
@@ -4728,37 +4734,43 @@ $(document).on("click", ".prev-wb-step", function (event) {
         calculateRevenueDrop();
       });
       $(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Next')", function (event) {
-        $('#sec-3').removeClass("hidden");
+        $('#sec-2-d').removeClass("hidden");
       });
       $(document).on("click", ".steps-wrapper:nth-child(3) button:contains('Suivant')", function (event) {
-        $('#sec-3').removeClass("hidden");
+        $('#sec-2-d').removeClass("hidden");
       });
       $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
-        $('#sec-2-a, #sec-2-b').removeClass("hidden");
-        calculateRevenueDrop();
+        $('#sec-3').removeClass("hidden");
       });
       $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Suivant')", function (event) {
+        $('#sec-3').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         $('#sec-2-a, #sec-2-b').removeClass("hidden");
         calculateRevenueDrop();
       });
-      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
-        $('#sec-4-a, #sec-4-b').removeClass("hidden");
-      });
       $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Suivant')", function (event) {
-        $('#sec-4-a, #sec-4-b').removeClass("hidden");
+        $('#sec-2-a, #sec-2-b').removeClass("hidden");
+        calculateRevenueDrop();
       });
       $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Next')", function (event) {
-        $('#sec-5').removeClass("hidden");
-        calculateTotals();
+        $('#sec-4-a, #sec-4-b').removeClass("hidden");
       });
       $(document).on("click", ".steps-wrapper:nth-child(6) button:contains('Suivant')", function (event) {
+        $('#sec-4-a, #sec-4-b').removeClass("hidden");
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Next')", function (event) {
         $('#sec-5').removeClass("hidden");
         calculateTotals();
       });
-      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Next')", function (event) {
+      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Suivant')", function (event) {
+        $('#sec-5').removeClass("hidden");
+        calculateTotals();
+      });
+      $(document).on("click", ".steps-wrapper:nth-child(8) button:contains('Next')", function (event) {
         $('#sec-6').removeClass("hidden");
       });	
-      $(document).on("click", ".steps-wrapper:nth-child(7) button:contains('Suivant')", function (event) {
+      $(document).on("click", ".steps-wrapper:nth-child(8) button:contains('Suivant')", function (event) {
         $('#sec-6').removeClass("hidden");
       });	
 
@@ -4831,9 +4843,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $('.thrp-hhbrp-eligible').removeClass("hidden");
           $('.ineligible-thrp-hhbrp').addClass("hidden");
           if (document.documentElement.lang == "fr") {
-            $(".twelveMonthDecline").text("Éligible au SSUC");
+            $(".twelveMonthDecline").text("Non nécessaire pour les périodes 1 à 21");
           } else {
-            $(".twelveMonthDecline").text("Eligible for CEWS");
+            $(".twelveMonthDecline").text("Not needed in periods 1 to 21");
           }
           elWageP = 3;
           $('.thrp-specific').addClass("hidden");
@@ -5168,6 +5180,17 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
 
           if (claimPeriod > 16) {
+            if (elWageP == 2 || elWageP == 1) {
+              $(".thrp-hhbrp-revd-eligible").removeClass("hidden");
+              $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
+              if ((elWageP == 2 && revReduction < 0.5) || (elWageP == 1 && revReduction < 0.4)) { //HHBRP
+                $(".thrp-hhbrp-revd-eligible").addClass("hidden");
+                $(".thrp-hhbrp-revd-ineligible").removeClass("hidden");
+              }
+            } else {
+              $(".thrp-hhbrp-revd-eligible").addClass("hidden");
+              $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
+            }
             if ((revReductionCRHPcur <= 0 && revReductionCRHPprev <= 0 && claimPeriod == 17) || (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17)) {
               cewsRate = 0;
               crhpRate = 0;
@@ -5358,6 +5381,17 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   break;
           }
           if (claimPeriod > 16) {
+            if (elWageP == 2 || elWageP == 3) {
+              $(".thrp-hhbrp-revd-eligible").removeClass("hidden");
+              $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
+              if ((elWageP == 2 && revReduction < 0.5) || (elWageP == 1 && revReduction < 0.4)) { //HHBRP
+                $(".thrp-hhbrp-revd-eligible").addClass("hidden");
+                $(".thrp-hhbrp-revd-ineligible").removeClass("hidden");
+              }
+            } else {
+              $(".thrp-hhbrp-revd-eligible").addClass("hidden");
+              $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
+            }
             if (revReductionCRHPcur <= 10 && revReductionCRHPprev <= 10 && claimPeriod > 17) {
               cewsRate = 0;
               crhpRate = 0;
@@ -5632,10 +5666,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
       //send data to fields in 2B (need to add French text)
 			
      //Changed to target NEXT button instead of push to 2b button (might not be needed);
-			$(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Next')", function (event) {
+			$(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Next')", function (event) {
         calculateTotals();
       });
-      $(document).on("click", ".steps-wrapper:nth-child(4) button:contains('Suivant')", function (event) {
+      $(document).on("click", ".steps-wrapper:nth-child(5) button:contains('Suivant')", function (event) {
         calculateTotals();
       });
 
