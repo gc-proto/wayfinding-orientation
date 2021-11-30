@@ -45,7 +45,7 @@ display:none;
 }
 /* webkit scrollbar */
 .scrll {
-	height: 400px;
+	height: 50vh;
 	overflow: auto;
   padding: 15px;
 }
@@ -519,8 +519,7 @@ li.checkbox label {
                   <p class="h2 mrgn-bttm-lg">Question about your industry</p>
                   <p class="wb-fieldflow-label"><span class="h3">5. Does most of your revenue come from work you do as one of these specific types of organizations within the tourism, hospitality, arts, entertainment, or recreation industries?</span></p>
                   <div>
-			  <div data-ajax-replace="/covid-19-guidance/proto/business-subsidy/thrp/entities.html#eligible-filter" class="data-ajax">
-        </div>
+			<p><a class="wb-lbx btn btn-default" title="Eligible businesses that may qualify for the THRP" href="#q5-popup"  data-wb-doaction='[{"action": "ajax", "url": "/covid-19-guidance/proto/business-subsidy/thrp/entities.html#eligible-filter", "container": "#port", "trigger": true}]'>Eligible businesses in these industries</a></p>
 			</div>
                 </div>
                 <ul>
@@ -735,7 +734,18 @@ li.checkbox label {
 	<!--
 	<p><a href="start-organization.html">1 page per question</a></p>
   <p><a href="fieldflow.html">Fieldflow - 1 question at a time</a></p>//-->
-
+<section id="q5-popup" class="mfp-hide modal-dialog modal-content overlay-def">
+			<header class="modal-header">
+				<h2 class="modal-title">Eligible businesses</h2>
+			</header>
+			<div class="modal-body p-0" id="port">
+				...
+			</div>
+     
+     <div class="modal-footer" id="xpn-coll" aria-hidden="true">
+        <p class="pull-left mrgn-rght-xl"><button class="btn btn-default btn-sm" data-wb-doaction='[{"action": "addClass", "source": ".scrll", "class": "scrll-xpnd panel-body"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "addClass", "source": "#show-all", "class": "hidden"}, {"action": "removeClass", "source": "#hide-all", "class": "hidden"}]' id="show-all">Expand all</button><button class="btn btn-default btn-sm hidden" data-wb-doaction='[{"action": "addClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll-xpnd panel-body"}, {"action": "addClass", "source": "#hide-all", "class": "hidden"}, {"action": "removeClass", "source": "#show-all", "class": "hidden"}]' id="hide-all">Collapse</button></p>
+        </div>
+		</section> 
 <div id="def-preFooter">
 </div>
 <!-- Write closure template -->
