@@ -25,6 +25,78 @@
 div:is(#old-browser) {
 display:none;
 }
+			    /* custom scrollbars for field flow section */
+/* ff scrollbar */
+    .wb-filter .input-group {
+      
+      padding-left: 15px;
+      padding-top: 15px;
+      padding-right: 15px;
+    }
+    .wb-filter #eligible-filter-info {
+      padding-left: 15px;
+      padding-right: 15px;
+    }   
+    
+.scrll {
+	scrollbar-width: 18px;
+	scrollbar-color: #143c5f #f0f0fb;
+ border-top: 1px solid #ccc;
+}
+/* webkit scrollbar */
+.scrll {
+	height: 400px;
+	overflow: auto;
+  padding: 15px;
+}
+.scrll::-webkit-scrollbar {
+ width: 18px;
+}
+.scrll::-webkit-scrollbar-track {
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 8px;
+}
+.scrll::-webkit-scrollbar-thumb {
+ background-color: #143c5f;
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 10px 10px 10px 10px;
+ border-top: 1px solid #bbb;
+}
+.scrll::-webkit-scrollbar-track-piece {
+ background-color: #bbb;
+}
+.scrll::-webkit-scrollbar-thumb:vertical:hover {
+ background-color: #2572b4;
+}
+/* buttons */
+.scrll::-webkit-scrollbar-button:single-button {
+ background-color: #bbb;
+ display: block;
+ border-style: solid;
+ height: 14px;
+ width: 18px;
+}
+/* up */
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement {
+ border-width: 0 8px 10px 8px;
+ border-color: transparent transparent #303030 transparent;
+}
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+ border-color: transparent transparent #2572b4 transparent;
+}
+/* down */
+.scrll::-webkit-scrollbar-button:single-button:vertical:increment {
+ border-width: 8px 10px 0 8px;
+ border-color: #303030 transparent transparent transparent;
+}
+.scrll::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+ border-color: #2572b4 transparent transparent transparent;
+}
+/* fix font size in checkboxes 
+also line 275 changed to 10px to accomodate new spacing */
+li.checkbox label {
+	font-size: 20px;
+}
 </style>
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
@@ -372,7 +444,7 @@ display:none;
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-4", "class": "hidden"}, {"action": "removeClass", "source": "#question-4a", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q4-no", "live": true}]'>No</li>
                 </ul>
               </div>
-              <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});">Next<span class="wb-inv">, after answering question about having a payroll account</span></button></li>
+              <ul class="list-inline"><li><button class="btn btn-primary btn-lg" type="submit"  onclick=" $('html,body').animate({scrollTop: $('#start-question').offset().top});"  data-wb-doaction='[{"action": "ajax", "url": "../thrp/entities.html#eligible-filter", "container": "#port", "trigger": true}]'>Next<span class="wb-inv">, after answering question about having a payroll account</span></button></li>
               <li><a href="" class="btn btn-link btn-lg">Start over</a></li></ul>
             </form>
           </div>
@@ -446,10 +518,14 @@ display:none;
                 <div class="wb-fieldflow-header">
                   <p class="h2 mrgn-bttm-lg">Question about your industry</p>
                   <p class="wb-fieldflow-label"><span class="h3">5. Does most of your revenue come from work you do as one of these specific types of organizations within the tourism, hospitality, arts, entertainment, or recreation industries?</span></p>
-                  <details>
-                    <summary>Eligible businesses in these industries</summary>
-			  <p><mark>This will be updated when details are known.</mark></p>
-                  </details>
+                  <details class="panel p-0">
+                    <summary class="mrgn-lft-0 mrgn-rght-0">Eligible businesses in these industries</summary>
+			  <div id="port">
+        </div>
+    <div class="panel-footer" id="xpn-coll" aria-hidden="true">
+        <p><button class="btn btn-default" data-wb-doaction='[{"action": "addClass", "source": ".scrll", "class": "scrll-xpnd panel-body"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "addClass", "source": "#show-all", "class": "hidden"}, {"action": "removeClass", "source": "#hide-all", "class": "hidden"}]' id="show-all">Expand all</button><button class="btn btn-default hidden" data-wb-doaction='[{"action": "addClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll-xpnd panel-body"}, {"action": "addClass", "source": "#hide-all", "class": "hidden"}, {"action": "removeClass", "source": "#show-all", "class": "hidden"}]' id="hide-all">Collapse</button></p>
+        </div>
+      </details>  
                 </div>
                 <ul>
                   <li data-wb-fieldflow='[{"action": "addClass", "source": "#question-5", "class": "hidden"}, {"action": "removeClass", "source": "#question-6", "class": "hidden"}, {"action": "addClass", "source": ".questions, #results", "class": "q5-yes", "live": true}]'>Yes</li>
