@@ -22,6 +22,80 @@
 			document.write(wet.builder.refTop({
 			}));
 		</script>
+		<style>
+    /* custom scrollbars for field flow section */
+/* ff scrollbar */
+    .wb-filter .input-group {
+      
+      padding-left: 15px;
+      padding-top: 15px;
+      padding-right: 15px;
+    }
+    .wb-filter #eligible-filter-info {
+      padding-left: 15px;
+      padding-right: 15px;
+    }   
+    
+.scrll {
+	scrollbar-width: 18px;
+	scrollbar-color: #143c5f #f0f0fb;
+  border-top: 1px solid #2572b4;
+}
+/* webkit scrollbar */
+.scrll {
+	height: 50vh;
+	overflow: auto;
+  padding: 15px;
+}
+.scrll::-webkit-scrollbar {
+ width: 18px;
+}
+.scrll::-webkit-scrollbar-track {
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 8px;
+}
+.scrll::-webkit-scrollbar-thumb {
+ background-color: #143c5f;
+ box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+ border-radius: 10px 10px 10px 10px;
+ border-top: 1px solid #bbb;
+}
+.scrll::-webkit-scrollbar-track-piece {
+ background-color: #bbb;
+}
+.scrll::-webkit-scrollbar-thumb:vertical:hover {
+ background-color: #2572b4;
+}
+/* buttons */
+.scrll::-webkit-scrollbar-button:single-button {
+ background-color: #bbb;
+ display: block;
+ border-style: solid;
+ height: 14px;
+ width: 18px;
+}
+/* up */
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement {
+ border-width: 0 8px 10px 8px;
+ border-color: transparent transparent #303030 transparent;
+}
+.scrll::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+ border-color: transparent transparent #2572b4 transparent;
+}
+/* down */
+.scrll::-webkit-scrollbar-button:single-button:vertical:increment {
+ border-width: 8px 10px 0 8px;
+ border-color: #303030 transparent transparent transparent;
+}
+.scrll::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+ border-color: #2572b4 transparent transparent transparent;
+}
+/* fix font size in checkboxes 
+also line 275 changed to 10px to accomodate new spacing */
+li.checkbox label {
+	font-size: 20px;
+}
+    </style>
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<div id="def-top">
@@ -128,8 +202,18 @@
 		<details><summary>Example: qualifying as a business that has revenue from some qualifying and some non-qualifying industries</summary>
 				<p><mark>Reserving this space in case such an example is available/doable/warranted.</mark></p></details>-->
 		
-		<h4>List of qualifying sectors</h4>
-				<p><mark>When known, sectors that qualify will be listed here.</mark></p>
+		<div class="panel panel-default">
+      <header class="panel-heading">
+        <h4 class="panel-title">List of activities that qualify for the THRP</h4>
+        </header>
+      <div data-ajax-replace="entities.html#eligible-filter" class="data-ajax>
+        </div>
+    
+      <div class="panel-footer" id="xpn-coll" aria-hidden="true">
+        <p><button class="btn btn-default" data-wb-doaction='[{"action": "addClass", "source": ".scrll", "class": "scrll-xpnd panel-body"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "addClass", "source": "#show-all", "class": "hidden"}, {"action": "removeClass", "source": "#hide-all", "class": "hidden"}]' id="show-all">Expand all</button><button class="btn btn-default hidden" data-wb-doaction='[{"action": "addClass", "source": ".scrll-xpnd", "class": "scrll"}, {"action": "removeClass", "source": ".scrll-xpnd", "class": "scrll-xpnd panel-body"}, {"action": "addClass", "source": "#hide-all", "class": "hidden"}, {"action": "removeClass", "source": "#show-all", "class": "hidden"}]' id="hide-all">Collapse</button></p>
+        </div>
+    </div>
+  
 				<!--<h5>Traveler accommodation</h5>
 				<p>Traveler accommodation includes short-term lodging such as hotels, motels, resorts, casino hotels, motor hotels, bed and breakfasts, and housekeeping cottages and cabins.</p>
 				<div class="cnjnctn-type-or cnjnctn-sm">
@@ -523,5 +607,25 @@ the affected locations) during the prior reference period for the claim period</
 	  }));
 	</script>
 	<script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
+	<script>
+		(function( $, document, wb ) {
+	"use strict";
+	$('.data-ajax').on( "wb-contentupdated", function( event, data ){
+		// "data.ajax-type" contains the insersion method [after, append, before, prepend, replace]
+		// "data.content" contains the
+		var $elm = $(event.currentTarget);
+		$elm
+			.find( wb.allSelectors )
+				.addClass( "wb-init" )
+				.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+					.trigger( "timerpoke.wb" );
+		/*
+		 * Since we are working with events we want to ensure that we are being
+		 * passive about our control, so returning true allows for events to always
+		 * continue
+		 */
+		return true;
+	});
+})( jQuery, document, wb );</script>
   </body>
 </html>
