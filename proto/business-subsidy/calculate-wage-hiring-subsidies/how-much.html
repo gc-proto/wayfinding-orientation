@@ -1796,7 +1796,7 @@ fieldset +.buttons {
                 </fieldset>
                 <a class="btn btn-default">Update your revenue drop summary</a>
                 <div class="well text-muted mrgn-tp-md">
-                  <h3 class="mrgn-tp-0">Summary of step 2: Revenue drop and subsidy rates</h3>
+                  <h3 class="mrgn-tp-0">Summary of step 5: Revenue drop and subsidy rates</h3>
                   <div class="not-el-hhbrp-crhp hidden">
                     <p>Based on previous questions, you are not eligible for the THRP, HHBRP or the CRHP.</p>
                   </div>
@@ -2459,9 +2459,9 @@ fieldset +.buttons {
           <div class="col-sm-8 col-md-9">
             <p>Premiums, contributions and deductions only apply to the CEWS, THRP or HHBRP. Continue to the next step to calculate your CRHP amount.</p>
           </div>
-        </div>
-        <div class="col-sm-4 col-md-3">
-          <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 6</span></a></p>
+          <div class="col-sm-4 col-md-3">
+            <p class="mrgn-tp-md"><a href="#calc-summary" class="wb-lbx btn btn-link panel panel-primary"><span class="fas fa-clipboard-list fa-lg"></span> Summary: <span class="nowrap">Steps 1 to 6</span></a></p>
+          </div>
         </div>
         <div class="row eligible-wage-subsidy">
           <div class="col-sm-8 col-md-9 p19-minus">
@@ -3714,6 +3714,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           elWageP = 3; //eligible for CEWS
           $('.eligible-wage-subsidy').removeClass("hidden");
           $('.ineligible-wage-subsidy').removeClass("hidden");
+          $("#details-panel1-lnk").parent().removeClass("hidden");
           $('.thrp-specific').addClass("hidden");
           $('.hhbrp-specific').addClass("hidden");
           if (document.documentElement.lang == "fr") {
@@ -4871,6 +4872,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           var twelveMonthDecline = zeroIfEmpty($('#12-month-decline').val());
           $(".twelveMonthDecline").text(toPercent(twelveMonthDecline));
+          $("#details-panel1-lnk").parent().removeClass("hidden");
           $('#q1-tourism-hospitality').addClass("hidden");
           $('#q2-check-lockdown').addClass("hidden");
           $('.eligible-thrp-lockdown').addClass("hidden"); //hide all by default
@@ -4896,7 +4898,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               $('.thrp-hhbrp-eligible').removeClass("hidden");
             } else if ($('#qualifying-lockdown-no:checked').length > 0) {
               elWageP = 0;
-              console.log("hi");
+              $("#details-panel1-lnk").parent().addClass("hidden");
               $('.ineligible-thrp-hhbrp').removeClass("hidden");
               $('.eligible-wage-subsidy').addClass("hidden");
               $('.ineligible-wage-subsidy').removeClass("hidden");
@@ -4934,6 +4936,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $('.ineligible-thrp-hhbrp').removeClass("hidden");
                   $('.eligible-wage-subsidy').addClass("hidden");
                   $('.ineligible-wage-subsidy').removeClass("hidden");
+                  $("#details-panel1-lnk").parent().addClass("hidden");
                 } else {
                   $('.eligible-hhbrp-12-month').removeClass("hidden");
                   elWageP = 2;
