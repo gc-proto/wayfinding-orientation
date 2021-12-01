@@ -2317,41 +2317,43 @@ fieldset +.buttons {
                   <footer class="panel-footer">
                     <details open>
                       <summary>Calculation summary for <span class="ee-name-1">employee <span class="employeeNumber">1</span></span> </summary>
-                      <table class="table table-condensed small text-muted" id="emp-smry-1">
-                        <caption class="wb-inv">
-                        Calculation summary for employee <span class="employeeNumber">1</span>
-                        </caption>
-                        <thead class="eligible-wage-subsidy">
-                          <tr>
-                            <th scope="col">Week</th>
-                            <th scope="col">Calculated amount</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Week one (<span class="elWageP">CEWS</span>)</td>
-                            <td data-updates="amt-ttl-1" id="w1-amt-1">$0</td>
-                          </tr>
-                          <tr>
-                            <td>Week two (<span class="elWageP">CEWS</span>)</td>
-                            <td data-updates="amt-ttl-1" id="w2-amt-1">$0</td>
-                          </tr>
-                          <tr>
-                            <td>Week three (<span class="elWageP">CEWS</span>)</td>
-                            <td data-updates="amt-ttl-1" id="w3-amt-1">$0</td>
-                          </tr>
-                          <tr>
-                            <td>Week four (<span class="elWageP">CEWS</span>)</td>
-                            <td data-updates="amt-ttl-1" id="w4-amt-1">$0</td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                          <tr>
-                            <td>4-week total (<span class="elWageP">CEWS</span>)</td>
-                            <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
-                          </tr>
-                        </tfoot>
-                      </table>
+                      <div class="eligible-wage-subsidy">
+                        <table class="table table-condensed small text-muted" id="emp-smry-1">
+                          <caption class="wb-inv">
+                          Calculation summary for employee <span class="employeeNumber">1</span>
+                          </caption>
+                          <thead>
+                            <tr>
+                              <th scope="col">Week</th>
+                              <th scope="col">Calculated amount</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Week one (<span class="elWageP">CEWS</span>)</td>
+                              <td data-updates="amt-ttl-1" id="w1-amt-1">$0</td>
+                            </tr>
+                            <tr>
+                              <td>Week two (<span class="elWageP">CEWS</span>)</td>
+                              <td data-updates="amt-ttl-1" id="w2-amt-1">$0</td>
+                            </tr>
+                            <tr>
+                              <td>Week three (<span class="elWageP">CEWS</span>)</td>
+                              <td data-updates="amt-ttl-1" id="w3-amt-1">$0</td>
+                            </tr>
+                            <tr>
+                              <td>Week four (<span class="elWageP">CEWS</span>)</td>
+                              <td data-updates="amt-ttl-1" id="w4-amt-1">$0</td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td>4-week total (<span class="elWageP">CEWS</span>)</td>
+                              <td id="amt-ttl-1" data-updated-by="emp-wkly-wage-1">$0</td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
                       <table id="emp-no-elgbl-1" class="table table-condensed small text-muted hidden">
                         <thead>
                           <tr>
@@ -2454,7 +2456,7 @@ fieldset +.buttons {
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Premiums, contributions and deductions for the <span class="elWageP">CEWS</span></span></legend>
       <div class="panel-body hidden">
         <div class="row ineligible-wage-subsidy">
-          <div class="col-sm-8 col-md-9 p19-minus">
+          <div class="col-sm-8 col-md-9">
             <p>Premiums, contributions and deductions only apply to the CEWS, THRP or HHBRP. Continue to the next step to calculate your CRHP amount.</p>
           </div>
         </div>
@@ -4696,6 +4698,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         //create the total cell
         var totalCell = document.createElement("td");
         totalCell.id = "emp-ttl-" + numEmployeePanels;
+        $(totalCell).addClass($("#emp-ttl-1").attr('class'));
         //put the row together
         row.appendChild(eligibleEmployeeCell);
         row.appendChild(armsLengthCell);
@@ -4893,6 +4896,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               $('.thrp-hhbrp-eligible').removeClass("hidden");
             } else if ($('#qualifying-lockdown-no:checked').length > 0) {
               elWageP = 0;
+              console.log("hi");
               $('.ineligible-thrp-hhbrp').removeClass("hidden");
               $('.eligible-wage-subsidy').addClass("hidden");
               $('.ineligible-wage-subsidy').removeClass("hidden");
