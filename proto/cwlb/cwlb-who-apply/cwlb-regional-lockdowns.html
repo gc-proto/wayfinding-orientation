@@ -161,9 +161,9 @@
             <li>Not following the rules of a lockdown order is an offence which may result in a penalty.</li>
           </ul>
         </details>
-        <div id="table-filtering-example2-form" class="wb-frmvld hidden">
+        <div id="filters" class="wb-frmvld hidden">
           <form>
-            <div class="wb-fieldflow" data-wb-fieldflow='{ "noForm": true, "isoptional": true, "unhideelm": "#table-filtering-example2-form" }'>
+            <div class="wb-fieldflow" data-wb-fieldflow='{ "noForm": true, "isoptional": true, "unhideelm": "#filters" }'>
               <p>Filter by province:</p>
               <ul>
                 <li data-wb-fieldflow='{
@@ -252,65 +252,248 @@
                 <li data-wb-fieldflow='{
 					"action": "tblfilter",
 					"source": "#lockdowns",
-					"column": 2,
+					"column": 3,
 					"value": "Open"
 				}'>Open</li>
                 <li data-wb-fieldflow='{
 					"action": "tblfilter",
 					"source": "#lockdowns",
-					"column": 2,
+					"column": 3,
 					"value": "Closed"
 				}'>Closed</li>
+                <li data-wb-fieldflow='{
+					"action": "tblfilter",
+					"source": "#lockdowns",
+					"column": 3,
+					"value": "Not yet"
+				}'>Not open yet</li>
               </ul>
             </div>
           </form>
         </div>
-        <table id="lockdowns" class="wb-tables table table-striped table-hover" 
-	   aria-live="polite"
-	   data-wb-tables='{
-			"order": [[1, 'asc']]
-		}'>
+        <table id="lockdowns" class="wb-tables table table-striped table-hover table-responsive" aria-live="polite">
           <thead>
             <tr>
-              <th scope="col">Region</th>
-              <th scope="col">Lockdown date</th>
-              <th scope="col">Eligible periods</th>
+              <th scope="col" class="col-sm-6">Region</th>
+              <th scope="col" class="col-sm-2">Start date</th>
+              <th scope="col" class="col-sm-2">End date</th>
+              <th scope="col" class="col-sm-2">Eligible periods</th>
               <th scope="col" class="wb-inv">Postal code</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <th><a href="#champlain" aria-controls="champlain" class="wb-lbx" role="button" title="Ontario: Champlain public health unit"><span class="wb-inv">Ontario:</span> Champlain</a>
+                <section id="champlain" class="mfp-hide modal-dialog modal-content overlay-def">
+                  <header class="modal-header">
+                    <h2 class="modal-title">Ontario: Champlain public health unit</h2>
+                  </header>
+                  <div class="modal-body">
+                    <p>The Champlain public health unit includes:</p>
+                    <ul class="fa-ul">
+                      <li><span class="fas fa-check text-success fa-li"></span> <a href="www.healthunit.org" rel="external">Leeds, Grenville and Lanark District Health Unit<span class="fas fa-external-link-alt mrgn-lft-sm"></span><span class="wb-inv"> (external link)</span></a></li>
+                      <li><span class="fas fa-check text-success fa-li"></span> <a href="www.eohu.ca" rel="external">Eastern Ontario Health Unit<span class="fas fa-external-link-alt mrgn-lft-sm"></span><span class="wb-inv"> (external link)</span></a></li>
+                      <li><span class="fas fa-check text-success fa-li"></span> <a href="www.ottawapublichealth.ca" rel="external">Ottawa Public Health<span class="fas fa-external-link-alt mrgn-lft-sm"></span><span class="wb-inv"> (external link)</span></a></li>
+                      <li><span class="fas fa-check text-success fa-li"></span> <a href="www.rcdhu.com" rel="external">Renfrew County and District Health Unit<span class="fas fa-external-link-alt mrgn-lft-sm"></span><span class="wb-inv"> (external link)</span></a></li>
+                    </ul>
+                  </div>
+                </section>
+              </th>
+              <td><span class="wb-inv">2021-10-24</span> <span class="nowrap">October 24, 2021</span></td>
+              <td><span class="wb-inv">2021-11-13</span> <span class="nowrap">November 13, 2021</span></td>
+              <td><ul class="fa-ul">
+                  <li><span class="fas fa-minus-circle text-danger fa-li"></span><a href="#period1" aria-controls="period1" class="wb-lbx" role="button">Period 1</a><span class="wb-inv">: Closed</span></li>
+                  <li><span class="fas fa-minus-circle text-danger fa-li"></span><a href="#period2" aria-controls="period2" class="wb-lbx" role="button">Period 2</a><span class="wb-inv">: Closed</span></li>
+                  <li><span class="fas fa-check text-success fa-li"></span><a href="#period3" aria-controls="period3" class="wb-lbx" role="button">Period 3</a><span class="wb-inv">: Open</span></li>
+                </ul></td>
+              <td class="wb-inv"><ul>
+                  <li>K2C</li>
+                  <li>K3J</li>
+                  <li>K4A</li>
+                </ul></td>
+            </tr>
+            <tr>
               <th><span class="wb-inv">Alberta:</span> Somewhere</th>
-              <td><span class="wb-inv">2021-10-24</span> <span class="nowrap">October 24, 2021 to November 13, 2021</span></td>
-              <td><ul>
-                  <li>Period 1 <span class="wb-inv">open</span></li>
-                  <li>Period 2 <span class="wb-inv">open</span></li>
-                  <li>Period 3 <span class="wb-inv">open</span></li>
+              <td><span class="wb-inv">2021-10-24</span> <span class="nowrap">October 24, 2021</span></td>
+              <td><span class="wb-inv">2021-11-13</span> <span class="nowrap">November 13, 2021</span></td>
+              <td><ul class="fa-ul">
+                  <li><span class="fas fa-minus-circle text-danger fa-li"></span><a href="">Period 1</a><span class="wb-inv">: Closed</span></li>
+                  <li><span class="fas fa-minus-circle text-danger fa-li"></span><a href="">Period 2</a><span class="wb-inv">: Closed</span></li>
+                  <li><span class="fas fa-check text-success fa-li"></span><a href="">Period 3</a><span class="wb-inv">: Open</span></li>
                 </ul></td>
               <td class="wb-inv"><ul>
                   <li>T1A</li>
                   <li>T1B</li>
-                  <li>T1H</li>
+                  <li>T1C</li>
                 </ul></td>
             </tr>
             <tr>
               <th><span class="wb-inv">Ontario:</span> Nowhere</th>
-              <td><span class="wb-inv">2021-12-13</span> <span class="nowrap">December 13, 2021 to January 15, 2021</span></td>
-              <td><ul>
-                  <li>Period 1 <span class="wb-inv">open</span></li>
-                  <li>Period 2 <span class="wb-inv">open</span></li>
-                  <li>Period 3 <span class="wb-inv">open</span></li>
+              <td><span class="wb-inv">2021-12-13</span> <span class="nowrap">December 12, 2021</span></td>
+              <td><span class="wb-inv">2022-12-15</span> <span class="nowrap">January 15, 2021 <span class="label label-info">extended</span></span></td>
+              <td><ul class="fa-ul">
+                  <li><span class="fas fa-check text-success fa-li"></span><a href="">Period 8</a><span class="wb-inv">: Open for applications</span></li>
+                  <li><span class="fas fa-check text-success fa-li"></span><a href="">Period 9</a><span class="wb-inv">: Open for applications</span></li>
+                  <li><span class="fas fa-check text-success fa-li"></span><a href="">Period 10</a><span class="wb-inv">: Open for applications</span></li>
+                  <li><span class="far fa-clock text-warning fa-li"></span><a href="">Period 11</a><span class="wb-inv">: Not yet open for applications</span></li>
+                  <li><span class="far fa-clock text-warning fa-li"></span><a href="" class="nowrap">Period 12</a><span class="wb-inv">: Not yet open for applications</span></li>
                 </ul></td>
               <td class="wb-inv"><ul>
-                  <li>T1A</li>
-                  <li>T1B</li>
-                  <li>T1H</li>
+                  <li>K1A</li>
+                  <li>K1B</li>
+                  <li>K1C</li>
                 </ul></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+    
+    <!--Start period lightboxes--> 
+    <!-- Period 1 -->
+    <section id="period1" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 1: October 24 to October 30, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, November 1</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-1"></section>
+      </div>
+    </section>
+    <!-- Period 2 -->
+    <section id="period2" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 2: October 31 to November 6, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, November 8</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-2"></section>
+      </div>
+    </section>
+    <!-- Period 3 -->
+    <section id="period3" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 3: November 7 to November 13, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, November 15</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-3"></section>
+      </div>
+    </section>
+    <!-- Period 4 -->
+    <section id="period4" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 4: November 14 to November 20, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, November 22</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-4"></section>
+      </div>
+    </section>
+    <!-- Period 5 -->
+    <section id="period5" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 5: November 21 to November 27, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, November 29</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-5"></section>
+      </div>
+    </section>
+    <!-- Period 6 -->
+    <section id="period6" class="mfp-hide modal-dialog modal-content overlay-def">
+      <header class="modal-header">
+        <h2 class="modal-title">Period 6: November 28 to December 4, 2021</h2>
+      </header>
+      <div class="modal-body">
+        <div class="s1 s5 alert alert-success alert1 hidden">
+          <p>If you are <a href="cwlb-who-apply.html#h-1">eligible</a>, this period is open for application.</p>
+          <p>The last day you can apply is <strong class="nowrap">January 26, 2022</strong> (11:59 pm ET).</p>
+        </div>
+        <div class="w1 alert alert-warning alert1 hidden">
+          <p>The period is not yet open for application.</p>
+          <p>The earliest you can apply is <strong class="nowrap">Monday, December 6</strong>.</p>
+        </div>
+        <div class="d5 alert alert-danger alert1 hidden">
+          <p>This period is closed. You can no longer apply for it.</p>
+        </div>
+        <section data-ajax-replace="../cwlb-weeks-apply.html#cal-p-6"></section>
+      </div>
+    </section>
+    
+    <!-- Period 7: December 5 to December 11, 2021
+    Period 8: December 12 to December 18, 2021
+    Period 9: December 19 to December 25, 2021
+    Period 10: December 26 to January 1, 2022
+    Period 11: January 2 to January 8, 2022
+    Period 12: January 9 to January 15, 2022
+    Period 13: January 16 to January 22, 2022
+    Period 14: January 23 to January 29, 2022
+    Period 15: January 30 to February 5, 2022
+    Period 16: February 6 to February 12, 2022
+    Period 17: February 13 to February 19, 2022
+    Period 18: February 20 to February 26, 2022
+    Period 19: February 27 to March 5, 2022
+    Period 20: March 6 to March 12, 2022
+    Period 21: March 13 to March 19, 2022
+    Period 22: March 20 to March 26, 2022
+    Period 23: March 27 to April 2, 2022
+    Period 24: April 3 to April 9, 2022
+    Period 25: April 10 to April 16, 2022
+    Period 26: April 17 to April 23, 2022
+    Period 27: April 24 to April 30, 2022
+    Period 28: May 1 to May 7, 2022--> 
+    <!--END period lightboxes-->
     <nav class="mrgn-bttm-lg mrgn-tp-lg">
       <h3 class="wb-inv">Document navigation</h3>
       <ul class="pager">
@@ -466,6 +649,46 @@ if($('.gcnav-menu').length> 0){
 	$( "#wb-tphp" ).prepend('<li class="wb-slc"><a class="wb-sl" href="#gc-document-nav">' + gcNav + '</a></li>' );
 }
 })( jQuery, document, wb );		
+</script> 
+<script>
+/*Set first and last period opening dates FOR TESTING: 2021-11-01 is when first period opened, use 2021-08-30 to close 1st 5 periods & 2021-09-06 to close no periods*/
+var startDate = new Date("2021-11-01T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/
+var endDate = new Date("2022-05-09T06:00:00"); /*YYYY-MM-DD T HH:mm:ss*/
+
+/*function to create date arrays*/
+var getDateArray = function (start, end) {
+	var arr = new Array();
+	var dt = new Date(start);
+	while (dt <= end) {
+		arr.push(new Date(dt));
+		dt.setDate(dt.getDate() + 7);
+	}
+	return arr;
+}
+var dateArr = getDateArray(startDate, endDate);
+
+/*function to adjust alert messages*/
+var changeAlert = function (dateArray) {
+	for (var i = 0; i < (dateArray.length); i++) {
+		var successID = ".s" + (i + 1);
+		var warningID = ".w" + (i + 1);
+		var dangerID = ".d" + (i + 1);
+		diff = (dateArray[i] - Date.now()) / 8.64e+7;
+		/*if (i < 4) {
+			diff = (dateArray[4] - Date.now()) / 8.64e+7; //keep first 4 periods open longer				
+		}*/
+		if (diff >= 0) {
+			$(warningID).addClass("visible").removeClass("hidden");
+		} else if ((diff < 0) && (diff > -58.792)) {
+			$(successID).addClass("visible").removeClass("hidden");
+		} else if (diff <= -58.792) {
+			$(dangerID).addClass("visible").removeClass("hidden");
+		} else {
+			alert("Something went wrong " + diff);
+		}		
+	}
+}
+changeAlert(dateArr);
 </script>
 </body>
 </html>
