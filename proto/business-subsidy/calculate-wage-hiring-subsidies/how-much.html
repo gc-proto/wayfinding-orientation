@@ -1825,7 +1825,7 @@ fieldset +.buttons {
                     <div class="eligible-wage-subsidy">
                       <p>Your <strong>overall <span class="elWageP">CEWS</span> rate</strong> <span class="p22-26 hidden small"><span class="thrp-specific hidden">(same as your revenue drop to a maximum of 75%)</span><span class="hhbrp-specific hidden">(10% + (revenue drop - 50%) x 1.6 to a maximum of 50%)</span></span><span class="p27-28 hidden small"><span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span><span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span></span><span class="p1-21"><span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
                         rate)</span></span> for claim period <span class="claim-period-no">(choose a claim
-                        period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span> </p>
+                        period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" style="font-size:24px;" >0%</span> </p>
                     </div>
                     <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                       rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
@@ -2168,7 +2168,7 @@ fieldset +.buttons {
                     </div>
                     <hr class="brdr-bttm">
                     <div class="eligible-wage-subsidy">
-                      <p>Your <strong>overall <span class="elWageP">CEWS</span> rate</strong> <span class="p22-26 hidden small"><span class="thrp-specific hidden">(same as your revenue drop to a maximum of 75%)</span><span class="hhbrp-specific hidden">(10% + (revenue drop - 50%) x 1.6 to a maximum of 50%)</span></span><span class="p27-28 hidden small"><span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span><span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span></span><span class="p1-21"><span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim period)</span></span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" >0%</span>.</p>
+                      <p>Your <strong>overall <span class="elWageP">CEWS</span> rate</strong> <span class="p22-26 hidden small"><span class="thrp-specific hidden">(same as your revenue drop to a maximum of 75%)</span><span class="hhbrp-specific hidden">(10% + (revenue drop - 50%) x 1.6 to a maximum of 50%)</span></span><span class="p27-28 hidden small"><span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span><span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span></span><span class="p1-21"><span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)</span> for claim period <span class="claim-period-no">(choose a claim period)</span></span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" style="font-size:24px;">0%</span>.</p>
                     </div>
                     <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
                       rate of 75% because your revenue drop in the current or previous period was at least 30%. </p>
@@ -3715,7 +3715,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $('.eligible-wage-subsidy').removeClass("hidden");
           $('.ineligible-wage-subsidy').removeClass("hidden");
           $("#details-panel1-lnk").parent().removeClass("hidden");
-          $('.thrp-specific').addClass("hidden");
+          $('.thrp-specific').adddClass("hidden");
           $('.hhbrp-specific').addClass("hidden");
           if (document.documentElement.lang == "fr") {
             $('.elWageP').text("SSUC");
@@ -4852,6 +4852,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
         } else {
           $('.not-el-hhbrp-crhp').addClass("hidden");
           $('.el-hhbrp-crhp').removeClass("hidden");
+        }
+        if (elWageP == 3 || (elWageP > 0 && (revReduction > 0.5 || (elWageP == 1 && revReduction > 0.4)))) {
+          $('.eligible-wage-subsidy').removeClass("hidden");
+          $('.ineligible-wage-subsidy').addClass("hidden");
         }
       }
 
