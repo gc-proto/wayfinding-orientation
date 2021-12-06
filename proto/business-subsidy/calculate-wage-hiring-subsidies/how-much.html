@@ -390,7 +390,7 @@ fieldset +.buttons {
       <div class="wb-fieldflow" data-wb-fieldflow='{"noForm": true, "default":{"action": "addClass", "source": "#cal-sprdsht-none", "class": "hidden", "live": true}}'>
         <p> Select a claim period</p>
         <ul>
-          <li>CRHP, THRP - Wage and HHRBRP - Wage
+          <li>CRHP, THRP - Wage and HHBRP - Wage
             <ul>
               <li data-wb-fieldflow='[
                 {"action": "toggle", "toggle": "#cal-sprsht-p22", "live": true},
@@ -1101,13 +1101,18 @@ fieldset +.buttons {
               </fieldset>
                -->
               <!-- <div id="enter-12-month" class="hidden"> -->
+                <h3>Calculate your 12-month average revenue drop</h3>
+                <p>If you have not yet calculated the 12 month average revenue drop for period 22 or later, <strong>use the 12-month average revenue drop calculator</strong>.</p>
+                <p><a target="_blank" href="./12-month-drop-calculator.html" class="btn btn-primary">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></a></p>
+                <p><strong>If you have completed a calculation for period 22 or later,</strong> the 12-month average revenue drop is the same for all claim periods, so you can use the amount saved in your previous calculation.</p>
+
                 <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
                   <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
                   <div id="12-month-decline-input">
                     <div class="form-group row">
                       <fieldset>
                         <label class="required col-sm-12 control-label" for="12-month-decline">What is your 12-month average revenue drop<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                        <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p>
+                        <!-- <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p> -->
                         <!-- <p><a class="wb-lbx" role="button" aria-controls="12-month-calculator" href="#12-month-calculator"><span class="fas fa-calculator"></span> Calculate your 12-month revenue <span class="nowrap">decline<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p> -->
                         <div class="col-sm-4">
                           <div class="input-group">
@@ -1165,7 +1170,7 @@ fieldset +.buttons {
         <div class="row hidden p22-plus">
           <div class="col-sm-8 col-md-9 mrgn-tp-md">
             <div class="">
-              <p>To qualify for the THRP or the HRBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period.</p>
+              <p>To qualify for the THRP or the HHBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period.</p>
               <fieldset id="q1-tourism-hospitality" class="provisional gc-chckbxrdio chckbxrdio-grp ">
                 <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying tourism, hospitality, arts, entertainment, or recreation entity?</span> <strong class="required">(required)</strong></legend>
                 <p><a class="wb-lbx" role="button" aria-controls="tourism-hospitality-definition" href="#tourism-hospitality-definition">What sectors are considered part of tourism, hospitality, arts, entertainment, or <span class="nowrap">recreation?<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p>
@@ -2455,7 +2460,7 @@ fieldset +.buttons {
     <fieldset id="prem-cont-fs" class="panel-default p-0" >
       <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Premiums, contributions and deductions for the <span class="elWageP">CEWS</span></span></legend>
       <div class="panel-body hidden">
-        <div class="row ineligible-wage-subsidy">
+        <div class="row ineligible-wage-subsidy hidden">
           <div class="col-sm-8 col-md-9">
             <p>Premiums, contributions and deductions only apply to the CEWS, THRP or HHBRP. Continue to the next step to calculate your CRHP amount.</p>
           </div>
@@ -3713,7 +3718,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         if (claimPeriod < 22) {
           elWageP = 3; //eligible for CEWS
           $('.eligible-wage-subsidy').removeClass("hidden");
-          $('.ineligible-wage-subsidy').removeClass("hidden");
+          $('.ineligible-wage-subsidy').addClass("hidden");
           $("#details-panel1-lnk").parent().removeClass("hidden");
           $('.thrp-specific').adddClass("hidden");
           $('.hhbrp-specific').addClass("hidden");
