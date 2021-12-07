@@ -10,8 +10,8 @@
 
 <!-- Load closure template scripts -->
 
-<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/soyutils.js"></script>
-<script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/wet-en.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/soyutils.js"></script>
+<script src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_39/cdts/compiled/wet-en.js"></script>
 <link href="https://test.canada.ca/covid-19-guidance/proto/css/alpha-beta-banner.css" rel="stylesheet" />
 <link href="../../css/cews.css" rel="stylesheet" />
 <link href="../../css/checkbox-radio-cers.css" rel="stylesheet" />
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 <!-- Write closure template -->
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refTop({
     }));
   </script>
@@ -127,7 +127,7 @@ fieldset +.buttons {
 <body vocab="http://schema.org/" typeof="WebPage">
 <div id="def-top"> </div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defTop = document.getElementById("def-top");
     defTop.outerHTML = wet.builder.top({
       lngLinks: [{
@@ -847,8 +847,9 @@ fieldset +.buttons {
             <button type="button" class="btn btn-default hidden-print toCSV"><span class="fas fa-download"></span> Download the following table as spreadsheet file (CSV)</button>
         </p>
         <div class="table-responsive">
-            <table class="table table-bordered table-condensed small" id="dataset-filter" summary="Remuneration calculations for claim period">
-            <thead>
+            <table class="table table-bordered table-condensed small" id="dataset-filter">
+              <caption class="wb-inv">Remuneration calculations for claim period</caption>
+              <thead>
                 <tr>
                 <th>Month</th>
                 <th>Pre-crisis revenue</th>
@@ -858,7 +859,7 @@ fieldset +.buttons {
             </thead>
             <tbody>
               <tr>
-                <td><span>March <span class="03-not-operating hidden">(not in operation)</span></td>
+                <td><span>March <span class="03-not-operating hidden">(not in operation)</span></span></td>
                 <td><span class="p1-4-Jan hidden">Alternate baseline</span><span class="p1-4-2019">$<span data-updated-by="2019-03-yes">0.00</span></span></td>
                 <td>$<span data-updated-by="2020-03-yes">0.00</span></td>
                 <td><span class="03-drop">0.00%</span></td>
@@ -946,7 +947,6 @@ fieldset +.buttons {
         </ul>
       </div>
     </section>
-  </div>
 
 <section id="baseline-optns" class="mfp-hide modal-dialog modal-content overlay-def">
   <header class="modal-header">
@@ -992,7 +992,7 @@ fieldset +.buttons {
 
   <div id="def-preFooter"></div>
   <!-- Write closure template --> 
-  <script type="text/javascript">
+  <script>
       var defPreFooter = document.getElementById("def-preFooter");
       defPreFooter.outerHTML = wet.builder.preFooter({
         dateModified: "2021-05-18",
@@ -1004,7 +1004,7 @@ fieldset +.buttons {
 </main>
 <div id="def-footer"></div>
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     var defFooter = document.getElementById("def-footer");
     defFooter.outerHTML = wet.builder.footer({
       showFooter: true,
@@ -1012,7 +1012,7 @@ fieldset +.buttons {
     });
   </script> 
 <!-- Write closure template --> 
-<script type="text/javascript">
+<script>
     document.write(wet.builder.refFooter({
     }));
   </script> 
