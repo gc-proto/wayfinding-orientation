@@ -633,13 +633,19 @@
                   </fieldset>
                    -->
                   <!-- <div id="enter-12-month" class="hidden"> -->
+
+                    <h3>Calculate your 12-month average revenue drop</h3>
+                    <p>If you have not yet calculated the 12 month average revenue drop for period 22 or later, <strong>use the 12-month average revenue drop calculator</strong>.</p>
+                    <p><a target="_blank" href="./12-month-drop-calculator.html" class="btn btn-primary">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></a></p>
+                    <p><strong>If you have completed a calculation for period 22 or later,</strong> the 12-month average revenue drop is the same for all claim periods, so you can use the amount saved in your previous calculation.</p>
+        
                     <fieldset class="provisional gc-chckbxrdio chckbxrdio-grp subfields">
                       <!-- this location closed for over 1 week during the period due to a COVID-19 public health restriction? -->
                       <div id="12-month-decline-input">
                         <div class="form-group row">
                           <fieldset>
                             <label class="required col-sm-12 control-label" for="12-month-decline">What is your 12-month average revenue drop<span class="wb-inv"> (do not include a dollar sign, spaces or commas)</span> <strong class="required p3-ee-req">(required)</strong></label>
-                            <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p>
+                            <!-- <p class="mrgn-lft-md"><a href="./12-month-drop-calculator.html" target="_Blank">Calculate your 12-month revenue <span class="nowrap">drop<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></span></span></a>.</p> -->
                             <!-- <p><a class="wb-lbx" role="button" aria-controls="12-month-calculator" href="#12-month-calculator"><span class="fas fa-calculator"></span> Calculate your 12-month revenue <span class="nowrap">decline<span class="mrgn-lft-sm far fa-question-circle"></span></span></a></p> -->
                             <div class="col-sm-4">
                               <div class="input-group">
@@ -1414,7 +1420,27 @@
                   <li class="brdr-bttm">Your <strong>previous period revenue drop</strong> is <span class="priorRevReduction h4">0%</span></li>
                 </ul>
                 <div class="small" style="margin-left:40px;">
-                  <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">0%</span>, <span class="p22-plus"><span class="thrp-hhbrp-revd-ineligible">you do not qualify for the <span class="elRentP">THRP</span> this period</span><span class="thrp-hhbrp-revd-eligible">your <span class="elRentP">THRP</span> rate is calculated as <span class="p22-26 hidden small"><span class="thrp-specific hidden">(same as your revenue drop to a maximum of 75%)</span><span class="hhbrp-specific hidden">(10% + (revenue drop - 50%) x 1.6 to a maximum of 50%)</span></span><span class="p27-28 hidden small"><span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span><span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span></span></span><span class="p1-21">your CERS rate is calculated as <span id="rate-formula-max" class="hidden">the maximum</span><span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x <span class="scaleTopUp">1.25</span> + <span class="maxBase">40%</span></span><span id="rate-formula-u50" class="hidden"><span class="p11-plus">(</span>your revenue drop <span class="p11-plus">- 10%)</span> x <span class="scaleBase">0.8</span></span><span id="rate-formula-0">0</span></span>.</p>
+                  <p class="greater-than-10-drop">Because the higher of these revenue drops is <span class="h4 preferentialRevReduction">0%</span>, 
+                    <span class="p22-plus">
+                      <span class="thrp-hhbrp-revd-ineligible">you do not qualify for the <span class="elRentP">THRP</span> this period</span>
+                      <span class="thrp-hhbrp-revd-eligible">your <span class="elRentP">THRP</span> rate is calculated as 
+                        <span class="p22-26 hidden small">
+                          <span class="thrp-specific hidden">(same as your revenue drop to a maximum of 75%)</span>
+                          <span class="hhbrp-specific hidden">(10% + (revenue drop - 50%) x 1.6 to a maximum of 50%)</span>
+                        </span>
+                        <span class="p27-28 hidden small">
+                          <span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span>
+                          <span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span>
+                        </span>
+                      </span>
+                    </span>
+                    <span class="p1-21">your CERS rate is calculated as 
+                      <span id="rate-formula-max" class="hidden">the maximum</span>
+                      <span id="rate-formula-u70" class="hidden">(your revenue drop - 50%) x <span class="scaleTopUp">1.25</span> + <span class="maxBase">40%</span></span>
+                      <span id="rate-formula-u50" class="hidden"><span class="p11-plus">(</span>your revenue drop <span class="p11-plus">- 10%)</span> x <span class="scaleBase">0.8</span></span>
+                      <span id="rate-formula-0">0</span>
+                    </span>.
+                  </p>
                   <p class="less-than-10-drop hidden">Because your revenue drop is 10% or less, you do not qualify for the rent subsidy in <span class="claim-period"></span></p>
                   <p>Your <span class="elRentP">THRP</span> rate is <span class="h3 mrgn-tp-0 base-rate">0%</span></p>
                 </div>
@@ -1933,98 +1959,95 @@
             </section>
           </div>
         </fieldset>
+
         <fieldset id="results-fs" class="panel-default p-0" >
           <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Amount to claim on your application</span></legend>
           <div class="panel-body">
             <!-- <legend><span class="wb-inv">Step 5: </span>Get results</legend> -->
-            <p>After completing the steps above, you can now calculate the results.</p>
-            <p><button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent subsidy</button></p>
+            <!-- <p>After completing the steps above, you can now calculate the results.</p> -->
+            <!-- <p><button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent subsidy</button></p> -->
+            <div class="panel panel-default mrgn-tp-xl">
+              <div id="cers-statement" class="container">
+                <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
+                <p>The line amounts you will need to complete your application for <strong><span class="claim-period"></span></strong> of the <span class="elRentP">THRP</span> in your online CRA account:</p>
+                <ul class="lst-spcd">
+                  <li><strong>Line 110:</strong> Number of eligible properties: <strong> <span class="numLocs h3">0</span> </strong> </li>
+                  <li><strong>Line 120:</strong> Total eligible rent<sup><a href="#net-lease-footnote"><span class="glyphicon glyphicon-question-sign" aria-label="Footnote on net lease"></span></a></sup>: <strong> <span class="rent-total h3">$0.00</span> </strong> </li>
+                  <li><strong>Line 130:</strong> Total eligible property taxes: <span class="tax-total h3">$0.00</span> </li>
+                  <li><strong>Line 140:</strong> Total eligible property insurance: <span class="insurance-total h3">$0.00</span> </li>
+                  <li><strong>Line 150:</strong> Total eligible interest on commercial mortgages: <span class="interest-total h3">$0.00</span> </li>
+                  <li><strong>Line 160:</strong> Total qualifying rent expenses:<strong> <span class="qre-total h3">$0.00</span> </strong> </li>
+                  <li><strong>Line 200:</strong> Revenue drop for the current period:<strong> <span class="currentRevReduction h3">0.00%</span> </strong> </li>
+                  <li><strong>Line 210:</strong> Revenue drop for the previous period:<strong> <span class="priorRevReduction h3">0.00%</span> </strong> </li>
+                  <li><strong>Line 310:</strong> Lockdown support (subsidy top-up): <strong> <span class="top-up-total h3">$0.00</span> </strong> </li>
+                  <li id="smry-staddress-desc" class="hidden">You will need to include these location addresses in your application:
+                    <ul>
+                      <li class="hidden" id="smry-staddress-1"></li>
+                      <li class="hidden" id="smry-staddress-2"></li>
+                      <li class="hidden" id="smry-staddress-3"></li>
+                    </ul>
+                  </li>
+                </ul>
+                <p class="small" id="net-lease-footnote"><strong>Net lease:</strong> Lines 130, 140, and 150 are only used for owned properties. Any amounts paid for rented properties under a net lease are included in line 120.</p>
+              </div>
+              <table class="table" id="cers-statement-table">
+                <caption class="h5 mrgn-bttm-0">Period <span class="claim-period-no"></span>: Summary of <span class="elRentP">THRP</span> calculation</caption>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="h6">Affiliated entity percentage</th>
+                    <td class="text-right nowrap"><output class="affiliated-entity-percentage">N/A</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small>(Line 170: Lesser of line 160 or <span class="maximum-subsidy">$300,000</span> or <span class="maximum-subsidy">$300,000</span> x Affiliated entity percentage)</small></th>
+                    <td class="text-right nowrap"><output class="qualifying-rent-expenses">$0.00</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="h6">Subsidy rate</th>
+                    <td class="text-right nowrap"><abbr title="multipled by" class="brdr-0">x</abbr>
+                      <output class="mrgn-lft-sm base-rate">0.00%</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="h6">Base rent subsidy <small class="nowrap">(Line 300)</small></th>
+                    <td class="text-right nowrap">=
+                      <output class="mrgn-lft-sm base-subsidy-amount">$0.00</output></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="h6">Lockdown support (subsidy top-up) amount <small class="nowrap">(Line 310)</small></th>
+                    <td class="text-right nowrap">+
+                      <output class="top-up-total mrgn-lft-sm">$0.00</output></td>
+                  </tr>
+                  <tr class="success">
+                    <th scope="row" class="h6">Total rent subsidy <small class="nowrap">(Line 300 + Line 310)</small></th>
+                    <td class="text-right nowrap"><output class="rent-subsidy-claim-total mrgn-lft-sm h3">$0.00</output></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="panel-body">
+                <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-save"></span> Review and save your data before you apply</p>
+                <p class="h4">Location data</p>
+                <p><strong>Print or download</strong> your location data for your records.</p>
+                <p class="hidden-print"><a href="#loc-calculation-table" class="wb-lbx btn btn-default btn-lg" role="button">Locations summary</a></p>
+                <p class="h4 mrgn-tp-lg brdr-tp"><span class="elRentP">THRP</span> calculation data</p>
+                <p><strong>Print your calculated amounts</strong> so you can enter them into your rent subsidy application.</p>
+                <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg" role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview (or save to PDF)<span class="wb-inv"> <span class="elRentP">THRP</span> statement</span></span></a></p>
+                <p><strong>Your data is not saved on this page.</strong> Do not leave this page without printing or saving your data.</p>
+              </div>
+            </div>
           </div>
+          <nav class="mrgn-bttm-lg mrgn-tp-lg">
+            <h3 class="wb-inv">Document navigation</h3>
+            <ul class="pager mrgn-rght-lg">
+              <li class="next"><a href="how-apply.html" rel="next">How to apply</a></li>
+            </ul>
+          </nav>
         </fieldset>
       </form>
     </div>
-    <div class="panel panel-primary hidden" id="results">
-      <header class="panel-heading">
-        <h2 class="panel-title">COVID-19 rent and mortgage support for businesses amount to claim</h2>
-      </header>
-      <div class="panel-body">
-        <div id="cers-statement">
-          <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
-          <p>The line amounts you will need to complete your application for <strong><span class="claim-period"></span></strong> of the CERS in your online CRA account:</p>
-          <ul class="lst-spcd">
-            <li><strong>Line 110:</strong> Number of eligible properties: <strong> <span class="numLocs h3">0</span> </strong> </li>
-            <li><strong>Line 120:</strong> Total eligible rent<sup><a href="#net-lease-footnote"><span class="glyphicon glyphicon-question-sign" aria-label="Footnote on net lease"></span></a></sup>: <strong> <span class="rent-total h3">$0.00</span> </strong> </li>
-            <li><strong>Line 130:</strong> Total eligible property taxes: <span class="tax-total h3">$0.00</span> </li>
-            <li><strong>Line 140:</strong> Total eligible property insurance: <span class="insurance-total h3">$0.00</span> </li>
-            <li><strong>Line 150:</strong> Total eligible interest on commercial mortgages: <span class="interest-total h3">$0.00</span> </li>
-            <li><strong>Line 160:</strong> Total qualifying rent expenses:<strong> <span class="qre-total h3">$0.00</span> </strong> </li>
-            <li><strong>Line 200:</strong> Revenue drop for the current period:<strong> <span class="currentRevReduction h3">0.00%</span> </strong> </li>
-            <li><strong>Line 210:</strong> Revenue drop for the previous period:<strong> <span class="priorRevReduction h3">0.00%</span> </strong> </li>
-            <li><strong>Line 310:</strong> Lockdown support (subsidy top-up): <strong> <span class="top-up-total h3">$0.00</span> </strong> </li>
-            <li id="smry-staddress-desc" class="hidden">You will need to include these location addresses in your application:
-              <ul>
-                <li class="hidden" id="smry-staddress-1"></li>
-                <li class="hidden" id="smry-staddress-2"></li>
-                <li class="hidden" id="smry-staddress-3"></li>
-              </ul>
-            </li>
-          </ul>
-          <p class="small" id="net-lease-footnote"><strong>Net lease:</strong> Lines 130, 140, and 150 are only used for owned properties. Any amounts paid for rented properties under a net lease are included in line 120.</p>
-        </div>
-      </div>
-      <table class="table" id="cers-statement-table">
-        <caption class="h5 mrgn-bttm-0">Period <span class="claim-period-no"></span>: Summary of CERS calculation</caption>
-        <tbody>
-          <tr>
-            <th scope="row" class="h6">Affiliated entity percentage</th>
-            <td class="text-right nowrap"><output class="affiliated-entity-percentage">N/A</output></td>
-          </tr>
-          <tr>
-            <th scope="row" class="h6">Maximum expenses that can be claimed for the base subsidy <small>(Line 170: Lesser of line 160 or $300,000 or $300,000 x Affiliated entity percentage)</small></th>
-            <td class="text-right nowrap"><output class="qualifying-rent-expenses">$0.00</output></td>
-          </tr>
-          <tr>
-            <th scope="row" class="h6">Rent subsidy rate</th>
-            <td class="text-right nowrap"><abbr title="multipled by" class="brdr-0">x</abbr>
-              <output class="mrgn-lft-sm base-rate">0.00%</output></td>
-          </tr>
-          <tr>
-            <th scope="row" class="h6">Base Canada Emergency Rent Subsidy <small class="nowrap">(Line 300)</small></th>
-            <td class="text-right nowrap">=
-              <output class="mrgn-lft-sm base-subsidy-amount">$0.00</output></td>
-          </tr>
-          <tr>
-            <th scope="row" class="h6">Lockdown support (subsidy top-up) amount <small class="nowrap">(Line 310)</small></th>
-            <td class="text-right nowrap">+
-              <output class="top-up-total mrgn-lft-sm">$0.00</output></td>
-          </tr>
-          <tr class="success">
-            <th scope="row" class="h6">Total Canada Emergency Rent Subsidy <small class="nowrap">(Line 300 + Line 310)</small></th>
-            <td class="text-right nowrap"><output class="rent-subsidy-claim-total mrgn-lft-sm h3">$0.00</output></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="panel-body">
-        <p class="h3 mrgn-tp-lg brdr-tp"><span class="fas fa-save"></span> Review and save your data before you apply</p>
-        <p class="h4">Location data</p>
-        <p><strong>Print or download</strong> your location data for your records.</p>
-        <p class="hidden-print"><a href="#loc-calculation-table" class="wb-lbx btn btn-default btn-lg" role="button">Locations summary</a></p>
-        <p class="h4 mrgn-tp-lg brdr-tp">CERS calculation data</p>
-        <p><strong>Print your calculated amounts</strong> so you can enter them into your rent subsidy application.</p>
-        <p class="hidden-print"><a href="#pp-statement" class="wb-lbx btn btn-default btn-lg" role="button"><span class="h3"><span class="glyphicon glyphicon-print"></span> Print preview (or save to PDF)<span class="wb-inv"> CERS statement</span></span></a></p>
-        <p><strong>Your data is not saved on this page.</strong> Do not leave this page without printing or saving your data.</p>
-      </div>
-    </div>
-    <nav class="mrgn-bttm-lg mrgn-tp-lg">
-      <h3 class="wb-inv">Document navigation</h3>
-      <ul class="pager">
-        <li class="next"><a href="how-apply.html" rel="next">How to apply</a></li>
-      </ul>
-    </nav>
+    
   </section>
   <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
     <header class="modal-header">
-      <h2 class="modal-title">Print preview for CERS statement</h2>
+      <h2 class="modal-title">Print preview for <span class="elRentP">THRP</span> statement</h2>
     </header>
     <div class="modal-body">
       <div data-ajax-replace=" #cers-statement"></div>
