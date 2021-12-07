@@ -1959,17 +1959,14 @@
             </section>
           </div>
         </fieldset>
-
         <fieldset id="results-fs" class="panel-default p-0" >
           <legend class="panel-heading mrgn-bttm-0"><span class="panel-title">Amount to claim on your application</span></legend>
           <div class="panel-body">
-            <!-- <legend><span class="wb-inv">Step 5: </span>Get results</legend> -->
-            <!-- <p>After completing the steps above, you can now calculate the results.</p> -->
-            <!-- <p><button id="calculate" class="btn btn-primary btn-lg" type="submit">Calculate your total rent subsidy</button></p> -->
             <div class="panel panel-default mrgn-tp-xl">
               <div id="cers-statement" class="container">
                 <p class="lead"><strong>Print and keep this record using the print preview button below</strong>.</p>
                 <p>The line amounts you will need to complete your application for <strong><span class="claim-period"></span></strong> of the <span class="elRentP">THRP</span> in your online CRA account:</p>
+
                 <ul class="lst-spcd">
                   <li><strong>Line 110:</strong> Number of eligible properties: <strong> <span class="numLocs h3">0</span> </strong> </li>
                   <li><strong>Line 120:</strong> Total eligible rent<sup><a href="#net-lease-footnote"><span class="glyphicon glyphicon-question-sign" aria-label="Footnote on net lease"></span></a></sup>: <strong> <span class="rent-total h3">$0.00</span> </strong> </li>
@@ -1989,6 +1986,7 @@
                   </li>
                 </ul>
                 <p class="small" id="net-lease-footnote"><strong>Net lease:</strong> Lines 130, 140, and 150 are only used for owned properties. Any amounts paid for rented properties under a net lease are included in line 120.</p>
+
               </div>
               <table class="table" id="cers-statement-table">
                 <caption class="h5 mrgn-bttm-0">Period <span class="claim-period-no"></span>: Summary of <span class="elRentP">THRP</span> calculation</caption>
@@ -2033,16 +2031,21 @@
                 <p><strong>Your data is not saved on this page.</strong> Do not leave this page without printing or saving your data.</p>
               </div>
             </div>
+            <nav class="mrgn-bttm-lg mrgn-tp-lg">
+              <h3 class="wb-inv">Document navigation</h3>
+              <ul class="pager mrgn-rght-lg">
+                <li class="next"><a href="how-apply.html" rel="next">How to apply</a></li>
+              </ul>
+            </nav>
+            <p><button id="calculate" class="btn btn-primary btn-lg hidden" type="submit">Calculate your total rent subsidy</button></p>
           </div>
-          <nav class="mrgn-bttm-lg mrgn-tp-lg">
-            <h3 class="wb-inv">Document navigation</h3>
-            <ul class="pager mrgn-rght-lg">
-              <li class="next"><a href="how-apply.html" rel="next">How to apply</a></li>
-            </ul>
-          </nav>
         </fieldset>
       </form>
     </div>
+
+
+
+
     
   </section>
   <section id="pp-statement" class="mfp-hide modal-dialog modal-content overlay-def experimental">
@@ -2150,7 +2153,7 @@
     $("legend.wb-steps-active").parents().prevAll().find("legend.panel-heading").wrapInner("<button class='btn-link p-0 btn-lgnd' type='button'></button>");
     $("fieldset legend.wb-steps-active").nextAll().addBack().find('.btn-lgnd').contents().unwrap();
     $(".btn-lgnd .btn-lgnd").contents().unwrap(); 
-  });
+  })
   $(document).on("click", ".prev-wb-step", function (event) { 
     $(this).addClass("wb-steps-active").removeClass("prev-wb-step");
     $(this).parent().parent().find("legend + div.panel-body.hidden, .buttons").removeClass("hidden");
@@ -2161,7 +2164,7 @@
       console.log($(this));
       // const wrapperNode = document.querySelector('h1')
       // wrapperNode.replaceWith(...wrapperNode.childNodes)
-    });
+    })
   });
 </script>	
 <script>
@@ -2338,14 +2341,17 @@
             this.updateSelectDropdown(frag);
             this.updateClass(frag);
             this.updateIds(frag);
+            var SummaryOne = "";
+            var SummaryTwo = "";
+            var SummaryThree = "";
             if (document.documentElement.lang == "fr") {
-              var SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement ";
-              var SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              var SummaryThree = "Dépenses admissibles ";
+              SummaryOne = "Pour en savoir plus à propos de votre droit à l'indemnité de confinement ";
+              SummaryTwo = 'Résumé des dépenses pour <span class="loc-staddress-' + numLocs + '">location 1</span> pour <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              SummaryThree = "Dépenses admissibles ";
             } else {
-              var SummaryOne = "Learn about lockdown support eligibility criteria ";
-              var SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
-              var SummaryThree = "Eligible expenses ";
+              SummaryOne = "Learn about lockdown support eligibility criteria ";
+              SummaryTwo = 'Expense summary for <span class="loc-staddress-' + numLocs + '">location 1</span> for <span class="claim-period">' + $("#claim-period option:selected").text() + '</span>';
+              SummaryThree = "Eligible expenses ";
             }
             if (!isChromium) {
               
@@ -2697,18 +2703,17 @@
               }
             };
 
-			//AJAX in WET4 component fix
-			$('.data-ajax').on("wb-contentupdated",
-			function (event, data) {
-			var $elm = $(event.currentTarget);
-			$elm
-				.find(wb.allSelectors)
-				.addClass("wb-init")
-				.filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
-				.trigger("timerpoke.wb");
-				return
-				true;
-			});
+          //AJAX in WET4 component fix
+          $('.data-ajax').on("wb-contentupdated",
+          function (event, data) {
+          var $elm = $(event.currentTarget);
+          $elm
+            .find(wb.allSelectors)
+            .addClass("wb-init")
+            .filter(":not(#" + $elm.attr("id") + " .wb-init .wb-init)")
+            .trigger("timerpoke.wb");
+            return true;
+          });
 
 
           // Plugin event handlers
@@ -2729,7 +2734,7 @@
                 $("output[for='" + $elmId + "']").html(toMoney.format(value * 1));
               } else {
                 $("output[for='" + $elmId + "']").html(value * 1);
-              };
+              }
             }
 
             total = ($("#p2c-CERS").val() * 1) + ($("#p3-ei").val() * 1) + ($("#p3-cpp").val() * 1) - ($("#p4-tws").val() * 1) - ($("#p4-wsb").val() * 1);
@@ -2737,7 +2742,7 @@
               $("[for='p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
             } else {
               $("[for='p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(total));
-            };
+            }
           });
 
           $document.on("change", selector, function (event, data) {
@@ -2750,18 +2755,18 @@
               $elm.html(toMoney.format(value * 1));
             } else {
               $elm.html(value * 1);
-            };
+            }
             $("[for='p2c-ee p2c-pyrl p2c-CERS p3-ei p3-cpp p4-tws p4-wsb']").html(toMoney.format(0));
           });
 
           //when the claim period dropdown is changed
           var elRentP = 0; //if 0, not eligible for THRP or HHBRP, if 1, eligible for THRP, if 2, eligible for HHBRP, 3 is eligible for CERS
-          $document.on("change", "#claim-period", function (event) {
+          var maximumSubsidy = 0;
+          $document.on("change", "#claim-period", function () {
             var rangeISO = $(this).find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
               endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length),
               rangeClaim = $(this).find("option:selected").text(),
-              rangeClaimNo = rangeClaim.substring(7, 8),
               startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf(sep.claim[wb.lang])),
               endDateClaim = rangeClaim.substring(rangeClaim.indexOf(sep.claim[wb.lang]) + sep.claim[wb.lang].length, rangeClaim.length);
 
@@ -2774,7 +2779,7 @@
             //Get the priorReference period based on the claimMonth
             var monthsArray = getClaimMonths(claimMonth, claimPeriod);
             var priorReferenceMonth = monthsArray[1].split("-");
-            var priorReferenceMonth = getMonthNamesPlusYear(priorReferenceMonth[1], claimPeriod);
+            priorReferenceMonth = getMonthNamesPlusYear(priorReferenceMonth[1], claimPeriod);
 
             //Populate based on step 1 period selection
             if (!$("#claim-period option:selected:eq(0)")) {
@@ -2876,7 +2881,19 @@
             }
             if (claimPeriod < 22) {
               $(".p1-21").removeClass("hidden");
+              if (document.documentElement.lang == "fr") {
+                $(".maximum-subsidy").text("300,000 $");
+              } else {
+                $(".maximum-subsidy").text("$300,000");
+              }
+              maximumSubsidy = 300000;
             } else {
+              if (document.documentElement.lang == "fr") {
+                $(".maximum-subsidy").text("1,000,000 $");
+              } else {
+                $(".maximum-subsidy").text("$1,000,000");
+              }
+              maximumSubsidy = 1000000;
               $(".p22-plus").removeClass("hidden");
               if (claimPeriod < 27) {
                 $(".p22-26").removeClass("hidden");
@@ -3113,7 +3130,7 @@
                 $('#date-chooser-lease-' + locationNumber + ' option:selected').data("calc-method")
               ];
               var rentExpenses = ["tax","insurance","interest","lease"];
-              $(periodOptions).each(function (i, element) {
+              $(periodOptions).each(function (i) {
                 if ((claimPeriod == 4 || claimPeriod == 24) && periodOptions[i] == "year") {
                   $(".monthly-" + rentExpenses[i] + "-" + locationNumber).addClass("hidden");
                   $(".period-4-yearly-" + rentExpenses[i] + "-" + locationNumber).removeClass("hidden");
@@ -3149,39 +3166,39 @@
           //*****
 
 
-          $document.on("click", "#calculate", function (event) {
-            event.preventDefault();
-            //remove the required attribute in all hidden elements
-            $("[required]:hidden").each(function (i, element) {
-              $(element).removeAttr("required");
-            });
-            var count = 0,
-              $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
-              $emptyElms = [];
-            //find all required fields that were left empty
-            for (let i = 0; i < $($elms).length; i++) {
-              var $elm = $($elms).eq(i);
-              if (($elm.val() == "" && $elm.attr('type') != "radio") || ($elm.attr('type') == "radio" && $('input[name="'+$elm[0].name+'"]:checked').length == 0)) {
-                $emptyElms.push($elm);
-                count++;
-              }
-            }
+          // $document.on("click", "#calculate", function (event) {
+          //   event.preventDefault();
+          //   //remove the required attribute in all hidden elements
+          //   $("[required]:hidden").each(function (i, element) {
+          //     $(element).removeAttr("required");
+          //   });
+          //   var count = 0,
+          //     $elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+          //     $emptyElms = [];
+          //   //find all required fields that were left empty
+          //   for (let i = 0; i < $($elms).length; i++) {
+          //     var $elm = $($elms).eq(i);
+          //     if (($elm.val() == "" && $elm.attr('type') != "radio") || ($elm.attr('type') == "radio" && $('input[name="'+$elm[0].name+'"]:checked').length == 0)) {
+          //       $emptyElms.push($elm);
+          //       count++;
+          //     }
+          //   }
 
 
             
-            //if WET4 already has errors, scroll to those
-            if ($("#errors-cews-cal")[0]) {
-              $('html, body').animate({ scrollTop: $("#errors-cews-cal").offset().top }, 'slow');
-              //scroll to the FIRST element that failed custom validation
-            } else if ($emptyElms[0]) {
-              $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
-              console.debug($emptyElms);
-              //validation passed, show the results
-            } else {
-              calculateTotals();
-              $("#results").removeClass("hidden");
-            }
-          });
+          //   //if WET4 already has errors, scroll to those
+          //   if ($("#errors-cews-cal")[0]) {
+          //     $('html, body').animate({ scrollTop: $("#errors-cews-cal").offset().top }, 'slow');
+          //     //scroll to the FIRST element that failed custom validation
+          //   } else if ($emptyElms[0]) {
+          //     $('html, body').animate({ scrollTop: $($emptyElms[0]).offset().top }, 'slow');
+          //     console.debug($emptyElms);
+          //     //validation passed, show the results
+          //   } else {
+          //     calculateTotals();
+          //     $("#results").removeClass("hidden");
+          //   }
+          // });
 
           $document.on("change", "[id^=date-chooser-]", function (event) {
             var target = event.target;
@@ -3230,31 +3247,33 @@
             var calculatedExpense = [];
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
 
+            var unformattedValueOne = [];
+            var unformattedValueTwo = [];
             //get the number of days in each month that overlap the claim period
             var monthDays = getClaimMonth($("#claim-period").val(), 1);
             var monthMaxDays = getClaimMonth($("#claim-period").val(), 2);
 
             if ($('#rent-one-' + locationNumber).is(":visible")) {
               //get values for month 1 and month 2
-              var unformattedValueOne = [
+              unformattedValueOne = [
                 $('#rent-one-' + locationNumber).val().replace("$", ""),
                 "0", //0s to make sure that the amounts they're not eligible with their selections are recalculated to 0
                 "0",
                 "0",
                 $('#lease-one-' + locationNumber).val().replace("$", "")
-              ]
+              ];
               if (claimPeriod == 11 || claimPeriod == 12) {
                 for (let i = 0; i < unformattedValueOne.length; ++i) {
                   calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * 28 / monthMaxDays[1]));
                 }
               } else {
-                var unformattedValueTwo = [
+                unformattedValueTwo = [
                   $('#rent-two-' + locationNumber).val().replace("$", ""),
                   "0",
                   "0",
                   "0",
                   $('#lease-two-' + locationNumber).val().replace("$", "")
-                ]
+                ];
                 //subdivide the amounts by the days in the period and add them for the total expense line
                 for (let i = 0; i < unformattedValueOne.length; ++i) {
                   calculatedExpense.push((zeroIfEmpty(unformattedValueOne[i]) * monthDays[0] / monthMaxDays[0]) +
@@ -3262,25 +3281,25 @@
                 }
               }
             } else if ($('#rent-cers-period-' + locationNumber).is(":visible")) { //value for 28 day period
-              var unformattedValueOne = [
+              unformattedValueOne = [
                 $('#rent-cers-period-' + locationNumber).val().replace("$", ""),
                 "0",
                 "0",
                 "0",
                 $('#lease-cers-period-' + locationNumber).val().replace("$", "")
-              ]
+              ];
               for (let i = 0; i < unformattedValueOne.length; ++i) {
                 calculatedExpense.push(zeroIfEmpty(unformattedValueOne[i]));
               }
             } else { //value for owned locations
               //owned property
-              var unformattedValueOne = [
+              unformattedValueOne = [
                 "0",
                 $('#tax-own-' + locationNumber).val().replace("$", ""),
                 $('#insurance-own-' + locationNumber).val().replace("$", ""),
                 $('#interest-own-' + locationNumber).val().replace("$", ""),
                 $('#lease-own-' + locationNumber).val().replace("$", "")
-              ]
+              ];
               //Determine the period option
               var periodOption = [
                 "NA",
@@ -3288,7 +3307,7 @@
                 $('#date-chooser-insurance-' + locationNumber + ' option:selected').data("calc-method"),
                 $('#date-chooser-interest-' + locationNumber + ' option:selected').data("calc-method"),
                 $('#date-chooser-lease-' + locationNumber + ' option:selected').data("calc-method")
-              ]
+              ];
               for (let i = 0; i < unformattedValueOne.length; ++i) {
                 if (i == 0) { //rent doesn't matter for owned locations
                   calculatedExpense.push(0);
@@ -3314,14 +3333,17 @@
                   }
                   calculatedExpense.push(0);
                 } else {
+                  var pro2020 = 0;
+                  var pro2021 = 0;
+                  var pro2022 = 0;
                   if (periodOption[i] == 'year') {
                     if (claimPeriod == 4) {
                       if (i == 1) { //tax
-                        var pro2020 = zeroIfEmpty($('#year-2020-tax-own-' + locationNumber).val().replace("$", ""));
-                        var pro2021 = zeroIfEmpty($('#year-2021-tax-own-' + locationNumber).val().replace("$", ""));
+                        pro2020 = zeroIfEmpty($('#year-2020-tax-own-' + locationNumber).val().replace("$", ""));
+                        pro2021 = zeroIfEmpty($('#year-2021-tax-own-' + locationNumber).val().replace("$", ""));
                       } else if (i == 2) { //insurance
-                        var pro2020 = zeroIfEmpty($('#year-2020-insurance-own-' + locationNumber).val().replace("$", "")); //how do I get the days?
-                        var pro2021 = zeroIfEmpty($('#year-2021-insurance-own-' + locationNumber).val().replace("$", ""));
+                        pro2020 = zeroIfEmpty($('#year-2020-insurance-own-' + locationNumber).val().replace("$", "")); //how do I get the days?
+                        pro2021 = zeroIfEmpty($('#year-2021-insurance-own-' + locationNumber).val().replace("$", ""));
                       }
                       if (pro2020 == 0 && pro2021 == 0) {
                         calculatedExpense.push(0);
@@ -3330,11 +3352,11 @@
                       }
                     } else if (claimPeriod == 24) {
                       if (i == 1) { //tax
-                        var pro2021 = zeroIfEmpty($('#year-2021-tax-own-' + locationNumber).val().replace("$", ""));
-                        var pro2022 = zeroIfEmpty($('#year-2022-tax-own-' + locationNumber).val().replace("$", ""));
+                        pro2021 = zeroIfEmpty($('#year-2021-tax-own-' + locationNumber).val().replace("$", ""));
+                        pro2022 = zeroIfEmpty($('#year-2022-tax-own-' + locationNumber).val().replace("$", ""));
                       } else if (i == 2) { //insurance
-                        var pro2021 = zeroIfEmpty($('#year-2021-insurance-own-' + locationNumber).val().replace("$", "")); //how do I get the days?
-                        var pro2022 = zeroIfEmpty($('#year-2022-insurance-own-' + locationNumber).val().replace("$", ""));
+                        pro2021 = zeroIfEmpty($('#year-2021-insurance-own-' + locationNumber).val().replace("$", "")); //how do I get the days?
+                        pro2022 = zeroIfEmpty($('#year-2022-insurance-own-' + locationNumber).val().replace("$", ""));
                       }
                       if (pro2021 == 0 && pro2022 == 0) {
                         calculatedExpense.push(0);
@@ -3420,10 +3442,11 @@
             $(updatedByElements).each(function (i, element) {
               $(element).text(formattedVal);
             });
+            var topUpAmount = 0;
             if ($('#lock-down-eligible-' + locationNumber).is(':visible')) {
-              var topUpAmount = (qualifyingExpenses * topUpRate) / 100;
+              topUpAmount = (qualifyingExpenses * topUpRate) / 100;
             } else {
-              var topUpAmount = 0;
+              topUpAmount = 0;
             }
             formattedVal = toMoney.format(topUpAmount);
             $('#amt-top-up-' + locationNumber).text(formattedVal);
@@ -3450,7 +3473,7 @@
             });
           });
 
-          $document.on("blur", ".loc-address", function (event) {
+          $document.on("blur", ".loc-address", function () {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             var fullAddress = getFullAddress(locationNumber);
@@ -3458,6 +3481,7 @@
           });
 
           //Radio event listener
+          var affiliatedAnswer = "No";
           $document.on("click", "input[type=radio]", function (event) {
             var target = event.target;
             var parts = target.name.split("-");
@@ -3467,19 +3491,23 @@
               if (target.id == 'affiliated-yes') {
                 $('#affiliated-split-input').removeClass("hidden");
                 $('.affiliated-no-answer').addClass("hidden");
+                affiliatedAnswer = "Yes";
                 updateAffiliatedSummary();
               } else if (target.id == 'affiliated-no') {
                 $('#affiliated-split-input').addClass("hidden");
                 $('.affiliated-no-answer').removeClass("hidden");
                 $('.affiliated-yes-answer').addClass("hidden");
                 $('.affiliated-yes-blank-answer').addClass("hidden");
-              } 
+                affiliatedAnswer = "No";
+              }
+              recalculateAllLocations();
             } else if (target.name == "lock-down-" + locationNumber) {
               if (target.id == 'lock-down-yes-' + locationNumber) {
                 topUpRateCalculation(locationNumber);
               } else if (target.id == 'lock-down-no-' + locationNumber) {
                 topUpRateCalculation(locationNumber);
               }
+              recalculateLocationAmounts(locationNumber);
             } else if (target.name == "owner-location-" + locationNumber) {
               if (target.id == 'owner-location-yes-' + locationNumber) {
                 $('.own-location-'+locationNumber).removeClass("hidden");
@@ -3491,6 +3519,7 @@
                 // $('#choose-own-or-rent-message-'+locationNumber).addClass("hidden");
               } 
               expenseFieldHideShow(locationNumber);
+              recalculateLocationAmounts(locationNumber);
             } else if (target.name == "rev-comp") {
               if (target.id == "rev-comp-no") {
                 $('#alt-bl-no').addClass("hidden");
@@ -3504,12 +3533,10 @@
               recalculateAllLocations();
             } else if ((target.name == "qualifying-lockdown") || (target.name == "tourism-hospitality")) {
               thrpHhbrpSummary();
-              recalculateAllLocations();
             }
-            recalculateLocationAmounts(locationNumber);
           });
 
-          $document.on("blur", "#12-month-decline", function(event) {thrpHhbrpSummary()});
+          $document.on("blur", "#12-month-decline", function() {thrpHhbrpSummary();});
           function thrpHhbrpSummary() {
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             if (claimPeriod < 22) {
@@ -3607,6 +3634,12 @@
                 }
               }
             }
+            if ($('#rev-comp-yes:checked').length > 0) {
+              calculateRevenueDrop(false);
+            } else if ($('#rev-comp-no:checked').length > 0) {
+              calculateRevenueDrop(true);
+            }
+            recalculateAllLocations();
           }
 
           //Calculation method event listener
@@ -3631,22 +3664,23 @@
            */
           function updateDateRangeInputs(locationNumber, expenseType) {
             var calcMethod = $('#date-chooser-' + expenseType + '-' + locationNumber + ' option:selected').data("calc-method");
-            var rangeISO = $('#claim-period').find('option:selected').val()
+            var rangeISO = $('#claim-period').find('option:selected').val();
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
             if (calcMethod == "none" || rangeISO == "") {
               $('#'+ expenseType +'-date-error-' + locationNumber).removeClass("hidden");
               $('#'+ expenseType +'-date-' + locationNumber).addClass("hidden");
               return;
             }
-            
+            var startDate = 0;
+            var endDate = 0;
             var startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
                 endDateISO = rangeISO.substring(rangeISO.indexOf(sep.iso[wb.lang]) + sep.iso[wb.lang].length, rangeISO.length);
             if (calcMethod == "month") {
               $('.date-' + expenseType + '-dates-' + locationNumber).addClass("hidden");
               var endDateParts = endDateISO.split("-");
               var claimMonths = getMonthNamesPlusYear(endDateParts[1], claimPeriod); //send the endDate month number
-              var startDate = claimMonths[0];
-              var endDate = claimMonths[1];
+              startDate = claimMonths[0];
+              endDate = claimMonths[1];
               if (document.documentElement.lang == "fr") {
                 $('.date-' + expenseType + '-from-' + locationNumber).text("paiement pour " + endDate);
               } else {
@@ -3663,15 +3697,15 @@
               }
               if (calcMethod == "period") {
                 //get the start/end based on the period start/end dates
-                var startDate = startDateISO;
-                var endDate = endDateISO;
+                startDate = startDateISO;
+                endDate = endDateISO;
               } else if (calcMethod == "year") {
                 if (claimPeriod < 4) {
-                  var startDate = "2020-01-01";
-                  var endDate = "2020-12-31";
+                  startDate = "2020-01-01";
+                  endDate = "2020-12-31";
                 } else {
-                  var startDate = "2021-01-01";
-                  var endDate = "2021-12-31";
+                  startDate = "2021-01-01";
+                  endDate = "2021-12-31";
                 }
               }
             }
@@ -3718,7 +3752,7 @@
             } else {
               //update the amount in the summary
               var affiliatedPerc = parseFloat($('#affiliated-split').val());
-              var maxAffiliatedAmt = (affiliatedPerc * 300000) / 100;
+              var maxAffiliatedAmt = (affiliatedPerc * maximumSubsidy) / 100;
               affiliatedPerc = affiliatedPerc;
               var affiliatedRemainder = 100 - affiliatedPerc;
               if (affiliatedPerc <= 100 && affiliatedPerc >= 0) {
@@ -3743,14 +3777,14 @@
             }
           }
 
-          $document.on("click", "input[name^='7-days-']", function (event) {
+          $document.on("click", "input[name^='7-days-']", function () {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             topUpRateCalculation(locationNumber);
             recalculateLocationAmounts(locationNumber);
           });
 
-          $document.on("blur", ".lock-down-dates", function (event) {
+          $document.on("blur", ".lock-down-dates", function () {
             var parts = this.id.split("-");
             var locationNumber = parts[parts.length - 1];
             topUpRateCalculation(locationNumber);
@@ -3790,7 +3824,7 @@
                 sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
               }
               if (cersRate > 0) { //no rent subsidy rate, no top rate
-                topUpRate = getLocationTopUpRate(datediff, locationNumber).toFixed(2);
+                topUpRate = getLocationTopUpRate(datediff).toFixed(2);
                 $('.top-up-rate-'+locationNumber).text(toPercent(topUpRate));
                 $('#lock-down-ineligible-'+locationNumber).addClass("hidden");
                 $('#lock-down-eligible-'+locationNumber).removeClass("hidden");
@@ -3822,27 +3856,30 @@
           function sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber) {
             if ($('#lockdown-start-'+locationNumber).is(":visible")) {
               //Dates start and end of the period
+              var monthNames = [];
               if (document.documentElement.lang == "fr") {
-                var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+                monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
               } else {
-                var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
               }
+              var reqStartDate = 0;
+              var reqStartDateStr = 0;
               if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
-                var reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 6);
+                reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 6);
                 if (document.documentElement.lang == "fr") {
-                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                  reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
-                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                  reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
                 }
                 $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
                 $('#7-days-text-'+locationNumber).text("start on or before");
                 $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
               } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
-                var reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 6);
+                reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 6);
                 if (document.documentElement.lang == "fr") {
-                  var reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
+                  reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
-                  var reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
+                  reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
                 }
                 $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
                 $('#7-days-text-'+locationNumber).text("end on or after");
@@ -3862,7 +3899,7 @@
             return Math.round((date2 - date1) / (1000*60*60*24)) + 1;
           }
           //Gets the top up rate for the location, unrounded
-          function getLocationTopUpRate(dateDiff, locationNumber) {
+          function getLocationTopUpRate(dateDiff) {
             return (dateDiff * 25) / 28;
           }
 
@@ -3877,17 +3914,17 @@
           });
 
           //https://stackoverflow.com/questions/3885817/how-do-i-check-that-a-number-is-float-or-integer
-          function isInt(n) {
-            return Number(n) === n && n % 1 === 0;
-          }
-          function isFloat(n) {
-            return Number(n) === n && n % 1 !== 0;
-          }
+          // function isInt(n) {
+          //   return Number(n) === n && n % 1 === 0;
+          // }
+          // function isFloat(n) {
+          //   return Number(n) === n && n % 1 !== 0;
+          // }
 
           /**
            * calculate the totals when the summary table is opened
            */
-          $(document).on("click", "#showLocTable", function (event) {
+          $(document).on("click", "#showLocTable", function () {
             calculateTotals();
           });
 
@@ -3897,12 +3934,14 @@
             var qreAmounts =  [];
             var eligibleLocations = 0;
             var qreForLocation = 0;
+            var langThousands = "";
+            var langDecimals = "";
             if (document.documentElement.lang == "fr") {
-               var langThousands = /\s/; //nbsp regex
-              var langDecimals = ",";
+              langThousands = /\s/; //nbsp regex
+              langDecimals = ",";
             } else {
-              var langThousands = ",";
-              var langDecimals = ".";
+              langThousands = ",";
+              langDecimals = ".";
             }
             //for each element in table
             $("#dataset-filter > tbody > tr").each(function (i, element) {
@@ -3913,7 +3952,7 @@
               smryTotals[2] += zeroIfEmpty($("#insurance-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[3] += zeroIfEmpty($("#interest-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[4] += zeroIfEmpty($("#lease-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
-              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""))
+              qreForLocation = zeroIfEmpty($("#qre-smry-" + locNum).text().replace("$","").replace(langDecimals,".").split(langThousands).join(""));
               smryTotals[5] += qreForLocation;
               if (qreForLocation > 0) {
                 qreLocations.push(locNum);
@@ -3928,15 +3967,16 @@
             $(".interest-total").html(toMoney.format(smryTotals[3]));
             $(".lease-total").html(toMoney.format(smryTotals[4]));
             $(".qre-total").html(toMoney.format(smryTotals[5]));
-            $(".top-up-total").html(toMoney.format(smryTotals[6]))
+            $(".top-up-total").html(toMoney.format(smryTotals[6]));
 
             //calculate step 5 totals
-            if ($(".affiliated-no-answer").is(":visible")) {
-              var affiliatedSplit = 100;
+            var affiliatedSplit = 0;
+            if (affiliatedAnswer == "No") {
+              affiliatedSplit = 100;
             } else {
-              var affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
+              affiliatedSplit = zeroIfEmpty($('#affiliated-split').val().replace("%",""));
             }
-            var line170Total = Math.min(300000 * affiliatedSplit / 100, smryTotals[5]);
+            var line170Total = Math.min(maximumSubsidy * affiliatedSplit / 100, smryTotals[5]);
             line170Total = line170Total.toFixed(2);
             $('.qualifying-rent-expenses').html(toMoney.format(line170Total));
             var baseAmount = (line170Total * cersRate) / 100;
@@ -4081,7 +4121,7 @@
             $(expenseCells[7]).attr("data-updated-by", "amt-top-up-" + numLocationPanels);
             //put the row together
             row.appendChild(eligibleLocationCell);
-            $(expenseCells).each(function (i, element) {
+            $(expenseCells).each(function (i) {
               row.appendChild(expenseCells[i]);
             });
             //add the row to the table
@@ -4101,11 +4141,7 @@
             //now after resettting the default values of the datepickers based on the claim period selection
             var rangeISO = $('#claim-period').find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf("--")),
-              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length),
-              rangeClaim = $('#claim-period').find("option:selected").text(),
-              rangeClaimNo = rangeClaim.substring(7, 8),
-              startDateClaim = rangeClaim.substring(0, rangeClaim.indexOf("--")),
-              endDateClaim = rangeClaim.substring(rangeClaim.indexOf("--") + 2, rangeClaim.length);
+              endDateISO = rangeISO.substring(rangeISO.indexOf("--") + 2, rangeISO.length);
             $('#lockdown-start-'+numLocationPanels).attr({
               "min": startDateISO,
               "max": endDateISO,
@@ -4127,7 +4163,7 @@
           var priorRevReduc = 0;
           var revReduction = 0;
           var cersRate = 0;
-          $document.on("change", "#rate-reduction", function (event) {
+          $document.on("change", "#rate-reduction", function () {
             var rangeISO = $('#claim-period').find('option:selected').val();
             var claimMonth = getClaimMonth(rangeISO);
             if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
@@ -4138,12 +4174,13 @@
               NoCERSRate();
             }
           });
-          $document.on("blur", ".cers-rate-calc", function(event) {calculateRevenueDrop(false)});
-          $document.on("blur", ".cers-rate-calc-alt", function(event) {calculateRevenueDrop(true)});
-          $document.on("blur", "#jan-feb-closed-days", function(event) {calculateRevenueDrop(true)});
+          $document.on("blur", ".cers-rate-calc", function() {calculateRevenueDrop(false);});
+          $document.on("blur", ".cers-rate-calc-alt", function() {calculateRevenueDrop(true);});
+          $document.on("blur", "#jan-feb-closed-days", function() {calculateRevenueDrop(true);});
           function calculateRevenueDrop(bAlt) {
+            var baseRev = 0;
             var claimPeriod = parseInt($("#claim-period option:selected").data("claim-period"));
-            var CERSRateElements = $('.cers-rate-calc');
+            // var CERSRateElements = $('.cers-rate-calc');
             //find the claim month based on the chosen claim period
             var claimMonth = getClaimMonth($("#claim-period").val());
             //Get claim months function??
@@ -4158,9 +4195,9 @@
               if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
                 if ($('#jan-feb-closed-inputs').is(":visible")) {
                   var daysNotOperating = zeroIfEmpty($('#jan-feb-closed-days').val());
-                  var baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
+                  baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
                 } else {
-                  var baseRev = (janRev + febRev) / 2;
+                  baseRev = (janRev + febRev) / 2;
                 }
                 //get the value of the claim month
                 var claimMonthValue = zeroIfEmpty($("#" + monthsArray[0] + "-yes").val());
@@ -4359,12 +4396,12 @@
            * roundPercDown()
            * round the given percent value to two decimal places
            */
-          function roundPercDown(perc) {
-            perc = perc * 10000;
-            perc = Math.floor(perc);
-            perc = perc / 10000;
-            return perc;
-          }
+          // function roundPercDown(perc) {
+          //   perc = perc * 10000;
+          //   perc = Math.floor(perc);
+          //   perc = perc / 10000;
+          //   return perc;
+          // }
 
           /**
            * zeroIfEmpty()
@@ -4389,10 +4426,11 @@
            * @return {claimMonths} the 2 months that the CERS period overlaps
            */
            function getMonthNamesPlusYear(iMonth, claimPeriod) {
+            var monthNames = "";
             if (document.documentElement.lang == "fr") {
-              var monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+              monthNames = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
             } else {
-              var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+              monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             }
             var claimMonths = [monthNames[iMonth - 2], monthNames[iMonth - 1]];
             if (iMonth == 1) {
@@ -4432,8 +4470,6 @@
            *
            * @return {Int} the claim month in numeric form
            */
-           var date1Max = 0;
-           var date2Max = 0;
            function getClaimMonth(dateRange, type) {
             if (type === undefined) {
               type = 0;
@@ -4449,8 +4485,9 @@
             var date1Month = date1.getUTCMonth();
             var date2Counter = 0;
             var date2Month = date2.getUTCMonth();
+            var claimMonth = 0;
             if (type == 0 && dateRange == "2020-12-20--2021-01-16") { //period 11/4 was arbitrarily defined differently from this rule...
-              var claimMonth = date1Month + 1;
+              claimMonth = date1Month + 1;
               return pad(claimMonth, 2);
             } else if (type == 0 && (dateRange == "2022-01-16--2022-02-12" || dateRange == "2022-02-13--2022-03-12" || dateRange == "2022-03-13--2022-04-09" || dateRange == "2022-04-10--2022-05-07")) {
               return date2Month + 1;
@@ -4475,10 +4512,10 @@
               return maxDays;
             }
             if (parseInt(date1Counter) < parseInt(date2Counter)) {
-              var claimMonth = date2Month + 1;
+              claimMonth = date2Month + 1;
               return pad(claimMonth, 2);
             } else if (parseInt(date1Counter) > parseInt(date2Counter)) {
-              var claimMonth = date1Month + 1;
+              claimMonth = date1Month + 1;
               return pad(claimMonth, 2);
             } else {
               return null;
@@ -4499,11 +4536,13 @@
            * @return {Float} the calculated base rate
            */
           function getRentSubsidyRate(revReduction) {
+            var maxBase = [];
+            var scaleBase = [];
             var claimPeriod = $("#claim-period option:selected").data("claim-period");
             if (claimPeriod < 22) {
-              var maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
+              maxBase = [0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
               var maxTopUp = [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.15, 0.15, 0.1];
-              var scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
+              scaleBase = [0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
               var scaleTopUp = [1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 1.25, 0.75, 0.75, 0.5];
               $("#rate-formula-max").addClass("hidden");
               $("#rate-formula-u70").addClass("hidden");
@@ -4533,8 +4572,6 @@
                 }
               }
             } else { //p22+
-              var maxBase = [];
-              var scaleBase = [];
               var adjP = 22;
               if (elRentP == 1) { //THRP
                 if (revReduction < 0.4) {
@@ -4565,7 +4602,7 @@
           $("#reduction-percent-panel").addClass("hidden");
         });
 
-        $(document).on("click", ".toCSV", function (event) {
+        $(document).on("click", ".toCSV", function () {
           export_table_to_csv("location-cews.csv");
         });
 
@@ -4669,7 +4706,7 @@
             $("#action-msg1").addClass("hidden").removeClass("visible");
             $("#action-no-msg").removeClass("hidden").addClass("visible");
           }
-        })
+        });
 
         //Prevent form submit (print preview) on enter key
         var list = document.querySelectorAll('input,select');
@@ -4679,7 +4716,7 @@
               event.preventDefault();
               return false;
             }
-          })
+          });
         }
       </script>
       <script>
