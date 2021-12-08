@@ -5832,6 +5832,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
         var maxBase = [];
         var scaleBase = [];
         var minBase = [];
+        var additonalPercentage = [];
         var adjP = 5;
         if (period < 22) { //CEWS
           maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
@@ -5842,10 +5843,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
           maxBase = [0.75, 0.75, 0.75, 0.75, 0.75, 0.375, 0.375];
           scaleBase = [1, 1, 1, 1, 1, 0.5, 0.5];
+          additonalPercentage = [0, 0, 0, 0, 0, 0, 0];
           adjP = 22;
         } else if (elWageP == 2) { //HHBRP
           maxBase = [0.5, 0.5, 0.5, 0.5, 0.5, 0.25, 0.25];
           scaleBase = [1.6, 1.6, 1.6, 1.6, 1.6, 0.8, 0.8];
+          additonalPercentage = [0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.05];
           adjP = 22;
         }
         $('.scaleBase').text(scaleBase[period - adjP]);
@@ -5856,10 +5859,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
             revReduction = revReduction - 0.1;
           }
         }
-        if (scaleBase[period - adjP] * revReduction >= maxBase[period - adjP]) {
+        if (additonalPercentage[period - adjP] + scaleBase[period - adjP] * revReduction >= maxBase[period - adjP]) {
           return maxBase[period - adjP];
         } else {
-          return scaleBase[period - adjP] * revReduction;
+          return additonalPercentage[period - adjP] + scaleBase[period - adjP] * revReduction;
         }
       }
 

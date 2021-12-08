@@ -4660,21 +4660,24 @@
               }
             } else { //p22+
               var adjP = 22;
+              var additonalPercentage = [];
               if (elRentP == 1) { //THRP
                 if (revReduction < 0.4) {
                   return 0;
                 }
                 maxBase = [0.75, 0.75, 0.75, 0.75, 0.75, 0.375, 0.375];
                 scaleBase = [1, 1, 1, 1, 1, 0.5, 0.5];
+                additonalPercentage = [0, 0, 0, 0, 0, 0, 0];
               } else if (elRentP == 2) { //HHBRP
                 maxBase = [0.5, 0.5, 0.5, 0.5, 0.5, 0.25, 0.25];
                 scaleBase = [1.6, 1.6, 1.6, 1.6, 1.6, 0.8, 0.8];
+                additonalPercentage = [0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.05];
                 revReduction = revReduction - 0.5;
               }
-              if (scaleBase[claimPeriod - adjP] * revReduction >= maxBase[claimPeriod - adjP]) {
+              if (additonalPercentage[claimPeriod - adjP] + scaleBase[claimPeriod - adjP] * revReduction >= maxBase[claimPeriod - adjP]) {
                 return maxBase[claimPeriod - adjP];
               } else {
-                return scaleBase[claimPeriod - adjP] * revReduction;
+                return additonalPercentage[claimPeriod - adjP] + scaleBase[claimPeriod - adjP] * revReduction;
               }
             }
           }
