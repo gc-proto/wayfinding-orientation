@@ -202,10 +202,13 @@
  
             <!-- START PAGE FEEDBACK WIDGET -->
             <div class="wb-frmvld">
-    <form action="/gc/services/generateemail" method="post">
-        <input id="emailTemplateSC" name="emailTemplate" type="hidden" value="servcan/pat-feedback-en">
-        <input type="hidden" name="language" value="eng">
-
+<form id="gc-pg-hlpfl-frm" action="/gc/services/generateemail" method="post" autocomplete="off" class="provisional wb-postback" data-wb-postback="{&quot;success&quot;:&quot;.gc-pg-hlpfl-thnk&quot;,&quot;content&quot;:&quot;#gc-pg-hlpfl-frm&quot;}">
+        <input type="hidden" name="institutionopt" value="Institution - required - must use same acronym value EN and FR">
+        <input type="hidden" name="themeopt" value="Theme - required - must use same value EN and FR">
+        <input type="hidden" name="sectionopt" value="">
+        <input type="hidden" name="pageTitle" value="Page title (EN) - required">
+        <input type="hidden" name="emailTemplate" value="servcan/gc-pagesuccessen">
+        <input type="hidden" name="language" value="en">
         <fieldset>
             <div class="form-group">
                 <label for="comments" class="h4 field-name required">Comments: <strong class="required">(required)</strong></label>
