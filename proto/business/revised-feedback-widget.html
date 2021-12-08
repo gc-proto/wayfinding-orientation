@@ -201,6 +201,23 @@
             </div> 
  
             <!-- START PAGE FEEDBACK WIDGET -->
+            <div class="wb-frmvld">
+    <form action="/gc/services/generateemail" method="post">
+        <input id="emailTemplateSC" name="emailTemplate" type="hidden" value="servcan/pat-feedback-en">
+        <input type="hidden" name="language" value="eng">
+
+        <fieldset>
+            <div class="form-group">
+                <label for="comments" class="h4 field-name required">Comments: <strong class="required">(required)</strong></label>
+                <textarea class="form-control full-width" id="comments" name="comments" rows="5" cols="45" data-rule-maxwords="250" required></textarea>
+            </div>
+        </fieldset>
+
+        <br><button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    </form>
+</div>
+
 
             <!-- END PAGE FEEDBACK WIDGET -->
         </div>
