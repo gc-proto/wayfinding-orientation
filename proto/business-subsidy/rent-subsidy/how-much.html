@@ -3183,9 +3183,9 @@
             $('.maxBase').text(toPercent(maxBase[claimPeriod - 1]));
 
             //recalculate the summary based on the values that are already there
-            if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
+            if ($("rev-comp-yes:checked").length > 0) { //#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
               calculateRevenueDrop(false);
-            } else if ($("#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
+            } else if ($("rev-comp-no:checked").length > 0) { //#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
               calculateRevenueDrop(true);
             } else {
               NoCERSRate();
@@ -3340,7 +3340,7 @@
             var monthDays = getClaimMonth($("#claim-period").val(), 1);
             var monthMaxDays = getClaimMonth($("#claim-period").val(), 2);
 
-            if ($('#rent-one-' + locationNumber).is(":visible")) {
+            if ($('#owner-location-no-' + locationNumber + ':checked').length > 0 && $('#calc-method-' + locationNumber + ' option:selected').data("calc-method") == "month") { //is(":visible")) {
               //get values for month 1 and month 2
               unformattedValueOne = [
                 $('#rent-one-' + locationNumber).val().replace("$", ""),
@@ -3367,7 +3367,7 @@
                                 (zeroIfEmpty(unformattedValueTwo[i]) * monthDays[1] / monthMaxDays[1]));
                 }
               }
-            } else if ($('#rent-cers-period-' + locationNumber).is(":visible")) { //value for 28 day period
+            } else if ($('#owner-location-no-' + locationNumber + ':checked').length > 0 && $('#calc-method-' + locationNumber + ' option:selected').data("calc-method") == "period") { //$('#rent-cers-period-' + locationNumber).is(":visible")) { //value for 28 day period
               unformattedValueOne = [
                 $('#rent-cers-period-' + locationNumber).val().replace("$", ""),
                 "0",
@@ -3530,7 +3530,9 @@
               $(element).text(formattedVal);
             });
             var topUpAmount = 0;
-            if ($('#lock-down-eligible-' + locationNumber).is(':visible')) {
+            var datediff = getDateDiffLockdown(locationNumber);
+            if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lock-down-yes-'+locationNumber+':checked').length > 0) {
+            //if ($('#lock-down-eligible-' + locationNumber).is(':visible')) {
               topUpAmount = (qualifyingExpenses * topUpRate) / 100;
             } else {
               topUpAmount = 0;
@@ -3906,7 +3908,7 @@
               $('#lock-down-ineligible-'+locationNumber).removeClass("hidden");
               $('#lock-down-eligible-'+locationNumber).addClass("hidden");
             }
-            if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lockdown-start-'+locationNumber).is(":visible")) { //at least 7 days in the
+            if ((datediff >= 7 || $('#7-days-yes-' + locationNumber + ':checked').length == 1) && $('#lock-down-yes-'+locationNumber+':checked').length > 0) { //at least 7 days in the
               if (datediff < 7) { //'yes' is selected, but dates might have changed
                 sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber);
               }
@@ -3941,7 +3943,7 @@
 
           //Updates the follow up question to the date range for the lockdown period with the correct 'end' date for the 7 days
           function sevenDayQuestionUpdate(endSelectionDate, startSelectionDate, startDatePeriod, endDatePeriod, locationNumber) {
-            if ($('#lockdown-start-'+locationNumber).is(":visible")) {
+            if ($('#lockdown-yes-'+locationNumber+':checked').length > 0) {
               //Dates start and end of the period
               var monthNames = [];
               if (document.documentElement.lang == "fr") {
@@ -4253,9 +4255,9 @@
           $document.on("change", "#rate-reduction", function () {
             var rangeISO = $('#claim-period').find('option:selected').val();
             var claimMonth = getClaimMonth(rangeISO);
-            if ($("#2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
+            if ($("#rev-comp-yes:checked").length > 0) { //2020-" + claimMonth + "-no").is(":visible") || $("#2021-" + claimMonth + "-no").is(":visible")) {
               calculateRevenueDrop(false);
-            } else if ($("#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
+            } else if ($("rev-comp-no:checked").length > 0) { //#2020-" + claimMonth + "-yes").is(":visible") || $("#2021-" + claimMonth + "-yes").is(":visible")) {
               calculateRevenueDrop(true);
             } else { //shouldn't actually happen... but display 0 if it does as failsafe
               NoCERSRate();
@@ -4280,7 +4282,7 @@
               var janRev = zeroIfEmpty($("#2020-01-yes").val());
               var febRev = zeroIfEmpty($("#2020-02-yes").val());
               if (parseFloat(janRev) > 0 || parseFloat(febRev) > 0) {
-                if ($('#jan-feb-closed-inputs').is(":visible")) {
+                if ($('#jan-feb-closed:checked').length == 0) {
                   var daysNotOperating = zeroIfEmpty($('#jan-feb-closed-days').val());
                   baseRev = ((janRev + febRev) / 2) * (60 / (60 - daysNotOperating));
                 } else {
