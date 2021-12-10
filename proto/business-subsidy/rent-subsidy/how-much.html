@@ -940,7 +940,7 @@
             </div>
             <hr class="brdr-bttm">
             <div class="well mrgn-tp-md mrgn-bttm-lg">
-              <h3 class="mrgn-tp-0">Summary of Step 2</h3>
+              <h3 class="mrgn-tp-0">Summary of Step 4</h3>
               <ul class="list-unstyled lst-spcd">
                 <li class="affiliated-no-answer">You have indicated you do not have any affiliated entities that are claiming the rent subsidy for this claim period.</li>
                 <li class="affiliated-yes-blank-answer hidden">Affiliated entities must agree on how they will split the <span class="maximum-subsidy">$300,000</span> eligible expenses maximum, even if they do not reach the maximum.</li>
@@ -1497,7 +1497,7 @@
             </fieldset>
             <a class="btn btn-default">Update your revenue drop</a> </div>
             <div id="revenue-drop-results-summary" class="well mrgn-tp-md">
-              <h3 class="mrgn-tp-0">Summary of Step 3</h3>
+              <h3 class="mrgn-tp-0">Summary of Step 5</h3>
               <div class="ineligible-thrp-hhbrp hidden">
                 <p>Based on previous questions, you are not eligible for the THRP or the HHBRP in <span class="claim-period"></span>.</p>
               </div>
@@ -4342,8 +4342,8 @@
 
               // currentRevReduc = roundPercDown(currentRevReduc) * 100;
               // priorRevReduc = roundPercDown(priorRevReduc) * 100;
-              currentRevReduc = currentRevReduc.toFixed(4) * 100;
-              priorRevReduc = priorRevReduc.toFixed(4) * 100;
+              currentRevReduc = Math.max(0, currentRevReduc.toFixed(4) * 100);
+              priorRevReduc = Math.max(0, priorRevReduc.toFixed(4) * 100);
               revReduction = revReduction * 100;
 
               $(".currentRevReduction").text(toPercent(currentRevReduc.toFixed(2)));
@@ -4393,10 +4393,10 @@
           */
           function NoCERSRate() {
             cersRate = 0;
-            $(".currentRevReduction").text(toPercent("0"));
-            $(".priorRevReduction").text(toPercent("0"));
-            $(".preferentialRevReduction").text(toPercent("0"));
-            $(".base-rate").text(toPercent("0"));
+            $(".currentRevReduction").text(toPercent("0.00"));
+            $(".priorRevReduction").text(toPercent("0.00"));
+            $(".preferentialRevReduction").text(toPercent("0.00"));
+            $(".base-rate").text(toPercent("0.00"));
             $("#rate-formula-max").addClass("hidden");
             $("#rate-formula-u70").addClass("hidden");
             $("#rate-formula-u50").addClass("hidden");
