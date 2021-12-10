@@ -621,7 +621,7 @@
             <p>Before you continue, make sure you have:</p>
             <ul class="fa-ul">
               <li><span class="fas fa-check text-success fa-li"></span> confirmed you meet the eligibility criteria to make a claim<br><a href="/en/revenue-agency/services/subsidy/emergency-rent-subsidy/cers-who-apply.html">Who can apply</a></li>
-              <li><span class="fas fa-check text-success fa-li"></span> your monthly qualifying revenue amounts from the 2 years</li>
+              <li><span class="fas fa-check text-success fa-li"></span> your monthly qualifying revenue amounts from the last 2 years</li>
               <li><span class="fas fa-check text-success fa-li"></span> your eligible expenses broken down by business location<br><a href="/en/revenue-agency/services/subsidy/emergency-rent-subsidy/cers-expenses-claim.html">Expenses you can claim</a></li>
             </ul>
             <p>If your business has affiliated businesses or entities:</p>
@@ -665,12 +665,12 @@
               <select required id="claim-period" class="form-control input-lg">
                 <option value=""> Select a claim period</option>
                 <optgroup label="THRP - Rent or HHBRP - Rent">
-                  <option data-claim-period="28" value="2022-04-10--2022-05-07">Period 28: April 10 to May 7, 2022</option>
+                  <!-- <option data-claim-period="28" value="2022-04-10--2022-05-07">Period 28: April 10 to May 7, 2022</option>
                   <option data-claim-period="27" value="2022-03-13--2022-04-09">Period 27: March 13 to April 9, 2022</option>
                   <option data-claim-period="26" value="2022-02-13--2022-03-12">Period 26: February 13 to March 12, 2022</option>
                   <option data-claim-period="25" value="2022-01-16--2022-02-12">Period 25: January 16 to February 12, 2022</option>
                   <option data-claim-period="24" value="2021-12-19--2022-01-15">Period 24: December 19 to January 15, 2022</option>
-                  <option data-claim-period="23" value="2021-11-21--2021-12-18">Period 23: November 21 to December 18, 2021</option>
+                  <option data-claim-period="23" value="2021-11-21--2021-12-18">Period 23: November 21 to December 18, 2021</option> -->
                   <option data-claim-period="22" value="2021-10-24--2021-11-20">Period 22: October 24 to November 20, 2021</option>
                 </optgroup>
                 <optgroup label="CERS">
@@ -783,7 +783,7 @@
                 <div class="">
                   <p>To qualify for the THRP or the HRBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period.</p>
                   <fieldset id="q1-tourism-hospitality" class="provisional gc-chckbxrdio chckbxrdio-grp ">
-                <legend class="small required" ><span class="field-name">Do you meet the definition of a qualifying tourism or hospitality entity?</span> <strong class="required">(required)</strong></legend>
+                <legend class="small required" ><span class="field-name">Are you a qualifying tourism or hospitality entity?</span> <strong class="required">(required)</strong></legend>
                 <p><a href="../thrp/entities.html" target="_blank">What tourism, hospitality, arts, entertainment, and recreation activities are included in the definition of a qualifying tourism or hospitality <span class="nowrap">entity?<span class="far fa-window-restore mrgn-lft-sm"></span><span class="wb-inv"> (opens in new window)</span></a>.</p>
                     <ul class="list-unstyled lst-spcd-2">
                       <li class="radio">
@@ -2848,7 +2848,7 @@
 
           //when the claim period dropdown is changed
           var elRentP = 0; //if 0, not eligible for THRP or HHBRP, if 1, eligible for THRP, if 2, eligible for HHBRP, 3 is eligible for CERS
-          var maximumSubsidy = 0;
+          var maximumSubsidy = 300000;
           $document.on("change", "#claim-period", function () {
             var rangeISO = $(this).find('option:selected').val(),
               startDateISO = rangeISO.substring(0, rangeISO.indexOf(sep.iso[wb.lang])),
@@ -2975,12 +2975,12 @@
               }
               maximumSubsidy = 300000;
             } else {
-              if (document.documentElement.lang == "fr") {
-                $(".maximum-subsidy").text("1,000,000 $");
-              } else {
-                $(".maximum-subsidy").text("$1,000,000");
-              }
-              maximumSubsidy = 1000000;
+              // if (document.documentElement.lang == "fr") {
+              //   $(".maximum-subsidy").text("1,000,000 $");
+              // } else {
+              //   $(".maximum-subsidy").text("$1,000,000");
+              // }
+              //maximumSubsidy = 1000000;
               $(".p22-plus").removeClass("hidden");
               if (claimPeriod < 27) {
                 $(".p22-26").removeClass("hidden");
