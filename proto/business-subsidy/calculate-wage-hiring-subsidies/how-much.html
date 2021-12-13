@@ -5855,6 +5855,9 @@ $(document).on("click", ".prev-wb-step", function (event) {
           additonalPercentage = [0, 0, 0, 0, 0, 0, 0];
           adjP = 22;
         } else if (elWageP == 2) { //HHBRP
+          if (revReduction < 0.5) {
+            return 0;
+          }
           maxBase = [0.5, 0.5, 0.5, 0.5, 0.5, 0.25, 0.25];
           scaleBase = [1.6, 1.6, 1.6, 1.6, 1.6, 0.8, 0.8];
           additonalPercentage = [0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.05];
