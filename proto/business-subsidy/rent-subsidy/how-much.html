@@ -681,7 +681,7 @@
                   <option data-claim-period="10" value="2021-06-06--2021-07-03">Period 10: June 6, 2021, to July 3, 2021</option>
                   <option data-claim-period="9" value="2021-05-09--2021-06-05">Period 9: May 9, 2021, to June 5, 2021</option>
                   <option data-claim-period="8" value="2021-04-11--2021-05-08">Period 8: April 11, 2021, to May 8, 2021</option>
-                  <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14 20, 2021, to April 10, 2021</option>
+                  <option data-claim-period="7" value="2021-03-14--2021-04-10">Period 7: March 14, 2021, to April 10, 2021</option>
                   <option data-claim-period="6" value="2021-02-14--2021-03-13">Period 6: February 14, 2021, to March 13, 2021</option>
                   <option data-claim-period="5" value="2021-01-17--2021-02-13">Period 5: January 17, 2021, to February 13, 2021</option>
                   <option data-claim-period="4" value="2020-12-20--2021-01-16">Period 4: December 20, 2020, to January 16, 2021</option>
@@ -2977,8 +2977,10 @@
             if (claimPeriod < 22) {
               $(".p1-21").removeClass("hidden");
               if (document.documentElement.lang == "fr") {
+                $('.elRentP').text("SUCL");
                 $(".maximum-subsidy").text("300,000 $");
               } else {
+                $('.elRentP').text("CERS");
                 $(".maximum-subsidy").text("$300,000");
               }
               maximumSubsidy = 300000;
@@ -2995,6 +2997,7 @@
               } else {
                 $(".p27-28").removeClass("hidden");
               }
+              thrpHhbrpSummary(); //ensure the wording gets updated for THRP/HHBRP
             }
 
             switch (claimPeriod) {
@@ -3153,7 +3156,6 @@
                 break;
               case 4: 
                 $("#table-prd tr:not('#clm-pr-4')").addClass("hidden");
-                break;
               case 3:
                 $("#2020-12-yes").closest("div.form-group").removeClass("hidden");
                 $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
@@ -3161,7 +3163,9 @@
                 $("#2019-12-no").closest("div.form-group").removeClass("hidden");
                 $("#2020-11-no").closest("div.form-group").removeClass("hidden");
                 $("#2019-11-no").closest("div.form-group").removeClass("hidden");
-                $("#table-prd tr:not('#clm-pr-3')").addClass("hidden");
+                if (claimPeriod == 3) {
+                  $("#table-prd tr:not('#clm-pr-3')").addClass("hidden");
+                }
                 break;
               case 2:
                 $("#2020-11-yes").closest("div.form-group").removeClass("hidden");
@@ -3640,8 +3644,10 @@
               $('.thrp-hhbrp-eligible').removeClass("hidden");
               $('.ineligible-thrp-hhbrp').addClass("hidden");
               if (document.documentElement.lang == "fr") {
+                $('.elRentP').text("SUCL");
                 $(".twelveMonthDecline").text("Non nécessaire pour les périodes 1 à 21");
               } else {
+                $('.elRentP').text("CERS");
                 $(".twelveMonthDecline").text("Not needed in periods 1 to 21");
               }
               elRentP = 3;
