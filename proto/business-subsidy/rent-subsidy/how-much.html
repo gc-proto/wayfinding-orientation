@@ -204,7 +204,7 @@
             </details>
             <details>
               <summary id="calculating-base-rate">Calculating your base rent subsidy rate</summary>
-              <p>The amount you can claim of your expenses (your rent subsidy rate) is based on the <strong>revenue drop you experienced</strong> between the claim period you are applying for and a prior reference period.</p>
+              <p>The amount you can claim of your expenses (your <span class="elRentPfull">rent subsidy</span> rate) is based on the <strong>revenue drop you experienced</strong> between the claim period you are applying for and a prior reference period.</p>
               <p>You have options for choosing which prior reference period you will use.</p>
               <!-- Do not delete the space before # below. It solves an IE compatibility issue-->
               <div data-ajax-replace=" #basebaselinecalc-cntnt"></div>
@@ -526,7 +526,7 @@
             </details>
             <details>
               <summary>Calculating your lockdown support rate</summary>
-              <p>In addition to the rent subsidy rate, you can receive a lockdown support amount for certain locations affected by public health restrictions.</p>
+              <p>In addition to the <span class="elRentPfull">rent subsidy</span> rate, you can receive a lockdown support amount for certain locations affected by public health restrictions.</p>
               <p>Your CERS lockdown support rate is 25% on lockdown, calculated as:</p>
               <ul class="fa-ul lst-spcd">
                 <li>25% fixed lockdown rate</li>
@@ -945,7 +945,7 @@
                 <li class="affiliated-no-answer">You have indicated you do not have any affiliated entities that are claiming the rent subsidy for this claim period.</li>
                 <li class="affiliated-yes-blank-answer hidden">Affiliated entities must agree on how they will split the <span class="maximum-subsidy">$300,000</span> eligible expenses maximum, even if they do not reach the maximum.</li>
                 <li class="affiliated-yes-answer hidden">Percentage your business will claim of the eligible expense maximum: <span class="h3 affiliated-entity-percentage">0%</span> (you can claim up to <span id="affiliated-max-amount">$0.00</span>)</li>
-                <li class="affiliated-yes-answer hidden">Other affiliated entities will be able to claim up to <span id="affiliated-remaining">0%</span></li>
+                <li class="affiliated-yes-answer hidden">Other affiliated entities will be able to claim up to <span id="affiliated-remaining">0%</span> between them</li>
               </ul>
             </div>
           </div>
@@ -1477,7 +1477,7 @@
                     <div class="col-md-12">
                       <div class="checkbox provisional gc-chckbxrdio pull-right">
                         <input id="jan-feb-closed" type="checkbox" checked="checked"/>
-                        <label for="jan-feb-closed">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                        <label for="jan-feb-closed">You were operating for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
                       </div>
                     </div>
                   </div>
@@ -2092,7 +2092,7 @@
                       <output class="mrgn-lft-sm base-rate">0.00%</output></td>
                   </tr>
                   <tr>
-                    <th scope="row" class="h6">Base rent subsidy <small class="nowrap">(Line 300)</small></th>
+                    <th scope="row" class="h6">Base <span class="elRentPfull">rent subsidy</span> <small class="nowrap">(Line 300)</small></th>
                     <td class="text-right nowrap">=
                       <output class="mrgn-lft-sm base-subsidy-amount">$0.00</output></td>
                   </tr>
@@ -2102,7 +2102,7 @@
                       <output class="top-up-total mrgn-lft-sm">$0.00</output></td>
                   </tr>
                   <tr class="success">
-                    <th scope="row" class="h6">Total rent subsidy <small class="nowrap">(Line 300 + Line 310)</small></th>
+                    <th scope="row" class="h6">Total <span class="elRentPfull">rent subsidy</span> <small class="nowrap">(Line 300 + Line 310)</small></th>
                     <td class="text-right nowrap"><output class="rent-subsidy-claim-total mrgn-lft-sm h3">$0.00</output></td>
                   </tr>
                 </tbody>
@@ -2978,18 +2978,28 @@
               $(".p1-21").removeClass("hidden");
               if (document.documentElement.lang == "fr") {
                 $('.elRentP').text("SUCL");
+                $('.elRentPfull').text("SUCL");
+                $('.elRentPspelt').text("Subvention d'urgence du Canada pour le loyer");
+                $('.article-sucl').text("du");
                 $(".maximum-subsidy").text("300,000 $");
               } else {
                 $('.elRentP').text("CERS");
+                $('.elRentPfull').text("CERS");
+                $('.article-sucl').text("");
+                $('.elRentPspelt').text("Canada Emergency Rent Subsidy");
                 $(".maximum-subsidy").text("$300,000");
               }
               maximumSubsidy = 300000;
             } else {
-              // if (document.documentElement.lang == "fr") {
-              //   $(".maximum-subsidy").text("1,000,000 $");
-              // } else {
-              //   $(".maximum-subsidy").text("$1,000,000");
-              // }
+              if (document.documentElement.lang == "fr") {
+                $('.elRentPfull').text("subvention de loyer");
+                $('.elRentPspelt').text("subvention de loyer");
+                $('.article-sucl').text("de la");
+              } else {
+                $('.elRentPfull').text("rent subsidy");
+                $('.elRentPspelt').text("rent subsidy");
+                $('.article-sucl').text("");
+              }
               //maximumSubsidy = 1000000;
               $(".p22-plus").removeClass("hidden");
               if (claimPeriod < 27) {
@@ -3793,7 +3803,7 @@
             } else {
               $('.date-' + expenseType + '-dates-' + locationNumber).removeClass("hidden");
               if (document.documentElement.lang == "fr") {
-                $('.date-' + expenseType + '-from-' + locationNumber).text("de");
+                $('.date-' + expenseType + '-from-' + locationNumber).text("du");
               } else {
                 $('.date-' + expenseType + '-from-' + locationNumber).text("from");
 
