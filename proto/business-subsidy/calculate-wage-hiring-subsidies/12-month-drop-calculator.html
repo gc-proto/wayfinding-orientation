@@ -176,6 +176,9 @@ fieldset +.buttons {
             "class": "hidden"
         }] 
     }'></div>
+
+    <p>Your 12-month average revenue drop is the average of your applicable monthly revenue drops from March 2020 to February 2021 (CEWS claim period 1 to 13, excluding either claim period 10 or 11).</p>
+
     <h2 class="h3 mrgn-tp-sm">On this page</h2>
     <ul>
         <!-- <li><a href="#h-1">How the calculator helps you</a></li> -->
@@ -198,8 +201,8 @@ fieldset +.buttons {
       <dd>Unlike the claim period revenue drop, there is no deeming rule provision for the 12-month average revenue drop that allows you to use the better of two rates. You must include the actual revenue drop calculation for each reference period.</dd>
       <dt>Must exclude months when not operating</dt>
       <dd>
-        <p>If your business was not operating for one or more days throughout one of the claim periods 1 to 13, you must exclude the corresponding month from the 12-month average revenue drop, unless the reason for not operating was due to a qualifying public health restriction, in which case you can include the month. A business not operating might be as a result of situations such as seasonal closures or if your business had not yet been opened.</p>
-        <p>Note that both claim period 10 and 11 correspond to the month of December, so you only need to exclude December if you were not operating throughout both of these claim periods.</p>
+        <p>If you were not operating for any length of time in any of claim periods 1 to 13, you must exclude the corresponding reference month from the 12-month average revenue drop, unless the reason for not operating was due to a public health restriction, in which case you can include the month in your calculation. An example of you not operating throughout a claim period would be in the case of a seasonal closure.</p>
+        <p>As the reference month for both claim periods 10 and 11 is December, you only need to exclude December if you were not operating throughout both claim periods.</p>
       </dd>
     </dl>
     <!-- <h3>You must include revenue increases</h3>
@@ -219,7 +222,7 @@ fieldset +.buttons {
             <fieldset class="provisional gc-chckbxrdio chckbxrdio-grpsubfields">
               <legend class="mrgn-tp-md required" ><span class="field-name">Which pre-crisis revenue comparison option did you use to calculate eligibility for CEWS periods 1 to 4 (March 15th to July 4th, 2020)?</span> <strong class="required">(required)</strong></legend>
               <p>Your choice must be consistent with the option you used for any of these periods you applied for. If you did not apply for any of them, you can decide on an option now.</p>
-              <p>If your business was not operating in March 2019, you must use the average of January and February 2020.</p>
+              <p>If you were not operating in March 2019, you must use the average of January and February 2020.</p>
               <ul class="list-unstyled lst-spcd-2">
                 <li class="radio">
                   <input type="radio" name="rev-comp-1-4" value="Yes" id="rev-comp-1-4-regular" class="valid" aria-invalid="false" required="required">
@@ -237,7 +240,7 @@ fieldset +.buttons {
                 <div class="col-md-12">
                   <div class="checkbox provisional gc-chckbxrdio pull-right">
                     <input id="jan-feb-closed" type="checkbox" checked="checked"/>
-                    <label for="jan-feb-closed">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                    <label for="jan-feb-closed">You were in operation for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
                   </div>
                 </div>
               </div>
@@ -245,7 +248,7 @@ fieldset +.buttons {
               <div id="jan-feb-closed-inputs" class="mrgn-bttm-lg hidden">
                 <div class="form-group row mrgn-bttm-0">
                   <div class="col-md-12">
-                    <label for="jan-feb-closed-days" class="required">Days you were <strong>not</strong> in business during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
+                    <label for="jan-feb-closed-days" class="required">Days you were <strong>not</strong> in operation during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
                   </div>
                   <div class="col-xs-6">
                     <input type="number" class="form-control text-right" id="jan-feb-closed-days" max="59" min="0" required>
@@ -322,8 +325,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-03-operations">
-                        <input id="2020-03-operations" type="checkbox" value="">
-                        Not in operation between March 15 and April 11, 2020
+                        <input id="2020-03-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout March 15 to April 11, 2020
                       </label>
                     </div>
                   </div>
@@ -359,8 +362,8 @@ fieldset +.buttons {
                   </div>
                   <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                     <label for="2020-04-operations">
-                      <input id="2020-04-operations" type="checkbox" value="">
-                      Not in operation between April 12 and May 9, 2020
+                      <input id="2020-04-operations" type="checkbox" value="" checked="checked">
+                      In operation throughout April 12 to May 9, 2020
                     </label>
                   </div>
                 </div>
@@ -395,8 +398,8 @@ fieldset +.buttons {
                   </div>
                   <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                     <label for="2020-05-operations">
-                      <input id="2020-05-operations" type="checkbox" value="">
-                      Not in operation between May 10 and June 6, 2020
+                      <input id="2020-05-operations" type="checkbox" value="" checked="checked">
+                      In operation throughout May 10 to June 6, 2020
                     </label>
                   </div>
                 </div>
@@ -431,8 +434,8 @@ fieldset +.buttons {
                   </div>
                   <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                     <label for="2020-06-operations">
-                      <input id="2020-06-operations" type="checkbox" value="">
-                      Not in operation between June 7 and July 4, 2020
+                      <input id="2020-06-operations" type="checkbox" value="" checked="checked">
+                      In operation throughout June 7 to July 4, 2020
                     </label>
                   </div>
                 </div>
@@ -467,7 +470,7 @@ fieldset +.buttons {
                 <div class="col-md-12">
                   <div class="checkbox provisional gc-chckbxrdio pull-right">
                     <input id="jan-feb-closed-2" type="checkbox" checked="checked"/>
-                    <label for="jan-feb-closed-2">You were in business for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
+                    <label for="jan-feb-closed-2">You were in operation for all 60 days of January and February 2020 (not seasonally affected or beginning operations during that period)</label>
                   </div>
                 </div>
               </div>
@@ -475,7 +478,7 @@ fieldset +.buttons {
               <div id="jan-feb-closed-2-inputs" class="mrgn-bttm-lg hidden">
                 <div class="form-group row mrgn-bttm-0">
                   <div class="col-md-12">
-                    <label for="jan-feb-closed-days-2" class="required">Days you were <strong>not</strong> in business during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
+                    <label for="jan-feb-closed-days-2" class="required">Days you were <strong>not</strong> in operation during Jan-Feb 2020 <span class="wb-inv"> (do not include spaces or commas)</span><strong class="required">(required)</strong></label>
                   </div>
                   <div class="col-xs-6">
                     <input type="number" class="form-control text-right" id="jan-feb-closed-days-2" max="59" min="0" required>
@@ -552,8 +555,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-07-operations">
-                        <input id="2020-07-operations" type="checkbox" value="">
-                        Not in operation between July 5 and August 1, 2020
+                        <input id="2020-07-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout July 5 to August 1, 2020
                       </label>
                     </div>
                   </div>
@@ -588,8 +591,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-08-operations">
-                        <input id="2020-08-operations" type="checkbox" value="">
-                        Not in operation between August 2 and August 29, 2020
+                        <input id="2020-08-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout August 2 to August 29, 2020
                       </label>
                     </div>
                   </div>
@@ -624,8 +627,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-09-operations">
-                        <input id="2020-09-operations" type="checkbox" value="">
-                        Not in operation between August 30 and September 26, 2020
+                        <input id="2020-09-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout August 30 to September 26, 2020
                       </label>
                     </div>
                   </div>
@@ -660,8 +663,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-10-operations">
-                        <input id="2020-10-operations" type="checkbox" value="">
-                        Not in operation between September 27 and October 24, 2020
+                        <input id="2020-10-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout September 27 to October 24, 2020
                       </label>
                     </div>
                   </div>
@@ -696,8 +699,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-11-operations">
-                        <input id="2020-11-operations" type="checkbox" value="">
-                        Not in operation between October 25 to November 21, 2020
+                        <input id="2020-11-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout October 25 to November 21, 2020
                       </label>
                     </div>
                   </div>
@@ -732,8 +735,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-12-operations">
-                        <input id="2020-12-operations" type="checkbox" value="">
-                        Not in operation between November 22 and December 19, as well as between December 20 and January 16
+                        <input id="2020-12-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout November 22 and December 19, as well as between December 20 and January 16
                       </label>
                     </div>
                   </div>
@@ -768,8 +771,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2021-01-operations">
-                        <input id="2021-01-operations" type="checkbox" value="">
-                        Not in operation between January 17 and February 13
+                        <input id="2021-01-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout January 17 to February 13
                       </label>
                     </div>
                   </div>
@@ -804,8 +807,8 @@ fieldset +.buttons {
                     </div>
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2021-02-operations">
-                        <input id="2021-02-operations" type="checkbox" value="">
-                        Not in operation between February 14 and March 13
+                        <input id="2021-02-operations" type="checkbox" value="" checked="checked">
+                        In operation throughout February 14 to March 13
                       </label>
                     </div>
                   </div>
@@ -1151,13 +1154,14 @@ fieldset +.buttons {
         if (parts[2] == "operations") {
           if ($('#' + target.id + ':checked').length > 0) {
             //disable the input fields
-            $("#2019-" + parts[1] + "-yes").prop('disabled', true);
-            $("#2020-" + parts[1] + "-yes").prop('disabled', true);
-            $("." + parts[1] + "-not-operating").removeClass("hidden");
-          } else {
             $("#2019-" + parts[1] + "-yes").prop('disabled', false);
             $("#2020-" + parts[1] + "-yes").prop('disabled', false);
+            $("." + parts[1] + "-not-operating").removeClass("hidden");
+          } else {
+            $("#2019-" + parts[1] + "-yes").prop('disabled', true);
+            $("#2020-" + parts[1] + "-yes").prop('disabled', true);
             $("." + parts[1] + "-not-operating").addClass("hidden");
+            
           }
         } else if (target.id == "jan-feb-closed" || target.id == "jan-feb-closed-2") {
           if ($('#' + target.id + '-inputs').is(":hidden")) {
@@ -1223,13 +1227,20 @@ fieldset +.buttons {
             }
           }
           curYRev = zeroIfEmpty($("#" + year + "-" + pad(i, 2) + "-yes").val());
-          if (monthlyOperations[i] > 0) {
+          if (monthlyOperations[i] == 0) {
             monthlyOperationsSum++;
             monthlyDrops[i] = 0;
             $("." + pad(i, 2) + "-drop").text("Excluded from average");
           } else if (priorYRev == 0) {
-            monthlyDrops[i] = 0;
-            $("." + pad(i, 2) + "-drop").text(toPercent(0));
+            if (curYRev == 0) {
+              monthlyDrops[i] = 0;
+              monthlyDropsSum+= monthlyDrops[i];
+              $("." + pad(i, 2) + "-drop").text(toPercent(0));
+            } else {
+              monthlyDrops[i] = (priorYRev - curYRev) / priorYRev;
+              monthlyDropsSum+= monthlyDrops[i];
+              $("." + pad(i, 2) + "-drop").text(toPercent(monthlyDrops[i] * 100));
+            }
           } else {
             monthlyDrops[i] = (priorYRev - curYRev) / priorYRev;
             monthlyDropsSum+= monthlyDrops[i];
