@@ -318,7 +318,7 @@
       </ul>
      <div class="wb-frmvld fieldflow-lg">
       <form>
-       <div class="wb-fieldflow " data-wb-fieldflow="{&quot;renderas&quot;: &quot;radio&quot;, &quot;noForm&quot;: true}">
+      <div class="wb-fieldflow " data-wb-fieldflow='{"renderas": "radio", "noForm": true, "reset": {"action": "addClass", "source": "#fr-results", "class": "hidden"}}'>
           <p>What year are you claiming?</p>
           <ul><li data-wb-fieldflow='[{"action": "removeClass", "source": "#fr-calculator-form", "class": "hidden", "live": true}, {"action": "toggle", "toggle": "#days-worked-2021", "live": true}]'>2021</li>
          <li data-wb-fieldflow='[{"action": "removeClass", "source": "#fr-calculator-form", "class": "hidden", "live": true}, {"action": "toggle", "toggle": "#days-worked-2020", "live": true}]'>2020</li>
@@ -1656,12 +1656,17 @@
       var flatRateTotal = numDays * 2;
       $(".days-worked-home-output").text(numDays);
       $(".flat-rate-total-amount").text(toMoney.format(flatRateTotal));
+      if ((!$("#days-worked-home-input-2021").hasClass("error")) && (!$("#days-worked-home-input").hasClass("error")) ) {
       $("#fr-results").removeClass("hidden");
       document.getElementById("fr-results").scrollIntoView({
         behavior: 'smooth'
       });
+      };
+       if (($("#days-worked-home-input-2021").hasClass("error")) || ($("#days-worked-home-input").hasClass("error")) ) {
+         $("#fr-results").addClass("hidden");
+         
+       };
     });
-
     window.onload = function () {
       if (/Android/i.test(navigator.userAgent)) {
         var osDetect = document.getElementById("wsih-calculator-form").querySelectorAll("input[type=text], input[type=number]");
