@@ -1260,7 +1260,7 @@ fieldset +.buttons {
         if (bDiv0 == true) {
           twelveMonthDrop = 0;
         } else {
-          twelveMonthDrop = monthlyDropsSum / (12 - monthlyOperationsSum);
+          twelveMonthDrop = Math.max(0, monthlyDropsSum / (12 - monthlyOperationsSum));
         }
         $(".12-month-drop").text(toPercent(twelveMonthDrop * 100));
         $(".months-not-operating").text(monthlyOperationsSum);
