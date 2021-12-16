@@ -736,7 +736,7 @@ fieldset +.buttons {
                     <div class="checkbox mrgn-tp-sm mrgn-lft-lg">
                       <label for="2020-12-operations">
                         <input id="2020-12-operations" type="checkbox" value="" checked="checked">
-                        In operation throughout November 22 and December 19, as well as between December 20 and January 16
+                        In operation throughout November 22 and December 19 or December 20 and January 16
                       </label>
                     </div>
                   </div>
@@ -1194,9 +1194,11 @@ fieldset +.buttons {
         var monthlyOperationsSum = 0;
         var monthlyDropsSum = 0;
         var year = "";
+        var bDiv0 = false;
         var curYRev = 0;
         var priorYear = "";
         var priorYRev = 0;
+        var twelveMonthDrop = 0;
         var janFebDays = zeroIfEmpty($('#jan-feb-closed-days').val());
         if ($('#jan-feb-closed-inputs').is(":visible") || $('#jan-feb-closed-2-inputs').is(":visible")) { //either of the days fields are visible
           $('.pAny-Jan').removeClass("hidden");
@@ -1230,16 +1232,21 @@ fieldset +.buttons {
           if (monthlyOperations[i] == 0) {
             monthlyOperationsSum++;
             monthlyDrops[i] = 0;
-            $("." + pad(i, 2) + "-drop").text("Excluded from average");
+            if (document.documentElement.lang == "fr") {
+              $("." + pad(i, 2) + "-drop").text("Exclus de la moyenne");
+            } else {
+              $("." + pad(i, 2) + "-drop").text("Excluded from average");
+            }
           } else if (priorYRev == 0) {
             if (curYRev == 0) {
               monthlyDrops[i] = 0;
               monthlyDropsSum+= monthlyDrops[i];
               $("." + pad(i, 2) + "-drop").text(toPercent(0));
             } else {
-              monthlyDrops[i] = (priorYRev - curYRev) / priorYRev;
+              monthlyDrops[i] = "Div0";
               monthlyDropsSum+= monthlyDrops[i];
-              $("." + pad(i, 2) + "-drop").text(toPercent(monthlyDrops[i] * 100));
+              $("." + pad(i, 2) + "-drop").text("-∞");
+              bDiv0 = true;
             }
           } else {
             monthlyDrops[i] = (priorYRev - curYRev) / priorYRev;
@@ -1250,7 +1257,11 @@ fieldset +.buttons {
         }
         // console.log("monthlyOperationsSum: " + monthlyOperationsSum);
         // console.log("monthlyDropsSum: " + monthlyDropsSum);
-        var twelveMonthDrop = monthlyDropsSum / (12 - monthlyOperationsSum);
+        if (bDiv0 == true) {
+          twelveMonthDrop = 0;
+        } else {
+          twelveMonthDrop = monthlyDropsSum / (12 - monthlyOperationsSum);
+        }
         $(".12-month-drop").text(toPercent(twelveMonthDrop * 100));
         $(".months-not-operating").text(monthlyOperationsSum);
       }
