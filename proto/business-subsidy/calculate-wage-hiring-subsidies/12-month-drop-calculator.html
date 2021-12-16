@@ -1156,11 +1156,11 @@ fieldset +.buttons {
             //disable the input fields
             $("#2019-" + parts[1] + "-yes").prop('disabled', false);
             $("#2020-" + parts[1] + "-yes").prop('disabled', false);
-            $("." + parts[1] + "-not-operating").removeClass("hidden");
+            $("." + parts[1] + "-not-operating").addClass("hidden");
           } else {
             $("#2019-" + parts[1] + "-yes").prop('disabled', true);
             $("#2020-" + parts[1] + "-yes").prop('disabled', true);
-            $("." + parts[1] + "-not-operating").addClass("hidden");
+            $("." + parts[1] + "-not-operating").removeClass("hidden");
             
           }
         } else if (target.id == "jan-feb-closed" || target.id == "jan-feb-closed-2") {
