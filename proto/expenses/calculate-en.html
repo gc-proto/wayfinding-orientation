@@ -1494,7 +1494,7 @@
     //when the commission or work space type radios are changed. using this method of selecting because fieldflow does not give us ID's to work with if need to target specific use :eq(n)
     $(document).on("click", ".wb-fieldflow-form input[type='radio']", function (event) {
       $("input[type='text'], input[type='number']").each(function (i, element) {
-        $(element).val("");
+        $(element).val("0").trigger("focusout");
         $(element).trigger("change");
       });
       $("input[type='date']").each(function (i, element) {
