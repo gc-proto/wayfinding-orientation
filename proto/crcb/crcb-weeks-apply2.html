@@ -10325,7 +10325,9 @@ if($('.gcnav-menu').length> 0){
 			var warningID = ".w" + (i + 1);
 			var dangerID = ".d" + (i + 1);
 			diff = (dateArray[i] - Date.now()) / 8.64e+7;
-
+			if ((i > 9) && (i < 13)) {
+				diff = (dateArray[13] - Date.now()) / 8.64e+7; //keep period 60 to 63 open longer
+			}
 			if (diff >= 0) {
 				showByID(warningID);
 			} else if ((diff < 0) && (diff > -58.792)) {
