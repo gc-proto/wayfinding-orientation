@@ -199,7 +199,7 @@
             <p>The CERS provides both a base subsidy and, in some cases, a lockdown support amount.</p>
             <details>
               <summary>How much you may claim</summary>
-              <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 in expenses for you and any affiliated entities per claim period.</p>
+              <p>The base subsidy rate applies to a maximum of $75,000 in eligible expenses per location and an overall maximum of $300,000 (CERS) or $1,000,000 (THRP and HHBRP) in expenses for you and any affiliated entities per claim period.</p>
               <p>If you must close or cease certain activities at one or more of your locations under a public health order for one week or longer, you may be eligible for lockdown support of up to 25% of eligible expenses per affected location for the days the order was in place.</p>
             </details>
             <details>
@@ -2981,7 +2981,7 @@
                 $('.elRentPfull').text("SUCL");
                 $('.elRentPspelt').text("Subvention d'urgence du Canada pour le loyer");
                 $('.article-sucl').text("du");
-                $(".maximum-subsidy").text("300,000 $");
+                $(".maximum-subsidy").text("300 000 $");
               } else {
                 $('.elRentP').text("CERS");
                 $('.elRentPfull').text("CERS");
@@ -2995,12 +2995,14 @@
                 $('.elRentPfull').text("subvention de loyer");
                 $('.elRentPspelt').text("subvention de loyer");
                 $('.article-sucl').text("de la");
+                $(".maximum-subsidy").text("1 000 000 $");
               } else {
                 $('.elRentPfull').text("rent subsidy");
                 $('.elRentPspelt').text("rent subsidy");
                 $('.article-sucl').text("");
+                $(".maximum-subsidy").text("$1,000,000");
               }
-              //maximumSubsidy = 1000000;
+              maximumSubsidy = 1000000;
               $(".p22-plus").removeClass("hidden");
               if (claimPeriod < 27) {
                 $(".p22-26").removeClass("hidden");
