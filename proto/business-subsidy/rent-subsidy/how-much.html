@@ -2909,6 +2909,21 @@
             $("#rate-reduction").removeClass("hidden");
 
             //Defaults
+            var nolongeravailablePeriod = "";
+            $('*[class*="nolongeravailable-1-"]').addClass("hidden");
+            if ($('*[class*="nolongeravailable-1-"]').length > 0) {
+              var nolongeravailable = $('*[class*="nolongeravailable-1-"]').attr('class');
+              nolongeravailable = nolongeravailable.split(" ");
+              $(nolongeravailable).each(function (i, element) {
+                if (nolongeravailable[i].indexOf("longeravailable-1-") > 0) {
+                  nolongeravailablePeriod = nolongeravailable[i].split("-")[2];
+                }
+              });
+              if (claimPeriod <= nolongeravailablePeriod) {
+                $('*[class*="nolongeravailable-1-"]').removeClass("hidden");
+              }
+            }
+            
             $("#2022-05-yes").closest("div.form-group").addClass("hidden");
             $("#2022-04-yes").closest("div.form-group").addClass("hidden");
             $("#2022-03-yes").closest("div.form-group").addClass("hidden");
