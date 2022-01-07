@@ -906,7 +906,7 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
                   <!--Lockdown 18 -->
                   <section>
                     <details class="acc-group">
-                      <summary class="wb-toggle tgl-tab" data-toggle="{&quot;parent&quot;: &quot;.accordion&quot;, &quot;group&quot;: &quot;.acc-group&quot;}">Northwest Territories: all regions - <strong>ongoing</strong> <span class="label label-info">New</span></summary>
+                      <summary class="wb-toggle tgl-tab" data-toggle="{&quot;parent&quot;: &quot;.accordion&quot;, &quot;group&quot;: &quot;.acc-group&quot;}">Northwest Territories: all regions - <strong>ongoing</strong> <span class="label label-info hidden n11">New</span></summary>
                       <div class="tgl-panel">
                         <p hidden>NT, NWT, N.W.T., X0E, Tuktoyaktuk, K'atl'odeeche, Katlodeeche, Behchokò, <span data-json-replace="#[pc]/pcodes/NT/0"></span></p>
                         <p class="mrgn-tp-md">Northwest Territories is designated for the following periods:</p>
@@ -1042,7 +1042,7 @@ ol.lst-stps.lst-stps-sm>li, ol.sub-lst-stps.lst-stps-sm>li, .lst-stps.lst-stps-s
                   <!--Lockdown 11 -->
                   <section>
                     <details class="acc-group">
-                      <summary class="wb-toggle tgl-tab" data-toggle="{&quot;parent&quot;: &quot;.accordion&quot;, &quot;group&quot;: &quot;.acc-group&quot;}">Yukon: all regions - <strong>ongoing</strong> <span class="label label-info">New</span></summary>
+                      <summary class="wb-toggle tgl-tab" data-toggle="{&quot;parent&quot;: &quot;.accordion&quot;, &quot;group&quot;: &quot;.acc-group&quot;}">Yukon: all regions - <strong>ongoing</strong> <span class="label label-info hidden n11">New</span></summary>
                       <div class="tgl-panel">
                         <p hidden>YT, Y.T., <span data-json-replace="#[pc]/pcodes/YT/0"></span></p>
                         <p class="mrgn-tp-md">Yukon is designated for the following periods:</p>
@@ -2073,6 +2073,7 @@ var changeAlert = function (dateArray) {
 		var dangerID = ".d" + (i + 1);
 		var iconID = ".i" + (i + 1);
 		var hiddenID = ".h" + (i + 1);
+		var newID = ".n" + (i + 1);
 		diff = (dateArray[i] - Date.now()) / 8.64e+7;
 		if (i < 7) {
 			diff = (dateArray[7] - Date.now()) / 8.64e+7; //keep first 7 periods open longer				
@@ -2081,6 +2082,7 @@ var changeAlert = function (dateArray) {
 			$(warningID).addClass("visible").removeClass("hidden");
 			$(iconID).prepend(iconW);
 			$(iconID).append(textW);
+			$(newID).addClass("visible").removeClass("hidden");
 			if(diff <= 8.25){$(hiddenID).addClass("visible").removeClass("hidden");}
 		} else if ((diff < 0) && (diff > -58.792)) {
 			$(successID).addClass("visible").removeClass("hidden");
