@@ -3998,22 +3998,28 @@
               if (startDatePeriod.getDate() === startSelectionDate.getDate()) {
                 reqStartDate = new Date(endSelectionDate.getFullYear(), endSelectionDate.getMonth(), parseInt(endSelectionDate.getDate()) - 6);
                 if (document.documentElement.lang == "fr") {
+                  $('#7-days-text-'+locationNumber).text("commence le");
+                  $('#7-days-fr-wording-'+locationNumber).text("ou avant");
                   reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
+                  $('#7-days-text-'+locationNumber).text("start on or before");
+                  $('#7-days-fr-wording-'+locationNumber).text("");
                   reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
                 }
                 $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
-                $('#7-days-text-'+locationNumber).text("start on or before");
                 $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
               } else if (endDatePeriod.getDate() == endSelectionDate.getDate()) {
                 reqStartDate = new Date(startSelectionDate.getFullYear(), startSelectionDate.getMonth(), parseInt(startSelectionDate.getDate()) + 6);
                 if (document.documentElement.lang == "fr") {
+                  $('#7-days-text-'+locationNumber).text("se termine le");
+                  $('#7-days-fr-wording-'+locationNumber).text("ou après");
                   reqStartDateStr = reqStartDate.getDate() + " " + monthNames[reqStartDate.getMonth()] + ", " + reqStartDate.getFullYear();
                 } else {
+                  $('#7-days-text-'+locationNumber).text("end on or after");
+                  $('#7-days-fr-wording-'+locationNumber).text("");
                   reqStartDateStr = monthNames[reqStartDate.getMonth()] + " " + reqStartDate.getDate() + ", " + reqStartDate.getFullYear();
                 }
                 $('#7-days-gap-'+locationNumber).text(reqStartDateStr);
-                $('#7-days-text-'+locationNumber).text("end on or after");
                 $('#lock-down-straddle-'+locationNumber).removeClass("hidden"); //unhide follow up question
               }
             }
