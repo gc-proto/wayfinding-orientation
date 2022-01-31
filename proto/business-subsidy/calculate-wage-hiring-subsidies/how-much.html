@@ -5847,8 +5847,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
           maxBase = [0.6, 0.6, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.35, 0.25, 0.25, 0.1];
           scaleBase = [1.2, 1.2, 1.0, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.8, 0.875, 0.625, 0.625, 0.25];
           additonalPercentage = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        } else if (elWageP == 1) { //THRP
-          if ((revReduction < 0.4 && (elWageP == 1 || (claimPeriod != 24 && claimPeriod != 25))) || (revReduction < 0.25 && elWageP == 4)) {
+        } else if (elWageP == 1 || elWageP == 4) { //THRP
+          if ((revReduction < 0.4 && (elWageP == 1 || (period != 24 && period != 25))) || (revReduction < 0.25 && elWageP == 4)) {
             return 0;
           }
           maxBase = [0.75, 0.75, 0.75, 0.75, 0.75, 0.375, 0.375];
