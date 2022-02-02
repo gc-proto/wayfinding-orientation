@@ -3648,6 +3648,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p59").addClass("hidden");
         $(".p5-21").addClass("hidden");
         $(".emp-lv").addClass("hidden");
+        $(".p24-25").addClass("hidden");
+        $(".pEx24-25").addClass("hidden");
 
         if (claimPeriod > 4) {
           $(".p59").removeClass("hidden");
@@ -3719,7 +3721,12 @@ $(document).on("click", ".prev-wb-step", function (event) {
           }
           $(".p1-21").removeClass("hidden");
           $(".p22-plus").addClass("hidden");
-        } else { //THRP/HHBRP stuff
+        } else { //THRP/HHBRP stuff - after p22
+          if (claimPeriod == 24 || claimPeriod == 25) {
+            $(".p24-25").removeClass("hidden");
+          } else {
+            $(".pEx24-25").removeClass("hidden");
+          }
           if (document.documentElement.lang == "fr") {
             $('.line-c-cews').text("subvention salariale");
           } else {
@@ -4846,7 +4853,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $('.not-el-hhbrp-crhp').addClass("hidden");
           $('.el-hhbrp-crhp').removeClass("hidden");
         }
-        if (elWageP == 3 || (elWageP > 0 && (revReduction > 0.5 || (elWageP == 1 && revReduction > 0.4)))) {
+        if (elWageP == 3 || (elWageP > 0 && (revReduction > 0.5 || (elWageP == 1 && revReduction > 0.4 ) || (elWageP == 4 && revReduction > 0.25)))) {
           $('.eligible-wage-subsidy').removeClass("hidden");
           $('.ineligible-wage-subsidy').addClass("hidden");
         }
