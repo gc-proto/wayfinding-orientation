@@ -4941,7 +4941,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               }
             } else if ($('#tourism-hospitality-no:checked').length > 0) { //not tourism/hospitality
               $('#q2-check-lockdown').removeClass("hidden");
-              if ($('#qualifying-lockdown-yes:checked').length > 0) {
+              if ($('#qualifying-lockdown-yes:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && (claimPeriod == 24 || claimPeriod == 25))) {
                 $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
                 elWageP = 4;
                 $('.thrp-specific').removeClass("hidden");
@@ -4952,7 +4952,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
                   $('.elWageP').text("THRP (qualifying public health restriction)");
                 }
                 $('.thrp-hhbrp-eligible').removeClass("hidden");
-              } else if ($('#qualifying-lockdown-no:checked').length > 0) {
+              } else if ($('#qualifying-lockdown-no:checked').length > 0 || $('#qualifying-lockdown-yes-partial:checked').length > 0) {
                 if (twelveMonthDecline < 50) {
                   elWageP = 0;
                   $('.ineligible-thrp-hhbrp').removeClass("hidden");
