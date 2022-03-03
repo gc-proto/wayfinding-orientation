@@ -591,8 +591,12 @@
                var incPrevWeekly = roundNumber(incPrevious / 52);
                var incPeriodWeekly = roundNumber(incPeriod / 2);
                var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
-               var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
-               if (incPrevious > 0) {
+               if (incPrevWeekly < 0) {
+                  var percDecrease = roundNumber((dollarDecrease * -1) / incPrevWeekly * 100);
+               } else {
+                  var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
+               }
+               if (incPrevious) {
                   $(".previous-income").text(toMoney.format(incPrevious));
                   $(".weekly-previous-income").text(toMoney.format(incPrevWeekly));
                   $(".dollar-decrease").text(toMoney.format(dollarDecrease));
