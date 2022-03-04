@@ -589,7 +589,7 @@
                var incPrevious = zeroIfEmpty($("#previous-income").val());
                var incPeriod = zeroIfEmpty($("#period-income").val());
                var incPrevWeekly = roundNumber(incPrevious / 52);
-               var incPeriodWeekly = roundNumber(incPeriod); //roundNumber(incPeriod / 2)
+               var incPeriodWeekly = incPeriod; //roundNumber(incPeriod / 2)
                var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
                if (incPrevWeekly < 0) {
                   var percDecrease = roundNumber((dollarDecrease * -1) / incPrevWeekly * 100);
