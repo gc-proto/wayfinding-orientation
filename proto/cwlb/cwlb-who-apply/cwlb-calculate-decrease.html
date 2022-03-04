@@ -663,146 +663,149 @@ $(".action-checkbox").change(function () {
 })      
 </script> 
 <script>
-$(document).ready(function () {
+ $(document).ready(function () {
 
-	/**
-	 * Function to update the currency outputs
-	 */
-	const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
-		style: "currency",
-		currency: "CAD",
-		minimumFractionDigits: 2
-	});
+ 	/**
+ 	 * Function to update the currency outputs
+ 	 */
+ 	const toMoney = new Intl.NumberFormat(wb.lang + "-CA", {
+ 		style: "currency",
+ 		currency: "CAD",
+ 		minimumFractionDigits: 2
+ 	});
 
-	$("#calculate").on("click", function () {
-		calculateButton();
-	});
-	$("#calculate").on("click", function () {
-		calculateButton();
-	});
+ 	$("#calculate").on("click", function () {
+ 		calculateButton();
+ 	});
+ 	$("#calculate").on("click", function () {
+ 		calculateButton();
+ 	});
 
-	function calculateButton() {
-		// event.preventDefault();
-		//remove the required attribute in all hidden elements
-		$("[required]:hidden").each(function (i, element) {
-			$(element).removeAttr("required");
-		});
-		var count = 0,
-			$elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
-			$emptyElms = [];
-		//find all required fields that were left empty
-		for (let i = 0; i < $($elms).length; i++) {
-			var $elm = $($elms).eq(i);
-			if ($elm.val() == "") {
-				$emptyElms.push($elm);
-				count++;
-			}
-		}
-		//if WET4 already has errors, scroll to those
-		if ($("#errors-default")[0]) {
-			$('html, body').animate({
-				scrollTop: $("#errors-default").offset().top
-			}, 'slow');
-			//scroll to the FIRST element that failed custom validation
-		} else if ($emptyElms[0]) {
-			$('html, body').animate({
-				scrollTop: $($emptyElms[0]).offset().top
-			}, 'slow');
-			console.debug($emptyElms);
-			//validation passed, show the results
-		} else {
-			event.preventDefault();
-			calculateDecrease(true); //Call the calculation function
-		}
+ 	function calculateButton() {
+ 		// event.preventDefault();
+ 		//remove the required attribute in all hidden elements
+ 		$("[required]:hidden").each(function (i, element) {
+ 			$(element).removeAttr("required");
+ 		});
+ 		var count = 0,
+ 			$elms = $(".wb-frmvld select[required], .wb-frmvld input[required]"),
+ 			$emptyElms = [];
+ 		//find all required fields that were left empty
+ 		for (let i = 0; i < $($elms).length; i++) {
+ 			var $elm = $($elms).eq(i);
+ 			if ($elm.val() == "") {
+ 				$emptyElms.push($elm);
+ 				count++;
+ 			}
+ 		}
+ 		//if WET4 already has errors, scroll to those
+ 		if ($("#errors-default")[0]) {
+ 			$('html, body').animate({
+ 				scrollTop: $("#errors-default").offset().top
+ 			}, 'slow');
+ 			//scroll to the FIRST element that failed custom validation
+ 		} else if ($emptyElms[0]) {
+ 			$('html, body').animate({
+ 				scrollTop: $($emptyElms[0]).offset().top
+ 			}, 'slow');
+ 			console.debug($emptyElms);
+ 			//validation passed, show the results
+ 		} else {
+ 			event.preventDefault();
+ 			calculateDecrease(true); //Call the calculation function
+ 		}
 
-	}
+ 	}
 
-	$('#previous-income').blur(function () {
-		calculateDecrease(false);
-	});
-	$('#period-income').blur(function () {
-		calculateDecrease(false);
-	});
+ 	$('#previous-income').blur(function () {
+ 		calculateDecrease(false);
+ 	});
+ 	$('#period-income').blur(function () {
+ 		calculateDecrease(false);
+ 	});
 
-	function calculateDecrease(summaryFlag) {
-		var incPrevious = zeroIfEmpty($("#previous-income").val());
-		var incPeriod = zeroIfEmpty($("#period-income").val());
-		var incPrevWeekly = roundNumber(incPrevious / 52);
-		var incPeriodWeekly = roundNumber(incPeriod / 1); //1-week period
-		var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
-		var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
-		if (incPrevious > 0) {
-			$(".previous-income").text(toMoney.format(incPrevious));
-			$(".weekly-previous-income").text(toMoney.format(incPrevWeekly));
-			$(".dollar-decrease").text(toMoney.format(dollarDecrease));
-			$(".perc-decrease").text(toPercent(percDecrease));
-			$("#step-1-smry").removeClass("hidden");
-		} else { //avoid NANs
-			$(".previous-income").text(toMoney.format(0));
-			$(".weekly-previous-income").text(toMoney.format(0));
-			$(".dollar-decrease").text(toMoney.format(0));
-			$(".perc-decrease").text(toPercent(0));
-		}
-		if (percDecrease >= 50) { //has a qualifying reduction
-			$("#qualify").removeClass("hidden");
-			$("#doesnt-qualify").addClass("hidden");
-		} else {
-			$("#qualify").addClass("hidden");
-			$("#doesnt-qualify").removeClass("hidden");
-		}
-		if (percDecrease < 0) {
-			$("#percentage-result").addClass("hidden");
-		} else {
-			$("#percentage-result").removeClass("hidden");
-		}
+ 	function calculateDecrease(summaryFlag) {
+ 		var incPrevious = zeroIfEmpty($("#previous-income").val());
+ 		var incPeriod = zeroIfEmpty($("#period-income").val());
+ 		var incPrevWeekly = roundNumber(incPrevious / 52);
+ 		var incPeriodWeekly = incPeriod; //roundNumber(incPeriod / 2)
+ 		var dollarDecrease = roundNumber(incPrevWeekly - incPeriodWeekly);
+ 		if (incPrevWeekly < 0) {
+ 			var percDecrease = roundNumber((dollarDecrease * -1) / incPrevWeekly * 100);
+ 		} else {
+ 			var percDecrease = roundNumber(dollarDecrease / incPrevWeekly * 100);
+ 		}
+ 		if (incPrevious) {
+ 			$(".previous-income").text(toMoney.format(incPrevious));
+ 			$(".weekly-previous-income").text(toMoney.format(incPrevWeekly));
+ 			$(".dollar-decrease").text(toMoney.format(dollarDecrease));
+ 			$(".perc-decrease").text(toPercent(percDecrease));
+ 			$("#step-1-smry").removeClass("hidden");
+ 		} else { //avoid NANs
+ 			$(".previous-income").text(toMoney.format(0));
+ 			$(".weekly-previous-income").text(toMoney.format(0));
+ 			$(".dollar-decrease").text(toMoney.format(0));
+ 			$(".perc-decrease").text(toPercent(0));
+ 		}
+ 		if (percDecrease >= 50) { //has a qualifying reduction
+ 			$("#qualify").removeClass("hidden");
+ 			$("#doesnt-qualify").addClass("hidden");
+ 		} else {
+ 			$("#qualify").addClass("hidden");
+ 			$("#doesnt-qualify").removeClass("hidden");
+ 		}
+ 		if (percDecrease < 0) {
+ 			$("#percentage-result").addClass("hidden");
+ 		} else {
+ 			$("#percentage-result").removeClass("hidden");
+ 		}
 
-		if (incPeriod != 0) {
-			$(".period-income").text(toMoney.format(incPeriod));
-			$(".weekly-period-income").text(toMoney.format(incPeriodWeekly));
-			$("#step-2-smry").removeClass("hidden");
-		} else { //avoid NANs
-			$(".period-income").text(toMoney.format(0));
-			$(".weekly-period-income").text(toMoney.format(0));
-		}
+ 		if (incPeriod != 0) {
+ 			$(".period-income").text(toMoney.format(incPeriod));
+ 			$(".weekly-period-income").text(toMoney.format(incPeriodWeekly));
+ 			$("#step-2-smry").removeClass("hidden");
+ 		} else { //avoid NANs
+ 			$(".period-income").text(toMoney.format(0));
+ 			$(".weekly-period-income").text(toMoney.format(0));
+ 		}
 
-		if (summaryFlag) { //unhide the final calculation
-			$("#results").removeClass("hidden");
-		}
-	}
+ 		if (summaryFlag) { //unhide the final calculation
+ 			$("#results").removeClass("hidden");
+ 		}
+ 	}
 
-	/**
-	 * Apply the transforms necessary for FR vs EN syntax of percentages
-	 */
-	function toPercent(percentage) {
-		if (document.documentElement.lang == "fr") {
-			return percentage + '\xa0%';
-		} else {
-			return percentage + '%';
-		}
-	}
+ 	/**
+ 	 * Apply the transforms necessary for FR vs EN syntax of percentages
+ 	 */
+ 	function toPercent(percentage) {
+ 		if (document.documentElement.lang == "fr") {
+ 			return percentage + '\xa0%';
+ 		} else {
+ 			return percentage + '%';
+ 		}
+ 	}
 
-	/**
-	 * zeroIfEmpty()
-	 * return 0 if the number cannot be parsed into a float; does not account * for letter values.
-	 */
-	function zeroIfEmpty(fieldVal) {
-		if (fieldVal != null && fieldVal != "") {
-			return roundNumber(parseFloat(fieldVal));
-		} else {
-			return 0;
-		}
-	}
+ 	/**
+ 	 * zeroIfEmpty()
+ 	 * return 0 if the number cannot be parsed into a float; does not account * for letter values.
+ 	 */
+ 	function zeroIfEmpty(fieldVal) {
+ 		if (fieldVal != null && fieldVal != "") {
+ 			return roundNumber(parseFloat(fieldVal));
+ 		} else {
+ 			return 0;
+ 		}
+ 	}
 
-	/**
-	 * roundNumber()
-	 * add 0.0000001 to mitigate 0.005 rounding down issues in javascript and toFixed for 2 decimal points
-	 */
-	function roundNumber(num) {
-		num = num + 0.0000001;
-		return num.toFixed(2);
-	}
-});
-         
+ 	/**
+ 	 * roundNumber()
+ 	 * add 0.0000001 to mitigate 0.005 rounding down issues in javascript and toFixed for 2 decimal points
+ 	 */
+ 	function roundNumber(num) {
+ 		num = num + 0.0000001;
+ 		return num.toFixed(2);
+ 	}
+ });
 </script> 
 <script src="https://test.canada.ca/covid-19-guidance/proto/js/alpha-banner.js"></script>
 </body>
