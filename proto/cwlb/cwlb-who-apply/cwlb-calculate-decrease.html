@@ -651,18 +651,6 @@ if($('.gcnav-menu').length> 0){
 })( jQuery, document, wb );		
 </script> 
 <script>
-$(".action-checkbox").change(function () {
-	if ($('.action-checkbox:checked').length == $('.action-checkbox').length) {
-		$("#action-msg1").removeClass("hidden").addClass("visible");
-		$("#action-no-msg").addClass("hidden").removeClass("visible");
-	}
-	if ($('.action-checkbox:checked').length !== $('.action-checkbox').length) {
-		$("#action-msg1").addClass("hidden").removeClass("visible");
-		$("#action-no-msg").removeClass("hidden").addClass("visible");
-	}
-})      
-</script> 
-<script>
  $(document).ready(function () {
 
  	/**
@@ -754,7 +742,7 @@ $(".action-checkbox").change(function () {
  			$("#qualify").addClass("hidden");
  			$("#doesnt-qualify").removeClass("hidden");
  		}
- 		if (percDecrease < 0) {
+ 		if ((percDecrease < 0) || (incPrevWeekly == 0)) {
  			$("#percentage-result").addClass("hidden");
  		} else {
  			$("#percentage-result").removeClass("hidden");
