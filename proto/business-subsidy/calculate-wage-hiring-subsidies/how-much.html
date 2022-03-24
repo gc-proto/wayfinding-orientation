@@ -1170,7 +1170,7 @@ fieldset +.buttons {
         <div class="row hidden p22-plus">
           <div class="col-sm-12 mrgn-tp-md">
             <div class="">
-              <p>To qualify for the THRP or the HHBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period. For claim periods 24 and 25 only, you may alternatively qualify for the THRP if you were subject to a qualifying <strong>partial</strong> (capacity-limiting) public health restriction.</p>
+              <p>To qualify for the THRP or the HHBRP in periods 22 to 28, your revenue must have been deeply affected since the outset of the pandemic, or your business was subject to a qualifying public health restriction during the claim period. For claim periods 24, 25 and 26 only, you may alternatively qualify for the THRP if you were subject to a qualifying <strong>partial</strong> (capacity-limiting) public health restriction.</p>
               
               <fieldset id="q1-tourism-hospitality" class="provisional gc-chckbxrdio chckbxrdio-grp ">
                 <legend class="small required" ><span class="field-name">Are you a qualifying tourism or hospitality entity?</span> <strong class="required">(required)</strong></legend>
@@ -1232,12 +1232,12 @@ fieldset +.buttons {
               </div> -->
               <div class="well text-muted mrgn-tp-md" id="thrp-hhbrp-eligibility-summary">
                 <h3 class="mrgn-tp-0">Summary of THRP and HHBRP eligibility</h3>
-                <p class="eligible-thrp-lockdown hidden">Because <strong>you were subject to a qualifying public health restriction</strong><span class="p24-25 hidden"> or <strong>a qualifying partial public health restriction</strong></span>, you may qualify for the THRP.</p>
+                <p class="eligible-thrp-lockdown hidden">Because <strong>you were subject to a qualifying public health restriction</strong><span class="p24-26 hidden"> or <strong>a qualifying partial public health restriction</strong></span>, you may qualify for the THRP.</p>
                 <p class="eligible-thrp-12-month hidden">Because you are a <strong>qualifying tourism or hospitality entity</strong> and have a 12-month average revenue drop of 40% or greater, you may qualify for the THRP.</p>
                 <p class="eligible-hhbrp-12-month hidden">Because you have a 12-month average revenue drop of 50% or greater, you may qualify for the HHBRP.</p>
                 <p class="ineligible-thrp-hhbrp hidden">You do <strong>not qualify</strong> for the THRP or the HHBRP because your 12-month average revenue drop is too low and you were not subject to a qualifying public health restriction.</p>
                 <div class="partial-thrp-lockdown hidden">
-                  <p class="pEx24-25 hidden">A partial public health restriction <strong>only</strong> qualifies for the THRP in periods 24 and 25.</p>
+                  <p class="pEx24-26 hidden">A partial public health restriction <strong>only</strong> qualifies for the THRP in periods 24, 25 and 26.</p>
                 </div>
                 <p class="ineligible-thrp-hhbrp hidden">Continue to the next step to determine if you qualify for the CRHP.</p>
                 <p class="thrp-not-enough-data">Answer the questions above to determine if you qualify for the THRP or HHBRP.</p>
@@ -1795,8 +1795,8 @@ fieldset +.buttons {
                         </span><span class="p27-28 hidden small"><span class="thrp-specific hidden">(revenue drop ÷ 2 to a maximum of 37.5%)</span><span class="hhbrp-specific hidden">(5% + (revenue drop - 50%) x 0.8 to a maximum of 25%)</span></span><span class="p1-21"><span class="safe-harbour-hide small">(<span class="base-rate">0%</span> base rate + <span class="top-up-rate">0%</span> top-up
                         rate)</span></span> for claim period <span class="claim-period-no">(choose a claim
                         period)</span> is <span class="cews-rate h3 mrgn-tp-0 badge mrgn-bttm-0" style="font-size:24px;" >0%</span> </p>
-                      <div class="p24-25 hidden">
-                        <p class="eligible-thrp-lockdown hidden">Because you were subject to a qualifying public health restriction or a qualifying partial public health restriction, you only require a claim period revenue drop of 25% or greater in periods 24 and 25.</p>
+                      <div class="p24-26 hidden">
+                        <p class="eligible-thrp-lockdown hidden">Because you were subject to a qualifying public health restriction or a qualifying partial public health restriction, you only require a claim period revenue drop of 25% or greater in periods 24, 25 and 26.</p>
                       </div>
                     </div>
                     <p class="safe-harbour-show hidden mrgn-lft-md small">You qualify for the “safe harbour”
@@ -2153,7 +2153,7 @@ fieldset +.buttons {
                           <span class="safe-harbour-hide small">(<span class="base-rate-alt">0%</span> base rate + <span class="top-up-rate-alt">0%</span> top-up rate)
                         </span> 
                         for claim period <span class="claim-period-no">(choose a claim period)</span></span> is <span class="cews-rate-alt h3 mrgn-tp-0 badge mrgn-bttm-0" style="font-size:24px;">0%</span>.</p>
-                      <div class="p24-25 hidden">
+                      <div class="p24-26 hidden">
                         <p class="eligible-thrp-lockdown hidden">Because you were subject to a qualifying public health restriction or a qualifying partial public health restriction, you only require a claim period revenue drop of 25% or greater in periods 24 and 25.</p>
                       </div>
                     </div>
@@ -3648,8 +3648,8 @@ $(document).on("click", ".prev-wb-step", function (event) {
         $(".p59").addClass("hidden");
         $(".p5-21").addClass("hidden");
         $(".emp-lv").addClass("hidden");
-        $(".p24-25").addClass("hidden");
-        $(".pEx24-25").addClass("hidden");
+        $(".p24-26").addClass("hidden");
+        $(".pEx24-26").addClass("hidden");
 
         if (claimPeriod > 4) {
           $(".p59").removeClass("hidden");
@@ -3722,10 +3722,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $(".p1-21").removeClass("hidden");
           $(".p22-plus").addClass("hidden");
         } else { //THRP/HHBRP stuff - after p22
-          if (claimPeriod == 24 || claimPeriod == 25) {
-            $(".p24-25").removeClass("hidden");
+          if (claimPeriod >= 24 && claimPeriod <= 26) {
+            $(".p24-26").removeClass("hidden");
           } else {
-            $(".pEx24-25").removeClass("hidden");
+            $(".pEx24-26").removeClass("hidden");
           }
           if (document.documentElement.lang == "fr") {
             $('.line-c-cews').text("subvention salariale");
@@ -4890,7 +4890,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
           $('.partial-thrp-lockdown').addClass("hidden");
           if (twelveMonthDecline < 40) { //only possibly eligible through lockdown
             $('#q2-check-lockdown').removeClass("hidden");
-            if ($('#qualifying-lockdown-yes:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && (claimPeriod == 24 || claimPeriod == 25))) {
+            if ($('#qualifying-lockdown-yes:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && (claimPeriod >= 24 && claimPeriod <= 26))) {
               $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
               elWageP = 4;
               $('.thrp-specific').removeClass("hidden");
@@ -4901,7 +4901,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
                 $('.elWageP').text("THRP (qualifying public health restriction)");
               }
               $('.thrp-hhbrp-eligible').removeClass("hidden");
-            } else if ($('#qualifying-lockdown-no:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && !(claimPeriod == 24 || claimPeriod == 25))) {
+            } else if ($('#qualifying-lockdown-no:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && !(claimPeriod >= 24 && claimPeriod <= 26))) {
               elWageP = 0;
               $("#details-panel1-lnk").parent().addClass("hidden");
               $('.ineligible-thrp-hhbrp').removeClass("hidden");
@@ -4914,10 +4914,10 @@ $(document).on("click", ".prev-wb-step", function (event) {
             $('#q1-tourism-hospitality').removeClass("hidden");
             if ($('#tourism-hospitality-yes:checked').length > 0) { //they are THRP
               
-              if (claimPeriod == 24 || claimPeriod == 25) { //need to ask the QPHR question anyway
+              if (claimPeriod >= 24 && claimPeriod <= 26) { //need to ask the QPHR question anyway
                 $('#q2-check-lockdown').removeClass("hidden");
               }
-              if (($('#qualifying-lockdown-yes:checked').length > 0 || $('#qualifying-lockdown-yes-partial:checked').length > 0) && (claimPeriod == 24 || claimPeriod == 25)) {
+              if (($('#qualifying-lockdown-yes:checked').length > 0 || $('#qualifying-lockdown-yes-partial:checked').length > 0) && (claimPeriod >= 24 && claimPeriod <= 26)) {
                 $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
                 elWageP = 4;
                 $('.thrp-specific').removeClass("hidden");
@@ -4941,7 +4941,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
               }
             } else if ($('#tourism-hospitality-no:checked').length > 0) { //not tourism/hospitality
               $('#q2-check-lockdown').removeClass("hidden");
-              if ($('#qualifying-lockdown-yes:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && (claimPeriod == 24 || claimPeriod == 25))) {
+              if ($('#qualifying-lockdown-yes:checked').length > 0 || ($('#qualifying-lockdown-yes-partial:checked').length > 0 && (claimPeriod >= 24 && claimPeriod <= 26))) {
                 $('.eligible-thrp-lockdown').removeClass("hidden"); //lockdown visible
                 elWageP = 4;
                 $('.thrp-specific').removeClass("hidden");
