@@ -5234,7 +5234,7 @@ $(document).on("click", ".prev-wb-step", function (event) {
             if (elWageP == 2 || elWageP == 1 || elWageP == 4) {
               $(".thrp-hhbrp-revd-eligible").removeClass("hidden");
               $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
-              if ((elWageP == 2 && revReduction < 0.5) || ((elWageP == 1 || (claimPeriod != 24 && claimPeriod != 25)) && revReduction < 0.4) || (elWageP == 4 && revReduction < 0.25)) {
+              if ((elWageP == 2 && revReduction < 0.5) || ((elWageP == 1 || (claimPeriod < 24 && claimPeriod > 26)) && revReduction < 0.4) || (elWageP == 4 && revReduction < 0.25)) {
                 $(".thrp-hhbrp-revd-eligible").addClass("hidden");
                 $(".thrp-hhbrp-revd-ineligible").removeClass("hidden");
               }

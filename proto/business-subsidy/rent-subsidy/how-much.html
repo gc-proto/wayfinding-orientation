@@ -4396,7 +4396,7 @@
                 if (elRentP == 2 || elRentP == 1 || elRentP == 4) {
                   $(".thrp-hhbrp-revd-eligible").removeClass("hidden");
                   $(".thrp-hhbrp-revd-ineligible").addClass("hidden");
-                  if ((elRentP == 2 && revReduction < 50) || ((elRentP == 1 || (claimPeriod != 24 && claimPeriod != 25)) && revReduction < 40) || (elRentP == 4 && revReduction < 25)) { //HHBRP
+                  if ((elRentP == 2 && revReduction < 50) || ((elRentP == 1 || (claimPeriod < 24 && claimPeriod > 26)) && revReduction < 40) || (elRentP == 4 && revReduction < 25)) { //HHBRP
                     $(".thrp-hhbrp-revd-eligible").addClass("hidden");
                     $(".thrp-hhbrp-revd-ineligible").removeClass("hidden");
                   }
@@ -4706,7 +4706,7 @@
               var adjP = 22;
               var additonalPercentage = [];
               if (elRentP == 1 || elRentP == 4) { //THRP
-                if ((revReduction < 0.4 && (elRentP == 1 || (claimPeriod != 24 && claimPeriod != 25))) || (revReduction < 0.25 && elRentP == 4)) {
+                if ((revReduction < 0.4 && (elRentP == 1 || (claimPeriod < 24 && claimPeriod > 26))) || (revReduction < 0.25 && elRentP == 4)) {
                   return 0;
                 }
                 maxBase = [0.75, 0.75, 0.75, 0.75, 0.75, 0.375, 0.375];
