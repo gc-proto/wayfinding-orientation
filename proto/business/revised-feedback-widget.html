@@ -306,6 +306,9 @@
                                     <div class="alert alert-danger hidden" id="warning">
                                         <p>Please don't include any personal info.</p>
                                     </div>
+                                    <div class="alert alert-danger hidden" id="contactUs">
+                                        <p> <a href="https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/arrivecan/help.html">CLICK HERE TO GET HELP</a></p>
+                                    </div>
                                     <button type="submit" value="No" class="btn btn-primary mrgn-tp-md mrgn-bttm-sm">
                                         Submit
                                     </button>
@@ -383,7 +386,11 @@
                 $("#helpful").val("No");
             });
             $document.on("click", "#problem5", function(){
-                alert("test");
+                if($('#problem5').is(':checked')){
+                    $("#contactUs").removeClass("hidden").animate();
+                } else {
+                    $("#contactUs").addClass("hidden");
+                }
             });
             $document.on(
                 "submit",
